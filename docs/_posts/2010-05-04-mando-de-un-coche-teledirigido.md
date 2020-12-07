@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Mando de un coche teledirigido
-date: '2010-05-04T01:00:00.005+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - osciladores
 - telemandos
-modified_time: '2010-09-16T22:36:09.625+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S9qa0bqSxsI/AAAAAAAAAJA/2K3vW7utn8w/s72-c/circuito.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-565356272072022405
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/mando-de-un-coche-teledirigido.html
 ---
 

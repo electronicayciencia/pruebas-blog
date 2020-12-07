@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Medir distancias con un ratón de bola
-date: '2015-07-16T21:37:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - linux
 - Perl
-modified_time: '2015-09-26T19:59:17.988+02:00'
 thumbnail: http://3.bp.blogspot.com/-lSP6faz3vBc/VagBoBJnOuI/AAAAAAAABA8/1gbEUoDOpVk/s72-c/raton_y_conector.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2070341276498892160
 blogger_orig_url: https://electronicayciencia.blogspot.com/2015/07/medir-distancias-con-un-raton-de-bola.html
 ---
 

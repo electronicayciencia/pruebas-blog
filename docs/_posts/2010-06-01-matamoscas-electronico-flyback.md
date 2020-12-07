@@ -1,15 +1,12 @@
 ---
 layout: post
 title: 'Matamoscas eléctrónico: flyback'
-date: '2010-06-01T01:00:00.064+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - circuitos
 - osciladores
-modified_time: '2010-10-06T14:45:33.611+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_0l2Lgz8NI/AAAAAAAAANw/OAc8VbWOsOo/s72-c/friemosquitos.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4522408212909061516
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/matamoscas-electronico-flyback.html
 ---
 

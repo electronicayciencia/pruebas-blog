@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Escáner nuevo y difracción
-date: '2010-06-09T07:55:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - óptica
 - reciclado
 - física
-modified_time: '2010-07-19T18:04:36.517+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TA0DxL_gpEI/AAAAAAAAAOU/cwTFfLn7kdE/s72-c/BENQ0001.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1980725448916224963
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/escaner-nuevo-y-difraccion.html
 ---
 

@@ -1,15 +1,12 @@
 ---
 layout: post
 title: La presión atmosférica, BMP280
-date: '2018-10-07T14:33:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - datalog
 - raspberrypi
-modified_time: '2018-11-03T01:17:32.668+01:00'
 thumbnail: https://4.bp.blogspot.com/-77lS0b3YJ4Q/W7oHxllufaI/AAAAAAAABY8/bEygrIOzrCcFqV63_izrCU6dBTDBhQgGgCEwYBhgL/s72-c/baro_goethe_peque.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5181075849789719228
 blogger_orig_url: https://electronicayciencia.blogspot.com/2018/10/la-presion-atmosferica-bmp280.html
 ---
 

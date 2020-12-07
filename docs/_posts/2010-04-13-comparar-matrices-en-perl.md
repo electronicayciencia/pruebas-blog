@@ -1,13 +1,10 @@
 ---
 layout: post
 title: Comparar matrices en Perl
-date: '2010-04-13T19:19:00.027+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - Perl
-modified_time: '2010-08-18T20:23:41.550+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5348417830341153699
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/comparar-matrices-en-perl.html
 ---
 

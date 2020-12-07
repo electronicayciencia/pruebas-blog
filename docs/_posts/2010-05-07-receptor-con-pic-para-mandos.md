@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Receptor con PIC para mandos infrarrojos tipo NEC
-date: '2010-05-07T01:10:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - DimmerIR
 - telemandos
-modified_time: '2010-05-07T01:10:00.762+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S97lM8Bw1FI/AAAAAAAAAJg/3AlfVlzYbkQ/s72-c/0_1.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1118029089520110373
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/receptor-con-pic-para-mandos.html
 ---
 

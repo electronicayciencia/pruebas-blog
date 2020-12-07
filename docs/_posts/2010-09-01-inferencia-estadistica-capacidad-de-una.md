@@ -1,14 +1,11 @@
 ---
 layout: post
 title: 'Inferencia estadística: capacidad de una cucharilla'
-date: '2010-09-01T04:08:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - estadística
-modified_time: '2010-09-01T04:08:00.143+02:00'
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/THY1cH0haUI/AAAAAAAAAWE/gD78P0u3sU4/s72-c/gausiana_2.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4729762414518284847
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/inferencia-estadistica-capacidad-de-una.html
 ---
 

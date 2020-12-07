@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Rastreador de redes inalámbricas
-date: '2011-08-03T01:00:00.012+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - linux
 - Perl
-modified_time: '2013-03-26T19:39:11.488+01:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1865917534351898772
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/08/rastreador-de-redes-inalambricas.html
 ---
 

@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Análisis de las distribuciones de voto en Filmaffinity
-date: '2012-08-28T15:01:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
 - programacion
 - Perl
-modified_time: '2015-12-10T09:29:59.964+01:00'
 thumbnail: http://2.bp.blogspot.com/-GoIQqr07Lxs/UDy6HxoRhTI/AAAAAAAAAnw/0J_Mcmnkj8Y/s72-c/esdla-eendp.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-922491915420323652
 blogger_orig_url: https://electronicayciencia.blogspot.com/2012/08/un-analisis-de-cine.html
 ---
 

@@ -1,15 +1,12 @@
 ---
 layout: post
 title: El bus 1-Wire a bajo nivel - DS1820
-date: '2016-12-04T17:05:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - linux
 - raspberrypi
-modified_time: '2017-08-07T14:23:20.037+02:00'
 thumbnail: https://4.bp.blogspot.com/-69vD3420qYQ/WEQ2eW9NWcI/AAAAAAAABHU/yWDMm6mZU2gPGLMt7AIX8koSK-iPpH8lACEw/s72-c/ds1820.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1229402668640921584
 blogger_orig_url: https://electronicayciencia.blogspot.com/2016/12/el-bus-1-wire-bajo-nivel.html
 ---
 

@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Un contador radiactivo... de mentira
-date: '2019-07-08T22:57:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - física
 - programacion
 - biología
-modified_time: '2019-07-08T22:57:26.309+02:00'
 thumbnail: https://1.bp.blogspot.com/-69FO4qVz6cA/XSOm8xRMhuI/AAAAAAAABeI/vBGMo7FonIIdWwiH6wXuKXmFm3O0NjbugCEwYBhgL/s72-c/uranium-cloud-chamber.gif
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-54952050721706125
 blogger_orig_url: https://electronicayciencia.blogspot.com/2019/07/un-contador-radiactivo-de-mentira.html
 ---
 

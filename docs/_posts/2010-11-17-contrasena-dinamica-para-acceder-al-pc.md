@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Contraseña dinámica para acceder al PC de casa
-date: '2010-11-17T04:08:00.005+01:00'
 author: Electrónica y Ciencia
 tags:
 - linux
 - PC
 - Perl
-modified_time: '2010-11-17T04:08:00.092+01:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TOGVqb1cJ9I/AAAAAAAAAa0/mlj4JL9P2Ck/s72-c/capturaescudo.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8671821044980014749
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/11/contrasena-dinamica-para-acceder-al-pc.html
 ---
 

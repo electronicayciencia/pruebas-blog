@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Transmisor protocolo NEC con PIC
-date: '2010-05-17T07:55:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - telemandos
-modified_time: '2010-05-17T07:55:00.671+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S-kVup7rtwI/AAAAAAAAALQ/5pevGj0x7gg/s72-c/trace.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8814751128787783260
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/transmisor-protocolo-nec-con-pic.html
 ---
 

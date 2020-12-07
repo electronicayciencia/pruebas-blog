@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Controlar un servomotor con el PC
-date: '2010-12-17T01:02:00.001+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
-modified_time: '2010-12-17T01:02:00.564+01:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TQonNl0jTbI/AAAAAAAAAcI/6cnxmlDi6a0/s72-c/pulsos_wikipedia.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5685756057480761999
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/12/controlar-un-servomotor-con-el-pc.html
 ---
 

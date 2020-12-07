@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Receptor coche RC de dos canales
-date: '2010-09-15T04:08:00.004+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - telemandos
-modified_time: '2010-09-15T04:08:00.144+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TIYWumVopdI/AAAAAAAAAXk/IcWXbIB6lTs/s72-c/alzado_placa.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3594855466438906700
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/receptor-coche-rc-de-dos-canales.html
 ---
 

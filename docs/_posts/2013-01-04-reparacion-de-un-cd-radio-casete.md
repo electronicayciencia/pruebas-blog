@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Reparación de un cd-radio-casete
-date: '2013-01-04T02:36:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - reparaciones
 - circuitos
 - amplificadores
-modified_time: '2013-03-26T19:32:25.716+01:00'
 thumbnail: http://3.bp.blogspot.com/-wDk25D9EvYk/UOW7AnBP9cI/AAAAAAAAArQ/QosQaH32m98/s72-c/sg331.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4619626983188725451
 blogger_orig_url: https://electronicayciencia.blogspot.com/2013/01/reparacion-de-un-cd-radio-casete.html
 ---
 

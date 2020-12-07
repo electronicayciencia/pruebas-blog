@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Describiendo un protocolo desconocido
-date: '2017-12-25T12:55:00.002+01:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - sonido
 - radio
-modified_time: '2020-09-20T14:29:21.952+02:00'
 thumbnail: https://4.bp.blogspot.com/-jTHNOSy73Rc/WkDh8QdLFxI/AAAAAAAABRU/iiCjsrORZcAuOsMtyI4h7N9HtblYZAvrgCLcBGAs/s72-c/frecuencias_editado.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-237314674067286486
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/12/describiendo-un-protocolo-desconocido.html
 ---
 

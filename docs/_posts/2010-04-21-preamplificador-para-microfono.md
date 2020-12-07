@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Preamplificador para micrófono multimedia
-date: '2010-04-21T05:00:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - PC
 - sonido
 - amplificadores
-modified_time: '2010-07-19T18:07:09.536+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S8x0gtNXYUI/AAAAAAAAAFw/CJRsjtn_pAE/s72-c/BENQ0013.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8693667324523346111
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/preamplificador-para-microfono.html
 ---
 

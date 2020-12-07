@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Bromas de alta tensión
-date: '2010-10-06T13:30:00.004+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - circuitos
 - osciladores
-modified_time: '2010-10-06T14:44:05.800+02:00'
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TKw-FfV0ZTI/AAAAAAAAAZU/PwC60rt7pGc/s72-c/shock_broma.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6489901896370549131
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/bromas-de-alta-tension.html
 ---
 

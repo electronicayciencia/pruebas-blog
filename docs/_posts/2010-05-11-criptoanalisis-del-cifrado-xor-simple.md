@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Criptoanálisis del cifrado XOR simple
-date: '2010-05-11T01:24:00.005+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
 - programacion
 - Perl
-modified_time: '2010-08-18T20:22:55.820+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S-LRgBBHq-I/AAAAAAAAAKg/Hs3acO720pc/s72-c/XOR_TABLE.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7901095510380920120
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/criptoanalisis-del-cifrado-xor-simple.html
 ---
 

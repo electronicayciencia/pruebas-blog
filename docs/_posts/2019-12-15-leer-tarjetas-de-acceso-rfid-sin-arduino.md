@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Leer tarjetas de acceso RFID, sin Arduino
-date: '2019-12-15T17:38:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - circuitos
 - osciladores
 - amplificadores
-modified_time: '2019-12-16T20:02:46.253+01:00'
 thumbnail: https://1.bp.blogspot.com/-YP10YRcmAhg/XfZU-Sz2UtI/AAAAAAAABgg/zKC2MA5oCz8ICUfVJXC0ZZiaCFmD0M-pQCLcBGAsYHQ/s72-c/fob_foto.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7256945866392979704
 blogger_orig_url: https://electronicayciencia.blogspot.com/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino.html
 ---
 

@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Electrocardiograma y electrorretinograma.
-date: '2011-09-07T22:01:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
 - sonido
 - amplificadores
 - biología
-modified_time: '2013-03-26T19:38:20.358+01:00'
 thumbnail: http://1.bp.blogspot.com/-55qUvU7djEk/TmfKhlAdVCI/AAAAAAAAAhQ/aRqsZ3CW36E/s72-c/con624.gif
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7321578325175770111
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/09/electrocardiograma-y.html
 ---
 

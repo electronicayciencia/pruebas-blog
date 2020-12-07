@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Valor eficaz de una sinusoidal incompleta
-date: '2010-03-29T17:28:00.017+02:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
 - DimmerIR
-modified_time: '2010-03-29T23:04:19.787+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S7B8nlQq8sI/AAAAAAAAABU/WLt5TjsmLkM/s72-c/forward_phase.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4440958949726435197
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/valor-eficaz-de-una-sinusoidal.html
 ---
 

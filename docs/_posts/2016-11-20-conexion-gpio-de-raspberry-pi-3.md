@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Conexión GPIO de Raspberry Pi 3
-date: '2016-11-20T15:38:00.001+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - raspberrypi
-modified_time: '2016-11-20T15:38:13.639+01:00'
 thumbnail: https://2.bp.blogspot.com/-T6HGSbA05Q4/WDGfA8Y3XkI/AAAAAAAABFA/Q9dHZilrCTAeVFju9l1OiRHIsJOK9DQxgCEw/s72-c/300px-Pi-GPIO-header.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8176473813914992088
 blogger_orig_url: https://electronicayciencia.blogspot.com/2016/11/conexion-gpio-de-raspberry-pi-3.html
 ---
 

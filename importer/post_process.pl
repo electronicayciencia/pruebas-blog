@@ -32,6 +32,15 @@ sub trim {
 sub process_head {
 	my $s = shift;
 	$s = trim($s);
+
+	# Remove date headers from front matter. 
+	# Cause issues with timezone and relative links.
+	$s =~ s{^date:.*\n}{}mg;
+	$s =~ s{^modified_time:.*\n}{}mg;
+
+	# Blogger ID is not needed
+	$s =~ s{^blogger_id:.*\n}{}mg;
+
 	return $s;
 }
 

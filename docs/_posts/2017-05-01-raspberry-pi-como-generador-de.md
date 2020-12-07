@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Raspberry Pi como generador de frecuencias
-date: '2017-05-01T19:28:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - osciladores
 - raspberrypi
-modified_time: '2017-05-01T19:28:36.779+02:00'
 thumbnail: https://3.bp.blogspot.com/-NaMWBwXa88w/WQduXGznzTI/AAAAAAAABKU/VZAzfNM2bAov5iWh2T4xSE6LEicvU87AACLcB/s72-c/FreqOsc2.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3838816049521878857
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/05/raspberry-pi-como-generador-de.html
 ---
 

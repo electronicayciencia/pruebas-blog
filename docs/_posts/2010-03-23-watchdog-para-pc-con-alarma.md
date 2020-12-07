@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Watchdog para PC con alarma
-date: '2010-03-23T19:25:00.020+01:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - PC
-modified_time: '2010-04-01T15:48:36.168+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S6kH-TgoGbI/AAAAAAAAAAk/fSKB34ChkTo/s72-c/watchdog.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2957373674953528113
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/watchdog-para-pc-con-alarma.html
 ---
 

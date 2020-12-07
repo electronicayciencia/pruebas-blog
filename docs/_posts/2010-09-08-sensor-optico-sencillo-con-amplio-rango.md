@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Sensor óptico sencillo con amplio rango dinámico
-date: '2010-09-08T05:46:00.005+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
@@ -9,9 +8,7 @@ tags:
 - física
 - circuitos
 - Perl
-modified_time: '2010-09-08T05:46:00.513+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TH-2Bada6mI/AAAAAAAAAWk/qvmVjuYur9s/s72-c/esquema.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1727849398195206742
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/sensor-optico-sencillo-con-amplio-rango.html
 ---
 

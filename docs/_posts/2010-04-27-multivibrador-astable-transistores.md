@@ -1,15 +1,12 @@
 ---
 layout: post
 title: 'Multivibrador astable a transistores: explicación'
-date: '2010-04-27T11:00:00.004+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - sonido
 - osciladores
-modified_time: '2012-10-06T13:03:11.806+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S9aXe_DBTdI/AAAAAAAAAGQ/ssuU3xz4G6E/s72-c/astable_npn.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2812303910169876157
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/multivibrador-astable-transistores.html
 ---
 

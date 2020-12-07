@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Transmisor y receptor digital de ultrasonidos
-date: '2018-03-30T19:05:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
@@ -10,9 +9,7 @@ tags:
 - sonido
 - raspberrypi
 - amplificadores
-modified_time: '2018-04-02T14:53:33.993+02:00'
 thumbnail: https://2.bp.blogspot.com/-I3GNTSJ9PQ4/Wr5nVOJthyI/AAAAAAAABVQ/Q4Ho5vREOosw83NeqGL7A0q6AMqicNE1ACLcBGAs/s72-c/mod_ultrasonido.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5219620561565989450
 blogger_orig_url: https://electronicayciencia.blogspot.com/2018/03/transmisor-y-receptor-digital-de.html
 ---
 

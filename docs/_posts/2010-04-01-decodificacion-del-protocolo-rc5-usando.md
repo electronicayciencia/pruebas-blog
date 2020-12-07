@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Decodificacion del protocolo RC5 usando un PIC
-date: '2010-04-01T15:43:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - telemandos
-modified_time: '2011-01-20T08:19:46.143+01:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S6unBV3c1PI/AAAAAAAAAAs/NxDVJMxT5pA/s72-c/rc5.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3119027026213157528
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/decodificacion-del-protocolo-rc5-usando.html
 ---
 

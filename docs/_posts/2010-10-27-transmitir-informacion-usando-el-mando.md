@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Transmitir información usando el mando de un coche teledirigido
-date: '2010-10-27T05:46:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
 - circuitos
 - telemandos
-modified_time: '2010-10-27T05:46:00.082+02:00'
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TMbtzX86gpI/AAAAAAAAAZ4/sP0rkgS7ItI/s72-c/Imagen256.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1017628497897691934
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/transmitir-informacion-usando-el-mando.html
 ---
 

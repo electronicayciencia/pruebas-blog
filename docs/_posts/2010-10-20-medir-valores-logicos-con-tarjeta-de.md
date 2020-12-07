@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Medir valores lógicos con tarjeta de sonido
-date: '2010-10-20T13:20:00.003+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - PC
-modified_time: '2010-10-20T14:39:48.730+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TL6rJVdW_JI/AAAAAAAAAZg/5oAWW8oSxF0/s72-c/BENQ0004.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1550922508237071531
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/medir-valores-logicos-con-tarjeta-de.html
 ---
 

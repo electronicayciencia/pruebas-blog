@@ -1,12 +1,9 @@
 ---
 layout: post
 title: La subasta americana
-date: '2010-10-13T21:56:00.005+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
-modified_time: '2010-10-14T22:04:52.370+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3396617213821155844
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/la-subasta-americana.html
 ---
 

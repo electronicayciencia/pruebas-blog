@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Sintetizador de frecuencias digital con PLL
-date: '2020-09-15T22:26:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - circuitos
 - osciladores
 - radio
-modified_time: '2020-09-16T18:29:19.760+02:00'
 thumbnail: https://1.bp.blogspot.com/-s1L2NML6eps/X2ES-BjAHSI/AAAAAAAABqU/iLO0-0DfLf8Px2eMM2Dqckx_nPGlF4-twCPcBGAYYCw/s72-c/HEF4046BP-8649.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3137022925002988466
 blogger_orig_url: https://electronicayciencia.blogspot.com/2020/09/sintetizador-de-frecuencias-digital-con.html
 ---
 

@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Mezclador de frecuencias con el integrado 4066
-date: '2013-04-22T22:20:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - sonido
 - osciladores
 - amplificadores
-modified_time: '2013-04-22T22:20:38.108+02:00'
 thumbnail: http://4.bp.blogspot.com/-q-5HZE1AkSU/UXWWVhcW6PI/AAAAAAAAAxA/vAIWsuwYrh4/s72-c/mixer1_sch_t.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8717950296499858714
 blogger_orig_url: https://electronicayciencia.blogspot.com/2013/04/mezclador-de-frecuencias-con-el.html
 ---
 

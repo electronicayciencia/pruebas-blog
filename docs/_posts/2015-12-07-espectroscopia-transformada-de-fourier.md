@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Espectroscopía mediante Transformada de Fourier
-date: '2015-12-07T18:13:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
 - física
 - sonido
 - Perl
-modified_time: '2015-12-08T02:49:31.745+01:00'
 thumbnail: http://4.bp.blogspot.com/-y9zgPTC2Dco/VmWmJGmEi1I/AAAAAAAABEI/ms7EsDycjDI/s72-c/old_espectrocope.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-9054355915282140153
 blogger_orig_url: https://electronicayciencia.blogspot.com/2015/12/espectroscopia-transformada-de-fourier.html
 ---
 

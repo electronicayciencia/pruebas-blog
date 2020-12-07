@@ -1,12 +1,9 @@
 ---
 layout: post
 title: 'Síntesis de cloroformo a partir de productos de limpieza: estequiometría'
-date: '2010-08-11T05:46:00.014+02:00'
 author: Electrónica y Ciencia
 tags:
 - química
-modified_time: '2010-10-13T09:57:28.456+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2959142183860799500
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/sintesis-de-cloroformo-partir-de.html
 ---
 

@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Termostato para estufa de incubación casera
-date: '2010-07-21T06:00:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - biología
-modified_time: '2010-07-21T06:00:00.861+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TESSolWgx_I/AAAAAAAAAS0/-aNQ2ZZeag0/s72-c/esquema.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7533993346190044222
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/termostato-para-estufa-de-incubacion.html
 ---
 

@@ -1,15 +1,12 @@
 ---
 layout: post
 title: El bus I2C a bajo nivel
-date: '2017-02-25T14:22:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - raspberrypi
-modified_time: '2017-02-25T14:29:20.731+01:00'
 thumbnail: https://2.bp.blogspot.com/-7KNrtp5llKw/WLF1u6Rm0BI/AAAAAAAABIE/S3czo_YCQv4ZNzL4uHlfwf_KMmjXeLSZACLcB/s72-c/I2c_logo.svg.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8647043535153274829
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/02/el-bus-i2c-bajo-nivel.html
 ---
 

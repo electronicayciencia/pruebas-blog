@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Adaptador de USB a Serie
-date: '2011-01-12T01:02:00.006+01:00'
 author: Electrónica y Ciencia
 tags:
 - reciclado
 - PC
-modified_time: '2011-01-12T01:02:00.213+01:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TStgDyln2mI/AAAAAAAAAcU/Pidp-oEJy_U/s72-c/BENQ0005.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-3558222754860480748
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/01/adaptador-de-usb-serie.html
 ---
 

@@ -1,14 +1,11 @@
 ---
 layout: post
 title: 'El transistor, ese gran desconocido: Regulador V-I'
-date: '2011-07-06T19:14:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - osciladores
 - amplificadores
-modified_time: '2011-07-06T19:14:11.495+02:00'
 thumbnail: http://2.bp.blogspot.com/-LRAL6zX3zPk/ThSTMmIv03I/AAAAAAAAAeo/9BKddQMH-Ds/s72-c/fuentev_cir.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-82429311192466711
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/el-transistor-ese-gran-desconocido.html
 ---
 

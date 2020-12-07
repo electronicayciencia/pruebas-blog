@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Simulación estadística del Risk
-date: '2010-06-16T06:00:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
@@ -9,9 +8,7 @@ tags:
 - programacion
 - PC
 - Perl
-modified_time: '2010-08-18T20:21:23.022+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TBY7AJBomYI/AAAAAAAAAPE/4u01WV-KBMk/s72-c/tabla.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6043485676128038266
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/simulacion-estadistica-del-risk.html
 ---
 

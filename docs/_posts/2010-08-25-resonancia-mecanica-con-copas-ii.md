@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Resonancia mecánica con copas II
-date: '2010-08-25T07:07:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - sonido
-modified_time: '2010-08-25T07:07:00.304+02:00'
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TGKXVJCZEpI/AAAAAAAAAUs/3UrtMtgZJ_0/s72-c/pulso.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5870798266085701832
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/resonancia-mecanica-con-copas-ii.html
 ---
 

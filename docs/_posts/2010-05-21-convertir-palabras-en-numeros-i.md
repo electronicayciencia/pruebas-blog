@@ -1,12 +1,9 @@
 ---
 layout: post
 title: Convertir palabras en números (I)
-date: '2010-05-21T04:07:00.004+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
-modified_time: '2010-05-21T04:07:00.672+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1389103931525402337
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html
 ---
 

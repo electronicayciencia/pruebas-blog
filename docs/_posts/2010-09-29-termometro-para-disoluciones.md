@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Termómetro para disoluciones
-date: '2010-09-29T06:00:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - reciclado
 - circuitos
-modified_time: '2010-09-29T11:07:40.978+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TGz9SnB0oqI/AAAAAAAAAVk/dGNTBVfKuyc/s72-c/termoboli.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6087711774836916237
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/termometro-para-disoluciones.html
 ---
 

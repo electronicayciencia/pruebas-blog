@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Tu primer proyecto con DSP
-date: '2020-06-21T12:05:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - circuitos
 - amplificadores
-modified_time: '2020-06-21T19:59:35.371+02:00'
 thumbnail: https://1.bp.blogspot.com/-KY-Fe0A3-rQ/Xu5iQX-ItMI/AAAAAAAABls/BMEiVoxzjl8AWaN7rMVqE3dVykTKJJvtgCLcBGAsYHQ/s72-c/filtrosinc.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5815657110057439393
 blogger_orig_url: https://electronicayciencia.blogspot.com/2020/06/tu-primer-proyecto-con-dsp.html
 ---
 

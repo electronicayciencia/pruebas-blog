@@ -1,13 +1,10 @@
 ---
 layout: post
 title: 'Inferencia estadística II: Introducción a los test de hipótesis'
-date: '2010-09-22T04:08:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
-modified_time: '2010-09-22T04:08:00.309+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TJDcbu6jUGI/AAAAAAAAAYE/Id_DW4VlAu8/s72-c/t_normalizada_m1m2.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8246352660791018640
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/inferencia-estadistica-ii-introduccion.html
 ---
 

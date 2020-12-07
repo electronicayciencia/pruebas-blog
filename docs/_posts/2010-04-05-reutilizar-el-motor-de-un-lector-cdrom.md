@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Reutilizar el motor de un lector CDROM
-date: '2010-04-05T22:23:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - reciclado
 - PC
-modified_time: '2010-04-05T22:32:45.734+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S7o9Lr8RPXI/AAAAAAAAACQ/DSEexSvnRRI/s72-c/imagecompatibility.php
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1779682878319043404
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/reutilizar-el-motor-de-un-lector-cdrom.html
 ---
 

@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Generador de personajes ficticios en Perl
-date: '2010-06-30T06:00:00.006+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - PC
 - Perl
-modified_time: '2010-06-30T06:00:04.182+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6735946540576682783
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/generador-de-personajes-ficticios-en.html
 ---
 

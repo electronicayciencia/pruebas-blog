@@ -1,15 +1,12 @@
 ---
 layout: post
 title: 'Dimmer controlado por mando a distancia: el software'
-date: '2011-02-02T01:00:00.006+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
 - DimmerIR
-modified_time: '2011-02-02T01:00:06.866+01:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TUciFSei_ZI/AAAAAAAAAc8/UnqR7D_1_h4/s72-c/interrupciones.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5568320545650645737
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/02/dimmer-controlado-por-mando-distancia.html
 ---
 

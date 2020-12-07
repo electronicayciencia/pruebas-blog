@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Característica V/I de una bombilla
-date: '2010-03-27T18:19:00.012+01:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
 - DimmerIR
-modified_time: '2010-10-23T12:44:12.349+02:00'
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S64z5O_EjrI/AAAAAAAAAA0/WXLHpeT9a3o/s72-c/grafico_IV_1.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7752476430463625662
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/caracteristica-i-v-de-una-bombilla.html
 ---
 

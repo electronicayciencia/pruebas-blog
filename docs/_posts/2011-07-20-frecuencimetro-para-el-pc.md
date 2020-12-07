@@ -1,16 +1,13 @@
 ---
 layout: post
 title: Frecuencímetro para el PC
-date: '2011-07-20T01:00:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - circuitos
 - PC
 - Perl
-modified_time: '2013-03-26T19:40:28.815+01:00'
 thumbnail: http://2.bp.blogspot.com/-dK8mrWXhi1M/TiA52Qg00lI/AAAAAAAAAfw/dLYDcpJm4Yg/s72-c/interfaz_tk.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1303236620511704811
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/frecuencimetro-para-el-pc.html
 ---
 

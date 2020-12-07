@@ -1,13 +1,10 @@
 ---
 layout: post
 title: Adaptador SMD, de MSOP a DIP
-date: '2010-08-04T04:08:00.004+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
-modified_time: '2010-08-04T04:08:00.616+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TFPtN8Sr6qI/AAAAAAAAAUk/oyJER6__lNc/s72-c/dimensiones_AD8313.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-911181721899788314
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/adaptador-smd-de-msop-dip.html
 ---
 

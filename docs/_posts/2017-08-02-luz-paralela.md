@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Luz paralela
-date: '2017-08-02T20:04:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - óptica
 - física
-modified_time: '2017-08-02T20:04:56.356+02:00'
 thumbnail: https://3.bp.blogspot.com/-uDmaqo0fIcg/WYILoYeTnZI/AAAAAAAABKk/7QIpfb520WgVeMiGjqK5X2bUYtueEFBfgCLcBGAs/s72-c/Optical-dispersion.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-1390452935971913832
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/luz-paralela.html
 ---
 

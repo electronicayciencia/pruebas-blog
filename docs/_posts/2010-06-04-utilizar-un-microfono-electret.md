@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Utilizar un micrófono electret
-date: '2010-06-04T15:13:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - sonido
 - amplificadores
-modified_time: '2010-07-19T18:07:09.535+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TAj511KVROI/AAAAAAAAAN4/6b4ju2CO_AA/s72-c/conn_electret.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6999815320213243815
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/utilizar-un-microfono-electret.html
 ---
 

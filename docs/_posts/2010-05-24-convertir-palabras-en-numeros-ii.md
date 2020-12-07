@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Convertir palabras en números (II)
-date: '2010-05-24T01:24:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - gnuplot
 - programacion
 - Perl
-modified_time: '2010-08-18T20:22:55.818+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_QA9DSwSiI/AAAAAAAAALg/UtGeAPKiZXI/s72-c/es_ES.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5636178037108616062
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-palabras-en-numeros-ii.html
 ---
 

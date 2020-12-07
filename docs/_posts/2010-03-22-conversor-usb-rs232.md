@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Conversor USB - RS232
-date: '2010-03-22T16:11:00.008+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - reciclado
 - PC
-modified_time: '2010-08-18T20:19:44.087+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S6eJBnFshtI/AAAAAAAAAAM/1iBSbl7uo5s/s72-c/Imagen148.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4168960883860645525
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/conversor-usb-rs232.html
 ---
 

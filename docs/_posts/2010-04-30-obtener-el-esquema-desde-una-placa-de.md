@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Obtener el esquema desde una placa de circuito impreso
-date: '2010-04-30T01:00:00.002+02:00'
 author: Electrónica y Ciencia
 tags:
 - reciclado
 - circuitos
-modified_time: '2019-07-16T18:35:51.832+02:00'
 thumbnail: https://4.bp.blogspot.com/_QF4k-mng6_A/S9g7nuV20FI/AAAAAAAAAIE/-RwtDzal4kc/s72-c/BENQ0020.JPG
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7072156245917619269
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/obtener-el-esquema-desde-una-placa-de.html
 ---
 

@@ -1,15 +1,12 @@
 ---
 layout: post
 title: La Transformada de Fourier no es magia
-date: '2011-08-11T19:53:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - linux
 - sonido
-modified_time: '2013-03-26T19:38:48.722+01:00'
 thumbnail: http://2.bp.blogspot.com/-U--Cs4BwCsw/TkQKXEQ7cAI/AAAAAAAAAgg/7hcjpKLnSLY/s72-c/captura_snd.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-7539173781402237632
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/08/la-transformada-de-fourier-no-es-magia.html
 ---
 

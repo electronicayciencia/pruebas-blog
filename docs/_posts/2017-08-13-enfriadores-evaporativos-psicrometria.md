@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Enfriadores evaporativos - Psicrometría
-date: '2017-08-13T19:43:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - datalog
-modified_time: '2017-08-13T19:43:45.363+02:00'
 thumbnail: https://4.bp.blogspot.com/-L6EebysRMg4/WZCKia4sskI/AAAAAAAABNY/qL6Lo-UwihwogI-Ut6RMfCCdpDIRGArowCEwYBhgL/s72-c/20170807_192905.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-4573901211855059369
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/enfriadores-evaporativos-psicrometria.html
 ---
 

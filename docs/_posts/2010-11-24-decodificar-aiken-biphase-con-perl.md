@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Decodificar Aiken Biphase con Perl
-date: '2010-11-24T13:30:00.001+01:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - Perl
 - amplificadores
-modified_time: '2010-11-24T13:30:02.736+01:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TOzCqSZ7y8I/AAAAAAAAAbI/IfhpdxeKdlg/s72-c/acelerando.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-9207760026791503078
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/11/decodificar-aiken-biphase-con-perl.html
 ---
 

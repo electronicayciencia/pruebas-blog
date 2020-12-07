@@ -1,13 +1,10 @@
 ---
 layout: post
 title: Estadística de los exámenes tipo test
-date: '2011-09-27T21:00:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
-modified_time: '2013-03-26T19:35:56.436+01:00'
 thumbnail: http://2.bp.blogspot.com/-B7aDmfEwk5Y/ToILkHOpuwI/AAAAAAAAAiM/Jr-7i3tG22I/s72-c/esperanza_aciertos.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8899373810604923019
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/09/estadistica-de-los-examenes-tipo-test.html
 ---
 

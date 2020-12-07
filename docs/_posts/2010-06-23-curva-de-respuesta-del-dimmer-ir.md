@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Curva de respuesta del Dimmer IR
-date: '2010-06-23T06:00:00.006+02:00'
 author: Electrónica y Ciencia
 tags:
 - óptica
 - física
 - DimmerIR
-modified_time: '2010-07-19T18:04:36.517+02:00'
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2177680014574935091
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/curva-de-respuesta-del-dimmer-ir.html
 ---
 

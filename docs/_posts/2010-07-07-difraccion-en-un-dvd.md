@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Difraccion en un DVD
-date: '2010-07-07T07:07:00.012+02:00'
 author: Electrónica y Ciencia
 tags:
 - óptica
 - física
-modified_time: '2010-07-19T18:04:36.516+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TCM3JPNx0RI/AAAAAAAAAQk/CHrfd3eh15s/s72-c/Imagen095.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2059243762405588835
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/difraccion-en-un-dvd.html
 ---
 

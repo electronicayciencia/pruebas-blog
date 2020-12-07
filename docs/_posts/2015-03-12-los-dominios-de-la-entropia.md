@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Los dominios de la entropía
-date: '2015-03-12T22:09:00.000+01:00'
 author: Electrónica y Ciencia
 tags:
 - estadística
 - Perl
-modified_time: '2015-03-18T20:42:11.155+01:00'
 thumbnail: http://1.bp.blogspot.com/-KqzhDLWu1ks/VQC2fVVRPHI/AAAAAAAAA-8/1W5xOTgJqh4/s72-c/distribs_letras.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6028092160779850837
 blogger_orig_url: https://electronicayciencia.blogspot.com/2015/03/los-dominios-de-la-entropia.html
 ---
 

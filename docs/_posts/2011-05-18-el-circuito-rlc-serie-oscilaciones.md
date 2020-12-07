@@ -1,15 +1,12 @@
 ---
 layout: post
 title: 'El circuito RLC serie: oscilaciones amortiguadas'
-date: '2011-05-18T21:29:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - circuitos
 - osciladores
-modified_time: '2011-05-19T13:28:23.719+02:00'
 thumbnail: http://4.bp.blogspot.com/-mKnPzWrM3yo/TdQaeYqW_bI/AAAAAAAAAdc/diqxZOXT2Vo/s72-c/VI_C.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-913912851846372853
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/05/el-circuito-rlc-serie-oscilaciones.html
 ---
 

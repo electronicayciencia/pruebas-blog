@@ -1,15 +1,12 @@
 ---
 layout: post
 title: Espectroscopía casera con copas
-date: '2010-04-12T22:51:00.001+02:00'
 author: Electrónica y Ciencia
 tags:
 - física
 - sonido
 - amplificadores
-modified_time: '2010-07-19T18:07:09.537+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S78MxV7IzRI/AAAAAAAAAEY/wNbb59XmSDQ/s72-c/copa.jpg
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-2346385713901680242
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/espectroscopia-casera-con-copas.html
 ---
 

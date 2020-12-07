@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Programación PIC para decodificar RC5
-date: '2011-01-19T01:00:00.001+01:00'
 author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
-modified_time: '2011-01-19T01:00:04.816+01:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TTXzAf8kRpI/AAAAAAAAAcs/Z4NT-g8qBJg/s72-c/11011110.grid.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-5732163717062600154
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/01/programacion-pic-para-decodificar-rc5.html
 ---
 

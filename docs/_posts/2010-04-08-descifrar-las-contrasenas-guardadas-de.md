@@ -1,14 +1,11 @@
 ---
 layout: post
 title: Descifrar las contraseñas guardadas de Opera
-date: '2010-04-08T20:03:00.003+02:00'
 author: Electrónica y Ciencia
 tags:
 - programacion
 - PC
-modified_time: '2010-04-08T20:06:40.063+02:00'
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S72vMwQxa1I/AAAAAAAAADI/X5RQfJ2b3mw/s72-c/buscar_wand.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-6609464285173459046
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/descifrar-las-contrasenas-guardadas-de.html
 ---
 

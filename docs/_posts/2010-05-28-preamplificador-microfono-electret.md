@@ -1,15 +1,12 @@
 ---
 layout: post
 title: 'Preamplificador micrófono electret: operacional'
-date: '2010-05-28T02:55:00.000+02:00'
 author: Electrónica y Ciencia
 tags:
 - circuitos
 - sonido
 - amplificadores
-modified_time: '2010-07-19T18:07:09.536+02:00'
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_qN7xKvL2I/AAAAAAAAAMo/CHmAQGlvSfk/s72-c/alim_dual.png
-blogger_id: tag:blogger.com,1999:blog-1915800988134045998.post-8759733631377715444
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/preamplificador-microfono-electret.html
 ---
 
