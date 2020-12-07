@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Bromas de alta tensión</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Bromas de alta tensión</h3>
+<div class='post-date'>
+Publicado el 06-10-2010.
+</div>
+<div class='post-body entry-content'>
+Vamos a hablar en esta entrada de esos típicos aparatos de broma que dan calambre. Todos los habéis visto, un bolígrafo que da corriente, o un puntero láser, un libro, etc. También hay juegos que el perdedor recibe un calambre, por ejemplo en algunas pistolas láser, o juegos de reflejos. Veamos cómo funcionan.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/shock_broma.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/shock_broma.jpg"></a>
+</div><br>
+Antes de nada, no confundirlos con los aparatos de electro-estimulación muscular que se usan en rehabilitación (los llamados TENS). No tiene nada que ver: estos últimos actúan emitiendo una corriente a través de la piel que llega al músculo y lo estimula. Necesitan un pulso con una duración y una forma determinada y unos electrodos apropiados para llegar al músculo sin ser demasiado desagradable.<br>
+<br>
+Sin embargo, ahora queremos que alguien sienta el calambre pero no llegar al músculo (porque sólo es una broma, no queremos electrocutar a nadie, ni causar espasmos, mi paradas cardíacas, ni quemaduras, ni otras cosas malas que hace la electricidad).<br>
+<br>
+<br>
+<b>Principio físico</b><br>
+<br>
+<ul>
+<li>Primero necesitamos una corriente alterna, o pulsante, de baja frecuencia. Así la sensación será más desagradable pero inofensiva.</li>
+<li>Segundo es suficiente con tensiones muy altas, y de intensidad mientras más baja mejor. Recordad que lo que es peligroso no es la tensión. Lo que pasa es que la piel es como una resistencia, y si aumentan los voltios lo hacen los amperios.</li>
+<li>Tiempo muy limitado. Como decíamos antes si sube la tensión sube la intensidad, pero entonces ¿Como conseguimos alta tensión y baja intensidad a la vez? Pues una manera simple es por ejemplo con picos de muy corta duración. Así la intensidad será muy alta, pero durante un tiempo muy pequeño, y el efecto (que también depende del tiempo que dura) es mínimo.</li>
+</ul><br>
+Hmm... pulsos muy cortos, con tensiones elevadas... si tienes una mínima idea de electromagnetismo inmediatamente te sonará a una bobina. Ya hablamos en otra entrada sobre <a href="../../../2010/06/matamoscas-electronico-flyback/articulo.html">transformadores flyback</a>. Y si no la tienes te cuento el tema muy por encima:<br>
+<br>
+Cuando aplicamos tensión a una bobina (un inductor también se llama) crea un campo electromagnético. Y este proceso digamos que es lento, más lento cuanta más inducción (más vueltas) tiene la bobina, lo llamamos L. Se puede describir con esta fórmula:<br>
+<br>
+\[E = - {d \phi \over dt} = -L \cdot {dI \over dt }\]<br>
+<br>
+La primera parte viene a decir que la tensión (E) depende de cómo varíe el flujo magnético en el interior (φ). Eso es la <a href="http://es.wikipedia.org/wiki/Ley_de_Faraday">inducción</a>: Un imán gira dentro de una bobina y en los extremos tenemos una tensión eléctrica. Vamos a pasar del <a href="http://aprendeenlinea.udea.edu.co/lms/moodle/mod/resource/view.php?id=11062">signo negativo</a>.<br>
+<br>
+La segunda parte dice que, como el flujo magnético también se puede obtener no con un imán externo, sino haciendo pasar una corriente por la bobina, pues la tensión inducida también depende de cómo cambie esta corriente.<br>
+<br>
+<b>OJO:</b> Que la bobina induce tensión cuando la cambia corriente que pasa. Si pasa de no tener corriente a tenerla induce una tensión. Que no solemos notar. Pero si tenía corriente y la quitamos de golpe va a haber un pico de tensión. Por eso cuando usamos un transistor para activar un relé o un motor ponemos un diodo a contracorriente. Porque sabemos que cuando el transistor pase a corte y el relé se desactive, la corriente que circula va a cesar de golpe. Y la bobina va a reaccionar con un pico de tensión, y demás, por el signo menos es tensión inversa. La tensión inversa podría destruir el transistor de control si no hubiera un diodo en paralelo para cortocircuitarla.<br>
+<br>
+Por cierto que la tensión inducida depende de la derivada de la intensidad, o sea del cambio, mientras más rápidamente cambie más voltios se inducen. Pero claro, durante un tiempo más breve. Y cuando digo <i>rápidamente</i> no me refiero a la frecuencia, sino a que el interruptor electrónico sea más o menos rápido. Independientemente de que luego repitamos varias veces por segundo.<br>
+<br>
+<br>
+<b>Esquema eléctrico</b><br>
+<br>
+Así que ya sabemos lo que tenemos que hacer para dar calambre, tener una bobina gorda para conectarla y desconectarla, con un interruptor lo más rápido posible, a una frecuencia de varias veces por segundo.<br>
+<br>
+Eso es precisamente lo que lleva el circuito de la foto que he puesto arriba.<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/shock_broma_circuito.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/shock_broma_circuito.png"></a>
+</div>Para reducir costes al mínimo lo que han hecho es utilizar componentes no estándar, diseñados para este circuito y fabricados en masa. Por ejemplo la bobina no es tan simple, es un autotransformador que sirve también para elevar la tensión de los picos.<br>
+<br>
+Además hay un oscilador, representado por un interruptor. Que es una placa con una gota de resina Epoxy, diseñada para conectar y desconectar con una frecuencia de 150Hz.<br>
+<br>
+Resulta que si medimos la tensión de salida con un tester <i>True RMS</i> sólo marca 7V. Claro, eso es el valor medio, RMS. En realidad el valor de pico alcanza fácilmente los miles de voltios y no se puede medir así.<br>
+<br>
+Para medirlo nos basamos en la longitud del arco eléctrico (o sea de la chispa que hace). El aire seco tiene una <a href="http://campus.usal.es/%7Eelectricidad/Principal/Circuitos/Diccionario/Diccionario.php?b=id:154">rigidez dieléctrica</a> de unos 3MV/m. Quiere decir que si la chispa mide 1m es que tiene una tensión de 3.000.000 de voltios.<br>
+<br>
+Nuestra chispa no llega a más de medio milímetro por lo que suponemos que la tensión de salida puede ser de unos 1000V. Nada mal a partir de tres pilas botón. Y pulsos de 1000V son suficientes para dar un buen susto. Y sin daño porque el tiempo que se necesitaría para dañar el tejido es del orden de minutos, y<br>
+se retira la mano antes.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>circuitos</li>
+<li>física</li>
+<li>osciladores</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

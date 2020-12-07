@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Colorear regiones de un mapa con Perl</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Colorear regiones de un mapa con Perl</h3>
+<div class='post-date'>
+Publicado el 28-07-2010.
+</div>
+<div class='post-body entry-content'>
+Por razones laborales tenía la necesidad de tomar un mapa de España y colorear las regiones según ciertos parámetros. Hay multitud de herramientas para hacer eso pero no con las propiedades que necesitaba, así que me vi en la necesidad de hacer algo concreto<br>
+<ul>
+<li>Los datos vienen dados por prefijo telefónico.</li>
+<li>Tiene que funcionar en un servidor Linux.</li>
+<li>Además, como se lanza desde un cron, tiene que poder usarse por linea de comandos</li>
+<li>Como se actualiza varias veces al día y el servidor va un poco justo, tiene que ser lo más ligera posible.</li>
+<li>...y por supuesto, el plazo es para ya mismo.</li>
+</ul>No puedo publicar la herramienta completa, pero bastará con la idea y un módulo de Perl de ejemplo.<br>
+<br>
+La mejor forma de colorear un mapa es partir de una <b>imagen vectorial</b>, donde cada región es un objeto y se le asigna el color de fondo que corresponda. Pero no encontré ningún mapa vectorial de España por provincias que pudiera reutilizar fácilmente. Varias aplicaciones en java y javascript y en flash. Pero adaptar eso y encontrar la forma de cambiar el color y renderizarlo desde linea de comandos me iba a llevar tiempo. Más tarde encontré un <a href="http://upload.wikimedia.org/wikipedia/commons/5/5a/Provinces_of_Spain.svg">buen mapa</a> en formato SVG -fácil de manipular-, pero ya tenía programada la herramienta.<br>
+<br>
+<br>
+<b>Plantilla</b><br>
+<br>
+Opté por una <b>solución no tan perfecta</b>, pero igualmente válida y muy ligera. Lo primero tomé un mapa mudo de España, grandecito y completo, por ejemplo <a href="http://upload.wikimedia.org/wikipedia/commons/6/6a/Provinces_of_Spain_%28Blank_map%29.png">este</a>. La idea es sencilla: primero voy a colorear cada región de un color distinto que la identifique. Y luego, usando <b><i>convert</i></b> (de <a href="http://www.imagemagick.org/script/index.php">ImageMagick</a>, reemplazaré ese color por el que tenga que tener tal región según los datos.<br>
+<br>
+Por simplificar, ya que los datos que tengo van agrupados por prefijo telefónico, he coloreado Madrid con el color #000091, Barcelona con el #000093, La Coruña con #000981 o Valencia y Alicante ambos con el #000096, etc. La numeración telefónica oficial de España la podéis consultar en <a href="http://www.cmt.es/cmt_ptl_ext/SelectOption.do?tipo=html&amp;detalles=090027198008a055&amp;nav=norma_buscador">este enlace</a> de la CMT: <i>APÉNDICE. Listado de atribuciones y adjudicaciones vigentes del plan nacional de numeración telefónica</i>.<br>
+<br>
+Una vez coloreado el mapa que nos servirá de plantilla, queda así:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/prov_prefijos.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/prov_prefijos.png"></a>
+</div><br>
+<br>
+<b>Gradientes</b><br>
+<br>
+Sobre esta plantilla, he pegado el gradiente con la escala de color que voy a utilizar. En el código fuente se puede elegir usar un gradiente u otro. En esta página <a href="http://local.wasp.uwa.edu.au/%7Epbourke/texture_colour/colourramp/">http://local.wasp.uwa.edu.au/~pbourke/texture_colour/colourramp/</a> hay varios ejemplos de gradientes que se pueden usar para visualizar datos. Yo me he quedado con el gradiente 1: azul-(cielo)-verde-(amarillo)-rojo, que creo que es el que mejor representa gráficamente los valores que voy a visualizar.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ramp1.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ramp1.gif"></a>
+</div><br>
+<br>
+Los gradientes de <b>tres colores</b> son apropiados cuando la mayoría de los datos están agrupados en torno a una media central (verde) y se quiere ver cuales son las provincias que se desvían por encima (rojo) o por debajo (azul). En este se han añadido dos colores más en los puntos de unión para que no se pierda luminancia. Comparar con cómo sería un gradiente azul-verde-rojo gradual:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/16.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/16.gif"></a>
+</div><br>
+<br>
+Cuando lo normal es un valor límite, ya sea bajo o alto, y se quiere resaltar la desviación hacia el otro extremo se usan <b>gradientes de dos colores</b>, como el clásico verde-rojo (para los indicadores), o azul-marrón (altura de los planos). Aunque por estética o legibilidad a veces se incorpora un tercer valor ya sea en el medio, amarillo por ejemplo para dar verde-amarillo-rojo como en un semáforo; o en un extremo, blanco en la altura máxima azul-marrón-blanco, recordando al nivel del mar para la altura cero, y a las nieves perpetuas en las cimas más altas.<br>
+<br>
+Cuando los valores son centrales y no importa hacia qué lado se produce la desviación, se emplea un <b>gradiente simétrico</b> como este por ejemplo:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/07.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/07.gif"></a>
+</div><br>
+En ocasiones, cuando tenemos valores muy distintos en la misma imagen se emplean gradientes de 6 o más colores. Ejemplos típicos son las escalas de calor que evolucionan desde negro a blanco pasando por azul, verde, amarillo y rojo. Hay multitud de modelos.<br>
+<br>
+En la página antes dicha hay varios gradientes con sus archivos .dat, para transformar ese formato a un array de Perl se usa el script <i>grad2perl.pl</i> que os incluyo. Luego este gradiente hay que cargarlo en el módulo <i>ColorUtils.pm</i> (ver enlace de CPAN). Este no lo incluyo porque es un sólo archivo pm que se puede descargar fácilmente <a href="http://search.cpan.org/%7Ejanert/Graphics-ColorUtils-0.17/lib/Graphics/ColorUtils.pm">de CPAN</a> .<br>
+<br>
+<br>
+<b>Uso</b><br>
+<br>
+Al final del módulo hay un texto POD muy breve explicando cómo se usa. En el código fuente se ha incluido una matriz con los prefijos de España y la población (por si se necesita ponderar los datos).<br>
+<br>
+Para usarlo sólo hay que rellenar un hash con el prefijo telefónico como clave y el dato como valor, además de proporcionar otros datos como el color de fondo, o una etiqueta. El módulo se encarga de llamar a convert, con las instrucciones <i>opaque</i> necesarias para sustituir el color de cada provincia por el calculado según el gradiente.<br>
+<br>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">use mapacolor;</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;"><br></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">my %valores;</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">$valores{prefijo1} = ...</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">$valores{prefijo2} = ...</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;"><br></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">mapacolor::prefs_fill_map_with_gradient(</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">\%valores, # hash de valores</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">$outfile, # archivo salida</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">'blue_green_red', # nombre del gradiente</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">0.0, # límite inferior del gradiente</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">1, # límite superior del gradiente</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">undef, # mapa origen</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">'0a0d0f', # color de fondo</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">$anotacion); # texto de titulo</span>
+</div>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;">
+<br>
+</div><br>
+Después la imagen se guarda en un archivo con formato PNG y se inserta el título (si es preciso) en la esquina superior derecha. El resultado es un mapa como este:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/mapacolor_ej1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/mapacolor_ej1.png"></a>
+</div><br>
+<br>
+Os dejo el programita <b><a href="http://sites.google.com/site/electronicayciencia/mapacolor.zip">aquí</a></b> listo para descargar<b>.</b>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>PC</li>
+<li>Perl</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Decodificar Aiken Biphase con Perl</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Decodificar Aiken Biphase con Perl</h3>
+<div class='post-date'>
+Publicado el 24-11-2010.
+</div>
+<div class='post-body entry-content'>
+Antes de nada quería mandar un saludo a Explorer de <a href="http://perlenespanol.com/">perlenespanol.com</a>. Porque, sin conocernos previamente, se ve que le gustan mis artículos. Pues casi desde que empecé con el blog todo lo que escribo que tenga que ver con Perl acaba reseñado en su foro.<br>
+<br>
+Ya hemos codificado y decodificado una señal digital otras veces para extraer información. Hemos decodificado señales NRZ, Manchester, etc. Hoy vamos a hablar de un tipo de señal llamado FM1, Biphase Mark Code (BMC) o también Aiken Biphase. Es un tipo de FSK ampliamente utilizado. Vamos a ver uno de los sitios donde se usa y lo usaremos como ejemplo para construir un programita que lo decodifique.<br>
+<br>
+El soporte de datos que vamos a usar como ejemplo nos exigirá hacer uso de la característica de <i>auto sincronía (self clocking)</i> de la señal. Si seguís leyendo ya veréis el motivo.<br>
+<br>
+<br>
+<b>Self Clocking</b><br>
+<br>
+En la mayoría de circuitos digitales hay un mecanismo de coordinación de todo el esquema. Un reloj. No es más que oscilador de onda cuadrada a una frecuencia fija, pero hace que los componentes actúen como un todo. Y lo que es más importante, puedan interactuar con otros sistemas digitales.<br>
+<br>
+Pero los osciladores no son tan exactos como nos gustaría. Los relojes se atrasan y se adelantan, los sistemas se descoordinan y la transmisión de información falla. Pero hay una forma fácil de evitarlo: hacer que en cada bit, ya sea uno o cero, la señal cambie de estado. Así el receptor reconoce fácilmente cuando empieza y cuando acaba cada bit, y si el transmisor tiene una deriva temporal puede adaptarse a ella.<br>
+<br>
+Vamos a ver un ejemplo de esto que os digo. En una codificación <i>Aiken Biphase</i> la frecuencia del cero es la mitad que la del uno. En el gráfico siguiente hay un pico de señal en cada transición. Es decir, dos picos juntos es un uno, dos picos separados es un cero. Veremos esto más despacio pues por ahora lo que me interesa que veáis es cómo hacia el final se van juntando los impulsos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/acelerando.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/acelerando.png"></a>
+</div><br>
+Pinchad para ampliar la imagen. Fijaos que lo que hay al comienzo y al final son ceros. Y entre medias hay algunos unos. Pero los ceros del final están más juntos que los del principio. Es decir que la trnasmisión se ha ido acelerando en el tiempo. Y si el receptor no se adapta, e insiste en interpretar la señal del final con el mismo patrón que la del principio acabará detectando los ceros más juntos como unos.<br>
+<br>
+Como ya lo sabemos, nuestro programa tiene que irse adaptando a la velocidad de la señal en tiempo real, tanto si se acelera como si desacelera, dentro de unos márgenes, porque si no lo más probable es que falle.<br>
+<br>
+¿Pero por qué tanto insistir en este aspecto? Un oscilador puede tener cierta deriva temporal, pero no tanto. Pasará desapercibido a menos que sean velocidades muy altas. El problema viene cuando mezclamos lo digital con lo analógico.<br>
+<br>
+La señal del gráfico anterior es la lectura de una <b>banda magnética</b> de una tarjeta de identificación. Obtenida al recorrer la banda con un cabezal lector de un casete (un <i>fonocaptor magnético</i> para ser pedantes). La aceleración viene por el hecho de que es muy difícil mover el brazo a una velocidad constante; aunque con práctica se consigue, sería de vagos no aprovechar el <i>self clocking</i> de la señal que precisamente está para eso.<br>
+<br>
+<br>
+<b>Bandas magnéticas</b><br>
+<br>
+Por si os ha sorprendido: sí, se puede. Con un cabezal de cinta se pueden leer y hasta grabar tarjetas de identificación o de crédito, billetes de aparcamiento y cualquier otro soporte que use banda magnética para almacenar datos. Hay mucha información en Internet y experimentos. Si os interesa el tema os recomiendo especialmente una página que de haberla descubierto antes me habría ahorrado un montón de trabajo: <a href="http://www.gae.ucm.es/%7Epadilla/extrawork/stripe.html">http://www.gae.ucm.es/~padilla/extrawork/stripe.html</a>.<br>
+<br>
+Casi todas las tarjetas se adhieren a un formato concreto. Por la sencilla razón de que es más fácil implementar una norma que ya está hecha y se usa, que diseñar un sistema desde cero. No obstante también los hay que usan sus propios <a href="http://www.gae.ucm.es/%7Epadilla/extrawork/magexam2.html">formatos no estándar</a>. Por lo general casi siempre se usa Aiken Biphase pero no es el único sistema.<br>
+<br>
+Doy brevemente unas pinceladas sobre cómo se graba la información en una banda magnética para que entendáis de dónde viene la forma de la señal que vamos a tratar. El siguiente dibujo está sacado de <a href="http://www.gae.ucm.es/%7Epadilla/extrawork/card-o-rama.txt">http://www.gae.ucm.es/~padilla/extrawork/card-o-rama.txt</a>. La cabeza grabadora/lectora es simplemente un anillo de un metal ferromagnético pero no cerrado, sino con un hueco diminuto en la pate que se expone a la cinta. Hay un cable que está enrollado al anillo, con muchas muchas espiras, y es con el que captaremos la señal, o la grabaremos.<br>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: x-small;"><br></span>
+</div>
+<pre style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: small;">                        | |  &lt;----cables al amplificador      <br>                        | |       (se enrollan al anillo)<br>                      /-|-|-\<br>                     /       \<br>                     |       | &lt;----solenoide (acaba de cambiar la polaridad)                           <br>                     \       /<br>                      \ N S / &lt;---hueco en el anillo<br>N----------------------SS-N-------------------------S<br>                       ^^  <br>             &lt;&lt;&lt;&lt;&lt;-la banda se mueve en esta dirección</span></pre><br>
+Imaginaos la banda como millones de micro-imanes todos seguidos. Si no hay nada grabado todos los imanes están orientados en la misma dirección. N es el polo norte del imán y S el polo sur. Así:<br>
+<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">N---------------------------------------------------S</span>
+</div><br>
+Para grabar información digital lo que hacemos recorrer la banda con el solenoide e ir cambiando la polaridad cuando nos interese invertir el flujo.<br>
+<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">N---------S S-------N N----------S S---------N N----S</span>
+</div><br>
+Cuando recorremos la banda con la cabeza de lectura los imanes cierran el anillo y fijan una dirección del flujo magnético, que se establece de acuerdo al dominio magnético con el que esté en contacto el cabezal en ese momento.<br>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;"><br></span>
+</div>
+<pre style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: small;">            /-|-|-\<br>           /       \<br>           |       | &lt;----solenoide <br>           \       /<br>            \ N S / <br>N--------------------S S--------------N N-----------S</span></pre><br>
+Ahora avanzamos por la cinta y nos encontramos con un cambio en la polaridad magnética. Como el flujo que atraviesa el anillo lo fija la banda magnética, se invierte, y pasa de ser N-S a S-N.<br>
+<div style="font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: x-small;"><br></span>
+</div>
+<pre style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-size: small;">                           /-|-|-\<br>                          /       \<br>                          |       | &lt;----solenoide <br>                          \       /<br>                           \ S N /  (ha cambiado la dirección)<br>N--------------------S S--------------N N-----------S</span></pre><br>
+Y ya sabíamos que al cambiar el flujo magnético en un solenoide se induce una corriente eléctrica. En este caso va a ser muy débil, pero suficiente para detectarla. Cuando avanzamos más vuelve a cambiar el flujo y se induce una corriente en el otro sentido.<br>
+<br>
+Ya os habéis dado cuenta de que sólo se induce cuando cambia el flujo, y ese cambio va a ser casi instantáneo. Así que esperamos ver picos puntuales. Pero ya sabéis que en la naturaleza <b>la línea recta no existe</b>, y en la electrónica <a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon">menos aún</a>. Luego lo que vamos a ver es esto:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/captura010_sep.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/captura010_sep.png"></a>
+</div><br>
+Ya veis la que la regla del Aiken Biphase es sencilla, os pego esta imagen de la Wikipedia.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/bmc.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/bmc.png"></a>
+</div><br>
+<br>
+<br>
+<b>Preamplificador de entrada</b><br>
+<br>
+Hemos dicho que no se necesita electrónica ninguna para conectar el lector a la tarjeta de sonido. Salvo un condensador, porque si recordáis como es <a href="../../../2010/10/medir-valores-logicos-con-tarjeta-de/articulo.html">la entrada</a> de una tarjeta de sonido sabréis que si lo conectáis tal cual hay una corriente continua atravesando el lector. Con tan mala suerte que es bastante para <b>borrar</b> el contenido de la banda magnética. Así que no sólo no leeréis nada sino que borraréis lo que hubiera escrito.<br>
+<br>
+Aunque no es necesario un amplificador, yo sí voy a utilizarlo porque facilita captar correctamente la señal. Este es el circuito, que como veis no es más que un amplificador inversor que <a href="../../../2010/05/preamplificador-microfono-electret/articulo.html">habíamos explicado ya</a>. Este tiene una ganancia de 7.5 veces aproximadamente. Los componentes no son críticos, sirve casi cualquier operacional y las resistencias que tengáis por el taller.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/amplificador.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/amplificador.png"></a>
+</div><br>
+El condensador de entrada merece mención aparte. Si usamos capacidades muy bajas, por debajo de 47nF vamos a hacer que las frecuencias bajas estén muy atenuadas. Y el <i>valle</i> que hay entre los picos se deformará apareciendo un pico secundario a modo de rebote. Y el lector se va a confundir con esos picos. En cambio si usamos una capacidad alta por encima de 10uF la forma de la onda no se va a deformar apenas, y los picos aparecerán claros y contundentes. Pero también se van a colar ruidos de baja frecuencia que hacen que el tren de pulsos suba y baje como en una montaña rusa. Aunque el algoritmo adaptativo que os presento tolera esas variaciones, si podemos es mejor que nos las quitemos. Yo he hecho las pruebas con una capacidad de 470nF y funciona aceptablemente.<br>
+<br>
+<br>
+<b>Tratamiento digital previo</b><br>
+<br>
+Conectando la cabeza lectora a la entrada de micro de la tarjeta ya llega con suficiente señal para detectarla bien. Aunque para las pruebas he utilizado un pequeño <a href="../../../2010/05/preamplificador-microfono-electret/articulo.html">amplificador operacional</a> a la entrada.<br>
+<br>
+Os cuento ahora algunos pasos que damos en la detección para que entendáis mejor el programa que sigue. Lo primero que vamos a hacer es tomar el valor absoluto de la señal recibida. Porque sólo nos interesa saber cuando hay un pico. Si es positivo o negativo no nos importa. Lo segundo es pensar si filtramos la señal. Como siempre que nos interesa detectar picos, una solución socorrida es elevar la señal a alguna potencia para aumentar la relación señal-ruido. Esta es la señal en valor absoluto:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/vabsoluto.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/vabsoluto.png"></a>
+</div><br>
+La imagen que sigue es al cuadrado. Vemos que el ruido ha disminuido y los picos están más claros. Observad el cambio de escala porque estamos elevando valores menores que uno.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/vcuadrado.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/vcuadrado.png"></a>
+</div><br>
+Pero hay que tener cuidado con esta técnica. Primero porque en un ordenador es muy fácil elevar a una potencia, pero si usamos un integrado tipo PIC o DSP es bastante más chungo. Y segundo porque tiene sus desventajas. Esta es la misma señal a la cuarta potencia:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/vcuarta.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/vcuarta.png"></a>
+</div><br>
+Mirad como se amplifica la diferencia entre los picos. Esta técnica viene muy bien si lo que hacemos es fijar un umbral y todo lo que hay por encima decimos que es un pico.<br>
+<br>
+Una de las decisiones más difíciles es dónde colocar el <b>umbral del ruido</b>. Cuando tenemos el archivo completo delante de nuestras narices lo vemos clarísimo, pero de alguna manera tiene que saber el programa que empieza una lectura y no es ruido.<br>
+<br>
+En el programa de debajo vamos a usar un método adaptativo que tiene en cuenta dos cosas. Por un lado hay un umbral de ruido que tiene un cierto valor que nosotros le damos. Más o menos en función de lo ruidoso que sea el ambiente y de la ganancia del preamplificador. Y por el otro lado hay una variable que llega hasta 0.6 veces el valor del pico anterior. Fijamos el umbral en el más alto de esos valores. Así cuando hay una señal fuerte el umbral se sube automáticamente y evitamos captar nada que no sean picos.<br>
+<br>
+Nuestra mala suerte es que ese algoritmo de ajuste no funciona bien si hacemos lo de elevar al cuadrado. Así que no alteraremos la señal de entrada.<br>
+<br>
+<br>
+<b>El algoritmo</b><br>
+<br>
+Ya hemos nombrado antes dos parámetros que varían: uno es la distancia entre picos (o la frecuencia de reloj, o la velocidad, o como queráis llamarlo); y otro la amplitud de la señal. Francamente nos interesa mucho más el primero porque el segundo es cuestión de fijar un umbral a mano y ya está. El tiempo como tal no nos interesa, lo que vamos a mirar es la distancia en muestras. Si la frecuencia de de muestreo es de 44100Hz quiere decir que cada 44100 muestras habrá transcurrido un segundo, pero eso también nos da igual.<br>
+<br>
+Para controlar el tiempo no podemos (o no debemos) fiarnos de la última medida, porque pudiéramos estar en un error y alterar los bits siguientes. Así que lo que hacemos es usar una <a href="http://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average">media móvil exponencial</a> de los últimos bits leídos. Es una especie de filtro IIR paso bajos para que una mala lectura no cause estragos. En cuanto leemos un bit y determinamos si es un CERO o un UNO realimentamos la variable. Como las aceleraciones o deceleraciones no son bruscas sino que son graduales, a la media móvil le da tiempo de adaptarse bit a bit. Aunque los bits finales estén mucho más juntos o mucho más separados que los del principio, como el cambio se ha hecho poco a poco el tiempo entre UNOS (que es como llamamos a la variable) se ha ido adaptando progresivamente.<br>
+<br>
+Ya hemos visto antes cómo decodificarlo. Pero yo lo voy a hacer de otra manera aprovechando que tengo un ordenador con un lenguaje de alto nivel y no un integrado. Llamadme vago. Voy a considerar que es un UNO cuando el impulso siguiente venga separado una distancia (en muestras) <i>parecida</i> a <i>Tuno</i> y que es un cero cuando venga a una distancia <i>parecida</i> al doble de <i>Tuno</i>. La desventaja es que los UNOS me salen duplicados, porque un UNO son dos picos juntos, que yo detectaré como dos unos separados. Pero no os preocupéis que lo arreglamos después. Lo he hecho así porque viene muy bien para leer bandas con formato desconocido, que pueden no ser Aiken Biphase.<br>
+<br>
+Hemos hablado antes de una duración <i>parecida</i> a <i>Tuno</i> o al doble de <i>Tuno</i> ¿Pero cuánto es parecida? Bueno pues vamos a tomar un criterio sencillo. Tomamos tres valores:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+el valor es <i>Tuno</i>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+su <b>mitad</b> es <i>1/2*Tuno</i>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">y su <b>doble</b> es</span> <i style="font-family: &quot;Courier New&quot;,Courier,monospace;">2*Tuno</i>
+</div><br>
+Al principio <i>Tuno</i> puede ser la duración del CERO o del UNO (hablamos de esto en el párrafo siguiente). Si recibimos una duración entre pulsos equivalente a <i>Tuno</i> diremos que es el mismo carácter que tiene <i>Tuno</i>. Si sabemos que eran UNOS pues diremos que llega un UNO. Si llega una duración equivalente al doble, diremos que hemos recibido un CERO. Pero si llega una duración equivalente a la mitad de <i>Tuno</i> pueden pasar dos cosas: durante la inicialización servirá para discriminar que <i>Tuno</i> era en realidad el tiempo del CERO y no del UNO. Pero pasada la etapa de inicialización se tratará de un error. Lo mismo que si la medida supera el doble. Así dado un tiempo t tenemos 5 intervalos:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+error si t &lt; 1/4*Tuno
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<b>mitad</b> si 1/4*<i>Tuno</i> &lt; t &lt;= 3/4*<i>Tuno</i><br>
+<b>igual</b> si 3/4*<i>Tuno</i> &lt; t &lt;= 3/2*<i>Tuno</i><br>
+<b>doble</b> si 3/2*<i>Tuno</i> &lt; t &lt;= 5/2*<i>Tuno</i><br>
+error si 5/2*<i>Tuno</i> &lt; t
+</div><br>
+<br>
+Pero ¡un momento! Habrá que inicializar <i>Tuno</i> de alguna manera. Generalmente al principio de la lectura se repite mucho uno de los dos bits, que suele ser CERO para que el receptor se entere de la velocidad de transmisión. Vamos a intentar dar una vuelca de tuerca y a hacer que nuestro decodificador sea inteligente y sepa cuándo los caracteres iniciales sean CEROS y cuando UNOS. Pero eso no lo puede saber hasta que no encuentre un bit diferente. Si este dura la mitad es que lo de antes eran CEROS. Pero si dura el doble es que lo de antes eran UNOS. Por eso al empezar a leer estamos leyendo caracteres "T", que no sabemos si son UNOS o CEROS hasta leer otro diferente para poder comparar.<br>
+<br>
+Cuando ya tenemos una cadena de unos y ceros se la pasamos a las rutinas que decodifican los formatos conocidos. No voy a entrar en cómo calcular la paridad ni el bit de LRC. Si os interesa hay mucha información. Lo que me gustaría es que os fijarais en que se usa paridad IMPAR. Y es por una razón muy sencilla si lo pensáis. Con paridad PAR un <i>byte</i> que sea 0, o sea todo CEROS, su bit de paridad también es CERO. Con lo que si tenemos muchos <i>bytes</i> 0 seguidos nos encontramos con una cadena de bit 0 todos iguales. En cambio usando paridad IMPAR el bit de paridad es 1, así que se obliga a que por lo menos uno de los bits del grupo sea distinto. Y así se favorece la sincronía. Un ejemplo con grupos de 5 bits + 1 de paridad.<br>
+<span style="font-size: small;"><br></span><br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<i><b><span style="font-size: small;">Paridad par (siempre el mismo bit):</span></b></i>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">000000 000000 000000 000000 000000</span>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;"><br></span>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<i><b><span style="font-size: small;">Paridad impar (se obliga a un bit distinto):</span></b></i>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">000001 000001 000001 000001 000001</span>
+</div><br>
+<br>
+<b>El programa</b><br>
+<br>
+Pego el programa, parece largo pero quiero dejarlo íntegro porque está muy comentado. Os doy unas pinceladas breves y si decidís que os interesa ampliáis información leyendo en los comentarios en el código.<br>
+<br>
+Así por encima, distinguimos cuatro partes:<br>
+<ul>
+<li><b>Inicio</b>, hasta la linea 67. Donde abrimos el dispositivo del que leeremos las muestras, ya sea un archivo de disco o la tarjeta de sonido.</li>
+<li><b>Bucle principal.</b> Hay una rutina nada más empezar el bucle que se para hasta detectar un pico. Es decir que el bucle sólo reacciona a los picos de señal. Fijaos cómo los primeros picos sólo se usan para inicializar variables y a medida que llegan más picos vamos avanzando y llegando más adentro en el bucle. Hasta que del tercer pico en adelante ya pasamos a la parte donde se discrimina la duración para ver si es un UNO o un CERO.</li>
+<li><b>Rutinas de la señal.</b> Aproximadamente entre las líneas 199 y 324. Tratan diversos aspectos de la señal que aún es sonido.</li>
+<li><b>Rutinas de decodificación.</b> Cuando la señal ya no es sonido sino una hilera de bits, entonces pasamos a decodificarla.</li>
+</ul><br>
+Tenemos una variable que activa o desactiva el modo depuración. Cuando el script está en modo depuración escribe por pantalla abundante información sobre cuándo ha detectado un pico, de qué duración, en qué muestra, etc.<br>
+<br>
+Como ejercicio si te interesa, intenta buscar la respuesta a estas preguntas (casi todo está en los comentarios):<br>
+<ul>
+<li>¿Cual es el criterio de intervalos para <i>Tuno</i> y por qué se ha hecho así?</li>
+<li>¿Donde se hace la realimentación de las medias móviles y por qué sólo ahí?</li>
+<li>¿Donde se aplica la histéresis al Umbral de ruido?</li>
+</ul><br>
+<pre class="cpp" name="code">#!/usr/bin/perl <br>#===============================================================================<br>#<br>#         FILE:  decodifica.pl<br>#<br>#        USAGE:  ./decodifica.pl [fichero.wav]<br>#                Si no se da fichero.wav se lee del dispositivo de grabación hw:0,0.<br>#<br>#  DESCRIPTION:  Recibe un archivo de sonido e intenta decodificar la información que <br>#                contiene la banda magnética.<br>#<br>#                Esta utiliza los picos y medias móviles para adaptarse a la velocidad<br>#                de lectura variable.<br>#<br>#      OPTIONS:  ---<br># REQUIREMENTS:  sox<br>#         BUGS:  ---<br>#        NOTES:  ---<br>#       AUTHOR:  Reinoso Guzman<br>#      VERSION:  1.0<br>#      CREATED:  14/11/10 12:16:09<br>#===============================================================================<br><br>use strict;<br>use warnings;<br>use List::Util qw(max);<br><br>my $alphaVpico = 0.33;    # Para la media móvil del nivel de pico.<br>                          # Si la sigue mucho se va hasta el nivel de ruido<br>           # y no corta la lectura.        <br>my $alphaTuno  = 0.33;    # Para la media móvil del intervalo del UNO.<br>my $umbralInicial = 0.4;<br><br>my $debug = 0;<br><br><br>my $file = $ARGV[0];<br>if ($file and ! -e $file) {<br> die "El fichero $file no existe o no se puede leer.\n";<br>}<br><br>my $data;<br>if ($file) {<br> open $data, "sox $file -t dat - |" or die "Error: $!\n";<br>}<br>else {<br>    $ENV{AUDIODEV} = "hw:0,0";<br> open $data, "rec -q -r 48000 -t alsa hw:0,0  -t dat - |" or die "Error: $!\n";<br>}<br><br><br>my $muestra;     # No usamos el tiempo sino cuantas muestras,<br>                 # así no depende de la velocidad de lectura.<br>                 # Esta variable cuenta por qué muestra vamos.<br><br>my $nbits;       # Para contar cuantos picos van.<br>my $Tuno;        # Tiempo del 1, el del 0 será el doble (media movil).<br>my $Vpico;       # Valor de pico (media movil).<br><br>my $last_pico;   # Para calcular el tiempo entre transiciones<br>my $string;      # Cadena leída, por ahora vacía.<br>my $trailChar;   # Caracter inicial a priori no sabemos si es 0 o 1<br>my $umbral;      # Lo inicializamos más adelante<br>my $leyendo;     # Indica si estamos en mitad de una lectura<br><br>inicializar();<br><br>while (1) { # sale cuando get_sample se quede sin datos<br> my $intervalo; # duración entre el pico anterior y el proximo que encontremos.<br><br> espera_senal() or next;<br> my ($pos_pico, $valPico) = procesa_pico($data);<br><br> # Estamos en el primer pico, aún no tenemos la mitad de las variables<br> # definidas. Definimos los valores iniciales y no hacemos nada más.<br> if (not defined $last_pico) {<br>  $last_pico = $pos_pico;<br>  $Vpico     = $valPico;<br>  print "\n------------- Comienza nueva lectura en la muestra $muestra.\n";<br>  $leyendo = 1;<br><br>  # Bajamos el umbral en cuanto llega el primer impulso para<br>  # intentar captar los demás.<br>  $umbral = 0.70*$umbralInicial;<br>  # No seguimos.<br>  next;<br> }<br><br> # Está definido last_pico, luego ya ha habido un pico anterior y<br> # este puede ser del segundo en adelante. Ya podemos hablar de intervalo<br> # entre dos picos.<br> $intervalo = $pos_pico - $last_pico;<br> print "Pico en $pos_pico.   Duración: $intervalo.   Valor: $valPico.\n" if $debug;<br> <br> # Si el pico dura muy poco (menos que 3 muestras) es sospechoso de ser debido<br> # al ruido. Si además el valor es muy próximo al umbral lo ignoramos.<br> # Consideramos corta duración si es menor que 1/4 de Tuno, pero puede no estar<br> # definido Tuno. En ese caso que dure menos de 1/4*24 = 6 muestras.<br> if ($intervalo &lt; 1/4*($Tuno||24) and $valPico &lt;= 1.1 * $umbral) {<br>  print "Pico ingnorado\n" if $debug;<br>  next;<br> }<br><br> # Si hemos llegado aquí se trata de un pico válido. Actualizamos. <br> $last_pico = $pos_pico;<br><br> # Si aún no está definido $Tuno Estamos en el segundo pico: <br> # lo inicializamos al primer intervalo que pillemos. Y luego veremos si eran<br> # cero o eran unos.<br> if (not defined $Tuno) {<br>  $Tuno = $intervalo;<br>  $string .= $trailChar; # no sabemos cual es el caracter inicial.<br>  next;<br> }<br><br><br> # Este es a partir del tercer pico, ya tenemos una referencia con la que comparar.<br> # Juzgamos si es de la misma duración que el anterior del doble o de la mitad.<br><br> # La duración t puede ser:<br> #   1/2T   si  1/4T &lt; t &lt;= 3/4T<br> #      T   si  3/4T &lt; t &lt;= 3/2T<br> #     2T   si  3/2T &lt; t &lt;= 5/2T<br> #   indefinida en otros casos.<br> <br> # Es de la misma duración que Tuno<br> if ($intervalo &gt; 3/4*$Tuno and $intervalo &lt;= 3/2*$Tuno) {<br>  # Si aún no hemos recibido nada diferente para comparar no sabemos<br>  # si Tuno es la duración del UNO o del CERO.<br>  if ($trailChar eq "T") {<br>   $string .= $trailChar;<br>  }<br>  # Si ya sabemos que Tuno es del uno pues lo ponemos<br>  else {<br>   $string .= "1";<br>  }<br>  <br>  $Tuno  = $alphaTuno  * $intervalo + (1-$alphaTuno)  * $Tuno;<br>  $Vpico = $alphaVpico * $valPico   + (1-$alphaVpico) * $Vpico;<br> }<br><br> # Recibimos un símbolo de duración el doble: un CERO<br> elsif ($intervalo &gt; 3/2*$Tuno and $intervalo &lt;= 5/2*$Tuno) {<br>  # Confirmamos, si no lo sabíamos, que Tuno es el tiempo del UNO<br>  # porque acabamos de recibir un CERO.<br>  if ($trailChar eq "T") {<br>   $trailChar = "1";<br>   $string =~ s/T/$trailChar/g;<br>  }<br>  # Y añadimos el CERO recién recibido a la vez que realimentamos<br>  # la media móvil que lleva el tiempo del UNO.<br>  $string .= "0";<br>  $Tuno  = $alphaTuno  * $intervalo/2 + (1-$alphaTuno)  * $Tuno;<br>  $Vpico = $alphaVpico * $valPico     + (1-$alphaVpico) * $Vpico;<br> }<br><br> # Recibimos un símbolo de duración la mitad: un UNO<br> elsif ($intervalo &gt; 1/4*$Tuno and $intervalo &lt;= 3/4*$Tuno) {<br>  # Si no sabíamos cual era el caracter inicial eso quiere decir que son <br>  # CEROS y no UNOS. Porque acabamos de recibir el primer UNO.<br>  # Así que rectificamos la cadena y la duración del UNO.<br>  if ($trailChar eq "T") {<br>   $trailChar = 0;<br>   $string =~ s/T/$trailChar/g;<br>   $Tuno = $Tuno / 2; # Rectificamos la duración<br>  <br>   $string .= "1";<br>   $Tuno  = $alphaTuno  * $intervalo + (1-$alphaTuno)  * $Tuno;<br>   $Vpico = $alphaVpico * $valPico   + (1-$alphaVpico) * $Vpico;<br>  }<br><br>  # Pero si ya habíamos determinado la duración del UNO y nos llega un<br>  # pulso que dura la mitad, es que hay algo que está mal. <br>  # Se tratará de un error.<br>  else {<br>   $string .= "M";<br>  }<br> }<br><br> # Dura más o menos de lo esperado, se trata de un error, hemos perdido algo.<br> # Evitamos alimentar $Tuno con una medida errónea y con suerte el resto de<br> # bits los recibiremos correctamente.<br> elsif ($intervalo &lt; 1/4*$Tuno) {<br>  $string .= "_";<br> }<br><br> elsif ($intervalo &gt; 5/2*$Tuno) {<br>  $string .= "^";<br> }<br><br> print "Tuno = $Tuno      Vpico = $Vpico      Umbral = ". max($umbral, 0.7*($Vpico||0))."\n" if $debug;<br>}<br><br><br>print "\n";<br><br><br><br># Sale en cuanto haya una señal.<br># Mientras Vpico está si definir sólo cuenta el umbral<br># Si pasa mucho tiempo con ruido decimos que es otra lectura diferente<br>sub espera_senal {<br> my $muestras_ruido = 0;<br> my $valor;<br> while (defined ($valor = get_sample($data)) and $valor &lt; max($umbral, 0.6*($Vpico||0))) {<br>  $muestras_ruido++;<br>  # El tiempo del cero tiene que ser como mucho el doble que el del uno<br>  # pero si pasa el triple asumimos que se ha terminado la lectura.<br>  if ($leyendo and defined $Tuno and $muestras_ruido &gt; 3*$Tuno) {<br>   print "Ruido durante $muestras_ruido &gt; 3*$Tuno\n" if $debug;<br>   fin_lectura(); # des-define Tuno y saldría del bucle<br>   return undef;<br>  }<br>  elsif ($leyendo and not defined $Tuno and $muestras_ruido &gt; 100*44100/1000) {<br>   print "Ruido durante $muestras_ruido\n" if $debug;   <br>   fin_lectura();<br>   return undef;<br>  }<br> }<br> return $valor;<br>}<br><br><br># Procesa lo que es un pico, devuelve la posición y el valor máximo<br>sub procesa_pico {<br> my $maximo   = $umbral;  # Valor de pico<br> my $posicion = $muestra; # Posición del pico<br> my $valor    = 0; # Valor de la muestra actual<br> print "Entra pico: $muestra " if $debug;<br> while (($valor = get_sample($data)) &gt; max($umbral, 0.6*($Vpico||0))) {<br>  if ($valor &gt;= $maximo) {<br>   $posicion = $muestra;<br>   $maximo   = $valor;<br>  }<br> }<br> print "Sale pico: $muestra.    Valor: $maximo en $posicion\n" if $debug;<br> return ($posicion, $maximo);<br>}<br><br><br># Inicializa las variables para una nueva lectura<br>sub inicializar {<br> print "Variables reseteadas.\n" if $debug;<br> $last_pico = undef;<br> $Tuno      = undef;<br> $string    = "";<br> $Vpico     = undef;<br> $trailChar = "T";<br> $leyendo   = 0;<br><br> # El umbral tiene histéresis:<br> #   Cuando no estamos leyendo es un 10% superior al fijado.<br> #   Pero en cuanto se detecte la primera señal bajamos al 75%<br> #   por si luego llegan señales débiles.<br> $umbral    = $umbralInicial * 1.1;<br><br> printf "Umbral de señal fijado en %3.4f\n", $umbral if $debug;<br>}<br><br># Obtiene una muestra a partir del descriptor abierto<br># Lee la línea y extrae la información arpopiada.<br># Incrementa la posición contando una muestra más.<br>sub get_sample {<br> my $data = shift;<br><br> my $linea;<br> while ($linea = &lt;$data&gt;) {<br>  next unless $linea;<br><br>  my (undef, $time, $valor) = split /\s+/, $linea;<br>  next unless $time =~ /\d+/; # Saltar las lineas no numéricas.<br>  <br>  # Preprocesamos la señal para hacer más evidentes lo picos.<br>  $valor = abs($valor);<br>  #$valor = 0.90*$valor + (1-0.90)*$valor_old;<br>  #$valor = $valor*$valor*$valor;<br><br>  $muestra++;<br>  return $valor if defined $valor;<br> }<br><br> <br> print "Fin de los datos en la muestra $muestra\n";<br> fin_lectura();<br> exit; # Se acabaron los datos.<br>}<br><br><br>sub fin_lectura {<br> # No hace nada si no estábamos leyendo.<br> return undef unless $leyendo;<br><br> # Si estábamos leyendo termina.<br> print "Terminamos en la muestra $muestra\n";<br> if ($string and length $string &gt; 10) {<br>  #print "String: $string\n";<br>  print_data_stream($string);<br>  print "-------------------------------------------------------\n\n";<br> }<br> else {<br>  print "Lectura vacía.\n" if $debug;<br> }<br><br> inicializar();<br>}<br><br><br><br>sub print_data_stream {<br> my $string = shift;<br><br> $string =~ s/11/1/g; # apaño porque los 1 salen en parejas<br> my $bits = length($string);<br> print "Crudo: $string\n";<br> print "Bits: $bits\n\n" if $bits;<br><br><br> # Intentamos decodificarla con todo lo que podría ser.<br> # Y comprobamos los bit de paridad, lrc, etc<br> my ($decoded, $chars, $perrors, $LRCerror);<br> <br> ($decoded, $chars, $perrors, $LRCerror) = decode_ALPHA($string);<br> if ($decoded) {<br>  printf "Formato:            ALPHA\n";<br>  printf "Caracteres:         $chars\n";<br>  printf "Errores de paridad: $perrors\n";<br>  printf "Comprobación LRC:   %s\n", $LRCerror ? "No válido." : "¡Correcto!";<br>  printf "Contenido:          %s\n", $decoded;<br><br>#  if ($chars and $chars &gt; 10 and $perrors &lt; 2) {<br>#   print "Anotada.\n";<br>#   open my $fh, "&gt;&gt; log";<br>#   print $fh "$string : $decoded\n";<br>#   close $fh;<br>#  }<br> <br>  return;<br> }<br><br> ($decoded, $chars, $perrors, $LRCerror) = decode_BCD($string);<br> if ($decoded) {<br>  printf "Formato:            BCD\n";<br>  printf "Caracteres:         $chars\n";<br>  printf "Errores de paridad: $perrors\n";<br>  printf "Comprobación LRC:   %s\n", $LRCerror ? "No válido." : "¡Correcto!";<br>  printf "Contenido:          %s\n", $decoded;<br><br>#  if ($chars and $chars &gt; 10 and $perrors &lt; 2) {<br>#   print "Anotada.\n";<br>#   open my $fh, "&gt;&gt; log";<br>#   print $fh "$string : $decoded\n";<br>#   close $fh;<br>#  }<br>  return;<br> }<br>}<br><br><br># Sustituye los grupos por su correspondiencia<br>sub decode_BCD {<br> # http://www.gae.ucm.es/~padilla/extrawork/card-o-rama.txt<br> my %BCD_table = (<br>  '00001' =&gt; '0',<br>  '10000' =&gt; '1',<br>  '01000' =&gt; '2',<br>  '11001' =&gt; '3',<br>  '00100' =&gt; '4',<br>  '10101' =&gt; '5',<br>  '01101' =&gt; '6',<br>  '11100' =&gt; '7',<br>  '00010' =&gt; '8',<br>  '10011' =&gt; '9',<br>  '01011' =&gt; ':',<br>  '11010' =&gt; ';', # Start Sentinel<br>  '00111' =&gt; '&lt;',<br>  '10110' =&gt; '=', # Field Separator<br>  '01110' =&gt; '&gt;',<br>  '11111' =&gt; '?', # End Sentinel<br> );<br> my $string  = shift;<br> my $decoded = "";<br> my $errores = 0;<br> my $chars   = 0;<br> my @LRC;<br> <br> ($string) = $string =~ /(11010([01\?]{5})+11111[01\?]{5})/;<br> if (not $string) {<br>  print "DecodeBCD: Error de formato.\n" if $debug;<br>  return (undef);<br> }<br><br> for (my $i = 0; $i &lt; length($string); $i+= 5) {<br>  my $grupo = substr ($string, $i, 5);<br>  if (exists $BCD_table{$grupo}) {<br>   $decoded .= $BCD_table{$grupo};<br>   $LRC[$_] = ($LRC[$_]||0) ^ substr($grupo, $_, 1) for (0..3);<br>  }<br>  else {<br>   $decoded .= "_";<br>   $errores++;<br>  }<br>  $chars ++;<br> }<br><br> return ($decoded, $chars, $errores, any(@LRC));<br>}<br><br># Sustituye los grupos por su correspondiencia<br>sub decode_ALPHA {<br> # http://www.gae.ucm.es/~padilla/extrawork/card-o-rama.txt<br> my %ALPHA_table = (<br>  "0000001" =&gt; ' ', # (0H)   Special<br>  "1000000" =&gt; '!', # (1H)      "<br>  "0100000" =&gt; '"', # (2H)      "<br>  "1100001" =&gt; '#', # (3H)      "<br>  "0010000" =&gt; '$', # (4H)      "<br>  "1010001" =&gt; '%', # (5H)   Start Sentinel<br>  "0110001" =&gt; '&amp;', # (6H)   Special<br>  "1110000" =&gt; "'", # (7H)      "<br>  "0001000" =&gt; '(', # (8H)      "<br>  "1001001" =&gt; ')', # (9H)      "<br>  "0101001" =&gt; '*', # (AH)      "<br>  "1101000" =&gt; '+', # (BH)      "<br>  "0011001" =&gt; ',', # (CH)      "<br>  "1011000" =&gt; '-', # (DH)      "<br>  "0111000" =&gt; '.', # (EH)      "<br>  "1111001" =&gt; '/', # (FH)      "<br><br>  "0000100" =&gt; '0', # (10H)    Data (numeric)<br>  "1000101" =&gt; '1', # (11H)     "<br>  "0100101" =&gt; '2', # (12H)     "<br>  "1100100" =&gt; '3', # (13H)     "<br>  "0010101" =&gt; '4', # (14H)     "<br>  "1010100" =&gt; '5', # (15H)     "<br>  "0110100" =&gt; '6', # (16H)     "<br>  "1110101" =&gt; '7', # (17H)     "<br>  "0001101" =&gt; '8', # (18H)     "<br>  "1001100" =&gt; '9', # (19H)     "<br><br>  "0101100" =&gt; ':', # (1AH)   Special<br>  "1101101" =&gt; ';', # (1BH)      "<br>  "0011100" =&gt; '&lt;', # (1CH)      "<br>  "1011101" =&gt; '=', # (1DH)      "<br>  "0111101" =&gt; '&gt;', # (1EH)      "<br>  "1111100" =&gt; '?', # (1FH)   End Sentinel<br>  "0000010" =&gt; '@', # (20H)   Special<br><br>  "1000011" =&gt; 'A', # (21H)   Data (alpha) <br>  "0100011" =&gt; 'B', # (22H)     "<br>  "1100010" =&gt; 'C', # (23H)     "<br>  "0010011" =&gt; 'D', # (24H)     "<br>  "1010010" =&gt; 'E', # (25H)     "<br>  "0110010" =&gt; 'F', # (26H)     "<br>  "1110011" =&gt; 'G', # (27H)     "<br>  "0001011" =&gt; 'H', # (28H)     "<br>  "1001010" =&gt; 'I', # (29H)     "<br>  "0101010" =&gt; 'J', # (2AH)     "<br>  "1101011" =&gt; 'K', # (2BH)     "<br>  "0011010" =&gt; 'L', # (2CH)     "<br>  "1011011" =&gt; 'M', # (2DH)     "<br>  "0111011" =&gt; 'N', # (2EH)     "<br>  "1111010" =&gt; 'O', # (2FH)     "<br>  "0000111" =&gt; 'P', # (30H)     "<br>  "1000110" =&gt; 'Q', # (31H)     "<br>  "0100110" =&gt; 'R', # (32H)     "<br>  "1100111" =&gt; 'S', # (33H)     "<br>  "0010110" =&gt; 'T', # (34H)     "<br>  "1010111" =&gt; 'U', # (35H)     "<br>  "0110111" =&gt; 'V', # (36H)     "<br>  "1110110" =&gt; 'W', # (37H)     "<br>  "0001110" =&gt; 'X', # (38H)     "<br>  "1001111" =&gt; 'Y', # (39H)     "<br>  "0101111" =&gt; 'Z', # (3AH)     "<br><br>  "1101110" =&gt; '[', # (3BH)    Special<br>  "0011111" =&gt; '\\', # (3DH)   Special<br>  "1011110" =&gt; ']', # (3EH)    Special<br>  "0111110" =&gt; '^', # (3FH)    Field Separator<br>  "1111111" =&gt; '_', # (40H)    Special<br> );<br> my $string  = shift;<br> my $decoded = "";<br> my $errores = 0;<br> my $chars   = 0;<br> my @LRC;<br> <br> ($string) = $string =~ /(1010001([01\?]{7})+1111100[01\?]{7})/;<br> if (not $string) {<br>  print "Decode ALPHA: Error de formato.\n" if $debug;<br>  return;<br> }<br><br> for (my $i = 0; $i &lt; length($string); $i+= 7) {<br>  my $grupo = substr ($string, $i, 7);<br>  if (exists $ALPHA_table{$grupo}) {<br>   $decoded .= $ALPHA_table{$grupo};<br>   $LRC[$_] = ($LRC[$_]||0) ^ substr($grupo, $_, 1) for (0..5); # paridad no entra en LRC<br>  }<br>  else {<br>   $decoded .= "_";<br>   $errores++;<br>  }<br>  $chars++;<br> }<br><br> return ($decoded, $chars, $errores, any(@LRC));<br>}<br><br><br># One argument is true<br>sub any { $_ &amp;& return 1 for @_; 0 }<br><br></pre><br>
+<b>Conclusiones</b><br>
+<br>
+Y para terminar os acompaño una captura para que veais cómo una secuencia de dominios magnéticos apropiadamente colocados se traduce en unos y ceros, y esa información binaria se decodifica en información útil. La salida no es del programa de arriba sino de una versión anterior.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/2lecturastrab.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/2lecturastrab.png"></a>
+</div><br>
+A veces cuesta un poco leer las pistas de alta densidad porque el lector que usamos es más estrecho para el ancho de la banda. Pero no quiere decir que no vayamos a poder leer, sino que cuesta más obtener una señal válida.<br>
+<br>
+Ni que decir tiene que si has leído hasta aquí es porque estás interesado en la parte didáctica del artículo. Porque, si fueras un delincuente no estarías perdiendo el tiempo leyendo sobre electrónica digital y lectores de cintas de cassete sino que estarías clonando ya tarjetas con un <a href="http://www2.dealextreme.com/details.dx/sku.18362">grabador comercial</a> comprado por Internet.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>amplificadores</li>
+<li>física</li>
+<li>Perl</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Describiendo un protocolo desconocido</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Describiendo un protocolo desconocido</h3>
+<div class='post-date'>
+Publicado el 25-12-2017.
+</div>
+<div class='post-body entry-content'>
+Imagina que estás frente a una pared de roca y quieres escalarla. Buscas alguna indicación y consultas la guía, pero nadie lo ha hecho antes. Nadie te dice cómo empezar ni por donde seguir, sólo debes fijarte con atención y encontrar algún sitio donde agarrarte para ir subiendo lentamente.<br>
+<br>
+Este es el proceso de análisis en cualquier investigación, desde científica a policíaca. En ocasiones no tienes ni idea de a dónde te va a llevar. Sólo buscas indicios y relacionas patrones sin saber si caminas en la dirección correcta. Con el tiempo, alguna pieza encaja y encuentras un punto de apoyo que te permite certificar el trabajo hecho hasta el momento. Desde ahí continúas subiendo.<br>
+<br>
+En la entrada anterior <a href="../../../2017/10/demodular-afsk-desde-cero/articulo.html">Demodular AFSK, desde cero</a> explicamos cómo demodular e interpretar un protocolo conocido. En esta te invito a investigar una señal desconocida. Iremos deduciendo las capas desde la portadora de radio hasta los mensajes de texto para averiguar el origen.<br>
+<br>
+Hay programas tipo <a href="https://github.com/jopohl/urh">Universal Radio Hacker</a>, destinados a facilitar esta labor. Al profesional le ahorrarán mucho trabajo tedioso. Nosotros, dado que no somos profesionales, lo haremos de modo artesanal sin recurrir a software especializado.<br>
+<br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+<b>Modulación de radiofrecuencia</b><br>
+<br>
+Hace tiempo estaba escaneando cerca de un rango de <a href="https://en.wikipedia.org/wiki/Trunked_radio_system">trunking</a>, cuando me encontré una señal muy fuerte. Tan fuerte como para saturar la etapa de entrada y causar todo tipo de interferencias en las frecuencias adyacentes. Bajé la ganancia del SDR y la sintonicé.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/frecuencias_editado.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="683" data-original-width="1221" src="img/frecuencias_editado.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Señal desconocida. Continua y periódica.</td>
+</tr>
+</tbody>
+</table>A primera vista parece otro canal de control de Trunking. Sin embargo al oído es totalmente diferente al <a href="https://www.sigidwiki.com/wiki/MPT_1327">MPT1327</a>. Más bien suena como si transmitiera periódicamente alguna identificación. Aquí tenéis una muestra:<br>
+<br>
+<audio controls="" preload="none" src="http://sites.google.com/site/electronicayciencia/ffsk_muestra.wav"></audio><br>
+<br>
+Y esta, para comparar, es un ejemplo de un canal de control MPT-1327:<br>
+<br>
+<audio controls="" preload="none" src="https://www.sigidwiki.com/images/d/db/MPT1327_Sound.mp3"></audio><br>
+<br>
+Aunque no se parece al ejemplo, sí tienen varias cosas en común: ambas son señales digitales, y aunque la modulación es diferente el ancho de banda es similar. Los más atentos habréis observado que ambas son señales continuas. Eso significa que o bien no hay respuesta, o si la hay se espera por otra frecuencia diferente. En el primer caso se trataría de algún tipo de radiodifusión; en el segundo caso estaríamos captando el canal de bajada de algún sistema bidireccional.<br>
+<br>
+Diríamos que es una señal digital modulada en FM estrecha mediante subportadora de audio, práctica muy habitual. Busqué en Internet por si encontraba qué era, sin resultado.<br>
+<br>
+Capturamos una muestra y la abriremos en un editor de sonido. En un primer momento nos serviría con la grabación desde SDRSharp. Pero más adelante necesitaremos capturar gran cantidad de paquetes para deducir el protocolo, por lo tanto a la larga nos vendrá bien un receptor por línea de comandos.<br>
+<br>
+Usando Gnuradio programaremos un sencillo receptor de FM estrecha, este sería el diagrama de bloques:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/esquema_gnuradio.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="386" data-original-width="1121" src="img/esquema_gnuradio.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Esquema del receptor FM.</td>
+</tr>
+</tbody>
+</table><br>
+Consta de una fuente RTL-SDR, y a continuación un paso bajo con corte en 12kHz para quedarnos sólo con el canal principal.<br>
+<br>
+Después insertamos un resampler para bajar la frecuencia de muestreo de 1MHz a, por ejemplo, 88.2kHz. Lo siguiente es un demodulador de FM, que transformará las muestras I/Q en valores de coma flotante. Fijaremos la desviación máxima en 5kHz ya que la máxima frecuencia útil no supera los 2400Hz, como luego veremos.<br>
+<br>
+El demodulador FM traducirá cualquier desviación entre la frecuencia de sintonía y la portadora de FM en una componente continua. Por esa razón siempre debe estar seguido de un filtro paso alto. En caso contrario deberíamos centrar muy bien la frecuencia o la salida se saturaría rápidamente. Hemos optado por un filtro paso banda entre los 300 y 4000Hz.<br>
+<br>
+Una vez demodulada y filtrada la señal en banda base la amplificaremos. La ventaja de usar un amplificador con Control Automático de Ganancia es librarnos del potenciómetro de volumen, dado que este ya mantiene constante el nivel de la envolvente.<br>
+<br>
+Finalmente volcamos las muestras a la salida estándar de donde las recogeremos en el paso siguiente.<br>
+<br>
+Otra opción, muy práctica por ejemplo en Raspberry, es utilizar el comando <em>rtl_fm</em>. Es muy conveniente en sistemas limitados o sin entorno gráfico. Eso sí, el procesado posterior corre de nuestra cuenta.<br>
+<br>
+<pre>rtl_fm -p 47 -g 49 -f $FREQ -s 20000 -<br></pre><br>
+Este comando instancia un demodulador de FM estrecha. El muestreo sería a 20000Hz lo que teóricamente nos permitiría captar hasta 10kHz, un ancho de canal suficiente.<br>
+<br>
+Como ya sabéis, en un demodulador de FM la salida es proporcional a la desviación respecto a la frecuencia central. El emisor transmite con una cierta desviación, y mientras más ancho pongamos el canal menor será comparativamente la desviación y por tanto la salida del receptor. O sea, si configuramos un ancho de banda demasiado grande empeorará la relación señal ruido.<br>
+<br>
+Por otra parte, si ajustamos el ancho de banda a la desviación del emisor, encontraremos problemas debidos a la baja estabilidad en frecuencia de los receptores RTL-SDR. En el comando anterior hemos especificado un error de 47 ppm. Realmente el error varía con la temperatura. Cuando el receptor se calienta o se enfría la frecuencia real de sintonía cambia ligeramente. Si hubiéramos especificado un ancho de canal muy estrecho tendríamos mejor relación señal/ruido al principio pero con cualquier cambio de temperatura perderíamos la señal.<br>
+<br>
+Necesitamos filtrar y amplificar la salida del receptor, lo haremos utilizando el comando <b>sox</b>. Seguramente estáis familiarizados con el uso de SOX, aún así permitidme explicarlo de todos modos.<br>
+<br>
+<pre>sox -t raw -r 20000 -es -b 16 -c 1 - \<br>    -t raw -r 44100 - \<br>    sinc 300-3200 compand 0.01,0.01 -100,0 -20<br></pre><br>
+Este comando se divide en tres partes. La primera parte se refiere a la entrada de datos. El programa rtl_fm genera muestras de 16bit en formato entero con signo, <em>-t raw -r 20000 -es -b 16 -c 1 -</em> indica leer muestras de la entrada estándar, en formato binario entero de 16 bits, a un ritmo de 20kHz, un sólo canal.<br>
+<br>
+La segunda parte hace referencia a la salida. <em>-t raw -r 44100 -</em> quiere decir que la salida la haremos también por la salida estándar y de igual modo en formato binario, pero con un muestreo de 44100Hz. Remuestreando la señal no vamos a ganar calidad pero nos facilitará luego el proceso posterior.<br>
+<br>
+Tras la salida listamos los efectos deseados: <em>sinc 300-3200</em> consiste en un filtro paso banda entre 300 y 3200Hz y <em>compand 0.01,0.01 -100,0 -13</em> hace las veces de Control Automático de Ganancia. En este momento los valores son orientativos, más adelante podríamos ajustarlos por experimentación.<br>
+<br>
+El comando <em>compand</em> tiene, a su vez, otros tres argumentos. El primer par de números son los tiempos durante los que promediaremos la señal de entrada con el objetivo de determinar su valor medio. El primero de ellos se llama parámetro de ataque y se tiene en cuenta al bajar el volumen de una entrada muy alta. El segundo tiempo, llamado de relajación, es similar pero actúa al subir el volumen de una entrada tenue.<br>
+<br>
+Lo típico es tener un tiempo de ataque corto (0.3s) para que el AGC reaccione y compense rápidamente las subidas de intensidad repentinas. Mientras el tiempo de relajación suele ser más alto (0.8s), de esta forma sube el volumen gradualmente en los pasajes suaves. Fijando un tiempo de relajación corto, de sólo 0.01s, lo forzamos a compensar rápidamente cualquier cambio.<br>
+<br>
+El siguiente parámetro son puntos de la función de transferencia. En nuestro caso significa "amplificar de forma que partiendo de -100dB alcance los 0dB", es decir, llevar todo a 0dB por débil que sea. El tercer número, -13, es un valor de ganancia general determinado por experimentación que produce el mayor nivel de señal con los parámetros anteriores sin llegar a la saturación.<br>
+<br>
+<br>
+<b>Modulación de audiofrecuencia</b><br>
+<br>
+Ya tenemos nuestra señal de audio. Lo siguiente es identificar su modulación. Podría ser de amplitud, de frecuencia o de fase (u otras combinaciones raras). Las dos primeras se identifican con facilidad, la de fase requiere cierta experiencia. Luego dentro de cada grupo hay variantes.<br>
+<br>
+Empecemos viendo la señal en un editor de sonido:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/captura_audacity.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="625" data-original-width="872" src="img/captura_audacity.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Señal en los dominios del tiempo y la frecuencia.</td>
+</tr>
+</tbody>
+</table><br>
+La amplitud es más o menos constante, la fase también. Podría tratarse de alguna variante de FSK. Parece que la frecuencia predominante es 1200Hz. Lo siguiente es ver si podemos identificar una unidad mínima de cambio. A veces se puede ver a ojo. Todo este artículo va de reconocer patrones. Fijémonos en los periodos: hay periodos de una frecuencia entre semiperiodos de otra. Parecen existir dos frecuencias: 1200 y 2400Hz. Llamamos H a la alta y L a la baja frecuencia.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/ffsk2400.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="539" data-original-width="1600" src="img/ffsk2400.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Demodulación estimada "a mano".</td>
+</tr>
+</tbody>
+</table><br>
+En una modulación FSK binaria, una frecuencia suele ser doble de la otra. Y, además, el bitrate (la tasa de transmisión de datos) igual a la frecuencia inferior. Tal condición facilita las cosas a la hora de cambiar una frecuencia por la otra. Ya que los cambios se producen tras un periodo completo de la frecuencia inferior, o dos periodos completos de la frecuencia superior -por ser la frecuencia doble-. No hay inversión de la fase, ni discontinuidades en la amplitud.<br>
+<br>
+No es obligatorio. En esta ocasión, encontramos semiperiodos de 1200Hz entremezclados con periodos completos de 2400Hz. Lo cual nos lleva a pensar que el bitrate no es 1200Hz sino 2400Hz, produciéndose un cambio por semiperiodo de 1200 o por periodo completo de 2400.<br>
+<br>
+Una consecuencia de cambiar tras un semiperiodo es la inversión de fase. En la imagen anterior, el segundo periodo h está en oposición de fase respecto al primer periodo h debido a que están separados por un semiperiodo l. No sucede igual cuando dos periodos h están separados por un periodo completo l.<br>
+<br>
+Por tanto es una modulación de frecuencia, pero también de fase. Hay una modulación llamada FFSK (Fast FSK), o también <a href="https://en.wikipedia.org/wiki/Minimum-shift_keying">Minimum-shift keying</a> que podría encajar en esta descripción. Para comprobarlo tomaremos una señal MSK junto con la de prueba y haremos un análisis básico. Esta es <em>la transformada de Fourier del pobre</em>.<br>
+<br>
+Se trata de identificar los cruces por cero de la entrada y contar cuántas muestras separan dos cruces consecutivos. Por supuesto, sólo funciona correctamente si la señal está centrada. En cada semiperiodo se produce un paso por cero. De ahí haciendo un histograma del número de muestras entre ellos tenemos un análisis de frecuencias muy básico:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/msk_vs_ffsk.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="543" data-original-width="1312" src="img/msk_vs_ffsk.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Comparativa de pasos por cero entre FFSK y nuestra señal.</td>
+</tr>
+</tbody>
+</table><br>
+No obstante, nos basta para apreciar la diferencia. En nuestra señal hay dos frecuencias perfectamente diferenciadas. Los cruces por cero se producen cada 18-19 muestras, o bien cada 36-37. En MSK hay un pico en las 24-25 muestras (equivalente a una frecuencia de 1800Hz) otro pico en la de 2400 y luego varias intermedias.<br>
+<br>
+A la vista del resultado optamos por tratar esta modulación como <b>BFSK-2400</b> (Binary Frequency-shift keying con un bitrate de 2400Hz). Ignoro si este esquema tiene algún nombre técnico más específico. Daos cuenta de que es la opción más lógica, sí, pero por lo que sabemos hasta ahora podría ser correcta o equivocada.<br>
+<br>
+Existen múltiples algoritmos para demodular FSK. Hoy os propongo uno la mar de sencillo: un detector de paso por cero. Calcularemos el valor absoluto de la entrada y contaremos el tiempo entre dos cruces consecutivos para determinar si se trata de 1200 o 2400Hz.<br>
+<br>
+La primera tiene un semiperiodo de 416us y la segunda de 208us. El promedio entre ambos semiperiodos es 312us, llamémoslo Tau. También definimos unas cotas inferior y superior arbitrarias clasificaremos el tiempo entre un cruce y otro:<br>
+<ul>
+<li>Si está fuera de los límites marcados, la frecuencia está muy lejos de las deseadas. Sería un error de demodulación.</li>
+<li>Estando dentro de los límites, si el tiempo está por debajo del promedio Tau lo consideraremos un semiperiodo de la frecuencia superior (2400Hz). Y si está por encima un semiperiodo de la frecuencia inferior (1200Hz)</li>
+</ul><br>
+Dedujimos anteriormente que cada símbolo constaba de un semiperiodo de 1200Hz o un periodo completo de 2400Hz. No esperamos ningún semiperiodo aislado de 2400Hz; si lo halláramos se trataría de un error. Escribiremos 'h' al encontrar un periodo completo de 2400Hz y 'l' al encontrar un semiperiodo de 1200Hz.<br>
+<br>
+A la salida de nuestro demodulador tendremos una secuencia de 'h' y 'l' tal como:<br>
+<br>
+<pre>... llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll<br>lllllllllllllllllllhlhlhlhlhlhlhlhlhlhlhlllllllllhllllhhhhlhhllhhhlllhlhlhlhhhlh<br>hlhllhhhlhhhhhhhlhlhhhhhhhhhlhhhhhhhhhlhlhhhhhhhlhlhhhhhhhlhhhhhhhhhlhhhhhhhhhlh<br>hhhhhhhhlhhlhhhhhhlhlhhhhhhhlhhhhhhhhhlhhhhhhhhhlhhhhhhhhhlhllhhhhhhlhlhhhhhhhlh<br>hhhhhhhhlhhhhhhhhhlhhhhhhhhhlhhhlhhhhhlhlhhhhhhhlhhhhhhhhhlhhhhhhhhhlhhhhhhhhhlh<br>lhlhhhhhlhlhhhhhhhlhhhhhhhhhlhhllllhlllhlhlllhlhllllllllllllllllllllllllllllllll<br>lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll ...<br></pre><br>
+<br>
+<b>Código de línea</b><br>
+<br>
+Para continuar trataremos de encontrar el código de línea empleado. Comenzaremos por el más sencillo, NRZL, donde la frecuencia baja (un símbolo l) representa un 1 lógico y la frecuencia alta (la h) un 0 lógico. De nuevo no tenemos motivos para pensar que sea la opción correcta, también podría ser a la inversa.<br>
+<br>
+Este sería el mismo paquete anterior decodificado en bits:<br>
+<br>
+<pre>.... 111111111111111111111111111111111111111111111111111111111111111111111111111<br>11111111111111110101010101010101010101111111110111100001001100011101010100010010<br>11000100000001010000000001000000000101000000010100000001000000000100000000010000<br>00000100100000010100000001000000000100000000010000000001011000000101000000010000<br>00000100000000010000000001000100000101000000010000000001000000000100000000010101<br>0000010100000001000000000100111101110101110101111111111111111111111111111111 ...<br></pre><br>
+A primera vista tiene muchos ceros. Eso es bueno: estadísticamente los valores bajos son más frecuentes que los valores altos; también es habitual rellenar campos vacíos con ceros. Veamos si podemos deducir algún patrón en una muestra de varios paquetes.<br>
+<br>
+El más importante de todos es <b>la cabecera</b>. En general cualquier sistema espera recibir unos bits concretos al comienzo para saber que está escuchando un paquete y no el ruido de fondo. Diríamos que la cabecera es casi obligatoria. Por tanto, entre los bits capturados buscaremos una secuencia común al inicio.<br>
+<br>
+En este caso es fácil porque la señal es un flujo continuo y se ve claramente donde empieza y donde acaba cada trama. Basta con tomar como un paquete cualquier cosa entre una secuencia de más de 10 unos seguidos.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/paquetes_value_heads.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="533" data-original-width="1038" src="img/paquetes_value_heads.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Apreciamos que al principio de todos los paquetes hay ciertos bits invariantes.</td>
+</tr>
+</tbody>
+</table><br>
+Lo siguiente es buscar una marca de final del paquete. A diferencia de la cabecera no siempre existe. Para averiguarlo alineamos los finales y comprobamos si tienen algo en común.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/paquetes_value_ends.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="371" data-original-width="323" src="img/paquetes_value_ends.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">No se aprecia ningún patrón común al final de los paquetes.</td>
+</tr>
+</tbody>
+</table><br>
+No, parece. Sin embargo, el receptor debe tener alguna manera de saber si ha terminado de recibir la trama y la ha recibido completa. De no hay una marca al final la otra posibilidad es hacer constar la longitud dentro del mensaje. Habría otra posibilidad: dar por terminada la trama cuando hubiera una secuencia de unos suficientemente larga. Pero no resulta práctico.<br>
+<br>
+<br>
+<b>Serialización de bytes</b><br>
+<br>
+Una vez tengamos una muestra más o menos amplia de tramas, pasaremos a analizarlas. Como trabajar en binario es tedioso, buscaremos alguna forma de agrupar los bits en bytes.<br>
+<br>
+Hay protocolos orientados a bits y otros orientados a bytes. Los orientados a bits se caracterizan por ser tramas de corta duración, tal como mandos a distancia sencillos. En este caso no hay más que poner unos cuantos paquetes alineados y los grupos saltan a la vista.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/paquetes_value_groups.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="533" data-original-width="848" src="img/paquetes_value_groups.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Los grupos parecen separados por un 1 y un 0.</td>
+</tr>
+</tbody>
+</table><br>
+Hay grupos de 8 bits que varían separados siempre por un 1 y un 0. Lo de 8 bits está muy bien, pero lo de separarlos por un 1 y un 0 es raro.<br>
+<br>
+<pre>...--10--------10--------10--------10---...<br></pre><br>
+Podría tratarse de una marca de separación en sí:<br>
+<br>
+<pre>...-- 10 -------- 10 -------- 10 -------- 10 ---...<br></pre><br>
+O bien los grupos podrían empezar por 0 y terminar por 1, así:<br>
+<br>
+<pre>...--1 0--------1 0--------1 0--------1 0---...<br></pre><br>
+No conozco ningún protocolo que separe los bytes usando la marca 10 (aunque podría haberlo), pero si reconozco el patrón 0--------1. Es una transmisión serie de 8 bits más un bit de start y un bit de stop. El bit de start suele ser 0 y el bit de parada un 1.<br>
+<br>
+Recolocando los bytes según lo anterior obtendríamos:<br>
+<br>
+<pre>0 10101010 1<br>0 10101010 1<br>0 11111111 1<br>0 11110000 1<br>0 01100011 1<br>0 10101000 1<br>0 01011000 1<br>0 00000010 1<br>...<br></pre><br>
+¡Sí! Encajan incluso los bits de la cabecera.<br>
+<br>
+En este tipo de esquemas suele incorporarse también un bit de paridad par o impar que es el primero o el último. Si ese fuera el caso estaríamos ante un código de 7 bits más uno de paridad. Contemos los unos de cada bloque para comprobarlo.<br>
+<br>
+El primer y segundo bloques tienen ambos 4 unos; el tercer bloque 8; el cuarto bloque 4, el quinto 4 unos también. Se momento se cumple paridad par. El sexto byte tiene 3 unos... podría ser un error, no lo contamos. El séptimo tiene otros 3, el octavo sólo un uno... Descartamos lo de la paridad.<br>
+<br>
+¿Bloques de 8 bits, con bit de inicio, bit de parada y sin paridad? No me cuadra. Antes de seguir avanzando replanteémonos lo que llevamos.<br>
+<br>
+Durante un proceso de investigación de cualquier tipo, también de ingeniería inversa, es imprescindible tomar notas donde apuntamos los pasos y las conclusiones hechas. Precisamente porque no sabemos cuándo vamos a llegar a una conclusión errónea y nos va a obligar a volver sobre nuestros pasos. Probemos con otro código de línea a ver si encaja mejor.<br>
+<br>
+<br>
+<b>Código de línea (segunda parte)</b><br>
+<br>
+Habíamos propuesto inicialmente un código NRZL donde la alta frecuencia equivale a 0 (más propiamente dicho, al espacio) y la baja a uno (o marca).<br>
+<br>
+<pre>Baja frecuencia (l) = 1 (marca)<br>Alta frecuencia (h) = 0 (espacio)<br></pre><br>
+Podría ser al revés, pero eso tan solo invertiría los bits. Obtendríamos muchos bits a 1, el bit de stop se convertiría en 0 y el de start en 1 y seguiríamos sin tener paridad de ningún tipo. Con eso no ganamos nada.<br>
+<br>
+El siguiente <em>linecode</em> más habitual es sin retorno a cero de tipo marca o de tipo espacio (NRZ-M o NRZ-S). En dicha codificación se le asigna un valor a los cambios de frecuencia en vez a las frecuencias en sí. En un código NRZ-M un 1 quiere decir "cambio de valor" y un 0 indica "mantener el valor actual". En NRZ-S es igual pero al revés.<br>
+<br>
+¿Con cuál de las dos probamos primero? Si fuera una codificación NRZ-M la secuencia constante de unos que separa dos tramas adyacentes se convertiría en una secuencia de 1 y 0 alternos. Mientras que usando NRZ-S sería una secuencia continua de ceros. Lo segundo es mucho más probable.<br>
+<br>
+Probemos un NRZ-S. El paquete anterior ahora se decodificaría así:<br>
+<br>
+<pre>... 0000000000000000000000000000000000000000000000000000000000000000000000000000<br>00000000000000111111111111111111111100000000110001000110101001001111111001101110<br>10011000000111100000000110000000011110000001111000000110000000011000000001100000<br>00011011000001111000000110000000011000000001100000000111010000011110000001100000<br>00011000000001100000000110011000011110000001100000000110000000011000000001111110<br>00011110000001100000000110100011001111001111000000000000000000000000000000000000<br>0000000000000000000000000000000000000000000000000000000000000000000000000000 ...<br></pre><br>
+Tiene muchos ceros, y habíamos dicho que eso era bueno. Ahora buscamos cabeceras tal como hicimos antes. Finales no buscamos porque, si no había un patrón antes, ahora tampoco lo habrá. El código de línea puede cambiar los bits, pero secuencias iguales en un código producen secuencias iguales en otro.<br>
+<br>
+Intentemos agrupar los bites con este código.<br>
+<br>
+<br>
+<b>Serialización de bytes (segunda parte)</b><br>
+<br>
+Mediante el mismo procedimiento tratamos de separar los grupos. Tomamos varios paquetes, los alineamos y observamos.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/paquetes_nrzs_groups.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="571" data-original-width="725" src="img/paquetes_nrzs_groups.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Cada 9 bits, el décimo es necesariamente 1.</td>
+</tr>
+</tbody>
+</table><br>
+Cada 9 bits, el décimo siempre es un 1.<br>
+<br>
+<pre>...--1---------1---------1---------1--...<br></pre><br>
+Si tomamos ese 1 como bit de parada nos da grupos de 9 bits:<br>
+<br>
+<pre>...--1 ---------1 ---------1 --------- 1--...<br></pre><br>
+Un grupo de 9 bit sólo tiene sentido si uno de ellos es un bit de paridad. Lo comprobaremos observando los primeros bloques del paquete anterior:<br>
+<br>
+<pre>111111111111111111111<br>100000000 1<br>100010001 1<br>010100100 1<br>111111001 1<br>011101001 1<br>000000111 1<br>000000001 1<br>000000001 1<br>110000001 1<br>110000001 1<br></pre><br>
+Aquí la cabecera se nos descuadra pero no importa. Diremos que el paquete comienza con un preámbulo de varios unos seguidos sin especificar una longitud concreta.<br>
+<br>
+En cuanto a la paridad de los grupos (sin contar el bit de parada): el primero tiene 1 uno; el segundo grupo, 3; el tercero otros 3; el cuarto 7 unos; el quinto 5; etc. Lo verificamos estadísticamente contando el número de unos en los grupos de una muestra.<br>
+<br>
+<pre>Ocurrencias #unos<br>          1 0<br>      10514 1<br>          2 2<br>       9866 3<br>          1 4<br>       7176 5<br>       1646 7<br></pre><br>
+Los grupos pares casi no aparecen. ¡Hay claramente una paridad impar! No puede ser casualidad, hemos encajado una pieza. Será nuestro primer <b>punto de anclaje</b>.<br>
+<br>
+Resumiendo lo que llevamos hasta ahora:<br>
+<ul>
+<li>Modulación en FM estrecha con subportadora de audio.</li>
+<li>Audio modulado en BFSK-2400 usando tonos de 1200 y 2400Hz.</li>
+<li>La frecuencia 1200Hz corresponde a la marca y 2400 el espacio. O viceversa, da igual porque los códigos de línea NRZS o NRZM tan sólo tienen en cuenta las transiciones.</li>
+<li>El código de línea es NRZ-S o NRZ-M, siendo más probable lo primero.</li>
+<li>Los paquetes comienzan con un preámbulo de unos, no hay marca de final.</li>
+<li>La serialización de bytes consiste en grupos de 8 bits más un bit de paridad impar (paridad par, de ser NRZM), un bit de stop y ningún bit de start.</li>
+</ul><br>
+Cabe preguntarse ahora ¿el bit de paridad es el primero o el último de los 9? Lo decidiremos estadísticamente, que siempre es más elegante que hacerlo a cara o cruz. En la muestra de paquetes abunda muchísimo más el grupo 000000001 que el 100000000. Por tanto supondremos que el bit de paridad es el último y el grupo 000000001 equivale a un byte 0 más un bit de paridad al final.<br>
+<br>
+Así pues, el mensaje está formado por grupos tal que:<br>
+<br>
+<pre>...<br>--------o1<br>--------o1<br>--------o1<br>...<br></pre><br>
+donde <b>o</b> es el bit de paridad impar y el 1 un bit de stop.<br>
+<br>
+Antes de poder convertirlo a hexadecimal nos falta por saber lo que se denomina <em>orden de los bits</em>. A veces se llama <em>endianness</em> pero en este contexto tal término resulta ambiguo, ya que por lo general se refiere al orden de los bytes en números con más de un byte. Aquí estamos hablando del orden de los <b>bits</b> dentro de un byte.<br>
+<br>
+Invertir los bytes es una práctica habitual. Supondremos que el orden de los bits está invertido. De nuevo estamos jugando a adivinar. No sabremos si erramos o estamos en lo cierto hasta llegar al siguiente punto de anclaje.<br>
+<br>
+Teniendo el cuenta dicho convenio de bits, los bytes del paquete anterior serían estos:<br>
+<br>
+<pre>01 11 4a 3f 2e c0 00 00 03 03 00 00 00 06 03 00 00 00 05 03 00 00 00 0c 03 00 00 00 0f 03 00 62<br></pre><br>
+Ahora es cuando buscaríamos en Google los primeros bytes con la esperanza de encontrar a qué protocolo corresponden. Nada, seguimos por nuestra cuenta.<br>
+<br>
+El último byte casi siempre es algún tipo de checksum o CRC del paquete. Hay dos características que nos permitirían comprobar si es así:<br>
+<ul>
+<li>Alta variabilidad, con distribución prácticamente uniforme en todo el dominio. Por supuesto previa eliminación de paquetes idénticos para no introducir un posible sesgo.</li>
+<li>Cuando dos paquetes coinciden en el resto de sus bytes, necesariamente coinciden en este último. Es decir, no encontramos paquetes en los que coincidan todos los bits salvo el CRC (o si encontramos algunos, no es un número significativo).</li>
+</ul><br>
+La segunda condición es otra forma de decir que el checksum es función del resto de bytes. Utilizaremos un breve programa para analizar la muestra:<br>
+<br>
+<pre>Examined packages: 264819<br>Probability of differ Check for the same bytes: 0.0006%<br><br>Distribution of Checks:<br>00  0.41%<br>01  0.39%<br>02  0.39%<br>...<br>fd  0.39%<br>fe  0.38%<br>ff  0.39%<br></pre><br>
+Un 0.39% es lo esperable en una distribución uniforme de 256 posibles valores. Y la probabilidad de obtener diferente checksum con los mismos bytes es compatible con posibles errores de demodulación. En este caso ambas premisas se cumplen. Luego, para nosotros, este último byte es un checksum. Eso sí, sin conocer el algoritmo generador no podemos sacarle partido.<br>
+<br>
+<br>
+<b>En busca de la longitud</b><br>
+<br>
+Hemos convertido el puzle en una sopa de letras. ¿Te gustan la sopas de letras?<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/sopa-de-letras.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="468" data-original-width="637" src="img/sopa-de-letras.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">¿Te gustan las sopas de letras?</td>
+</tr>
+</tbody>
+</table><br>
+Tenemos una muestra de tramas, con bytes hexadecimales que ni siquiera sabemos si están bien decodificados y mucho menos qué significan. ¿Cómo continuamos? ¿Os acordáis de que no había ninguna marca de final de paquete y que por lo tanto esperaríamos encontrar la longitud como dato en el paquete? Bien, pues ¡a buscarla!.<br>
+<br>
+Ordenaremos los paquetes que tengamos por longitud. Si de verdad algún byte indica el tamaño, este será igual para todos los paquetes de la misma longitud (o al menos para casi todos, porque siempre podríamos haber recibido paquetes incompletos).<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/longitudes_gray.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="571" data-original-width="1443" src="img/longitudes_gray.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">El quinto byte es igual para paquetes de igual longitud.</td>
+</tr>
+</tbody>
+</table><br>
+Sí, hay un byte, el quinto, igual para los paquetes de la misma longitud... pero es un poco raro. Empieza valiendo 39h, luego <em>aumenta</em> a 28h, después vale 2Bh y el siguiente es 2Eh. ¿Qué clase de sucesión creciente es esta?<br>
+<br>
+Tal vez no sea la longitud, sino el <b>tipo de paquete</b>. En ese caso la longitud se deduce del tipo de paquete. Y sin las especificaciones del protocolo estamos ante un callejón sin salida. Sin embargo hay paquetes de muchos tamaños distintos y no es habitual tener tantos tipos de paquetes diferentes.<br>
+<br>
+Como la suposición anterior no lleva a ninguna parte, diremos que sí es la longitud, pero nos hemos equivocado de alguna manera al decodificar los bytes. Estudiemos la secuencia con más detenimiento:<br>
+<br>
+<pre>Tamaño  Byte#5     Binario <br>  29      39       00111001<br>  30      28       00101000<br>  31      2b       00101011<br>  32      2e       00101110<br>  33      2d       00101101<br>  34      24       00100100<br>  35      27       00100111<br>  36      22       00100010<br>...<br></pre><br>
+El último bit va alternando, lo cual se corresponde con lo esperado en una secuencia. Cuando incrementamos una cuenta en binario el último bit toma valores alternos. La cuestión es que entre un número y el siguiente cambian siempre dos bits: el último y otro más, no necesariamente consecutivos. ¿Podría ser el bit de paridad en realidad el 1º en lugar del 9º y por eso cambian dos: <em>el bit correspondiente</em> y el de paridad? Tal vez, pero aún así eso de "el bit correspondiente" no parece obvio. Sólo me di cuenta tras copiarlo a mano y transcribirlo a una pizarra.<br>
+<br>
+Ignorando el último bit tenemos:<br>
+<pre>1100<br>0100<br>0101<br>0111<br>0110<br>0010<br>0011<br>0001<br>...<br></pre><br>
+Siempre cambia un bit, y sólo uno. Hemos supuesto que es una sucesión creciente. ¿En qué tipo de sucesión cambia sólo un bit entre un número y el siguiente? ¡El <a href="https://en.wikipedia.org/wiki/Gray_code">código <b>Gray</b></a>! El código gray se suele utilizar en conmutadores mecánicos porque su característica es precisamente esa: sólo cambia un bit entre dos números consecutivos.<br>
+<br>
+Pensad por ejemplo en una sucesión:<br>
+<br>
+<pre>Dec   Bin<br>  0       0000<br>  1       0001<br>  2       0010<br>  3       0011<br>  4       0100<br>...<br>127   01111111<br>128   10000000<br></pre><br>
+Entre el 0 y el 1 sólo cambia un bit, pero entre el 1 y el 2 cambian dos bits. Es más, entre 3 y 4 cambian 3 bits. Del 127 al 128 cambian nada menos que 8 bits. Pensad en un ordenador antiguo compuesto por relés electromecánicos. Si para cambiar de un valor al siguiente hay que alterar el estado de 8 relés, seguramente no cambien todos a la vez y podrían darse multitud de estados intermedios. Con el código propuesto por Gray ese problema se evita, porque sea cual sea el número, para pasar al siguiente o al anterior tan sólo se necesita un cambio:<br>
+<br>
+<pre>Bec   Bin (Gray)<br>  0       0000<br>  1       0001<br>  2       0011<br>  3       0010<br>  4       0110<br>...<br>127   01000000<br>128   11000000<br></pre><br>
+¿Pero por qué los bytes irían codificados en Gray? No estamos usando relés mecánicos. Otro sitio donde se utiliza Gray es al asignar valores en un <a href="https://en.wikipedia.org/wiki/Constellation_diagram">diagrama de constelación</a>. Así, si erramos al demodular y acabamos en un punto vecino, tan sólo habremos equivocado un bit. Y un bit es relativamente fácil de corregir.<br>
+<br>
+Los grupos tenían un bit de paridad y el último byte parece ser un checksum. Ahora nos encontramos con un código Gray. Aún no conocemos el mecanismo, pero es sin duda un sistema diseñado con intención de poder detectar y corregir errores.<br>
+<br>
+Tras alguna prueba de ensayo y error determinamos la secuencia correcta para interpretar los bytes. Primero deshacer el código gray, y a continuación invertir el orden de los bits. Si hacemos eso con las longitudes obtenemos:<br>
+<br>
+<pre>Tamaño  Byte#5     De-Gray   Reverse   Decimal<br>  29    10011100   11101000  00010111    23<br>  30    00010100   00011000  00011000    24<br>  31    11010100   10011000  00011001    25<br>  32    01110100   01011000  00011010    26<br>  33    10110100   11011000  00011011    27<br>  34    00100100   00111000  00011100    28<br>  35    11100100   10111000  00011101    29<br>  36    01000100   01111000  00011110    30<br></pre><br>
+¡Sí! El byte 5 es igual a la longitud del paquete menos 6. ¿Por qué menos 6? Pudiera ser porque en realidad no es el 5º byte sino el 6º, la cabecera tiene un byte más de los que habíamos previsto. O podría ser porque el último byte del paquete no son datos, sino un checksum y no se cuenta.<br>
+<br>
+Da lo mismo, en cualquiera de los dos casos lo importante es que tenemos un segundo <b>punto de anclaje</b>. Procedemos a salvar la partida.<br>
+<br>
+<ul>
+<li>Modulación radio en FM estrecha con subportadora de audio.</li>
+<li>Modulación audio BFSK-2400 con código de línea NRZS.</li>
+<li>Serialización en grupos de 8 bits más un bit de paridad impar y un bit de stop.</li>
+<li>Codificación Gray con bit menos significativo primero.</li>
+<li>El 5º byte indica el número de bytes que siguen menos uno.</li>
+</ul><br>
+El paquete anterior ahora los decodificaríamos como:<br>
+<br>
+<pre>ff 0f c6 15 1a 40 00 00 01 01 00 00 00 02 01 00 00 00 03 01 00 00 00 04 01 00 00 00 05 01 00 de<br></pre><br>
+Y volveríamos a buscar en Google los primeros bytes, de nuevo para no encontrar resultado alguno.<br>
+<br>
+Por ahora la estructura es:<br>
+<pre>(...1111111111) h h h h l d d d d d d ... c<br></pre><br>
+Hemos representado el preámbulo con unos. <b>h</b> es la cabecera, esos 4 bytes para nosotros no significan nada pero son idénticos en todos los paquetes. <b>l</b> es la longitud. <b>d</b> son datos y <b>c</b> es el checksum.<br>
+<br>
+Al menos tenemos algo para descartar los paquetes incompletos, y junto la paridad también podemos descartar grupos erróneos. Mientras menos ruido tengamos en el estudio, más limpias serán las conclusiones a las que lleguemos.<br>
+<br>
+<br>
+Al margen de este procedimiento, casi siempre se suele dibujar un histograma de las longitudes más habituales.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/longitudes.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="556" data-original-width="1114" src="img/longitudes.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Estadística de longitudes más habituales. ¿Te dice algo?</td>
+</tr>
+</tbody>
+</table><br>
+En mi opinión obedece más a la desesperación que a razones prácticas. Sencillamente, a menos que conozcas la estructura interna, el dato de la longitud en un protocolo complejo orientado a bytes es poco más que anecdótico. Aquí vemos tres grupos de paquetes, uno entre 30 y 43 bytes, otro aproximadamente entre 43 y 55 bytes, y finalmente un grupo de paquetes más largos.<br>
+<br>
+<br>
+<b>Cadenas de texto</b><br>
+<br>
+Resulta tentador, igualmente, obtener la entropía de los bytes. No obstante, esta técnica sólo funciona bien con estructuras de tamaño fijo. Si los paquetes contienen campos de longitud variable, o hay mezclados distintos tipos de paquete en la muestra, el estudio de la entropía nos confundirá en lugar de ayudarnos. ¿Cómo saber si estamos ante un caso u otro?<br>
+<br>
+Buscando cadenas de texto. Los mensajes de texto suelen ser de tamaño variable. Si los campos del paquete tienen longitud fija encontraremos bytes de padding al final de los textos. Si, en cambio, los campos son de longitud variable encontraremos algún byte indicando la longitud del mensaje.<br>
+<br>
+No todos los protocolos transmiten mensajes de texto, pero es relativamente frecuente en paquetes de tamaño medio. A veces el texto puede estar cifrado, comprimido o no ser ASCII (por ejemplo EBCDIC); lo cual complicaría el estudio. Afortunadamente no es el caso. Utilizar el comando strings sobre una muestra amplia de paquetes binarios nos mostrará si tenemos alguna posibilidad.<br>
+<br>
+<pre>&gt; cat packages.hex | xxd -r -p | strings<br>or@s Buenas<br>Tardes<br>...<br>tardes bienvenidos a<br>...<br>servicio, gracias.<br></pre><br>
+Sí, hay texto. Inspeccionando más a fondo, encontramos cadenas como: <em>Se</em>
+<f1><em>or@s Buenas\nTardes</em></f1>. La ñ está codificada como f1, esto indica un juego de caracteres <a href="https://cs.stanford.edu/people/miles/iso8859.html">ISO-8859-1 o Latin1</a>.<br>
+<br>
+No hay padding al final de texto, y puede estar tanto al principio como al final del paquete de donde deducimos que:<br>
+<ul>
+<li>Algo indica que ese campo es texto.</li>
+<li>Algo indica la longitud del texto.</li>
+</ul><br>
+Seleccionaremos algunos paquetes con texto. Basándonos en los bytes correspondientes a caracteres imprimibles. A continuación alineamos el comienzo de los textos y observamos los bytes inmediatamente anteriores:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/longitud_en_campos_txt.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="293" data-original-width="1158" src="img/longitud_en_campos_txt.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">El byte recuadrado podría tener relación con la longitud del campo.</td>
+</tr>
+</tbody>
+</table><br>
+Los bytes en rojo son de texto. A la derecha del todo queda el byte final del paquete, el checksum. El byte dentro de un recuadro rojo parece indicar la longitud. Es el mismo para todos los textos con la misma longitud. Cuando el texto se alarga tres bytes, pasa de valer 10 a valer 13. Cuando se extiende dos bytes más, pasa a valer 15. Así sucesivamente. Además en el primer caso 10 hexadecimal equivale a 16 en decimal. Y efectivamente hay 16 posiciones hasta el checksum.<br>
+<br>
+¿Qué es lo que hay entre el byte de la longitud y el comienzo del texto? No lo sabemos aún, podría ser el tipo de mensaje, el destinatario, o quizá el emisor, tal vez algún identificador del mensaje.<br>
+<br>
+Lo más importante ahora es que hemos identificado la longitud. ¿Por qué es importante? Porque nos va a llevar a descubrir la estructura de los campos en un paquete. Veréis, tenemos un paquete con texto justo al final, antes del byte de checksum tal que así:<br>
+<br>
+<pre>... 05 01 00 00 00 20 03 0f 7e 00 00 01 6c 65 2e 20 47 72 61 63 69 61 73 34 <br></pre><br>
+Para orientaros, el byte de longitud es 0f, es decir 15 caracteres de datos y a continuación el checksum 34. Adicionalmente casi todos los campos de texto vienen precedidos por una secuencia 20 03. Ahora buscaremos un paquete en el que el texto no esté al final, puede que cueste encontrarlo pero lo hallaremos guiados por la secuencia 20 03.<br>
+<br>
+<pre>... 01 00 00 00 05 01 00 00 00 20 03 05 0e 00 00 01 2e 5b 20 00 01 00 9d <br></pre><br>
+El byte inmediatamente tras 20 03 es la longitud, 05, así pues:<br>
+<pre>01 00 00 00 05 01 00 00 00 20 03 <br>05              -&gt; longitud<br>0e 00 00 01 2e  -&gt; texto<br>5b 20 00 01 00  -&gt; resto del paquete<br>9d              -&gt; checksum<br></pre><br>
+Fijémonos ahora en el trozo llamado "resto del paquete". Son 5 bytes. Suponemos que la trama está formada por varios campos y este resto es otro campo más cuyo propósito desconocemos. ¿Esta misma estructura aplicaría al mensaje que decodificamos al principio? Excluimos los bytes ya conocidos y subdividimos el paquete en grupos de 5 bytes:<br>
+<br>
+<pre>ff 0f c6 15 1a 40 00 00 01 01 00 00 00 02 01 00 00 00 03 01 00 00 00 04 01 00 00 00 05 01 00 de<br><br><br>ff 0f c6 15     -&gt; cabecera<br>1a              -&gt; longitud del paquete<br>40              -&gt; ¿tipo?<br>00 00 01 01 00  -&gt; campo1<br>00 00 02 01 00  -&gt; campo2<br>00 00 03 01 00  -&gt; campo3<br>00 00 04 01 00  -&gt; campo4<br>00 00 05 01 00  -&gt; campo5<br>de              -&gt; checksum<br></pre><br>
+Parece una trama sin información con todos los campos vacíos. Es típico de las señales continuas. Sirve a las estaciones receptoras para saber cuándo continúan dentro del alcance y cuándo pierden la señal.<br>
+<br>
+En este otro ejemplo hay varios campos vacíos y el último con texto:<br>
+<br>
+<pre>ff 0f c6 15 <br>2c <br>80 <br>d2 0f 21 73 00<br>40 20 42 73 00 <br>0a 20 73 73 00 <br>c5 1f 34 73 00 <br>5b 19 45 73 00 <br>00 00 20 03 0d 71 00 00 02 20 67 72 61 63 69 61 73 2e <br>c1 <br></pre><br>
+En realidad, indagando un poco se puede descomponer la estructura en:<br>
+<pre>rr rr tt tt ll dd dd dd ...<br></pre><br>
+Los bytes <b>rr</b> se refieren al receptor (siendo 00 00 en campos dirigidos a todos los receptores), <b>tt</b> es el tipo de campo (por ejemplo 20 02 para mensajes broadcast, 20 03 para mensajes dirigidos), <b>ll</b> es la longitud y a continuación los datos.<br>
+<br>
+La estructura se cumple para todos los paquetes recibidos correctamente. Este será nuestro tercer y último <b>punto de anclaje</b>.<br>
+<br>
+Pero dejaremos aquí el artículo. Pues mi objetivo era únicamente encontrar el cometido de la señal, no abundar en los detalles del protocolo.<br>
+<br>
+<br>
+<b>Qué es</b><br>
+<br>
+Toda esta labor tenía como objetivo averiguar el origen de la señal y lo he conseguido. Pese a la poca relevancia de los mensajes captados para cualquiera ajeno a la empresa, no me parece apropiado divulgar el origen exacto.<br>
+<br>
+Sí explicaré, para satisfacer vuestra curiosidad y premiar a quienes habéis leído hasta el final que, a juzgar por el contenido de los mensajes, se trata del canal de bajada de un <a href="https://es.wikipedia.org/wiki/Sistema_de_Gesti%C3%B3n_de_Flotas">sistema de gestión de flotas</a>. En concreto un sistema que muchas empresas han venido a denominar <a href="https://es.wikipedia.org/wiki/Sistema_de_ayuda_a_la_explotaci%C3%B3n">Sistema de Ayuda a la Explotación (SAE).</a><br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/feliz_navidad.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="190" data-original-width="1273" src="img/feliz_navidad.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">La señal desconocida ya no lo es.</td>
+</tr>
+</tbody>
+</table><br>
+Imaginad la complicación de gestionar, por ejemplo, una flota de autobuses en una gran ciudad. Con calles cortadas, vehículos mal aparcados, coches que se averían, colisiones, atascos de tráfico, incidentes con viajeros, objetos perdidos, etc. La logística de mantener una frecuencia constante en una ruta exige conocer en todo momento la posición de la flota y su estado, así como enviar avisos en tiempo real a un coche, a toda la línea o a todos en general.<br>
+<br>
+Si os interesa el tema, hay bastante información al respecto en Internet. Por dar algún enlace tenéis: <a href="http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/EspeInf/EnergiayCC/06Divulgaci%C3%B3n/6eEventos/JornParqueCircula2014/Ficheros/06MonitFlotaBusEMT.pdf">Sistemas De Monitorización De La Flota De Autobuses En Tiempo Real</a>.<br>
+<br>
+En cuanto al proceso, estoy seguro de que lo habéis disfrutado si contáis con la paciencia y el interés para seguirlo y comprenderlo.<br>
+<br>
+Feliz Navidad.<br>
+<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>programacion</li>
+<li>radio</li>
+<li>sonido</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

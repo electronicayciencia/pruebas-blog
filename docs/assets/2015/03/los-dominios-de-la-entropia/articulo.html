@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Los dominios de la entropía</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Los dominios de la entropía</h3>
+<div class='post-date'>
+Publicado el 12-03-2015.
+</div>
+<div class='post-body entry-content'>
+Hace un montón que no publico un artículo, tanto que casi no me acuerdo de escribir, así que: Hola de nuevo.<br>
+<br>
+Hoy vamos a hablar de uno de esos conceptos que levanta pasiones entre los aficionados a los palabros sin demasiada preocupación por su significado: la <b>entropía</b>. Si conoces este concepto y has visto documentales sobre universos paralelos y viajes en el tiempo lo siento mucho, este artículo no te va a gustar, porque va de estadística.<br>
+<br>
+La entropía es un concepto físico muy fácil de comprender, lo que pasa es que alrededor de él se han escrito tantísimas cosas (con más o menos <i>sentido artístico</i>) que buena parte de lo que se dice es un misterio.<br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+Estamos en 1850. Un tal <a href="http://es.wikipedia.org/wiki/Rudolf_Clausius">Clausius</a>, estudiando cosas que se calientan, estaba <a href="https://es.wikipedia.org/wiki/Segundo_principio_de_la_termodin%C3%A1mica">dándole vueltas a lo siguiente</a>:<br>
+<br>
+<blockquote class="tr_bq">
+<i style="color: #666666;">En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.</i><br>
+<span style="color: #666666;"><i><br></i></span><span style="color: #666666;"><i>En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo <a href="https://es.wikipedia.org/wiki/Camino_libre_medio">sin darse con las demás</a>. Así que más o menos tienen todas la misma velocidad.</i></span><br>
+<span style="color: #666666;"><i><br></i></span><span style="color: #666666;"><i>Pero en un gas es distinto, muy distinto... por algo gas viene del griego Kaos. Las partículas de un gas pueden moverse libremente, ocupar la posición que quieran dentro del contenedor, moverse con cualquier velocidad, chocar unas con otras. Para describir el estado de un gas necesito decir la posición y velocidad de cada partícula que lo forma, porque no tiene ninguna estructura.</i></span><br>
+<span style="color: #666666;"><i><br></i></span><span style="color: #666666;"><i>Así, un sistema es más complicado de describir físicamente cuantos más <a href="https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29">estados posibles</a> tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura.</i></span>
+</blockquote>
+<blockquote class="tr_bq">
+<span style="color: #666666;"><i>Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.</i></span>
+</blockquote><br>
+Casi cien años después, en 1948, un ingeniero eléctrico graduado en matemáticas, poco conocido por entonces, pensó que este concepto de cuán difícil es describir un sistema no tiene por qué ser algo exclusivo de la física. Pensó que, en general, sea lo que sea que estemos describiendo necesitaremos más o menos información para hacerlo. Y publicó un articulito generalizando el concepto de entropía y dando una fórmula para calcular la cantidad de información.<br>
+<br>
+Hay que decir que al principio no se dio cuenta, pero acababa de dar un salto de caballo en comunicaciones, comparable al que dio en 1822 el hijo de un sastre francés, cuando se empeñó en estudiar cómo se distribuye el calor en una placa. Y con el salto que daría junto a Harry Nyquist unos años más tarde. Las series de Fourier, la teoría de la información de Shannon y el teorema de Nyquist son los tres pilares sobre los que se sustenta toda nuestra era de las comunicaciones.<br>
+<br>
+Supongamos que quiero una pizza:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">por favor, una pizza de peperoni.</span></i><br>
+<br>
+Ese mensaje tiene cierta cantidad de información, suficiente para que el camarero nos traiga una pizza de peperoni. Si ahora yo dijera:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">una pizza con doble de peperoni</span></i><br>
+<br>
+Estaría aportando información adicional al mensaje de antes. Pero aumentar la cantidad de peperoni no aumenta la cantidad de información, sólo cambia el mensaje, pero no lo hace más largo:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">una pizza con triple de peperoni</span></i><br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">una pizza con cuádruple de peperoni</span></i><br>
+<br>
+Luego entonces la cantidad de información es la misma, aunque cambie el contenido de dicha información.<br>
+<br>
+También podemos alargar el mensaje sin aportar información extra, pero entonces ciertas partes del mensaje serán redundantes. Algo así como haría Jimmy el Dos Veces:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">una pizza margarita</span></i><br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">una pizza margarita, horneada, con su albahaca y su tomate</span></i><br>
+<br>
+La redundancia no tiene por qué ser mala. Nos permite seguir entendiendo el mensaje aunque una porción se pierda. Muy importante en el lenguaje hablado, por ejemplo.<br>
+<br>
+La entropía, y esta fue la gran aportación de Shannon, está íntimamente ligada a la compresión de los mensajes. Porque un mensaje lo podremos comprimir hasta la cantidad mínima de información que lleva. Aquí influye, como en la entropía física, la cantidad de estados posibles y la estructura interna (el orden), por ejemplo el mensaje:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">ccc</span></i><br>
+<br>
+puede describirse como "<i>3 ces</i>", y sin embargo:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">cccccccccccccccccccccccccc</span></i><br>
+<br>
+puede escribirse como "<i>26 ces</i>" mucho más comprimido. De igual modo<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">abcdefghijklmnopqrstuvwxyz</span></i><br>
+<br>
+puede describirse como "<i>las letras ordenadas de la a a la z</i>", y podría abreviarse sencillamente como<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">a-z</span></i><br>
+<br>
+mientras que:<br>
+<br>
+<i><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">kdupwopylacnghzrcgojdjxuwv</span></i><br>
+<br>
+aún teniendo la misma longitud que antes y las mismas letras, <b>no puede ser abreviado</b>. Luego de alguna manera esta última cadena tiene más entropía, más desorden, o más aleatoriedad que las anteriores. ¿Correcto? Bueno... ya veremos.<br>
+<br>
+Para un sistema informático, encontrar la estructura interna de un mensaje, y así la forma más eficiente de transmitirlo, es un problema muy difícil hoy en día sólo resuelto en parte. Por lo que hay que buscar otro modo de calcular la entropía, uno que se base sólo en el contenido, puramente estadístico.<br>
+<br>
+Estamos de acuerdo en que si un mensaje está formado por una sola letra repetida, tiene tantas posibilidades (estados posibles) como veces repitamos la misma letra. Si un mensaje tiene dos posibles letras, tendrá más estados y más cuanto más largo sea, etc. Luego la entropía de un mensaje será mayor cuanto más largo, más símbolos distintos aparezcan y más raros sean.<br>
+<br>
+El concepto anterior es muy general. Y viene a decir que <b>las cosas más frecuentes aportan menos información que las cosas raras</b>. Por ejemplo las palabras "<i>el, un, que, a, de</i>" se repiten muchísimo en un texto y si falta una no pasa nada, pero la palabra "<i>entropía</i>" es infrecuente. Tanto que si eliges una palabra para clasificar este artículo seguramente sea esa: "<i>entropía</i>", porque es precisamente la que diferencia este de otros artículos sobre otros temas. Las palabras "<i>que</i>" o "<i>un</i>" están en casi todos los artículos en español, hablen de lo que hablen, por lo que nos van a aportar muy poca información.<br>
+<br>
+<br>
+<br>
+<b>Palabras aleatorias</b><br>
+<br>
+Del concepto anterior se suelen deducir cosas erróneas. Por ejemplo que cadenas como:<br>
+<span style="font-family: Verdana,sans-serif;"><br></span><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">fseptrnhgjzoywmkxqilcubadv,</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">qjhrbvozwykiscgnpfaemtdulx,</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">prsfcaidhtubwyxjvozeqmkgln o</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">eynawotsbqpvgcikuzxhdmjlrf</span><br>
+<br>
+tienen "más entropía" que, por ejemplo,<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">abcdefghijklmnopqrstuvwxyz o</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">zyxwvutsrqponmlkjihgfedcba</span><br>
+<br>
+sin embargo esto sólo es así porque nosotros hemos decidido una ordenación arbitraria del abecedario. Ese contexto, esa estructura interna a un ordenador se le escapa, es ajeno a la definición de entropía. Estos mensajes <b>tienen todos la misma entropía</b>: la equivalente a un mensaje de 26 letras todas distintas entre sí.<br>
+<br>
+Luego la <i>entropía</i> así descrita no es una medida de <i>aleatoriedad</i> en la disposición de las letras sino de aleatoriedad en cuanto al contenido de letras distintas y la frecuencia de estas.<br>
+<br>
+Si hablamos de palabras, nuestras palabras no son así. Nuestras palabras no están compuestas por todas las letras del abecedario dispuestas en distinto orden. Las letras en nuestras palabras se repiten, son unas más frecuentes que otras, forman sílabas, etc. Así que sí, se puede calcular la entropía de una palabra, pero no estará ligada al orden, sino a si las letras que contiene son más o menos probables en el conjunto. La cuestión es <b>elegir bien el conjunto</b>, porque las letras no tienen la misma prevalencia en inglés, que en español, que en polaco.<br>
+<br>
+<br>
+<b>Dominios aleatorios</b><br>
+<br>
+Hay virus informáticos, troyanos, que se comunican remotamente con su panel de control por medio de llamar a determinados dominios, que muchas veces generan con un algoritmo pseudoaleatorio. Así el dominio cambia cada día, o cada hora. Algunos pueden generar miles de dominios aleatorios para un mismo día con el objetivo de despistar a los investigadores de malware, porque sin tenerlos todos no hay forma a priori de saber cuál es el verdadero. Y pueden ser miles.<br>
+<br>
+La cuestión es si los dominios aleatorios tendrán más entropía que los dominios habituales. Si eso es así podríamos detectar fácilmente quién se está conectando a este tipo de dominios aleatorios, y sabremos que su equipo tiene un malware.<br>
+<br>
+Aquí aplicamos la entropía en cada dominio por sí mismo. O sea, que no nos importa si el usuario se conecta a más o menos dominios. Esa otra técnica se usa sobre todo para detectar el envío de spam: normalmente uno manda correos a los mismos dominios muchas veces cada día (poca entropía), si un usuario manda correos a muchos dominios pocas veces (mucha entropía) querrá decir que hay algo raro.<br>
+<br>
+Pero vamos a seguir el primer método: asignar a cada dominio una medida de entropía.<br>
+<br>
+Necesitaremos una muestra de dominios legítimos, para obtener la frecuencia relativa de cada letra, también necesitaremos una muestra de dominios habituales así como una muestra de dominios aleatorios para compararlos y ver si nuestro test puede diferenciar los habituales de los aleatorios.<br>
+<br>
+La muestra de dominios legítimos la obtendremos, por ejemplo, del TOP 1.000.000 de Alexa, que podemos descargar de aquí: <a href="http://s3.amazonaws.com/alexa-static/top-1m.csv.zip">http://s3.amazonaws.com/alexa-static/top-1m.csv.zip</a>. Tened en cuenta que el resultado estará muy ligado a fuente que elijamos. Partimos de la base de que esa lista es confiable y sólo contiene dominios y bastante conocidos. En un primer vistazo confirmamos que así es.<br>
+<br>
+La muestra de dominios buenos (control negativo) será el TOP 500 de dominios con más conexiones desde España, también de Alexa. La muestra de dominios aleatorios (control positivo) la bajaremos de pastebin haciendo una búsqueda por <i>Downadup domains</i>.<br>
+<br>
+Lo primero es crear una base de datos de frecuencias relativas para cada letra a partir de la fuente. Hay que tener la precaución de asignar un valor para los símbolos que no estén en nuestra fuente, es decir, imaginemos que una letra es tan poco corriente que ningún dominio la contiene. No va a darse el caso ahora, pero sí más adelante. Para esos símbolos asignaremos el valor más bajo posible: media ocurrencia. En otras palabras asumimos que no sale porque la fuente es corta, si la lista de palabras fuera el doble de grande asumimos que saldría al menos una vez. Es una presunción arbitraria, por supuesto.<br>
+<br>
+Tenemos un par de programitas en Perl para hacer los cálculos. Hay un enlace al final del artículo.<br>
+<br>
+Alimentamos el programita <i>feed.pl</i> con el TOP de Alexa y el resultado es un fichero con datos estadísticos de frecuencias relativas para cada letra:<br>
+<br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"_" : 3.860414</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"0" : 0.001153</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"9" : 0.000435</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"a" : 0.086051</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"b" : 0.022417</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"c" : 0.045581</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"d" : 0.031477</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"e" : 0.102742</span></span><br>
+<span style="font-size: small;"><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">"f" : 0.017150</span></span><br>
+<br>
+Como es de esperar, las letras "e" y "a" son las más comunes y tienen frecuencias relativas más altas que las demás. Mientras que los números ocurren menos veces en los nombre de los dominios.<br>
+<br>
+Ha habido que tener la precaución de eliminar el Dominio de Primer Nivel porque al ser mucho ".com" o ".org" introducían en sesgo importante. También he eliminado los caracteres que no son alfanuméricos, como el guión o el punto.<br>
+<br>
+Ahora tenemos un segundo programa, que calcula la entropía de cada palabra de una lista, siguiendo la <a href="http://es.wikipedia.org/wiki/Entrop%C3%ADa_%28informaci%C3%B3n%29">fórmula dada por Shannon</a>. El razonamiento lo podéis ver en la Wikipedia, pero dicho de una forma rápida se trata de calcular el logaritmo de la rareza de algo (o sea la inversa de la frecuencia) y multiplicar por cuántas veces aparece. Así con todos los símbolos y finalmente se suma. El resultado es la cantidad de información necesaria para representar la muestra.<br>
+<br>
+Un paso adicional que también haremos es dividir por la longitud total del dominio, calculando la entropía por símbolo. Porque si no lo hiciéramos así favoreceríamos los dominios más cortos frente a los más largos.<br>
+<br>
+Como decíamos antes, esta forma de cálculo <b>no tiene para nada en cuenta el orden</b> de las letras. Si lo aplicamos sobre las cadenas de antes el resultado es el mismo para todas. Por la sencilla razón de que todas tienen las mismas letras el mismo número de veces:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 abcdefghijklmnopqrstuvwxyz</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 zyxwvutsrqponmlkjihgfedcba</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 fseptrnhgjzoywmkxqilcubadv</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 qjhrbvozwykiscgnpfaemtdulx</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 prsfcaidhtubwyxjvozeqmkgln</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">3.702 eynawotsbqpvgcikuzxhdmjlrf</span><br>
+<br>
+Vamos a probar qué entropía nos da para los 500 dominios más visitados en España, que era nuestro control negativo. Es decir, esperamos entropías en general bajas.<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.518 series</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.537 terra</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.592 elitetorrent</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.617 sensacine</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.622 elcorreo</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.363 los40</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.593 office365</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.862 7769domain</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.939 ad131m</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.222 bet365</span><br>
+<br>
+<br>
+Muy bien, parece que funciona. Va desde 2.5 para los dominios con letras más usuales, hasta más de 5 para los que tienen nombres con muchos números. Vamos a comparar los resultados con varios dominios aleatorios del troyano Downadup que sólo están formados por letras y esperamos que los valores sean mucho más altos.<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.730 ecrreaictepimeli</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.787 rrirdtecowehieer</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.906 lpciilaowoaiiwea</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.920 reitweamiicfaife</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">2.940 rrrglcrderidihga</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.371 wpcwphjjljpqwffj</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.383 jjjocwpgwqrczqpf</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.413 jfhjefpjjjjfjgtp</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.460 wdhhwpwwqqqzjpmo</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.467 jjziwwwtwzwhfjpj</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">4.557 pzdjqwpgjjfcjfjc</span><br>
+<br>
+Vaya... los dominios aleatorios arrojan resultados desde el 2.7 para los que están formados por letras muy frecuentes hasta el 4.5 para los que tienen muchas letras infrecuentes.<br>
+<br>
+Pues desde el punto de vista entrópico, la frecuencia de los caracteres en los dominios aleatorios no se diferencia mucho de los dominios legítimos. Si bien la decepción es menos profunda cuando representamos el resultado en un histograma:<br>
+<br>
+<b>(todas las imágenes las podéis ampliar haciendo clic)</b><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/distribs_letras.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/distribs_letras.png"></a>
+</div><br>
+<br>
+<b>La decisión</b><br>
+<br>
+No, no es una novela de John Grisham. Es que histograma en mano, tenemos que contestar a la pregunta: <u><i>¿el dominio X es aleatorio o no?</i></u><br>
+<br>
+Señor abogado, a la vista del histograma anterior podríamos decir tres cosas:<br>
+<ul>
+<li>La entropía media de los dominios legítimos está en torno al 2.9.</li>
+<li>La entropía media de los dominios aleatorios está en torno a 3.6.</li>
+<li>Las dos distribuciones se solapan en parte.</li>
+</ul><br>
+Y es en esta tercera cuestión donde se desarrolla toda una teoría estadística sobre los test de hipótesis de la que tenemos aquí, entre manos, un caso práctico.<br>
+<br>
+Decir si un dominio es aleatorio o no en base a su entropía no es más que fijar un corte. Decir por ejemplo, que todo dominio cuya entropía supere 3.25 lo damos por aleatorio. El límite de 3.25 es arbitrario, lo he dicho por decir. Por tú uno distinto si quieres.<br>
+<br>
+<br>
+Precisamente porque las distribuciones no están separadas, fijemos el umbral que fijemos siempre vamos a encontrar algunos dominios que:<br>
+<ul>
+<li>Tengan un nombre raro aun siendo legítimos, como "bet365" por ejemplo. Lo daríamos como aleatorio.</li>
+<li>Sean aleatorios, pero dé la casualidad de que usan letras muy frecuentes, y lo demos como legítimo.</li>
+</ul><br>
+Para la pregunta <i>¿El dominio X es aleatorio?</i> el primer caso supone un falso positivo; mientras que el segundo caso es un falso negativo.<br>
+<br>
+Si ponemos el límite en 2.6 detectaríamos como aleatorios todos los dominios de Downadup. Nuestro test sería <b>muy sensible</b>. Claro que también detectaríamos como aleatorios buena parte de los que no lo son. Nuestro test sería muy sensible sí, <b>pero poco específico</b>.<br>
+<br>
+En el otro lado, si ponemos el límite en 4 sólo detectaríamos como aleatorios algunos legítimos que son casos extremos, todos los que diéramos como aleatorios lo serían de verdad. Nuestro test sería <b>muy específico</b>. Claro que también nos dejaríamos sin detectar muchos de los de Downadup. Nuestro test sería muy específico sí, <b>pero poco sensible</b>.<br>
+<br>
+Reflexiona lo anterior con esta frase, y cuando te marees sigue leyendo:<br>
+<blockquote class="tr_bq">
+<i><span style="color: #666666;">La sensibilidad es la fracción de verdaderos positivos y la especificidad la fracción de verdaderos negativos.</span></i> <span style="color: #666666;">-Wikipedia</span>
+</blockquote><br>
+<br>
+¿Entonces el límite donde lo ponemos? Pues en algún punto donde encontremos un equilibrio entre los verdaderos positivos y los falsos positivos.<br>
+<br>
+Por ejemplo, ¿qué tal si representamos en un gráfico la relación entre positivos y falsos positivos? Cuando esta relación sea máxima, maximizaremos los positivos minimizando los errores. Suena bien.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/rel_tp_fp_letras.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/rel_tp_fp_letras.png"></a>
+</div><br>
+<br>
+El punto óptimo según este criterio está en entropía 3.6, punto en que cometeríamos un fallo por cada 12 aciertos. Oye, es un 90% de eficacia; la leche.<br>
+<br>
+Sólo hay un problemilla... que si bien la cantidad de falsos positivos con este umbral es poca (un 4%), los dominios aleatorios detectados no llegan ni a la mitad de los que deberían ser, tan sólo pillamos el 48%.<br>
+<br>
+Lo siento, pero la realidad es cruel. Las pruebas 100% sensibles e infalibles no existen.<br>
+<br>
+En otros tipos de test, como las pruebas clínicas, el criterio hay que pensarlo con más detenimiento. Por ejemplo en una prueba de alergias para un pre-operatorio siempre se prefiere detectar una alergia por leve que sea, aunque a veces salga alguna que otra duda. Se requiere una prueba muy sensible. En el lado contrario, antes de meter a un paciente al quirófano más vale asegurarse de que tiene lo que pensamos. Aquí los falsos positivos son un problema muy serio, en tales casos queremos pruebas muy específicas. Ni que decir tiene que a la hora de la verdad no se decide todo por un test, influyen otros factores como los antecedentes, la historia clínica o, si no la tenemos, la prevalencia de la enfermedad, etc.<br>
+<br>
+<br>
+Así que lo mejor es que representemos en un gráfico la fracción de falsos positivos que estamos dispuestos a aceptar, y la fracción de positivos reales que conseguiríamos con ello:<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ROC_letras.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ROC_letras.png"></a>
+</div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ROC_letras.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><br></a>
+</div><br>
+<br>
+Habitualmente se escoge un umbral tal que detecte el 80% de positivos y luego, junto con el test, indicamos la probabilidad de que sea un falso positivo. Dado el gráfico anterior ya nos hacemos una idea de lo bueno o lo malo que es el test según la curva se acerque más a la <b>esquina superior izquierda</b>: eso significaría el 100% de positivos detectados con 0 errores.<br>
+<br>
+<br>
+<b>Dígrafos</b><br>
+<br>
+Una de las quejas que teníamos en el apartado anterior era que en el cálculo de la entropía no representaba ningún papel la ordenación de las letras. Vamos a intentar mejorar eso haciendo el cálculo con parejas de letras. Aunque la palabra dígrafo sólo se refiere a parejas de letras que tienen un sonido único como "ch" o "rr", yo la voy a usar aquí para indicar parejas de letras.<br>
+<br>
+¿Cual es el propósito de esta variación? pues mejorar el test aprovechando que la pareja de letras "ch" es más frecuente que la pareja "hc". Ahora nuestros elementos ya no van a ser letras, sino dígrafos. Por ejemplo, separando <i>google</i> en dígrafos estaría compuesto por:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">^g</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">go</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">oo</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">og</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">gl</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">le</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">e$</span><br>
+<br>
+Los símbolos "^" y "$" indican el comienzo y el final de la palabra. Los voy a incorporar para que también entre en el juego la probabilidad de que un dominio empiece por una letra o acabe por otra.<br>
+<br>
+Bueno pues, de nuevo alimentamos la base de datos. Lo que ocurre es que donde antes sólo había 26 letras y 10 números, ahora hay <b>1368 combinaciones</b>. Ahora veis que tiene sentido el comodín "_" para los símbolos sin ninguna aparición.<br>
+<br>
+Ordenando el TOP500 de España como antes obtenemos este resultado:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.402 pinterest</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.474 meristation</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.491 eldiariomontanes</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.548 mileroticos</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.598 pelismaseries</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">8.925 fiuxy</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">8.955 los40</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.266 bet365</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.307 7769domain</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.588 1and1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.900 ad131m</span><br>
+<br>
+A primera vista es bastante similar al resultado que salía antes con las letras solas. A ver con los aleatorios:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">6.056 ecrreaictepimeli</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">6.133 rrirdtecowehieer</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">6.305 dcleweelowheergg</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">6.531 reitweamiicfaife</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">6.539 potpegigegecpptr</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.799 wmjzjgzlmwmoqwgp</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.837 wdhhwpwwqqqzjpmo</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.927 rzcjlpfzfjjwpjwi</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.956 jmhzpcpjjhlwqfza</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">10.191 pzdjqwpgjjfcjfjc</span><br>
+<br>
+<br>
+Los dos primeros que salen son igual que en el caso anterior. El tercero ya es diferente y se nota que contiene dígrafos comunes en inglés cómo "wh", "ee", "we", etc. Además cómo el número de combinaciones ahora es mayor, el valor numérico de la entropía también es superior.<br>
+<br>
+La prueba de fuego, vamos a representar la curva de positivos vs. falsos positivos y comparar:<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ROC_digs.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ROC_digs.png"></a>
+</div><br>
+<br>
+A simple vista no se diferencian mucho. Sin embargo hay un criterio objetivo para indicar si un test es mejor que otro. Se supone que mientras más arriba a la izquierda esté la curva, mejor diferenciación hace el test. Pues el criterio consiste en calcular el área bajo la curva que es el número que tenéis en la leyenda.<br>
+<br>
+No os lo he dicho pero resulta que en realidad esa curva que habíamos puesto desde el primer caso es muy famosa. Tan famosa que hasta tiene nombre: se llama <b>curva ROC</b>. Algunos dicen que lo de ROC viene de <i>Curva del Operador de Radar</i>. Otros dicen que viene de <i>Característica Operativa del Receptor</i>.<br>
+<br>
+Y es que, según cuenta la leyenda, tras el ataque a Pearl Harbor los americanos se pusieron las pilas para intentar diferenciar los aviones enemigos través de la señal de radar. Lo que pasa es que los radares de aquella época no estaban muy evolucionados. De hecho se habían inventado unos años antes cuando alguien pensó en freír a los pilotos enemigos con un "Rayo de la Muerte". Lo malo es que vieron que necesitaban una cantidad enorme de energía para eso. Esos experimentos junto a la observación casual de que los aviones causaban interferencias en los receptores de alta frecuencia llevaron a la invención del radar.<br>
+<br>
+Al grano, el área bajo la curva en el primer caso, cuando calculábamos la entropía sólo a base de letras sale 0.936, de un máximo de 1. En el segundo caso, utilizando dígrafos sale 0.944. La diferencia es tan poca que objetivamente no valdría la pena el esfuerzo porque el resultado es prácticamente el mismo.<br>
+<br>
+<br>
+<b>Trígrafos</b><br>
+<br>
+La siguiente prueba es con tríos de letras a ver si así el resultado es mejor. Por ejemplo "google" esta vez estaría compuesto por:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">^go</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">goo</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">oog</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">ogl</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">gle</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">le$</span><br>
+<br>
+Es de suponer que la probabilidad de que dos letras habituales salgan juntan en algo generado al azar es baja. Pero tres letras juntas es todavía más difícil. De hecho, hay 49248 combinaciones posibles, incluyendo los símbolos de comienzo y final de palabra.<br>
+<br>
+Haremos lo mismo que antes: tomaremos el TOP 1M de Alexa, calcularemos la probabilidad de ocurrencia de cada trío en todos los dominios, y luego utilizaremos esa probabilidad para calcular la entropía del TOP 500 en España y de los de Downadup.<br>
+<br>
+Para el caso de los dominios legítimos, tenemos este resultado:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.290 sport</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.332 blogspot</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.736 marca</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.779 series</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.529 3djuegos</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">9.820 fiuxy</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">10.064 ad131m</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">10.151 adplxmd</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">10.409 7769domain</span><br>
+<br>
+Hasta ahora muy parecido a lo anterior. Y para los aleatorios:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">8.272 dcleweelowheergg</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">8.369 ecrreaictepimeli</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">8.674 otelprchhhefeigr</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">13.613 pfpfzwpqjrgfhhqa</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">13.682 pzdjqwpgjjfcjfjc</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">13.865 rzcjlpfzfjjwpjwi</span><br>
+<br>
+No queda del todo claro que sea mejor. Vamos a compararlo dibujando la curva ROC junto a los otros dos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ROCx3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ROCx3.png"></a>
+</div><br>
+<br>
+¡Hala! los otros dos daban buenos resultados, pero es que este es casi infalible. Veamos cómo son las distribuciones de ambos para encontrar el por qué del resultado.<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/distribs_trigs.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/distribs_trigs.png"></a>
+</div><br>
+<br>
+<br>
+<b>Principio GIGO</b><br>
+<br>
+Me gustaría terminar este artículo hablándoos del principio <i>GIGO</i>. Desde el comienzo todo lo que hemos hecho ha sido alimentar una base de datos de probabilidades y obtener resultados en base a la entrada de partida. Pero ¿en algún momento hemos comprobado si el TOP 1M de Alexa es de fiar?<br>
+<br>
+Vamos a hacer una cosa, calculemos la entropía utilizando el método de trígrafos de lo que llamamos "<i>dominios válidos</i>" y ordenémoslo de menor a mayor entropía. A ver qué sale. Los primeros dominios que aparecen, los de menor entropía son:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.011 blogs</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.148 mares</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.151 rester</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.175 store</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.182 caree</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.185 lines</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.195 inter</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.213 comed</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.214 stern</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">5.216 tions</span><br>
+<br>
+Dominios cortos sin mayor interés. Claro que, si nos vamos a mirar los dominios "válidos" con mayor entropía:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.252 0p78qfr8q7</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.259 r0j57fbs5wvd74b</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.259 xn22c9ba4a8bwcb4i4a5cg8b</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.297 061x79xzldqja621</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.310 9cd47096ab1495d8d3b18667f6a52b9c</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.383 b33d8ac9ea7318e83d193ec9cf4</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.391 g5p7wt0zbk</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.422 b5cf5a1ec553b9d09df8ebf30885601c1c</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.430 491gxrw8ifhy8hg1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.495 bff9ddc870e3ab3c1a2a8f6158328af2df</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">14.653 5e9e45c3f9381f5ffa8c5a5bd97405e99fb</span><br>
+<br>
+¡Oh, atrevida ignorancia! Resulta que entre nuestra lista de dominios válidos se han colado algunos que más bien parecen de los malos. Aparecen dominios como <i>491gxrw8ifhy8hg1.com</i> o <i>5e9e45c3f9381f5ffa8c5a5bd97405e99fb.com</i> que casualmente parece un hash y que, al contrario de lo que cabría imaginar, existe y resuelve a la ip 50.19.87.86.<br>
+<br>
+Así es imposible distinguir nada. Son estos últimos dominios los que alteran la probabilidad y hacen que el test de dígrafos no salga como uno esperaría.<br>
+<br>
+Por favor, nunca olvides esto: todos los sistemas que trabajan con unos datos de entrada para generar una salida se rigen por el principio <b>GIGO: <a href="http://en.wikipedia.org/wiki/Garbage_in,_garbage_out">Garbage In Garbage Out</a>.</b> Y esto se aplica desde los ordenadores hasta los médicos o los pilotos de aviones. Viene a decir que siempre que tengas que basarte en unos datos de entrada para tomar una decisión, los selecciones y los limpies todo lo posible, o de lo contrario los resultados que obtengas no servirán para nada.<br>
+<br>
+<br>
+<b>Angler Exploit K</b>it<br>
+<br>
+Pero ¿y si el dominio no es del todo aleatorio? Angler EK es un <i>kit de exploiting</i> del que se está oyendo últimamente. Podéis ver una descripción aquí: <a href="http://blogs.cisco.com/security/talos/angler-domain-shadowing">Threat Spotlight: Angler Lurking in the Domain Shadows</a>. Para ocultar sus llamadas hace uso de una técnica que se llama <i>Domain Shadow</i> y que consiste en robarle las credenciales a un administrador de algún dominio de GoDaddy y crear subdominios del dominio principal apuntando a la IP del panel de control.<br>
+<br>
+Por ejemplo, alguien obtuvo las credenciales del dominio <i>keytone.net</i> y dio de alta algunos subdominios<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">036ncy4zgj.keytone.net<br>
+042emb3ilv.keytone.net<br>
+06yd2l4vc9.keytone.net</span><br>
+<br>
+Para el administrador del dominio es totalmente transparente y no advertirá nada a menos que liste los subdominios que tiene a su nombre, ya que por lo general son gratuitos. Para el analista de malware es una faena porque muchas veces las listas blancas se hacen por dominio completo, por lo que si keytone.net está en lista blanca, todos sus subdominios -incluyendo los anteriores- también lo estarán.<br>
+<br>
+Este es un gráfico comparativo de la entropía de los dominios de Angler EK, con respecto al Top 500 de España, calculada con tríos de letras.<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/angler_glob_topES.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/angler_glob_topES.png"></a>
+</div><br>
+¿Por qué la distribución de Angler tiene <b>dos máximos</b>? Obviamente porque hay dos tipos de dominios diferente. Si miramos el listado veremos que los subdominios pueden ser pseudoaleatorios,como estos:<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br></span><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">acaibehbjdjd.mysupercouponzz.info<br>
+acaibehbjjcjb.mysupercouponzz.info<br>
+acaibehdbjifi.mysupercouponzz.info<br>
+acaibehdcabid.mysupercouponzz.info<br>
+acaibehdefgcc.mysupercouponzz.info<br>
+acaibehdgghhh.mysupercouponzz.info<br>
+acaibehgcgfgh.mysupercouponzz.info</span><br>
+<br>
+o bien formados por palabras, como estos otros:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">ounces.rhinestonetemptations.com<br>
+clashes.rhinestonetemptations.com<br>
+country.rhinestonetemptations.com<br>
+getting.rhinestonetemptations.com<br>
+spacing.rhinestonetemptations.com<br>
+regulate.rhinestonetemptations.com<br>
+collecting.rhinestonetemptations.com<br>
+employment.rhinestonetemptations.com<br>
+possession.rhinestonetemptations.com</span><br>
+<br>
+<br>
+<br>
+Ahora parece razonable ver las dos distribuciones mezcladas. El máximo de mayor entropía corresponde a los dominios aleatorios, mientras que el de menor entropía corresponde a los que usan palabras. Hay que recordar que lo que estamos calculando es la entropía por trío, no por carácter, no por dominio completo. Lo que implica que si el dominio tiene una parte aleatoria, pero esta es corta en comparación al nombre completo, la entropía saldrá baja.<br>
+<br>
+Según Cisco, si leéis el enlace anterior, Angler ha variado su forma de generar dominios. Cabe preguntarse si se notará en la distribución. Así que comparemos la entropía de los dominios recientes con el listado global:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/angler_rec_final.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/angler_rec_final.png"></a>
+</div><br>
+Fijaos que en el grupo de dominios recientes (en azul) el máximo de la derecha ha desaparecido. Bueno, no ha desaparecido del todo sino que ahora está muy a la derecha pero es mucho menor (en torno al 12). Eso quiere decir que los creadores de Angler, con muy buen criterio, han decidido favorecer los dominios formados pos palabras.<br>
+<br>
+Es de suponer que estos serán más difíciles de diferenciar, como se ve perfectamente en el gráfico siguiente. Comparamos la distribución de los dominios de Angler con el Top 500 de España. Y, tal como puede verse, las distribuciones están bastante próximas.<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/angler_rec_topES.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/angler_rec_topES.png"></a>
+</div><br>
+La última pregunta, si el test serviría para diferenciarlos la podéis responder vosotros viendo la curva ROC y sabiendo que el área bajo la curva es 0.87.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/roc_trigs_anglerrec.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/roc_trigs_anglerrec.png"></a>
+</div><br>
+<br>
+Nada más por el momento. Gracias por leer hasta aquí. Los scripts en Perl, ficheros, resultados, etc los podéis encontrar en este enlace: <a href="https://www.dropbox.com/s/33g8kci6uncbb0v/entropia_digrafos.zip">fuentes</a>.<br>
+<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>estadística</li>
+<li>Perl</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

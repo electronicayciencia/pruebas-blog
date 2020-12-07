@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Generador de personajes ficticios en Perl</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Generador de personajes ficticios en Perl</h3>
+<div class='post-date'>
+Publicado el 30-06-2010.
+</div>
+<div class='post-body entry-content'>
+De vez en cuando escribo historias de intriga para jugar a modo de rol con los amigos. Cuando uno escribe una historia llega un momento en que tiene que poner nombre a los personajes. Inventarse nombres ficticios y realistas es difícil. Cualquiera puede poner nombre a un personaje, pero si necesitas varios te puede llevar cierto tiempo.<br>
+<br>
+Yo personalmente no tengo imaginación ninguna para poner nombre a las cosas, ya veis el título del blog. Así que hace tiempo busqué en Google listas de personas con nombre y apellido, listas de oficios y empleos, calles de una ciudad grande, y tipos de vía para lo que usé un callejero que encontré. Con eso alimenté una base de datos <b>sqlite</b>. Luego hice un sencillo módulo en <b>Perl</b> con unas cuantas funciones para utilizarla y listo: un versátil generador de personajes.<br>
+<br>
+El programa funciona seleccionando al azar un nombre y dos apellidos; una vía y un nombre de vía; un número y una letra; y un oficio. Con eso compone nombre, dirección y ocupación del personaje. Además los nombres y los oficios no están filtrados, así al hacer una búsqueda al azar es más probable que aparezcan aquellos que sean más comunes, tal como ocurriría en la realidad.<br>
+<br>
+Por ejemplo, en una historia sucede un juicio. Algunos personajes pueden tener relevancia más adelante, pero el resto sólo aparecen esta vez, y no merece la pena dedicarle mucho tiempo. Sin contar con que eso puede distraerte y hacerte perder otras ideas.<br>
+<br>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">* <b>Juez:</b> Dña. Susana García Perón</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">* <b>Comparecen por parte de la Acusación:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">- <b>Abogado:</b> Blanca Gomez Alcala. Calle Kindelan 9, 6ºD.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">- <b>Testigos:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Sabina Diaz Ordoñez. Calle Blanqueo Viejo 12, 4ºD. Agente de seguros.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Hannah Rachel Montilla Madrid. Carretera De La Zubia 3, 2ºE. Recepcionista.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Domingo Bonillo Jimenez. Calle Aire 18, 2ºD. Médico forense.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Escolástico Herranz Barron. Cuesta Aljibe De Trillo 5, 5ºH. Herrero.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">* <b>Comparecen por parte de la Defensa:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">- <b>Abogado:</b> Eduardo Martin Villar. Calle Pianista Rosa Sabater 18.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">- <b>Testigos:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Maria Isabel Almansa Flores. Calle Sancti Spiritus 2. Psicólogo.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">Virginia Lopez Sedeno. Calle Francisco Hurtado Izquierdo 16, 6ºH. Deportista.</span>
+</div><br>
+En otra ocasión lo que necesitamos es sólo una lista de empleados de una compañía, u otro tipo de lista donde no necesitamos todos los datos. Para eso hay variedad de funciones en el módulo:<br>
+<br>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getNombre:</b> Antonio</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getApellido:</b> Jabalquinto</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getNombreCompleto</b>: Jose Tomas Dodero Ruiz</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getCalle</b>: Calle Tiberio</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getCalleyNumero</b>: Callejon Del Pretorio 14</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getProfesion</b>: Camarera</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getPersona</b>: Eloy Garcia Almendro. Calle Correo Viejo 8. Actor.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getNombresCompletos:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">1.- M Cristina Lopez Barba</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">2.- Emilio Jesús Gomez Pescuezo</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">3.- Pablo Jimenez Caro</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">4.- Jose-Maria Montiel Garcia</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">5.- M Trinidad Jimenez Bravo</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<br>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;"><b>getPersonas:</b></span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">1.- Carmen Maria Molero Padilla. Placeta Fernandez De Moratin 7, 4ºF. Guía turístico.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">2.- Eugenia Jimenez Lopez. Calle Tio Vazquez 21. Abogado de oficio.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">3.- Antonio Jose Veredas Ariza. Calle Pisas 23, 2ºC. Supervisor.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">4.- Sonia Moreno Lachica Millan. Calle Albondon 24. Esteticista.</span>
+</div>
+<div style="background-color: #f3f3f3; font-family: &quot;Trebuchet MS&quot;,sans-serif;">
+<span style="font-size: x-small;">5.- Paloma Rider Jimenez. Calle Parra De San Cecilio 13. Recepcionista.</span>
+</div><br>
+Para asignar edad sólo tendríamos que generar un número aleatorio en el margen que necesitemos. Cuidando, eso sí, de adaptar el oficio y la edad a las circunstancias. Por ejemplo no es realista que un niño de 12 años sea astronauta, o que una señora de 76 trabaje como herrero. No es imposible, pero desde luego sería inusual y eso <b>distrae la atención</b> del receptor, pues este pasa a fijarse más en el personaje que en la historia. Claro que a veces es eso lo que se pretende.<br>
+<br>
+Sin embargo el módulo no tiene el cuenta ni las tildes ni la concordancia de género a la hora de asignar oficio, así un señor llamado Manolo podría aparecer como actriz. Hay que tener cuidado con eso y siempre repasar manualmente las listas que genere el programa.<br>
+<br>
+Os dejo los archivos y la base de datos en <a href="http://sites.google.com/site/electronicayciencia/AleaNombres.rar">esta dirección</a>. Necesitaréis Perl y sqlite. No descarto más adelante convertirlo en un CGI y colgarlo online.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>PC</li>
+<li>Perl</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

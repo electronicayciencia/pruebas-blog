@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Controlar un servomotor con el PC</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Controlar un servomotor con el PC</h3>
+<div class='post-date'>
+Publicado el 17-12-2010.
+</div>
+<div class='post-body entry-content'>
+Supongo que muchos estaréis familiarizados con los servos. No es mi caso. Por unas cosas u otras nunca me he dedicado al modelismo ni a la robótica así que para mí estos motores como si no existieran. Sin embargo hace unas semanas vi uno barato en <a href="http://www.dealextreme.com/details.dx/sku.12832">DealExtreme</a> y pensé que algún día puedo necesitarlo. Y para entonces mejor saber cómo se usa. Así que esta primera prueba no va a ser nada elaborado, solamente un servo, un PIC, y un PC para dar las órdenes.<br>
+<br>
+He utilizado el modelo TowerPro MG995. Según dicen, y he podido comprobar, tiene sus ventajas y sus inconvenientes.<br>
+<br>
+<b>Ventajas</b><br>
+<ul>
+<li>Es barato. O relativamente barato comparado con otros modelos.</li>
+<li>Potente. Tiene bastante torque.</li>
+<li>Engranajes metálicos.</li>
+</ul><b>Inconvenientes</b><br>
+<ul>
+<li>Tiene una zona muerta muy estrecha, y le cuesta quedarse quieto.</li>
+<li>Los engranajes metálicos lo hacen lento y con inercia, por lo que a veces se pasa y tiene que retroceder.</li>
+<li>Con la inercia que tiene consume mucho al arrancar (más de 1A) y mete mucho ruido en la alimentación. Así que si no desacopláis bien el micro se os va a reiniciar.</li>
+<li>Es muy sensible a las caídas de tensión aunque sean breves. Cuando lo alimentamos con 5V hay ocasiones que la electrónica interna se reinicia y el motor se mueve sólo.</li>
+</ul><br>
+En <a href="http://es.wikipedia.org/wiki/Servomotor_de_modelismo">esta página</a> de la Wikipedia se explica cómo se controla y en <a href="http://www.geology.smu.edu/%7Edpa-www/robo/servo/servohac.htm">esta otra</a> explican cómo funcionan interiormente. Hay cientos de páginas por toda Internet, de aficionados a la robótica sobre todo, que tienen mucha información.<br>
+<br>
+<br>
+Como ya os he dicho nunca había manejado un servo y no tenía muy claro cómo son los pulsos que hay que enviar. Según la Wikipedia es así:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/pulsos_wikipedia.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/pulsos_wikipedia.png"></a>
+</div><br>
+Pero los valores de 1ms y 2ms son orientativos y dependen del modelo de servo. Y como yo no he podido encontrar el datasheet del MG995 pues me he preparado un PIC para probar con varios.<br>
+<br>
+<b>Programa del PIC</b><br>
+<br>
+Como de costumbre usaremos un 12F683 y un programita en C que podéis compilar con el compilador de CCS. Y por si no lo tenéis también os dejo al final del artículo un enlace al código fuente y al fichero compilado.<br>
+<br>
+Utilizaremos el puerto serie para la transmisión, si vuestro ordenador ya no tiene puerto serie necesitaréis un conversor USB-RS232. <a href="../../../2010/03/conversor-usb-rs232/articulo.html">Como este</a>.<br>
+<br>
+Tras presentar una cabecera se queda esperando comandos. Los comandos constan de una letra y un número. La letra puede ser <b>p</b> si queremos cambiar el <b>periodo</b> u <b>o</b> si queremos cambiar la <b>duración del pulso</b>. El número que sigue son los microsegundos de duración.<br>
+<br>
+Si por ejemplo queremos cambiar el tiempo del pulso a 1ms, que son 1000us pondremos<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+o1000
+</div><br>
+Tal que así:<br>
+<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Prueba de servo.
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Escribe oXXXX para variar el tiempo On
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+o pXXXX para variar el periodo
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<br>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+&gt;o1000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Ton = 1000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Periodo = 200000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+&gt;p15000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Ton = 1000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Periodo = 200000
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+&gt;
+</div><br>
+Variar el periodo no debería infuir en la posición del servo, pero es útil para hacer pruebas.<br>
+<br>
+Varias cosas en cuanto a este código:<br>
+<br>
+Utilizamos un Timer para gestionar el pulso. Habría sido más fácil con un bucle y un par de delays, pero no podríamos hacer nada más mientras tanto. Usando un timer nos quitamos el problema del bucle principal y lo delegamos a la interrupción. Y si luego más adelante quisiéramos manejar más de un servo con el mismo PIC ya tenemos un paso avanzado.<br>
+<br>
+He rescrito la función <b>atol</b>. Mi versión es menos potente que la que trae el compilador en sus librerías pero también ocupa menos espacio en memoria. No necesito convertir números hexadecimales ni negativos en este programa.<br>
+<br>
+También he pasado de <b>gets</b> por dos motivos. El primero es que no tiene límite de caracteres, y se puede cargar otras cosas de la memoria si escribo una cadena demasiado larga. Tampoco me preocupa mucho porque sólo son pruebas lo que estoy haciendo. Pero el motivo principal es que <b>get_string</b> tiene eco remoto. Eso quiere decir que en el PC verás en el terminal lo que tecleas mientras escribes. Cosa que gets no hace.<br>
+<br>
+<br>
+<pre class="cpp" name="code">/*****************************************************************************/<br>/*   Primera prueba de servos.<br>/*   Recibe los parámetros desde el PC para ver cuales son los que<br>/*   mejor se ajustan al motor.<br>/*<br>/*   14/12/2010<br>/*****************************************************************************/<br><br>#include "prueba1.h"<br>// Prefiero get_string() en input.c a gets() de stdlib.h<br>// porque se le puede poner un límite de caracteres<br>// y además tiene echo remoto (se ve lo que envías mientras escribes)<br>#include &lt;input.c&gt;<br><br><br>short activo =     0;   // indica si el pin está activo<br>                        // si lo hiciera con una instruccion bit<br>                        // no podría cambiarlo en el #define fácilmente<br>long Ton     =  1000;   // tiempo de duración del pulso (us)<br>long Periodo = 20000;   // duracion del periodo (us)<br><br>long atol(char *);<br><br>#int_TIMER1<br>void  TIMER1_isr(void) <br>{<br> /* Lo activamos y plantamos la interrupción<br>    para que se desactive al rato <br>    Los valores de offset estan calculados con el simulador */<br> if (!activo) {<br>  activo = 1;<br>  output_high(PIN_Servo);<br>  set_timer1(65535 - Ton + 60);<br> }<br> else {<br>  activo = 0;<br>  output_low(PIN_Servo);<br>  set_timer1(65535 - Periodo + Ton + 65);<br> }<br>}<br><br><br><br>void main()<br>{<br> setup_oscillator(OSC_4MHZ);<br> <br>    setup_adc_ports(NO_ANALOGS|VSS_VDD);<br> setup_adc(ADC_OFF);<br> <br> /* Timer1 con resolución de 1us,<br>    desbordamiento en 65.535ms a 4MHz */<br> setup_timer_1(T1_INTERNAL|T1_DIV_BY_1);<br><br> printf("Prueba de servo.\r\n");<br> printf("  Escribe oXXXX para variar el tiempo On\r\n");<br> printf("  o pXXXX para variar el periodo\r\n");<br><br> enable_interrupts(INT_TIMER1);<br> enable_interrupts(GLOBAL);<br><br><br> for(;;) {<br>  char string[10];<br>  char var;<br>  long valor;<br><br>  get_string(string, sizeof(string));<br>  //strcpy(string,"o1234"); (DEBUG)<br>  var   = string[0];<br>  valor = atol(string+1);<br>  <br>  if (valor &lt;= 0) {<br>   puts("Valor no valido.");<br>  }<br>  else { <br>   if (var == 'o') {<br>    if (valor &gt; Periodo) {<br>     puts("Valor no permitido pata Ton.");<br>    } <br>    else { <br>     Ton = valor;<br>    }<br>   }<br>   else if (var == 'p') {<br>    Periodo = valor;<br>   }<br>   else {<br>    puts("Comando no reconocido."); <br>   }<br>   <br>   printf("\nTon = %Lu\r\n", Ton);<br>   printf("Periodo = %Lu\r\n", Periodo);<br>  }<br> } <br>}<br><br><br>/* Versión reducida de atol:<br>   Esta versión sólo trabaja con positivos y en decimal.<br>   Y para cadenas de hasta 256 caracteres. */<br>long atol(char *s)<br>{<br> long result;<br> char indice;<br> char c;<br><br> indice = 0;<br> result = 0;<br> <br> c = s[indice];<br> while (c &gt;= '0' &amp;& c &lt;= '9') {<br>   result = 10*result + (c - '0');<br>   indice++;<br>   c = s[indice];<br> }<br><br> return(result);<br>}<br></pre><br>
+Por si teneis curiosidad, el fichero <i>prueba1.h</i> es así<br>
+<br>
+<pre class="cpp" name="code">#include &lt;12F683.h&gt;<br><br>#device adc=16<br><br>#FUSES NOWDT                  //No Watch Dog Timer<br>#FUSES INTRC_IO               //Internal RC Osc, no CLKOUT<br>#FUSES NOCPD                  //No EE protection<br>#FUSES NOPROTECT              //Code not protected from reading<br>#FUSES NOMCLR                 //Master Clear pin used for I/O<br>#FUSES NOPUT                  //No Power Up Timer<br>#FUSES NOBROWNOUT             //No brownout reset<br>#FUSES IESO                   //Internal External Switch Over mode enabled<br>#FUSES FCMEN                  //Fail-safe clock monitor enabled<br><br>#define PIN_Servo   PIN_A2 // Salida para el servo<br>#define PIN_SrTX    PIN_A0 // TX serie para conectar al PC<br>#define PIN_SrRX    PIN_A1 // RX serie para conectar al PC<br><br>#use delay(clock=4000000)<br>#use rs232(baud=9600,INVERT,DISABLE_INTS,parity=E,xmit=PIN_SrTX,rcv=PIN_SrRX,bits=8)<br></pre><br>
+<br>
+<b>Salida del PIC</b><br>
+<br>
+Vamos a usar la tarjeta de sonido que nos curramos en otra entrada (<a href="../../../2010/10/medir-valores-logicos-con-tarjeta-de/articulo.html">Medir valores lógicos con una tarjeta de sonido</a>) para ver cómo son los pulsos que genera el programa y cómo cambian cuando tecleamos los comandos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/servo_pulsos.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/servo_pulsos.png"></a>
+</div><br>
+La imagen es una captura de pantalla del Audacity. En la primera pista vemos pulsos de 500us con un periodo de 30ms. En la segunda el periodo es el mismo pero los pulsos son de 2.5ms (los hemos cambiado enviando el comando <i>o2500</i>) y en la tercera mantenemos la duración del pulso pero el periodo cambia a 20ms (comando <i>p20000</i>).<br>
+<br>
+Fijaos que aquí se aprecia muy bien el <a href="http://en.wikipedia.org/wiki/Gibbs_phenomenon">efecto de Gibbs</a> del que ya habíamos hablado en otro artículo debido al filtrado de las altas frecuencias. Se ve mucho porque hay una resistencia de 1k en serie con la entrada de la tarjeta y porque la frecuencia de muestreo de esta última es baja. A mayor corriente menos se nota la oscilación. Pero la corriente de salida del PIC es finita.<br>
+<br>
+<b>Resultado</b><br>
+<br>
+En este servo, el cable marrón va a masa, el rojo a positivo y el naranja es la señal de posición.<br>
+<br>
+Los valores del periodo válidos van desde los 5ms a más de 35ms (que es el tope que se puede probar con el programa anterior, porque Timer1 se desborda).<br>
+<br>
+En cuanto la de duración del pulso he visto que va entre 0.5ms y 2.5ms. Por debajo de 0.5ms el servo se coloca en posiciones aleatorias. Por encima de 2.5ms permanece en la posición de 180º sin moverse.<br>
+<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+&lt;0.5ms -&gt; ? (indeterminado)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.5ms -&gt; 0º
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+1.0ms -&gt; 45º
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+1.5ms -&gt; 90º (centro)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+2.0ms -&gt; 135º
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+2.5ms -&gt; 180º
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+&gt;2.5ms -&gt; 180º (inmóvil)
+</div><br>
+A partir de ahí basta extrapolar para saber cuánto tiene que durar el pulso para situar el motor en la posición que queramos. Luego habrá que tener en cuenta la velocidad de giro.<br>
+<br>
+<br>
+Esto es todo por ahora. Os dejo el enlace a los archivos <a href="https://sites.google.com/site/electronicayciencia/servo_t1yt2.rar">aquí</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>microcontroladores</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

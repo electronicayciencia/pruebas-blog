@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Valor eficaz de una sinusoidal incompleta</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Valor eficaz de una sinusoidal incompleta</h3>
+<div class='post-date'>
+Publicado el 29-03-2010.
+</div>
+<div class='post-body entry-content'>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"></div>Continuamos con el proyecto <i>DimmerIR</i>. La intención como ya habéis supuesto es diseñar un atenuador electrónico. La caracterizacíon que hicimos de una bombilla incandescente en una <a href="../../../2010/03/caracteristica-i-v-de-una-bombilla/articulo.html">entrada anterior</a> nos servirá para calcular la potencia a partir del valor eficaz. Ahora vamos a perfilar cómo cambia el valor eficaz dependiendo de la fase del disparo.<br>
+<br>
+Voy a usar un TRIAC para sólo dejar pasar parte de cada semiciclo, la forma de onda que recibe la bombilla es así:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/forward_phase.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/forward_phase.png"></a>
+</div><br>
+Debido a los cambios bruscos de tensión, esta forma de atenuación sólo sirve para cargas resistivas. Olvidaros de conectar una bombilla de bajo consumo.<br>
+<br>
+Necesitamos saber cómo cambia la tensión según disparemos el TRIAC antes o después. Se define el <i>valor eficaz</i> de una corriente alterna como la tensión que tendría que tener una corriente continua para provocar el mismo efecto Joule. Lo que queremos saber ahora es cuánto vale este dependiendo de la porción del periodo que cortemos.<br>
+<br>
+Una definición más formal nos va a permitir calcularlo, se demuestra que el valor eficaz es lo mismo que el valor RMS. Durante un periodo de duración T, que por simplicidad supondremos que empieza en 0:<br>
+<br>
+\[V_{RMS} = \sqrt{\frac{1}{T} \int_0^T V^2(t) dt}\]<br>
+Ahora bien, como vemos en la figura $V(t) = V_p \sin(\omega t)$ pero sólo en los intervalos<br>
+<br>
+\[\tau &lt; t \leq \frac{T}{2} \quad \mbox{y} \quad \frac{T}{2}+\tau &lt; t \leq T\]<br>
+Donde, además, tiene el mismo valor sólo que cambiado de signo. Dado que va al cuadrado dentro de la integral, consideramos que en ambos semiciclos la integral vale lo mismo. Eso nos permite integrar para un único intervalo:<br>
+<br>
+\[V_{RMS}(\tau) = V_p \sqrt{\frac{2}{T} \int_\tau^\frac{T}{2} \sin^2(\omega T) dt}\]<br>
+con<br>
+<br>
+\[0 \leq \tau \leq {T \over 2}\]<br>
+Empleamos que $\sin^2(\omega t) = \frac{1-\cos(2\omega t)}{2\omega}$ e integramos:<br>
+<br>
+\[V_{RMS}(\tau) = V_p \sqrt{{1 \over T} \left[ t - \frac{\sin(2\omega t)}{2\omega} \right]_\tau^{T/2}}\]<br>
+Tras operar, teniendo en cuenta que $\omega = {2\pi \over T}$ obtenemos:<br>
+<br>
+\[V_{RMS}(\tau) = {1 \over 2} - {\tau \over T} + \frac{\sin \left(4 \pi{\tau \over T}\right)}{4\pi}\]<br>
+El siguiente gráfico muestra cómo varía el valor eficaz de una corriente alterna dependiendo de en qué parte del semiciclo disparemos el TRIAC.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tensionrelativa.png" imageanchor="1"><img border="0" src="img/tensionrelativa.png"></a>
+</div><br>
+Como era de esperar, si lo disparamos en 0, la onda llega completa y tenemos el 100% del valor nominal (serían 220V). A medida que cortamos más baja la potencia que llega a cero si nos esperamos al final para disparar el TRIAC. En este caso cortamos el total del semiciclo.<br>
+<br>
+Esta es la razón de que la mayoría de los dimmers comerciales sean poco lineales, y varíen más rápidamente la luminosidad al principio del recorrido y menos hacia el final.<br>
+<br>
+Para las formulas he utilizado este <a href="http://www.tlhiv.org/ltxpreview/">previsualizador de LaTeX</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>DimmerIR</li>
+<li>gnuplot</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

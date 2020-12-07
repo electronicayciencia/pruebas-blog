@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Espectroscopía casera con copas</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Espectroscopía casera con copas</h3>
+<div class='post-date'>
+Publicado el 12-04-2010.
+</div>
+<div class='post-body entry-content'>
+La <a href="http://es.wikipedia.org/wiki/Espectroscopia">espectroscopia</a> es una técnica analítica que nos permite distinguir los componentes de una sustancia desconocida. Aprovecha que cada molécula tiene una configuración específica y por tanto unas frecuencias de resonancia que la caracterizan. En estas frecuencias la molécula vibra acumulando la energía de la onda, hecho que puede producir calor. Tal es el fundamento del microondas.<br>
+<br>
+Lo de tener ciertas frecuencias con un comportamiento especial no es exclusivo de las moléculas ni mucho menos. Todo oscilador tiene una frecuencia de resonancia que se corresponde con la frecuencia natural de vibración del sistema. Cuando sólo hay un oscilador y es armónico sólo tiene una, pero en la naturaleza nada es ideal, y los espectros de emisión son muy variados. Las longitudes de onda para las que el sistema tiene un comportamiento diferente al resto son del orden del tamaño de este, así pues los sistemas pequeños resuenan en frecuencias más altas, por ejemplo:<br>
+<ul>
+<li><b>Osciladores microscópicos</b>: un átomo o una molécula presentan líneas de emisión en el <span style="color: magenta;">ultravioleta</span> (mercurio), <span style="color: orange;">espectro visible</span> (sodio), <span style="color: #660000;">infrarrojo</span> (metano) o <span style="color: blue;">microondas</span> (agua).</li>
+<li><b>Osciladores electrónicos</b>: un circuito resonante RLC puede oscilar entre unas pocas hasta varios millones de veces por segundo, dependiendo de los valores L y C. Se cumple que cuando L o C aumentan, baja la frecuencia y viceversa.</li>
+<li><b>Osciladores mecánicos</b>: un resorte, un diapasón, un instrumento musical o una copa de vidrio son ejemplos clásicos. La frecuencia de las oscilaciones cae en un espectro fácilmente audible (entre 50 y 10.000Hz). Y todos sabemos que una campana o tubo de órgano suenan más grave cuanto más grandes son.</li>
+</ul><br>
+En este artículo vamos a ver algunos experimentos sencillos de espectroscopia acústica en los que usaremos copas como elementos resonantes.<br>
+<br>
+<br>
+<b>Averiguar las frecuencias de resonancia</b><br>
+<br>
+Tomemos una copa, un vodka con naranja estaría bien. Ahora vamos a por una <b>copa vacía</b> para hacer las pruebas. Lo primero que hemos de obtener son las frecuencias de oscilación libre de esa copa. Estas dependerán del tamaño y forma, así como de la composición y grosor del material. De ahí el timbre característico de una copa de fino cristal de Bohemia, frente a una copa usual de vino o un simple vaso. Y de ahí también el que varíe cuando se llena de un líquido, cuando se toca, etc.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/copa.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/copa.jpg"></a>
+</div><br>
+Podríamos utilizar un oscilador y un micrófono. Si variamos la frecuencia mientras visualizamos la amplitud de la señal captada veremos cómo crece al acercarnos a una frecuencia de resonancia. Este método es viable y así es como se hacía antes de que existieran los ordenadores, cuando no era tan sencillo calcular la <a href="http://es.wikipedia.org/wiki/Transformada_r%C3%A1pida_de_Fourier">Transformada de Fourier</a>. Otro día me detendré en explicarla, porque es realmente interesante; baste hoy con decir que es una operación tal que, a partir de un sonido, obtiene las frecuencias de que se compone.<br>
+<br>
+Este proceso de variar la frecuencia y observar la respuesta es más o menos fácil de hacer con el sonido; con las microondas es un poquito más chungo; y con la luz necesitamos un monocromador, que es bastante caro. Así que lo que se hace hoy día se parece a lo que vamos a hacer nosotros: excitar la muestra con todas las frecuencias por igual y analizar la respuesta a usando la transformada de Fourier.<br>
+<br>
+Parece sencillo, sólo necesitamos un sonido que se componga de todas las frecuencias, y tenemos dos opciones:<br>
+<ul>
+<li><b><a href="http://es.wikipedia.org/wiki/Ruido_blanco">ruido blanco</a></b>. Dado que el ruido no sigue ningún patrón, todas las frecuencias tienen la misma probabilidad. Así la densidad espectral es constante. Pero hay otra forma de obtener un espectro con todas las frecuencias posibles.</li>
+<li>
+<b>pulso instantáneo</b>. Si nos vamos a una tabla de <a href="http://es.wikipedia.org/wiki/Transformada_de_Fourier#Tabla_de_Transformadas_b.C3.A1sicas">transformadas básicas</a> la función pulso (también llamada <a href="http://es.wikipedia.org/wiki/Delta_de_Dirac">delta de Dirac</a>) tiene un espectro que no depende de la frecuencia, constante por lo tanto. Es el mismo fenómeno por el que un rayo o una chispa de un mal contacto hacen interferencias en todos los canales de radio y televisión: tienen componentes electromagnéticos en todas las frecuencias.
+</li>
+</ul><br>
+<br>
+<b>Respuesta a un impulso</b><br>
+<br>
+¿Cómo podemos aplicar energía instantánea a una copa? muy fácil: dándole un golpecito. Así es, ese <i>tíiinnnn</i> característico que oímos se compone de las frecuencias de resonancia. Pero eso es hacer trampa, a una copa podemos darle un golpe, pero supongamos que no podemos tocar el sistema. Necesitamos algo que lo golpee sin tocarlo. Necesitamos un <i>flash</i> de sonido, una <a href="http://es.wikipedia.org/wiki/Onda_de_choque">onda de choque</a> es decir, necesitamos <b>una detonación</b>. No es plan de tirar un petardo en casa. Así que, aunque quede más ridículo, para lo que quiero hacer también me servirá con explotar <b>un globo</b>.<br>
+<br>
+Lo siguiente es un sonograma creado por el programa <a href="http://www.baudline.com/">baudline</a>. El tiempo avanza hacia abajo de la pantalla, siguiendo el eje vertical. Las frecuencias están en el eje horizontal.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/globo.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/globo.png"></a>
+</div><br>
+Cuando aportamos energía a la copa, esta absorbe la que corresponde con sus frecuencias características y a continuación la emite. Lo que vemos es un aporte inicial de energía -la explosión- y a continuación los <i>ecos</i>. Hay tres tonos principales, los llamaremos A1, A2 y A3 (copa A, tonos 1, 2 y 3) de 1160Hz, 2410Hz y alrededor de 4400Hz. Nos centraremos en A1 y A2, vale la pena observar que son dos tonos limpios, en el sentido de que ninguno presenta armónicos superiores.<br>
+<br>
+Lo que vemos instantes después de la explosión es la reverberación en las paredes, así como otras resonancias más débiles de los objetos de la habitación. Al ser tan débiles se desvanecen rápidamente, si quisiéramos apreciarlo con claridad en el espectro necesitaríamos una frecuencia de muestreo mucho más alta que la que tenemos con nuestra tarjeta de sonido. Con esta información podríamos obtener la respuesta acústica de un espacio y nos serviría si quisiéramos adecuarlo para un concierto por ejemplo.<br>
+<br>
+Una onda de choque transporta energía, en algunos casos mucha, que absorben los cuerpos con los que se topa. Un cuerpo que puede vibrar libremente recibe más energía que otro que esté sujeto. Por eso una explosión puede romper cristales y tímpanos a cierta distancia. A la onda de choque se le llama también <i>onda expansiva</i> u <i>onda de presión</i>. Los órganos internos están sujetos pero no demasiado: aún cuando no haya efectos visibles, un testigo cercano de una detonación potente puede presentar daños internos de mucha severidad debido únicamente a la onda expansiva.<br>
+<br>
+<br>
+<b>Oscilación forzada</b><br>
+<br>
+Cabe preguntarse qué sucede si aplicamos a la copa un tono de una frecuencia a la que esta resuene. El resultado es esperable: que vibra. Pero esto tiene dos consecuencias:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tono1160.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tono1160.png"></a>
+</div><br>
+<ul>
+<li>Que una vez la fuente desaparece, al cabo de 0.1s, la vibración persiste durante un tiempo largo (tiempo que viene dado por el llamado <a href="http://es.wikipedia.org/wiki/Factor_de_calidad">factor de calidad Q</a>). Encontramos una aplicación de este fenómeno en los <b><a href="http://en.wikipedia.org/wiki/Electronic_amplifier#Class_C">amplificadores de clase C</a></b>. En un amplificador de clase C, el transistor amplifica mucho muchísimo la señal, pero sólo durante un tiempo que no cubre ni medio ciclo. Produce una distorsión muy desagradable y no sirve para audio. Pero ¿y si quisiéramos amplificar una frecuencia en concreto, para radio por ejemplo? Si lo acompañamos de un circuito tanque (un circuito LC paralelo) que resuene a la frecuencia que queramos pasará como con la copa: que el circuito resonante <b>recompone</b> el resto de la sinusoide que no amplificaba el transistor. Tendremos una amplificación muy eficiente, a cambio de limitarnos a <b>una sola frecuencia</b>.
+</li>
+</ul>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/clasec.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/clasec.png"></a>
+</div><br>
+<ul>
+<li>Lo otro es que la copa vibra (lo habíamos dicho), y vibra más cuanto mayor es la amplitud de la señal aplicada (obvio), y si subimos el volumen lo suficiente vibra tanto que <b>se rompe</b>. Seguro que todos habéis oído eso de romper una copa con la voz. Pues sí, es posible, con una nota que coincida con la frecuencia de resonancia, siempre que se cante a suficiente volumen la copa se parte. De hecho hay un episodio de <i>Mythbusters</i> donde hacen la prueba. ¿Por qué? Pues porque lo que se forma en el cristal es una <a href="http://es.wikipedia.org/wiki/Onda_estacionaria">onda estacionaria</a> y cuando la amplitud del desplazamiento sobrepasa la flexibilidad del cristal, pues se parte.
+</li>
+</ul>En el sonograma veis un tono de 1160Hz y varios armónicos (nombrados A1 -fundamental-, A1b, A1c, etc.). Me hubiera gustado ofreceros una sinusoidal pura, pero no tenía altavoces amplificados y tuve que improvisar con un altavoz de mierda y un <i>LM386</i>. Como veis la copa también es sensible a los armónicos pero sólo si la forzamos y, mucho menos que a la fundamental. Por eso no se aprecian en la respuesta a impulso.<br>
+<br>
+Por cierto, al final del post pongo un enlace a los archivos wav. Si reproducís al revés la explosión obtendréis un impresionante efecto "<i>peli de misterio</i>".<br>
+<br>
+<br>
+<b>Espectroscopia</b><br>
+<br>
+Hagámoslo más interesante. Antes hemos dicho que se podía intuir la composición de una muestra viendo su espectro de emisión. Es una consecuencia de que el sonido y la luz son ondas, y como tales cumplen el <a href="http://es.wikipedia.org/wiki/Principio_de_superposici%C3%B3n_%28f%C3%ADsica%29">principio de superposición</a>.<br>
+<br>
+Tengo un sistema compuesto de tres copas, llamémoslas A (la que hemos usado antes), B y C. Cada copa tendrá unos picos de emisión, esos los nombraremos con un número correlativo. En el siguiente sonograma vemos los picos excitando cada copa individualmente para ver su espectro característico y después todas al mismo tiempo para ver el espectro completo del sistema.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/sistemaCopas.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/sistemaCopas.png"></a>
+</div><br>
+Antes de nada recordar que lo que estamos viendo no es un espectro de emisión, es un sonograma. Los picos no son picos, sino prolongaciones de esa frecuencia en el tiempo posterior a la excitación. Aún así hablaré de picos por comodidad. Realmente se parece más a una <a href="http://es.wikipedia.org/wiki/Resonancia_magn%C3%A9tica_nuclear">Resonancia Magnética (RMN)</a>, pero no quiero complicar más la entrada.<br>
+<br>
+Varias cosas interesantes:<br>
+<ul>
+<li>El <b>espectro conjunto</b> es la suma del espectro de cada copa por separado. Lo que muestra que no hay interacción de una copa con las demás. Así, si tenemos una base de datos con los espectros de todos los modelos de copas que tenemos en casa y nos dan el espectro de un grupo de ellas, podemos decir exactamente de cuales se componía. Extrapolad esto a cientos de miles de moléculas conocidas y sabréis cómo se identifican dentro de una muestra.</li>
+</ul>
+<ul>
+<li><b>Los picos C2 y B2</b> tienen una frecuencia muy cercana. Por eso cuando excitamos cada copa de forma independiente la frecuencia que emite el uno hace también vibrar al otro. Pero aquí ocurre algo muy interesante, porque fijaos en esta imagen ampliada:</li>
+</ul><br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/absorcion_C2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/absorcion_C2.png"></a>
+</div><br>
+He sacrificado definición de la imagen en favor de que se vea más claro lo siguiente. Cuando golpeamos la copa B, oímos el golpe, que como ya hemos dicho se compone de todas las frecuencias, bueno de todas no. Resulta que el sonido de B tiene que atravesar C para llegar al micrófono, así que <b>C absorbe la energía</b> en su frecuencia C2 e instantes después la vuelve a emitir. En esta imagen no se ve cómo la emite, para verlo tenéis que mirar la anterior.<br>
+<br>
+<ul>
+<li>
+<b>El pico A3</b> parece que esté dividido en dos muy próximos. En efecto al menos los picos A2 y A3 se desdoblan. Es algo común en espectroscopia, y pueden deberse a una acción externa (como el <a href="http://es.wikipedia.org/wiki/Efecto_Zeeman">efecto Zeeman</a> o el <a href="http://es.wikipedia.org/wiki/Efecto_Stark">efecto Stark</a>), pero aquí seguramente se deba a defectos en el material. Estos son los picos anteriores ampliados. Se necesita estrujar la FFT para obtenerlos y no se ven del todo bien.
+</li>
+</ul><br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tono_A2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tono_A2.png"></a>
+</div><br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tono_A3.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tono_A3.png"></a>
+</div><br>
+<br>
+<b>Espectro completo de A</b><br>
+<br>
+Para terminar, os dejo el espectro completo de A hasta los 15.000Hz. Espero que hayáis encontrado este artículo tan interesante como yo.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/espectro_A.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/espectro_A.png"></a>
+</div><br>
+Como siempre, podéis encontrar los ficheros utilizados en esta entrada <a href="http://sites.google.com/site/electronicayciencia/espectroscopia_copas.zip">aquí</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>amplificadores</li>
+<li>física</li>
+<li>sonido</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

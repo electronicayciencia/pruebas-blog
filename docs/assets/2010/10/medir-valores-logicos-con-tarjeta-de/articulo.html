@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Medir valores lógicos con tarjeta de sonido</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Medir valores lógicos con tarjeta de sonido</h3>
+<div class='post-date'>
+Publicado el 20-10-2010.
+</div>
+<div class='post-body entry-content'>
+Hoy os cuento el primer intento de una prueba que quería hacer desde hace tiempo. Se trata de adaptar una tarjeta de sonido para poder medir también valores de tensión continua. Este es uno de esos experimentos que tienen muchas posibilidades de salir mal, o por lo menos, de no salir tan bien como esperábamos. Las cosas no siempre salen a la primera.<br>
+<br>
+La prueba la he hecho con una tarjeta USB <a href="http://www.dealextreme.com/details.dx/sku.22475">muy barata</a>. Está basada en el chipset <a href="http://www.tenx.com.tw/Files/Doc/266/DS-TP6911_V10.pdf">TP6911 de Tenx</a> y sus cualidades de grabación son bastante pobres:<br>
+<ul>
+<li>ADC de 10 bits.</li>
+<li>Frecuencia de muestreo 24kHz</li>
+<li>Mono</li>
+</ul><br>
+Pero más que suficientes para lo que haremos. ¿24kHz es poco? Pues para grabar con calidad de CD no sirve, pero precisamente este experimento va de medir tensión continua o que varía muy lentamente. ¿10bits es poco? Hombre depende, si lo que queremos es medir valores lógicos nos sobran 9.<br>
+<br>
+Con el tamaño de los componentes que tienen estos productos genéricos <i>made in China</i> es poco menos que un trabajo de relojería.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/BENQ0004.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/BENQ0004.JPG"></a>
+</div><br>
+<br>
+<b>Configuración de entrada</b><br>
+<br>
+No voy a meterme en cómo se puede configurar un ADC, Maxim tiene <a href="http://www.maxim-ic.com/app-notes/index.mvp/id/1108">una buena guía</a>. Según el datasheet del TP6911 el circuito debe parecerse a este:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esquema_TP6911.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esquema_TP6911.png"></a>
+</div><br>
+A la derecha veis la entrada de micrófono. Con la típica configuración para alimentar un <a href="../../../2010/06/utilizar-un-microfono-electret/articulo.html">electret</a>.<br>
+<br>
+En teoría lo que queremos hacer es puentear el condensador en serie para que no nos cape la componente continua. Y de paso cargarnos también la resistencia que lleva la alimentación para el micrófono, porque si no la estaríamos midiendo también. Tampoco nos interesan los condensadores en paralelo que puedan estar filtrando ya que estos sólo introducirían demora y artefactos en la medida.<br>
+<br>
+Como podéis ver no estamos haciendo una mejora, sino una mutilación. Estamos eliminando los filtros paso bajo y paso alto que dotan de más o menos calidad a la entrada y es probable que cuando terminemos ya no nos sirva para conectar un micrófono.<br>
+<br>
+Hay un primer problema. La entrada de micro parece ser diferencial. Si la entrada estuviera referida a masa todo sería perfecto, pero no es así. Para esta primera prueba, rápida y poco cuidadosa todo hay que decirlo, opto por ignorar la entrada negativa. Y como era de esperar el rango dinámico se reduce a la mitad. Es decir que en lugar de medir valores simétricos MIN-0-MAX vamos a medir sólo entre MIN y 0.<br>
+<br>
+Hay un segundo problema. El datasheet TP6911 es muy básico. Y aunque he encontrado <a href="http://www.iamnota.net/hw:tp6911">tres notas de aplicación</a> son prácticamente iguales. Así que lo siento, las pruebas hay que hacerlas por ensayo y error.<br>
+<br>
+Por ejemplo la estructura de la entrada de grabación dicen que es así:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esquema_rec.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esquema_rec.png"></a>
+</div><br>
+Sin embargo no se corresponde con el circuito de la tarjeta. La resistencia no existe y si eliminamos el condensador se supone que no deberíamos tener señal de entrada. Sin embargo la tenemos. Es parecido a trabajar a ciegas. Por suerte este hardware es muy barato.<br>
+<br>
+<br>
+<b>Ejemplos</b><br>
+<br>
+Me hubiera gustado mostraros la captura con el Xoscope. Pero no me deja seleccionar el dispositivo de entrada, y como ya tenía configurada la tarjeta integrada no admite la USB. Nos apañaremos con Audacity y Baudline.<br>
+<br>
+En primer lugar probaremos con un potenciómetro. Observad cómo se produce saturación antes de llegar al mínimo y antes de llegar al 0.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/audacity_lento.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/audacity_lento.png"></a>
+</div><br>
+<br>
+Ahora vamos a conectar un módulo detector de IR y veremos cómo es una ráfaga infrarroja de un mando a distancia NEC. De estos módulos ya hablamos <a href="../../../2010/05/receptor-con-pic-para-mandos/articulo.html">en otra entrada</a>.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/audacity_nec.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/audacity_nec.png"></a>
+</div><br>
+<br>
+Para terminar vamos a conectar un interruptor a masa. Y veamos lo que ocurre al pulsar. Todos los que hayáis trabajado con pulsadores habréis tenido el problema de los rebotes (bounces). Que consiste en que la pulsación no es limpia sino que abre y cierra varias veces hasta quedar en un estado estable. Por eso hay que incorporar una rutina o unos componentes que eviten contar estos rebotes rápidos como pulsaciones legítimas.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/cerrar_inter.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/cerrar_inter.png"></a>
+</div><br>
+Así es como se ve la pulsación de un botón. El tiempo entre que se pulsa hasta que queda estable es de aproximadamente 1 milisegundo.<br>
+<br>
+<br>
+Si necesitáis medir valores digitales por USB este es el procedimiento más sencillo que hay. Otra opción es usar el <a href="../../../2010/03/conversor-usb-rs232/articulo.html">conversor USB a puerto serie</a> que ya publicamos. Veis que el procedimiento que hemos seguido no es el mejor pero sirve perfectamente para nuestro propósito. Es cuestión de hacer pruebas para mejorar los resultados.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>circuitos</li>
+<li>PC</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

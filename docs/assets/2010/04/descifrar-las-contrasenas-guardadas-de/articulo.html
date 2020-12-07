@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Descifrar las contraseñas guardadas de Opera</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Descifrar las contraseñas guardadas de Opera</h3>
+<div class='post-date'>
+Publicado el 08-04-2010.
+</div>
+<div class='post-body entry-content'>
+Así como en Firefox tenemos la opción de mostrar una contraseña guardada, en Opera no existe esa posibilidad. En alguna ocasión puede ser útil extraer la lista de las contraseñas guardadas. Como Opera no es <i>open source</i> no conocemos el algoritmo de cifrado, lo único que está claro es que, de alguna manera, si el navegador tiene acceso a esa información es que el cifrado debe ser reversible.<br>
+<br>
+Gracias a SNA de <a href="http://www.reteam.org/blog/archives/00000012.htm">Reverse Engineering Team</a>, tenemos una herramienta capaz de descifrar las claves. El código fuente original lo podeis encontrar <a href="http://www.reteam.org/blog/archives/unwand.cpp">aqui</a>. Compila sin problemas en Windows según el autor; pero no en Linux, donde se necesitan unos ligeros retoques. A continuación explico los cambios:<br>
+<br>
+La ruta de las cabeceras en Linux es un poco distinta:<br>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">#include "md5.h"</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">#include "des.h"</span>
+</div><br>
+por<br>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#include &lt;string.h&gt;</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#include &lt;openssl/md5.h&gt;</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">#include &lt;openssl/des.h&gt;</span>
+</div><br>
+<br>
+Y además, por la razón que pongo abajo:<br>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">std::wcout &lt;&lt; (wchar_t *)cryptoData &lt;&lt; std::endl;</span>
+</div><br>
+por<br>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">// Quick and dirty workaround to convert UTF chars.</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">int i=0;</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">while(cryptoData[i]) {</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">printf("%c", cryptoData[i]);</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">i += 2;</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">}</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">std::wcout &lt;&lt; std::endl;</span>
+</div><br>
+Los carácteres se almacenan en formato <i>widechar</i>, lo que en términos prácticos y <b>para caracteres estándar</b> significa que para poner <i style="font-family: &quot;Courier New&quot;,Courier,monospace;">Hola</i> se almacena <i style="font-family: &quot;Courier New&quot;,Courier,monospace;">H\0o\0l\0a\0</i> (intercalando un carácter nulo tras cada letra). Que dará problemas o no dependiendo de la configuración del terminal. Puede ocurrir que salgan bien, o que sólo salgan interrogaciones o que sólo aparezca la primera letra de cada palabra, incluso podrían salir caracteres chinos. Así que para evitar estos efectos eliminamos los caracteres nulos intercalados. Es una manera simple de hacer la conversión, y que sólo funciona para caracteres ASCII. En caso de caracteres no estándar lo anterior <b>no es cierto</b>.<br>
+<br>
+Para compilarlo utilizamos el siguiente comando:<br>
+<br>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">c++ unwand.cpp -lcrypto -o unwand</span>
+</div><br>
+Necesitaremos instalar la librería OpenSSL (libssl) si no la tenemos ya instalada y sus correspondientes cabeceras (libssl-dev). Lo ejecutamos y el programa explora el archivo Wand volcando todos los bloques de información que pueda descifrar. La salida, semejante a esta, puede ser difícil de leer pero al menos tenemos lo que buscábamos.<br>
+<br>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">&gt; unwand wand.pruebas.dat</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">Personal profile &lt;- Cabecera del fichero</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">Ecom_SchemaVersion &lt;- Tipo de base de datos</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">http://www.ejemplo.com/login &lt;- Pagina</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">http://www.ejemplo.com &lt;- Dominio completo</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">user &lt;- Campo formulario</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">Pepito &lt;- Valor del campo</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">password &lt;- Campo formulario</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">f4k3p4$s &lt;- Valor del campo</span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">...</span>
+</div><br>
+<br>
+Para encontrar el archivo <i>wand.dat</i> podemos escribir en la barra de direcciones <i>about:config</i> y acto seguido buscar <i>wand</i>:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/buscar_wand.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/buscar_wand.png"></a>
+</div><br>
+Ni que decir tiene que este programita sólo será útil si no hemos establecido una contraseña maestra. Lo he probado con las versiones 9 y 10 para Linux y para Windows, con el resto debería funcionar también. A menos que cambien el algoritmo en el futuro. Encontraréis el archivo adaptado para Linux, junto con un fichero <i>wand.dat</i> para pruebas y el ejecutable ya compilado <a href="http://sites.google.com/site/electronicayciencia/unwand.zip">en este enlace</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>PC</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

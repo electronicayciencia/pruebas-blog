@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Control de velocidad por PWM</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Control de velocidad por PWM</h3>
+<div class='post-date'>
+Publicado el 18-04-2010.
+</div>
+<div class='post-body entry-content'>
+Algo ligero para hoy. Se trata de un control de potencia por Modulación de Anchura de Pulsos (PWM). Está basado en un TL494CN que desoldé de una fuente de alimentación para PC estropeada. Como siempre al final de la entrada os dejo un enlace a los ficheros, incluido el datasheet y una nota de aplicación de TI titulada <a href="http://focus.tij.co.jp/jp/lit/an/slva001d/slva001d.pdf">Designing Switching Voltage Regulators With the TL494</a>.<br>
+<br>
+Este integrado tiene todos los elementos necesarios para construir una fuente conmutada:<br>
+<blockquote>
+The TL494 contains two error amplifiers, an on-chip adjustable oscillator, a dead-time control (DTC) comparator, a pulse-steering control flip-flop, a 5V - 5% precision regulator, and output-control circuits.
+</blockquote>
+<div class="separator" style="clear: both; text-align: center;"></div>Aunque hoy sólo vamos a usar parte de la circuitería es interesante echarle un ojo a la <b>nota de aplicación</b> -<i>el datasheet deja bastante que desear</i>- porque tal vez se nos ocurran otros usos. Si bien es cierto que es un integrado diseñado para un propósito muy concreto, merece la pena conocerlo porque es bastante frecuente y muy sencillo de reutilizar. Lo podemos encontrar en fuentes de alimentación conmutadas, sobre todo en fuentes de PC antiguas posteriores al 2003 (fecha de la publicación de la nota de diseño).<br>
+<br>
+Vamos a construir un sencillo circuito para controlar la tensión aplicada a una bombilla o un motor. Cuidado cuando apliquemos pulsos discontinuos a un motor que como sabéis es una <b>carga inductiva</b> y va a generar picos de tensión inversa que hay que considerar.<br>
+<br>
+<br>
+<b>Descripción del circuito</b><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/velomtr_sch.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/velomtr_sch.png"></a>
+</div><br>
+Lo primero que hacemos es llevar a masa lo que no vayamos a utilizar: las patillas 1, 2, 15 y 16 que corresponden a dos amplificadores pensados para sensar y corregir la tensión de salida. Y la patilla 13, que determina si las dos salidas que tiene actúan en <i>push-pull</i> o en paralelo. Como sólo vamos a usar una nos da igual, así que la conectamos a 0V y tenemos salidas en paralelo.<br>
+<br>
+La resistencia R2 y C1 están conectados al oscilador, en el datasheet los llaman CT y RT (T de timing). Con los valores que he elegido obtenemos una frecuencia de conmutación de 10kHz. Si os molesta el pitido podéis aumentarla, el límite de este integrado está en 150kHz. Pero si pensáis usarlo para controlar un motor, debéis tener en cuenta que la resistencia del bobinado aumenta con la frecuencia. La formula para calcular la frecuencia de oscilación no viene en el datasheet, pero en la nota se indica y es la habitual:<br>
+<br>
+\[F_{osc} = \frac{1}{R_T \times C_T}\]<br>
+El <b>duty-cycle</b> lo fijamos mediante R1 y el potenciómetro. La patilla 4 (<i>Dead Time Control</i>) controla el tiempo de apagado, desde un mínimo de 3% (Duty Cycle 97%) cuando se le aplica una tensión de 3.3V a un máximo de 100% (Duty Cycle 0% o apagado) cuando se conecta a 0V. <i>Podríamos haber conectado las salidas en push-pull y utilizar la salida complementaria, de esa otra forma tendríamos un duty de 3% a 100% en lugar de 0% a 97% como tenemos con esta configuración</i>.<br>
+<br>
+R1 actúa como divisor de tensión con P1 para que la tensión en la patilla 4 no sobrepase los <b>3.3V</b>. Debéis calcularla en función del valor del potenciómetro que penséis usar. Ya que<br>
+<br>
+\[V_{max} = \frac{5V}{R_1 + Pot}Pot = 3.3V\rightarrow R_1 \simeq 0.5Pot\]<br>
+A la salida hemos colocado un BD140 que puede conmutar hasta 1.5A. El diodo D1 sirve para cortocircuitar los <b>picos de retorno</b> en caso de que conectemos un motor a la salida, y que no lleguen al transistor.<br>
+<br>
+El circuito puede alimentarse entre 7 y 30V aunque los valores de R3 y R4 están pensados para 9V, así que si vais a usar otras tensiones diferentes puede que tengáis que recalcularlos para aseguraros de que el transistor funciona efectivamente en <b>conmutación</b>.<br>
+<br>
+Aquí tenéis una foto del circuito terminado.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/BENQ0020.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/BENQ0020.JPG"></a>
+</div><br>
+En <a href="http://sites.google.com/site/electronicayciencia/velomotor.rar">este enlace</a> os dejo los ficheros de Eagle, el datasheet, la nota de aplicación antes mencionada y las fotos.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>circuitos</li>
+<li>reciclado</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

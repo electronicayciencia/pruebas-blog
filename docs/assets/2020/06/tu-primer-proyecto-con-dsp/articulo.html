@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Tu primer proyecto con DSP</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Tu primer proyecto con DSP</h3>
+<div class='post-date'>
+Publicado el 21-06-2020.
+</div>
+<div class='post-body entry-content'>
+Un <b>DSP</b> es un chip pensado para hacer <b>Procesado Digital de Señales</b>. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.<br>
+<br>
+Si buscas en Google <em>cómo usar Arduino</em> encontrarás millones de resultados, webs de electrónica, blogs con conceptos básicos, vídeos explicativos, circuitos de ejemplo, preguntas en foros, tutoriales, etc. Si buscas <em>cómo usar un DSP</em> encontrarás páginas de fabricantes, notas técnicas, vídeos superficiales o cursos sobre procesamiento de señal. Este es un tema complejo. Y aunque intentaré hacerte una introducción de la forma más sencilla, algunos conceptos son muy técnicos y pueden parecerte más próximos a un trabajo de máster que a un proyecto de tiempo libre.<br>
+<br>
+En cualquier caso, déjame darte la clave del artículo nada más empezar: una <b>instrucción</b> binaria. Una operación aritmética tan específica que cuesta entender por qué revolucionó el mundo digital. Consiste en <b>multiplicar</b> dos números y <b>sumar</b> el resultado en un acumulador. Sólo eso. Esa instrucción se llama <b>MAC</b> y podríamos decir que marca la diferencia entre un procesador de uso general y un DSP.<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/filtrosinc.png" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="424" data-original-width="711" src="img/filtrosinc.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Pues esto es un filtro digital, aunque no lo parezca. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+<br>
+<br>
+<a name='more' id="more"></a><br>
+<b>Filtros digitales</b><br>
+<br>
+La función principal de un DSP es filtrar. Y hacer transformadas de Fourier... para filtrar más.<br>
+<br>
+Hay filtros de todo tipo. Algunos dejan pasar las frecuencias bajas, altas, o aplican un perfil de ecualización; otros sirven para suprimir una frecuencia concreta, amplificarla o detectar si está presente; los hay para realzar una señal cambiante como la voz, o suprimir un patrón de ruido de fondo. También pueden cancelar eco, aplicar efectos de distorsión o transformar la señal como nos interese.<br>
+<br>
+Pero un DSP no es un filtro. Siendo un microprocesador (o microcontrolador) se parece más a una calculadora. Para entender cómo filtra un DSP imagínate una señal mezcla de varias frecuencias, como por ejemplo esta:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/filtro_orig.png" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="497" data-original-width="878" src="img/filtro_orig.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Señal original, sin filtrar. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+Supón que quieres quedarte con la sinusoide de mayor amplitud, porque asumes que las oscilaciones pequeñitas de mayor frecuencia son ruido y no nos interesan. En otras palabras, quieres <b>suavizar</b> la señal.<br>
+<br>
+Una forma común de suavizar una serie temporal es calcular en cada punto la media de su valor con sus vecinos. Este procedimiento se llama <b>media móvil</b> y se aplica haciendo que un punto sea la media del anterior, el posterior y él mismo.<br>
+<br>
+De forma general sería:<br>
+<br>
+<pre>El punto i-ésimo es igual a:<br><br>El punto i-1 multiplicado por 0.3333 más ...<br>     "   i         "          0.3333 más ...  <br>     "   i+1       "          0.3333 .  <br></pre><br>
+El 0.3333 viene de dividir entre 3.<br>
+<br>
+El resultado es la convolución de una ventana rectangular con la señal original y... bueno, eso no nos interesa ahora mismo. Veamos una explicación más mundana.<br>
+<br>
+Las frecuencias altas varían mucho entre puntos cercanos. Y cuando promediamos los puntos estas variaciones se cancelan unas con otras. Las frecuencias bajas son variaciones suaves, luego la media entre valores próximos se parece mucho a los valores originales. Por eso la media móvil penaliza las frecuencias altas mientras conserva las más bajas.<br>
+<br>
+Aplicando una media móvil de tres puntos a la señal anterior obtenemos esta curva:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/filtro_mediamovil3p.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="497" data-original-width="878" src="img/filtro_mediamovil3p.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Señal suavizada con media móvil. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+Aquí tenemos un ejemplo sencillo de filtro <b>paso bajo</b>. Tan sencillo que no controlamos ni frecuencia de corte ni atenuación. Es un filtro rudimentario, pero la idea básica está ahí. Para filtrar mejor podríamos hacer la media con, por ejemplo, 5 puntos o más. O, mejor aún, aplicar varias pasadas.<br>
+<br>
+Teniendo un filtro paso bajo, se puede construir uno paso alto. Basta tomar la señal original y restarle sus bajas frecuencias. O sea, el resultado obtenido tras el filtrado anterior. Así eliminamos precisamente la frecuencia baja y nos quedamos con el resto: la alta.<br>
+<br>
+Aquí conviene escribirlo un poco más formalmente. Partimos de un filtro <em>identidad</em>, es decir un filtro cuya salida es igual él mismo a la entrada:<br>
+<br>
+<pre>El punto i-ésimo es igual a:<br><br>El punto i-1 multiplicado por 0 más ...<br>     "   i         "          1 más ...  <br>     "   i+1       "          0 .  <br></pre><br>
+Y restarle el filtro paso bajo, la media móvil anterior:<br>
+<br>
+<pre>Identidad - Paso bajo = Paso alto<br>   0      -  0.333       -0.333<br>   1      -  0.333    =   0.666<br>   0      -  0.333       -0.333<br></pre><br>
+Es decir, nuestro filtro paso alto sería esta operación:<br>
+<br>
+<pre>El punto i-ésimo es igual a:<br><br>El punto i-1 multiplicado por -0.333 más ...<br>     "   i         "           0.666 más ...  <br>     "   i+1       "          -0.333 .  <br></pre><br>
+A ver, en realidad esto último vale porque son sólo tres puntos. Si haces el mismo razonamiento con más puntos es mentira, pero se parece mucho a la verdad y en este momento es más fácil de creer. Si lo aplicamos a la señal anterior aquí tenemos el resultado:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/filtro_pasoalto3p.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="497" data-original-width="878" src="img/filtro_pasoalto3p.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Misma señal filtrada con un paso-alto. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+Sabiendo hacer filtros paso alto y paso bajos, ya podemos combinarlos para hacer otro tipo de filtros. Un pasa banda o banda eliminada.<br>
+<br>
+Detrás de este razonamiento, aparentemente sencillo y mejorable en muchos aspectos, hay un aparato matemático más sofisticado de lo que te imaginas. Sí, el principio básico es el que te he contado. Pero lo que de verdad estás haciendo es la convolución de una función ventana con la señal original. O más gráficamente, estás <b>recortando</b> el espectro de frecuencias y para ello usas como patrón la transformada de Fourier de la ventana.<br>
+<br>
+En la práctica este tipo de filtros tienen 50, 100 o más coeficientes. Existen multitud de técnicas para calcularlos, ajustando la frecuencia de corte, el rizado, la atenuación... Si te interesa, te recomiendo <a href="http://www.dspguide.com/">The Scientist and Engineer's Guide to Digital Signal Processing</a>.<br>
+<br>
+Volviendo al tema, una señal digital puede filtrarse realizando sobre ella una operación de esta forma, eligiendo los coeficientes apropiados, claro, estos son de ejemplo:<br>
+<br>
+<pre>El punto i filtrado es igual a:<br><br>El punto i-5 multiplicado por 0.009 más ...<br>     "   i-4       "          0.027 más ...  <br>     "   i-3       "          0.065 más ...  <br>     "   i-2       "          0.122 más ...  <br>     "   i-1       "          0.177 más ...  <br>     "   i         "          0.201 más ...  <br>     "   i+1       "          0.177 más ...  <br>     "   i+2       "          0.122 más ...  <br>     "   i+3       "          0.065 más ...  <br>     "   i+4       "          0.027 más ...  <br>     "   i+5       "          0.009<br></pre><br>
+¿Ves el patrón? Tengo una fila de puntos, digamos un <b>vector</b> con el histórico de los valores de entrada (los i). Tengo otra fila de puntos, digamos otro vector con los coeficientes del filtro. El valor de salida i filtrado se obtiene multiplicando los valores uno a uno y sumándolo todo al final.<br>
+<br>
+Aquellos filtros en los que sólo participan los valores de entrada y los pesos de cada punto se llaman filtros FIR (<em>Finite Impulse Response</em>). Se usan muchísimo porque son sencillos, fáciles de estudiar, la fase es lineal, estables y predecibles. Lo malo es que son largos, te puedes encontrar fácilmente con que necesitas un filtro de 300 coeficientes. Eso significa 300 operaciones de multiplicar, y luego 300 sumas, sin contar el recuperar 600 datos de memoria... <b>por cada punto</b>.<br>
+<br>
+Para filtros más largos igual te conviene más hacer la FFT, modelar el espectro como te convenga, y hacer luego la transformada inversa... por cada punto o por cada bloque de puntos.<br>
+<br>
+La instrucción <b>MAC</b>, decíamos al principio del artículo, "consiste en multiplicar dos números y sumar el resultado en un <b>acumulador</b>". ¿Empiezas a ver para qué?<br>
+<br>
+<br>
+<b>Hardware dedicado</b><br>
+<br>
+La ALU, seguramente lo recuerdes, es la parte del procesador encargada de hacer operaciones <b>aritméticas</b> (sumar, restar, casi siempre multiplicar y a veces dividir). De ahí su nombre: Unidad Aritmético-Lógica. Se diseñan para operar con números enteros. Porque las operaciones con enteros son infinitamente más comunes que las de coma flotante.<br>
+<br>
+¿Significa que un procesador no puede calcular decimales? Claro que puede. Una CPU puede hacer cualquier operación con bits, siempre que tenga memoria y tiempo suficiente para ello. Lo mismo que tú calculas decimales usando lápiz y papel, hay algoritmos para operar con decimales usando sólo números enteros. Eso sí, para hacer una suma se requieren varias operaciones seguidas y por tanto este tipo de operaciones son más lentas.<br>
+<br>
+La diferencia entre procesamiento entero, coma flotante y coma fija es algo que ya tuvimos ocasión de ver en este otro artículo: <a href="../../../2018/10/la-presion-atmosferica-bmp280/articulo.html">La presión atmosférica, BMP280</a><br>
+<br>
+La Unidad de <b>Punto Flotante</b> (FPU) es un módulo hardware pensado para cálculos con decimales. Los números en coma flotante se guardan utilizando un formato especial llamado IEEE-754. El hardware está diseñado para trabajar en este formato y permite hacer operaciones matemáticas directamente en una instrucción. Simplificando así los algoritmos y acelerando los cálculos.<br>
+<br>
+Los primeros ordenadores no tenían FPU. No les hacía falta. Las empresas preferían operar con aritmética de punto fijo para tener bien controlados los redondeos en las operaciones. Y un usuario doméstico no requería velocidad en dicho tipo de cálculos.<br>
+<br>
+Durante mucho tiempo llamábamos <em>coprocesador matemático</em> a la Unidad de Punto Flotante y se compraba como un chip aparte (<a href="https://es.wikipedia.org/wiki/Intel_8087">Intel 8087</a>), bastante caro. Algunos programas, que necesitaban hacer cálculos intensivos, tenían <b>dos versiones</b>: una para quienes tenían coprocesador, y otra para los que no. La segunda versión era más grande y más lenta pues tenían que emular estas operaciones complejas a partir de operaciones más sencillas.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/IT-vs-ITNCP.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="557" data-original-width="923" src="img/IT-vs-ITNCP.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Algunos programas tenían dos versiones, NCP significa sin co-procesador. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+Desde el i486 (principio de los 90) la arquitectura Intel y compatibles incluyen una FPU <b>integrada</b>. Algunas arquitecturas como la que usa Raspberry Pi también tienen FPU y ciertos microcontroladores avanzados como el ESP32. Pero otros muy conocidos, sin embargo, no tienen, es el caso de Arduino, ESP8266 o los PIC clásicos.<br>
+<br>
+<br>
+Volviendo de nuevo al tema, un microcontrolador sin DSP puede hacer Procesamiento Digital de Señales de la misma manera que uno sin FPU puede hacer operaciones en coma flotante. Los cálculos DSP son el tipo de operaciones que puede realizar sin mayor problema cualquier procesador.<br>
+<br>
+Ahora bien, en los filtros que hemos explicado antes, para calcular la muestra i-ésima (el punto i) necesitas operar con vectores de 50, 100 o 300 puntos anteriores. O tienes que calcular la FFT y la iFFT. Y todas esas operaciones deben hacerse entre una muestra y la siguiente. ¿Te imaginas a qué velocidad tiene que funcionar para tener un rendimiento aceptable? Cuanto más veloz sea el procesamiento, mejores filtros o más muestras por segundo podremos procesar.<br>
+<br>
+Y por eso necesitamos <b>optimizarlo</b> por hardware. ¿Qué características técnicas son deseables en el hardware de un DSP?<br>
+<br>
+<b>Frecuencia de reloj</b>. Obviamente, a más instrucciones por segundo mayor velocidad. Para el oscilador se emplea un cristal de cuarzo. Existen cristales de más de 100MHz, pero tener frecuencias de radio VHF circulando por las pistas de una placa de audio o vídeo no es buena idea porque pueden perjudicar a otros sistemas. Así que se utilizan multiplicadores de frecuencia por <b>PLL</b>.<br>
+<br>
+¿Cómo se multiplica la frecuencia con un PLL? Pues intercalando un divisor en el bucle del PLL, de forma que este -para igualar la frecuencia que está viendo- debe generar una frecuencia <b>múltiplo</b> de la original. ¿Ingenioso, verdad?<br>
+<br>
+Además de velocidad, necesitaremos <b>memoria</b>, mucha memoria. Memoria flash donde guardar programas y algoritmos complicados. Y RAM para coeficientes de los filtros, valores anteriores de la señal de entrada y otras operaciones. Es más, como sabemos que muy a menudo vamos a operar con dos vectores, yo pediría bancos de memoria con acceso simultáneo. Lo mejor es poder acceder al mismo tiempo a un dato del banco X y otro del banco Y. Y eso sólo es posible si los buses de memoria están separados.<br>
+<br>
+Los coeficientes de los filtros suelen ser constantes, podríamos guardarlos en la memoria <b>Flash</b> que es más barata. Sin embargo tiene una pega: a diferencia de la RAM, su contenido se lee por medio de instrucciones especiales. Si de verdad queremos usarla para guardar datos es imprescindible acceder a ella igual que a la RAM. Por eso muchos DSP permiten <b>mapear</b> una parte de la Flash a direcciones RAM y así se puede acceder como si de memoria RAM se tratara.<br>
+<br>
+En cuanto a los <b>registros</b> del procesador, al multiplicar dos números de n bits el resultado es un número el doble de grande. Y piensa que luego van sumándose todos los resultados. Necesitaremos un <b>acumulador</b> lo suficientemente grande como para que no se desborde mientras operamos. Es más, ahora que lo pienso, algunas operaciones con DSP se hacen con números complejos. Necesitaremos no uno, sino dos acumuladores. Para la parte real y para la imaginaria.<br>
+<br>
+Otra característica de los DSP es el <b><em>buffer circular</em>.</b> Si trabajamos con las 100 últimas muestras, entonces la muestra 101 sobrescribirá a la muestra 1, la 102 a la 2, y así sucesivamente. Y el puntero se incrementará adecuadamente apuntando a la muestra más antigua, que sería la número 3. Eso se llama buffer circular y -sin entrar en detalle- se consigue haciendo aritmética modular con los punteros de memoria.<br>
+<br>
+Hablando de hardware para generar direcciones de memoria de forma enrevesada tenemos lo que se llama <em>Bit Reverse Mode</em>. A ver cómo te lo explico... Si vas a contar de 0 a 7 puedes hacerlo en orden 0, 1, 2, 3, 4, 5, 6 y 7. O puedes darle la vuelta a los bits poniendo el menos significativo a la izquierda. Lo cual daría esta secuencia: 0, 4, 2, 6, 1, 5, 3 y 7. ¿Para qué? mira esta imagen de Wikipedia sobre <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a>.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/DIT-FFT-butterfly.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="480" data-original-width="590" src="img/DIT-FFT-butterfly.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Uno de los algoritmos más usados para calcular la FFT utiliza Bit Reverse Mode. Wikipedia.</td>
+</tr>
+</tbody>
+</table><br>
+Por supuesto también necesitaremos instrucciones <b>específicas</b> y optimizadas como la ya mencionada MAC y otras:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/dsp-especificas.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="270" data-original-width="764" src="img/dsp-especificas.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Los DSP incluyen operaciones concretas de uso habitual en cálculo de señal. Microchip.</td>
+</tr>
+</tbody>
+</table><br>
+Los DSP tienen cosas más específicas, como <b>prefetch</b>, aritmética de saturación, FPU o similar, desplazador de barril. Otros cuentan con controladoras de DMA para acceder al ADC o al PWM sin pasar por código. Temporizadores, interfaces I2C, SPI o USB, codecs para captura de audio, instrucciones de compresión o descompresión por hardware, rutinas de cifrado, multicore, soporte de vídeo, puertos ethernet, etc. Y, eso sí, patillas, cientos de patillas.<br>
+<br>
+<br>
+<b>El dsPIC30F3012</b><br>
+<br>
+Para mis proyectos voy a usar el integrado dsPIC30F3012. Algunos me diréis que llego quince años tarde. No es el mejor ejemplo de DSP, ni tampoco el más usado. De hecho carece de ciertas funciones básicas en un DSP moderno.<br>
+<br>
+De hecho ni siquiera es un <em>microprocesador</em> sino un <em><b>microcontrolador</b></em>, y por esta razón no se le llama DSP sino DSC, de <em>Digital Signal Controller</em>. A cambio es mucho más simple que un DSP. Además, al ser básicamente un PIC con módulo DSP se aprecian fácilmente las características añadidas. Yo opino que es un buen micro para introducirse; aunque sin duda los habrá mejores.<br>
+<br>
+Los chips de la gama dsPIC30F son baratos, fáciles de conseguir, se pueden programar con el mismo software y hardware que otros PICs y los hacen en <b>formato DIP</b>. Este concretamente sólo tiene 18 patillas y se puede programar con los programadores más comunes.<br>
+<br>
+Por otro lado, son DSP muy sencillos. Pensados para aplicaciones tales como el control de motores. Si necesitamos algo más potente nos iríamos a la gama dsPIC33, pero la mayoría de ellos no toleran 5V, muchos sólo los hacen en SMD y como mínimo tienen 28 patillas. Si estamos pensado en proyectos más exigentes ya tendríamos que buscar procesadores de fabricantes como Analog o TI. Fuera del alcance de este artículo.<br>
+<br>
+Los DSP son <b>complicados</b> y su curva de aprendizaje algo dura. Al principio, sobre todo, necesitaremos consultar la documentación a cada paso. Conviene tener a mano (y haber leído al menos la <b>introducción</b> de) estos documentos:<br>
+<ul>
+<li><b><a href="http://ww1.microchip.com/downloads/en/devicedoc/70157c.pdf">dsPIC30F/33F Programmer’s Reference Manual</a></b>. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.</li>
+<li><b><a href="http://ww1.microchip.com/downloads/en/devicedoc/70046d.pdf">dsPIC30F Family Reference Manual</a></b>. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.</li>
+<li><b><a href="http://ww1.microchip.com/downloads/en/devicedoc/70139g.pdf">dsPIC30F2011/2012/3012/3013 Data Sheet</a></b>. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.</li>
+<li><b><a href="http://ww1.microchip.com/downloads/en/DeviceDoc/80448D.pdf">dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification</a></b>. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.</li>
+</ul><br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/errata-chip-bugs.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="482" data-original-width="841" src="img/errata-chip-bugs.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">El silicio también tiene <i>bugs</i>. Microchip.</td>
+</tr>
+</tbody>
+</table><br>
+Si fallan los enlaces podéis buscar directamente por el título del documento.<br>
+<br>
+El dsPIC30F3012 puede trabajar hasta <b>30 MIPS</b> (Millones de Instrucciones por Segundo). Cuenta con 24kb de flash y 2kb de RAM. Una parte de esta flash se puede mapear a RAM. Tiene 16 registros de uso general de 16 bits y dos acumuladores de 40. Módulo ADC de 12 bits, comunicación UART, I2C o SPI, salida PWM, y más cosas. Este modelo no tiene DAC (Conversor Digital a Analógico), si bien podríamos usar la salida PWM. O incluso un pin cualquiera de GPIO para hacernos un 1bit-DAC.<br>
+<br>
+Tampoco cuenta con Unidad de Punto Flotante. La suple por medio de un formato numérico llamado <em><b>fraccional</b></em>. En dicho formato, un número entero de 16 bits entre -32768 y 32767 se interpreta como si fuera un número decimal entre -1 y 0.99997. Tiene una precisión limitada pero en muchos casos suficiente.<br>
+<br>
+El ADC se puede temporizar para trabajar a una frecuencia prefijada con un timer de forma independiente al resto del programa.<br>
+<br>
+De los 16 registros de trabajo, no siempre podemos usarlos todos, ya que algunos tienen funciones prefijadas en algunas instrucciones:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/working_registers.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="643" data-original-width="963" src="img/working_registers.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Algunos registros tienen funciones prefijadas en ciertas instrucciones. Microchip.</td>
+</tr>
+</tbody>
+</table><br>
+En la tabla anterior se hace referencia a memoria X y memoria Y. Para llevar a cabo la instrucción MAC en un solo ciclo, los dsPIC30F pueden acceder a <b>dos bancos</b> de memoria a la vez. Bueno, realmente la memoria es la misma, pero hay una zona que se puede direccionar en paralelo al resto. Eso sí, sólo en operaciones de lectura. A la memoria global se le llama X, y a esta zona especial la llamamos Y.<br>
+<br>
+Una vez visto por encima, lo mejor para conocer el integrado es empezar <b>usarlo</b>. Así que antes de seguir avanzando y entrar en detalle voy a proponer un esquema sencillo que me sirva para hacer distintas pruebas.<br>
+<br>
+<br>
+<b>Esquema eléctrico</b><br>
+<br>
+Este es el esquema. Tendemos una entrada analógica, comunicación por puerto serie para depuración, los pines para conectar el programador ICSP y algunos LEDs.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/esquema-dspic.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="913" data-original-width="1600" src="img/esquema-dspic.jpg"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Esquema propuesto para empezar a practicar con el dsPIC. Click para ampliar. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+La alimentación la tomaremos del programador <b>ICSP</b>. <b>C1</b> y <b>C2</b> se encargarán de filtrar los picos de consumo. El LED <b>L1</b> indica cuándo el circuito está alimentado.<br>
+<br>
+La señal de audio entra por el conector <b>J1</b> y llega al potenciómetro de volumen <b>R5</b>. Dicha señal está referida a masa o al negativo de alimentación. El condensador <b>C3</b> es necesario, pues, para bloquear la componente continua y acoplar la referencia a la masa virtual usada en el operacional. <b>C3</b> forma junto a <b>R6</b> un filtro <b>paso alto</b> cuyo corte de frecuencia se sitúa en torno a los 16Hz.<br>
+<br>
+De ahí alcanzamos la patilla inversora de <b>IC2A</b>, configurado como amplificador inversor. La ganancia de esta etapa es 47 veces (unos 34dB). Esta ganancia tan alta sólo es válida para pruebas, no es recomendable como regla general.<br>
+<br>
+El condensador <b>C4</b>, en paralelo con la resistencia de realimentación <b>R7</b>, facilita el paso a las frecuencias mayores. Proporcionando así una vía de menor resistencia y por tanto menor amplificación. El corte de este <b>filtro</b> viene dado por la constante RC de <b>R7</b> y <b>C4</b>, en este caso unos 3386Hz.<br>
+<br>
+Tras el amplificador viene un segundo filtro <b>paso bajo</b> compuesto por <b>R8</b> y <b>C5</b>, también con corte en 3386Hz. Y de ahí a <b>IC2B</b> configurado como buffer para que la impedancia <b>R8</b> no afecte a la medida. Finalmente aplicamos la señal ya filtrada y amplificada al <b>pin 4</b>, correspondiente al segundo canal del ADC.<br>
+<br>
+La etapa de entrada que acabamos de describir tiene una ganancia de 34dB. Y su respuesta en <b>frecuencia</b> será el resultado de combinar tres filtros: un filtro paso alto de primer orden en 16Hz, y dos paso bajo de primer orden en 3386Hz.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/bode-plot.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="603" data-original-width="944" src="img/bode-plot.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Respuesta en frecuencia de la etapa de entrada. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+Y te preguntarás, ¿por qué usar un filtro <b>analógico</b> si es más fácil usar uno digital ya dentro del DSP? Debido al efecto de <em><b>aliasing</b></em>. Todas las frecuencias que superen la mitad de la de muestreo se representarán como frecuencias inferiores. Sin el filtro, y con una frecuencia de muestreo de 20kHz -por ejemplo- una señal de 2kHz y otra de 18kHz se verían idénticas. Con este filtro la señal de 18kHz se verá muy atenuada.<br>
+<br>
+Con una ganancia de 47 veces, el corte del ancho de banda del operacional está teóricamente en 21kHz, por tanto no nos afecta. De cómo usar un operacional y su respuesta en frecuencia ya habíamos hablado en: <a href="../../../2010/05/preamplificador-microfono-electret/articulo.html">Preamplificador micrófono electret: operacional</a>.<br>
+<br>
+Como el <b>LM358</b> no es un amplificador <b><i>rail-to-rail</i></b>, su tensión de salida máxima y mínima nunca llega a alcanzar los valores de alimentación positiva y negativa. Por ejemplo, alimentando el circuito con <b>5V</b>, la salida de <b>IC2</b> podría tomar valores entre casi 0 y 3.5V. Aquí entra en juego el divisor resistivo formado por <b>R1</b>, <b>R2</b>, <b>R3</b> y <b>R4</b>. En la unión de <b>R3</b> y <b>R4</b> encontraremos una tensión de 0.85V, un valor suficientemente alejado de 0 como para permitir al LM358 llegar sin distorsión. De igual modo, en la unión de <b>R1</b> y <b>R2</b> encontraremos 3.26V, donde el integrado también puede llegar cómodamente. En la unión de <b>R2</b> y <b>R3</b>, al ser ambas de <b>igual</b> valor, habrá una tensión a medio camino entre las dos.<br>
+<br>
+Los márgenes inferior y superior servirán como referencias al Conversor Analógico Digital. Mientras que el valor intermedio lo usaremos de masa virtual en la patilla no inversora de <b>IC2A</b>. Los valores de la tensión no son exactos debido a la tolerancia de las resistencias; pero tampoco son críticos.<br>
+<br>
+Como <b>oscilador</b> usaremos un cristal de cuarzo de 20MHz. El dsPIC30F3012 cuenta con múltiples modos de oscilación, incluyendo oscilador interno o cristal externo. Su <b>PLL</b> es capaz de multiplicar internamente la frecuencia del oscilador x4, x8 o x16 y también tiene un divisor por 2 y por 3 lo cual permite múltiples combinaciones. Siempre que no sobrepasemos los 120MHz. Esta tabla muestra los diferentes modos:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/modos-oscilacion-dspic.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="800" data-original-width="972" src="img/modos-oscilacion-dspic.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Modos de oscilación del dsPIC. Microchip.</td>
+</tr>
+</tbody>
+</table><br>
+Los modos válidos para un cristal de <b>alta frecuencia</b> son los HS, marcados en verde. Podríamos usar todas las combinaciones a excepción de la marcada en rojo; pues 20MHz entre 2 da 10MHz, y multiplicado por 16 serían 160MHz. Dicha frecuencia está por encima de la máxima admitida. Elegiré el modo <em><b>HS/2 w/PLL8x</b></em> para funcionar a 80MHz.<br>
+<br>
+Los LED <b>L2</b> a <b>L5</b> están conectados a patillas de I/O y los usaremos libremente en función del proyecto que vayamos a hacer. Finalmente, aquí tenemos el esquema ya montado sobre una protoboard:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/bread-dspic-opamp.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="723" data-original-width="1313" src="img/bread-dspic-opamp.jpg"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Esquema anterior sobre una placa de pruebas. EyC.</td>
+</tr>
+</tbody>
+</table><br>
+<br>
+<b>Proyectos para explorar</b><br>
+<br>
+Lo siguiente es ir haciendo pequeños proyectos para aprender. Tu crees que ya tienes superado lo de encender y apagar un LED. Aún así es un buen comienzo para saber si, por ejemplo, nuestro chip trabaja a la <b>frecuencia</b> de reloj esperada. A qué voltajes funciona bien; si el oscilador es estable o si necesitamos filtrar mejor la alimentación o añadir capacidades. También es útil para aprender a usar los <b>temporizadores</b>.<br>
+<br>
+Lo siguiente será definir variables en una <b>zona de memoria</b> u otra, aquí cada compilador es diferente. Aprenderemos a configurar un buffer circular. A usar la instrucción <b>MAC</b> con el <b>prefech</b>. Y a trabajar con el formato <b>fraccionario</b>. Finalmente habrá que ver cómo se configura el ADC temporizado.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/buffer_circular.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" data-original-height="303" data-original-width="468" src="img/buffer_circular.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Un búfer circular se configura fácilmente.</td>
+</tr>
+</tbody>
+</table><br>
+Con todo lo anterior estamos listos para hacer un detector de señal, por ejemplo. Y si además añadimos un filtro puede convertirse en un detector de bajos. Con un filtro para bajos, otro para medios y uno más de agudos podríamos convertirlo en un <b>psicodélico</b>.<br>
+<br>
+O quizá podríamos tomar un motor y conectarlo con un sensor hall u óptico para obtener la frecuencia de rotación. De tal modo que encendamos un LED cuando se alcance la velocidad de rotación esperada y otros si está por encima o por debajo de dicha frecuencia. O, buscando algo más avanzado, ¿qué tal conectar el motor a la salida PWM para hacerlo rotar siempre a una velocidad precisa mediante un control PID insertado en el bucle de un PLL por software?<br>
+<br>
+Espero que te haya resultado interesante esta <b>introducción</b> al mundo de los DSP. Te dejo los ficheros usados para este artículo, y algunos proyectos de los nombrados antes en GitHub: <a href="https://github.com/electronicayciencia/dspic101">electronicayciencia/dspic101</a>.<br>
+<br>
+Por si tienes curiosidad, aquí te dejo un pequeño ejemplo de cómo multiplicar dos vectores. Una premisa básica de un DSP es poder hacer la operación de un filtro FIR iterando sobre una sola instrucción.<br>
+<br>
+<script src="https://gist.github.com/electronicayciencia/6ec122969615c3bb89aac9c18e03b15b.js">
+</script><br>
+<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>amplificadores</li>
+<li>circuitos</li>
+<li>microcontroladores</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

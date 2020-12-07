@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Mezclador de frecuencias con el integrado 4066</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Mezclador de frecuencias con el integrado 4066</h3>
+<div class='post-date'>
+Publicado el 22-04-2013.
+</div>
+<div class='post-body entry-content'>
+Hoy describimos un circuito <b>mezclador</b> o multiplicador de frecuencias. Un circuito relativamente ignorado por muchos aficionados a la electrónica pero muy importante. Tan importante que es una parte fundamental de casi todos los receptores de radio (incluyendo radios, televisores, conversores de satélite, walkie-talkies, etc): <a href="http://ayudaelectronica.com/concepto-receptor-heterodino/">receptor heterodino</a> .<br>
+<br>
+La finalidad de estos esquemas es tomar una señal de entrada -cuya portadora estará en una frecuencia elevada- y multiplicarla por una señal proveniente del oscilador local -cuya frecuencia podemos variar fácilmente-. De forma que al multiplicar dos frecuencias, como ya vimos en la entrada anterior <a href="../../../2013/03/la-distorsion-armonica-total-thd/articulo.html">La Distorsión Armónica Total (THD)</a>, el resultado son otras dos frecuencias: la suma y diferencia de las anteriores.<br>
+<br>
+Vamos a utilizar este circuito, no para hacer un receptor de RF, sino para un propósito más sencillo: poder captar con la tarjeta de sonido señales por encima de 20KHz que es el límite ultrasónico.<br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+<b>El límite ultrasónico</b><br>
+<br>
+Las tarjetas de sonido convencionales muestrean, como máximo, a 44 o 48kHz. Eso <b>no</b> quiere decir que la mayor frecuencia que pueden captar sea de 22kHz. En realidad pueden captar señales de mucha mayor frecuencia, que aparecerán "plegadas" a la mitad de la de muestreo. Si no sabéis de qué hablo consultad <i>Teorema de Nyquist</i> y <i>Efecto aliasing</i> en este enlace de la Wikipedia: <a href="http://es.wikipedia.org/wiki/Frecuencia_de_muestreo">Frecuencia de muestreo</a>.<br>
+<br>
+Lo que ocurre es que la reconstrucción de la forma de onda que podemos hacer pasado el límite de Nyquist es peor cuanto más nos alejamos. Y para evitar eso mismo todas las tarjetas de sonido incorporan un filtro pasa-bajos que atenúa las frecuencias para las que no está preparada.<br>
+<br>
+Lo que vamos a hacer con este mezclador es llevar las señales de frecuencia superior a nuestra <i>banda base</i>, que es audio. Dicho de otra forma, vamos a recoger ultrasonidos. O bueno, no sólo ultrasonidos, porque la banda de frecuencias que podemos explorar dependerá de la frecuencia del oscilador local. Pues se trata simplemente de un receptor por <a href="http://www.solred.com.ar/lu6etj/tecnicos/convdir/conv_dir.htm">Conversión Directa</a>, que es tan antiguo como la radio misma.<br>
+<br>
+Pero de momento este circuito, así tal cual, no es más que un sencillo mezclador para ultrasonidos.<br>
+<br>
+<br>
+<b>Esquema eléctrico</b><br>
+<br>
+Hay varios tipos de mezclador. De hecho casi cualquier cosa menos una resistencia puede convertirse en un mezclador aunque no queramos.<br>
+<br>
+Como lo que queremos es multiplicar dos frecuencias hemos optado por la solución más radical: un interruptor que se abre o se cierra a la frecuencia que decidamos y deja pasar o no la señal de entrada. Más adelante entramos en detalle. Vamos por partes.<br>
+<br>
+El circuito que os presento es el siguiente. He coloreado las partes que lo componen y así será más sencillo seguir la explicación. Haced click en cualquier imagen o abridla en una ventana nueva para verla ampliada.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/mixer1_sch_t.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/mixer1_sch_t.png"></a>
+</div><br>
+Consta de cinco secciones:<br>
+<ul>
+<li>En <b><span style="color: purple;">violeta</span></b>, izquierda arriba, el preamplificador de entrada.</li>
+<li>En <b><span style="color: #bf9000;">amarillo</span></b>, izquierda medio, la alimentación.</li>
+<li>En <b><span style="color: #38761d;">verde</span></b>, izquierda abajo, el oscilador local.</li>
+<li>En <b><span style="color: #cc0000;">rojo</span></b>, derecha arriba, el mezclador.</li>
+<li>En <b><span style="color: #3d85c6;">azul</span></b>, derecha abajo, el amplificador de salida.</li>
+</ul>Se podría considerar que el amplificador de salida forma parte también del circuito mezclador, pero lo separo por simplicidad.<br>
+<br>
+<br>
+<b>Alimentación (amarillo)</b><br>
+<br>
+La tensión de alimentación se conecta a <b>SL1</b>. El circuito funciona sin problemas con tensiones entre los 5 y los 15V. Pero con un inconveniente, y es que la frecuencia dependerá de la tensión. Ya hablaremos de esto más adelante en el apartado dedicado al oscilador.<br>
+<br>
+<b>R12</b> y <b>R13</b>, junto a <b>C8</b> forman una <b>masa virtual</b> o <b>tierra virtual</b> que nos sirve para alimentar los operacionales con una fuente de tensión simple. Ya vimos estos circuitos en la entrada llamada <a href="../../../2010/05/preamplificador-microfono-electret/articulo.html">Preamplificador micrófono electret: operacional</a>.<br>
+<br>
+<br>
+<b>Preamplificador de entrada (violeta)</b><br>
+<br>
+A menudo se utilizan estos circuitos para captar frecuencias ultrasónicas tal como los radares de los murciélagos. Un micrófono electret no sirve para estas frecuencias, por lo que se utiliza un micrófono piezoeléctrico (o un zumbador piezoeléctrico reutilizado como micrófono). Lo peor de los micrófonos piezoeléctricos es que tienen una <b>impedancia de salida</b> altísima, del orden de los megaohmios. Y cómo la apliquemos a un preamplificador de baja impedancia se nos va a atenuar tanto que más que amplificar, perderemos señal.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/entradanoinversor.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/entradanoinversor.png"></a>
+</div><br>
+En este esquema aparte vemos cómo la impedancia de la fuente Rs y la impedancia de entrada del preamplificador, prácticamente <b>R4</b>, forman un divisor resistivo. De manera que si aplicáramos una fuente con una impedancia muy alta, a un preamplificador de muy baja impedancia la señal quedaría tan atenuada que no oiríamos nada. Y por tanto necesitaremos un amplificador con una impedancia de entrada lo más alta posible.<br>
+<br>
+<b>Nota</b> para radioaficionados y telecos: En radio la longitud de onda es comparable con la longitud de la línea de transmisión y por tanto debemos adaptar impedancias para transmitir la mayor <b>potencia</b> posible hacia o desde la antena. Si no lo hiciéramos así podríamos desde perder señal, y hasta freír el transmisor por estacionarias. Pero en audio no es tan estricto; porque buscamos <b>maximizar la tensión</b> a la entrada y no la potencia transferida. Así que lo que se hace es que las entradas tengan impedancias altas (unos 100kΩ) y las salidas impedancias medias (50kΩ) salvo en casos concretos, por ejemplo la salida de un amplificador hacia el altavoz.<br>
+<br>
+Dicho esto, <b>IC1A</b> está configurado como <b>no inversor</b> lo que nos da una alta impedancia de entrada, sólo limitada por <b>R4</b>. Con esta configuración, si conectáramos una fuente con una baja impedancia de salida también funcionaría. Lo malo es que junto al sonido captaremos todo el <b>ruido de fondo</b> que se acople ayudado por la alta impedancia de entrada del preamplificador.<br>
+<br>
+<b>C1</b> se necesita para adaptar los niveles de tensión dado que la referencia de <b>IC1A</b> es la masa virtual, mientras que la señal de entrada la aplicamos con referencia a la masa real del circuito.<br>
+<br>
+Como ya sabéis, la amplificación viene determinada por <b>R2</b> y <b>R3</b>. En nuestro caso es de 34dB, lo que quiere decir que amplificará 50 veces la entrada.<br>
+<br>
+<b>R1</b> está pensada para alimentar un micrófono electret, pero si queremos alimentar cualquier otro circuito desde el conector de entrada, no hay más que sustituirla por un simple puente.<br>
+<br>
+Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto <a href="https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product"><b>ganancia - ancho de banda</b></a>. Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/gbp.gif" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/gbp.gif"></a>
+</div><br>
+Aquí los valores de <b>C1</b> y <b>R4</b> tienen un papel decisivo, pues forman un filtro paso-alto que desplaza el comienzo de la banda pasante hacia frecuencias mayores. Así, en lugar de amplificar frecuencias entre 0 y 10kHz, por ejemplo, amplificaríamos entre 20 y 30kHz que nos interesan más.<br>
+<br>
+Con los valores dados sirve para frecuencias entre los 15kHz y 95kHz.<br>
+<br>
+Tras ser amplificada, la salida se lleva al mezclador.<br>
+<br>
+<br>
+<b>Oscilador local (verde)</b><br>
+<br>
+Para generar la frecuencia local vamos a emplear el VCO del <b>CD4066</b>, que en realidad es un <a href="http://es.wikipedia.org/wiki/Lazo_de_seguimiento_de_fase">PLL</a> pero se utiliza mucho sólo de oscilador. El rango de frecuencias nos dará las frecuencias que podremos explorar con este circuito.<br>
+<br>
+La configuración no es nada complicada: <b>R11</b> y <b>C7</b> deciden la frecuencia máxima (o la frecuencia central Fo). A continuación, variando la tensión en la patilla 9, se varía la frecuencia de salida entre Fo y 2Fo. Si queremos imponer restricciones en el margen inferior insertaremos una resistencia en serie con la masa del conector <b>SL5</b> o bien colocaremos una resistencia a masa en la patilla 12 del integrado. Si no hacemos ninguna de las dos cosas, la frecuencia mínima será próxima a 0... y no queremos eso.<br>
+<br>
+<b>R11</b> y <b>C7</b> se calculan usando unas tablas que vienen en el datasheet. Por ejemplo, para una resistencia <b>R11</b> de 10kohm y una tensión de alimentación de 8 o 9V el valor de <b>C7</b> tiene que ser del orden de 1nF. ¿Veis ahora por qué decía antes que la frecuencia depende de la tensión de alimentación?<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/calculo_rc.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/calculo_rc.png"></a>
+</div><br>
+La salida del oscilador será la que controle el mezclador.<br>
+<br>
+<br>
+<b>Mezclador (rojo)</b><br>
+<br>
+Siguiendo lo que dijimos al principio, todo se trata de multiplicar dos señales. Para multiplicarlas, bien podríamos utilizar el segundo orden de cualquier componente no lineal. Pero la forma más directa es la que aplicamos aquí: <b>un interruptor</b>.<br>
+<br>
+El integrado <b>IC2</b> es un sencillo <a href="http://www.natalnet.br/~aroca/afron/CD4066BC.pdf">CD4066</a> que contiene 4 interruptores analógicos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/cd4066.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/cd4066.png"></a>
+</div><br>
+La señal de entrada preamplificada se aplica a la los interruptores C y D. Mientras que la señal del oscilador local que viene de <b>IC3</b> la aplicamos a los pines de control que abren o cierran estos interruptores.<br>
+<br>
+En el caso de <b>IC2C</b> le aplicamos la señal de control tal cual. Sin embargo a <b>IC2D</b> le aplicamos la señal invertida. Luego cuando la señal del VCO está a nivel alto conducirá <b>IC2C</b> mientras que cuando pase a nivel bajo lo hará <b>IC2D</b>.<br>
+<br>
+¿Qué conseguimos abriendo y cerrando los interruptores? Pues "cortar" la señal cada cierto tiempo. A efectos teóricos la multiplicamos, pero en la práctica lo que está ocurriendo es esto (abrid la imagen en otra ventana para ampliar):<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/out4kHz_t.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/out4kHz_t.png"></a>
+</div><br>
+Para hacer este gráfico hemos aplicado dos frecuencias separadas por 4kHz. La <b>diferencia de fase</b> de ambas señales, <b>integrada</b> por los condensadores <b>C3</b> y <b>C6</b> a la entrada del amplificador de salida, nos da la frecuencia resultante.<br>
+<br>
+<br>
+<b>Amplificador de salida (azul)</b><br>
+<br>
+Tras la conversión, la señal se filtra por los condensadores <b>C3</b> y <b>C6</b> como ya hemos dicho y se recompone en el último paso del circuito: un amplificador diferencial cuyo núcleo es <b>IC1B</b>.<br>
+<br>
+Es el paso lógico puesto que uno de los interruptores conduce durante el semiciclo positivo de la señal de control y el otro durante el negativo. De esta manera recomponemos una señal simétrica.<br>
+<br>
+Recordad que en los amplificadores diferenciales <b>R5</b> tiene que ser igual a <b>R8</b>, <b>R6</b> igual a <b>R9</b> y la ganancia viene dada por <b>R6</b>/<b>R5</b>. Aproximadamente 2.<br>
+<br>
+A la salida de <b>IC1B</b> colocamos un <b>filtro pasa-banda</b> formado por <b>R7</b>, <b>C4</b> y <b>C5</b>. Este corta a una frecuencia inferior de 350Hz, con la intención de suprimir la tensión continua y el ruido. Y a una frecuencia superior de unos 5kHz para eliminar los residuos de mezclado y la frecuencia imagen. Es bueno que cortemos en una frecuencia relativamente baja ya que, como avisamos al empezar, las tarjetas de sonido pueden captar señales por encima de 20kHz si están mal filtradas y estas causarán interferencias que no podremos separar de la señal real. Esta banda, además, coincide con la máxima sensibilidad de las tarjetas de sonido.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/filtrosalida.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/filtrosalida.png"></a>
+</div><br>
+<br>
+<b>Funcionamiento</b><br>
+<br>
+Lo siguiente es un espectro en el que vemos el circuito sintonizado en 50kHz. La señal del oscilador local Vclk en azul. La amplitud es mucho más de 200mV, se sale del gráfico. Como es de esperar la amplitud a 0Hz no es 0. Porque se tata de una señal cuadrada que oscila entre 0 y 9V. Y por tanto no es simétrica.<br>
+<br>
+Si aplicamos a la entrada una señal de 54kHz, en verde de unos 75mV en la salida obtendremos una frecuencia de 4kHz (en rojo) y con una amplitud un poco mayor gracias al preamplificador de salida.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/fft4kHz.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/fft4kHz.png"></a>
+</div><br>
+Con este circuito ya podemos explorar con la tarjeta de sonido las frecuencias no audibles. Ahora todo depende de lo que conectemos a la entrada:<br>
+<ul>
+<li>Si conectamos una antena de ferrita y una etapa de entrada a FET tendremos un receptor VLF. He intentado recibir la señal <a href="http://es.wikipedia.org/wiki/DCF77">DCF77</a>, que emite en 77.5kHz pero no he podido.
+</li>
+<li>Si conectamos un micrófono piezoeléctrico será un captador de ultrasonidos.</li>
+<li>Si conectamos una bobina y un circuito LC sintonizado "escucharemos" la resonancia electromagnética al igual que hicimos con la resonancia mecánica en esta otra entrada: <a href="../../../2010/08/resonancia-mecanica-con-copas-ii/articulo.html">Resonancia mecánica con copas II</a>.
+</li>
+</ul><br>
+Una vez terminado, la placa nos queda más o menos así. Digo más o menos porque esta foto es de una versión anterior y he cambiado algunos componentes.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/IMAG0415.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/IMAG0415.jpg"></a>
+</div><br>
+<br>
+En <a href="https://sites.google.com/site/electronicayciencia/mixer4066.zip?attredirects=0&amp;d=1">este enlace</a> tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.<br>
+<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>amplificadores</li>
+<li>circuitos</li>
+<li>osciladores</li>
+<li>sonido</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

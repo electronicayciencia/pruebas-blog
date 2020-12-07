@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>La Transformada de Fourier no es magia</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>La Transformada de Fourier no es magia</h3>
+<div class='post-date'>
+Publicado el 11-08-2011.
+</div>
+<div class='post-body entry-content'>
+Este no es el típico artículo en plan "¡Ey, no es magia: sólo son matemáticas avanzadas y te da igual porque no vas a entender ni jota!".<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/captura_snd.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/captura_snd.png"></a>
+</div><br>
+Hace tiempo que quería hablaros de la Transformada de Fourier. Pero no encontraba una forma de presentar el artículo sin que me quedara demasiado matemático. Espero que el enfoque que le voy a dar hoy os sirva para aclarar algunas dudas. Como no quiero entrar en demostraciones muchos puntos los tendré que introducir por las buenas y otros dejarlos a medias. Si algo no os termina de convencer profundizad en el tema, necesitaréis cierto nivel de matemáticas pero comprobaréis que todo está atado y bien atado.<br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+Veréis, los que tenemos formación matemática conocemos la transformada de Fourier como esto:<br>
+<br>
+\[g(\xi ) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x)e^{-i\xi\,x} dx\]<br>
+<br>
+mientras que los aficionados al sonido (sobre todo, pero también a la imagen) lo conocen como esto otro:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/anal_espectr.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/anal_espectr.png"></a>
+</div><br>
+En ambos casos parece algún tipo de operación, a la que le damos una función y nos saca un gráfico, o nos resuelve una ecuación diferencial. Se habla además del <i>dominio del tiempo</i> y el <i>dominio de la frecuencia</i>, nombres que para el profano no hacen más que acentuar su carácter incomprensible.<br>
+<br>
+Sin embargo lo que hoy os voy a mostrar, si me lo permitís, es que no se trata de ninguna <b>magia negra</b>, o sutiles trucos matemáticos. Sino más bien se parece a un proceso de ensayo y error en el cual -casi de manera tosca- intentamos descubrir el espectro de frecuencias de una señal comparándola con otras. Hablaré sobre todo de sonido, por no complicar las cosas; aunque de aquí a unas semanas veremos un uso de esta operación en dos dimensiones.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/audacity_pr_real.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/audacity_pr_real.png"></a>
+</div><br>
+Tenemos una señal, por ejemplo la de arriba. <a href="https://sites.google.com/site/electronicayciencia/prueba_real.wav">Escuchadla</a>. Es un sonido suave, pero ¿de qué frecuencia? ¿Es sólo de una frecuencia pura o es una mezcla de varias?<br>
+<br>
+<br>
+<b>Correlación</b><br>
+<br>
+Antes de dar respuesta a la pregunta anterior, hay que familiarizarse con otro proceso: la <b>correlación</b>. La correlación, que es la base de todo este artículo, consiste en comparar dos señales y ver cómo son de similares. En la Wikipedia encontraréis la definición formal, pero hoy nosotros vamos a usarla a nuestra manera.<br>
+<br>
+En primer lugar definimos un intervalo. Que será un vector de N puntos igualmente espaciados. Por ejemplo tomaremos el intervalo de 0 a 2π. ¿Por qué? Pues porque como vamos a trabajar con senos y cosenos parece una elección apropiada. Claro que no es la única opción válida. Y dentro de ese intervalo evaluamos la función en 1000 puntos (1000 <i>samples</i>).<br>
+<br>
+<pre>npuntos = 1000;<br>inicio  = 0;<br>fin     = 2*pi;<br><br>% Ancho de cada punto.<br>bw = (fin-inicio)/npuntos;<br><br>% El intervalo es un abierto:<br>% quitar el último punto. <br>x  = [inicio:bw:fin-bw];<br></pre><br>
+x es nuestro intervalo. Ahora definimos una función en ese intervalo, por ejemplo el seno de x:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/senx.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/senx.png"></a>
+</div><br>
+Ahora vamos a multiplicar $$\sin(x)$$ por $$\sin(kx)$$ . Iremos variando <i>k</i>. Cuando k es 1, en realidad tenemos $$\sin(x)\times\sin(x)$$ . Que es el seno al cuadrado, y todos los valores son cero o positivos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/sencuadx.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/sencuadx.png"></a>
+</div>Pero veamos qué pasa cuando lo multiplicamos por un k distinto de 1, por ejemplo 2:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/sinxsin2x.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/sinxsin2x.png"></a>
+</div><br>
+<br>
+La función es <b>simétrica</b> (antisimétrica si multiplicáramos por el coseno). El resultado llama mucho más la atención si cogemos los valores de cada punto en el intervalo y los <b>sumamos</b>. Porque en el caso del cuadrado, como todos los valores eran positivos su suma es positiva. Pero ahora al ser simétrica el resultado es cero:<br>
+<br>
+<pre><b>octave:26&gt; sum(sin(x).*sin(1*x))<br>ans = 500<br></b>octave:27&gt; sum(sin(x).*sin(2*x))<br>ans = 0<br>octave:28&gt; sum(sin(x).*sin(3*x))<br>ans = 0<br>octave:29&gt; sum(sin(x).*sin(4*x))<br>ans = 0<br></pre><br>
+Lo más curioso es que si tenemos <b>$$\sin(ax)\times\sin(bx)$$ casi siempre dará cero. Con una excepción: sólo cuando $$a=b$$ nos dará algún valor distinto.</b> Mayor cuanto más puntos tenga el intervalo. Ahora probamos con una frecuencia arbitraria, por ejemplo el 6:<br>
+<br>
+<pre>octave:30&gt; sum(sin(6*x).*sin(4*x))<br>ans = 0<br>octave:31&gt; sum(sin(6*x).*sin(5*x))<br>ans = 0<br><b>octave:32&gt; sum(sin(6*x).*sin(6*x))<br>ans = 500<br></b>octave:33&gt; sum(sin(6*x).*sin(7*x))<br>ans = 0<br></pre><br>
+Y no solo eso, lo mismo ocurre si pruebo a multiplicar por el coseno: aún con la misma frecuencia sale cero.<br>
+<br>
+<pre>octave:35&gt; sum(sin(6*x).*cos(6*x))<br>ans = 0<br><b>octave:36&gt; sum(sin(6*x).*sin(6*x))<br>ans = 500<br></b></pre><br>
+La correlación es un indicador de cuánto se parece una señal a otra. Lo que ocurre con las funciones trigonométricas es un caso especial. Se dice que dos señales son <i>perpendiculares</i> (ortogonales) cuando su correlación es cero. De igual manera que se dice que dos vectores son ortogonales cuando su producto escalar vale cero.<br>
+<br>
+Ahora viene una nota de álgebra, si no os interesa el trasfondo matemático del asunto saltaos este párrafo. También al igual que con los vectores, si tenemos un conjunto de funciones en este caso ortogonales podemos formar una base y expresar las componentes de cualquier función en esa base. Hemos visto que las funciones seno y coseno forman una <b>base ortogonal en un espacio de dimensión infinita</b> (porque hay infinitas frecuencias distintas) -un <i>espacio de Hilbert-</i>. Ese es el dominio de la frecuencia, por contraposición al dominio del tiempo. Los componentes de la función expresados en la base que hemos encontrado son los <b>coeficientes de Fourier</b>. Aunque la correlación no es exactamente lo mismo que el producto escalar de dos funciones, para nuestro caso sirva la comparación.<br>
+<br>
+En la <a href="http://www.dspguide.com/ch8.htm">dspguide</a> encontraréis información ampliada de este tema y muchos otros. Recomiendo que la leais si os interesa el DSP.<br>
+<br>
+<br>
+<b>Análisis de la frecuencia</b><br>
+<br>
+Todavía no vamos a hablar de Hercios, solamente llamamos <i>frecuencia</i> al número que va multiplicando el argumento del seno o coseno para entendernos. Más adelante ya veremos con qué se corresponde.<br>
+<br>
+Ya hemos visto lo que pasa cuando "comparamos" (<i>correlamos</i>) funciones de una sola frecuencia, sinusoidales puras. Pues vamos a componer una función sumando frecuencias puras y a ver si también podemos hacer el mismo análisis que hemos hecho antes. Cogemos nuestra onda de muestra, por ejemplo una composición de cosenos y senos con las frecuencias 2, 5 y 6:<br>
+<br>
+\[anal\_frec = \cos 2x +\cos 5x +\sin 6x \]<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/anal_frec.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/anal_frec.png"></a>
+</div><br>
+Lo llamamos <i>anal_frec</i> para que sea más fácil de leer. Esto es lo que pasa cuando multiplicamos y sumamos con las diferentes frecuencias. Probamos sólo hasta la 9:<br>
+<br>
+Usando el <b>coseno</b>:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(1*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>sum(anal_frec.*cos(2*x)) = 500</b></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(3*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(4*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>sum(anal_frec.*cos(5*x)) = 500</b></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(6*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(7*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(8*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*cos(9*x)) = 0</span><br>
+<br>
+Usando el <b>seno</b>:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(1*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(2*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(3*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(4*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(5*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>sum(anal_frec.*sin(6*x)) = 500</b></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(7*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(8*x)) = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_frec.*sin(9*x)) = 0</span><br>
+<br>
+Ya veis cómo se identifican perfectamente las frecuencias que componen la señal. ¿Cuanto menos es curioso, no?<br>
+<br>
+<br>
+<b>Análisis de la amplitud</b><br>
+<br>
+Ya hemos comprobado que <b>en una suma de varias frecuencias el resultado es cero salvo para las frecuencias que componen la onda.</b> ¿Y cuando no vale cero, cuánto vale? Pues es independiente de la frecuencia, y en nuestro dominio de 0 a 2π vale justo la mitad de los puntos del intervalo. Aunque puede ser distinto en otras definiciones de la función. Si había mil puntos, el resultado es 500. Como digo independientemente de la frecuencia, y ya sea para el seno o para el coseno, ved:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(sin(3*x).*sin(3*x)) = 500</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(sin(7*x).*sin(7*x)) = 500</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(cos(4*x).*cos(4*x)) = 500</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(cos(9*x).*cos(9*x)) = 500</span><br>
+<br>
+Un resultado más práctico sería dividir por ese valor máximo. Así nos dará 1 cuando las funciones son iguales y 0 cuando son completamente diferentes. Y siempre dará el mismo valor cojamos los puntos que cojamos. A esta operación se le llama <b>normalización</b>.<br>
+<br>
+Y digo que es un valor más práctico porque mirad lo que pasa cuando sumo funciones de diferentes amplitudes:<br>
+<br>
+\[anal\_ampl = 1\cos 3x + \frac{1}{2} \cos 4x \]<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/anal_ampl.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/anal_ampl.png"></a>
+</div><br>
+Ahora hago el mismo análisis que antes, hasta el 5 para abreviar:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_ampl.*cos(1*x))/500 = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_ampl.*cos(2*x))/500 = 0</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>sum(anal_ampl.*cos(3*x))/500 = 1</b></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><b>sum(anal_ampl.*cos(4*x))/500 = 1/2</b></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_ampl.*cos(5*x))/500 = 0</span><br>
+<br>
+El resultado es 1 para la frecuencia 3, porque para eso hemos dividido. Mientras que para la frecuencia 4 sólo es 0.5, que justamente es la amplitud que le habíamos puesto a esa frecuencia.<br>
+<br>
+Hasta aquí ya podemos analizar una muestra y saber de qué frecuencias de compone y en qué proporción.<br>
+<br>
+<br>
+<b>Análisis de la fase</b><br>
+<br>
+¿Y qué pasa si nuestra sinusoide no empieza en 0? Por ejemplo si tenemos esto:<br>
+<br>
+\[anal\_fase = \cos (2x + \frac{1}{2})\]<br>
+<br>
+Si lo analizamos con el coseno ya no nos da 1:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_fase.*cos(2*x))/500 = 0.87758</span><br>
+<br>
+Y más extraño aún, cuando le aplicamos el seno obtenemos un valor negativo:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">sum(anal_fase.*sin(2*x))/500 = -0.47943</span><br>
+<br>
+El 1/2 es la fase inicial, que va desde $$-{\pi \over 2}$$ a $$+{\pi \over 2}$$ . El que los resultados no sean 0 y 1 lo que nos dice es que la onda no viene ni de un seno ni de un coseno. Sino que es una mezcla del seno y coseno.<br>
+<br>
+Lo que siempre siempre va a ocurrir es que <b>la suma de los cuadrados es igual a la amplitud al cuadrado</b>. En este caso es 1:<br>
+<br>
+<pre>octave:83&gt; 0.87758^2 + (-0.47943)^2<br>ans =  1.00000<br></pre><br>
+y de ahí, es suficiente tomar la raíz cuadrada para saber la amplitud.<br>
+<br>
+El ángulo, la fase inicial, la podemos obtener a partir de la tangente. O más bien de su inversa, la <b>arcotangente</b>.<br>
+<br>
+\[\phi = \arctan\left(\frac{-sin}{cos}\right)\]<br>
+<br>
+El signo negativo del seno es por convenio. Para que el signo del ángulo coincida con el signo que lleva la fase en el argumento del seno. Realmente hay una justificación de más peso que tiene que ver con la definición de correlación, pero la voy a obviar.<br>
+<br>
+El asunto para el ángulo ya está resuelto.<br>
+<br>
+Hay un "truco" muy práctico en matemáticas: cuando queremos llevar dos cantidades relacionadas al mismo tiempo usamos <b>números complejos</b>. Y en este caso vamos a usar la parte real para llevar la correlación con el coseno y la parte imaginaria para llevar la correlación con el seno. ¿Y por qué no al revés? Pues para que sea consistente con la <b>relación de Euler</b>:<br>
+<br>
+\[e^{i x} = \cos x + i\,\mbox{sen}\,x\]<br>
+<br>
+Ahora es fácil continuar: la amplitud será el módulo del número complejo y la fase su argumento. Y tiene todo el sentido lo de la arcotangente ¿verdad? Así es como funciona con el ejemplo de antes:<br>
+<br>
+<pre>octave:84&gt; anal_fase = cos(2*x+0.5);<br>octave:86&gt; real = sum(anal_fase.*cos(2*x))/500;<br>octave:87&gt; imag = sum(anal_fase.*sin(2*x))/500;<br>octave:88&gt; modulo = real^2+imag^2<br>modulo =  1<br>octave:89&gt; argumento = atan(-imag/real)<br>argumento =  0.50000<br></pre><br>
+Bien, para una señal ya sabemos decir qué frecuencias la componen, en qué proporción y qué fase inicial tiene cada una.<br>
+<br>
+Vamos a meter estos cálculos en una función para tenerlos bien a mano y le llamamos por ejemplo <i>correla</i>.<br>
+<br>
+<pre class="cpp" name="code">function [amplitud, fase, real, imag] = correla(frecuencia, senal, intervalo)<br> % Asumimos que tanto senal como intervalo son un vectores fila de igual tamaño.<br> norm = numel(intervalo)/2;<br><br> % Calculamos parte real e imaginaria.<br> real = sum(senal.*cos(frecuencia*intervalo))/norm;<br> imag = sum(senal.*sin(frecuencia*intervalo))/norm;<br><br> % Al invertir la parte imaginaria elegimos que la fase<br> % tenga el mismo signo que en el coseno. Además así coincide<br> % con la que da la FFT.<br> imag = -imag;<br><br> % Calculamos coordenadas polares.<br> amplitud = sqrt(real^2+imag^2);<br> fase = atan(imag / real);<br>end<br></pre><br>
+Recibe como argumentos la frecuencia con la que queremos probar, la señal incógnita y el dominio. Y nos devolverá el resultado tanto en coordenadas cartesianas (parte real e imaginaria) como en polares (módulo y argumento).<br>
+<br>
+<br>
+<b>Análisis conjunto</b><br>
+<br>
+Es hora de analizar una señal de prueba desconocida:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/senal_ig_1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/senal_ig_1.png"></a>
+</div><br>
+Lo primero en que hay que fijarse es en las amplitudes. No tendremos en cuenta los valores por debajo de un límite, y los consideraremos 0. Y después la fase: porque la fase no nos importa nada si la amplitud es muy pequeña. De hecho la fase es un <b>cociente</b>, y cuando el divisor se hace cada vez más pequeño es propensa a ir dando tumbos.<br>
+<br>
+Tomamos nuestra función y vamos probando con cada frecuencia. A mano es un tanto repetitivo así que sólo probaremos desde el 1 hasta el 5 e iremos viendo qué resultados nos da <i>correla</i>:<br>
+<br>
+<pre>octave:114&gt; [ampl, fase] = correla(1,senal_incognita_1,x)<br>ampl = 0<br>fase = 1427/4840<br><br><b>octave:115&gt; [ampl, fase] = correla(2,senal_incognita_1,x)<br>ampl = 1/2<br>fase = -333/1000<br></b><br>octave:116&gt; [ampl, fase] = correla(3,senal_incognita_1,x)<br>ampl = 0<br>fase = 753/80815<br><br>octave:117&gt; [ampl, fase] = correla(4,senal_incognita_1,x)<br>ampl = 0<br>fase = -349/5059<br><br><b>octave:118&gt; [ampl, fase] = correla(5,senal_incognita_1,x)<br>ampl = 9/10<br>fase = 0<br></b></pre><br>
+Las frecuencias con amplitud distinta de 0 son 2 y 5, la frecuencia 2 tiene 1/2 de amplitud y su fase inicial es aproximadamente -1/3. La amplitud de la frecuencia 5 es 9/10 y no tiene fase inicial, es 0. Comparemos el resultado con la primera señal incógnita, que es:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">senal_incognita_1 = 0.5*cos(2*x-0.333) + 0.9*cos(5*x);</span><br>
+<br>
+No está nada mal. Vamos con la <b>segunda señal incógnita</b>:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/senal_ig_2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/senal_ig_2.png"></a>
+</div><br>
+Esas ondulaciones parecen de una frecuencia mucho más alta que 5. Así que si nos ponemos a hacerlo a mano nos vamos a aburrir. Mejor lo metemos dentro de un bucle y hacemos que el programa pruebe automáticamente las frecuencias desde 1 hasta, por ejemplo 50 y que escriba por pantalla únicamente las amplitudes que superen un valor, digamos 0.001:<br>
+<br>
+<pre class="cpp" name="code">function analiza_correla(senal,intervalo)<br> % Vamos correlando la señal con frecuencias desde 1 a 50<br> for i = [1:50]<br>  [ampl,fase] = correla(i, senal, intervalo);<br>  % Sólo escribir las que superen cierta amplitud<br>  if (ampl &gt; 0.001)<br>   printf("Frec: %d -&gt; Ampl: %4.3f, Fase: %4.3f\n", i, ampl, fase)<br>  endif<br> end<br>end<br></pre><br>
+El resultado es:<br>
+<br>
+<pre>octave:119&gt; analiza_correla(senal_incognita_2,x)<br>Frec:  2 -&gt; Ampl: 0.900, Fase: 1.000<br>Frec: 12 -&gt; Ampl: 0.500, Fase: -0.000<br>Frec: 47 -&gt; Ampl: 0.300, Fase: 0.000<br></pre><br>
+Efectivamente, la definición de <i>senal_incognita_2</i> era:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">senal_incognita_2 = 0.9*cos(2*x+1) + 0.5*cos(12*x) + 0.3*cos(47*x);</span><br>
+<br>
+<br>
+La función <i>analiza_correla</i>, esa que nos da las frecuencias y las fases de cualquier señal, no es sino una versión casera de nuestra transformada de Fourier.<br>
+<br>
+<br>
+<b>Fast Fourier Transform</b><br>
+<br>
+Lo que hemos hecho hasta ahora es lo que se llama una DFT, una <b>transformada discreta de Fourier</b>. La FFT o transformada rápida de Fourier es un algoritmo para calcular lo mismo pero de manera mucho más rápida. Gracias a él, muchos programas reproductores nos muestran el espectro en tiempo real según va sonando la canción.<br>
+<br>
+En octave la función FFT recibe una forma de onda y devuelve un vector de números complejos de todas las frecuencias posibles (es un poco más, pero de momento nos quedamos con esto). El primer elemento del resultado corresponde con la frecuencia 0, la componente continua de la señal. Lo hemos obviado antes y lo vamos a omitir ahora porque es un caso especial. El segundo elemento es la frecuencia 1, el tercero la 2, y así.<br>
+<br>
+Montamos un bucle similar al que hicimos con <i>correla</i>; salvo que en lugar de calcular la FFT frecuencia a frecuencia, calculamos todo y luego el bucle actúa sobre el vector de resultados:<br>
+<br>
+<pre class="cpp" name="code">function analiza_fft(senal)<br> % Calculamos la FFT de la senal de entrada<br> % Nos devolverá coordenadas cartesianas, pasamos a polares.<br> real_imag = fft(senal);<br> ampl = abs(real_imag);<br> fase = arg(real_imag);<br> % Dividimos para normalizar, en la función correla ya lo habíamos<br> % tenido en cuenta pero FFT no lo preve.<br> norm = numel(senal)/2;<br> ampl = ampl / norm;<br> <br><br> % Calculamos las frecuencias del 0 al 50<br> % El primer elemento de la matriz es 1.<br> for i = [1:50]<br>  % Sólo escribir las que superen cierta amplitud<br>  if (ampl(i+1) &gt; 0.001)<br>   printf("Frec: %d -&gt; Ampl: %4.3f, Fase: %4.3f\n", i, ampl(i+1), fase(i+1))<br>  endif<br> end<br>end<br></pre><br>
+Y este es el resultado que da al aplicarlo sobre la señal incógnita 2:<br>
+<br>
+<pre>octave:120&gt; analiza_fft(senal_incognita_2)<br>Frec: 2 -&gt; Ampl: 0.900, Fase: 1.000<br>Frec: 12 -&gt; Ampl: 0.500, Fase: 0.000<br>Frec: 47 -&gt; Ampl: 0.300, Fase: 0.000<br></pre><br>
+El mismo exactamente que nuestra transformada casera. Como debe ser.<br>
+<br>
+<br>
+<b>Caso general</b><br>
+<br>
+Bueno, ahora que ya sabemos algo mejor lo que hace la transformada de Fourier vamos a aplicarla a un caso general. Retomemos el archivo de audio del principio y a ver si somos capaces de descomponerlo.<br>
+<br>
+Se trata de un wav, grabado a 44100Hz:<br>
+<br>
+<pre>&gt; file prueba_real.wav <br>prueba_real.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz<br></pre><br>
+<br>
+Cargamos el fichero en Octave:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">octave:123&gt; senal = wavread ("prueba_real.wav");</span><br>
+<br>
+<br>
+Veamos el tamaño:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">octave:129&gt; size(senal)</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ans =</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">35142 1</span><br>
+<br>
+Tiene 35142 samples, si tuviera 44100 duraría exactamente un segundo. En este caso dura 0.796 segundos simplemente dividiendo.<br>
+<br>
+Vamos a pasar de las funciones que hemos hecho y vamos a ir al grano ¿cómo se usa la función FFT?<br>
+<br>
+Calculamos la FFT de nuestra señal y la dividimos entre la mitad del número de puntos en el intervalo. Ojo que <b>este intervalo no va de 0 a 2π</b>, sobre el valor de normalización podríamos hablar más, pero después de todo no es más que un factor de escala.<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">octave:151&gt; fourier = fft(senal)/17571;</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">octave:152&gt; size (fourier)</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">ans =</span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;"><br></span><br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">35142 1</span><br>
+<br>
+Ya vemos que nos devuelve un vector del mismo número de elementos que el que le pasamos. ¿Qué contiene el resultado?<br>
+<br>
+<ul>
+<li><b>El primer elemento</b>. El elemento 0 (aunque aquí es 1 porque el índice de las matrices en octave comienza por 1) es la frecuencia 0. Esto es, la componente continua. Aquí va a ser casi siempre muy pequeña, prácticamente 0 porque las tarjetas de sonido incorporan un condensador para eliminar la continua. Cualquier valor que aparezca se deberá al offset de fábrica del conversor ADC que incorpore la tarjeta. Como curiosidad siempre es real, y el valor que sale es el doble.</li>
+<li>
+<b>Los elementos del 1 a la mitad del intervalo,</b> en este caso del 2 al 17571 son complejos como los que hemos visto ya. Su módulo indica la amplitud y su argumento la fase de la frecuencia. El elemento 2 corresponde a la frecuencia más baja y el 17571 a la más alta. ¿Cual es la frecuencia más alta? Pues es precisamente la mitad de la de muestreo. Ese resultado se llama <a href="http://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon">Teorema de Nyquist-Shannon</a>. Como el archivo se grabó a 44100 muestras por segundo, la mayor frecuencia que se pudo registrar es de 22050Hz (que ya está por encima del rango audible, por eso los CD se graban a 44100Hz).
+</li>
+<li><b>El elemento 17572</b>, justo en el punto medio, nos aparece porque tenemos un número par de puntos. Quitando el primer elemento que es el 0, queda un número impar de puntos. Es también real siempre.</li>
+<li><b>Los elementos del 17573 en adelante</b>, no aportan más información de la que ya tenemos, pues no son más que los complejos conjugados de los elementos anteriores (del 2 al 17571) a modo de espejo.</li>
+</ul><br>
+Así que para nuestro análisis nos quedamos con los elementos que van desde el 1 al 17571 y descartamos el resto:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">fourier = fourier(1:17571)</span><br>
+<br>
+De esos, el 1 es la frecuencia 0Hz y el 17571 corresponde a 22050Hz. Aquí es muy importante que notéis que la frecuencia máxima sólo depende de la velocidad de muestreo, mientras que la FFT va a devolver más o menos valores según el tamaño de la muestra que le pasemos. Por eso al analizar muestras muy breves no tenemos precisión en la frecuencia (salen muy pocos puntos), y para tener precisión en la frecuencia necesitamos muestras más largas, con lo que perdemos precisión en el tiempo. ¿No os suena a un <b>principio de incertidumbre</b>? Justo, es eso mismo.<br>
+<br>
+Las frecuencias hemos dicho que van del 0 al 22050, en un intervalo que tiene 17571 puntos:<br>
+<br>
+<pre>% -- Intervalo --<br>npuntos = 17571;<br>inicio  = 0;<br>fin     = 22050;<br>% -- Fin de los datos --<br><br>% Ancho de cada punto.<br>bw = (fin-inicio)/npuntos;<br><br>% El intervalo empieza en 0:<br>% quitar el último punto. <br>frecs  = [inicio:bw:fin-bw];<br></pre><br>
+Como a priori no tenemos idea de por donde andan las amplitudes, no tiene sentido fijar un umbral mínimo. Así que lo mejor será hacer un gráfico inicialmente para tener una idea. Aquí no nos interesan las fases, sólo las amplitudes.<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">plot(frecs, abs(fourier))</span><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tr_f_lineal.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tr_f_lineal.png"></a>
+</div><br>
+La verdad es que así no se ve mucho. Por eso las amplitudes suelen expresarse en unidades logarítmicas: el Belio, o más usado el <b>decibelio</b>. Así que vamos a tomar logaritmos para ver si conseguimos recortar un poco los picos y ver también la parte baja:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tr_f_log.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tr_f_log.png"></a>
+</div><br>
+Eso está mejor. Ahí vemos el <b>espectro de frecuencias</b> de la señal de entrada. En particular destacan tres, pero en ese gráfico es difícil decir cuales. Veamos qué frecuencias superan los -55dB en ese gráfico.<br>
+<br>
+Primero obtenemos un vector con las amplitudes en decibelios.<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">decibelios = 10*log(abs(fourier));</span><br>
+<br>
+Y seleccionamos de tales amplitudes aquellas que superen los -55dB:<br>
+<br>
+<span class="Apple-style-span" style="font-family: 'Courier New', Courier, monospace;">picos = find(decibelios &gt; -55);</span><br>
+<br>
+Y sabiendo las posiciones de los picos, listamos las frecuencias y las amplitudes correspondientes:<br>
+<br>
+<pre>octave:231&gt; [frecs(picos)' decibelios(picos)]<br>ans =<br><br>     50.196    -43.140<br>        ...<br>   1062.908    -31.894<br>   1064.163    -28.219<br>   1065.417    -22.614<br><b>   1066.672    -10.076 *<br></b>   1067.927    -17.641<br>   1069.182    -25.794<br>   1070.437    -30.263<br>        ...<br>   2209.894    -48.728<br><b>   2211.149    -46.431 *<br></b>   2212.404    -53.628<br>        ...<br>   4038.296    -50.119<br><b>   4039.551    -49.515 *<br></b></pre><br>
+Y ya lo tenemos, las frecuencias que componen el tono son <b>50Hz</b> (probablemente zumbido de alterna captado por el micrófono), principalmente <b>1066Hz</b> (el pico es de -10dB), y en menor proporción también destacan <b>2211Hz</b> y <b>4039Hz</b>. Ni que decir tiene que hay programas que identifican los picos automáticamente, pero siempre es recomendable hacer este tipo de ejercicios a mano al menos una vez.<br>
+<br>
+Por ejemplo <i>snd</i> tiene múltiples opciones de análisis. El resultado no puede ser idéntico por algunos detalles del proceso en los que no voy a entrar, pero sí es muy parecido tanto en las frecuencias de los picos como en su valor. Esa es precisamente la imagen con la que abríamos este artículo:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/captura_snd.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/captura_snd.png"></a>
+</div><br>
+También supongo que habréis visto en sitios que en lugar de hacerlo con el módulo del resultado lo hacen con el <b>cuadrado</b>. Se hace cuando nos interesa más la <b>potencia</b> que la amplitud, pues esta varía con el cuadrado de la amplitud. No importa, como hemos tomado logaritmos calcular el cuadrado no es más que multiplicar por dos; al fin y al cabo un simple cambio de escala, pero el resultado es el mismo. Lo mismo que ocurría con la normalización. La diferencia sólo se nota si vamos a usar los resultados numéricos en cálculos posteriores.<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>linux</li>
+<li>programacion</li>
+<li>sonido</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

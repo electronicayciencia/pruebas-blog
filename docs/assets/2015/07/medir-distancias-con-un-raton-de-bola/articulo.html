@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Medir distancias con un ratón de bola</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Medir distancias con un ratón de bola</h3>
+<div class='post-date'>
+Publicado el 16-07-2015.
+</div>
+<div class='post-body entry-content'>
+En el futuro quiero publicar un experimento para el que necesito tomar muestras de sonido a intervalos regulares durante una distancia de, pongamos, un metro. Así que estoy buscando una forma de medir distancias que sea automática y, a ser posible, que tenga menos error que si la distancia la mido a mano.<br>
+<br>
+La primera forma que probé fue usando un motor paso-a-paso: un PIC iba transmitiendo en cada momento el número de pasos y así el PC tendría información sobre la distancia recorrida. A primera vista es buena idea, el problema es que los motores paso-a-paso son muy ruidosos, y ese ruido lo captaba el micrófono e invalidaba la prueba. No sirve.<br>
+<br>
+El siguiente método que pensé es moviendo el micrófono a velocidad constante a lo largo del recorrido, por el tiempo transcurrido se podría deducir la posición. ¿Habéis intentado alguna vez mover un brazo a velocidad lenta y constante durante metro y medio? Me puse a pensar en otros métodos: empleando un sensor de ultrasonidos, por ejemplo, como el que se usa en los robots; grabando con una cámara al mismo tiempo que movía el micrófono...<br>
+<br>
+Lo mejor sería con un encoder óptico, que es muy sensible y no hace ruido ninguno. El problema es que son componentes muy pequeños y ópticos, por lo que la alineación es muy importante y por eso son difíciles de construir. Fue entonces cuando caí en la cuenta de que podía conseguir muy fácilmente un dispositivo con dos encoders perfectamente funcionales ya montados, con un driver estándar para PC y con una botonera de tres botones como extra.<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/raton_y_conector.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/raton_y_conector.jpg"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Ratón de Paco, gracias Paco</td>
+</tr>
+</tbody>
+</table><br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+<br>
+<b>El hardware</b><br>
+<br>
+Casi nadie quiere ya un ratón de bola. Después de mendigar por el departamento de sistemas, Paco Centollo -nombre ficticio, por supuesto- donó amablemente y para beneficio de este blog y de toda la humanidad, no sólo un ratón de bola calidad suprema, sino también un práctico conversor PS2 a USB.<br>
+<br>
+Antes de meterme en faena os voy a contar cómo funcionan los ratones mecánicos. La explicación también sería válida para un servo, porque lleva un mecanismo parecido; y también para una impresora, aunque en ese caso el encoder es casi siempre lineal, no rotativo.<br>
+<br>
+El encoder -y yo uso la palabra encoder aunque en español debería decirse "codificador óptico"- consta de un led y un fotodiodo, como podéis ver en esta imagen. El led es el componente de color claro, casi translúcido, y el fotodiodo es negro.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ratonbola_2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ratonbola_2.png"></a>
+</div><br>
+Entre los dos hay una rueda que tiene ranuras muy finas, las cuales van interrumpiendo la luz que llega al receptor. A más velocidad, más veces por segundo se interrumpe el rayo luminoso.<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ratonbola_1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ratonbola_1.png"></a>
+</div><br>
+El truco está en que el <b>fotodiodo es doble</b>. Lleva un fotodiodo arriba y otro igual debajo. Así puede no deducir la velocidad a partir de la frecuencia con que se interrumpe la luz, sino también la dirección del movimiento: si primero se corta la luz en el fotodiodo inferior y luego en el superior, ese lado de la rueda está subiendo. Si primero se corta arriba y luego abajo, entonces está bajando ese lado de la rueda.<br>
+<br>
+Hay dos sensores iguales y perpendiculares, uno para cuando el ratón se mueve en la mesa siguiendo el eje X (izquierda/derecha) y otro para el eje Y (arriba/abajo). Como la rueda está fijada a un rodillo en contacto con la bola, cuando el ratón se desplace se podrá saber la dirección y velocidad del movimiento.<br>
+<br>
+El circuito integrado que incorpora transforma los impulsos de luz en pulsos digitales y los envía al PC en forma de eventos. Más abajo hablaremos de la forma de interpretar dichos eventos.<br>
+<br>
+Mi intención es abrir el ratón, quitar la bola y hacer pasar un hilo por uno de los rodillos, por ejemplo el del eje vertical. Tal que así:<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/detalle_hilo.jpg" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/detalle_hilo.jpg"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Detalle del hilo que usaremos para medir</td>
+</tr>
+</tbody>
+</table><br>
+Con el ratón sujeto o atornillado a la tabla, en un extremo del hilo anudaremos la punta de un destornillador pequeño y del otro colgaremos un contrapeso ligero. Al mover el destornillador una distancia determinada, arrastrará el rodillo y registraremos la posición con un programa.<br>
+<br>
+<br>
+<br>
+<b>El software</b><br>
+<br>
+En general, cuando un ratón -o cualquier dispositivo de entrada- tiene algo que decir, envía un código. Este código queda en una cola de eventos a la espera de ser recogido. El driver recoge la señal y la pasa al sistema operativo, y el sistema operativo tiene una interfaz donde los programas interesados pueden recibir los eventos que se generan. En Linux los eventos se componen de tres variables: <b>tipo de evento, código del evento y valor</b>. Para un ratón los eventos con los que vamos a trabajar son:<br>
+<br>
+<b>Movimiento relativo (EV_REL):</b> Indica movimiento relativo del ratón. Se llama relativo porque su valor indica el desplazamiento en una dirección u otra. Hay otros dispositivos señaladores que tienen el evento de posición absoluta, como por ejemplo una tableta gráfica. Pero en el caso de los ratones siempre es movimiento relativo. Este evento tiene como subtipo (o código) el eje al que se refiere. Generalmente los ratones tienen dos ejes llamados X e Y. El desplazamiento de la rueda puede considerarse otro eje, aunque tradicionalmente se considera como dos botones más. El valor de este evento indica cuantos pulsos se han contado en el desplazamiento. Este valor depende del diseño del ratón y es la causa de que unos ratones sean más rápidos o más sensibles que otros. Puede ser negativo o positivo según sea el sentido del desplazamiento.<br>
+<br>
+<b>Pulsación de botón (EV_KEY):</b> Se envía cuando cambia el estado de alguno de los botones, es decir, cuando se pulsa o se libera un botón. Su código corresponde al botón que se ha pulsado. Y su valor puede ser 1 o 0. Es 1 si el botón está presionado, y es 0 si lo que hemos hecho es liberarlo.<br>
+<br>
+<b>Sincronismo (EV_SYN):</b> En ocasiones se pueden dar varios eventos simultáneamente. Por ejemplo mientras movemos el ratón en ambos ejes (diagonalmente) y con un botón pulsado (arrastrando), movemos la rueda con el otro dedo. El evento de sincronización se envía cuando han terminado de enviarse todos los eventos que el dispositivo tuviera en cola en ese momento.<br>
+<br>
+<i>Ejemplo 1:</i><br>
+Si apretamos el botón izquierdo con el ratón quieto se generará un evento EV_KEY, cuyo código (subtipo) será BTN_LEFT y cuyo valor será 1. Seguido inmediatamente por un evento EV_SYN indicando el fin de la transmisión.<br>
+<br>
+<i>Ejemplo 2:</i><br>
+Si movemos el ratón lentamente en diagonal se generarán eventos EV_REL.<br>
+Primero con subtipo X y luego con subtipo Y cuyo valor será un número bajo normalmente 1 o -1 dependiendo de la dirección. Y tras ellos un evento EV_SYN. Es decir la secuencia sería:<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_X 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_Y 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_SYN</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_X 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_Y 2</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_SYN</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_X 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_REL REL_Y 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_SYN</span><br>
+<br>
+<i>Ejemplo 3:</i><br>
+Si hacemos clic con el botón derecho sin mover el ratón tendríamos la secuencia:<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_KEY BTN_RIGTH 1</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_SYN</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">(pausa)</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_KEY BTN_RIGTH 0</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">EV_SYN.</span><br>
+<br>
+<br>
+Sabiendo esto he escrito un programita que lee los eventos y reacciona de la siguiente manera:<br>
+<ul>
+<li>Antes de nada deshabilita el ratón en Xorg, para que los movimientos y los clics no actúen sobre la interfaz gráfica.</li>
+<li>Cuando recibe un clic del <b>botón derecho</b> reinicia las coordenadas a 0, crea un nuevo fichero de log y comienza el modo grabación. Al siguiente clic detiene la grabación y cierra el fichero.</li>
+<li>Cuando recibe un clic con el <b>botón izquierdo</b> inserta una marca en el log, indicando la hora y la posición actual.</li>
+<li>Cuando recibe eventos de movimiento relativo actualiza las coordenadas X e Y en función del valor recibido.</li>
+<li>Si el modo grabación está activo, escribe las coordenadas actuales en el fichero a razón de 10 veces por segundo.</li>
+</ul><br>
+El código es el siguiente. No creo que merezca la pena comentar nada a excepción quizá de las constantes para los tipos de eventos de las que ya hemos hablado y las líneas 112 y 117 que habilitan y deshabilitan el ratón en Xorg. También es interesante leer la documentación de <i>Linux::Input</i> en <a href="http://search.cpan.org/~beppu/Linux-Input-1.03/lib/Linux/Input.pm">http://search.cpan.org/~beppu/Linux-Input-1.03/lib/Linux/Input.pm</a>.<br>
+<br>
+<br>
+<pre class="cpp" name="code">#!/usr/bin/perl <br>#===============================================================================<br>#<br>#    FILE:  odometer.pl<br>#<br>#   USAGE:  ./odometer.pl id_event id_xinput<br>#<br>#  DESCRIPTION:  Medidor de distancias con el ratón.<br>#<br>#<br>#    OPTIONS:  ---<br># REQUIREMENTS:  ---<br>#    BUGS:  ---<br>#   NOTES:  Consultar la documentación de Linux::Input<br>#  AUTHOR:  Reinoso G.<br>#    COMPANY:<br>#    VERSION:  2.0<br>#    CREATED:  28/12/13 17:25:49<br>#   REVISION:  01/07/15 18:10:12<br>#===============================================================================<br><br>use strict;<br>use warnings;<br>use Linux::Input;<br>use Switch;<br>use Time::HiRes;<br><br><br>use constant {<br> EV_SYN    =&gt; 0x00,<br> EV_KEY    =&gt; 0x01,<br> EV_REL    =&gt; 0x02,<br> EV_ABS    =&gt; 0x03,<br> EV_MSC    =&gt; 0x04,<br><br> REL_X    =&gt; 0x00,<br> REL_Y    =&gt; 0x01,<br><br> ABS_X    =&gt; 0x00,<br> ABS_Y    =&gt; 0x01,<br><br> BTN_LEFT   =&gt; 0x110,<br> BTN_RIGHT  =&gt; 0x111,<br> BTN_MIDDLE =&gt; 0x112,<br>};<br><br>my $polltime = 0.001; # segs<br>my $X = 0;<br>my $Y = 0;<br>my $logprefix = "/tmp/log_odometer";<br>my $logtimer  = 0.1; # segundos entre cada registro de estado<br><br><br>my $logfile;<br>my $logfh;<br>my $rec = 0; # indica si estamos grabando los movimientos<br><br># --- Bucle ---<br>$| = 1;<br>my $id_event  = $ARGV[0] || usage();<br>my $id_xinput = $ARGV[1] || usage();<br><br>my $device = Linux::Input-&gt;new("/dev/input/event$id_event");<br><br>x_disable_device($id_xinput);<br>$SIG{INT} = \&amp;ordered_exit;<br><br>print "Pulsa Ctrl+C para terminar la ejecución.\n";<br><br>my $t0 = Time::HiRes::time;<br><br>while (1) {<br> foreach my $ev ($device-&gt;poll($polltime)) {<br>  switch($ev-&gt;{type}) {<br>   case EV_KEY { on_key($ev) }<br>   case EV_REL { on_rel($ev) }<br>   case EV_SYN { on_syn($ev) }<br>  }<br> }<br><br> my $t1 = Time::HiRes::time;<br> if ($t1 - $t0 &gt;= $logtimer) {<br>  $t0 = $t1;<br>  $rec and printf $logfh "%.3f\t%d\t%d\n", $t0, $X, $Y;<br> }<br>}<br><br>sub usage {<br> print "<br>Uso: $0 id_dev id_x<br>  id_dev   número de fichero /dev/input/eventX<br>  id_x     identificador de dispositivo en Xorg<br><br>Para averiguar id_dev basta ejecutar 'evtest.pl /dev/input/event&lt;X&gt;' hasta<br>dar con el fichero del dispositivo.<br><br>Para averiguar id_x basta ejecutar xinput y buscar el id= correspondiente.<br>";<br> exit;<br> <br>}<br><br>sub ordered_exit {<br> x_enable_device($id_xinput);<br> print "\n";<br> close $logfh;<br> exit; <br>}<br><br>sub x_disable_device {<br> my $id = shift or return;<br> `xinput disable $id`;<br>}<br><br>sub x_enable_device {<br> my $id = shift or return;<br> `xinput enable $id`;<br>}<br><br># Evento de botón (press or released)<br>sub on_key {<br> my $ev = shift;<br> switch ($ev-&gt;{code}) {<br>  case BTN_RIGHT  { on_btn_right($ev)  }<br>  case BTN_LEFT   { on_btn_left($ev)   }<br>  case BTN_MIDDLE { on_btn_middle($ev) }<br> }<br>}<br><br># Evento de movimiento relativo<br># Los ratones no tienen movimiento absoluto, las tabletas sí<br>sub on_rel {<br> my $ev = shift;<br> switch ($ev-&gt;{code}) {<br>  case REL_X { on_rel_x($ev) }<br>  case REL_Y { on_rel_y($ev) }<br> }<br>}<br><br><br><br># --- Funciones de usuario ---<br>sub on_rel_x {<br> my $ev = shift;<br> $X += $ev-&gt;{value};<br>}<br><br>sub on_rel_y {<br> my $ev = shift;<br> $Y += $ev-&gt;{value};<br>}<br><br>sub on_syn {<br> my $ev = shift;<br> if ($rec) {<br>  printf "%.3f\t%d\t%d\n",<br>   $ev-&gt;{tv_sec} + $ev-&gt;{tv_usec} * 1E-6,<br>   $X,<br>   $Y;<br> }<br>}<br><br># Reinicia las coordenadas<br>sub on_btn_right {<br> my $ev = shift;<br><br> return if $ev-&gt;{value} == 0; # sólo actuar en la pulsación<br><br> $rec = 1 - $rec;<br><br> if ($rec) {<br>  my $rand = int(100 + 900*rand);<br>  $logfile = $logprefix ."_". $rand . ".log";<br>  open $logfh, "&gt;&gt;", $logfile or die;<br>  print STDERR "Grabando: $logfile\n";<br>  $X = 0;<br>  $Y = 0;<br> }<br> else {<br>  print STDERR "Grabacion terminada: $logfile\n";<br>  close $logfh;<br> }<br>}<br><br>sub on_btn_left {<br> my $ev = shift;<br> return if $ev-&gt;{value} == 0; # sólo actuar en la pulsación<br> printf $logfh "%.3f\t%d\t%d\t-mark-\n", Time::HiRes::time, $X, $Y;<br> printf STDERR "%.3f\t%d\t%d\t-mark-\n", Time::HiRes::time, $X, $Y;<br>}<br><br>sub on_btn_middle {<br> my $ev = shift;<br><br> print "btn_middle not assigned\n";<br>}<br><br></pre><br>
+<br>
+Para invocar el programa hay que proporcionar <b>dos parámetros</b>, ambos numéricos. El primero es el identificador de dispositivo del kernel. En función de este parámetro el programa leerá los eventos del fichero <span style="font-family: &quot;Courier New&quot;,Courier,monospace;">/dev/input/eventX</span>. El segundo es el identificador del dispositivo en Xorg, y servirá para habilitarlo y deshabilitarlo durante la ejecución.<br>
+<br>
+Para esta prueba tendremos dos ratones, el ratón habitual que usaremos como siempre, y el de bola para las medidas. Sucede que los ratones y los teclados pertenecen a una clase especial de dispositivos USB llamados HID (Human Interface Devices). VMWare crea un único dispositivo de entrada virtual con todos los HID que encuentra en el sistema anfitrión y los unifica. Nos viene mal porque para este experimento necesitamos tener un ratón funcional y otro dedicado a medir que no mueva el cursor ni haga clics donde no debe. Para que VMWare trate los dispositivos HID como cualquier otro USB y nos deje conectarlos y desconectarlos a nuestro antojo hay que añadir estas dos líneas al fichero de configuración de la máquina virtual:<br>
+<br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">usb.generic.allowHID = "TRUE"</span><br>
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">usb.generic.allowLastHID = "TRUE"</span><br>
+<br>
+<b><br></b><b>Medir distancias</b><br>
+<br>
+Como habíamos descrito al principio, tenemos un hilo que pasa por el rodillo vertical y está atado a una punta delgada, un destornillador pequeño en nuestro caso.<br>
+<br>
+Lo que vamos a hacer es comenzar la grabación y, con ayuda de un metro fijo a la mesa, ir moviendo el destornillador cada centímetro y poniendo una marca en el log. Cuando hayamos recorrido ya varios centímetros terminaremos la grabación y procesaremos el log. Este es el resultado:<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/regresion_1cm_01.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/regresion_1cm_01.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Medida a intervalos de 1cm (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+Calculando la pendiente de la recta de regresión resulta que se avanzan 146 pulsos por cada centímetro recorrido. En una segunda prueba el resultado es 145, es normal que la medida varíe un poco. Para tener más precisión repetimos la misma prueba pero esta vez de 10 en 10cm.<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/regresion_10cm_01.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/regresion_10cm_01.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Medida a intervalos de 10cm (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+El resultado es 1451 pulsos cada 10cm. Concretamente el intervalo de confianza al 95% está entre 1446 y 1456. Nos quedaremos con la media que para nuestros fines es suficiente. Esto es <b>145.1 pulsos por cm.</b> O sea ¡un pulso cada 0.07mm!<br>
+<br>
+Y esta es otra ocasión propicia para resaltar, una vez más, la diferencia entre <b>precisión</b> y <b>exactitud</b>. Usando un ratón la medida es muy precisa, notaremos cuando haya un cambio de tan sólo 0.07mm. Y al calcular la posición a partir del número de pulsos son saldrán hasta tres cifras decimales. Muy preciso todo.<br>
+<br>
+Ahora bien, del ajuste se puede deducir el error promedio y según parece las medidas se desvían en promedio alrededor de 1mm por arriba o por abajo de la medida real. Cierto es que este error es tan pequeño que bien podría estar causado por nosotros mismos al situar la punta un milímetro antes o después. Y, por supuesto, ni que decir tiene que variar 1mm a lo largo de un recorrido de 70cm es un resultado muy bueno.<br>
+<br>
+Si embargo la clave aquí está en que sólo podemos fiarnos de la medida hasta el orden de los milímetros, por mucho que la precisión sea de menos de una décima.<br>
+<br>
+<br>
+<b>Posiciones y velocidades</b><br>
+<br>
+Ahora que sabemos que cada centímetro vienen a ser 145 pulsos vamos a graficar una de las pruebas de 10cm. El primer gráfico será de la posición respecto al tiempo.<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/st_10cm_01.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/st_10cm_01.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Gráfico posición/tiempo (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+Se ve que al aproximarse a un múltiplo de 10cm hay una pausa, se pone la marca y se continúa hasta el siguiente punto. Se aprecia muchísimo mejor en un gráfico de velocidad/tiempo. Recordad que la velocidad instantánea se calcula como la derivada de la posición respecto al tiempo.<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/vt_10cm_01.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/vt_10cm_01.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Gráfico velocidad/tiempo (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+Aquí se ve que al salir de un punto salimos con mucha velocidad, llegando a alcanzar una velocidad media de 2 - 2.5 cm/s. Y al aproximarnos al siguiente punto paramos haciendo pequeños ajustes, que son los picos que se ven en las pendientes descendientes. A medida que avanza la prueba tenemos más confianza y por eso las velocidades medias van siendo mayores.<br>
+<br>
+<br>
+<b>Velocidad máxima</b><br>
+<br>
+Ya os he contado antes cómo se sabe si hay movimiento y hacia dónde. Si primero se interrumpe la luz abajo y luego arriba, pues es en un sentido; si ocurre al revés, en el otro.<br>
+<br>
+¿Sabéis eso que pasa en el cine con las ruedas de los coches que a veces parece que van al revés? Los ingleses lo llaman <i>Wagon Wheel Effect</i> (<a href="https://en.wikipedia.org/wiki/Wagon-wheel_effect">https://en.wikipedia.org/wiki/Wagon-wheel_effect</a>) y se debe a la velocidad de muestreo. Pues lo mismo va a pasar con nuestra rueda del ratón. Si aumentamos la velocidad llegará un momento en que el sensor óptico, por la velocidad de muestreo que usa, verá la ruda girar en sentido contrario, y de repente la distancia recorrida empezará a decrecer en lugar de ir aumentando. Algo así:<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/s_cuando_vmax.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/s_cuando_vmax.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Gráfico posición/tiempo excediendo la velocidad máxima (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+La imagen anterior está hecha tirando del hilo cada vez más deprisa. Y sabido este hecho cabe preguntarse cuál es la velocidad máxima para tenerlo en cuenta. Si en lugar de la posición, graficamos la velocidad en función del tiempo, llegará un momento en que se invierte y de ser positiva pasa a ser negativa bruscamente. Ese punto nos indicará claramente cuál es la velocidad máxima. En este caso ronda los <b>50cm/s</b>.<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/v_max.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/v_max.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Al exceder la velocidad máxima, esta cambia de signo (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+<br>
+<br>
+<b>Atwood</b><br>
+<br>
+Aprovechando el montaje, esta vez en lugar de tirar yo del hilo con la mano, voy a atar un peso en el extremo y lo voy a dejar caer. En los breves instantes hasta que se alcanza la velocidad máxima esperamos un Movimiento Uniformemente Acelerado debido a la fuerza de la gravedad. En este caso, con velocidad inicial nula, la distancia recorrida en función del tiempo sigue la ecuación de una parábola:<br>
+<br>
+\[ s = {1 \over 2} a t^2 \]<br>
+<br>
+Y eso es precisamente lo que obtenemos, los datos se ajustan a una parábola con muy poco error:<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/atwood.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/atwood.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Ajuste de MUA a ecuación parabólica (clic para ampliar)</td>
+</tr>
+</tbody>
+</table><br>
+Ahora bien, si calculamos el parámetro <b>a</b> en la ecuación, que sería la aceleración, no va a salir 9.8m/s² como cabría esperar. Y no va a salir eso porque primero, hay un rozamiento bastante grande; y segundo porque no es una caída libre sino que al otro extremo <b>hay un contrapeso</b>.<br>
+<br>
+En 1784 un matemático inglés llamado George Atwood quería comprobar la segunda ley de Newton. Esta ley dice que la aceleración de un cuerpo es directamente proporcional a la fuerza que se le aplica e inversamente proporcional a su masa. La única aceleración constante que tenía a mano era la fuerza de la gravedad. El valor de la aceleración gravitatoria ya estaba bien estudiado por Galileo, que lo había medido muchos años antes dejando caer bolas por planos inclinados y objetos desde cierta altura.<br>
+<br>
+El asunto es que los cronómetros por entonces no eran como ahora y claro, medir el tiempo que tarda algo en caer con una aceleración de casi 10m/s² era complicado. Así que tenía que encontrar la manera de reducirla. Lo que sí estaba más avanzado eran las balanzas. Y lo que hizo fue poner dos pesos atados con una polea:<br>
+<br>
+<br>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;">
+<tbody>
+<tr>
+<td style="text-align: center;">
+<a href="img/330px-Atwood.svg.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" src="img/330px-Atwood.svg.png"></a>
+</td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align: center;">Esquema de la máquina de Atwood. Wikipedia.</td>
+</tr>
+</tbody>
+</table><br>
+Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: <a href="https://en.wikipedia.org/wiki/Atwood_machine">https://en.wikipedia.org/wiki/Atwood_machine</a><br>
+<br>
+<br>
+<br>
+Nada más de este tema por ahora. Espero que os haya gustado. Como siempre, los archivos y programas propios utilizados para la elaboración de este artículo podéis descargarlos de aquí: <a href="https://sites.google.com/site/electronicayciencia/ratonbola.zip">https://sites.google.com/site/electronicayciencia/ratonbola.zip</a><br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>física</li>
+<li>linux</li>
+<li>Perl</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

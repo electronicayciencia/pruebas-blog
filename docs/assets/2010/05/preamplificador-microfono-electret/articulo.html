@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Preamplificador micrófono electret: operacional</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Preamplificador micrófono electret: operacional</h3>
+<div class='post-date'>
+Publicado el 28-05-2010.
+</div>
+<div class='post-body entry-content'>
+Viendo las estadísticas del blog me sorprende la cantidad de gente que busca un preamplificador para micrófono. Creo que sería bueno publicar algunas entradas al respecto.<br>
+<br>
+Siempre que necesitemos captar una señal tenemos que cuidar todo el recorrido desde su origen hasta que la registramos. En particular para una señal sonora me refiero a cosas como:<br>
+<ul>
+<li>Un buen <b>acondicionamiento</b>, observar las condiciones ideales para generar la señal con el mínimo ruido. Esto incluye por ejemplo una cámara anecoica, o una habitación silenciosa, aislar el sistema de vibraciones mecánicas, etc. Cuando sea posible, utilizando un micrófono direccional impedimos que se capten señales de ruido ambiental. Si captamos ruido en una fase tan temprana será casi imposible eliminarlo luego, así pues buscaremos los medios para que la señal que captemos sea lo más limpia posible.</li>
+<li>Un <b>micrófono</b> adecuado. Y no significa <i>el más caro que haya</i>. A veces es mejor un micrófono de carbón, otras veces es preferible uno de condensador o un electret. ¿Direccional u omnidireccional? ¿Cual es la impedancia de salida? ¿Y la máxima presión sonora? ¿Preamplificado o no? Si no está bien blindado además podría captar ruido eléctrico que, una vez amplificado, puede enmascarar la señal útil.</li>
+<li><b>Conductores blindados</b>. Hay que poner especial atención a no captar ruido a través de los cables que conectan el micro con el preamplificador, y las distintas etapas entre sí.</li>
+<li>Un <b>preamplificador</b> de bajo ruido. Dependiendo del origen de la señal puede que esta sea muy débil y usemos varias etapas amplificadoras en cascada. Es importante minimizar el ruido sobre todo en las primeras para no amplificarlo junto a la señal.</li>
+<li><b>Tratamiento posterior</b>. Ya registremos la señal en un PC o la enviemos a un grabador, amplificador, etc. tal vez tengamos que aplicar distintos filtros. Estos dependen de las características de la señal que nos interese.</li>
+</ul><br>
+En esta entrada hablaré de los preamplificadores, y más concretamente de los basados en operaciones.<br>
+<a name='more' id="more"></a><br>
+<br>
+No voy a explicar lo que es un amplificador operacional, si no lo conocéis podéis mirarlo en la <a href="http://es.wikipedia.org/wiki/Amplificador_operacional">Wikipedia</a> y en alguno de los enlaces externos de tal página.<br>
+<br>
+<b>Alimentación dual y simple</b><br>
+Primero explicaré cómo se hace la alimentación. Muchas veces para simplificar el diagrama se omite esta parte. Los amplificadores operacionales en general funcionan con tensión dual. Es decir, para alimentarlos tenemos que tener <i>0</i>, <i>+V</i> y <i>-V</i>. Sería algo así:<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/alim_dual.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/alim_dual.png"></a>
+</div>Pero a menudo sólo tenemos una fuente de <b>alimentación sencilla</b>, <i>0</i>, y <i>+V</i>, como una pila. Cuando medimos tensiones siempre fijamos un punto de referencia y puesto que lo que medimos son <i>diferencias de potencial</i> el 0 es un punto arbitrario, depende de donde pongamos la punta negra del polímetro medimos una tensión u otra.<br>
+<br>
+El truco para usar operacionales en circuitos que no disponen de tensión dual es crear una <i>tierra artificial</i>. Usando un divisor resistivo con dos resistencias de igual valor el nodo intermedio estará justo a la mitad de la tensión de alimentación.<br>
+<br>
+Suponed que tenemos una batería de 9V. Ponemos nuestra referencia, la punta negativa del polímetro, en el borne negativo. Medimos 0V en el hilo negativo, normal, no hay diferencia de potencial entre nuestra referencia y ella misma. Medimos 4.5V en el punto medio, y 9V en el borne positivo de la pila. Ahora cambiamos nuestra referencia y situamos la punta negativa en el punto intermedio. Mediremos -4.5V en el borne negativo de la pila, 0V en el punto de unión y +4.5 en el superior.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/masa_virtual.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/masa_virtual.png"></a>
+</div>Esa será la tensión de referencia que vea el operacional. Cuando usemos una pila de 9V este creerá que lo estamos alimentando con una tensión dual de ±4.5V. El valor de las resistencias no es crítico pues las entradas apenas requieren corriente, basta con que haya una tensión estable. A veces se añaden dos <b>condensadores</b> de pequeña capacidad en paralelo con las resistencias, su función es absorber cualquier transitorio; normalmente se pueden eliminar sin problema, y sólo son precisos cuando la alimentación es especialmente ruidosa, como por ejemplo en un coche. Su valor tampoco es crítico, del orden de nanofaradios.<br>
+<br>
+Otra opción para nuestra tierra artificial es usar otro operacional con las entradas unidas. El amplificador de la imagen tiene ambas entradas al <b>mismo potencial</b> luego su salida debe ser 0V (con un mínimo <i>offset</i>). Pero el operacional cuenta con que está alimentado con tensión dual, su salida será 0 referido a esta tensión dual. Realmente la salida será tal que haya el mismo potencial entre esta y la tensión positiva de alimentación, que entre esta y la tensión negativa. En la práctica eso es justo la mitad de la tensión de alimentación, que es lo que queríamos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/masa_virtual_b.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/masa_virtual_b.png"></a>
+</div>El problema de usar la tierra artificial para la entrada no inversora, es que no está al mismo potencial que la <b>tierra real</b>, la que conectamos a la tierra de otros circuitos a la entrada o la salida (como el micrófono o la tarjeta de sonido). En el circuito anterior la tierra artificial (punto medio del divisor) estaba 4.5V por encima de la tierra real (polo negativo de la pila). Es preciso eliminar la componente continua a la entrada y a la salida y dejar sólo la señal alterna. Eso se consigue interponiendo un condensador y se llama <b>acoplamiento en alterna</b>.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ac_coupling.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ac_coupling.png"></a>
+</div><br>
+El valor de estos condensadores determinará la frecuencia mínima que puede amplificar nuestro circuito, pues actúan como <b>filtro paso alto</b>. Si tienen muy poca capacidad las frecuencias bajas serán muy atenuadas. Si son demasiado grandes tendrán pérdidas importantes y tampoco queremos eso. Se suele usar un valor de entre 100nF y 10µF.<br>
+<br>
+<b>Amplificador inversor</b><br>
+<br>
+Este tipo de preamplificador es el más utilizado para conectar un micro electret. Es muy fácil de construir. Sus propiedades vienen descritas en muchos sitios, <a href="http://www.electronicafacil.net/tutoriales/AMPLIFICADOR-INVERSOR.php">aquí</a> por ejemplo.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/inversor_crudo.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/inversor_crudo.png"></a>
+</div>En este esquema podéis ver un típico amplificador inversor de ganancia Rf / Rin. Si queremos una ganancia muy elevada tenemos dos opciones:<br>
+<ol>
+<li>Subir la <b>ganancia de la etapa</b>. Significa disminuir Rin y aumentar Rf tanto tomo necesitemos. Es muy sencillo de hacer pero las desventajas son múltiples: disminución de la impedancia de entrada, aumento del ruido electrónico (crece con la ganancia), disminución de la banda pasante y es posible que aparezcan autooscilaciones.</li>
+<li>Añadir otra etapa. Podemos conseguir elevadas ganancias utilizando dos o más etapas <b>en cascada</b>. Nos libramos de los inconvenientes anteriores pero a cambio tenemos mayor consumo, un esquema más complicado y una dificultad añadida que es ajustar cada etapa para que no sature a la siguiente.</li>
+</ol>Se recomienda utilizar un sólo operacional para ganancias menores a ×20 y dos o más etapas de ahí en adelante. Rara vez necesitaremos preamplificar tanto una señal sonora.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/buffer.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/buffer.png"></a>
+</div>En algunos casos se utiliza un <a href="http://es.wikipedia.org/wiki/Amplificador_operacional#Seguidor"><b>buffer</b></a>, que es un amplificador de ganancia 1, es decir no amplifica nada. Su misión es adaptar la impedancia, pues presenta una alta impedancia de entrada, útil para tomar la señal del micro; y una baja impedancia de salida, que puede aplicarse a las siguientes etapas.<br>
+<br>
+<b>Respuesta en frecuencia</b><br>
+<br>
+La banda de frecuencias en las que podemos usar nuestro amplificador la perfilan tres factores:<br>
+<ul>
+<li>La resistencia <b>R1</b>. Que determina la impedancia de entrada.</li>
+<li>El condensador <b>C1</b>. Que junto con la impedancia de entrada forma un filtro pasa-altos. Recortando efectivamente la componente continua, pero también las frecuencias por debajo de la <i>frecuencia de corte</i>.</li>
+<li>El <b>slew-rate</b> del integrado. Los operacionales incorporan una compensación interna para evitar que oscilen espontáneamente cuando trabajan con mucha ganancia. Esa limitación restringe la velocidad con la que puede variar la tensión de salida, e impone por tanto una frecuencia máxima de trabajo. Esta dependerá de la ganancia y de la amplitud de la señal de entrada.</li>
+</ul><br>
+Así pues tenemos un filtro pasa-altos <i>(de primer orden)</i> en la entrada y uno pasa bajos a la salida. Vamos a tomar el circuito siguiente y lo simularemos para obtener un <a href="http://es.wikipedia.org/wiki/Diagrama_de_Bode">diagrama de bode</a>.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/inversor_parabode.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/inversor_parabode.png"></a>
+</div><br>
+Siendo estos los valores:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+R1 = 10k
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+R2 = 100k
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+C1 = 220nF
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+IC = OP90
+</div><br>
+El OP90 es un operacional caro especialmente adaptado para operar con <b>poca alimentación</b>, en nuestro proyecto podemos usar otro de propósito general más barato como el uA741 o el TL081.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/bode1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/bode1.png"></a>
+</div><br>
+El gráfico está dividido en tres colores. En la <span style="background-color: lime; color: black;">zona verde</span> la ganancia es ×10 (o bien 20dB), R2/R1. Hacia la izquierda encontramos la <a href="http://es.wikipedia.org/wiki/Filtro_paso_alto">frecuencia de corte</a> del filtro C1/R1. Esta comienza cuando la ganancia ya es <b>3dB menor que a esperada</b>, en este gráfico está en 72Hz, <span style="background-color: yellow; color: black;">zona amarilla</span>. A partir de ahí hacia abajo comienza una pendiente de -20dB por década. Hasta llegar a la <span style="background-color: red; color: black;">zona roja</span> que comienza en 7.2Hz. Aquí ya no sólo no hay amplificación alguna, sino que el circuito <b>atenúa</b> las frecuencias inferiores. Por la parte derecha las altas frecuencias empiezan decaer a los 27kHz, frecuencia de corte superior, <span style="background-color: yellow;">zona amarilla</span>. Es más que suficiente si tenéis en cuenta que no oímos tonos por encima de 20kHz<br>
+<br>
+<b>Circuito práctico</b><br>
+<br>
+Después de todo lo anterior, para finalizar os dejo con un ejemplo de preamplificador sencillo para micrófono usando operacionales. He coloreado de rojo la tensión positiva, de negro la <i>tensión negativa</i>, en azul lo que sería la tierra artificial y de verde la ruta de la señal.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/inversor_ejemplo.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/inversor_ejemplo.png"></a>
+</div><br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Ganancia: ×10 (20dB)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Frecuencia de corte inferior: 3Hz
+</div><br>
+R3 y R4 forman nuestra tierra artificial, que está a la mitad de la tensión de alimentación. R5 es la resistencia de polarización del micrófono electret mientras que C1 y R1 forman un filtro para suprimir la componente continua proveniente de aquel. R2 es la resistencia de realimentación, que determina la ganancia junto a R1. Si necesitáis aumentar o disminuir la ganancia podéis sustituir R2 por un potenciómetro de 200k por ejemplo, mejor que colocar un potenciómetro de volumen a la entrada.<br>
+<br>
+Si necesitáis más amplificación lo mejor es encadenar otra etapa igual a continuación, así tendréis ×100 (40dB). El <b>LM358</b> y el <b>TL082</b> se usan mucho para esto pues en el mismo encapsulado contienen dos operacionales. Otra opción es cambiar el valor de R2 para que valga 50 ó 100 veces R1.<br>
+<br>
+Siempre que uséis un operacional tenéis que atender a:<br>
+<ul>
+<li>La <b>tensión de alimentación</b>. Con fuentes duales no hay problema, pero a la hora de usar fuentes simples recordad que para el operacional es como si se dividiera la tensión por la mitad. Y puede para que no alcance la mínima tensión que recomienda el fabricante. Además mientras menor sea la alimentación, menor la salida, y más fácil es que distorsione la señal.</li>
+<li>El <b>factor de ruido</b>
+<factor de ruido></factor>. Importantísimo si queremos captar sonidos débiles. El LM358 y el LM741 por ejemplo son muy ruidosos en comparación con el el TL081.
+</li>
+<li>La <b>banda pasante</b>. Hay amplificadores que son más lentos que otros pero a cambio tienen otras propiedades deseables, como baja tensión de alimentación o nivel de ruido. Necesitamos alcanzar un compromiso entre lo que necesitamos por una parte y por otra. Los <i>datasheets</i> más habituales se encuentran sin problemas en Internet.</li>
+</ul>Sin duda me dejo muchas cosas, pero como introducción creo que ya está bien. Iremos aclarando algunos puntos en otras entradas, y como siempre os animo a buscar en Internet lo que no entendáis, todo esto está explicado en mil sitios.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>amplificadores</li>
+<li>circuitos</li>
+<li>sonido</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

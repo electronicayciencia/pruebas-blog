@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Conversor USB - RS232</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Conversor USB - RS232</h3>
+<div class='post-date'>
+Publicado el 22-03-2010.
+</div>
+<div class='post-body entry-content'>
+Hola.<br>
+Para inaugurar este blog he elegido un proyecto muy sencillo y muy práctico. Se trata de adaptar un barato conversor de 2€ para poder comunicarnos con un microcontrolador. Es útil en caso de que vuestro PC no tenga puerto serie y sólo tenga puertos USB, o si lo tiene generalmente está poco accesible en la parte de atrás de la torre.<br>
+En esta ocasión no se trata de diseñar y construir nuestro conversor, porque por el precio que tiene no merece la pena el tiempo que invertiríamos. Además necesitaríamos cierta práctica trabajando con SMD. Hay conversores de varios precios, el más barato que he visto está en <a href="http://www.dealextreme.com/details.dx/sku.24799">Dealextreme</a>. Una vez desmontado podéis verlo en esta foto. Disculpad la calidad.<br>
+<div align="center"><img alt="" border="0" id="BLOGGER_PHOTO_ID_5451476534721021650" src="img/Imagen148.jpg" style="cursor: pointer; 150px; 200px;"></div>
+<div align="left">
+Está basado en el popular PL2303 de Prolific. Descripción y datasheet <a href="http://www.prolific.com.tw/eng/Products.asp?ID=59">aqui</a>. Sin embargo para reducir el precio no integra un PL2303 "de verdad" sino que está integrado en la misma placa.
+</div>
+<div align="left">
+Para conectar un microcontrador al PC habitualmente usaremos sólo las lineas Rx, Tx y GND. Dejando de lado las demás. No obstante nos interesará que esas líneas no queden en el aire, de lo contrario algunos programas podrían no funcionar. Para evitarlo haremos una <i>conexión null modem con falso handshake</i> como se indica aquí:
+</div>
+<div align="center">
+<br>
+</div><img alt="" border="0" id="BLOGGER_PHOTO_ID_5451830238616761554" src="img/db9_null_loop.png" style="cursor: pointer; display: block; 105px; margin: 0px auto 10px; text-align: center; 320px;"><br>
+<br>
+La imagen está tomada de <a href="http://www.lammertbies.nl/comm/info/RS-232_null_modem.html">esta web</a>, donde se detallan los pros y los contras de cada conexionado.<br>
+Recomiendo eliminar las clavijas DB9 y USB y sustituirlas por sendos cables. Eliminar el conector USB es sencillo. Para extraer el DB9 quizá tengáis que serrar los pines, porque están soldados por ambos lados. Para terminar, un poco de retráctil evitará que toquemos con la placa en sitios delicados.<br>
+<br>
+<div align="center">
+<a href="img/Imagen149.jpg" onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}"><img alt="" border="0" id="BLOGGER_PHOTO_ID_5451476537828125074" src="img/Imagen149.jpg" style="cursor: pointer; 150px; 200px;"></a>
+</div>
+<div align="left">
+Notas adicionales:
+</div>
+<ol>
+<li align="left">La calidad del dispositivo deja mucho que desear, pero para el uso que queremos darle es suficiente.</li>
+<li align="left">Si al conectarlo al PC aparece un mensaje de que el USB es defectuoso (en windows), o diversos errores en /var/log/syslog (en linux) es debido a que el oscilador es inestable. Una resistencia de 100k en paralelo con el cristal debería arreglarlo.</li>
+<li align="left">Los drivers de windows son muy quisquillosos. En linux funcionó a la primera, mientras que en windows tuve que tirarme dos tardes instalando varias versiones del driver y sólo he conseguido que funcione en un único puerto USB. Si lo conecto a otro lo reconoce pero no transmite ni recibe nada.</li>
+<li align="left">Para probarlo recomiendo la aplicación <i>gtkterm</i>.</li>
+</ol>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>microcontroladores</li>
+<li>PC</li>
+<li>reciclado</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

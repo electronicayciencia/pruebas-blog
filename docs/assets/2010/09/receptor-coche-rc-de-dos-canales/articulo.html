@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Receptor coche RC de dos canales</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Receptor coche RC de dos canales</h3>
+<div class='post-date'>
+Publicado el 15-09-2010.
+</div>
+<div class='post-body entry-content'>
+Alguien anónimo me dejó un comentario en <a href="../../../2010/05/mando-de-un-coche-teledirigido/articulo.html">esta entrada</a> pidiendo que, ya que había analizado el transmisor, describiera también el receptor. El comentario lo borré, por la falta de cuidado de su redactor, pero la petición me pareció acertada. Un receptor típico de un coche barato <i>made in China</i> no tiene mucha miga. Este que os presento es de uno que me costó entre 3 y 4 euros (para quienes les resulte más familiar, unos 4.5 USD).<br>
+<br>
+<br>
+<b>Circuitos actuales de RadioControl</b><br>
+<br>
+Hay tres tipos de coches radiocontrolados de gama baja. Por supuesto no tienen por qué que ser coches, la forma externa puede ser cualquiera. Lo que nos importa es el circuito. Por supuesto hablamos de radiocontrol en 27MHz, hay otros mandos que funcionan con infrarrojos pero de esos no hablaré.<br>
+<br>
+Como digo, en los modelos RC de hoy nos encontramos sólo tres tipos de circuitos. Porque los fabricantes son los mismos y apenas cambian los esquemas. El esquema depende de los canales que tenga el coche. Los <b>canales</b> son las acciones independientes que puede realizar.<br>
+<br>
+<ul>
+<li><b>Esquema de un canal:</b> Estos son los más básicos y sólo tienen un botón en el mando. Son los típicos que nada más encenderlos el coche va hacia adelante. Cuando pulsamos el botón va hacia atrás y al mismo tiempo gira, para seguir avanzando en cuanto soltemos el pulsador. El circuito es muy simple: un transmisor en el mando y un receptor sintonizado en le coche. En cuando el receptor capta la señal del mando conmuta la dirección. A menudo la señal ni siquiera va modulada.<br></li>
+</ul><br>
+<ul>
+<li>
+<b>Esquema de dos canales:</b> Estos tienen tres estados: hacia delante, hacia atrás y parado. Tienen dos pulsadores, uno para avanzar y otro para retroceder que pueden ser independientes o unidos en una palanca. El transmisor es un oscilador que puede emitir dos tonos de frecuencias distintas (250Hz y 1000Hz), ya describimos el funcionamiento en <a href="../../../2010/05/mando-de-un-coche-teledirigido/articulo.html">esta entrada</a>. En cuanto al receptor, el esquema suele basarse en el <a href="http://www.alldatasheet.com/datasheet-pdf/pdf/156482/SILAN/RX-3.html">integrado RX-3</a> de Silan. Ese va a ser el que describamos hoy.
+</li>
+</ul><br>
+<ul>
+<li><b>Esquema de cinco canales:</b> Son los coches con funciones de atrás-adelante-turbo e izquierda-derecha. En este caso ya no es cómodo utilizar frecuencias distintas para cada opción, así que se usa modulación digital. Tanto el transmisor como el receptor utilizan integrados dedicados. El TX-2B y el RX-2B respectivamente. No vamos a hablar de ellos hoy.</li>
+</ul><br>
+Por supuesto que hay muchos más esquemas. Pero estos y sus variantes son los más comunes que encontraréis en los bazares. Para la gama media y modelismo, sobre todo en aviones, ya se usan otros circuitos no tan simples.<br>
+<br>
+<br>
+<b>Receptor de dos canales</b><br>
+<br>
+Este es el receptor de un coche RC se dos canales: adelante/atrás y parado en ausencia de señal. Primero veamos la placa para hacernos una idea:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/alzado_placa.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/alzado_placa.JPG"></a>
+</div><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/receptor_componentes.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/receptor_componentes.JPG"></a>
+</div><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/receptor_pistas.JPG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/receptor_pistas.JPG"></a>
+</div><br>
+<br>
+Podríamos reproducir el circuito desde las pistas, como <a href="../../../2010/04/obtener-el-esquema-desde-una-placa-de/articulo.html">ya hicimos con el emisor</a>. Pero es muy <b>aburrido</b>, además en el <a href="http://www.alldatasheet.com/datasheet-pdf/pdf/156482/SILAN/RX-3.html">datasheet del RX-3</a> viene un esquema propuesto por el fabricante del integrado. Cabe esperar que el nuestro no se aparte demasiado y de hecho es muy parecido, suprimiendo algunos componentes para ahorrar costes.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esquema_RX-3_retocado.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esquema_RX-3_retocado.png"></a>
+</div><br>
+He coloreado algunas secciones para que las veáis mejor (clic para ampliar). Veamos cómo funciona.<br>
+<br>
+<br>
+<b>Sección A: Etapa de radiofrecuencia.</b><br>
+<br>
+Parece que se trata de un receptor regenerativo. La realimentación se hace a través de la resistencia de 5.6kΩ. Estos circuitos aplican realimentación positiva casi hasta el punto de ponerse a oscilar con la señal de entrada. Para lo simples que son tienen muy buenas características de sensibilidad y de selectividad. Se conocen desde los primeros tiempos de la radio. La primera patente es del 1914, con válvulas, claro.<br>
+<br>
+La transmisión llega a la antena, pasa por el circuito tanque sintonizado y es amplificada con el transistor. Uno de los diodos del transistor también actúa como detector de AM. Detectando y volviendo a amplificar el tono con que va modulada la portadora. Este tipo de diseños se usaban mucho antes, cuando el coste de los transistores era muy alto. Y eso que costaban menos que las válvulas. Las primeras radios a transistores que salieron anunciaban con orgullo <b><i>6 transistores</i></b>. Hoy el mando a distancia que analizamos tiene 7, y el ordenador con que escribo y lees tiene por dentro varios millones de transistores en miniatura.<br>
+<br>
+El tono de audiofrecuencia extraído pasa a la sección B para ser amplificado.<br>
+<br>
+<br>
+<b>Sección B: Amplificación de audio.</b><br>
+<br>
+El integrado RX-3 incorpora dos amplificadores inversores listos para usar. Las patillas exteriores conectan con lo que sería el equivalente a las entradas inversoras.<br>
+<br>
+Las resistencias y condensadores que componen esta sección son las redes de realimentación de ambos amplificadores. El primero de ellos tiene una amplificación de unos 30dB que se reduce muchísimo para frecuencias altas por efecto del condensador de 500pF en paralelo con la resistencia.<br>
+<br>
+La segunda etapa está configurada con una ganancia de 10dB. Todo esto <i>grosso modo</i> sin contar las pérdidas por los condensadores de acoplamiento, en serie con las resistencias de entrada, que separan la corriente continua y sólo dejan pasar la alterna.<br>
+<br>
+Toda la etapa amplificadora tiene una ganancia de 40dB. El tono detectado se aplica a la patilla 4 del integrado. Esta es la entrada de señal demodulada. Cuando a esta patilla llegue un tono de 1000Hz se pondrá a nivel alto la patilla 11 -forward- y el coche andará hacia adelante. En cambio cuando llegue un tono de 250Hz se encenderá la patilla 9 -backward- y rodará hacia atrás.<br>
+<br>
+<br>
+<b>Sección C: Puente H.</b><br>
+<br>
+Cuando aplicamos tensión a un motor este gira en una dirección determinada. Si lo que queremos es que gire e un sentido o en otro a voluntad tenemos que usar una disposición especial de transistores para alimentarlo. Este circuito se llama <a href="http://es.wikipedia.org/wiki/Puente_H_%28electr%C3%B3nica%29">puente H</a>.<br>
+<br>
+Cuando el integrado aplica tensión a la patilla 11 -avance- el transistor Q9 pasa a conducción. Con él como una reacción en cascada también conmutan Q11 y Q13, poniendo a masa el terminal izquierdo del motor y suministrando tensión positiva al derecho. Y el motor girará en un sentido.<br>
+<br>
+En cambio, cuando se activa la patilla 8 -retroceso- se activa el transistor Q8 que a su vez activa Q12 y Q10. En están condiciones, el terminal izquierdo del motor recibiría tensión positiva mientras que el derecho se conecta a masa. Justo la situación inversa a la anterior, y el motor girará en sentido contrario.<br>
+<br>
+Hay variantes de este esquema. En el esquema hay 5 transistores NPN y 1 PNP. Sin embargo en la placa que tenemos hay 4 NPN y 2 PNP. Caben múltiples posibilidades pero la idea es la misma.<br>
+<br>
+<br>
+<b>Sección D: Alimentación.</b><br>
+<br>
+Por último, la sección D es la alimentación del circuito. No hay mucho que destacar aquí. Hay componentes que faltan en la placa comercial, por ejemplo el diodo D1, que previene contra inversión de las baterías, se lo han ahorrado. Así como algunos condensadores de filtrado.<br>
+<br>
+Vemos que la parte que alimenta a la etapa A va desacoplada mediante una resistencia de 100Ω y un condensador. Sirve para que ninguna señal residual de RF pueda filtrarse a la línea de alimentación e interferir con el integrado.<br>
+<br>
+En algunos circuitos esta parte no está bien diseñada, y se acopla la RF con la alimentación, también puede pasar por medio de las capacidades parásitas entre las pistas por ejemplo. En muchos casos de comportamiento errático, sobre todo con microcontroladores este es el problema.<br>
+<br>
+<br>
+<b>Para terminar</b><br>
+<br>
+Por si os interesa el tema, hay una página con otros esquemas de este tipo que me ha gustado mucho: <a href="http://talkingelectronics.com/projects/27MHz%20Transmitters/27MHzLinks-2.html">http://talkingelectronics.com/projects/27MHz%20Transmitters/27MHzLinks-2.html</a><br>
+<br>
+Y como de costumbre, os dejo los archivos <a href="https://sites.google.com/site/electronicayciencia/ReceptorRC_RX-3.rar">aquí</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>circuitos</li>
+<li>telemandos</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

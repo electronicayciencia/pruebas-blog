@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Comparar matrices en Perl</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Comparar matrices en Perl</h3>
+<div class='post-date'>
+Publicado el 13-04-2010.
+</div>
+<div class='post-body entry-content'>
+En algunas ocasiones tenemos dos listas y necesitamos saber qué elementos <i>han entrado</i> nuevos en la segunda, cuales estaban en la primera pero no en la segunda -<i>han salido</i>- y cuales se han mantenido. Podríamos utilizar el módulo <a href="http://search.cpan.org/%7Etypester/Array-Diff-0.05002/lib/Array/Diff.pm">Array::Diff</a> pero tiene un defecto, y es que <b>depende del orden</b>. Como utiliza un algoritmo similar a Diff, cuando los elementos cambian de orden el módulo ofrece resultados incorrectos.<br>
+<br>
+Para eso podemos usar la siguiente función:<br>
+<br>
+<pre class="cpp" name="code">#===  FUNCTION  ================================================================<br>#         NAME:  array_entran_salen<br>#      PURPOSE:  Calcula los elementos que han entrado o han salido al comparar matrices<br>#   PARAMETERS:  ref_array_origen, ref_array_destino<br>#      RETURNS:  ref_array_entran, ref_array_salen, ref_array_comunes<br>#        NOTES:  Hago esta rutina porque el Array::Diff depende del orden<br>#===============================================================================<br>sub array_entran_salen {<br> my $origen  = shift;<br> my $destino = shift;<br> my %elem;<br> my @entran;<br> my @salen;<br> my @comunes;<br><br> $elem{$_} = 1  for @$origen;<br> $elem{$_} += 2 for @$destino;<br><br> foreach (keys %elem) {<br>  $elem{$_} == 1 and push @salen, $_;<br>  $elem{$_} == 2 and push @entran, $_;<br>  $elem{$_} == 3 and push @comunes, $_;<br> }<br><br> return (\@entran, \@salen, \@comunes);<br>}<br><br></pre><br>
+Tenemos dos listas:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+a b c d e f g
+</div>
+<div style="background-color: white;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><br></span>
+</div>
+<div style="background-color: #eeeeee;">
+<span style="font-family: &quot;Courier New&quot;,Courier,monospace;">a c d f g h</span>
+</div>
+<div style="background-color: white;">
+<br>
+</div><br>
+Al aplicar la función nos devuelve:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Entran: h
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Salen: b e
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+Comunes: a c d f g
+</div><br>
+El funcionamiento es sencillo:<br>
+<ol>
+<li>Se toman los elementos de la matriz A y se les asigna un valor 1.</li>
+<li>Se toman los de la B y se les asigna un valor 2.</li>
+<li>Al sumar las claves, los que sólo estaban en la A pero no en la B, seguirán teniendo <b>valor 1</b>. Los que estaban en la A y la B tendrán <b>valor 3</b>, y los que estaban sólo en la B, pero no en A <b>valdrán 2</b>.</li>
+</ol>Este método es escalable y podríamos comparar <b>varias matrices</b>, sumando 2, 4, 8...<br>
+<br>
+Es posible que no se vea bien el código porque el render de LaTeX se empeña en interpretar expresiones de Perl, y claro, pues no le molan. Creo que lo he corregido pero por si acaso os dejo el código <a href="http://sites.google.com/site/electronicayciencia/array_entran_salen.pl">en este enlace</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>Perl</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

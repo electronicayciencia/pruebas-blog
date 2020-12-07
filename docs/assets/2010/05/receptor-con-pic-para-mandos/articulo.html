@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Receptor con PIC para mandos infrarrojos tipo NEC</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Receptor con PIC para mandos infrarrojos tipo NEC</h3>
+<div class='post-date'>
+Publicado el 07-05-2010.
+</div>
+<div class='post-body entry-content'>
+El formato NEC es una de las codificaciones más extendidas en los mandos a distancia de electrodomésticos baratos, sobre todo los de marca <i>Nisu</i>: televisores, vídeos, TDT, DVD, minicadenas, etc. En una <a href="../../../2010/04/decodificacion-del-protocolo-rc5-usando/articulo.html">entrada anterior</a> ya hablamos sobre otro protocolo de mando a distancia: el RC5. Leer el formato NEC es mucho más sencillo, pero por otro lado requiere más memoria.<br>
+<br>
+Ahora bien, sin utilizar ningún instrumento u ordenador ¿como distingo un mando NEC de los otros tipos? Hay una prueba sencilla. Tapa el agujero del mando, o placa negra, o led por donde sale la luz y pulsa un botón teníendolo tapado. Al destapar con el botón ya pulsado pueden pasar dos cosas: si la tele obedece la tecla pulsada entonces no es NEC, puede ser RC5 o tal vez tipo Sony o JVC. Pero si la tele no obedece entonces probablemente sea NEC. Y esa es una característica distintiva del protocolo: así como el en RC5 se repite continuamente el código (recordemos que había un bit que cambiaba con cada pulsación de la misma tecla para que el aparato no obedeciese dos veces), en este caso sólo se envía una vez el código y mientras tenga pulsada la tecla se continúa enviando un comando abreviado que significa "<i>repetir lo anterior</i>". Como el código concreto sólo se envía una vez cuando se pulsa, si mientras se enviaba tenías la mano tapando el haz, después al quitar la mano el receptor sólo ve el comando "<i>repetir</i>" sin saber cual era el comando original.<br>
+<br>
+Debido a lo anterior da la impresión de que esos mandos no van del todo finos. Y las marcas buenas utilizan formatos que sí repitan el código, tal que si no se recibe a la primera el usuario sólo mantiene la tecla pulsada mientras apunta con el mando a distancia.<br>
+<br>
+<a name='more' id="more"></a><br>
+<b>Rutina de recepción</b><br>
+<br>
+Como es habitual, se transmite modulando una portadora de entre 36 y 40kHz. Dependiendo de cuando haya señal o no haya interpretamos un 0 o un 1. La información tiene esta forma:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/0_1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/0_1.png"></a>
+</div><br>
+Podéis ver una explicación más extensa del protocolo en <a href="http://www.sbprojects.com/knowledge/ir/nec.htm">esta web</a> o en <a href="http://www2.renesas.com/faq/en/mi_com/f_com_remo.html">este enlace</a>. La imagen anterior es desde el punto de vista del led. Pero nosotros vamos a utilizar un módulo detector cuya salida es un nivel 1 en ausencia de portadora, y se va a 0 cuando detecta la señal. Así que lo que vamos a ver es esa misma imagen pero invertida:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/0_1_inv.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/0_1_inv.PNG"></a>
+</div><br>
+A la vista de lo anterior, lo que voy a usar para distinguir el 0 del 1 es el lapso entre dos <b>transiciones hacia 0V</b>. Si transcurren 1125us lo que se transmitió fue un <b>0</b>, si transcurren 2250us entonces se tratará de un <b>1</b>.<br>
+<br>
+Para tener cierta tolerancia no voy a exigir que tales intervalos sean exactos; puesto que su punto medio es <b>1687us</b> la transición que supere ese umbral será considerada un 1, la que esté por debajo un 0. También fijaré una duración máxima y otra mínima y toda señal que exceda esos intervalos será considerada un error de recepción. Para el tiempo máximo usaré el doble del intervalo medio (que es la suma de la duración del 0 y el 1): <b>3375us</b>. Para el mínimo usaré la mitad del intervalo medio (que corresponde con 2/3 de la duración del 0): <b>843us</b>. Entonces ignoramos por completo todas las transiciones que sean de 0 a 5V (subidas) y para cada transición de bajado que detectemos comprobamos el tiempo que pasó desde la anterior:<br>
+<ul>
+<li>Si fue <b>menor de 843us</b>: demasiado bajo para ser un 0. Error.</li>
+<li>Si fue <b>entre 843 y 1687us</b>: se trata de un 0. Bit correcto.</li>
+<li>Si fue <b>entre 1687 y 3375us</b>: se trata de un 1. Bit correcto.</li>
+<li>Su <b>supera los 3375us</b>: demasiado tiempo para ser un 1. Error.</li>
+</ul><br>
+Sirva este código como ejemplo:<br>
+<pre class="cpp" name="code">#include "device.h"<br>/**********************************************************<br>Receptor de infrarrojos con protocolo NEC.<br>Por Reinoso G. 28/04/2010<br>Dominio público.<br><br>Esta rutina usa un puerto para el receptor y otro para<br>transmitir por puerto serie al PC. Ver device.h.<br><br>Está basada completamente en interrupciones por lo que<br>no detiene la ejecución del programa. Cuando se recibe un codigo<br>el estado IR_Estado cambia a 32 (que son los bits recibidos)<br>y entonces queda disponible y se puede leer el comando.<br><br>Se ocupa la interrupción Timer1 que se usa para reiniciar el<br>estado del receptor tras un tiempo sin datos. La TMR0 queda libre<br>por si hiciera falta para otros menesteres. Los datos del puerto<br>se reciben vía interrupción de cambio de estado.<br><br>Está preparada para un PIC12F386 pero se puede adaptar sin<br>mucha complicación.<br>************************************************************/<br><br>// Estados del autómata<br>#define IR_RESET    0<br>#define IR_INHIBIDO 127<br>#define IR_COMPLETO 32<br><br>// T0 = 1125us =  562 tics de TMR1<br>// T1 = 2250us = 1125 tics de TMR1<br>// Media = (T0+T1)/2 = 1687us = 843 tics de TMR1<br>// MAX y MIN son límites arbitrarios para detección de errores.<br>// AVERA es la media.<br>// <br>// Si MIN_T &lt; lapso &lt; AVERA   =&gt;  0<br>// Si AVERA &lt; lapso &lt; MAX_T   =&gt;  1<br>// En otro caso: error.<br>#define IR_MIN_T 400<br>#define IR_MAX_T 1500<br>#define IR_AVERA 843<br><br>unsigned char IR_Estado = IR_RESET;<br>unsigned int32 IR_comando;<br><br>short last_port_IR = 0;<br><br>#int_TIMER1<br>void  TIMER1_isr(void) <br>{<br> // No borrará un comando que se haya recibido bien<br> if (IR_Estado != IR_INHIBIDO &amp;& IR_Estado != IR_COMPLETO) {<br>  IR_Estado = IR_RESET;<br>  IR_comando = 0;<br> }<br>}<br><br>#int_RA<br>void  RA_isr(void) <br>{<br> short port_IR; // Estado del pin receptor IR<br><br> // No usar input_a() aqui porque cambia a lectura<br> // todos los pines del puerto.<br> port_IR = input(PIN_IR);<br><br> /* La interrupción la ha generado el modulo IR */<br> // La Transición debe ser hacia 0, si es hacia 1 no hacemos nada<br> if (last_port_IR &amp;& !port_IR &amp;& (IR_Estado != IR_INHIBIDO)){<br>  unsigned int16 lapso;<br>  lapso = get_timer1();<br><br>  if (lapso &gt; IR_MAX_T || lapso &lt; IR_MIN_T) {<br>   // ERROR o inicialización<br>   IR_Estado = IR_RESET;<br>   IR_comando = 0;<br>  } <br>  else if (lapso &lt; IR_AVERA) {<br>   // Es un 0<br>   IR_comando &lt;&lt;= 1;<br>   bit_clear(IR_comando,0); // opcional<br>   IR_Estado++;<br>  } <br>  else if (lapso &gt; IR_AVERA) {<br>   // Es un 1<br>   IR_comando &lt;&lt;= 1;<br>   bit_set(IR_comando,0); // opcional<br>   IR_Estado++;<br>  } <br>  set_timer1(0);<br> }<br><br>    last_port_IR = port_IR;<br> clear_interrupt(INT_RA);<br>}<br><br>////////////////// M A I N /////////////////////////////////////<br><br>void main()<br>{<br>   /****************** INICIALIZAR **********************/<br>   setup_oscillator(OSC_4MHZ);<br>   IR_Estado = IR_RESET;<br>   <br>   // Deshabilitamos periféricos<br>   port_a_pullups(FALSE);<br>   setup_adc_ports(NO_ANALOGS|VSS_VDD);<br>   setup_adc(ADC_OFF);<br>   setup_ccp1(CCP_OFF);<br>   <br>   // Timer 1 controla el receptor IR.<br>   setup_timer_1(T1_INTERNAL|T1_DIV_BY_2);<br><br><br>   enable_interrupts(INT_TIMER1);  // reset estado IR<br>   enable_interrupts(INT_RA);  // RX pulso IR<br>   enable_interrupts(GLOBAL);<br>   <br>   printf ("-- Preparado para recibir --\n");<br>   /****************** BUCLE PRINCIPAL **********************/<br> for (;;) {<br><br>  if (IR_Estado == IR_COMPLETO) {<br>   /* Se han recibido 32 bits de comando IR */<br>   IR_Estado = IR_INHIBIDO;<br>   printf("Comando recibido: %LX\n", IR_comando);<br>   <br>   /* Reseteamos la máquina de estados */<br>   IR_comando = 0;<br>   IR_Estado = IR_RESET;<br>  }<br> }<br>}<br></pre><br>
+El trabajo se desarrolla en la interrupción de cambio de estado RA_isr. Cuando una entrada del puerto A cambia de nivel lógico se llama a esta interrupción. Entonces nos aseguramos de que<br>
+<ul>
+<li>a) la patilla que ha cambiado es en la que está conectada al receptor de infrarrojos <i>PIN_IR</i></li>
+<li>b) que sea una transición de bajada y no de subida.</li>
+</ul>Y hacemos las comprobaciones de tiempo. En caso de recibir el bit correctamente actualizamos la variable <i>IR_comando</i> e incrementamos el contador <i>IR_Estado</i>. Esta variable nos servirá como <b>contador de bits recibidos</b> y como estado del autómata. Cuando este contador llegue a 32 nos indicará que lo que tenemos almacenado en la variable IR_Comando es ya un código completo. En caso de error volvemos a cero el estado y el comando, así descartamos lo que lleváramos.<br>
+<br>
+<b>Timer1</b> nos está sirviendo de <i>timeout</i> para el caso que un código se cortara por la mitad. Cada vez que recibimos un bit ponemos a cero TMR1. Si la recepción se corta TMR1 se desbordará y la máquina de estados se pondrá de nuevo a 0. Previamente se hace una comprobación para no borrar un comando que se hubiera recibido correctamente pero no se hubiera leído aún.<br>
+<br>
+Durante el bucle principal se comprueba <i>IR_Estado</i> en busca de un comando. En caso de una correcta recepción este vale 32 (<i>IR_COMPLETO</i>). Si es así leemos el comando de la variable <i>IR_comando</i> y realizamos la acción correspondiente. Tras esto tenemos que poner el autómata a recibir poniendo <i>IR_Estado</i> a valor 0. El valor <i>IR_INHIBIDO</i> no es imprescindible usarlo, pero se puede indicar por claridad. Cuando el estado es 32 la recepción está inhibida igualmente.<br>
+<br>
+<b>Simulación en MPLAB</b><br>
+<br>
+Una vez escrita la rutina viene bien simularla con MPLAB para ver si funciona o no. Para eso necesitamos un <b>archivo de estímulos</b> que reproduzca lo que se recibiría desde el modulo receptor de IR. Hay varias formas de hacerlo, pero si queremos ser realistas, tener en cuenta las tolerancias de tiempo, etc. una forma de hacerlo es conectar el receptor a la tarjeta de sonido. Yo utilizo este esquema, con el potenciómetro se puede regular el volumen de los impulsos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="http://2.bp.blogspot.com/_QF4k-mng6_A/S987tbaviVI/AAAAAAAAAKA/yMzTTIIDkJs/s1600/esquema+tarjeta.PNG" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_QF4k-mng6_A/S987tbaviVI/AAAAAAAAAKA/yMzTTIIDkJs/s320/esquema+tarjeta.PNG"></a>
+</div>Lo que recibimos es un tren de pulsos. Os recomiendo utilizar el programa Xoscope, que además de visualizar la señal nos permite grabar en un fichero las muestras. En la imagen siguiente vemos un gráfico de la señal recibida en rojo y su interpretación digital en azul. Os adjunto una utilidad sencilla en Perl para leer un fichero con las muestras guardado por Xoscope y generar un fichero de estímulos SBS para MPLAB. El programita se llama <b>dat2sbs.pl</b> y os lo incluyo junto a otros ficheros al final de la entrada. Únicamente tendréis que editar el código para poner vuestra frecuencia de muestreo y a los cuantos milisegundos queréis que se inicie la transmisión.<br>
+<br>
+<b>Interpretación del código recibido</b><br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esquema_pic.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esquema_pic.png"></a>
+</div><br>
+Tras programar el PIC con el código hex que os adjunto lo conectamos al puerto serie del PC con un montaje como el de la figura. Para esto resulta especialmente práctico el proyecto que os presenté <a href="../../../2010/03/conversor-usb-rs232/articulo.html">anteriormente</a>. Y ya estamos preparados para recibir los códigos.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/receptorNEC_gtkterm.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/receptorNEC_gtkterm.png"></a>
+</div><br>
+<br>
+La interpretación del código es como sigue:<br>
+<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+00FD96A5 -&gt; 00000000 ( 0) -&gt; Código aparato (extendido)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+11111101 (253) -&gt; Código aparato (general)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+10011010 (154) -&gt; Comando (botón pulsado)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+01100101 (---) -&gt; Comando invertido (verificación)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<br>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+00FD4AB5 -&gt; 00000000 ( 0) -&gt; Código aparato (extendido)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+11111101 (253) -&gt; Código aparato (general)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+01001010 ( 74) -&gt; Comando (botón pulsado)
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+10110101 (---) -&gt; Comando invertido (verificación)
+</div><br>
+Como veis, dentro de cada código el comando se transmite dos veces. Una vez normal y la siguiente invertido (cambiando los 1 por 0). Se hace así como comprobación de errores. Al recibir el código se debería comprobar si el comando invertido coincide con la última parte del código, y si no coincide es debido a algún error y descartarlo. En esta rutina no he incorporado ese mecanismo por simplicidad.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/tren_de_pulsos_desglosado.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/tren_de_pulsos_desglosado.png"></a>
+</div><br>
+<br>
+En <a href="http://sites.google.com/site/electronicayciencia/receptorNEC.rar">este enlace</a> os dejo los ficheros utilizados:<br>
+<ul>
+<li>Código en C y cabeceras.</li>
+<li>Imágenes.</li>
+<li>Ejemplo de estímulos SBS para pruebas.</li>
+<li>Utilidad dat2sbs.</li>
+<li>Ejemplo de fichero dat guardado por Xoscope.</li>
+</ul>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>DimmerIR</li>
+<li>microcontroladores</li>
+<li>telemandos</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Convolución de dos imágenes: Homógrafos UTF</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Convolución de dos imágenes: Homógrafos UTF</h3>
+<div class='post-date'>
+Publicado el 05-05-2012.
+</div>
+<div class='post-body entry-content'>
+En <a href="../../../2011/08/la-transformada-de-fourier-no-es-magia/articulo.html">una entrada anterior</a> os decía que en breve presentaría una aplicación de la transformada de Fourier en dos dimensiones. Pues bien, <a href="http://curistoria.blogspot.com.es/2008/04/fray-luis-de-len-como-decamos-ayer.html">como decíamos ayer</a>, voy a utilizar la transformada, y más concretamente multiplicar dos transformadas, para encontrar patrones dentro de una imagen. Lo que técnicamente se llama <i>Template Matching</i>.<br>
+<br>
+<br>
+<a name='more' id="more"></a><br>
+<br>
+<b>Los Homógrafos</b><br>
+<br>
+La idea original de lo que aquí llamo Homógrafos no es mía, sino que me la sugirió hace años un compañero de trabajo a quien le agradezco que me permita usarla en este blog.<br>
+<br>
+Se dice que dos palabras son homógrafas cuando se escriben igual aunque se lean diferente. A lo largo de este artículo vamos a utilizar el juego de caracteres superiores de UTF para encontrar letras extranjeras, o símbolos que se parezcan a las letras ASCII. Por ejemplo una <a href="http://utf8-characters.com/greek-and-coptic/greek-small-letter-omicron/">omicrom minúscula</a> puede pasar por una 'o' latina o una <a href="http://utf8-characters.com/greek-and-coptic/greek-letter-digamma/">Gamma mayúscula</a> por una F en los tipos <a href="http://es.wikipedia.org/wiki/Gracia_%28tipograf%C3%ADa%29">sin serifa</a>. Con estos símbolos "raros" pero visualmente iguales a las letras compondremos palabras que, en muchos programas, se ven casi idénticas a las palabras normales pero que en realidad no lo son.<br>
+<br>
+Se trata de tomar un carácter UTF y compararlo automáticamente con las letras de la <i>a</i> a la <i>z</i> para comprobar si se parece a alguna letra. No tiene, en principio, por qué ser idéntico, puede ser más ancho o más estrecho, estar situado un poco más arriba o más abajo en el renglón, tener una tilde o un apéndice, el trazo más fino, etc.<br>
+<br>
+Por supuesto los resultados dependen en gran medida de la tipografía, sin embargo en las tipografías más utilizadas funciona.<br>
+<br>
+<br>
+<b>El producto de convolución</b><br>
+<br>
+En realidad la búsqueda de homógrafos es sólo una excusa para hablaros de un método que tal vez no sea óptimo para este problema pero que se utiliza a diario en el reconocimiento de imágenes por ordenador: la convolución de dos imágenes.<br>
+<br>
+¿A que ya sólo el nombre asusta? No consigo encontrar una forma no abstracta de explicaros este método, pero si recordáis la entrada anterior que os enlazaba, dedicada a la transformada de Fourier recordaréis que íbamos probando frecuencias y cuando nuestra forma de onda contenía esa frecuencia al multiplicar daba un máximo. Esto es algo parecido, vamos a coger una imagen grande y calcularemos sus frecuencias (sí, en imágenes también existen las frecuencias). Luego vamos a coger una imagen más pequeña, contenida dentro de la grande y calcularemos sus frecuencias. Multiplicamos ambas y obtenemos un resultado que... puff, ¡qué lío! Bueno, mejor verlo.<br>
+<br>
+Esta es nuestra imagen grande, una sopa de letras tomada de <a href="http://listocomics.com/la-primera-sopa-de-letras-sin-vocales/">http://listocomics.com/la-primera-sopa-de-letras-sin-vocales/</a>, visitad la entrada, es curiosa.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/sopa.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/sopa.png"></a>
+</div><br>
+Digamos que en esa sopa queremos encontrar todas las posiciones donde hay una N. Esta operación se llama <a href="http://en.wikipedia.org/wiki/Template_matching">Template matching</a> y hay varias formas de hacerlo. Vamos a usar el método que explican en <a href="http://www.dspguide.com/ch24/7.htm">http://www.dspguide.com/ch24/7.htm</a>, libro que me gusta mucho y que os recomiendo leer si os gusta el procesamiento digital de datos y sabéis inglés.<br>
+<br>
+Esta va a ser nuestra plantilla, lo que queremos encontrar:<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/n.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/n.png"></a>
+</div>Los pasos del método son:<br>
+<ol>
+<li><b>Preparar las imágenes.</b> Por ejemplo, la sopa de letras está escrita en negro sobre blanco. Digitalmente el blanco es el valor más alto (255 o 1) y el negro es el más bajo (0). Este método funciona mejor cuando usamos como fondo el valor más bajo (negro). Así que tenemos que invertir los colores. Otros preparativos son normalizar los valores entre 0 y 1 en vez de entre 0 y 255 para facilitar las operaciones.</li>
+<li><b>Rotar la plantilla 90 grados.</b> Espacialmente es equivalente a invertir las frecuencias. No sabría explicaros sin matemáticas por qué se hace esto pero así maximizamos la correlación.</li>
+<li><b>Obtener ambas transformadas</b> de Fourier, tanto de la muestra como de la imagen grande. Utilizaremos la función fft2 de octave.</li>
+<li><b>Multiplicar escalarmente</b> ambas transformadas, para lo cual deben ser del mismo tamaño. Esta operación es la más importante. La transformada de la imagen completa tiene todas las frecuencias de esta, la transformada de la muestra sólo tiene las frecuencias que nos interesan. Multiplicando ambas nos quedamos con las frecuencias que están en las dos imágenes, puesto que si alguna frecuencia no existe en la muestra valdrá cero, al multiplicar se eliminará de la imagen grande y sólo quedarán las frecuencias que estén en la muestra.</li>
+<li>Aplicar la <b>transformada inversa</b> al resultado. La imagen que obtenemos es la convolución de la grande con la plantilla.</li>
+<li><b>Ajustar el umbral Blanco/Negro</b> en el resultado para quedarnos sólo con los máximos a partir de un cierto valor. Estos máximos indican la posición de la muestra o plantilla dentro de la imagen grande.</li>
+</ol>Veámoslo gráficamente. Teníamos nuestra sopa de letras original. La normalizamos e invertimos el color para que el fondo sea negro (valor 0).<br>
+<pre style="background-color: #f3f3f3;">sopa = imread('sopa.png');<br>sopa = double(sopa);<br>sopa = sopa - min(min(sopa));<br>sopa = sopa / max(max(sopa));<br>sopa = 1 - sopa;</pre><br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/sopa_preparada.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/sopa_preparada.png"></a>
+</div><br>
+La misma operación hacemos con la N que nos servirá de muestra. Ahora hemos preparado una función en octave que llamamos <i>convoluciona</i>, este es el código:<br>
+<br>
+<pre class="cpp" name="code">function result = convoluciona (grande, peque)<br> grander = size(grande)(1);<br> grandec = size(grande)(2);<br><br> grande = double(grande);<br> peque  = double(peque);<br><br> grande = grande / max(max(grande));<br> peque  = peque  / max(max(peque));<br><br> peque = rot90(peque,2);<br><br> grandefft = fft2(grande, grander, grandec);<br> pequefft = fft2(peque, grander, grandec);<br> conv = grandefft .* pequefft;<br><br> result = abs(ifft2(conv));<br>end<br></pre><br>
+Observad que primero obtenemos el tamaño de la imagen grande para utilizarlos cuando hagamos la trasformada de la imagen pequeña. Si las matrices no tienen el mismo tamaño no podemos multiplicarlas. Luego pasamos las matrices a <b>double</b>. Imread carga las imágenes en matrices de tipo entero, sin decimales. Es un problema cuando hagamos divisiones para normalizar, así que primeramente las convertimos en matrices de coma flotante. Hacemos una normalización. Y a continuación hacemos el giro, y la convolución como hemos descrito antes.<br>
+<br>
+Obtenemos este resultado:<br>
+<pre style="background-color: #f3f3f3;">result = convoluciona(sopa, n);<br>result = result / (max(max(result)));<br></pre>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/resultado.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/resultado.png"></a>
+</div><br>
+Esta imagen borrosa no nos dice nada a simple vista. Ahora vamos a superponerla con la imagen original de la sopa de letras:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/resultado_superpuesto.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/resultado_superpuesto.png"></a>
+</div><br>
+Los puntos más o menos brillantes están todos en la <b>esquina inferior derecha</b> de cada carácter. Es más, <b>las zonas más brillantes corresponden a las letras que más se parecen a la muestra, N y M.</b> Si os fijáis en letras como la C, la T o la L la esquina inferior derecha es menos brillante.<br>
+<br>
+Para saber dónde hay N debemos tomar un umbral entre 0 y 255. Necesitamos un umbral en vez de un único valor máximo porque la sopa de letras está ligeramente girada, además es una página escaneada. Si a todo le sumamos que el fichero original es un JPG con distorsión repuesta que no todas las N son idénticas, y estas diferencias producen variaciones en el resultado.<br>
+<br>
+Tomamos un umbral de 222, por ejemplo:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/resultado_222.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/resultado_222.png"></a>
+</div><br>
+Con este umbral identificamos todas las N -fijaos que tienen un <b>punto</b> abajo en la esquina-. Pero también identificamos una M a la izquierda como un <b>falso positivo</b>. Con un umbral más alto no tendríamos ese falso positivo, pero nos habríamos dejado alguna N sin identificar (<b>falso negativo</b>).<br>
+<br>
+Ya habéis visto cómo funciona el reconocimiento de patrones por convolución. En general, la FFT es una operación relativamente costosa pero muy optimizada. La conveniencia de usar este método u otros depende del tamaño de la imagen de muestra. Una ventaja fundamental que usaremos acto seguido es que, de una sola pasada comparamos un carácter con todos los caracteres de la imagen, sin importar su posición.<br>
+<br>
+<br>
+<b>Preparación</b><br>
+<br>
+Decíamos que de una pasada comparamos un carácter de muestra con todos caracteres que hay en una imagen. Y es justamente lo que nos viene bien ahora. Porque tenemos un carácter UTF que precisamente queremos comparar con un total de 52 caracteres (letras mayúsculas y minúsculas) para ver si se parece a alguno.<br>
+<br>
+Antes hay que tomar algunas precauciones, porque hay letras que están contenidas dentro de otras, por ejemplo "I" y "l", o que tienen acentos, cedillas, etc. para evitar que el método identifique estas letras erróneamente como iguales, vamos a <b>comparar sólo el contorno</b>. También es conveniente marcar el comienzo y el final de cada carácter para que dos caracteres juntos no se identifiquen como uno, por este motivo insertaremos <b>caracteres de delimitación</b>. También podríamos separar más los caracteres.<br>
+<br>
+Así por ejemplo, para la letra "a" tenemos esta forma:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/a_borde.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/a_borde.png"></a>
+</div><br>
+Construimos una imagen muy larga con todas las letras que nos van a servir de base para ir comparando los distintos caracteres UTF (clic para ampliar):<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/base_borde.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/base_borde.png"></a>
+</div><br>
+<br>
+<b>Fase de calibrado</b><br>
+<br>
+Resumiendo: con el método descrito, viendo cuánto valen y dónde están los máximos podemos saber si se parece a alguna letra de las que teníamos en la imagen.<br>
+<br>
+¿Y cómo asociamos un máximo en una posición, con la letra a la que pertenece? Pues una solución es calculándolo en función del ancho de cada carácter. La otra, que me gusta más, es con una primera etapa de calibración.<br>
+<br>
+El razonamiento es: comparo cada una de las letras de muestra con la imagen donde están todas y miro dónde está el máximo y cuanto vale. Luego cuando tenga que comparar un carácter UTF desconocido miro en las posiciones que sabía que están los máximos. Comparando el resultado del carácter UTF incógnita con el valor obtenido en esa posición durante el calibrado sabré, cuanto más aproximados sean estos valores, si las letras se parecen o no.<br>
+<br>
+Por ejemplo, buscamos la letra a en la fila de letras anterior. Este es el resultado:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/base_a_borde_conv.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/base_a_borde_conv.png"></a>
+</div><br>
+Superpongamos, como antes, la imagen original (o un fragmento, que es muy larga):<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/base_a_borde_conv_superpuesta.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/base_a_borde_conv_superpuesta.png"></a>
+</div><br>
+Efectivamente el máximo está bajo la a. Con octave buscamos la posición y valor de cada máximo y lo guardamos en una variable. Suponiendo que previamente hemos creado las imágenes base, esta función es la que hace el calibrado:<br>
+<br>
+<pre class="cpp" name="code">function [val, posi, posj] = calibrar<br><br> % Convoluciona cada letra individual con la imagen de letras base,<br> % para ver por donde cae cada pico<br> % y devuelve un array de vectores con los valores de calibrado<br><br> % ceil(Maximo) , fila , columna<br><br> base  = imread ('imagenes/base.png');<br> base  = double(base);<br> base  = base / max(max(base));<br><br> val  = [];<br> posi = [];<br> posj = [];<br><br> letras = ['ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'];<br> for c = letras<br>  file    = sprintf("imagenes/%s.png",c);<br>  indiv   = imread(file);<br>  indiv   = double(indiv);<br>  indiv   = indiv / max(max(indiv));<br>  result  = convoluciona(base, indiv);<br><br>  [i,j] = find(result == max(max(result)));<br><br>  val  = [val  ; max(max(result)) ];<br>  posi = [posi ; i ];<br>  posj = [posj ; j ];<br><br>  printf("%c: Max: %d, i=%d   j=%d\n",c,ceil(max(max(result))),i,j);<br><br> end<br></pre><br>
+Este sería el resultado: i y j representan la posición del máximo dentro de la imagen. El máximo depende de cuántos píxeles tenga la muestra y sus valores.<br>
+<br>
+<pre style="background-color: #f3f3f3;">Calibrando...<br>A: Max: 4692, i=178   j=205<br>B: Max: 5530, i=178   j=450<br>C: Max: 4849, i=178   j=706<br>D: Max: 5010, i=178   j=962<br>E: Max: 4942, i=178   j=1207<br>F: Max: 4115, i=178   j=1441<br>G: Max: 5772, i=178   j=1709<br>H: Max: 4747, i=178   j=1965<br>...<br>a: Max: 4507, i=178   j=6613<br>b: Max: 4600, i=178   j=6836<br>c: Max: 3775, i=178   j=7048<br>d: Max: 4668, i=178   j=7271<br>e: Max: 4438, i=178   j=7494<br>...<br></pre><br>
+<br>
+<b>Fase de comparación</b><br>
+<br>
+A partir de aquí el proceso es un bucle:<br>
+<ul>
+<li>Tomar el siguiente carácter UTF.</li>
+<li>Generar una imagen con él -con su contorno-.</li>
+<li>Aplicar convolución.</li>
+<li>Anotar los valores que toma en la posición donde antes estaban los máximos.</li>
+</ul><br>
+Y repetir hasta el carácter UTF que hayamos puesto de máximo. Al buscar en bloques UTF muy altos tened en cuenta que algunas tipografías están incompletas y no los incorporan. Las imágenes las generamos con ImageMagick, y utilizamos Perl como pegamento para unirlo todo.<br>
+<br>
+Con los resultados obtenidos componemos una tabla en sqlite. La creación de la base de datos es un proceso muy costoso y puede ser largo, pero sólo hay que hacerlo una vez. Tened en cuenta que esta tabla será específica para la tipografía que estemos usando. Si bien en este aspecto no hay mucha diferencia entre las tipografías más usuales.<br>
+<br>
+¿Cómo funciona el script? Pues vamos a crear una base de datos para la fuente <i>FreeSans</i> comparando sólo el carácter UTF-1089. Porque <a href="http://gaussianos.com/todos-los-numeros-son-interesantes-incluso-el-1089/">todos los números son interesantes, incluso el 1089</a>.<br>
+<br>
+Recordad que primero se hace una calibración para establecer la posición de los máximos.<br>
+<pre style="background-color: #f3f3f3;">$ ./creaDB 1089 1089<br>Creando imagen con los caracteres base...<br>Creando letras individuales: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz<br>Creando letras que compararemos: с<br><br><br>Comparando (esto puede tardar)<br>Calibrando...<br>A: Max: 4692, i=178   j=205<br>B: Max: 5530, i=178   j=450<br>C: Max: 4849, i=178   j=706<br>...<br>a: Max: 4507, i=178   j=6613<br>b: Max: 4600, i=178   j=6836<br>c: Max: 3775, i=178   j=7048<br>d: Max: 4668, i=178   j=7271<br>...<br>x: Max: 3830, i=178   j=11421<br>y: Max: 3974, i=192   j=11633<br>z: Max: 3856, i=178   j=11845<br>Vale, comparando...<br><br>Comparando el caracter 1089...<br>lim_i =  192<br>lim_j =  11845<br>k=1, posi=178, posj=205, i=176:180, j=202:208, semejanza=0.121922<br>k=2, posi=178, posj=450, i=176:180, j=445:455, semejanza=0.113667<br>k=3, posi=178, posj=706, i=176:180, j=698:714, semejanza=0.110823<br>...<br>k=27, posi=178, posj=6613, i=176:180, j=6546:6680, semejanza=0.491005<br>k=28, posi=178, posj=6836, i=176:180, j=6767:6905, semejanza=0.561705<br>k=29, posi=178, posj=7048, i=176:180, j=6977:7119, semejanza=0.905537<br>k=30, posi=178, posj=7271, i=176:180, j=7198:7344, semejanza=0.578346<br>...<br>k=50, posi=178, posj=11421, i=176:180, j=11306:11536, semejanza=0.349784<br>k=51, posi=192, posj=11633, i=190:192, j=11516:11750, semejanza=0.152881<br>k=52, posi=178, posj=11845, i=176:180, j=11726:11845, semejanza=0.350682<br>Insertando el resultado en la base de datos...<br>Tabla FreeSans creada correctamente.<br><br>Pulsa una tecla para eliminar las imagenes temporales.<br>Hecho.<br></pre><br>
+Parece que el carácter UTF-1089 tiene una semejanza bastante alta con el carácter que se encuentra en la posición k=29. Eso es una c minúscula. Hay una semejanza de 0.9, relativamente alta comparada con el resto de caracteres.<br>
+<br>
+En realidad se trata de <a href="http://www.fileformat.info/info/unicode/char/441/index.htm">la 's' cirílica</a>. Gráficamente es cierto que se parece muchísimo a una c, aunque es ligeramente más estrecho y por eso la semejanza no llega al 100%. Mirad la comparación de ambos caracteres:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/cmp_c_1089.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/cmp_c_1089.png"></a>
+</div><br>
+El desplazamiento hace que el máximo no esté donde esperamos. Durante el calibrado el máximo de la c estaba en la posición (h=178, l=7048) y valía 3774.8:<br>
+<pre style="background-color: #f3f3f3;">Calib c: 178, 7048 = 3774,8<br></pre><br>
+Si miramos esa misma posición tras la convolución con UTF-1089 obtenemos el valor 2448.8. La semejanza será de un escaso 60% si nos fiamos de esto. Por eso el proceso tiene un margen de tolerancia que busca el <b>máximo en un entorno</b> de unos 20 píxeles a la redonda de donde lo espera. En este caso el máximo está en la posición (h=178, l=7051) y vale 3418.3. De ahí obtenemos el 90% de semejanza.<br>
+<br>
+<br>
+<b>Aplicación</b><br>
+<br>
+Y ahora que ya tenemos nuestra base de datos de semejanzas construída ¿qué hacemos? Pues, naturalmente, emplear los símbolos que hemos encontrado para componer palabras.<br>
+<br>
+Por ejemplo, la palabra 'ciencia' se compone de los caracteres<br>
+<pre style="background-color: #f3f3f3;">c   i   e   n   c  i   a<br>99 105 101 110 99 105 97<br></pre>y con ayuda de un script vamos a buscar combinaciones de la palabra 'ciencia' que contengan carácteres extraños pero muy parecidos a estos.<br>
+<pre style="background-color: #f3f3f3;">$ ./creafrase<br>Dime una palabra: ciencia<br>Pido semejanza de c_min.<br>Pido semejanza de i_min.<br>Pido semejanza de e_min.<br>Pido semejanza de n_min.<br>Pido semejanza de c_min.<br>Pido semejanza de i_min.<br>Pido semejanza de a_min.<br>Hay 2096 combinaciones. Quieres cuantas...<br>Introduce un numero entre 1 y 2096: 25<br>Creando las combinaciones encontradas:<br>ciencia_1_1089.105.1077.110.99.1110.1072.<br>ciencia_2_1089.1110.101.110.99.105.97.<br>ciencia_3_99.1110.1077.110.99.105.1072.<br>ciencia_4_99.1110.101.110.1089.1110.1072.<br>ciencia_5_99.105.1077.110.1089.105.97.<br>ciencia_6_1089.1110.101.110.99.105.1072.<br>ciencia_7_1089.1110.101.110.1089.1110.1072.<br>ciencia_8_1089.105.101.110.1089.105.97.<br>ciencia_9_99.1110.1077.110.1089.1110.1072.<br>ciencia_10_99.1110.101.110.1089.1110.97.<br>ciencia_11_1089.1110.101.110.1089.1110.97.<br>ciencia_12_99.1110.101.110.99.105.97.<br>ciencia_13_1089.105.1077.110.99.1110.97.<br>ciencia_14_1089.105.101.110.99.1110.97.<br>ciencia_15_1089.1110.1077.110.1089.1110.97.<br>ciencia_16_99.105.101.110.99.1110.97.<br>ciencia_17_1089.1110.101.110.99.1110.1072.<br>ciencia_18_1089.105.101.110.1089.1110.1072.<br>ciencia_19_99.1110.1077.110.1089.1110.97.<br>ciencia_20_99.1110.1077.110.1089.105.1072.<br>ciencia_21_1089.105.1077.110.1089.1110.97.<br>ciencia_22_99.1110.1077.110.1089.105.97.<br>ciencia_23_1089.1110.1077.110.1089.105.1072.<br>ciencia_24_99.1110.101.110.99.105.1072.<br>ciencia_25_99.105.101.110.99.105.97.<br><br>Pulsa una tecla para eliminar las imagenes temporales.<br>Hecho.<br></pre><br>
+Este script nos genera un fichero de salida con las primeras 25 combinaciones que haya encontrado. Abramos el fichero con gVim, por ejemplo, que utiliza una tipografía distinta a la que hemos usado para confeccionar la tabla, donde se diferencian los caracteres UTF superiores.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ejemplo_gvim.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ejemplo_gvim.png"></a>
+</div><br>
+La primera columna en la palabra escrita de manera alternativa, se ve claramente distinta a la misma palabra escrita a la derecha con letras latinas. Fijaos que el script nos propone alternativas para la letra c, la i, la e y la a. En concreto las sustituye por caracteres similares del bloque cirílico, presente en la mayoría de tipos que soportan UTF.<br>
+<br>
+Si en el gVim se puede distinguir una palaba de sus homógrafas es porque he configurado una tipografía diferente, en otras aplicaciones como kwrite resulta mucho más complicado:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ejemplo_kwrite.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ejemplo_kwrite.png"></a>
+</div><br>
+¿Cómo se ve en tu navegador? Vamos a hacer la prueba; tal vez se vean iguales o tal vez no, depende de la configuración de tu sistema.<br>
+<br>
+¿Puedes distinguir la <i>ciencia</i> de las <i>pseudociencias</i>?<br>
+<pre style="background-color: #f3f3f3;">сiеncіа сіencia cіеnciа<br>cіenсіа ciеnсia сіenciа<br>сіenсіа сienсia cіеnсіа<br>cіenсіa сіenсіa cіencia<br>сiеncіa ciencia сiencіa<br>сіеnсіa ciencіa сіencіа<br>сienсіа cіеnсіa cіеnсiа<br>сiеnсіa cіеnсia сіеnсiа<br></pre><br>
+Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el <a href="http://support.google.com/websearch/bin/answer.py?hl=es&amp;p=g_verb&amp;answer=1734130">modo <i>verbatim</i></a> de google para que no os muestre palabras semejantes o relacionadas):<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/ciencia_google.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/ciencia_google.png"></a>
+</div><br>
+No encuentra nada porque la captura de pantalla la he hecho antes de publicar este artículo. En cuando google lo incorpore, si buscas una homógrafa de ciencia supongo que te aparecerá este mismo artículo.<br>
+<br>
+<br>
+<b>Aplicaciones</b><br>
+<br>
+¿Y qué se puede hacer con esto? Pues una respuesta rápida podría ser marcado de textos. Si cambio todas las c del artículo, por c en cirílico, una simple búsqueda en google me permitiría averiguar qué páginas han copiado o plagiado parte del texto. Es una marca de agua muy sencilla de eliminar, pero sólo si sabes que está ahí. Y, como hemos visto, no es fácil darse cuenta del engaño.<br>
+<br>
+¿He dicho engaño? Cada vez más se popularizan los dominios con caracteres UTF, dominios internacionalizados o <a href="http://es.wikipedia.org/wiki/Nombre_de_dominio_internacionalizado">IDN</a>, que permiten poner direcciones web con caracteres griegos o cirílicos. Muchos navegadores, por seguridad, muestran en la barra de direcciones el dominios traducido al que realmente nos dirigimos. Si visitamos con Firefox la web <a href="http://www.xn--espaa-rta.com/">http://www.españa.com</a> nos mostrará que, realmente, <i>esto es http://xn--espaa-rta.com/</i>.<br>
+<br>
+Alguien malintencionado podría tener la idea de registrar un dominio falso por ejemplo <a href="http://xn--bnkinter-16g.com/">http://bаnkinter.com</a> y utilizarlo para robar credenciales de acceso y tarjetas de crédito por medio de un sencillo phishing. En general, los navegadores son conscientes de este problema; por ejemplo la política de Opera al respecto es tener una lista blanca:<br>
+<blockquote>
+Opera has added a whitelist of top-level domains that are trusted to enforce a safe policy on domain names. Several top-level registrars have strict rules for domain names. Opera for Windows, Mac and UNIX will check for an updated list of trusted TLDs on a regular basis. Opera now only accepts Latin 1 characters in domain names from top-level domains that are not on the whitelist. This covers Western European languages <b>without introducing any convincing homographs</b>.
+</blockquote><br>
+Otros navegadores, por comodidad permiten al usuario decidir si prefiere ver el dominio en UTF o el dominio real traducido en la barra de direcciones. Lo primero podría ser una imprudencia.<br>
+<br>
+No me consta que sea un ataque muy difundido a día de hoy, pero es una amenaza y podría ser un problema de seguridad en el futuro.<br>
+<br>
+<br>
+<br>
+Como siempre os dejo el código, una base de datos para pruebas, algunas imágenes y ejemplos en <a href="https://sites.google.com/site/electronicayciencia/homografos.zip">este enlace</a>.<br>
+<br>
+<br>
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>gnuplot</li>
+<li>Perl</li>
+<li>óptica</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>

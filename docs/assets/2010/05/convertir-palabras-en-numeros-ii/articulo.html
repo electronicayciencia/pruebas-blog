@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+<link rel="stylesheet" href="../../../resources/style.css">
+<script src="../../../resources/script.js">
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js' type='text/javascript'>
+MathJax.Hub.Config({
+ extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js"],
+ jax: ["input/TeX", "output/HTML-CSS"],
+ tex2jax: {
+     inlineMath: [ ['$','$'], ['$$','$$'], ["\\(","\\)"] ],
+     displayMath: [ ["\\[","\\]"] ],
+ },
+ "HTML-CSS": { availableFonts: ["TeX"] }
+});
+</script>
+<title>Convertir palabras en números (II)</title>
+</head>
+<body>
+<div class="content-outer">
+<div class="header">
+<div class="title">
+<h1>Electrónica y Ciencia</h1>
+</div><!-- title -->
+<div class="description">
+<h2>Blog técnico sobre proyectos caseros de electrónica, informática y física.</h2>
+</div><!-- description -->
+</div><!-- header -->
+<div class="content-inner">
+<!-- Here the blog content -->
+<h3 class='post-title entry-title'>Convertir palabras en números (II)</h3>
+<div class='post-date'>
+Publicado el 24-05-2010.
+</div>
+<div class='post-body entry-content'>
+En la <a href="http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html">entrada anterior</a> programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un <i>número</i> escrito con un conjunto de 27 símbolos <i>{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}</i> y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">aaaaa... -&gt; 0.11111...</span>
+</div>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+<span style="font-size: small;">zzzzz... -&gt; 0.99999...</span>
+</div><br>
+Ahora vamos a jugar con esa conversión, veremos algunas propiedades y obtendremos estadísticas aplicándola a varios idiomas.<br>
+<br>
+<a name='more' id="more"></a><br>
+<b>Ejemplos de cambio de base</b><br>
+<br>
+Decíamos el otro día que el que un número sea periódico en una base no implica que lo sea en cualquier otra. Esto es consecuencia de que un número racional se puede escribir como una fracción. No ocurre lo mismo con los irracionales. Pi sigue teniendo infinitas cifras no periódicas lo expresemos en la <b>base entera</b> que lo expresemos.<br>
+<br>
+Algunos ejemplos:<br>
+Hay números exactos tanto en una base como en otra:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.235 = fihmqcxs
+</div><br>
+Hay números simples en base 10 que son periódicos en base 27:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.2 = ejup ejup ejup ejup ejup...
+</div>Y viceversa:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+c = 0.111111111...
+</div><br>
+Tenemos números periódicos puros que pasan a ser periodicos mixtos:<br>
+ababababababababababa<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.039 835164 835164 835164...
+</div><br>
+De da un error de redondeo al truncar el resultado:<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.111111111111 = bzzzzzzzzdchvb... -&gt; c
+</div><br>
+Además recordad que exigimos que la '@' detuviera la conversión. Necesitamos esto porque muy pocos resultados van a dar exactos. Ved una prueba:<br>
+<div style="background-color: #eeeeee; color: black; font-family: &quot;Courier New&quot;,Courier,monospace;">
+ab = 0.039780522
+</div>
+<div style="background-color: #eeeeee; color: black; font-family: &quot;Courier New&quot;,Courier,monospace;">
+ab@cd = 0.03978<b>6446</b>
+</div>Si ahora convierto 'ab@cd' el resultado se corta a la mitad por la '@':<br>
+<div style="background-color: #eeeeee; font-family: &quot;Courier New&quot;,Courier,monospace;">
+0.039786446 = ab
+</div><br>
+Con esto podríamos sumar y restar palabras tal como si fueran números, calcular su raíz cuadrada, etc. Pero de momento estas operaciones no nos interesan. De utilidad para algún lingüista quizá fuera calcular la entropía de un texto, pero este es un campo que desconozco.<br>
+<br>
+<b>Analizar un texto</b><br>
+<br>
+Lo primero que vamos a analizar es una lista de palabras en español. Para eso he fusionado dos diccionarios. Uno es el de Open Office, y otro lo he encontrado buscando en Google, en <a href="http://tools.assembla.com/svn/homedevel/devel/ftrie/diccionario.txt">este enlace</a>. Como curiosidad mirad un histograma con la longitud de las palabras:<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773"></a>
+</div>Los números los podéis ver aquí: <a href="http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&amp;single=true&amp;gid=0&amp;output=html">datos originales</a>. Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en <i>mente</i>) tiene nada menos que 24 letras: <b>electroencefalografistas</b>.<br>
+<br>
+El programa <i>dominio_espectral.pl</i> está preparado para obtener todas las palabras de un texto y aplicar <i>pal2num</i> (la versión optimizada de <i>pal2num.pl</i>) para obtener sus equivalentes numéricos entre 0 y 1. A partir de esos resultados dibuja varios gráficos semejantes a espectros de emisión.<br>
+<br>
+Este es el resultado de aplicarlo al diccionario <b>español</b> de OpenOffice:<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/es_ES.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/es_ES.png"></a>
+</div>Y este otro gráfico se obtiene cuando lo aplicamos al <b>inglés</b> estadounidense:<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/en_US.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/en_US.png"></a>
+</div><br>
+Si os fijáis, todo el rango de la 'W' que está muy presente en la lengua inglesa, no existe en el gráfico castellano. El segundo gráfico que genera el programa es detallado, sin embargo es muy grande para verlo de una pieza con claridad. Voy a comentar el espectro de la lista combinada de la que os hablé antes, os dejo <a href="http://sites.google.com/site/electronicayciencia/esp_grande.png">el enlace</a> y a continuación pego algunas partes interesantes:<br>
+<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esp_a.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esp_a.png"></a>
+</div><br>
+Ved por ejemplo la herencia árabe en nuestra lengua en las palabras que empiezan por <i>al</i>. En <a href="http://www.libreopinion.com/members/jose_marmol/influencia_arabe.htm">esta web</a> hay una lista de palabras castellanas que son de origen árabe y como veis el intervalo 'AL' no tiene huecos en su interior.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esp_p.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esp_p.png"></a>
+</div>En esta zona vemos como detrás de una 'P' habitualmente viene una vocal. Salvo contados casos que son <i>PS</i>.<br>
+<br>
+<div class="separator" style="clear: both; text-align: center;">
+<a href="img/esp_co.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="img/esp_co.png"></a>
+</div>Y para terminar, estos son los intervalos que presentan un pico en el espectro. En la 'c' hay gran cantidad de palabras que empiezan por <i>con</i> o <i>com</i>. Y en la 'd' el pico se debe a <i>des</i>. ¿Por qué? Pues porque <i>con</i> y <i>des</i> son prefijos que combinan con multitud de palabras. Además si abrís el gráfico en grande veréis que no hay apenas palabras en las letras 'k', y al final del abecedario 'v,w, x, y,z'. Estas últimas letras no existía en el abecedario latino, del que procede el español, se incorporaron más tarde y por eso figuran las últimas.<br>
+<br>
+<br>
+Tened en cuenta que este estudio está hecho sobre una lista de palabras y no refleja el uso diario del idioma. Si analizáramos un texto con sentido habría muchas palabras que se repiten mucho, como las preposiciones o los determinantes. No podemos observar esto en una lista de palabras. No obstante refleja el uso de esta aplicación que convierte palabras en números decimales que era la intención al escribirlo.<br>
+<br>
+Podéis encontrar los archivos relativos a esta entrada <a href="http://sites.google.com/site/electronicayciencia/pal2num.rar">en este enlace</a>.
+</div>
+<div class='post-labels'>
+Etiquetas:
+<ul>
+<li>gnuplot</li>
+<li>Perl</li>
+<li>programacion</li>
+</ul>
+</div><!-- Above is post content -->
+</div><!-- content-inner -->
+</div><!-- content-outer -->
+<script src="../../../resources/script_bottom.js">
+</script>
+</body>
+</html>
