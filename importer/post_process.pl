@@ -124,7 +124,7 @@ sub format_pre {
 	    $lang = "matlab";
 	}
 
-	if ($c =~ m{#define}) {
+	if ($c =~ m{#define} or $c =~ m{int main}) {
 	    $lang = "c";
 	}
 	
@@ -224,9 +224,18 @@ sub process_body {
 	my $s = shift;
 	$s = trim($s);
 
-	# Particular case correction:
+	# Fixes for particular cases
 	$s =~ s{Exploit K</b>it}{Exploit Kit</b>}g;
 
+	# Old italic and bold tags
+	$s =~ s{<span [^>]*font-weight: bold;[^>]*>(.*?)</span>}{<b>$1</b>}g;
+	$s =~ s{<span [^>]*font-style: italic;[^>]*>(.*?)</span>}{<em>$1</em>}g;
+
+	# Font size or color: deprecated
+	$s =~ s{<span [^>]*font-size:[^>]*>(.*?)</span>}{$1}g;
+	$s =~ s{<span [^>]*Apple-style-span[^>]*>(.*?)</span>}{$1}g;
+	$s =~ s{<span [^>]*background-color[^>]*>(.*?)</span>}{$1}g;
+	$s =~ s{<span [^>]*background-color[^>]*>(.*?)</span>}{$1}g; # second iteration, for nested spans
 
 	# Images with caption and link
 	# <table ... <a href="...blogspot.com/.../div_by_5.png" src="...blogspot.com/.../div_by_5.png" width="640" ...>CAPTION</td></tr></tbody></table>
@@ -260,6 +269,8 @@ sub process_body {
 	# remove empty spans
 	$s =~ s{<span[^>]*>\s*</span>}{}mg;
 	$s =~ s{<span[^>]*><br[^>]+></span>}{\n}mg;
+	$s =~ s{<span\s*>(.*?)</span>}{$1}mg;
+
 
 	# some <br> cases
 	$s =~ s{</span><br[^>]*>}{</span>\n}mg;
@@ -335,24 +346,26 @@ sub process_body {
 	$s =~ s{\n<br[^>]*>}{\n\n}gms;
 	$s =~ s{<br[^>]*>\n}{\n\n}gms;
 
-	# Collapse empty lines
-	$s =~ s{\n{2,}}{\n\n}gms;
-
 	# Remove html chars
 	$s =~ s{&amp;}{&}gms;
 
-	# Section titles
-	$s =~ s{\n<b>(\w.{1,80})</b>\n}{\n## $1\n}msg;
-
-	# Kill brs <- NO: needed in image captions
-	#$s =~ s{(<br[^>]*>)}{\n}gms;
-	
 	# Trailing or leading spaces in tags
 	$s =~ s{<b>(\s+)}{$1<b>}g;
 	$s =~ s{(\s+)</b>}{</b>$1}g;
 	$s =~ s{<em>(\s+)}{$1<em>}g;
 	$s =~ s{(\s+)</em>}{</em>$1}g;
 	$s =~ s{<span([^>]*)>(\s+)}{$2<span$1>}g;
+	
+	# Section titles
+	$s =~ s{\n<b>(\w.{1,80})</b>\s*\n}{\n\n## $1\n\n}msg;
+	$s =~ s{\n<b>(\w.{1,80})</b>\s*<br[^>]*>}{\n\n## $1\n\n}msg;
+
+	# Collapse empty lines
+	$s =~ s{\n{2,}}{\n\n}gms;
+
+	# Kill brs <- NO: needed in image captions
+	#$s =~ s{(<br[^>]*>)}{\n}gms;
+	
 
 	# Remove format from pre lines (maybe redundant after block format function)
 	$s =~ s{^(    .*)}{format_preline($1)}ge;
