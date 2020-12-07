@@ -2,7 +2,7 @@
 #
 # Posts post-processor.
 #
-# Dirty script to apply after blogspot->jekyll importer.
+# Dirty (but -sadly- not quick) script to apply after blogspot->jekyll importer.
 #
 # 2020-12-06
 #
@@ -40,6 +40,8 @@ sub process_head {
 sub image_string {
 	my ($name, $width, $caption) = @_;
 
+	#print STDERR "Width: $width\n";
+
 	$name =~ s/%25/%/g;
 	$name =~ s/%../-/g;
 
@@ -53,7 +55,13 @@ sub image_string {
 	# escape quotes
 	$caption =~ s{"}{\\"}g;
 
-	return "\n\n{% include image.html file=\"$name\" caption=\"$caption\" %}\n\n"
+	if ($width ne "" and $width < 400) {
+	    $width *= 1.5;
+		return "\n\n{% include image.html max-width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}\n\n"
+	}
+	else {
+		return "\n\n{% include image.html file=\"$name\" caption=\"$caption\" %}\n\n"
+	}
 }
 
 sub link_post_to_local {
@@ -202,7 +210,7 @@ sub format_spanmonospace {
 		return "\n\n```\n$block\n```\n\n";
 	}
 	else {
-		return "    $block";
+		return "\n\n    $block\n\n";
 	}
 }
 
@@ -228,8 +236,8 @@ sub process_body {
 	$s =~ s{Exploit K</b>it}{Exploit Kit</b>}g;
 	$s =~ s{<blockquote[^>]*><blockquote[^>]*>}{<blockquote>}g;    # for reparacion-de-un-radiocasete
 	$s =~ s{</blockquote></blockquote>}{</blockquote>}g;           # for reparacion-de-un-radiocasete
-	$s =~ s{</blockquote><blockquote[^>]*>}{\n\n}g;                    # for reparacion-de-un-radiocasete
-
+	$s =~ s{</blockquote><blockquote[^>]*>}{\n\n}g;                # for reparacion-de-un-radiocasete
+    $s =~ s{"<span [^>]*monospace[^>]*>(.*?)</span>"}{`$1`}g;      # for afsk-desde-cero
 
 	# Old italic and bold tags
 	$s =~ s{<span [^>]*font-weight: bold;[^>]*>(.*?)</span>}{<b>$1</b>}g;
@@ -377,7 +385,12 @@ sub process_body {
 	# Clear residual spans
 	$s =~ s{<span([^>]*)>}{}g;
 	$s =~ s{</span>}{}g;
-	
+
+	# Clear residual tags
+	$s =~ s{&lt;}{<}g;
+	$s =~ s{&gt;}{>}g;
+	$s =~ s{&amp;}{&}g;
+
 
 	# Back-translate to Markdown
 	$s =~ s{<b>}{**}g;
