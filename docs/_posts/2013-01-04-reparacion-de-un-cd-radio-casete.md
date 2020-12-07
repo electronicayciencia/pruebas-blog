@@ -65,7 +65,7 @@ Por él tienen que pasar:
 
 Comprobamos con el tester y ¡sí!, hace mal contacto. Pues nada, vaselina y moverlo a ver si se soluciona. No hay suerte. Lo sacamos, lo limpiamos un poco mejor pero sigue fallando. Me dispongo a abrirlo para limpiarlo por dentro y me encuentro esto:
 
-{% include image.html max-width="480px" file="IMAG0375-1-1.jpg" caption="Pletinas interiores del interruptor. Falta metal debido al desgaste." %}
+{% include image.html file="IMAG0375-1-1.jpg" caption="Pletinas interiores del interruptor. Falta metal debido al desgaste." %}
 
 Lo que veis son pletinas deslizantes de cobre que comunican las patillas. Tendrán entre 3 y 5 milímetros de largo y están muy gastadas, e incluso rotas por el uso. Ya tenemos la causa de la avería: las pletinas del mando de posición hacen mal contacto y de ahí procede el ruido. Como el desgaste no es uniforme, en la posición radio hace más ruido que en CD.
 

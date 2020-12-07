@@ -14,7 +14,19 @@ Hoy os traigo una entrada sobre el bus 1-Wire y el sensor de temperatura DS1820,
 
 En la [entrada anterior]({{site.baseurl}}{% post_url 2016-11-20-conexion-gpio-de-raspberry-pi-3 %}) vimos cómo manejar de forma básica la conexión **GPIO** de una Raspberry Pi 3. En esta nos comunicaremos con un sensor digital modelo DS1820, sin utilizar ningún driver ni librería, es decir implementando a **bajo nivel** el protocolo 1-Wire empleado por el dispositivo.
 
-{% include image.html file="ds1820.jpg" caption="Esquema de bloques del DS18S20. <a href=\"https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18S20.html\">Maxim integrated</a>." %}
+{% include image.html file="ds1820.jpg" caption="Sensor digital de temperatura DS18B20." %}
+
+Los DS1820, DS18B20 o DS18S20 son sensores digitales de temperatura. Una especie de LM35 digitales si lo preferís. Sus características principales son una resolución de 9 a 12bit, no requieren componentes externos y se pueden alimentar desde el mismo bus de datos.
+
+Lo he escogido para esta entrada porque necesitaba medir temperaturas con cierta precisión. Además me ha parecido un ejercicio digno de compartir, que entraña sutilezas técnicas de distinto tipo.
+
+## Esquema de bloques
+
+El sensor que vais a encontrar más fácilmente es el ds18s20. Es el sucesor del ds1820 ya descatalogado y es totalmente compatible en patillaje y protocolo. El segundo más habitual es el ds18b20, un modelo ligeramente más avanzado que permite escoger la resolución entre 9 y 12 bits. Es compatible en patillaje pero algunos comandos son diferentes.
+
+Por último, también tenéis a la venta la versión más barata ds1822. Se trata de un modelo económico con mayor margen de error. Si los anteriores tienen un error de más/menos 0.5ºC, en este puede llegar hasta los 2ºC.
+
+{% include image.html file="2815.png" caption="Esquema de bloques del DS18S20. <a href=\"https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18S20.html\">Maxim integrated</a>." %}
 
 En la imagen superior está esquematizado el funcionamiento del sensor. Veamos primero cómo funciona el bloque más a la derecha, el llamado *Temperature Sensor*.
 

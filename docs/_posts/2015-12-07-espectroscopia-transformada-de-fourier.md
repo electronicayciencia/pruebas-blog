@@ -17,7 +17,7 @@ La espectroscopía es una ciencia cuyo objetivo es conocer la composición de un
 
 Hay dos formas para separar las distintas frecuencias que componen una onda, los métodos directos y los métodos indirectos. Los métodos directos son los que aíslan una determinada frecuencia por medio de algún dispositivo (que se llama monocromador aunque se trate de radiación no visible, tal como infrarrojos). Por ejemplo usando un prisma o una rejilla de difracción para descomponer el haz de luz visible y luego medir la intensidad de luz en cada ángulo. Ese sería un método directo.
 
-{% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. <a href=\"http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy\" target=\"_blank\">Smithsonian</a>." %}
+{% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. <a href=\"http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy\" target=\"_blank\">Smithsonian</a>.</td><td class=\"tr-caption\" style=\"text-align: center;\"><br />" %}
 
 Los métodos indirectos consisten en obtener la información de todas las frecuencias al mismo tiempo y separar los componentes con ayuda de un ordenador. Y casi siempre implican una Transformada de Fourier. Un método indirecto sería, como hacemos habitualmente para descomponer sonido, registrar la señal durante un tiempo y después aplicar una FFT para obtener el espectro. Si lo anterior te ha sonado a miedo, te interesará esta otra entrada: [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %})
 
@@ -33,7 +33,17 @@ $$
 
 Tal vez nunca lo estudiaste, tal vez usabas otras letras, tal vez usabas el coseno en lugar del seno, o puede que fuera con signo más, o que los términos estén cambiados de orden. Me da igual. Insisto, todo eso son detalles irrelevantes. Lo importante, lo más importante, yo diría *lo único importante* es que se trata de una función armónica con doble dependencia: del tiempo y de la posición. Y lo demás son letras.
 
-{% include image.html file="Wave_packet_-dispersion-.gif" caption="Onda de presión. <a href=\"http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm\" target=\"_blank\">ISVR, U. of Southampton</a>.****" %}
+{% include image.html file="Wave_packet_-dispersion-.gif" caption="Onda propagándose. Wikipedia." %}
+
+Las constantes de proporcionalidad que multiplican a las variables de las que depende algo periódico son frecuencias. Las frecuencias indican con qué rapidez se repite algo ¿no?
+
+Como norma general la función *sin* se calcula en radianes. Por eso ω se llama *frecuencia angular* en lugar de sólo frecuencia. Y la única diferencia es que va multiplicada por *2π*, que son los radianes que hay en un *loquesea* (en 1 metro, en 1 segundo, etc).
+
+Y la **k**, pues es otra frecuencia. Pero en lugar de ser una frecuencia temporal, es una *frecuencia espacial*. Cuando se empezaba a experimentar con esto se le llamó número de onda (*wavenumber* en inglés). Si pudiéramos parar el tiempo y medir en varios puntos a lo largo del espacio, el número de onda indicaría cuántas veces por metro se completa el ciclo, o cuántas longitudes de onda hay en un metro. O en 2π radianes si nos referimos al número de onda angular. Esto último es lo que se representa con la letra k. 
+
+Así funciona la propagación de una onda de sonido en el aire (es un gif animado, hay varios en el artículo, lo aviso por si tienes desactivadas las animaciones):
+
+{% include image.html file="longipatm.gif" caption="Onda de presión. <a href=\"http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm\" target=\"_blank\">ISVR, U. of Southampton</a>.****" %}
 
 Para medir la frecuencia temporal nos fijamos continuamente en el mismo punto. Como por ejemplo en el inicio. La onda sube y baja a un ritmo constante. Eso es la frecuencia temporal, si es lineal f o ν; si es frecuencia angular ω.
 
@@ -42,6 +52,20 @@ Para la frecuencia espacial imaginad que paramos la animación y medimos la ampl
 El inverso del periodo espacial (longitud de onda) será la frecuencia espacial o número de onda (representado por ṽ). Ese mismo número multiplicado por 2π sería k que es el que va a la fórmula.
 
 Una explicación rápida y un tanto apresurada, lo sé. No hay que recordarlo, sólo tenerlo presente para cuando llegue el experimento. Para terminar este repaso aquí tenéis una equivalencia entre las variables que hacen referencia al espacio y al tiempo:
+
+<table><tbody><tr><th colspan="2">Tiempo</th><th colspan="2">Espacio</th></tr><tr><th>Símbolo</th><th>Nombre</th><th>Nombre</th><th>Símbolo</th></tr><tr><td>τ o T</td><td>Periodo (s)</td><td>Longitud de onda (m)</td><td>λ</td></tr><tr><td>ν ó f = 1/T</td><td>Frecuencia (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>ṽ = 1/λ</td></tr><tr><td>ω = 2π f</td><td>Frec. angular (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>k = 2π ṽ</td></tr></tbody></table><br />Todo esto se vuelve mas interesante cuando el tiempo se trata como otra dimensión más, entonces  se habla de ondas en cuatro dimensiones, del espacio-tiempo... Claro que se hace sólo para ondas electromagnéticas, se llama *Formulación covariante del electromagnetismo* y digamos que no me cabe en este margen.
+
+## Espectroscopía de Fourier
+
+Volviendo a lo que decíamos antes, para obtener las frecuencias que componen un espectro hay dos métodos. Uno, aislar cada frecuencia por separado con un monocromador -sí, se le llama monocromador aunque hablemos de radiación no visible y por tanto no tenga "color"-. O dos, medir todas las frecuencias juntas y luego descomponer lo que sale con una transformada de Fourier.
+
+Como podéis imaginar, lo segundo es relativamente reciente. Más que nada porque, antes de la invención del ordenador, era muy complicado registrar una señal analógica y aplicar una transformada. Fue con la llegada de los ordenadores y de la electrónica digital cuando este método se empezó a utilizar en serio.
+
+Espectroscopía de Fourier con ondas de sonido la hacemos habitualmente. Pensadlo, un micrófono recoge todas las frecuencias al mismo tiempo, un ADC las muestrea a 48kHz y posteriormente con una FFT obtenemos el espectro de la señal. Y funciona estupendamente para ondas cuya frecuencia esté por debajo de la mitad de la frecuencia de muestreo.
+
+Para frecuencias más altas la cosa ya se complica. La radiación infrarroja la encontramos a partir de 300GHz. No hay fotodetectores tan rápidos como para captar una oscilación de semejante frecuencia. Pero es que aunque los hubiera, los ADC más rápidos del mercado no sobrepasan los [5GSPS (Giga Samples Per Second](http://www.ti.com/product/lm97600)). Serán muy buenos para muestrear, como mucho, microondas. Pero no sirven para aplicar el mismo proceso a infrarrojos o luz visible.
+
+Y sin embargo una técnica muy empleada es la llamada **FTIR (Fourier Transform Infrared Spectroscopy)**. Cabe preguntarse, ¿cómo aplicas la FFT a una señal que oscila tan rápidamente que no puedes muestrear varias veces en un periodo?
 
 {% include image.html max-width="480px" file="ftir.jpg" caption="Espectroscopio FTIR comercial. <a href=\"http://www.andersonmaterials.com/ftir.html\" target=\"_blank\">andersonmaterials.com</a>" %}
 

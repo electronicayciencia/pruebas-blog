@@ -29,7 +29,13 @@ Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil d
 
 A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior. 
 
-{% include image.html max-width="480px" file="Shishi-odoshi.jpg" caption="Oscilador de relajación construido con un comparador LM393. EyC." %}
+{% include image.html file="Shishi-odoshi.jpg" caption="El Shishi-odoshi es el ejemplo típico de oscilador de relajación. <a href=\"https://en.wikipedia.org/wiki/Shishi-odoshi\" target=\"_blank\">Wikipedia.</a> " %}
+
+A estas alturas ya todos sabéis cómo funciona un comparador. Tiene dos entradas y una salida. Está continuamente comprobando cuál de las dos entradas está a mayor voltaje. Si gana la entrada inversora (signo -), la salida del conmutador está a nivel bajo; conectada a masa. Mientras que si gana la entrada no inversora (signo +), la salida queda **flotante**. No positiva, porque la salida del **LM393** es de colector abierto. O sea, o conecta a negativo o no. Pero no puede suministrar corriente, sólo puede drenarla.
+
+Con un comparador se puede hacer un oscilador de relajación siguiendo este esquema:
+
+{% include image.html max-width="480px" file="osci1.png" caption="Oscilador de relajación construido con un comparador LM393. EyC." %}
 
 La tensión en la entrada no inversora es fija y viene determinada por el divisor resistivo que forman **R1** y **R2**. Como ambas tienen el mismo valor, la tensión en la unión será la mitad de la de alimentación (2.5V).
 

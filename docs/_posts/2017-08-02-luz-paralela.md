@@ -67,7 +67,11 @@ Con un haz ideal plano:
 - La sombra siempre es igual al tamaño del objeto, independientemente de la distancia a la fuente o a la pantalla.
 - La potencia de la luz es uniforme en toda la superficie iluminada y apenas varía con la distancia a la fuente.
 
-{% include image.html file="lightbox3.jpg" caption="Un haz paralelo se puede obtener a partir de un fuente puntual." %}
+{% include image.html file="lightbox3.jpg" caption="Rayos de luz paralelos. Fuente: <a href=\"http://www.dynamicscience.com.au/tester/solutions1/magicofsci/lightboxactivities.html\">dynamicscience.com.au</a>" %}
+
+Un haz de luz paralelo ideal se puede obtener con una fuente puntual puesta en el foco de una lente convergente ideal. Por supuesto, no se aprovecha toda la intensidad de la fuente, sino sólo la que la lente puede recoger. Aquí entran en juego el tamaño y la distancia focal.
+
+{% include image.html file="puntual-paralela.png" caption="Un haz paralelo se puede obtener a partir de un fuente puntual." %}
 
 En física se habla de un concepto que se llama **coherencia espacial**. Se dice que *una fuente es coherente cuando la diferencia de fase entre dos puntos en el espacio es constante en el tiempo.* Esta condición es necesaria para los fenómenos de interferencia y está íntimamente ligada a la extensión de la fuente.
 
@@ -259,11 +263,9 @@ La discordia llegó a su fin a principios de s. XIX, durante una congregación d
 
 François Arago, el presidente de la comisión, más partidario de la ciencia que de los razonamientos intuitivos quiso probar a ver. El resultado no pudo ser más contundente:
 
-<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;">
+{% include image.html file="poisson-spot-wikipedia.jpg" caption="Punto de Arago o de Poisson. Fuente: <a href=\"https://en.wikipedia.org/wiki/Arago_spot\">Wikipedia</a>." %}
 
-{% include image.html file="poisson-spot-wikipedia.jpg" caption="" %}
-
-</td></tr><tr><td class="tr-caption" style="text-align: center;">Punto de Arago o de Poisson. Fuente: [Wikipedia](https://en.wikipedia.org/wiki/Arago_spot).</td></tr></tbody></table>En mitad del círculo negro, justo donde debía haber opacidad total, aparece un pequeño puntito luminoso. Este hecho era completamente inexplicable si la luz está formada por partículas, y eso fue lo que convenció a la mayoría de los asistentes.
+En mitad del círculo negro, justo donde debía haber opacidad total, aparece un pequeño puntito luminoso. Este hecho era completamente inexplicable si la luz está formada por partículas, y eso fue lo que convenció a la mayoría de los asistentes.
 
 Así quedó desterrada la teoría corpuscular de la luz a favor de la teoría ondulatoria durante el siglo XIX. A finales de siglo Maxwell consiguió  deducir la velocidad de la luz a partir de las ecuaciones del campo electromagnético. 
 

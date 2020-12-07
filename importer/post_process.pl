@@ -263,7 +263,10 @@ sub process_body {
 
 	# Images with caption and link
 	# <table ... <a href="...blogspot.com/.../div_by_5.png" src="...blogspot.com/.../div_by_5.png" width="640" ...>CAPTION</td></tr></tbody></table>
-	$s =~ s{<table.*?<a href=".*?bp.blogspot.com.*?/([^/"]+)".*?src="(.+?)" width="(\d+)".*?<td[^>]+>(.+?)</td>.*?</table>}{image_string($1,$3,$4)}sge;
+	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{image_string($1,$3,$4)}sge;
+	
+	# Same, without width
+	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{image_string($1,"",$3)}sge;
 
 	# Images with link only
 	# <a href="...blogspot.com/.../Imagen149.jpg" ... ><img ... src="...blogspot.com/.../Imagen149.jpg" ... /></a>
