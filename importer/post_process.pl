@@ -210,7 +210,7 @@ sub format_spanmonospace {
 		return "\n\n```\n$block\n```\n\n";
 	}
 	else {
-		return "\n\n    $block\n\n";
+		return "\n\n    $block\n";
 	}
 }
 
@@ -238,6 +238,9 @@ sub process_body {
 	$s =~ s{</blockquote></blockquote>}{</blockquote>}g;           # for reparacion-de-un-radiocasete
 	$s =~ s{</blockquote><blockquote[^>]*>}{\n\n}g;                # for reparacion-de-un-radiocasete
     $s =~ s{"<span [^>]*monospace[^>]*>(.*?)</span>"}{`$1`}g;      # for afsk-desde-cero
+	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
+	$s =~ s{<factor de="" ruido=""></factor>}{};                   # preamplificador-microfono-electret
+
 
 	# Old italic and bold tags
 	$s =~ s{<span [^>]*font-weight: bold;[^>]*>(.*?)</span>}{<b>$1</b>}g;
@@ -275,7 +278,7 @@ sub process_body {
 	$s =~ s{style="color: [^"]+"}{}g;
 
 	# Remove empty divs
-	$s =~ s{<div[^>]*>\s*</div>}{}mg;
+	$s =~ s{<div[^>]*>\s*</div>}{\n}mg;
 	$s =~ s{<div[^>]*><br[^>]+></div>}{\n}mg;
 	
 	# remove empty spans
@@ -296,14 +299,15 @@ sub process_body {
 	$s =~ s{<i [^>]*>}{<i>}g;
 
 	# Replace uncommon format tags
+	$s =~ s{<u>}{}g;
+	$s =~ s{</u>}{}g;
 	$s =~ s{<k>}{<em>}g;
 	$s =~ s{</k>}{</em>}g;
 	$s =~ s{<i>}{<em>}g;
 	$s =~ s{</i>}{</em>}g;
 
-	# Remove divs, any divs
-	$s =~ s{<div[^>]*>}{}g;
-	$s =~ s{</div>}{}g;
+	# Remove separator divs
+	$s =~ s{<div[^>]*separator[^>]*>(.*?)</div>}{$1\n}msg;
 
 	# Remove nbsp?
 	$s =~ s{&nbsp;}{ }g;
@@ -331,6 +335,7 @@ sub process_body {
 	$s =~ s{(<pre.*?</pre>)}{format_pre($1)}msge;
 
 	# convert span monospaced into pre blocks
+	$s =~ s{<div [^>]*monospace[^>]*>([^<>]*?)</div>}{    $1\n}g;
 	$s =~ s{<span[^>]*monospace[^>]*>(.*?)</span>}{format_spanmonospace($1)}mge;
 	$s =~ s{<br />    }{\n\n    }g;
 	
@@ -360,6 +365,12 @@ sub process_body {
 
 	# Remove html chars
 	$s =~ s{&amp;}{&}gms;
+	
+	# Clear residual spans
+	$s =~ s{<span[^>]*>}{}g;
+	$s =~ s{</span>}{}g;
+	$s =~ s{<div[^>]*>}{}g;
+	$s =~ s{</div>}{}g;
 
 	# Trailing or leading spaces in tags
 	$s =~ s{<b>(\s+)}{$1<b>}g;
@@ -381,16 +392,6 @@ sub process_body {
 
 	# Remove format from pre lines (maybe redundant after block format function)
 	$s =~ s{^(    .*)}{format_preline($1)}ge;
-	
-	# Clear residual spans
-	$s =~ s{<span([^>]*)>}{}g;
-	$s =~ s{</span>}{}g;
-
-	# Clear residual tags
-	$s =~ s{&lt;}{<}g;
-	$s =~ s{&gt;}{>}g;
-	$s =~ s{&amp;}{&}g;
-
 
 	# Back-translate to Markdown
 	$s =~ s{<b>}{**}g;
@@ -398,6 +399,13 @@ sub process_body {
 	$s =~ s{<em>}{*}g;
 	$s =~ s{</em>}{*}g;
 	
+	# Clear residual tags
+	$s =~ s{&lt;}{<}g;
+	$s =~ s{&gt;}{>}g;
+	$s =~ s{&amp;}{&}g;
+
+	# Replace links
+	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{[$2]($1)}g;
 
 	return $s;
 }
