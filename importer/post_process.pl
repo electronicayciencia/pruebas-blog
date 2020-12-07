@@ -146,7 +146,7 @@ sub format_ul {
 
 	s/^/- / for @items;
 
-	return "\n".join("\n", @items)."\n";
+	return "\n\n".join("\n", @items)."\n\n";
 }
 
 
@@ -164,7 +164,7 @@ sub format_ol {
 
 	s/^/1. / for @items;
 
-	return "\n".join("\n", @items)."\n";
+	return "\n\n".join("\n", @items)."\n\n";
 }
 
 # Pre lines in markdown cannot have tags
@@ -226,6 +226,10 @@ sub process_body {
 
 	# Fixes for particular cases
 	$s =~ s{Exploit K</b>it}{Exploit Kit</b>}g;
+	$s =~ s{<blockquote[^>]*><blockquote[^>]*>}{<blockquote>}g;    # for reparacion-de-un-radiocasete
+	$s =~ s{</blockquote></blockquote>}{</blockquote>}g;           # for reparacion-de-un-radiocasete
+	$s =~ s{</blockquote><blockquote[^>]*>}{\n\n}g;                    # for reparacion-de-un-radiocasete
+
 
 	# Old italic and bold tags
 	$s =~ s{<span [^>]*font-weight: bold;[^>]*>(.*?)</span>}{<b>$1</b>}g;
