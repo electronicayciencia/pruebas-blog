@@ -44,9 +44,7 @@ sub array_entran_salen {
 Tenemos dos listas:
 
     a b c d e f g
-
     
-
     a   c d   f g h
 
 Al aplicar la función nos devuelve:

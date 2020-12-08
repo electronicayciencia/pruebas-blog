@@ -603,7 +603,7 @@ int main (void)
 Aquí podemos ver el resultado de la ejecución:
 
 ```
-<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-size: small;">$ sudo ./ds1820
+$ sudo ./ds1820
 DS1820 Test Program for Raspberry Pi
 Device present!
 
@@ -616,8 +616,7 @@ Reading temperature:
 Temperature (low res) is 17.0ºC
 
 COUNT_PER_C: 16, COUNT_REMAIN: 10
-Temperature (hi res) is 17.12ºC</span>
-</span>
+Temperature (hi res) is 17.12ºC
 ```
 
     

@@ -185,8 +185,6 @@ sub html2md {
 	$s =~ s{</b>}{**}g;
 	$s =~ s{<em>}{*}g;
 	$s =~ s{</em>}{*}g;
-	$s =~ s{<u>}{_}g;
-	$s =~ s{</u>}{_}g;
 
 	# Font size or color: deprecated
 	# wait until monospaced divs/spans have been identified
@@ -306,6 +304,11 @@ sub format_pre {
 	$c =~ s{</b>}{}g;
 	$c =~ s{<em>}{}g;
 	$c =~ s{</em>}{}g;
+	$c =~ s{<span[^>]*>(.*?)</span>}{$1}smg;
+	$c =~ s{<div[^>]*>(.*?)</div>}{$1}smg;
+	$c =~ s{<span[^>]*>(.*?)</span>}{$1}smg;
+	$c =~ s{<div[^>]*>(.*?)</div>}{$1}smg;
+
 
 	# prevent empty line at the end of the block
 	$c =~ s{\n+$}{}g;
@@ -498,6 +501,8 @@ sub process_body {
 	$s =~ s{</k>}{</em>}g;
 	$s =~ s{<i>}{<em>}g;
 	$s =~ s{</i>}{</em>}g;
+	$s =~ s{<u>}{}g;  # not supported
+	$s =~ s{</u>}{}g; # not supported
 	$s =~ s{<br[^>]*>}{<br>}g;
 	$s =~ s{&nbsp;}{ }g;
 	$s =~ s{<break>}{}g;
@@ -592,10 +597,11 @@ sub process_body {
 	# But it is neccesary in order to group monolines.
 	$s =~ s{<div[^>]*>(.*?)</div>}{$1}msg;
 	$s =~ s{<span[^>]*>(.*?)</span>}{$1}msg;
+	$s =~ s{<div[^>]*>(.*?)</div>}{$1}msg;
+	$s =~ s{<span[^>]*>(.*?)</span>}{$1}msg;
 
 	# block of monolines
-	$s =~ s{<br>((?:(?:\|\|##spanmono-line-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;
-	$s =~ s{<br>((?:(?:\|\|##divmono-line-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;
+	$s =~ s{<br>((?:(?:\|\|##(?:span|div)mono-(?:line|block)-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;
 
 	# paragraphs
 	# Okay, that's black magic

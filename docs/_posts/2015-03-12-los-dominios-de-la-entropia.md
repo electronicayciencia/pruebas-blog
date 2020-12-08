@@ -190,7 +190,7 @@ Pues desde el punto de vista entrópico, la frecuencia de los caracteres en los 
 
 ## La decisión
 
-No, no es una novela de John Grisham. Es que histograma en mano, tenemos que contestar a la pregunta: _*¿el dominio X es aleatorio o no?*_
+No, no es una novela de John Grisham. Es que histograma en mano, tenemos que contestar a la pregunta: *¿el dominio X es aleatorio o no?*
 
 Señor abogado, a la vista del histograma anterior podríamos decir tres cosas:
 
@@ -349,21 +349,17 @@ Este es un gráfico comparativo de la entropía de los dominios de Angler EK, co
 ¿Por qué la distribución de Angler tiene **dos máximos**? Obviamente porque hay dos tipos de dominios diferente. Si miramos el listado veremos que los subdominios pueden ser pseudoaleatorios,como estos:
 
     
-
-```
-acaibehbjdjd.mysupercouponzz.info
+    acaibehbjdjd.mysupercouponzz.info
 acaibehbjjcjb.mysupercouponzz.info
 acaibehdbjifi.mysupercouponzz.info
 acaibehdcabid.mysupercouponzz.info
 acaibehdefgcc.mysupercouponzz.info
 acaibehdgghhh.mysupercouponzz.info
 acaibehgcgfgh.mysupercouponzz.info
-```
 
 o bien formados por palabras, como estos otros:
 
-```
-ounces.rhinestonetemptations.com
+    ounces.rhinestonetemptations.com
 clashes.rhinestonetemptations.com
 country.rhinestonetemptations.com
 getting.rhinestonetemptations.com
@@ -372,7 +368,6 @@ regulate.rhinestonetemptations.com
 collecting.rhinestonetemptations.com
 employment.rhinestonetemptations.com
 possession.rhinestonetemptations.com 
-```
 
 Ahora parece razonable ver las dos distribuciones mezcladas. El máximo de mayor entropía corresponde a los dominios aleatorios, mientras que el de menor entropía corresponde a los que usan palabras. Hay que recordar que lo que estamos calculando es la entropía por trío, no por carácter, no por dominio completo. Lo que implica que si el dominio tiene una parte aleatoria, pero esta es corta en comparación al nombre completo, la entropía saldrá baja.
 

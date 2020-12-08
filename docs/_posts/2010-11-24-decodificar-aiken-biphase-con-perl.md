@@ -45,7 +45,7 @@ Doy brevemente unas pinceladas sobre cómo se graba la información en una banda
     >
 
 ```
-<span style="font-size: small;">                        | |  <----cables al amplificador      
+                        | |  <----cables al amplificador      
                         | |       (se enrollan al anillo)
                       /-|-|-\
                      /       \
@@ -54,7 +54,7 @@ Doy brevemente unas pinceladas sobre cómo se graba la información en una banda
                       \ N S / <---hueco en el anillo
 N----------------------SS-N-------------------------S
                        ^^  
-             <<<<<-la banda se mueve en esta dirección</span>
+             <<<<<-la banda se mueve en esta dirección
 ```
 
 Imaginaos la banda como millones de micro-imanes todos seguidos. Si no hay nada grabado todos los imanes están orientados en la misma dirección. N es el polo norte del imán y S el polo sur. Así:
@@ -70,12 +70,12 @@ Cuando recorremos la banda con la cabeza de lectura los imanes cierran el anillo
     >
 
 ```
-<span style="font-size: small;">            /-|-|-\
+            /-|-|-\
            /       \
            |       | <----solenoide 
            \       /
             \ N S / 
-N--------------------S S--------------N N-----------S</span>
+N--------------------S S--------------N N-----------S
 ```
 
 Ahora avanzamos por la cinta y nos encontramos con un cambio en la polaridad magnética. Como el flujo que atraviesa el anillo lo fija la banda magnética, se invierte, y pasa de ser N-S a S-N.
@@ -83,12 +83,12 @@ Ahora avanzamos por la cinta y nos encontramos con un cambio en la polaridad mag
     >
 
 ```
-<span style="font-size: small;">                           /-|-|-\
+                           /-|-|-\
                           /       \
                           |       | <----solenoide 
                           \       /
                            \ S N /  (ha cambiado la dirección)
-N--------------------S S--------------N N-----------S</span>
+N--------------------S S--------------N N-----------S
 ```
 
 Y ya sabíamos que al cambiar el flujo magnético en un solenoide se induce una corriente eléctrica. En este caso va a ser muy débil, pero suficiente para detectarla. Cuando avanzamos más vuelve a cambiar el flujo y se induce una corriente en el otro sentido.
@@ -156,13 +156,10 @@ Hemos hablado antes de una duración *parecida* a *Tuno* o al doble de *Tuno*  �
 Al principio *Tuno* puede ser la duración del CERO o del UNO (hablamos de esto en el párrafo siguiente). Si recibimos una duración entre pulsos equivalente a *Tuno* diremos que es el mismo carácter que tiene *Tuno*. Si sabemos que eran UNOS pues diremos que llega un UNO. Si llega una duración equivalente al doble, diremos que hemos recibido un CERO. Pero si llega una duración equivalente a la mitad de *Tuno* pueden pasar dos cosas: durante la inicialización servirá para discriminar que *Tuno* era en realidad el tiempo del CERO y no del UNO. Pero pasada la etapa de inicialización se tratará de un error. Lo mismo que si la medida supera el doble. Así dado un tiempo t tenemos 5 intervalos:
 
     error si            t < 1/4*Tuno 
-
-```
-mitad si 1/4*Tuno < t <= 3/4*Tuno
+    mitad si 1/4*Tuno < t <= 3/4*Tuno
 igual si 3/4*Tuno < t <= 3/2*Tuno
 doble si 3/2*Tuno < t <= 5/2*Tuno
 error si 5/2*Tuno < t 
-```
 
 Pero ¡un momento! Habrá que inicializar *Tuno* de alguna manera. Generalmente al principio de la lectura se repite mucho uno de los dos bits, que suele ser CERO para que el receptor se entere de la velocidad de transmisión. Vamos a intentar dar una vuelca de tuerca y a hacer que nuestro decodificador sea inteligente y sepa cuándo los caracteres iniciales sean CEROS y cuando UNOS. Pero eso no lo puede saber hasta que no encuentre un bit diferente. Si este dura la mitad es que lo de antes eran CEROS. Pero si dura el doble es que lo de antes eran UNOS. Por eso al empezar a leer estamos leyendo caracteres "T", que no sabemos si son UNOS o CEROS hasta leer otro diferente para poder comparar.
 
