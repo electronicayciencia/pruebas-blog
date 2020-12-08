@@ -12,7 +12,8 @@ my $postsdir = "_posts";
 
 use strict;
 use warnings;
-use URI::Escape;
+use Data::Dumper;
+
 
 # ---
 # key: value
@@ -22,6 +23,85 @@ use URI::Escape;
 # ---
 # <space>
 # body
+
+
+my %parts;
+
+sub parts_store {
+	my $str = shift;
+	my $type = shift || "part";
+	
+	my %inpara = (
+	 	link => 1,
+		postlink => 1,
+		'spanmono-line' => 1,
+		
+		paragraph => 0,
+		table => 0,
+		img => 0,
+		eqn => 0,  # display
+		codeblock => 0,
+		'divmono-line' => 0,
+		'divmono-block' => 0,
+		'spanmono-block' => 0,
+		monogroup => 0,
+		section => 0,
+		object => 0,
+		ol => 0,
+		ul => 0,
+		quote => 0,
+	  );
+
+	my $delimiter_in = "";
+	my $delimiter_out = "";
+
+	# This object can be inside a paragraph or not?
+	if (not defined $inpara{$type}) {
+		printf STDERR "Unknown object type: $type.\n";
+		return "";
+	}
+	elsif ($inpara{$type} == 1) {
+		$delimiter_in = '--##';
+		$delimiter_out = '##--';  # inside para
+	}
+	else {
+		$delimiter_in = '||##';
+		$delimiter_out = '##||';
+	}
+
+	$parts{_counter}{$type}++;
+
+	my $counter = $parts{_counter}{$type};
+	my $id = "$type-$counter";
+
+	$parts{$id} = $str;
+
+	return $delimiter_in.$id.$delimiter_out;
+}
+
+
+sub html2md {
+  	my $s = shift;
+
+	$s =~ s{<b>}{**}g;
+	$s =~ s{</b>}{**}g;
+	$s =~ s{<em>}{*}g;
+	$s =~ s{</em>}{*}g;
+	$s =~ s{<u>}{_}g;
+	$s =~ s{</u>}{_}g;
+
+	# Font size or color: deprecated
+	# wait until monospaced divs/spans have been identified
+	$s =~ s{<span [^>]*font-size:[^>]*>(.*?)</span>}{$1}g;
+	$s =~ s{<span [^>]*Apple-style-span[^>]*>(.*?)</span>}{$1}g;
+	$s =~ s{<span [^>]*color[^>]*>(.*?)</span>}{$1}smg;
+	$s =~ s{<div [^>]*color[^>]*>(.*?)</div>}{$1}smg;
+
+	$s =~ s{<span[^>]*>(.*?)</span>}{$1}g;
+
+	return $s;
+}
+
 
 sub trim {
 	my $s = shift;
@@ -66,10 +146,12 @@ sub image_string {
 
 	if ($width ne "" and $width < 400) {
 	    $width *= 1.5;
-		return "\n\n{% include image.html max-width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}\n\n"
+		my $string = "{% include image.html max-width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}";
+		return parts_store($string, "img");
 	}
 	else {
-		return "\n\n{% include image.html file=\"$name\" caption=\"$caption\" %}\n\n"
+		my $string = "{% include image.html file=\"$name\" caption=\"$caption\" %}";
+		return parts_store($string, "img");
 	}
 }
 
@@ -84,7 +166,7 @@ sub link_post_to_local {
 	my @files = glob("$postsdir/$year-$mon-*$name*");
 	if (scalar @files != 1) {
 		print STDERR "Warning: no file or multiple files for '$name'.\n";
-		return "[$text]()";
+		return parts_store("[$text]()", "postlink");
 	}
 
 	if ($files[0] =~ m{.*/(.*?)\..{1,4}}) {
@@ -92,11 +174,10 @@ sub link_post_to_local {
 	}
 	else {
 		print STDERR "Warning: unknown post file for '$name'.\n";
-		return "[$text]()";
+		return parts_store("[$text]()", "postlink");
 	}
 
-
-	return "[$text]({{site.baseurl}}{% post_url $postname %})";
+	return parts_store("[$text]({{site.baseurl}}{% post_url $postname %})", "postlink");
 }
 
 
@@ -116,7 +197,7 @@ sub format_pre {
 
 	my $c = $1;
 
-	$c =~ s{<br[^>]+>}{\n}mg;
+	$c =~ s{<br>}{\n}mg;
 
 	$c =~ s{&lt;}{<}g;
 	$c =~ s{&gt;}{>}g;
@@ -129,15 +210,15 @@ sub format_pre {
 	$c =~ s{</em>}{}g;
 
 	# prevent empty line at the end of the block
-	$c =~ s{\s+$}{}g;
-	$c =~ s{^\s+}{}g;
+	$c =~ s{\n+$}{}g;
+	$c =~ s{^\n+}{}g;
 	
 	# Blogspot syntax for perl does not exist. Is cpp marked but is it actually perl?
 	if ($c =~ m{my\s+\$}) {
 	    $lang = "perl";
 	}
 
-	if ($c =~ m{subplot} or $c =~ m{^\s*%} or $c =~ m{\w+\(:,\d+\)}) {
+	if ($c =~ m{subplot} or $c =~ m{^\s*%}m or $c =~ m{\w+\(:,\d+\)}) {
 	    $lang = "matlab";
 	}
 
@@ -145,66 +226,42 @@ sub format_pre {
 	    $lang = "c";
 	}
 	
-	return "\n\n```$lang\n$c\n```\n\n";
+	return parts_store("```$lang\n$c\n```", "codeblock");
 }
 
 
-sub format_ul {
-	my $block = shift;
+sub format_list {
+	my ($block, $tag) = @_;
 
-	if (not $block =~ m{<ul[^>]*>(.*?)</ul>}ms) {
-		print STDERR "Warning: unknown UL format: '$block'.\n";
+	if (not $block =~ m{<[ou]l[^>]*>(.*?)</[ou]l>}ms) {
+		print STDERR "Warning: unknown list format: '$block'.\n";
 		return $block;
 	}
 
 	my $c = $1;
 
-	my @items = $c =~ m{<li>(.*?)</li>}gm;
-
-	s/^/- / for @items;
-
-	return "\n\n".join("\n", @items)."\n\n";
-}
-
-
-sub format_ol {
-	my $block = shift;
-
-	if (not $block =~ m{<ol[^>]*>(.*?)</ol>}ms) {
-		print STDERR "Warning: unknown OL format: '$block'.\n";
-		return $block;
-	}
-
-	my $c = $1;
+	$c = html2md($block);
 
 	my @items = $c =~ m{<li>(.*?)</li>}gm;
 
-	s/^/1. / for @items;
+	return "" unless @items;
 
-	return "\n\n".join("\n", @items)."\n\n";
+	$tag eq "ul" and s/^/- / for @items;
+	$tag eq "ol" and s/^/1. / for @items;
+
+	return parts_store(join("\n", @items), $tag);
 }
+
 
 # Pre lines in markdown cannot have tags
-sub format_preline {
-	my $line = shift;
-
-	$line =~ s{<span[^>]*>}{}g;
-	$line =~ s{</span>}{}g;
-	$line =~ s{<b>}{}g;
-	$line =~ s{</b>}{}g;
-	$line =~ s{<em>}{}g;
-	$line =~ s{</em>}{}g;
-	$line =~ s{<br[^>]*>}{\n}g;
-
-	return $line;
-}
-
-sub format_spanmonospace {
-	my $block = shift;
+sub format_monospace {
+	my ($block, $tag) = @_;
 
 	# Remove format tags
+	$block =~ s{<div[^>]*>}{}g;
+	$block =~ s{</div>}{}g;
 	$block =~ s{<span[^>]*>}{}g;
-	$block =~ s{</span>}{}g;
+	$block =~ s{</span}{}g;
 	$block =~ s{<b>}{}g;
 	$block =~ s{</b>}{}g;
 	$block =~ s{<em>}{}g;
@@ -213,13 +270,17 @@ sub format_spanmonospace {
 	$block =~ s{&gt;}{>}g;
 	$block =~ s{&amp;}{&}g;
 
-	# It's only a line or multiple lines?
-	if ($block =~ /\n/ or $block =~ /<br[^>]*>/) {
-		$block =~ s{<br[^>]*>}{\n}g;
-		return "\n\n```\n$block\n```\n\n";
+	# Replace br and trim
+	$block =~ s{<br>}{\n}g;
+	$block =~ s{\n+$}{}g;
+	$block =~ s{^\n+}{}g;
+
+	# It's just one line or multiple lines?
+	if ($block =~ /\n/) {
+		return parts_store("$block", "${tag}mono-block");
 	}
 	else {
-		return "\n\n    $block\n";
+		return parts_store("$block", "${tag}mono-line");
 	}
 }
 
@@ -230,36 +291,155 @@ sub format_blockquote {
 	$block =~ s{<span[^>]*>}{}g;
 	$block =~ s{</span>}{}g;
 
-	$block =~ s{<br[^>]*>}{\n}g;
+	$block =~ s{<br>}{\n}g;
 	$block =~ s{^}{> }gm;
 	
-	return "\n\n$block\n\n";
+	$block = html2md($block);
+
+	return parts_store($block, "quote");
 }
 
+sub format_table {
+	my $block = shift;
+
+	# Still cannot process a table
+
+	return parts_store($block, "table");
+}
+
+
+
+sub format_equation {
+	my $block = shift;
+
+	# Remove format tags and entities if any
+	$block =~ s{<span[^>]*>}{}g;
+	$block =~ s{</span>}{}g;
+	$block =~ s{<b>}{}g;
+	$block =~ s{</b>}{}g;
+	$block =~ s{<em>}{}g;
+	$block =~ s{</em>}{}g;
+	$block =~ s{&lt;}{<}g;
+	$block =~ s{&gt;}{>}g;
+	$block =~ s{&amp;}{&}g;
+	$block =~ s{<br>}{\n}g;
+	
+	return parts_store($block, "eqn");
+}
+
+sub format_link {
+	my ($href, $text) = @_;
+	return parts_store("[$text]($href)", "link");
+}
+
+sub format_section {
+	my $s = shift;
+	return parts_store("## $s", "section");
+}
+
+sub format_monogroup {
+	my $block = shift;
+	$block =~ s{<br>}{}g;
+	return parts_store($block, "monogroup");
+}
+
+sub format_paragraph {
+	my $block = shift;
+	
+	# Replace br and trim
+	$block =~ s{<br>}{\n}g;
+	$block =~ s{\n+$}{}g;
+	$block =~ s{^\n+}{}g;
+
+	if ($block =~ m{\|\|}) {
+		print STDERR "Warning, outside-paragraph delimiter found in: '$block'.\n";
+		return "";
+	}
+
+	# Embebed object, do not touch
+	if ($block =~ m{<iframe}) {
+		return parts_store($block, "object");
+	}
+
+	$block = html2md($block);
+
+	if ($block eq "") {  # null par
+		return "";
+	}
+
+	return parts_store($block, "paragraph");
+}
 
 sub process_body {
 	my $s = shift;
 	$s = trim($s);
 
+	# Pre - processing
+	# ------------------------------------------------------
+	
 	# Fixes for particular cases
 	$s =~ s{Exploit K</b>it}{Exploit Kit</b>}g;
 	$s =~ s{<blockquote[^>]*><blockquote[^>]*>}{<blockquote>}g;    # for reparacion-de-un-radiocasete
 	$s =~ s{</blockquote></blockquote>}{</blockquote>}g;           # for reparacion-de-un-radiocasete
-	$s =~ s{</blockquote><blockquote[^>]*>}{\n\n}g;                # for reparacion-de-un-radiocasete
+	$s =~ s{</blockquote><blockquote[^>]*>}{}g;                # for reparacion-de-un-radiocasete
     $s =~ s{"<span [^>]*monospace[^>]*>(.*?)</span>"}{`$1`}g;      # for afsk-desde-cero
-	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
+	#	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
 	$s =~ s{<factor de="" ruido=""></factor>}{};                   # preamplificador-microfono-electret
+	$s =~ s{2010/06/difraccion-en-un-dvd}{2010/07/difraccion-en-un-dvd}g;
+    $s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sistetizador-pll
 
+	# Remove fixed texts
+	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
+	$s =~ s{<a name='more'></a>}{}g;
+	$s =~ s{<div[^>]*separator[^>]*>(.*?)</div>}{$1}msg;
+
+	# Remove stiles from simple tags, replace uncommon format tags and simplify br tags
+	$s =~ s{<b [^>]*>}{<b>}g;
+	$s =~ s{<i [^>]*>}{<i>}g;
+	$s =~ s{<strong>}{<b>}g;
+	$s =~ s{</strong>}{</b>}g;
+	$s =~ s{<k>}{<em>}g;
+	$s =~ s{</k>}{</em>}g;
+	$s =~ s{<i>}{<em>}g;
+	$s =~ s{</i>}{</em>}g;
+	$s =~ s{<br[^>]*>}{<br>}g;
+	$s =~ s{&nbsp;}{ }g;
+	$s =~ s{<break>}{}g;
+	$s =~ s{</break>}{}g;
 
 	# Old italic and bold tags
 	$s =~ s{<span [^>]*font-weight: bold;[^>]*>(.*?)</span>}{<b>$1</b>}g;
 	$s =~ s{<span [^>]*font-style: italic;[^>]*>(.*?)</span>}{<em>$1</em>}g;
 
-	# Font size or color: deprecated
-	$s =~ s{<span [^>]*font-size:[^>]*>(.*?)</span>}{$1}g;
-	$s =~ s{<span [^>]*Apple-style-span[^>]*>(.*?)</span>}{$1}g;
-	$s =~ s{<span [^>]*background-color[^>]*>(.*?)</span>}{$1}g;
-	$s =~ s{<span [^>]*background-color[^>]*>(.*?)</span>}{$1}g; # second iteration, for nested spans
+	# Trailing or leading spaces in tags
+	$s =~ s{<b>(\s+)}{$1<b>}g;
+	$s =~ s{(\s+)</b>}{</b>$1}g;
+	$s =~ s{<em>(\s+)}{$1<em>}g;
+	$s =~ s{(\s+)</em>}{</em>$1}g;
+	# $s =~ s{<span([^>]*)>(\s+)}{$2<span$1>}g; # no, maybe a monospaced line
+
+	# Remove empty formats
+	$s =~ s{<b>\s*</b>}{}g;
+	$s =~ s{<em>\s*</em>}{}g;
+	
+	$s =~ s{<b>\s*<br>\s*</b>}{<br>}g;
+	$s =~ s{<em>\s*<br>\s*</em>}{<br>}g;
+	
+	$s =~ s{<span[^>]*>\s*</span>}{}g;
+	$s =~ s{<span\s*>(.*?)</span}{$1}g;
+	#$s =~ s{<span[^>]*>\s*<br>\s*</span>}{<br>}mg;
+
+	$s =~ s{<div[^>]*>\s*</div>}{<br>}g;
+	$s =~ s{<div\s*>(.*?)</div>}{$1<br>}g;
+	#$s =~ s{<div[^>]*>\s*(?:<br>)*\s*</div>}{<br>}mg; # maybe blank line inside a monospaced block
+
+
+	# Markdown does not support alignment
+	$s =~ s{<div align=[^>]*>(.*?)</div>}{$1}msg;
+	$s =~ s{<div style="text-align: [^"]+;">(.*?)</div>}{$1}msg;
+	
+	# Identify special structures
+	# ------------------------------------------------------
 
 	# Images with caption and link
 	# <table ... <a href="...blogspot.com/.../div_by_5.png" src="...blogspot.com/.../div_by_5.png" width="640" ...>CAPTION</td></tr></tbody></table>
@@ -276,148 +456,56 @@ sub process_body {
 	# <img ... src="http://2.bp.blogspot.com/.../db9_null_loop.png" ... />
 	$s =~ s{<img.*?src=".*?bp.blogspot.com.*?/([^/"]+)".*?/>}{image_string($1,"","")}sge;
 
-	# Remove feed line
-	# <div class="blogger-post-footer">...</div>
-	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
-
-	# New paragraph, iteration I
-	$s =~ s{(<br[^>]*>\s*<br[^>]*>)}{\n\n}gms;
-
-	# Remove ancor more: <a name='more'></a>
-	$s =~ s{<a name='more'></a>}{}g;
-
-	# Remove color styles in spans
-	$s =~ s{style="color: [^"]+"}{}g;
-
-	# Remove empty divs
-	$s =~ s{<div[^>]*>\s*</div>}{\n}mg;
-	$s =~ s{<div[^>]*><br[^>]+></div>}{\n}mg;
-	
-	# remove empty spans
-	$s =~ s{<span[^>]*>\s*</span>}{}mg;
-	$s =~ s{<span[^>]*><br[^>]+></span>}{\n}mg;
-	$s =~ s{<span\s*>(.*?)</span>}{$1}mg;
-
-
-	# some <br> cases
-	$s =~ s{</span><br[^>]*>}{</span>\n}mg;
-
-	# Remove extrange garbage
-	$s =~ s{<b><br[^>]*></b>}{<br />}g;
-	$s =~ s{<em><br[^>]*></em>}{<br />}g;
-
-	# Remove stiles from simple tags
-	$s =~ s{<b [^>]*>}{<b>}g;
-	$s =~ s{<i [^>]*>}{<i>}g;
-
-	# Replace uncommon format tags
-	$s =~ s{<u>}{}g;
-	$s =~ s{</u>}{}g;
-	$s =~ s{<k>}{<em>}g;
-	$s =~ s{</k>}{</em>}g;
-	$s =~ s{<i>}{<em>}g;
-	$s =~ s{</i>}{</em>}g;
-
-	# Remove separator divs
-	$s =~ s{<div[^>]*separator[^>]*>(.*?)</div>}{$1\n}msg;
-
-	# Remove nbsp?
-	$s =~ s{&nbsp;}{ }g;
-	
-	# Remove empty formats
-	$s =~ s{<b>\s*</b>}{}g;
-	$s =~ s{<em>\s*</em>}{}g;
-
-
-	# These internal links are incorrect
-	$s =~ s{2010/06/difraccion-en-un-dvd}{2010/07/difraccion-en-un-dvd}g;
-
 	# Replace internal links to other posts
-	# <a href="...electronicayciencia.blogspot.com(.es)/.../frecuencimetro-para-el-pc.html">...</a>
 	$s =~ s{<a href="[^"]+electronicayciencia.blogspot.com/(.+?).html">(.*?)</a>}{link_post_to_local($1, $2)}gmse;
 	$s =~ s{<a href="[^"]+electronicayciencia.blogspot.com.es/(.+?).html">(.*?)</a>}{link_post_to_local($1, $2)}gmse;
 	
 	# Format unordered list blocks
-	$s =~ s{(<ul>.*?</ul>)}{format_ul($1)}msge;
+	$s =~ s{(<ul>.*?</ul>)}{format_list($1, "ul")}msge;
 	
 	# Format unordered list blocks
-	$s =~ s{(<ol>.*?</ol>)}{format_ol($1)}msge;
+	$s =~ s{(<ol>.*?</ol>)}{format_list($1, "ol")}msge;
 
 	# Format pre blocks
 	$s =~ s{(<pre.*?</pre>)}{format_pre($1)}msge;
 
-	# convert span monospaced into pre blocks
-	$s =~ s{<div [^>]*monospace[^>]*>([^<>]*?)</div>}{    $1\n}g;
-	$s =~ s{<span[^>]*monospace[^>]*>(.*?)</span>}{format_spanmonospace($1)}mge;
-	$s =~ s{<br />    }{\n\n    }g;
-	
-	# keep a blank line between indented blocks and next line
-	$s =~ s{(^\S\S\S\S.*)\n(    .*)}{$1\n\n$2}mg;
-	$s =~ s{^(    .*)\n((?!    |\n).*)}{$1\n\n$2}mg;
-
-	# Equations
-	$s =~ s{\\\[<br[^>]*>}{\n\$\$\n}msg;
-	$s =~ s{<br[^>]*>\\\]}{\n\$\$\n}msg;
-	
-	$s =~ s{\\\[}{\n\$\$\n}msg;
-	$s =~ s{\\\]}{\n\$\$\n}msg;
-
-	# Remove extrange garbage, iteration II
-	$s =~ s{<b><br[^>]*></b>}{<br />}g;
-	$s =~ s{<em><br[^>]*></em>}{<br />}g;
-	$s =~ s{<span[^>]*><br[^>]*></span>}{<br />}g;
-
 	# <blockquote></blockquote>
 	$s =~ s{<blockquote[^>]*>(.+?)</blockquote>}{format_blockquote($1)}msge;
-	
-	# New paragraph, iteration II
-	$s =~ s{(<br[^>]*>\s*<br[^>]*>)}{\n\n}gms;
-	$s =~ s{\n<br[^>]*>}{\n\n}gms;
-	$s =~ s{<br[^>]*>\n}{\n\n}gms;
 
-	# Remove html chars
-	$s =~ s{&amp;}{&}gms;
-	
-	# Clear residual spans
-	$s =~ s{<span[^>]*>}{}g;
-	$s =~ s{</span>}{}g;
-	$s =~ s{<div[^>]*>}{}g;
-	$s =~ s{</div>}{}g;
+	# convert span monospaced into pre blocks
+	$s =~ s{<div[^>]*monospace[^>]*>(.*?)</div>}{format_monospace($1, "div")}mge;
+	$s =~ s{<span[^>]*monospace[^>]*>(.*?)</span>}{format_monospace($1, "span")}mge;
 
-	# Trailing or leading spaces in tags
-	$s =~ s{<b>(\s+)}{$1<b>}g;
-	$s =~ s{(\s+)</b>}{</b>$1}g;
-	$s =~ s{<em>(\s+)}{$1<em>}g;
-	$s =~ s{(\s+)</em>}{</em>$1}g;
-	$s =~ s{<span([^>]*)>(\s+)}{$2<span$1>}g;
-	
+	# Equations
+	$s =~ s{\\\[(.*?)\\\]}{format_equation($1, "display")}msge;
+
+	# Links
+	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2)}ge;
+
+	# HTML tables
+	$s =~ s{(<table[^>]*>.*?</table>)}{format_table($1)}ge;
+
 	# Section titles
-	$s =~ s{\n<b>(\w.{1,80})</b>\s*\n}{\n\n## $1\n\n}msg;
-	$s =~ s{\n<b>(\w.{1,80})</b>\s*<br[^>]*>}{\n\n## $1\n\n}msg;
+	$s =~ s{<br>\s*<b>(\w.{3,80})</b>\s*<br>}{format_section($1)}ge;
 
-	# Collapse empty lines
-	$s =~ s{\n{2,}}{\n\n}gms;
-
-	# Kill brs <- NO: needed in image captions
-	#$s =~ s{(<br[^>]*>)}{\n}gms;
+	# Second level structures
+	# ------------------------------------------------------
 	
+	# block of monolines
+	$s =~ s{<br>((?:(?:||##spanmono-line-\d+##||)(?:<br>)*)+)<br>}{format_monogroup($1)}ge;
+	$s =~ s{<br>((?:(?:||##divmono-line-\d+##||)(?:<br>)*)+)<br>}{format_monogroup($1)}ge;
 
-	# Remove format from pre lines (maybe redundant after block format function)
-	$s =~ s{^(    .*)}{format_preline($1)}ge;
+	# paragraphs
+	# Okay, that's black magic
+	$s =~ s{(?:^|<br>|##\|\|)([^\|].*?)(?:$|<br>|\|\|##)}{format_paragraph($1)}mge;
 
-	# Back-translate to Markdown
-	$s =~ s{<b>}{**}g;
-	$s =~ s{</b>}{**}g;
-	$s =~ s{<em>}{*}g;
-	$s =~ s{</em>}{*}g;
+
+
+	# Process non-structured text
+	# ------------------------------------------------------
 	
-	# Clear residual tags
-	$s =~ s{&lt;}{<}g;
-	$s =~ s{&gt;}{>}g;
-	$s =~ s{&amp;}{&}g;
-
-	# Replace links
-	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{[$2]($1)}g;
+	# New paragraph
+	#$s =~ s{<br>}{\n}g;
 
 	return $s;
 }
@@ -433,4 +521,6 @@ $body = process_body($body);
 # Recompose
 print "---\n$head\n---\n\n$body\n\n";
 
+
+print "\n\n".Dumper(\%parts)."\n\n";
 
