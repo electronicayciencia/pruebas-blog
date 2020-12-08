@@ -10,8 +10,6 @@ thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TMbtzX86gpI/AAAAAAAAAZ4/sP0rkgS
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/transmitir-informacion-usando-el-mando.html
 ---
 
-
-
 {% include image.html file="hist_BA.png" caption="" %}
 
 Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en el enlace que hay al final de la entrada, dentro del directorio transiciones. El algoritmo es muy sencillo y consiste en lo siguiente:
@@ -33,16 +31,16 @@ Aquí vemos un sonograma de Baudline. El tiempo transcurre hacia abajo y las fre
 
 Otra cosa interesante es que está más tiempo parado en el estado A que en los demás. Y que el estado C es el que menos dura. En efecto, el receptor se da cuenta muy rápidamente del tono de 1000Hz, para detectar el de 250Hz le cuesta un poco más. Pero una vez cesamos de enviar señal, la inercia que tiene es muy grande. Es normal, es un circuito pensado para un coche teledirigido, no para hacer de modem.
 
-Luego en el [puerto serie]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %}) tenemos un recolector de información que es el que lleva el registro del tiempo entre un estado y otro. Similar al que habíamos usado en nuestro [sensor LED]({{site.baseurl}}{% post_url 2010-09-08-sensor-optico-sencillo-con-amplio-rango %}). 
+Luego en el [puerto serie]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %}) tenemos un recolector de información que es el que lleva el registro del tiempo entre un estado y otro. Similar al que habíamos usado en nuestro [sensor LED]({{site.baseurl}}{% post_url 2010-09-08-sensor-optico-sencillo-con-amplio-rango %}).
 
 Los tiempos mínimos y máximos que se obtienen son (en milisegundos):
 
     AC:    8 - 17
     BC: 17.5 - 17.7
-
+    
     AB: 64.4 - 65.6
     CB: 65.5 - 67.5
-
+    
     CA: 146 - 149
     BA: 175 - 194
 
@@ -103,7 +101,7 @@ void off (void) {
 void transmit_byte (char value) {
  #bit msb = value.7
  char i;
-
+ 
  // Bit de start a modo de LAM (Look At Me)
  // Uso el cero porque tarda más en recibirse que el uno
  // entonces el retardo es válido para los dos.
@@ -179,7 +177,7 @@ void main()
  for (;;) {
   char value;
   char num;
-
+  
   // Esperamos el estado A (a que todo se apague)
   while(input(PIN_RXAgudo) || input(PIN_RXGrave));
   printf("A");
@@ -190,7 +188,7 @@ void main()
   // Esperamos un pequeño lapso porque la transición 
   // A-B tiene un error de más-menos unos pocos ms.
   delay_ms(5);
-
+  
   // Y muestreamos cada symbol_time ms
   // Terminamos si se apagan los dos (se vuelve a A)
   // o si se llega a los 8 bits
@@ -198,39 +196,36 @@ void main()
   for (num=0; num<=7; num++) {
    #bit lsb = value.0
    short grave, agudo;
-
+   
    delay_ms(symbol_time);
-
+   
    grave = input(PIN_RXGrave);
    agudo = input(PIN_RXAgudo);
-
+   
    if (grave) {
     // Es un 0, rotamos y añadimos el valor
     value <<= 1;
     lsb = 0;
     printf("0");  
-
    }
    else if (agudo) {
     // Es un 1, rotamos y añadimos el valor
     value <<= 1;
     lsb = 1;
     printf("1");
-
    }
    else {
     // No hay más datos
     printf("A");
     break;
-
    }
   }
-
+  
   output_high(PIN_LED);
   printf(" %X\r\n", value);
   delay_ms(100);
   output_low(PIN_LED);
-
+ 
  }
 
 }
@@ -240,13 +235,13 @@ Lo mismo que antes, cuando ponemos la oreja en la antena vemos algo como esto. L
 
 {% include image.html file="0F5555.png" caption="" %}
 
- Después de hacer todas las pruebas tenemos un sistema de transmisión inalámbrico, lento, muy lento pero muy fácil de hacer. Y hasta aquí podemos llegar con estos circuitos tal como vienen de fábrica sin modificaciones importantes.
+Después de hacer todas las pruebas tenemos un sistema de transmisión inalámbrico, lento, muy lento pero muy fácil de hacer. Y hasta aquí podemos llegar con estos circuitos tal como vienen de fábrica sin modificaciones importantes.
 
 {% include image.html file="rx_debug.png" caption="" %}
 
 ## Evolución del sistema
 
-¿Qué modificaciones podríamos hacer en el sistema para convertirlo en algo más útil? Pues algunas, por ejemplo: 
+¿Qué modificaciones podríamos hacer en el sistema para convertirlo en algo más útil? Pues algunas, por ejemplo:
 
 - Más velocidad. Con el RX-3 que viene de fábrica es imposible. Así que tal vez podríamos capturar la señal cuando sale del demodulador (ver [este esquema]({{site.baseurl}}{% post_url 2010-09-15-receptor-coche-rc-de-dos-canales %})) y procesarla para detectar nosotros el tono.
 - También podemos obviar la parte del oscilador en el transmisor (ver [esquema del transmisor]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %})) y utilizar otro sistema para modular la portadora. Así podríamos usar frecuencias más altas que sean más rápidas de detectar.

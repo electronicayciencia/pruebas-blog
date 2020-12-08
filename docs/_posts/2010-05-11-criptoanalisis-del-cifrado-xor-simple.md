@@ -12,7 +12,7 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/criptoanalisi
 
 Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simple XOR. Se trata de una herramienta que es capaz de adivinar la clave con que se ha cifrado un archivo y descifrarlo. Nada más que haciendo un criptoanálisis del texto cifrado. Veréis que el algoritmo es sencillo, y por qué dicen los expertos que XOR es un cifrado *de juguete*.
 
-> An XOR might keep your kid sister from reading your files, but it won’t stop a cryptanalyst for more than a few minutes. -[Bruce Schneier](http://een.iust.ac.ir/profs/Falahati/Cryptography/CrytoBooks/B_Schneier%20-%20Applied%20Cryptography/ch01/01-05.html#Heading5)-
+> An XOR might keep your kid sister from reading your files, but it won’t stop a cryptanalyst for more than a few minutes. -<a href="http://een.iust.ac.ir/profs/Falahati/Cryptography/CrytoBooks/B_Schneier%20-%20Applied%20Cryptography/ch01/01-05.html#Heading5">Bruce Schneier</a>-
 
 ## Propiedades de la operación XOR
 
@@ -33,25 +33,17 @@ Si separamos la tabla en dos veremos una propiedad curiosa: cuando A es 0, enton
 
 Otras propiedades interesantes de esta operación:
 
-1. **Es conmutativa:** Es decir que 
-
-    A xor B = B xor A 
-
-1. **Asociativa:**
-
-    (A xor B) xor C = A xor (B xor C)
-
-1. **Autoinversa:**
-
-    (A xor B) xor B = A
+1. **Es conmutativa:** Es decir que A xor B = B xor A 
+1. **Asociativa:**(A xor B) xor C = A xor (B xor C)
+1. **Autoinversa:**(A xor B) xor B = A
 
 La propiedad **2** dice que si ciframos un texto con dos claves distintas es lo mismo que si cifráramos con una única clave resultado de hacer XOR entre las dos anteriores. Por lo que dar dos o mas pasadas en un cifrado XOR carece de lógica, ya que por la propiedad siguiente hasta podría dejar el texto claro tal cual estaba.
 
-La propiedad **3** se deduce de la **2** sabiendo que cualquier número xor consigo mismo es 0: 
+La propiedad **3** se deduce de la **2** sabiendo que cualquier número xor consigo mismo es 0:
 
     A xor A = 0
 
- por la propia definición de xor. Esto hace de xor una función nilpotente, tal que si se aplica dos veces con la misma clave, se vuelve al original. Además 
+por la propia definición de xor. Esto hace de xor una función nilpotente, tal que si se aplica dos veces con la misma clave, se vuelve al original. Además
 
     0 xor B = B
 
@@ -63,13 +55,13 @@ La propiedad **2** es peligrosa para aplicaciones  criptográficas pues nos perm
 
 Para cifrar un texto se escoge una clave y se aplica la operación a cada byte de texto. Como generalmente la longitud de la clave es menor que la longitud de texto que ciframos lo que se hace es repetirla cíclicamente. Un ejemplo se puede ver en la [Wikipedia](http://es.wikipedia.org/wiki/Cifrado_XOR) pero hay multitud de sitios que lo explican bien.
 
-Como habíamos apuntado arriba, es lo mismo que invertir bits del texto en claro. ¿cuales bits? Pues depende de la clave. Cuando el bit de la clave sea 1 se invierte el bit original, y cuando toque 0 en la clave, se deja igual. En teoría sin la clave es imposible saber qué bit se han invertido y cuales se han dejado igual, así que no tenemos información para descifrar el texto a menos que tengamos la clave. 
+Como habíamos apuntado arriba, es lo mismo que invertir bits del texto en claro. ¿cuales bits? Pues depende de la clave. Cuando el bit de la clave sea 1 se invierte el bit original, y cuando toque 0 en la clave, se deja igual. En teoría sin la clave es imposible saber qué bit se han invertido y cuales se han dejado igual, así que no tenemos información para descifrar el texto a menos que tengamos la clave.
 
 *¿Seguro?*
 
 ## Criptoanálisis
 
-Vamos con el análisis de un texto cifrado. Lo primero será averiguar la longitud de la clave ¿pero eso se puede? Pues en general sí que se puede. Suponed que tenemos un texto sin cifrar, de un libro por ejemplo. Si lo desplazamos un carácter y contamos las letras que coinciden ronda el 6%. Si lo desplazamos dos caracteres o n, lo que sean, y contamos la tasa de coincidencia ronda también el 6%. Es debido a la redundancia de los lenguajes escritos, no me voy a detener en eso ahora. 
+Vamos con el análisis de un texto cifrado. Lo primero será averiguar la longitud de la clave ¿pero eso se puede? Pues en general sí que se puede. Suponed que tenemos un texto sin cifrar, de un libro por ejemplo. Si lo desplazamos un carácter y contamos las letras que coinciden ronda el 6%. Si lo desplazamos dos caracteres o n, lo que sean, y contamos la tasa de coincidencia ronda también el 6%. Es debido a la redundancia de los lenguajes escritos, no me voy a detener en eso ahora.
 
 El caso es que en un texto cifrado eso no se cumple. Si cogemos un texto cifrado parecen caracteres aleatorios. Y si lo desplazamos y lo superponemos no va a coincidir más de un 1% o como mucho 2%, porque una 'a' estará cifrada con la primera letra de la clave que puede ser 'E' mientras que más adelante otra 'a' puede estarlo con la cuarta letra de la clave, una 'h'. Pero seguimos desplazándolo y superponiéndolo consigo mismo, 2 caracteres, 3, 4... hasta que llegamos a la longitud de la clave. En ese momento, como la clave es cíclica, las coincidencias aumentan súbitamente hasta el 6%. Serán coincidencias de caracteres raros, pero coincidencias. Así vamos rotando el texto y superponiéndolo. Y esos picos se producen justamente cuando el desplazamiento del texto es un múltiplo exacto de la longitud de la clave.
 
@@ -81,7 +73,7 @@ Ved arriba cómo varían las coincidencias al superponer consigo mismo un texto 
 - La longitud del texto es muy grande comparada con la de la clave.
 - La clave no tiene grupos de caracteres repetidos.
 
-Y ahora que sabemos cómo es de larga la clave ¿qué hacemos? Pues hay dos caminos. 
+Y ahora que sabemos cómo es de larga la clave ¿qué hacemos? Pues hay dos caminos.
 
 **Camino A:** Schneier propone hacer xor del texto original con el mismo texto desplazado tantos caracteres como tiene la clave, con esto anulamos la clave:
 
@@ -144,7 +136,7 @@ Primero aplica desplazamiento de varios caracteres y anota el índice de coincid
     Con n = 1.72 (131 resultados) longitud obtenida 12.34 -> r = 0.999476
     Con n = 1.55 (144 resultados) longitud obtenida 11.24 -> r = 0.999909
     Con n = 1.39 (147 resultados) longitud obtenida 11.00 -> r = 1.000000
-
+    
     La longitud de la clave parece que es 11.
 
 Para saber cual es la longitud podríamos hacer el mínimo común múltiplo de los desplazamientos que dan un máximo. Pero en este caso yo he preferido hacer una regresión lineal, la pendiente nos dará la longitud de la clave, y por el factor de correlación tendremos una idea de si vamos por buen camino. El algoritmo iterativo que veis se usa para filtrar los picos. Al principio se consideran picos los que superen la media más cuatro veces la normal, pero no hay ninguno así que se va rebajando el umbral **n** hasta que se obtiene un resultado exacto.
@@ -163,7 +155,7 @@ Ahora se aplica la separación por columnas y se busca el carácter que más se 
     El caracter de la clave para la columna 9 podría ser 'i'.
     El caracter de la clave para la columna 10 podría ser 'c'.
     El caracter de la clave para la columna 11 podría ser '4'.
-
+    
     Clave encontrada: 3lectronic4
 
 Así hemos roto el cifrado. En el programa se asume que el carácter más abundante en el texto plano es el espacio. También he asumido que la clave consta sólo de caracteres alfanuméricos, con algunas verificaciones adicionales se puede saltar esta restricción. Os dejo las herramientas y unos archivos para probar [aquí](http://sites.google.com/site/electronicayciencia/xor_frecs.zip). Hay un archivo que se llama *cifrado.txt*. Está cifrado usando este método, intentad descifrarlo.

@@ -48,13 +48,18 @@ Una vez tengamos la tabla completa es hora de llevarlo al esquema. Hay varios ca
 
 El circuito lo comentaremos en días posteriores.
 
-## El formato *netlist*
+## El formato <em>netlist</em>
 
 Por último, si queremos estar completamente seguros de que hemos dibujado bien el esquema, tenemos la opción de exportar el fichero *netlist* y compararlo con la tabla que hemos hecho al principio. Lógicamente deben coincidir.
 
 Un archivo *netlist* *(o netfile)* no es más que un archivo de texto que indica los componentes y a qué red va cada terminal. O sea lo mismo que hemos hecho con la tabla, sólo que menos legible. Cada programa usa su propio formato, pero la idea es la misma. Un ejemplo:
 
-rR1 5  0     100rR2 11 0     1200qQ1 4  6  5  2SC945dD1 0  VSS   1N4148<br />La primera columna es el tipo de componente y su identificador. Siguen las pistas a donde va conectado teniendo en cuenta la numeración de los terminales (depende de cada encapsulado). A continuación se pueden indicar notas como el valor o el modelo concreto.
+    rR1 5  0     100
+    rR2 11 0     1200
+    qQ1 4  6  5  2SC945
+    dD1 0  VSS   1N4148
+
+La primera columna es el tipo de componente y su identificador. Siguen las pistas a donde va conectado teniendo en cuenta la numeración de los terminales (depende de cada encapsulado). A continuación se pueden indicar notas como el valor o el modelo concreto.
 
 Fijaos como la pista de masa, que nosotros habíamos llamado 2 (o Gnd), el programa nos la ha forzado a 0, la 8 aparece como Vcc y la 13 como Vss.
 

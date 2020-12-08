@@ -25,7 +25,7 @@ No difiere mucho de los esquemas que encontraréis en otras páginas. Como cabe 
 
 ## Microcontrolador
 
-No es necesario escribir mucho sobre esta parte. 
+No es necesario escribir mucho sobre esta parte.
 
 Se trata del PIC IC1, es el cerebro y a él van conectadas el resto de elementos. Sí es interesante que tenga bajo consumo para no sobrecargar la fuente de alimentación. También conviene contar con un par de **temporizadores** para hacer más sencilla la rutina de recepción NEC.
 
@@ -114,5 +114,7 @@ A la derecha está el conector de tres pines a donde va conectado el módulo IR.
 
 Se trata de un circuito lo suficientemente pequeño como para que quepa dentro del plafón o de la caja de registro más cercana.
 
-Por último os dejo los esquemas (para Eagle), las imágenes y un PDF con las pistas en [este enlace](https://sites.google.com/site/electronicayciencia/dimmerIR_hw.rar).<br />El software está publicado [en esta entrada]({{site.baseurl}}{% post_url 2011-02-02-dimmer-controlado-por-mando-distancia %}).
+Por último os dejo los esquemas (para Eagle), las imágenes y un PDF con las pistas en [este enlace](https://sites.google.com/site/electronicayciencia/dimmerIR_hw.rar).
+
+El software está publicado [en esta entrada]({{site.baseurl}}{% post_url 2011-02-02-dimmer-controlado-por-mando-distancia %}).
 

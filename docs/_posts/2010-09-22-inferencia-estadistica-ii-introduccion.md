@@ -8,15 +8,15 @@ thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TJDcbu6jUGI/AAAAAAAAAYE/Id_DW4V
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/inferencia-estadistica-ii-introduccion.html
 ---
 
-En una [entrada anterior]({{site.baseurl}}{% post_url 2010-09-01-inferencia-estadistica-capacidad-de-una %}) sobre estadística, nos quedamos a las puertas de hablar de los tests de hipótesis. Los principios de este tema no suelen explicarse del todo bien en los textos de estadística. 
+En una [entrada anterior]({{site.baseurl}}{% post_url 2010-09-01-inferencia-estadistica-capacidad-de-una %}) sobre estadística, nos quedamos a las puertas de hablar de los tests de hipótesis. Los principios de este tema no suelen explicarse del todo bien en los textos de estadística.
 
-Habitualmente se describe lo que son y se presentan varios, cada uno con su estadístico sacado de la nada. Para algunos se despeja la variable y se calcula un valor. Luego se presentan casos de uso y ejemplos prácticos, unas veces a mano y otras con el SPSS o cualquier otro. Después se habla de los errores, etc. No es de extrañar que la profundidad con que se entiende el fondo del asunto dependa mucho del profesor que imparta la asignatura. 
+Habitualmente se describe lo que son y se presentan varios, cada uno con su estadístico sacado de la nada. Para algunos se despeja la variable y se calcula un valor. Luego se presentan casos de uso y ejemplos prácticos, unas veces a mano y otras con el SPSS o cualquier otro. Después se habla de los errores, etc. No es de extrañar que la profundidad con que se entiende el fondo del asunto dependa mucho del profesor que imparta la asignatura.
 
 En esta entrada continuaré haciéndome preguntas como en la anterior, y los [tests de hipótesis](http://es.wikipedia.org/wiki/Contraste_de_hip%C3%B3tesis) más conocidos surgirán de manera natural. Claro está que voy a introducir algunas incorrecciones que me permitan obviar detalles pero esto es un blog, no un curso de estadística.
 
-Recordemos que estábamos estudiando la capacidad de tres cucharas. [Estos eran nuestros datos](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&hl=es&authkey=CPrEzZAH):
+Recordemos que estábamos estudiando la capacidad de tres cucharas. [Estos eran nuestros datos](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&amp;hl=es&amp;authkey=CPrEzZAH):
 
-<iframe frameborder="0" height="300" src="https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&authkey=CPrEzZAH&hl=es&single=true&gid=1&output=html&widget=true" width="500"></iframe>
+<iframe frameborder="0" height="300" src="https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&amp;authkey=CPrEzZAH&amp;hl=es&amp;single=true&amp;gid=1&amp;output=html&amp;widget=true" width="500"></iframe>
 
 Habíamos determinado el intervalo de confianza al 95% de la media para la primera de ellas, que resultó ser entre 3.61ml y 3.85ml. Y nos habíamos hecho preguntas del tipo *¿Entonces la media no es tal o cual?* y respondido con unas probabilidades -a menudo bajísimas- de que fuera así. Veamos de donde salen estas probabilidades.
 
@@ -25,7 +25,7 @@ Habíamos determinado el intervalo de confianza al 95% de la media para la prime
 Decíamos que por el teorema central del límite al tomar medidas de una muestra estas medidas se agrupan en torno al valor de la media de la muestra. El error de esta estimación depende del número de datos y de su varianza. Se la llama **Error Cuadrático de la Media** (MSE por las siglas en inglés) a esta magnitud:
 
 $$
-MSE = \frac{\sigma^2}{n} 
+MSE = \frac{\sigma^2}{n}
 $$
 
 Siendo el numerador la varianza (ojo, que $$\sigma^2$$ es la varianza, no la varianza al cuadrado. Y el denominador el número de datos de la muestra. Mejor que con el error cuadrático vamos a trabajar con lo que se llama el error **estándar**, que al igual que la varianza y la desviación estándar no es más que la raíz cuadrada del anterior. Y lo llamaremos SEM -Standar Error of the Mean-. La fórmula queda confusa porque son todo siglas. Pero como del MSE no voy a volver a hablar, podéis olvidarlo.
@@ -36,7 +36,7 @@ $$
 
 Y también habíamos dicho que como no sabemos la varianza de la población completa, solo la de nuestra muestra, pues no podemos plantear la normal que deberíamos sino sólo una aproximación llamada *distribución t de Student*. Sabiendo la media de las medidas que tenemos, y recurriendo a la t de Student habíamos dibujado los intervalos de confianza para la media.
 
-Al igual que en un programa de bricolaje casero (los españoles podéis leerlo con acento vasco si os place), vamos a ver paso a paso cómo hemos hecho el gráfico. 
+Al igual que en un programa de bricolaje casero (los españoles podéis leerlo con acento vasco si os place), vamos a ver paso a paso cómo hemos hecho el gráfico.
 
 En primer lugar, hemos dibujado una t de Student:
 
@@ -74,7 +74,7 @@ $$
 
 Cualquier programa matemático nos dirá que la integral de toda la distribución que queda a la derecha de 1.169 es 0.124. Eso es equivalente a un 12% de probabilidades de que caiga ahí. La respuesta es 12.4% y se le llama test de hipótesis de una cola.
 
-Si hubiéramos dicho ¿cómo de probable es que esté **fuera** del intervalo que va de 3.7 a 3.8? Tendríamos que calcular la probabilidad de que sea menor que 3.7 y, por otro lado, la probabilidad de que sea mayor que 3.8 y sumarlas. O bien, calcular la probabilidad de que esté **dentro** del intervalo, y restarla de 1. Sencillamente porque la probabilidad de que esté en algún sitio es del 100%, o sea 1. Si no está en el intervalo, estará fuera. 
+Si hubiéramos dicho ¿cómo de probable es que esté **fuera** del intervalo que va de 3.7 a 3.8? Tendríamos que calcular la probabilidad de que sea menor que 3.7 y, por otro lado, la probabilidad de que sea mayor que 3.8 y sumarlas. O bien, calcular la probabilidad de que esté **dentro** del intervalo, y restarla de 1. Sencillamente porque la probabilidad de que esté en algún sitio es del 100%, o sea 1. Si no está en el intervalo, estará fuera.
 
 La respuesta es 20% y a eso se llama test de dos colas.
 
@@ -92,7 +92,9 @@ Ahora bien, si ampliamos los márgenes del intervalo, será más probable que la
 
 Sin llegar a ese extremo veamos cómo el intervalo se va ampliando lentamente:
 
-<table><tbody><tr>  <td>Al 95%</td>  <td>entre 3.613ml y 3.846ml</td> </tr><tr>  <td>Al 99%</td>  <td>entre 3.575ml y 3.885ml</td> </tr><tr>  <td>Al 99.9%</td>  <td>entre 3.527ml y 3.933ml</td> </tr><tr>  <td>Al 99.999%</td>  <td>entre 3.444ml y 4.016ml</td> </tr><tr>  <td>Al 99.999999%</td>  <td>entre 3.331ml y 4.129ml</td> </tr></tbody></table><br />La cota inferior se va reduciendo y la superior aumenta, por lo que el intervalo, como decíamos, se hace más grande. 
+<table><tbody><tr>  <td>Al 95%</td>  <td>entre 3.613ml y 3.846ml</td> </tr><tr>  <td>Al 99%</td>  <td>entre 3.575ml y 3.885ml</td> </tr><tr>  <td>Al 99.9%</td>  <td>entre 3.527ml y 3.933ml</td> </tr><tr>  <td>Al 99.999%</td>  <td>entre 3.444ml y 4.016ml</td> </tr><tr>  <td>Al 99.999999%</td>  <td>entre 3.331ml y 4.129ml</td> </tr></tbody></table>
+
+La cota inferior se va reduciendo y la superior aumenta, por lo que el intervalo, como decíamos, se hace más grande.
 
 Ahora que ya recordamos esto, vamos a calcular la media para la segunda cucharilla. Resulta que la capacidad para esta está entre 3.95 y 4.25ml al 95%. Un criterio para decidir que las medias no coinciden es que los intervalos de confianza no solapen. Mirad esta imagen:
 

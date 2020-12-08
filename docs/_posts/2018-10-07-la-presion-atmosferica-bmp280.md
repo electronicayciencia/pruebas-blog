@@ -30,7 +30,7 @@ El BPM280 es un sensor fabricado por Bosch para medir presión y temperatura amb
 
 El BMP280 puede comunicarse tanto por I2C como por SPI. Dependiendo de si el pin CSB está a nivel alto o bajo. Un fallo habitual es dejar el pin CSB al aire, o con una resistencia de pull-up muy débil. Algún transitorio podría llevar el pin a nivel bajo. Cuando eso sucede, queda inhabilitada la comunicación por I2C hasta que se retire la alimentación. En ocasiones, el chip parece bloquearse y dejar de responder sin previo aviso, esta podría ser la causa.
 
-Usar este dispositivo con la Raspberry es [muy sencillo](http://wiki.sunfounder.cc/index.php?title=BMP280_Pressure_Sensor_Module#BMP280_for_Raspberry_Pi): basta conectarlo a los pines I2C, habilitar i2c, descargar las librerías apropiadas de C o de Python y tirar con el ejemplo. 
+Usar este dispositivo con la Raspberry es [muy sencillo](http://wiki.sunfounder.cc/index.php?title=BMP280_Pressure_Sensor_Module#BMP280_for_Raspberry_Pi): basta conectarlo a los pines I2C, habilitar i2c, descargar las librerías apropiadas de C o de Python y tirar con el ejemplo.
 
 ¡Ya está! ¿Para qué complicarse? Fin del tutorial.
 
@@ -110,7 +110,9 @@ Es decir, que cuando la presión aumenta el nivel baja, y cuando la presión dis
 
 Porque cuando la **temperatura** aumenta, tanto el agua como el gas contenido en la esfera cerrada se expanden, ocupando más volumen. Por tanto la presión *en la esfera* aumenta y empuja el líquido hacia arriba. Exactamente igual que si la presión desciende.
 
-Líquido bajo: ha subido la presión o hace más *frío*. <br />Líquido alto: ha bajado la presión o hace más *calor*.
+Líquido bajo: ha subido la presión o hace más *frío*.
+
+Líquido alto: ha bajado la presión o hace más *calor*.
 
 La lectura del barómetro siempre debe compensarse con la del termómetro. Por eso es común ver juntos barómetro y termómetro.
 
@@ -118,11 +120,11 @@ La lectura del barómetro siempre debe compensarse con la del termómetro. Por e
 
 Con frecuencia, omiten la tabla de compensación en los barómetros de interiores, donde se supone que el rango de temperaturas está acotado. El BMP280 introduce la compensación de temperatura dentro del algoritmo de lectura.
 
-No he podido encontrar documentos de Bosch explicando el cálculo, por lo que intentaremos hacernos una idea del cálculo operando matemáticamente y reordenando los términos hasta llegar a alguna expresión reconocible. 
+No he podido encontrar documentos de Bosch explicando el cálculo, por lo que intentaremos hacernos una idea del cálculo operando matemáticamente y reordenando los términos hasta llegar a alguna expresión reconocible.
 
 Según podemos ver, se compone de dos funciones, una para la temperatura y otra para la presión.
 
-Empezaremos por la temperatura. Miramos la función [*bmp280_comp_temp_double*](https://github.com/BoschSensortec/BMP280_driver/blob/d1936f9f04f851403f616574ad3493ffd00d16fb/bmp280.c#L505-L511) del API oficial en GitHub. Cito aquí las líneas más relevantes.
+Empezaremos por la temperatura. Miramos la función [<em>bmp280_comp_temp_double</em>](https://github.com/BoschSensortec/BMP280_driver/blob/d1936f9f04f851403f616574ad3493ffd00d16fb/bmp280.c#L505-L511) del API oficial en GitHub. Cito aquí las líneas más relevantes.
 
 ```cpp
 var1 = (((double) uncomp_temp) / 16384.0 - ((double) dev->calib_param.dig_t1) / 1024.0)
@@ -148,7 +150,6 @@ int main () {
     float b = 6.5;
 
     printf("Suma: %f\n", a + b);
-
 }
 ```
 
@@ -182,7 +183,7 @@ Todo hay que tenerlo en cuenta a la hora de operar. Por eso aparecen en el algor
 
 Seguimos con el ejemplo de la página 23 del datahseet. Dado el valor leído de la temperatura y los parámetros de calibración **t1**, **t2** y **t3**. Procedemos a reescalarlos y operar. El algoritmo ahora es más fácil de ver:
 
-```cpp
+```matlab
 t = 519888;  % lectura
 
 % Calibración (dato)
@@ -240,7 +241,7 @@ Si te has perdido durante la explicación, es lógico. Aquí está el fichero co
 
 ¿Por qué el fabricante nos lo da *ofuscado*? La palabra clave aquí es **rendimiento**. Se aprecia el esfuerzo de los ingenieros de Bosch. Le han dado muchas vueltas para que un cálculo tan complejo pueda ejecutarse en un microcontrolador simple sin FPU con un rendimiento y pérdida de precisión aceptables. Es un trabajo nada sencillo, y seguro que les ha llevado muchas horas.
 
-En su API, el fabricante nos ofrece funciones para calcular la temperatura con coma fija de 32 bits y en coma flotante. Para la presión nos da la opción de usar coma fija con registros de 64 bits o coma flotante. 
+En su API, el fabricante nos ofrece funciones para calcular la temperatura con coma fija de 32 bits y en coma flotante. Para la presión nos da la opción de usar coma fija con registros de 64 bits o coma flotante.
 
 He preparado una tabla con los tiempos en segundos con y sin optimizaciones del compilador, para 10 millones de iteraciones en una Raspberry Pi 3.
 
@@ -248,7 +249,7 @@ He preparado una tabla con los tiempos en segundos con y sin optimizaciones del 
 
 En el cálculo de la **temperatura**, la aritmética de punto fijo supera a la de coma flotante. En cambio, si nos vamos al cálculo de la **presión**, es al revés, la aritmética de 64bits es más lenta que la coma flotante. ¿Por qué?
 
-La respuesta está tanto en la arquitectura ARM como en el sistema Operativo. 
+La respuesta está tanto en la arquitectura ARM como en el sistema Operativo.
 
 Mientras la Raspberry Pi 3 tiene un core ARMv8, el sistema operativo Raspbian es una versión para 32 bit. Esto hace que el procesador trabaje [emulando la arquitectura ARMv7](https://www.raspberrypi.org/forums/viewtopic.php?t=140572), de 32bit. Resulta que la arquitectura ARM **sí tiene** unidad de punto flotante. Es decir, para trabajar con registro de 64 bits, el compilador debe unir dos de 32 y operarlos como un todo. Mientras las operaciones en coma flotante se ejecutan nativamente en la FPU, más rápida.
 
@@ -295,7 +296,7 @@ No se indica el valor del entero de 8 bit que deben devolver. Del código deduci
 
 Hasta aquí la parte más difícil. Ahora le pasamos al API un puntero a cada una de las tres funciones, con eso rellenamos los huecos y podemos empezar a usarla.
 
-Comprobaremos el correcto funcionamiento recuperando el ID de dispositivo. Ya lo obtuvimos antes manualmente y sabemos que es 0x58. Eso es precisamente lo que hacemos en [test_bmp280_api.c](https://github.com/electronicayciencia/bmp280_sensor/blob/master/test_bmp280_api.c). 
+Comprobaremos el correcto funcionamiento recuperando el ID de dispositivo. Ya lo obtuvimos antes manualmente y sabemos que es 0x58. Eso es precisamente lo que hacemos en [test_bmp280_api.c](https://github.com/electronicayciencia/bmp280_sensor/blob/master/test_bmp280_api.c).
 
 En dicho programa escribimos nuestras funciones de comunicación personalizadas. Inicializamos la librería WiringPi y la emulación I2C por software. Y de la línea 115 en adelante, configuramos el API y llamamos a la función de  inicialización. Si todo ha ido bien, esta llamada rellenará el ID de dispositivo .
 
@@ -339,7 +340,7 @@ Observemos la evolución a lo largo de cualquier día. Por ejemplo, el periodo e
 
 {% include image.html file="presion_intradias.png" caption="Registro de la presión. Detalle. EyC." %}
 
-Hay un máximo justo antes del medio día, y un mínimo a continuación. Pero fíjate en el gráfico completo, el de todos los días. Como a la mitad del día la presión desciende. Durante la mañana o la noche puede subir más, menos o estar estable, pero a mitad del día hay un descenso. Este patrón se repite todos los días y tiene nombre: se llama [**marea barométrica**](https://www.tiempo.com/ram/398982/la-marea-atmosferica-barometrica/).
+Hay un máximo justo antes del medio día, y un mínimo a continuación. Pero fíjate en el gráfico completo, el de todos los días. Como a la mitad del día la presión desciende. Durante la mañana o la noche puede subir más, menos o estar estable, pero a mitad del día hay un descenso. Este patrón se repite todos los días y tiene nombre: se llama [<b>marea barométrica</b>](https://www.tiempo.com/ram/398982/la-marea-atmosferica-barometrica/).
 
 Para evitar este inconveniente, la presión debe medirse siempre a la misma hora del día. Aunque nosotros usaremos un método algo más sofisticado.
 
@@ -401,6 +402,4 @@ El otro punto interesante está en las noches de los días 5 y 7. Hay una inusua
 ¿No recuerda a un terremoto? Y esta es una suave tormenta de septiembre, con una una intensidad pico a pico de apenas 0.7hPa... ¿Os imagináis una tormenta fuerte en altamar?
 
 Espero que os haya gustado este viaje por la electrónica digital, la aritmética, la programación y el procesado digital de señales. Los programas utilizados los tenéis en ente repositorio de GitHub: [bmp280_sensor](https://github.com/electronicayciencia/bmp280_sensor).
-
-
 

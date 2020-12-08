@@ -15,7 +15,7 @@ Después de un par de artículos más bien teóricos ahora os quiero presentar u
 
 {% include image.html file="interfaz_tk.png" caption="" %}
 
-Empezaremos viendo una característica poco conocida de los PICs y construiremos un circuito para aprovecharla. En el firmware del PIC haremos que mande el valor por puerto serie al PC utilizando el conversor USB->RS232. Pero la frecuencia no será exacta, y hará falta calibrarlo. Para terminar escribiremos una pequeña **interfaz en Perl/Tk** para que nos indique la frecuencia.
+Empezaremos viendo una característica poco conocida de los PICs y construiremos un circuito para aprovecharla. En el firmware del PIC haremos que mande el valor por puerto serie al PC utilizando el conversor USB-&gt;RS232. Pero la frecuencia no será exacta, y hará falta calibrarlo. Para terminar escribiremos una pequeña **interfaz en Perl/Tk** para que nos indique la frecuencia.
 
 ## Esquema eléctrico
 
@@ -119,6 +119,7 @@ int32 read_ee_reloj(void);
 int t0_msb;    // desb de T0, a 50MHz durante 100ms sólo se llega a 76.
 int midiendo;  // desb de T1, amplia el rango de T1 contando desbordamientos
 
+
 #int_TIMER0
 void  TIMER0_isr(void) 
 {
@@ -130,6 +131,9 @@ void  TIMER1_isr(void)
 {
  midiendo--;
 }
+
+
+
 
 void main()
 {
@@ -157,9 +161,11 @@ void main()
  /* Calcular los parámetros de calibración */
  calib = calc_calib(reloj);
 
+
+
  for(;;) {
   int32 frec;
-
+  
   sample_freq(calib);
 
   frec = t0_msb;           // desbordamientos de t0
@@ -204,6 +210,7 @@ void sample_freq (cal_t calib) {
  output_low(PIN_T0);
 }
 
+
 /* Lee el prescaler:
    - El prescaler no se puede leer directamente por software
    así que lo que hay que hacer es incrementar T0 de manera controlada
@@ -223,14 +230,14 @@ int read_t0_presc (void) {
 
  t0_old = get_timer0();
  output_low(PIN_T0);
-
+ 
  impulsos = 0;
  while(t0_old == get_timer0()) {
   T0SE = 0;
   T0SE = 1;
   impulsos++;
  }
-
+ 
  impulsos = 255-impulsos;
  impulsos++;
  return impulsos;
@@ -241,7 +248,7 @@ int read_t0_presc (void) {
    precisamente 100ms. */
 cal_t calc_calib(int32 reloj) {
  cal_t calib;
-
+ 
  reloj /= 40; // entre 4 (instr/ciclo) y entre 10 (0.1s = 100ms)
  reloj -= 60; // 60 ciclos hasta que sale del while
  calib.desb  = reloj / 65536 + 1;
@@ -259,7 +266,7 @@ int32 read_ee_reloj(void) {
   reloj <<= 8;
   reloj += read_eeprom(i);
  }
-
+ 
  // Si el usuario no ha definido el reloj, uso 12MHz por defecto.
  if (reloj == 0xFFFFFFFF) {
   reloj = 12000000;
@@ -422,11 +429,13 @@ $SIG{ALRM} = sub { $freq_txt = " No Conectado"; };
 alarm 1;
 MainLoop;
 
+
+
 # Rutina para actualizar la frecuencia
 sub update_freq {
  alarm 1;
  my $linea = <DEV>;
-
+ 
  # Error si no se pudo leer (hemos desconectado el USB)
  if (not $linea) {
   die "Error de lectura: USB desconectado.\n";
@@ -441,7 +450,7 @@ sub update_freq {
  # Redondeo
  $valor = int($valor/100 + 0.5); # Redondeo hasta 100Hz
  $valor = $valor / 10;   # Decimales a partir de kHz
-
+ 
  # Lo quitamos si es cero (menos de 100Hz).
  if ($valor <= 0) {
   $freq_txt = "      0.0 kHz";
@@ -458,15 +467,15 @@ sub update_freq {
 }
 ```
 
-Lo primero es cargar los dos módulos que hacen todo el trabajo, líneas 21 y 22. *Device::SerialPort*, como su nombre indica, nos servirá para interactuar con el puerto serie (aunque sea virtual) creado por el adaptador USB. Mientras que *Tk*, nos proporcionará una interfaz gráfica con ventanas práctica y fácil de manejar. 
+Lo primero es cargar los dos módulos que hacen todo el trabajo, líneas 21 y 22. *Device::SerialPort*, como su nombre indica, nos servirá para interactuar con el puerto serie (aunque sea virtual) creado por el adaptador USB. Mientras que *Tk*, nos proporcionará una interfaz gráfica con ventanas práctica y fácil de manejar.
 
 De la línea 27 a la 36 abrimos el puerto serie '/dev/ttyUSB0'. Podría ser distinto en otros PC.
 
-En las líneas 38 a 51 nos dedicamos a inicializar la librería gráfica y a describir la interfaz. Será una ventana con título *Frecuencímetro*. Dentro sólo tendrá una **etiqueta**, con la tipografía *Led Board* que os enseñé antes, en color verde y fondo negro de tamaño 20 puntos. Notad que en la línea 43 **asignamos el valor de la etiqueta a una variable**. Sirve para que la etiqueta refleje el nuevo valor automáticamente cada vez que cambiemos *freq_txt* sin necesidad de llamar a ninguna función. 
+En las líneas 38 a 51 nos dedicamos a inicializar la librería gráfica y a describir la interfaz. Será una ventana con título *Frecuencímetro*. Dentro sólo tendrá una **etiqueta**, con la tipografía *Led Board* que os enseñé antes, en color verde y fondo negro de tamaño 20 puntos. Notad que en la línea 43 **asignamos el valor de la etiqueta a una variable**. Sirve para que la etiqueta refleje el nuevo valor automáticamente cada vez que cambiemos *freq_txt* sin necesidad de llamar a ninguna función.
 
 La línea 49 es crucial, vigila el fichero que hemos abierto para el puerto serie. Significa que en cuanto haya disponible nuevos datos, se va a llamar a la función **update_freq** para que actualice el valor que se muestra en la etiqueta.
 
-En la línea 54 definimos un temporizador de **1 segundo**. Que, si os fijáis, se reinicia al principio de cada llamada a la función *update_freq*. Se supone que el frecuencímetro envía una lectura diez veces por segundo, realmente un poco menos si contamos tiempos intermedios. Y cada vez que llega una lectura nueva se invoca a la función. En cuando dejamos de recibir nuevos datos ya no se llama más a *update_freq*, con lo que no se reinicia el cronómetro. Al cabo de un segundo sin recibir saltará la alarma mostrando el error *No conectado*. 
+En la línea 54 definimos un temporizador de **1 segundo**. Que, si os fijáis, se reinicia al principio de cada llamada a la función *update_freq*. Se supone que el frecuencímetro envía una lectura diez veces por segundo, realmente un poco menos si contamos tiempos intermedios. Y cada vez que llega una lectura nueva se invoca a la función. En cuando dejamos de recibir nuevos datos ya no se llama más a *update_freq*, con lo que no se reinicia el cronómetro. Al cabo de un segundo sin recibir saltará la alarma mostrando el error *No conectado*.
 
 Ya dentro de la función *update_freq* el proceso es sencillo. Recogemos e interpretamos la línea recibida. Según habíamos programado en el PIC todas las lecturas de frecuencia vendrían precedidas por *F:*. Lo hacemos así por si en el futuro queremos incorporar otras medidas, por ejemplo el **periodo**, o la **potencia** recibida. De momento nos quedamos con el número que sigue a la F, que será la frecuencia (línea 70).
 
@@ -487,7 +496,7 @@ Una carencia importantísima de nuestro esquema es la ausencia total de **acondi
 - La **impedancia** de entrada sea de 50Ω si queremos medir equipos de RF con esta impedancia de salida. O lo más alta posible en otro caso.
 - **Limite la potencia** de entrada. Si no, podríamos destruir el PIC al medir señales demasiado fuertes.
 - **Amplifique**. Generalmente lo que vamos a medir serán señales débiles. Así que es muy importante diseñar una etapa pre-amplificadora que pueda trabajar a la mayor frecuencia que nos permitan los medios que tengamos. De lo contrario parte de los impulsos no se contarán, y mediremos una frecuencia menor de la real, o nada en absoluto.
-- De manera opcional, podríamos contar con un prescaler que **divida por 4 o por 8**. Así podríamos medir hasta 400MHz. Con un par de estos divisores en cascada alcanzamos fácilmente los Gigahercios. Por ejemplo mirad [este circuito](http://hem.passagen.se/communication/frcpll.html).
+- De manera opcional, podríamos contar con un prescaler que **divida por 4 o por 8**. Así podríamos medir hasta 400MHz. Con un par de estos divisores en cascada alcanzamos fácilmente los Gigahercios. Por ejemplo mirad <a href="http://hem.passagen.se/communication/frcpll.html">este circuito</a>.
 
 El proyecto llamado [50MHz Frequency Meter](http://home.exetel.com.au/marknac/50MHz-Frequency-Meter.htm) tiene un esquema interesante que bien nos puede servir como base. Además nos propone otros métodos de calibración también muy buenos:
 

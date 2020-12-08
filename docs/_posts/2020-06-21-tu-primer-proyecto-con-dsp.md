@@ -40,8 +40,7 @@ El punto i-ésimo es igual a:
 
 El punto i-1 multiplicado por 0.3333 más ...
      "   i         "          0.3333 más ...  
-     "   i+1       "          0.3333 .
-
+     "   i+1       "          0.3333 .  
 ```
 
 El 0.3333 viene de dividir entre 3.
@@ -65,8 +64,7 @@ El punto i-ésimo es igual a:
 
 El punto i-1 multiplicado por 0 más ...
      "   i         "          1 más ...  
-     "   i+1       "          0 .
-
+     "   i+1       "          0 .  
 ```
 
 Y restarle el filtro paso bajo, la media móvil anterior:
@@ -85,8 +83,7 @@ El punto i-ésimo es igual a:
 
 El punto i-1 multiplicado por -0.333 más ...
      "   i         "           0.666 más ...  
-     "   i+1       "          -0.333 .
-
+     "   i+1       "          -0.333 .  
 ```
 
 A ver, en realidad esto último vale porque son sólo tres puntos. Si haces el mismo razonamiento con más puntos es mentira, pero se parece mucho a la verdad y en este momento es más fácil de creer. Si lo aplicamos a la señal anterior aquí tenemos el resultado:
@@ -115,7 +112,6 @@ El punto i-5 multiplicado por 0.009 más ...
      "   i+3       "          0.065 más ...  
      "   i+4       "          0.027 más ...  
      "   i+5       "          0.009
-
 ```
 
 ¿Ves el patrón? Tengo una fila de puntos, digamos un **vector** con el histórico de los valores de entrada (los i). Tengo otra fila de puntos, digamos otro vector con los coeficientes del filtro. El valor de salida i filtrado se obtiene multiplicando los valores uno a uno y sumándolo todo al final.
@@ -136,7 +132,7 @@ La diferencia entre procesamiento entero, coma flotante y coma fija es algo que 
 
 La Unidad de **Punto Flotante** (FPU) es un módulo hardware pensado para cálculos con decimales. Los números en coma flotante se guardan utilizando un formato especial llamado IEEE-754. El hardware está diseñado para trabajar en este formato y permite hacer operaciones matemáticas directamente en una instrucción. Simplificando así los algoritmos y acelerando los cálculos.
 
-Los primeros ordenadores no tenían FPU. No les hacía falta. Las empresas preferían operar con aritmética de punto fijo para tener bien controlados los redondeos en las operaciones. Y un usuario doméstico no requería velocidad en dicho tipo de cálculos. 
+Los primeros ordenadores no tenían FPU. No les hacía falta. Las empresas preferían operar con aritmética de punto fijo para tener bien controlados los redondeos en las operaciones. Y un usuario doméstico no requería velocidad en dicho tipo de cálculos.
 
 Durante mucho tiempo llamábamos *coprocesador matemático* a la Unidad de Punto Flotante y se compraba como un chip aparte ([Intel 8087](https://es.wikipedia.org/wiki/Intel_8087)), bastante caro. Algunos programas, que necesitaban hacer cálculos intensivos, tenían **dos versiones**: una para quienes tenían coprocesador, y otra para los que no. La segunda versión era más grande y más lenta pues tenían que emular estas operaciones complejas a partir de operaciones más sencillas.
 
@@ -160,7 +156,7 @@ Los coeficientes de los filtros suelen ser constantes, podríamos guardarlos en 
 
 En cuanto a los **registros** del procesador, al multiplicar dos números de n bits el resultado es un número el doble de grande. Y piensa que luego van sumándose todos los resultados. Necesitaremos un **acumulador** lo suficientemente grande como para que no se desborde mientras operamos. Es más, ahora que lo pienso, algunas operaciones con DSP se hacen con números complejos. Necesitaremos no uno, sino dos acumuladores. Para la parte real y para la imaginaria.
 
-Otra característica de los DSP es el ***buffer circular*.** Si trabajamos con las 100 últimas muestras, entonces la muestra 101 sobrescribirá a la muestra 1, la 102 a la 2, y así sucesivamente. Y el puntero se incrementará adecuadamente apuntando a la muestra más antigua, que sería la número 3. Eso se llama buffer circular y -sin entrar en detalle- se consigue haciendo aritmética modular con los punteros de memoria. 
+Otra característica de los DSP es el ***buffer circular*.** Si trabajamos con las 100 últimas muestras, entonces la muestra 101 sobrescribirá a la muestra 1, la 102 a la 2, y así sucesivamente. Y el puntero se incrementará adecuadamente apuntando a la muestra más antigua, que sería la número 3. Eso se llama buffer circular y -sin entrar en detalle- se consigue haciendo aritmética modular con los punteros de memoria.
 
 Hablando de hardware para generar direcciones de memoria de forma enrevesada tenemos lo que se llama *Bit Reverse Mode*. A ver cómo te lo explico... Si vas a contar de 0 a 7 puedes hacerlo en orden 0, 1, 2, 3, 4, 5, 6 y 7. O puedes darle la vuelta a los bits poniendo el menos significativo a la izquierda. Lo cual daría esta secuencia: 0, 4, 2, 6, 1, 5, 3 y 7. ¿Para qué? mira esta imagen de Wikipedia sobre [Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform).
 
@@ -184,12 +180,12 @@ Por otro lado, son DSP muy sencillos. Pensados para aplicaciones tales como el c
 
 Los DSP son **complicados** y su curva de aprendizaje algo dura. Al principio, sobre todo, necesitaremos consultar la documentación a cada paso. Conviene tener a mano (y haber leído al menos la **introducción** de) estos documentos:
 
-- **[dsPIC30F/33F Programmer’s Reference Manual](http://ww1.microchip.com/downloads/en/devicedoc/70157c.pdf)**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
-- **[dsPIC30F Family Reference Manual](http://ww1.microchip.com/downloads/en/devicedoc/70046d.pdf)**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
-- **[dsPIC30F2011/2012/3012/3013 Data Sheet](http://ww1.microchip.com/downloads/en/devicedoc/70139g.pdf)**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
-- **[dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification](http://ww1.microchip.com/downloads/en/DeviceDoc/80448D.pdf)**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
+- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70157c.pdf">dsPIC30F/33F Programmer’s Reference Manual</a>**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
+- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70046d.pdf">dsPIC30F Family Reference Manual</a>**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
+- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70139g.pdf">dsPIC30F2011/2012/3012/3013 Data Sheet</a>**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
+- **<a href="http://ww1.microchip.com/downloads/en/DeviceDoc/80448D.pdf">dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification</a>**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
 
-{% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene *bugs*. Microchip." %}
+{% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene <em>bugs</em>. Microchip." %}
 
 Si fallan los enlaces podéis buscar directamente por el título del documento.
 
@@ -249,7 +245,7 @@ Los LED **L2** a **L5** están conectados a patillas de I/O y los usaremos libre
 
 Lo siguiente es ir haciendo pequeños proyectos para aprender. Tu crees que ya tienes superado lo de encender y apagar un LED. Aún así es un buen comienzo para saber si, por ejemplo, nuestro chip trabaja a la **frecuencia** de reloj esperada. A qué voltajes funciona bien; si el oscilador es estable o si necesitamos filtrar mejor la alimentación o añadir capacidades. También es útil para aprender a usar los **temporizadores**.
 
-Lo siguiente será definir variables en una **zona de memoria** u otra, aquí cada compilador es diferente. Aprenderemos a configurar un buffer circular. A usar la instrucción **MAC** con el **prefech**. Y a trabajar con el formato **fraccionario**. Finalmente habrá que ver cómo se configura el ADC temporizado. 
+Lo siguiente será definir variables en una **zona de memoria** u otra, aquí cada compilador es diferente. Aprenderemos a configurar un buffer circular. A usar la instrucción **MAC** con el **prefech**. Y a trabajar con el formato **fraccionario**. Finalmente habrá que ver cómo se configura el ADC temporizado.
 
 {% include image.html max-width="480px" file="buffer_circular.png" caption="Un búfer circular se configura fácilmente." %}
 
@@ -262,6 +258,4 @@ Espero que te haya resultado interesante esta **introducción** al mundo de los 
 Por si tienes curiosidad, aquí te dejo un pequeño ejemplo de cómo multiplicar dos vectores. Una premisa básica de un DSP es poder hacer la operación de un filtro FIR iterando sobre una sola instrucción.
 
 <script src="https://gist.github.com/electronicayciencia/6ec122969615c3bb89aac9c18e03b15b.js"></script>
-
-
 

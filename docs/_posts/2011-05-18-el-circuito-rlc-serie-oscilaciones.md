@@ -12,7 +12,7 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2011/05/el-circuito-r
 
 Antes de nada, os quiero pedir disculpas por el parón que ha sufrido el blog lo que va de año. Todos necesitamos un respiro de vez en cuando, y otras aficiones me han comido mucho tiempo.
 
-Para esta ocasión he elegido un artículo doble sobre cómo funciona uno de esos circuitos que parecen sencillos pero que luego no lo son tanto. Voy a hablaros de esos osciladores de FM con un sólo transistor. Seguro que los habéis visto. Muchas veces se presentan como micrófonos espía, o transmisores simples de FM. 
+Para esta ocasión he elegido un artículo doble sobre cómo funciona uno de esos circuitos que parecen sencillos pero que luego no lo son tanto. Voy a hablaros de esos osciladores de FM con un sólo transistor. Seguro que los habéis visto. Muchas veces se presentan como micrófonos espía, o transmisores simples de FM.
 
 Pues bien, para saber cómo van, primero hay que tener muy claro lo que es un oscilador RLC en serie. Y como es costumbre voy a empezar por lo más sencillo para formar una base y poder construir el resto sobre ella. Así que vamos a ver primero cómo se comporta por separado cada componente. Luego, partiendo de nuestra experiencia intuiremos las ecuaciones que los describen. Haremos un desarrollo matemático de cómo esperamos que se comporten estando juntos e iremos viendo con un simulador el resultado.
 
@@ -168,13 +168,13 @@ $$
 y sus derivadas:
 
 $$
- {dI \over dt} = ABe^ {Bt} 
+{dI \over dt} = ABe^ {Bt}
 $$
 
 y
 
 $$
- { d^2I \over dt^2 } = AB ^ 2 e ^ {Bt} 
+{ d^2I \over dt^2 } = AB ^ 2 e ^ {Bt}
 $$
 
 A y B son dos coeficientes que tendremos que ajustar. A priori no exigiremos que sean reales o complejos, ya veremos lo que sale. Sustituimos, pues, en la ecuación esa solución genérica:
@@ -186,7 +186,7 @@ $$
 Ahora simplificamos: el término $A e^{Bt}$  aparece multiplicando en todos los sumandos, así que podemos dividir por él la ecuación. Claro que para eso tenemos que exigir que A no sea 0, porque la exponencial sólo se haría cero para $t \rightarrow \infty$ . De paso dividimos todo por L para que la forma que queda sea más fácil de reconocer.
 
 $$
- B^2 + {R \over L} B + {1 \over LC} = 0
+B^2 + {R \over L} B + {1 \over LC} = 0
 $$
 
 Sí, es una ecuación de segundo grado, corriente y moliente. Y se resuelve con la conocida fórmula:
@@ -204,7 +204,7 @@ $$
 Cómo se comporte el circuito ahora depende del valor que tome esto de aquí abajo:
 
 $$
- {R^2\over L^2} - {4 \over LC} 
+{R^2\over L^2} - {4 \over LC}
 $$
 
 ¿Por qué? Pues veamos algunas posibilidades.
@@ -222,13 +222,13 @@ B = \frac{ \pm \sqrt { - {4 \over LC}}}{2}
 $$
 
 $$
-B = \pm {1 \over \sqrt {LC}} i 
+B = \pm {1 \over \sqrt {LC}} i
 $$
 
 Parece que B sale un número imaginario puro. Así que lo sustituimos en la solución que habíamos puesto al principio:
 
 $$
- I(t) = A e^{i{1 \over  \sqrt {LC}} t} 
+I(t) = A e^{i{1 \over  \sqrt {LC}} t}
 $$
 
 Recordad que tenemos que quedarnos sólo con la parte real de esa ecuación, que será un seno o un coseno. Es un resultado lógico. Una oscilación pura, sin más efectos. La intensidad sube y baja con el tiempo.
@@ -248,21 +248,21 @@ A=a+bi
 $$
 
 $$
-I(t) =  \Re (A e^{iBt}) = \Re \left((a+bi)(\cos Bt +i \sin Bt)\right) 
+I(t) =  \Re (A e^{iBt}) = \Re \left((a+bi)(\cos Bt +i \sin Bt)\right)
 $$
 
 $$
-I(t) = \Re (a \cos Bt + a i \sin Bt + bi \cos Bt - b \sin Bt) 
+I(t) = \Re (a \cos Bt + a i \sin Bt + bi \cos Bt - b \sin Bt)
 $$
 
 $$
-I(t) = a \cos Bt - b \sin Bt 
+I(t) = a \cos Bt - b \sin Bt
 $$
 
 Sustituyendo el valor que habíamos obtenido para B:
 
 $$
-I(t) = a \cos {1 \over  \sqrt {LC}}t - b \sin {1 \over  \sqrt {LC}}t 
+I(t) = a \cos {1 \over  \sqrt {LC}}t - b \sin {1 \over  \sqrt {LC}}t
 $$
 
 Ahora sí. Si A vale cero, completamente 0 (o sea que tanto a como b valgan cero a la vez) entonces no hay oscilación ninguna. Pero en cualquier otro caso sí. Si hubiéramos expresado A en coordenadas polares, en lugar de salirnos un seno y un coseno nos habría salido sólo un coseno más un ángulo: es la fase inicial.
@@ -284,17 +284,17 @@ Fijaos, físicamente pasa esto:
 Matemáticamente por debajo, en la ecuación de movimiento que vimos antes está actuando la diferencia que hay dentro de la raíz cuadrada:
 
 $$
- {R^2\over L^2} - {4 \over LC} 
+{R^2\over L^2} - {4 \over LC}
 $$
 
 Lo que está ocurriendo es que $\frac{R^2}{L^2}$  se está haciendo mayor que $\frac{4}{LC}$ . Y el radicando  se vuelve positivo. La raíz de un número negativo sale un número complejo, con la solución de senos y cosenos que vimos antes; pero la raíz de un número positivo es real, no hay parte imaginaria, no hay exponencial compleja: no hay oscilación. Tan sólo hay una exponencial real que decae rápidamente.
 
 ## Amortiguamiento crítico
 
-Así que cuando $\frac{R^2}{L^2} > \frac{4}{LC}$  no oscila, y cuando es menor pues sí. Entonces tiene que haber un punto de inflexión, un punto intermedio entre una condición y otra. Según vamos ajustando los valores para que el circuito esté un poco más libre llegamos a un punto en que
+Así que cuando $\frac{R^2}{L^2} &gt; \frac{4}{LC}$  no oscila, y cuando es menor pues sí. Entonces tiene que haber un punto de inflexión, un punto intermedio entre una condición y otra. Según vamos ajustando los valores para que el circuito esté un poco más libre llegamos a un punto en que
 
 $$
- {R^2\over L^2} = {4 \over LC} 
+{R^2\over L^2} = {4 \over LC}
 $$
 
 Esa situación se llama amortiguamiento crítico. Y en un gráfico se ve así:
@@ -303,20 +303,20 @@ Esa situación se llama amortiguamiento crítico. Y en un gráfico se ve así:
 
 Tiene la propiedad de que la energía decae más rápido que en los otros casos. ¿Y para qué sirve? Pues para detener las oscilaciones en el menor tiempo posible. Si hablamos de un oscilador mecánico nos referimos a, por ejemplo, los amortiguadores de los coches. ¿Verdad que no nos interesa que después de pillar un bache el coche bote arriba y abajo durante un rato? Pero por otro lado no podemos hacerlos rígidos, porque entonces no amortiguan nada.
 
-Lo mismo, en un oscilador eléctrico lo empleamos para eliminar las oscilaciones no deseadas, ¿os acordáis del [efecto de Gibbs](http://en.wikipedia.org/wiki/Gibbs_phenomenon) que habíamos visto en [esta entrada]({{site.baseurl}}{% post_url 2010-12-17-controlar-un-servomotor-con-el-pc %})? 
+Lo mismo, en un oscilador eléctrico lo empleamos para eliminar las oscilaciones no deseadas, ¿os acordáis del [efecto de Gibbs](http://en.wikipedia.org/wiki/Gibbs_phenomenon) que habíamos visto en [esta entrada]({{site.baseurl}}{% post_url 2010-12-17-controlar-un-servomotor-con-el-pc %})?
 
 ## Oscilador sub-amortiguado
 
 Y por fin el caso que nos interesa más: hay oscilación, pero decae porque también hay resistencia.
 
 $$
- {R^2\over L^2} < {4 \over LC} 
+{R^2\over L^2} < {4 \over LC}
 $$
 
 La raíz cuadrada sale compleja, decíamos, así que el resultado tendrá una parte real y otra imaginaria. O sea, un número de la forma *a+bi*. ¿no? Ojo que ahora no hablamos ya de A sino de B.
 
 $$
- B = \frac{-{R \over L} \pm \sqrt {{ "{{" }}R^2\over L^2} - {4 \over LC}}}{2} = a+bi 
+B = \frac{-{R \over L} \pm \sqrt {{ "{{" }}R^2\over L^2} - {4 \over LC}}}{2} = a+bi
 $$
 
 Según habíamos puesto de condición, lo que hay dentro de la raíz es negativo, así que le doy la vuelta y saco *i* fuera de la raíz (es una forma de hablar).
@@ -344,7 +344,7 @@ $$
 Y sustituimos lo que nos ha salido para B. La A es quien contiene, como en el caso ideal, las condiciones iniciales del sistema. No voy a volver a hacer el desarrollo porque sale igual que antes.
 
 $$
-I = A e^{Bt} = A e^{(a+ib)t} 
+I = A e^{Bt} = A e^{(a+ib)t}
 $$
 
 $$
@@ -389,7 +389,7 @@ $$
 
 Tiene sentido. Al aumentar la resistencia la frecuencia se hace menor. *Le cuesta* avanzar. Por otra parte, si quitamos la resistencia, $\alpha$  se hace 0, y recuperamos la frecuencia del **oscilador libre**.
 
-¿Y qué pasa cuando $\alpha$  se hace muy grande y justamente iguala a $\omega_0$  de forma que la raíz vale cero? Pues pasa el **amortiguamiento crítico**. Y si la supera, y el radicando se vuelve negativo, la frecuencia de oscilación sería *imaginaria*. Pues eso, que nos la imaginamos, porque no oscila nada: estamos en régimen **sobre-amortiguado**. 
+¿Y qué pasa cuando $\alpha$  se hace muy grande y justamente iguala a $\omega_0$  de forma que la raíz vale cero? Pues pasa el **amortiguamiento crítico**. Y si la supera, y el radicando se vuelve negativo, la frecuencia de oscilación sería *imaginaria*. Pues eso, que nos la imaginamos, porque no oscila nada: estamos en régimen **sobre-amortiguado**.
 
 ## Envolventes
 

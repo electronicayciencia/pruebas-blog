@@ -9,7 +9,7 @@ thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S64z5O_EjrI/AAAAAAAAAA0/WXLHpeT
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/caracteristica-i-v-de-una-bombilla.html
 ---
 
-De todos es sabido que si medimos la resistencia de una bombilla apagada, no obtenemos la resistencia verdadera que ofrece estando encendida. Por el mero hecho de que cuando un material se calienta, su resistencia eléctrica aumenta. 
+De todos es sabido que si medimos la resistencia de una bombilla apagada, no obtenemos la resistencia verdadera que ofrece estando encendida. Por el mero hecho de que cuando un material se calienta, su resistencia eléctrica aumenta.
 
 Esto se debe a un aumento de la sección eficaz de los portadores de carga, porque con el aumento de la temperatura, aumenta la magnitud de las oscilaciones en torno a su posición de equilibro. Es un efecto físico curioso, más curioso aún cuando se trata de semiconductores -en los que bajo condiciones adecuadas, puede darse al contrario-. Os animo a que le dediquéis alguna búsqueda en Google.
 
@@ -42,7 +42,7 @@ El coeficiente de ajuste no es muy bueno, pero no necesito demasiada exactitud y
 Del ajuste lineal obtenemos los parámetros de la recta que mejor se aproxima a nuestros datos:
 
 $$
-R = 2.93V+193 
+R = 2.93V+193
 $$
 
 Y de ahí ya podemos obtener la potencia:
@@ -54,6 +54,4 @@ $$
 Fijaos en la V en el denominador. Es más importante de lo que parece porque hemos pasado de una expresión de la potencia que varía con V al cuadrado, a otra aproximada que varía casi linealmente con V.
 
 He dejado el archivo con las medidas [aquí](http://sites.google.com/site/electronicayciencia/bombilla_V-I.dat).
-
-
 

@@ -12,8 +12,8 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-pal
 
 En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html) programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un *número* escrito con un conjunto de 27 símbolos *{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}* y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:
 
-    aaaaa... -> 0.11111...
-    zzzzz... -> 0.99999...
+    aaaaa... -> 0.11111...>
+    zzzzz... -> 0.99999...>
 
 Ahora vamos a jugar con esa conversión, veremos algunas propiedades y obtendremos estadísticas aplicándola a varios idiomas.
 
@@ -21,7 +21,9 @@ Ahora vamos a jugar con esa conversión, veremos algunas propiedades y obtendrem
 
 Decíamos el otro día que el que un número sea periódico en una base no implica que lo sea en cualquier otra. Esto es consecuencia de que un número racional se puede escribir como una fracción. No ocurre lo mismo con los irracionales. Pi sigue teniendo infinitas cifras no periódicas lo expresemos en la **base entera** que lo expresemos.
 
-Algunos ejemplos:<br />Hay números exactos tanto en una base como en otra:
+Algunos ejemplos:
+
+Hay números exactos tanto en una base como en otra:
 
     0.235 = fihmqcxs
 
@@ -33,7 +35,9 @@ Y viceversa:
 
     c = 0.111111111...
 
-Tenemos números periódicos puros que pasan a ser periodicos mixtos:<br />ababababababababababa
+Tenemos números periódicos puros que pasan a ser periodicos mixtos:
+
+ababababababababababa
 
     0.039 835164 835164 835164...
 
@@ -45,7 +49,9 @@ Además recordad que exigimos que la '@' detuviera la conversión. Necesitamos e
 
     ab       = 0.039780522
 
-ab@cd = 0.03978**6446**Si ahora convierto 'ab@cd' el resultado se corta a la mitad por la '@':
+    ab@cd = 0.039786446
+
+Si ahora convierto 'ab@cd' el resultado se corta a la mitad por la '@':
 
     0.039786446 = ab
 
@@ -55,8 +61,7 @@ Con esto podríamos sumar y restar palabras tal como si fueran números, calcula
 
 Lo primero que vamos a analizar es una lista de palabras en español. Para eso he fusionado dos diccionarios. Uno es el de Open Office, y otro lo he encontrado buscando en Google, en [este enlace](http://tools.assembla.com/svn/homedevel/devel/ftrie/diccionario.txt). Como curiosidad mirad un histograma con la longitud de las palabras:
 
-[<img border="0" height="231" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&oid=3&v=1274193059773" width="400" />](https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&oid=3&v=1274193059773)
-Los números los podéis ver aquí: [datos originales](http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&single=true&gid=0&output=html). Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en *mente*) tiene nada menos que 24 letras: **electroencefalografistas**.
+[<img border="0" height="231" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773" width="400" />](https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773)Los números los podéis ver aquí: [datos originales](http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&amp;single=true&amp;gid=0&amp;output=html). Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en *mente*) tiene nada menos que 24 letras: **electroencefalografistas**.
 
 El programa *dominio_espectral.pl* está preparado para obtener todas las palabras de un texto y aplicar *pal2num* (la versión optimizada de *pal2num.pl*) para obtener sus equivalentes numéricos entre 0 y 1. A partir de esos resultados dibuja varios gráficos semejantes a espectros de emisión.
 
@@ -76,7 +81,7 @@ Ved por ejemplo la herencia árabe en nuestra lengua en las palabras que empieza
 
 {% include image.html file="esp_p.png" caption="" %}
 
-En esta zona vemos como detrás de una 'P' habitualmente viene una vocal. Salvo contados casos que son *PS*. 
+En esta zona vemos como detrás de una 'P' habitualmente viene una vocal. Salvo contados casos que son *PS*.
 
 {% include image.html file="esp_co.png" caption="" %}
 

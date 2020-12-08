@@ -69,7 +69,7 @@ El [EM4095](https://www.emmicroelectronic.com/sites/default/files/products/datas
 
 En estos proyectos de baja frecuencia la velocidad de transferencia también es baja. RF/32 por ejemplo son 4kHz. Se puede procesar en un microcontrolador de propósito general. Para jugar con velocidades no mucho mayores ya necesitaríamos un DSP.
 
-Buscamos un circuito que excite una bobina con una frecuencia de 125kHz, pueda interrumpa el campo cada cierto tiempo (µs), recoja las variaciones en la amplitud y las transforme en señales digitales. A mi se me ocurre el siguiente esquema: un microcontrolador, una etapa excitadora para la bobina y un detector de envolvente como demodulador AM. 
+Buscamos un circuito que excite una bobina con una frecuencia de 125kHz, pueda interrumpa el campo cada cierto tiempo (µs), recoja las variaciones en la amplitud y las transforme en señales digitales. A mi se me ocurre el siguiente esquema: un microcontrolador, una etapa excitadora para la bobina y un detector de envolvente como demodulador AM.
 
 {% include image.html file="main_schematic_texture.jpg" caption="Esquema principal. Click para ampliar." %}
 
@@ -87,7 +87,7 @@ El valor de **C4** es crítico y depende de la velocidad de transmisión usada: 
 
 **C1** estabiliza la tensión en el integrado frente a posibles picos de consumo. Es bueno colocar un segundo condensador de, por ejemplo, 10nF en paralelo con él y lo más cercano posible al PIC. Así filtraremos el ruido de frecuencias altas.
 
-Por último, los pines **Rx** y **Tx** van al PC vía un conversor USB-Serie. 
+Por último, los pines **Rx** y **Tx** van al PC vía un conversor USB-Serie.
 
 {% include image.html file="bread_board.jpg" caption="El circuito anterior construido sobre una protoboard." %}
 
@@ -97,7 +97,7 @@ Al igual que cuando tratamos [el bus 1-Wire a bajo nivel]({{site.baseurl}}{% pos
 
 Empezando por la parte de enviar. Según el datasheet, para sacar al transpondedor del modo *default read* éste debe percibir un corte del campo magnético, como una señal de **escape**. Lo llaman *First Field Stop*. Para estar seguros, el datasheet nos recomienda cortar durante 55 ciclos de 125kHz, o 440µs.
 
-Enviar un **uno** es sencillo: dejar el campo encendido 32 periodos. Es decir, la velocidad de transferencia del lector al transpondedor es RF/32. Para enviar un **cero** debemos dejar el campo encendido durante unos 20 periodos y cortarlo después hasta completar los 32 periodos. 
+Enviar un **uno** es sencillo: dejar el campo encendido 32 periodos. Es decir, la velocidad de transferencia del lector al transpondedor es RF/32. Para enviar un **cero** debemos dejar el campo encendido durante unos 20 periodos y cortarlo después hasta completar los 32 periodos.
 
 Tras recibir el comando, el EM4305 responderá. Así enviamos el comando de leer el registro 0:
 
@@ -197,9 +197,9 @@ Para escribir en un registro, habríamos enviado la estructura del comando **wri
 
 ## El software
 
-¿Recordáis cómo hemos ido simplificando el firmware y dejándole esa complejidad a nuestro yo del **futuro**? 
+¿Recordáis cómo hemos ido simplificando el firmware y dejándole esa complejidad a nuestro yo del **futuro**?
 
-Pues como cabía esperar, nos ha quedado un software algo complejo, sólo voy a dar algunas pinceladas. Lo tenéis completo en GitHub: [em4205.py](https://github.com/electronicayciencia/rfid-rw/blob/master/soft_pc/em4205.py). 
+Pues como cabía esperar, nos ha quedado un software algo complejo, sólo voy a dar algunas pinceladas. Lo tenéis completo en GitHub: [em4205.py](https://github.com/electronicayciencia/rfid-rw/blob/master/soft_pc/em4205.py).
 
 Hay un conjunto de cosas básicas que hemos decidido hacer en el software:
 
@@ -264,7 +264,7 @@ Sí, mejor. Un patrón de unos y ceros que se repite en **bucle**. Pero los mens
 >>>
 ```
 
-¡Bien! Ya tenemos el mensaje. 
+¡Bien! Ya tenemos el mensaje.
 
 En el artículo [Leer tarjetas de acceso RFID, sin Arduino]({{site.baseurl}}{% post_url 2019-12-15-leer-tarjetas-de-acceso-rfid-sin-arduino %}) habíamos decodificado lo que significa ese mensaje, pero ahora sólo nos interesa reproducirlo tal cual.
 
@@ -284,7 +284,6 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File ".\em4205.py", line 729, in read_stream
     raise TransponderError("Empty message")
-
 __main__.TransponderError: Empty message
 >>>
 ```
@@ -306,14 +305,12 @@ Debemos poner el primer bit que queremos que se envíe (el numero 0) en el bit m
 Algo así:
 
 ```
-3                              0
+            3                              0
             1                              0
-
 Registro 5  10100101000001100000000111111111
 
             6                              3
             3                              2
-
 Registro 6  01101010011000111110010011001011
 ```
 
@@ -375,7 +372,7 @@ Word at position 13:  0x00000000 (00000000000000000000000000000000)
 1111
 ```
 
-¡Ahora sí! Veamos si la función que hemos definido antes devuelve el mismo mensaje para los dos chips. 
+¡Ahora sí! Veamos si la función que hemos definido antes devuelve el mismo mensaje para los dos chips.
 
 ```
 Con la original:
@@ -400,6 +397,4 @@ Suficiente. Confío que os haya resultado interesante esta revisión del mundo R
 Os dejo el software, imágenes y otros archivos auxiliares en GitHub: [electronicayciencia/rfid-rw](https://github.com/electronicayciencia/rfid-rw).
 
 {% include image.html file="meme-rfid.png" caption="" %}
-
-
 

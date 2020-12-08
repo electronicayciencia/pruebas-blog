@@ -12,7 +12,7 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2017/10/demodular-afs
 
 Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es posible... ¿Y si os digo que vamos a hablar de radio, de retro-informática, de trenes, de sonido, de matemáticas, de electrónica y de programación suena mejor? Supongo. Y si no busca otra cosa que leer. Hay muy buenos artículos sobre otra cosa en Internet.
 
-Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de páginas son demasiado superficiales o demasiado matemáticas, o se quedan en la descripción o se pierden en detalles sin llegar a hilar el proceso completo. 
+Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de páginas son demasiado superficiales o demasiado matemáticas, o se quedan en la descripción o se pierden en detalles sin llegar a hilar el proceso completo.
 
 {% include image.html max-width="300px" file="wargames-02.jpg" caption="Adaptador telefónico. Fotograma de Wargames (1983). <a href=\"https://pc-museum.com/046-imsai8080/wargames.htm\" target=\"_blank\">Fuente</a>." %}
 
@@ -20,7 +20,7 @@ Esto no son apuntes de teleco, pero créeme: tampoco es una entrada ligera que p
 
 ## Modulación analógica
 
-Todo empieza cuando decidimos modificar una propiedad analógica para comunicar estados discretos. 
+Todo empieza cuando decidimos modificar una propiedad analógica para comunicar estados discretos.
 
 Un sistema digital suele tener dos estados. Pero vamos a remontarnos al principio de las *"comunicaciones digitales"*. A un sistema con tres estados discretos: un telégrafo.
 
@@ -68,7 +68,7 @@ El proceso para demodular en amplitud es rectificar la señal y aplicar un filtr
 
 Por lo general, en FSK la frecuencia más alta representa el espacio y la más baja la marca. Aquí, como la frecuencia más alta es la más atenuada, coincide con que los ceros (espacios) son de menor amplitud que los unos (marcas).
 
-Estamos suponiendo que la marca corresponde al 1 y el espacio al 0. Esta suposición se llama [*codificación unipolar sin retorno a 0 de tipo nivel*](https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ#NRZ-L) (Unipolar non-return-to-zero level).
+Estamos suponiendo que la marca corresponde al 1 y el espacio al 0. Esta suposición se llama [<em>codificación unipolar sin retorno a 0 de tipo nivel</em>](https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ#NRZ-L) (Unipolar non-return-to-zero level).
 
 {% include image.html file="discr_1_0.png" caption="Asignación de valores digitales en función de la amplitud. EyC." %}
 
@@ -82,7 +82,7 @@ Como hemos supuesto que la codificación es por nivel, asignamos 0 al nivel bajo
 11111111111100100000010000000000001010100000100000001010
 ```
 
-Muy bien... ¿qué dice el mensaje? Ni idea. Para eso debemos conocer el protocolo. Sin más información no podemos interpretarlo. 
+Muy bien... ¿qué dice el mensaje? Ni idea. Para eso debemos conocer el protocolo. Sin más información no podemos interpretarlo.
 
 Tenemos dos opciones para continuar: o buscamos en Internet con la información que ya conocemos (frecuencias de UHF, tonos de audio, velocidad de transmisión); o sencillamente lo buscamos en el [Cuadro Nacional de Atribución de Frecuencias (CNAF)](http://www.minetad.gob.es/telecomunicaciones/Espectro/CNAF/notas_UN2017_vf2.pdf), cuya nota UN-78 dice:
 
@@ -133,7 +133,7 @@ Buscando en Internet no he podido encontrar la descripción técnica del tren-ti
 
 De acuerdo con lo anterior esta trama, emitida por el equipo fijo del Tren-Tierra, indicaría al maquinista del tren 20045 que el puesto de mando desea iniciar una comunicación telefónica.
 
-El protocolo UIC 751-3, muy simple, contiene todo necesario: 
+El protocolo UIC 751-3, muy simple, contiene todo necesario:
 
 - Nos indica cómo empiezan los paquetes de datos. El receptor digital necesita una marca clara señalizando exactamente el principio de la trama. Si falta o sobra un solo bit el resultado sería indescifrable. En nuestro caso el paquete siempre empieza tras la secuencia 1111 1111 0010.
 - Indica cómo termina un paquete. En este caso no es necesario porque la estructura es de longitud fija. En este tipo de mensajes el paquete termina tras recibir 39 bits después de la cabecera. El último bit, el que haría 40, no tiene utilidad, aunque es una práctica habitual incluir un bit de paridad impar en los mensajes codificados en NRZL -por si acaso-.
@@ -141,7 +141,7 @@ El protocolo UIC 751-3, muy simple, contiene todo necesario:
 - Sin embargo, no se indica el emisor. Generalmente sí, pero en este caso el Puesto de Mando y el tren emiten por canales separados, no se especifica quién ha emitido un mensaje porque se sobreentiende.
 - Siempre hay un modo de comprobar si el mensaje ha llegado íntegro, sin errores debido a interferencias, por ejemplo. A menudo se hace con un CRC, en este caso de 7 bits.
 
-Es hora de pasar al **siguiente nivel**. 
+Es hora de pasar al **siguiente nivel**.
 
 ## El TCM3105
 
@@ -159,13 +159,13 @@ Hace poco me dio por buscar en Ebay a ver qué precio tendría, si aún quedaban
 
 Hay un problema, las BBS de [packet radio](https://es.wikipedia.org/wiki/Packet_(Radio)) desaparecieron a principio de los 2000. Lo único activo hoy en día en AFSK-1200 que fuera fácil de captar son transmisiones [APRS](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) (Automatic Packet Reporting System) una especie de seguimiento GPS de radioaficionados en UHF. Sintonizo el receptor SDR en 144.800MHz, la frecuencia oficial de APRS en Europa. Hay poco tráfico pero servirá.
 
-Y había un segundo problema: Estos módems utilizaban el puerto serie RS232 de forma no estándar. El software es antiguo y probablemente no funcione en un PC moderno donde ni siquiera tenemos puerto serie nativo. Podría usar uno de los puertos GPIO de la Raspberry para recibir ahí la señal, pero eso implica escribir también el software. 
+Y había un segundo problema: Estos módems utilizaban el puerto serie RS232 de forma no estándar. El software es antiguo y probablemente no funcione en un PC moderno donde ni siquiera tenemos puerto serie nativo. Podría usar uno de los puertos GPIO de la Raspberry para recibir ahí la señal, pero eso implica escribir también el software.
 
-¿Merece la pena teniendo en cuenta que cualquier software tipo *soundmodem* hace lo mismo y mejor usando únicamente la tarjeta de sonido? En mi opinión, **sí**. Vale la pena sólo por ver cómo van encajando las piezas del rompecabezas. 
+¿Merece la pena teniendo en cuenta que cualquier software tipo *soundmodem* hace lo mismo y mejor usando únicamente la tarjeta de sonido? En mi opinión, **sí**. Vale la pena sólo por ver cómo van encajando las piezas del rompecabezas.
 
 Esta es la caracterización completa de la señal digital (ejemplos en [Signal ID Wiki](https://www.sigidwiki.com/wiki/PACKET#PACKET-1200)):
 
-***Portadora en 144.800MHz, modulada en NFM (12kHz) mediante AFSK siguiendo el esquema Bell 202; el protocolo de transmisión de datos es AX.25, implica tramas tipo HDLC codificadas en modo NRZI con orden LSB.*** 
+***Portadora en 144.800MHz, modulada en NFM (12kHz) mediante AFSK siguiendo el esquema Bell 202; el protocolo de transmisión de datos es AX.25, implica tramas tipo HDLC codificadas en modo NRZI con orden LSB.***
 
 ¿Qué significa semejante galimatías? Significa que acabamos de empezar.
 
@@ -210,7 +210,7 @@ Para continuar con el ejemplo de decodificación manual el siguiente paso es des
 
 Hay varias formas de decodificar esta señal, yo me voy a quedar con la más cómoda. Partimos de la premisa de que un cambio significa un 0, siempre y por eso los cambios son muy fáciles de detectar. Lo importante es saber **cuántos** unos venían antes de ese 0. Más adelante lo volveremos a ver.
 
-Como la velocidad de transmisión es 1200 baudios, significa un símbolo cada 833us. Es decir, simplemente tenemos que calcular el tiempo desde el último cambio y dividirlo por 833us. Idealmente los valores serían discretos, pero debido a imperfecciones del sistema siempre hay un error hacia arriba o hacia abajo. Aproximaremos al entero más cercano. 
+Como la velocidad de transmisión es 1200 baudios, significa un símbolo cada 833us. Es decir, simplemente tenemos que calcular el tiempo desde el último cambio y dividirlo por 833us. Idealmente los valores serían discretos, pero debido a imperfecciones del sistema siempre hay un error hacia arriba o hacia abajo. Aproximaremos al entero más cercano.
 
 Gráficamente sería así:
 
@@ -228,9 +228,9 @@ Este es el resultado, una bonita ristra **binaria**:
 
 ## El protocolo AX.25
 
-AX.25 es un protocolo muy antiguo (anterior incluso al modelo OSI) que surge de la adaptación del X.25 al uso por radioaficionados. AX.25 hace dos modificaciones sobre la base de X.25: una es modificar las cabeceras para alojar múltiples indicativos de las estaciones de radioaficionado, y la otra incorporar un tipo de paquete llamado de información sin numerar (UI). Como si fuera una trama UDP, sin conexión. 
+AX.25 es un protocolo muy antiguo (anterior incluso al modelo OSI) que surge de la adaptación del X.25 al uso por radioaficionados. AX.25 hace dos modificaciones sobre la base de X.25: una es modificar las cabeceras para alojar múltiples indicativos de las estaciones de radioaficionado, y la otra incorporar un tipo de paquete llamado de información sin numerar (UI). Como si fuera una trama UDP, sin conexión.
 
-La norma X.25, a su vez, incorpora elementos de [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control). Así fue como se estandarizó en **1979** el SDLC, un protocolo inventado por IBM para comunicar sus Mainframes. 
+La norma X.25, a su vez, incorpora elementos de [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control). Así fue como se estandarizó en **1979** el SDLC, un protocolo inventado por IBM para comunicar sus Mainframes.
 
 En la actualidad es casi imposible encontrar activa una red X.25. Por eso, para mí, interpretar una trama APRS, basada en AX.25 es como viajar al **pasado** y tener la rara oportunidad de entender una conversación en una lengua muerta. No me malinterpretéis, por favor, no echo de menos las redes punto a punto; pero en ocasiones merece la pena levantar la vista de IP.
 
@@ -242,7 +242,7 @@ En la trama anterior tenemos un ejemplo (subrayado):
 
 ```
 0111111001111110011111100001010101100101000101010010010100100110000000100000011
-100010101011001010001010100100101010001100000001010000110111110100100011011000
+100010101011001010001010100100101010001100000001010000110<u>1111101</u>00100011011000
 000101111110
 ```
 
@@ -459,7 +459,7 @@ Ahora sólo hemos de conectar con una resistencia el pin configurado en nrzienc 
 
 {% include image.html max-width="300px" file="esquema1.png" caption="Para probar el programa basta conectar los dos pines. EyC." %}
 
-Ahora dejamos escuchando el comando nrzidec en un terminal, y mientras invocamos en otro `./nrzienc < test_data/UI.dat`. Debemos ver el mismo patrón de unos y ceros. Es más, si en lugar de mostrar por pantalla la salida de nrzidec, la redirigimos hacia el decodificador de AX.25 con un pipe, tal que así: `./nrzidec | ./decode_ax25` lo que veremos es el contenido del paquete.
+Ahora dejamos escuchando el comando nrzidec en un terminal, y mientras invocamos en otro `./nrzienc &lt; test_data/UI.dat`. Debemos ver el mismo patrón de unos y ceros. Es más, si en lugar de mostrar por pantalla la salida de nrzidec, la redirigimos hacia el decodificador de AX.25 con un pipe, tal que así: `./nrzidec | ./decode_ax25` lo que veremos es el contenido del paquete.
 
 Ya sólo nos falta una pieza: el **hardware**. En lugar de simular los cambios de estado en el pin 25 a través del programa nrzienc, conectaremos el TCM3105 preparado para escuchar el estándar Bell 202. Hay abundantes esquemas en la red. El esquema más simple para nuestro propósito es así:
 
@@ -479,7 +479,7 @@ Lo primero es ajustar la resistencia RXB. Hace tiempo era más complicado, norma
 
 Ejecutaremos el programa *nrzidec* como antes y reproducimos en bucle el fichero llamado *cal-0.wav*. Debemos ver aparecer unos y ceros en la salida. Ajustaremos la resistencia RXB hasta que sólo aparezcan ceros. Si vemos salir algún uno, la resistencia está mal ajustada o hay algo de ruido. Este procedimiento también nos permitirá conocer el volumen de salida que proporciona mejores resultados.
 
-Una vez lo tengamos, probaremos a decodificar alguno de los paquetes de ejemplo en ese mismo directorio. Yo empezaría por el SABM que es el más corto. La prueba de fuego será con los ficheros *ui_real*. Estos son paquetes de verdad, grabados tal como se recibieron. Cuando podamos decodificarlos habremos encajado todas las piezas. 
+Una vez lo tengamos, probaremos a decodificar alguno de los paquetes de ejemplo en ese mismo directorio. Yo empezaría por el SABM que es el más corto. La prueba de fuego será con los ficheros *ui_real*. Estos son paquetes de verdad, grabados tal como se recibieron. Cuando podamos decodificarlos habremos encajado todas las piezas.
 
 Ahora tan sólo nos queda encender el receptor y ver cómo se van mostrando paquetes de tráfico real.
 
@@ -487,9 +487,7 @@ Ahora tan sólo nos queda encender el receptor y ver cómo se van mostrando paqu
 
 Terminaré esta larga entrada con una **reflexión**. Por un lado, está la satisfacción de saber que hemos hecho todo el proceso nosotros mismos, desde *nada* hasta el final; por otro una nostalgia como la que queda tras aprender un truco de magia. ¿No ha perdido, en cierto modo, el misterio que lo hacía interesante?
 
-{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:<br />*Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
+{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:<br /><em>Si lo entiendes, es que se ha quedado antiguo</em>. EyC." %}
 
 *A mi padre q.e.p.d.*
-
-
 

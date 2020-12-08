@@ -9,8 +9,6 @@ thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S7B8nlQq8sI/AAAAAAAAABU/WLt5Tjs
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/valor-eficaz-de-una-sinusoidal.html
 ---
 
-
-
 Continuamos con el proyecto *DimmerIR*. La intención como ya habéis supuesto es diseñar un atenuador electrónico. La caracterizacíon que hicimos de una bombilla incandescente en una [entrada anterior]({{site.baseurl}}{% post_url 2010-03-27-caracteristica-i-v-de-una-bombilla %}) nos servirá para calcular la potencia a partir del valor eficaz. Ahora vamos a perfilar cómo cambia el valor eficaz dependiendo de la fase del disparo.
 
 Voy a usar un TRIAC para sólo dejar pasar parte de cada semiciclo, la forma de onda que recibe la bombilla es así:
@@ -33,7 +31,7 @@ $$
 \tau < t \leq \frac{T}{2} \quad \mbox{y} \quad \frac{T}{2}+\tau < t \leq T
 $$
 
-Donde, además, tiene el mismo valor sólo que cambiado de signo. Dado que va al cuadrado dentro de la integral, consideramos que en ambos semiciclos la integral vale lo mismo. Eso nos permite integrar para un único intervalo: 
+Donde, además, tiene el mismo valor sólo que cambiado de signo. Dado que va al cuadrado dentro de la integral, consideramos que en ambos semiciclos la integral vale lo mismo. Eso nos permite integrar para un único intervalo:
 
 $$
 V_{RMS}(\tau) = V_p \sqrt{\frac{2}{T} \int_\tau^\frac{T}{2} \sin^2(\omega T) dt}

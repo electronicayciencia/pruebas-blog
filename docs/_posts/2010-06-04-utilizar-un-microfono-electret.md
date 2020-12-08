@@ -46,15 +46,15 @@ Hay dos maneras:
 
 - Blindando todas las direcciones salvo la que nos interesa. Es decir metiendo el micro dentro de *un tubo*. Impedimos que el sonido entre por los laterales y por detrás. Mientras más largo y ancho más potencia sonora captaremos de la dirección en la que apunte. Por la geometría del tubo se producen ecos y resonancias en determinadas frecuencias. No deseamos eso, para evitarlo en lo posible se hacen unos cortes o estrías transversales. Para no captar el soplido del viento se recubre con esponja la entrada del tubo así como parte del interior.
 
-- Añadiendo un reflector. Si ponemos una pantalla por detrás evitamos captar lo que haya a la espalda a la vez que reflejamos lo que provenga del frente y mejoramos su recepción. Habitualmente se usa un reflector que además concentre todo lo reflejado en un punto. Tal propiedad es típica de las parábolas. Al igual que con el tubo, mientras mayor sea el diámetro del reflector, y por tanto su área, mayor [intensidad sonora](http://es.wikipedia.org/wiki/Intensidad_sonora) vamos a captar.
+- Añadiendo un reflector. Si ponemos una pantalla por detrás evitamos captar lo que haya a la espalda a la vez que reflejamos lo que provenga del frente y mejoramos su recepción. Habitualmente se usa un reflector que además concentre todo lo reflejado en un punto. Tal propiedad es típica de las parábolas. Al igual que con el tubo, mientras mayor sea el diámetro del reflector, y por tanto su área, mayor <a href="http://es.wikipedia.org/wiki/Intensidad_sonora">intensidad sonora</a> vamos a captar.
 
 Como siempre dependerá de lo que necesitemos en cada momento. Pero por dar unas cuantas ideas:
 
 - **Un tubo de cartón.** Es lo mejor para captar una señal que se produce relativamente cerca pero en un ambiente ruidoso.
-- **Un paraguas.** Perfecto para espacios abiertos, para registrar trinos de pájaros desde lejos sin alterarlos, por ejemplo o también conversaciones lejanas. Incómodo y poco discreto por otro lado. En [esta web](http://www.instructables.com/id/Dollar-Store-Parabolic-Mic/) explican cómo fabricar uno.
+- **Un paraguas.** Perfecto para espacios abiertos, para registrar trinos de pájaros desde lejos sin alterarlos, por ejemplo o también conversaciones lejanas. Incómodo y poco discreto por otro lado. En <a href="http://www.instructables.com/id/Dollar-Store-Parabolic-Mic/">esta web</a> explican cómo fabricar uno.
 - **La tapa de un cubo de basura.** Versión más portatil que el paraguas. También da buenos resultados pero en este caso tendremos que poner nosotros el eje para sujetar el micro.
 - **Un embudo.** La típica trompetilla que sustituye al audífono. Da buen resultado en distancias cortas.
-- **Una botella.** Mi opción favorita, una botella de plástico sin fondo. Combina lo mejor del receptor parabólico con la direccionalidad del tubo. Sencilla de construir y de llevar. Sin embargo es muy fácil captar ruidos del mismo plástico. En [esta web](http://www.openobject.org/objectsinflux/?p=22) utilizan como reflector el de un flexo.
+- **Una botella.** Mi opción favorita, una botella de plástico sin fondo. Combina lo mejor del receptor parabólico con la direccionalidad del tubo. Sencilla de construir y de llevar. Sin embargo es muy fácil captar ruidos del mismo plástico. En <a href="http://www.openobject.org/objectsinflux/?p=22">esta web</a> utilizan como reflector el de un flexo.
 
 Todo eso contando, claro, que vamos a usar el micrófono para captar señales en el ambiente **a través del aire**. No es el único modo. Tal vez nos viniera mejor apoyar el micrófono contra un cuerpo sólido para obtener sonidos del interior -como en un fonocardiograma- o que se transmiten a través de él -como terremotos, o conversaciones de otra habitación-. Puede que también queramos oír sonidos que se propagan a través del agua -como un motor de barco, o el sonido de los delfines-. En esos casos habría que pensar en hacer nuestra sonda de otra manera para adaptarla a esas condiciones. Eso ya queda fuera de esta entrada.
 
@@ -66,7 +66,7 @@ Hay decenas de páginas que explican cómo conectarla. Cuando compras una, a vec
 
 En realidad un micrófono electret no necesita ningún tipo de alimentación. Lo que ocurre es que los que encontramos en las tiendas son micrófono electret **preamplificados**. Es ese preamplificador interno lo que hay que alimentar, sin él, la salida que entrega el micrófono sería muy pequeña y difícil de manejar. El diagrama superior no está simplificado, el preamplificador es así de sencillo. Consta sencillamente de un FET conectado como *[Common Source](http://en.wikipedia.org/wiki/Common_source)*. Sólo que sin resistencia en la fuente. Esto último puede ser contraproducente, más abajo explico una modificación sencilla si nos trae problemas.
 
-El valor de los componentes no es crítico. 
+El valor de los componentes no es crítico.
 
 Para el **condensador** se puede usar cualquier capacidad entre 220nF y 220µF, siempre que tengáis en cuenta que actúa como un filtro pasa-altos, y las frecuencias bajas se pueden perder si utilizáis capacidades muy bajas. Esto ya lo explicamos [aquí]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}).
 
@@ -96,7 +96,7 @@ El que las cápsulas estén preamplificadas es una ventaja para registrar sonido
 
 1. Aumentar la tensión de alimentación. Con un sonido fuerte la salida del micrófono puede ser fácilmente de 1V. Alimentarlo con 1.5V o 2V es claramente insuficiente en este caso. Hay un límite máximo de 20V que no podemos superar porque el micro dejaría de funcionar correctamente.
 1. Disminuir la resistencia en serie. Con un mayor paso de corriente es más difícil que el FET se sature. Como efecto colateral, reducir la resistencia también reduce la ganancia. Por supuesto hay un límite también. Porque el amplificador es muy básico, no tiene resistencia de realimentación ni degeneración del drenador.
-1. Modificar la conexión del FET. Se trata de cortar la pista de la parte G que habíamos nombrado antes. Para que el *source* ya no vaya conectado a masa. Así podemos reconectar el FET para que está conectado en **drenador común**, no hay amplificación pero a cambio la zona de trabajo es mucho más lineal. En esta imagen que sigue, obtenida de [http://sound.westhost.com/project58.htm](http://sound.westhost.com/project58.htm), veis a qué me refiero y en la web tenéis más explicaciones.
+1. Modificar la conexión del FET. Se trata de cortar la pista de la parte G que habíamos nombrado antes. Para que el *source* ya no vaya conectado a masa. Así podemos reconectar el FET para que está conectado en **drenador común**, no hay amplificación pero a cambio la zona de trabajo es mucho más lineal. En esta imagen que sigue, obtenida de <a href="http://sound.westhost.com/project58.htm">http://sound.westhost.com/project58.htm</a>, veis a qué me refiero y en la web tenéis más explicaciones.
 
 {% include image.html file="p58-f4a.gif" caption="" %}
 

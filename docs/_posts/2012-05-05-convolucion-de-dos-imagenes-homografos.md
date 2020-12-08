@@ -141,7 +141,7 @@ Superpongamos, como antes, la imagen original (o un fragmento, que es muy larga)
 
 Efectivamente el máximo está bajo la a. Con octave buscamos la posición y valor de cada máximo y lo guardamos en una variable. Suponiendo que previamente hemos creado las imágenes base, esta función es la que hace el calibrado:
 
-```cpp
+```matlab
 function [val, posi, posj] = calibrar
 
  % Convoluciona cada letra individual con la imagen de letras base,
@@ -220,6 +220,7 @@ $ ./creaDB 1089 1089
 Creando imagen con los caracteres base...
 Creando letras individuales: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
 Creando letras que compararemos: с
+
 
 Comparando (esto puede tardar)
 Calibrando...
@@ -354,7 +355,7 @@ cіenсіa сіenсіa cіencia
 сiеnсіa cіеnсia сіеnсiа
 ```
 
-Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo *verbatim*](http://support.google.com/websearch/bin/answer.py?hl=es&p=g_verb&answer=1734130) de google para que no os muestre palabras semejantes o relacionadas):
+Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo <em>verbatim</em>](http://support.google.com/websearch/bin/answer.py?hl=es&amp;p=g_verb&amp;answer=1734130) de google para que no os muestre palabras semejantes o relacionadas):
 
 {% include image.html file="ciencia_google.png" caption="" %}
 
@@ -375,6 +376,4 @@ Otros navegadores, por comodidad permiten al usuario decidir si prefiere ver el 
 No me consta que sea un ataque muy difundido a día de hoy, pero es una amenaza y podría ser un problema de seguridad en el futuro.
 
 Como siempre os dejo el código, una base de datos para pruebas, algunas imágenes y ejemplos en [este enlace](https://sites.google.com/site/electronicayciencia/homografos.zip).
-
-
 

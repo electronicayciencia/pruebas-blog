@@ -17,7 +17,7 @@ Se puede transmitir información por cable, por infrarrojos, por teléfono, modu
 
 En este artículo describiremos primero analógicamente cómo funcionan transmisor y receptor. Después, ya en el terreno digital, programaremos el firmware del transmisor. En cuanto al receptor, haremos primero un software dedicado y para terminar nos meteremos en el sistema operativo con unas explicaciones un tanto más avanzadas.
 
-Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar en estos módulos para medir distancias. No he encontrado la referencia exacta, pero a la vista se parecen mucho a los que vienen en el datasheet del modelo [400ST160](http://www.farnell.com/datasheets/1686089.pdf). 
+Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar en estos módulos para medir distancias. No he encontrado la referencia exacta, pero a la vista se parecen mucho a los que vienen en el datasheet del modelo [400ST160](http://www.farnell.com/datasheets/1686089.pdf).
 
 {% include image.html max-width="480px" file="mod_ultrasonido.png" caption="Medidor de distancia por ultrasonidos. Circuito de partida." %}
 
@@ -25,7 +25,7 @@ Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar 
 
 A la hora de proyectar un circuito para un propósito, considerad que **no existe** algo así como *el mejor*. Hay cientos de circuitos que sirven igualmente. A veces el mejor es el que emplea menos componentes. Otras el más económico, aunque más complicado. Podría ser el más duradero, el que obtiene mayor rendimiento a costa de reducir su vida útil, el que menos consume o más amplio rango de alimentación soporta.
 
-Un buen circuito es el que **funciona** y sirve a nuestros propósitos. Después siempre se puede mejorar. En general, para un aficionado, es aquel que usa los componentes más comunes y por tanto minimiza la compra. 
+Un buen circuito es el que **funciona** y sirve a nuestros propósitos. Después siempre se puede mejorar. En general, para un aficionado, es aquel que usa los componentes más comunes y por tanto minimiza la compra.
 
 En este artículo quiero centrarme en el receptor, y por esa razón el esquema del transmisor debía ser muy sencillo. Decidí utilizar un microcontrolador PIC 12F386. Este tendrá ya preprogramado el mensaje, y generará la portadora de 40kHz necesaria para activar el altavoz. Utilizaremos modulación ASK (o más concretamente OOK) por ser la más sencilla.
 
@@ -55,7 +55,7 @@ Para calcular **R2** nos apoyaremos en la capacidad del transductor emisor indic
 
 **C1** suele ser de 0.1uF o incluso de 47nF. No es crítico para este circuito, nos vale prácticamente cualquier cosa por encima: 0.1uF, 1, 3.3, 10 y hasta 47 o 100uF.
 
-La máxima frecuencia de reloj para el 12F683 es 20MHz. Este será el valor de **XTAL1**. **C2** y **C3** deben tener un valor igual al doble de la capacidad del cristal, pero ese dato pocas veces lo conocemos. Lo típico es usar entre 18 y 33pF. Si nos equivocamos la frecuencia del oscilador será un poco mayor o menor de lo previsto. Lo cual dentro de unos márgenes no es importante en este circuito. 
+La máxima frecuencia de reloj para el 12F683 es 20MHz. Este será el valor de **XTAL1**. **C2** y **C3** deben tener un valor igual al doble de la capacidad del cristal, pero ese dato pocas veces lo conocemos. Lo típico es usar entre 18 y 33pF. Si nos equivocamos la frecuencia del oscilador será un poco mayor o menor de lo previsto. Lo cual dentro de unos márgenes no es importante en este circuito.
 
 Nuestro transmisor montado sobre una protoboard. Se aprecia el zócalo para el PIC, y el conector ICSP que usaremos para programarlo y para alimentar el circuito. Los cables de la derecha van al altavoz.
 
@@ -105,7 +105,7 @@ Una etapa amplificadora formada por el operacional **U1** en configuración no i
 
 **D1**, **C2** y **R3** forman un rectificador de media onda. Cuando haya señal, **C2** se cargará a través del diodo. Y cuando la tensión en el condensador sea suficiente como para excitar **Q1** este empezará a conducir llevando a masa la base de **Q2**, positiva hasta el momento. **Q2** irá a corte, dejará de conducir y en la salida se manifestará la tensión de alimentación positiva a través de **R8**.
 
-Cuando la señal de entrada cese, **C2** se descargará a través de **R3**. La base de **Q1** no recibirá su tensión de polarización, este dejará de conducir y por tanto **Q2** lo hará, llevando a masa la salida en ausencia de señal, tal como habíamos previsto. 
+Cuando la señal de entrada cese, **C2** se descargará a través de **R3**. La base de **Q1** no recibirá su tensión de polarización, este dejará de conducir y por tanto **Q2** lo hará, llevando a masa la salida en ausencia de señal, tal como habíamos previsto.
 
 Resultado de la simulación:
 
@@ -123,7 +123,7 @@ Otro posible problema es el siguiente. Para activar la base de **Q1**, la tensi�
 
 Es un circuito muy sensible a los cambios en el nivel de entrada. Una señal más fuerte se manifestará con mayor intensidad y cargará el condensador antes que otra más débil. Asimismo, el comparador carece de histéresis y eso podría causar varios cambios seguidos en la salida antes de establecerse en un nivel alto.
 
-¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [**NE567** (Tone Decoder)](http://www.ti.com/lit/ds/symlink/lm567c.pdf), por ejemplo.
+¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [<b>NE567</b> (Tone Decoder)](http://www.ti.com/lit/ds/symlink/lm567c.pdf), por ejemplo.
 
 ## El receptor, circuito propuesto
 
@@ -137,7 +137,7 @@ Si hay algo que podría descartar definitivamente el LM358 para operar a 40kHz, 
 
 Puede parecer muchísimo. ¿A cuanto cambia la tensión en una señal de 40kHz? Permitidme omitir las cuentas. Básicamente se deriva y se busca el máximo. Resulta [251327 V/s](https://www.wolframalpha.com/input/?i=max+of+derivative+of+sin(40000*2*pi*t)) por cada voltio de amplitud. Es decir, que para no exceder el *slew rate* de 300000V/s la amplitud debe ser como mucho 1.19V. Como teníamos antes la limitación de 1V de salida, **nos vale**.
 
-¿Y qué pasa si superamos el slew rate? Pues nada, que amplifica menos y distorsiona. Pero como aquí lo que nos interesa es saber si hay señal a la entrada o no, la distorsión nos trae sin cuidado. 
+¿Y qué pasa si superamos el slew rate? Pues nada, que amplifica menos y distorsiona. Pero como aquí lo que nos interesa es saber si hay señal a la entrada o no, la distorsión nos trae sin cuidado.
 
 Para el uso que le vamos a dar, no necesitamos ni precisión, ni fidelidad. Decidimos usar el LM358 igualmente; ahora sí, conociendo sus limitaciones.
 
@@ -201,7 +201,7 @@ Probablemente sea preciso afinar los valores de las resistencias. De todas forma
 
 ## Firmware del transmisor
 
-Abandonamos ya la electrónica analógica para sumergirnos en lo digital. Dedicaré unas líneas a describir el software del transmisor del cual os pego aquí la parte relevante. El fichero completo lo tenéis en [este github](https://github.com/electronicayciencia/askrecv/tree/master/TX/c). 
+Abandonamos ya la electrónica analógica para sumergirnos en lo digital. Dedicaré unas líneas a describir el software del transmisor del cual os pego aquí la parte relevante. El fichero completo lo tenéis en [este github](https://github.com/electronicayciencia/askrecv/tree/master/TX/c).
 
 Arriba del todo están las funciones de más bajo nivel y al final del archivo la función *main*. Este estilo se llama *bottom-up* y ya lo usamos anteriormente en [El bus I2C a bajo nivel]({{site.baseurl}}{% post_url 2017-02-25-el-bus-i2c-bajo-nivel %}) o en [El bus 1-Wire a bajo nivel - DS1820]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}). Pero en esta ocasión implementamos un sencillísimo protocolo serie tipo UART.
 
@@ -238,7 +238,7 @@ void tx_bit(int1 v) {
 void tx_byte(char b) {
  #bit lsb = b.0;
  int1 p = 1; // odd parity
-
+ 
  tx_bit(0);
 
  char i = 0; // counter 
@@ -246,10 +246,10 @@ void tx_byte(char b) {
   tx_bit(lsb);
   p = p ^ lsb;
   b = b >> 1;
-
+  
   i++;
  }
-
+ 
  tx_bit(p);
  tx_bit(1);
 }
@@ -258,12 +258,12 @@ void main()
 { 
  const char message[] = 
  "Prueba de comunicacion serie por ultrasonidos.\n";
-
+ 
  //Configure PWM output
  // 40kHz 50% PWM config @20MHz
  setup_timer_2(T2_DIV_BY_1,124,1);
  set_pwm1_duty((int16)248);
-
+ 
  // Line UP
  setup_ccp1(CCP_PWM);
  delay_ms(500);
@@ -275,7 +275,7 @@ void main()
    tx_byte(message[i]);
    i++;
   }
-
+  
   delay_ms(100);
  }
 }
@@ -285,7 +285,7 @@ El resultado es un tren de pulsos como el siguiente:
 
 {% include image.html file="serial_P_100bauds.png" caption="Tren de pulsos generado por el transmisor. EyC." %}
 
-Nada más iniciarse empieza a generar la **portadora** de 40kHz. En este momento, si hubiera un receptor serie al otro lado activaría la señal [DCD *Data Carrier Detect*](https://en.wikipedia.org/wiki/Data_Carrier_Detect).
+Nada más iniciarse empieza a generar la **portadora** de 40kHz. En este momento, si hubiera un receptor serie al otro lado activaría la señal [DCD <em>Data Carrier Detect</em>](https://en.wikipedia.org/wiki/Data_Carrier_Detect).
 
 Para transmitir un byte lo primero es el bit de **start**, que siempre es 0. Esto interrumpe la línea y avisa al receptor del comienzo de un mensaje. Después se envían los 8 bits.
 
@@ -331,9 +331,9 @@ Hemos escrito un software para recibir los mensajes y funciona. Es como un **pue
 
 Mientras que nuestro receptor de ultrasonidos sigue siendo poco más que un interruptor muy rápido para poner una patilla GPIO a 0 o a 1. No puedo conectarle una consola, no puedo interactuar con él mediante ningún terminal serie, en definitiva: no está integrado en el sistema operativo.
 
-¿Qué se interpone entre un dispositivo hardware y el sistema operativo? ¡Un driver! ¡Hay que escribir un driver para el receptor ultrasónico! Pero trabajar en modo kernel es dolorosamente tedioso, sí, incluso para este blog. 
+¿Qué se interpone entre un dispositivo hardware y el sistema operativo? ¡Un driver! ¡Hay que escribir un driver para el receptor ultrasónico! Pero trabajar en modo kernel es dolorosamente tedioso, sí, incluso para este blog.
 
-Afortunadamente encontramos en GitHub un buen proyecto de UART por software. [Soft UART - A UART software implementation for Raspberry Pi](http://codeintherightway.blogspot.com.es/2017/09/soft-uart-implementation-for-raspberry.html). Hace referencia a una lectura imprescindible, muy recomendable si os interesa saber más sobre la programación en modo kernel. [Writing a Linux Kernel Module](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/). 
+Afortunadamente encontramos en GitHub un buen proyecto de UART por software. [Soft UART - A UART software implementation for Raspberry Pi](http://codeintherightway.blogspot.com.es/2017/09/soft-uart-implementation-for-raspberry.html). Hace referencia a una lectura imprescindible, muy recomendable si os interesa saber más sobre la programación en modo kernel. [Writing a Linux Kernel Module](http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/).
 
 El idioma es el de Mordor, que no pronunciaré aquí. En la lengua común implementa un *bit banging* parecido al que usamos en nuestro software, pero diferente en algunas partes porque un módulo de kernel no puede, por ejemplo, quedarse a la espera como un programa normal. Alrededor de esta implementación, crea un dispositivo de caracteres llamado **ttySOFT0** asociado a un pin GPIO dado en los parámetros del módulo.
 
@@ -344,6 +344,4 @@ Tras actualizar Raspbian, instalar las *kernel headers* y alguna otra cosilla m�
 Ahora tenemos un dispositivo hardware, parte del sistema operativo a todos los efectos. No vamos a conectar una consola serie porque no es bidireccional, pero podríamos.
 
 Aquí lo vamos a dejar por hoy. Espero que os haya gustado. Los esquemas y programas los tenéis en este github: [ASKRECV](https://github.com/electronicayciencia/askrecv).
-
-
 

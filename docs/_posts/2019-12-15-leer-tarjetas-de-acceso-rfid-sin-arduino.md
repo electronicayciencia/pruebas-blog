@@ -13,9 +13,9 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2019/12/leer-tarjetas
 
 Hoy comenzaremos hablando de osciladores, palos de bambú y géiseres y terminaremos hablando de seguridad física. Porque ¿sabes que las cocinas de inducción, los cargadores inalámbricos y algunos antirrobos se basan en el mismo principio que los tornos de entrada al trabajo?
 
-Vamos a ver cómo funcionan las tarjetas identificativas de proximidad de baja frecuencia -comúnmente llamadas RFID-. Pero antes de llegar hasta ahí, recorreremos un camino para entenderlo mejor. Hoy os traigo *experimentos con bobinas*. 
+Vamos a ver cómo funcionan las tarjetas identificativas de proximidad de baja frecuencia -comúnmente llamadas RFID-. Pero antes de llegar hasta ahí, recorreremos un camino para entenderlo mejor. Hoy os traigo *experimentos con bobinas*.
 
-Empezaremos por construir un oscilador muy sencillo, al que añadiremos un buffer y una etapa de salida a transistores. Con él excitaremos un circuito resonante LC y haremos algunas pruebas. Por último, leeremos un dispositivo RFID y, como *bonus track*, decodificaremos el protocolo de una tarjeta no estándar usando ingeniería inversa digital. 
+Empezaremos por construir un oscilador muy sencillo, al que añadiremos un buffer y una etapa de salida a transistores. Con él excitaremos un circuito resonante LC y haremos algunas pruebas. Por último, leeremos un dispositivo RFID y, como *bonus track*, decodificaremos el protocolo de una tarjeta no estándar usando ingeniería inversa digital.
 
 En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %}). Este lo vamos a dedicar a las oscilaciones forzadas y uno de sus usos más habituales en nuestro día a día.
 
@@ -27,7 +27,7 @@ Lo primero que necesitamos es un oscilador. ¿Podríamos haber usado un generado
 
 Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil de construir. Hay muchas opciones. En esta ocasión he optado por un oscilador de **relajación** usando comparadores LM393 ([datasheet](http://www.ti.com/lit/ds/symlink/lm2903-n.pdf)). Se trata de un comparador muy habitual y, si miráis el datasheet, su tiempo de respuesta es de 300ns, así que nos servirá para oscilar hasta pasado el MHz si hiciera falta.
 
-A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior. 
+A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior.
 
 {% include image.html file="Shishi-odoshi.jpg" caption="El Shishi-odoshi es el ejemplo típico de oscilador de relajación. <a href=\"https://en.wikipedia.org/wiki/Shishi-odoshi\" target=\"_blank\">Wikipedia.</a> " %}
 
@@ -68,7 +68,7 @@ Este segundo comparador tiene una de sus entradas a tensión fija por el divisor
 
 Pero excitar una bobina no es como encender un LED. Las bobinas se oponen a los cambios de corriente, tienen *inercia*. Piensa en una bobina grande como en algo que *pesa* mucho. Te cuesta empujarla y una vez empieza a moverse luego le cuesta frenarla.
 
-Recuerda que el comparador sólo puede con 20mA y sólo drenar, ni siquiera puede suministrar corriente. Para protegerlo vamos a terminar el circuito con una etapa de salida push-pull. Esta configuración permite tanto suministrar como drenar corriente. Ya la habíamos usado antes en: [Cómo funcionan las etiquetas magneto-acústicas]({{site.baseurl}}{% post_url 2013-07-03-etiquetas-antihurto-magneto-acusticas %}). 
+Recuerda que el comparador sólo puede con 20mA y sólo drenar, ni siquiera puede suministrar corriente. Para protegerlo vamos a terminar el circuito con una etapa de salida push-pull. Esta configuración permite tanto suministrar como drenar corriente. Ya la habíamos usado antes en: [Cómo funcionan las etiquetas magneto-acústicas]({{site.baseurl}}{% post_url 2013-07-03-etiquetas-antihurto-magneto-acusticas %}).
 
 {% include image.html file="osci1bufferpushpull.png" caption="Oscilador con salida push-pull. EyC." %}
 
@@ -93,7 +93,7 @@ Si antes decíamos que una bobina tiene *inercia* -porque se opone a los cambios
 La frecuencia de la oscilación está relacionada con la inductancia L y con la capacidad C de acuerdo con esta expresión:
 
 $$
- LC = \frac{1}{(2\pi f)^2} 
+LC = \frac{1}{(2\pi f)^2}
 $$
 
 *(Es la misma fórmula que para un muelle y un peso, pero cambiando el peso por L y la inversa de la fuerza del muelle por C).*
@@ -114,9 +114,9 @@ Resumiendo: mi bobina es de **940 ± 20 μH**. Despreciando la resistencia (30Ω
 
 Haber medido así la inductancia tiene un motivo: enseñaros que despreciando otros factores, la frecuencia de oscilación libre es la *frecuencia de resonancia*. Alimentar un circuito LC con una corriente alterna es como empujar un columpio. Si lo haces al tuntún apenas se moverá y te costará mucho; pero si lo empujas a la misma frecuencia que oscila él cuando lo dejas, entonces con cada oscilación la amplitud crece.
 
-Y al igual que sucede en un columpio, la amplitud llega a un máximo según la fuerza de empuje y el rozamiento. 
+Y al igual que sucede en un columpio, la amplitud llega a un máximo según la fuerza de empuje y el rozamiento.
 
-Ahora recuerda que la **impedancia** de la bobina tiene dos partes: una buena y otra mala. 
+Ahora recuerda que la **impedancia** de la bobina tiene dos partes: una buena y otra mala.
 
 La mala es la **resistencia** ohmmica y se debe al material. Disipa la energía en forma de calor y las oscilaciones se apagan antes. La podemos medir con un tester normal y está ahí siempre. La causa la resistencia del hilo de cobre, y esta depende de su longitud y su grosor.
 
@@ -126,11 +126,11 @@ La parte buena es la **reactancia** inductiva y se debe a su forma. Se opone a l
 
 Ahora ocurre un fenómeno curioso. En resonancia, y sólo en resonancia, la reactancia de la bobina se anula con la del condensador y sólo queda su resistencia. La intensidad que atraviesa el circuito está limitada únicamente por las resistencias de la bobina y de la etapa de salida.
 
-La bobina anterior con 940μH tenía 30Ω de resistencia. La de la etapa de salida mínimo otros 10Ω debido a **R9** y **R10**, unos 40Ω en total. La intensidad en picos se calcula dividiendo los 5V de alimentación entre los 40Ω, 125mA. 
+La bobina anterior con 940μH tenía 30Ω de resistencia. La de la etapa de salida mínimo otros 10Ω debido a **R9** y **R10**, unos 40Ω en total. La intensidad en picos se calcula dividiendo los 5V de alimentación entre los 40Ω, 125mA.
 
-Pero si la resonancia de nuestro circuito está en los 100kHz, por ejemplo, la impedancia de la bobina a esa frecuencia no serían los 30Ω de antes, sino más de **600Ω** por la reactancia. Aunque la intensidad seguirán siendo los 125mA ya calculados. Sin embargo la ley de Ohm dice que para que por una resistencia de 600Ω circulen 125mA, la tensión en sus extremos debe ser **75V**. 
+Pero si la resonancia de nuestro circuito está en los 100kHz, por ejemplo, la impedancia de la bobina a esa frecuencia no serían los 30Ω de antes, sino más de **600Ω** por la reactancia. Aunque la intensidad seguirán siendo los 125mA ya calculados. Sin embargo la ley de Ohm dice que para que por una resistencia de 600Ω circulen 125mA, la tensión en sus extremos debe ser **75V**.
 
-¿Y eso es de verdad o es un artificio matemático? ¿No teníamos sólo 5V? ¿De donde salen los 75? Los 75V son de verdad y se pueden medir. Igual que la energía de un columpio supera la fuerza con que lo empujaste. Las bobinas molan. En un circuito LC serie sintonizado a la frecuencia de resonancia, la tensión en los bornes de la bobina es **máxima**. Y aquí *máxima* significa sorprendentemente alta. 
+¿Y eso es de verdad o es un artificio matemático? ¿No teníamos sólo 5V? ¿De donde salen los 75? Los 75V son de verdad y se pueden medir. Igual que la energía de un columpio supera la fuerza con que lo empujaste. Las bobinas molan. En un circuito LC serie sintonizado a la frecuencia de resonancia, la tensión en los bornes de la bobina es **máxima**. Y aquí *máxima* significa sorprendentemente alta.
 
 Aquí tenemos la tensión en la unión de **Q1** y **Q2** (en verde) y la tensión en la bobina (amarillo). Fijaos en la escala de esta última: 20 V/div y la amplitud pico a pico es 80V.
 
@@ -142,7 +142,7 @@ El máximo teórico no se alcanza nunca por las pérdidas, y porque excitamos el
 
 En este clip podéis apreciar la el fenómeno de resonancia con una capacidad pequeña. A medida que nos acercamos a la frecuencia de oscilación natural, la amplitud crece. La resonancia tiene un margen muy estrecho porque el factor de calidad es alto. Y la tensión pico a pico en resonancia supera los 100Vpp.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/FsU0CnQ5dLw" width="480"></iframe><br />
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/FsU0CnQ5dLw" width="480"></iframe>
 
 ## Detector de envolvente
 
@@ -154,7 +154,7 @@ El diodo es fácil: un **1N4148**. Salvo que nos vayamos a frecuencias muy altas
 
 La resistencia es fácil también: alta pero no muy alta. Porque, como va en paralelo, si la ponemos baja se comerá mucha señal de salida y podría sacar de resonancia a la bobina emisora. Pero si la ponemos muy alta, el condensador se quedará cargado, ya que la corriente no puede retornar por el diodo y no tiene otro sitio donde ir. El circuito será muy lento y no reflejará a tiempo las variaciones de amplitud.
 
-Para el condensador recurrimos a la constante de tiempo RC y luego ya afinaremos si es preciso. Durante la fase de carga, la resistencia forma un divisor resistivo con la fuente. Si R es alta, como hemos dicho, la podemos despreciar y decir que sólo nos afecta la impedancia de salida de la fuente. 
+Para el condensador recurrimos a la constante de tiempo RC y luego ya afinaremos si es preciso. Durante la fase de carga, la resistencia forma un divisor resistivo con la fuente. Si R es alta, como hemos dicho, la podemos despreciar y decir que sólo nos afecta la impedancia de salida de la fuente.
 
 La descarga de **C** sí se hace sobre **R**. Ya sabéis que la carga y descarga son exponenciales. En una constante RC la carga cae hasta el 36% de su valor inicial. Con 100kΩ y 10nF ese periodo es de 1ms. Como os digo son valores iniciales, después habrá que ajustarlos.
 
@@ -166,7 +166,9 @@ Para **R12** hemos usando un trimmer en lugar de una resistencia fija, así nos 
 
 Para el siguiente clip de vídeo hemos construido un circuito resonante con otra bobina y un condensador acorde. Cuando lo acercamos al emisor, el circuito resuena y absorbe energía. Lo cual se traduce en una bajada de la amplitud. El comparador lo detecta y enciende el LED. Cuando anulamos el condensador, el receptor sale de resonancia, las oscilaciones recuperan su amplitud y el LED vuelve a apagarse.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/1gnATd2bHBo" width="480"></iframe><br /><br />Se podría decir que el LED se enciende cuando hay algo que está absorbiendo la energía, o que altera la oscilación de alguna forma. Ahora ya sabes por qué las **cocinas** de inducción detectan si tienes puesto algo al fuego.
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/1gnATd2bHBo" width="480"></iframe>
+
+Se podría decir que el LED se enciende cuando hay algo que está absorbiendo la energía, o que altera la oscilación de alguna forma. Ahora ya sabes por qué las **cocinas** de inducción detectan si tienes puesto algo al fuego.
 
 Lo más llamativo es que el receptor, además de alimentarse de la corriente inducida, puede enviar información al transmisor entrando y saliendo de resonancia.
 
@@ -200,7 +202,7 @@ Ajustamos la frecuencia a **125kHz** conectamos el osciloscopio para ver la señ
 
 En el siguiente vídeo vemos cómo al acercar una tarjeta a nuestra bobina, obtenemos una señal modulada en amplitud. Con el detector de envolvente la demodulamos y, finalmente, con el comparador la convertimos en una onda cuadrada. La primera tarjeta y el llavero se comportan de forma parecida, sin embargo hay una segunda tarjeta cuyo protocolo aún nos es **desconocido**.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/ESkHm3ysuzg" width="480"></iframe><br />
+<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/ESkHm3ysuzg" width="480"></iframe>
 
 ## El protocolo EM4100
 
@@ -264,7 +266,6 @@ Lo decodificamos igual que antes:
 
 ```
 111111111
-
      0001 1 -> 1
      0111 1 -> 7
      0000 0 -> 0
@@ -275,7 +276,7 @@ Lo decodificamos igual que antes:
      0010 1 -> 2
      1000 1 -> 8
      0100 1 -> 4
-
+   
      1011 0
 
 Versión: 0x17
@@ -298,7 +299,7 @@ Si la ampliamos un poco:
 
 {% include image.html max-width="480px" file="hid_scope2.png" caption="Modulación de la tarjeta ampliada. EyC." %}
 
-No parece ni Manchester ni nada conocido. El comparador ya no nos sirve, el analizador lógico tampoco. 
+No parece ni Manchester ni nada conocido. El comparador ya no nos sirve, el analizador lógico tampoco.
 
 Pasamos a control **manual**. ¿Os acordáis cuando tomamos una señal que no sabíamos qué era y la fuimos desgranando capa por capa? [Describiendo un protocolo desconocido]({{site.baseurl}}{% post_url 2017-12-25-describiendo-un-protocolo-desconocido %}).
 
@@ -320,7 +321,7 @@ Nos da el siguiente mensaje:
 LLLLHHHLHLHLHLHLHLHLHHLLHLHLHLHLHLHLHLHLHLHHLLHLHHLHLHLLHLHHLHLLHLHLHHLHLHLLHHLHLHLHLHLLHLHHLLHHLLLL
 ```
 
-¿Cómo sé que el mensaje empieza y acaba ahí? Porque es llamativo ver tantas L seguidas. Salvo al principio y al final, en el resto del mensaje no aparecen más de dos H o dos L seguidas. 
+¿Cómo sé que el mensaje empieza y acaba ahí? Porque es llamativo ver tantas L seguidas. Salvo al principio y al final, en el resto del mensaje no aparecen más de dos H o dos L seguidas.
 
 Además de señalarnos el principio y final, también significa que la codificación tiene al menos una transición por periodo. Si nos fijamos en que hay más cambios que letras seguidas, nos lleva una vez más a **Manchester**.
 
@@ -336,18 +337,15 @@ En este punto nos imaginamos que los números impresos en la tarjeta guardan alg
 
 ```
 00007666 -> 0001 1101 1111 0010
-
      115 -> 0111 0011
-
 ```
 
 Bueno pues resulta que ¡sí encontramos esas secuencias de bits! Por tanto la hipótesis que hemos hecho debía ser **correcta**: modulación FSK y código de línea Manchester:
 
 ```
-115                7666
+                                        115                7666
                                   --------- -------------------
                                   0111 0011 0001 1101 1111 0010
-
 Mensaje: 0000 0001 0000 0000 0010 0111 0011 0001 1101 1111 0010 1
 ```
 
@@ -376,7 +374,7 @@ Un mensaje Wiegand consta de **26 bits**. El primer bit es un bit de paridad de 
 El mensaje anterior sería:
 
 ```
-0x0801              P FC=115   CN=7666          Q
+    0x0801              P FC=115   CN=7666          Q
 000 0000 1000 0000 0001 0 01110011 0001110111110010 1
 ```
 
@@ -387,6 +385,4 @@ Pero hay una diferencia crucial entre las tarjetas de efecto Wiegand reales y la
 En conclusión, la comunicación unidireccional conlleva mensajes estáticos, breves y repetidos en bucle, siendo sencillos de imitar por un atacante. Por eso esta tecnología está en desuso en favor de las tarjetas NFC de HF (13.56MHz). Operar a mayor frecuencia permite una velocidad de transferencia mayor y más potencia para la alimentación.
 
 La comunicación con las tarjetas NFC modernas es bidireccional. Los mensajes ya no son estáticos sino desafío-respuesta (como en una tarjeta monedero de chip). Muchas versiones como [Mifare](https://en.wikipedia.org/wiki/MIFARE) incorporan criptografía fuerte, lo cual las hace muy difíciles de falsificar.
-
-
 

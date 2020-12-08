@@ -19,7 +19,7 @@ La respuesta inmediata es: se coge una cucharilla, y se pesa o se mide una cucha
 
 ¿Seguro? Vamos a repetirlo: ahora da 4.27g. Sí, distinto. Por varios motivos la cantidad de líquido que porta una cucharilla no es siempre la misma.
 
-Esto es algo habitual en el laboratorio, al medir varias veces una magnitud no obtenemos siempre el mismo resultado. No hablamos de medir la longitud de una mesa o pesar una manzana. La forma de medir esas magnitudes hace que no varíen. Pero hay otras en las que el proceso de medida no es exacto. Por ejemplo ¿cuánto tarda el sonido en llegar de un punto a otro? o ¿cuánto duran 10 oscilaciones de un péndulo? Son magnitudes que en cada medida darán resultados próximos pero diferentes. Esto se debe a varios factores: el aire, nuestros reflejos al iniciar y parar el cronómetro, retardos en la electrónica, etc. Las causas de error son múltiples. 
+Esto es algo habitual en el laboratorio, al medir varias veces una magnitud no obtenemos siempre el mismo resultado. No hablamos de medir la longitud de una mesa o pesar una manzana. La forma de medir esas magnitudes hace que no varíen. Pero hay otras en las que el proceso de medida no es exacto. Por ejemplo ¿cuánto tarda el sonido en llegar de un punto a otro? o ¿cuánto duran 10 oscilaciones de un péndulo? Son magnitudes que en cada medida darán resultados próximos pero diferentes. Esto se debe a varios factores: el aire, nuestros reflejos al iniciar y parar el cronómetro, retardos en la electrónica, etc. Las causas de error son múltiples.
 
 Es importante destacar que no es la magnitud la que varía, porque en la realidad siempre tiene el mismo valor, sino que es el proceso de medición el que debido al error arroja unos resultados distintos cada vez.
 
@@ -33,16 +33,16 @@ Ahora que sabemos que no basta con hacer una sola medida, vamos a pensar en hace
 
 Es un experimento muy sencillo: tomamos una balanza, y sobre ella colocamos un recipiente ligero. Vamos añadiendo cucharillas de agua y anotamos el peso que indica la balanza. Eso nos daría la capacidad de la cucharilla en gramos, pero si suponemos que la densidad del agua del grifo es 1g/cm³ entonces tenemos la capacidad en ml.
 
-[Esta es la hoja de datos que hemos recogido](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&hl=es&authkey=CPrEzZAH), se trata de dos cucharillas pequeñas y una grande:
+[Esta es la hoja de datos que hemos recogido](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&amp;hl=es&amp;authkey=CPrEzZAH), se trata de dos cucharillas pequeñas y una grande:
 
-<iframe frameborder="0" height="300" src="https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&authkey=CPrEzZAH&hl=es&single=true&gid=1&output=html&widget=true" width="500"></iframe>
+<iframe frameborder="0" height="300" src="https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dFBZY05pYjdXeGpKVHNVMlFncmNWdUE&amp;authkey=CPrEzZAH&amp;hl=es&amp;single=true&amp;gid=1&amp;output=html&amp;widget=true" width="500"></iframe>
 
 Ahora hay que pensar un camino para trabajar con estos datos:
 
-- Por un lado podríamos calcular una [regresión lineal](http://www.blogger.com/post-create.g?blogID=1915800988134045998#), cuya pendiente nos daría la capacidad media. Sin embargo hemos hecho la prueba dos veces, y de alguna manera tendríamos que combinar esas medidas, el cálculo se complica.
+- Por un lado podríamos calcular una <a href="http://www.blogger.com/post-create.g?blogID=1915800988134045998#">regresión lineal</a>, cuya pendiente nos daría la capacidad media. Sin embargo hemos hecho la prueba dos veces, y de alguna manera tendríamos que combinar esas medidas, el cálculo se complica.
 - La otra opción es aprovechar que la variable independiente -la X- es incremental: 1 cucharada, 2 cucharadas, 3, 4, 5... así que la capacidad de una cucharada es la diferencia entre cada dos valores consecutivos. Eso es lo que se ve en las columnas *Diferencia*. **Elegimos esta opción.** 
 
-En las columnas *Diferencia* está la cantidad de agua que contenía cada cucharada... y cada medida es distinta en cada vez. Aún empleando la misma cucharilla, no hay dos cucharadas que contengan exactamente la misma cantidad de líquido. Sabemos que en estos casos en que el error es aleatorio, los valores se distribuyen según la **distribución normal** o campana de Gauss. Con la muestra de la cucharilla 2 tendría esta forma. 
+En las columnas *Diferencia* está la cantidad de agua que contenía cada cucharada... y cada medida es distinta en cada vez. Aún empleando la misma cucharilla, no hay dos cucharadas que contengan exactamente la misma cantidad de líquido. Sabemos que en estos casos en que el error es aleatorio, los valores se distribuyen según la **distribución normal** o campana de Gauss. Con la muestra de la cucharilla 2 tendría esta forma.
 
 {% include image.html file="gausiana_2.png" caption="" %}
 
@@ -72,9 +72,9 @@ Eso mismo nos pasa a nosotros, tenemos 50, pero eso no es más que un subconjunt
 
 Es obvio que no lo sabemos, pero podemos suponer que si antes ha salido 3.73, **es probable** que ronde ese número, y **es improbable** que saliera muy alejada. Tenemos por tanto otra distribución de probabilidad, que nos dice cómo de probable es obtener una media u otra al hacer un determinado número de medidas sobre una población. Queda saber qué forma tiene esa distribución.
 
-Hay un teorema, que se llama **[ Teorema Central del Límite](http://www.graphpad.com/help/prism5/prism5help.html?the_central_limit_theorem_of_statistics.htm)** que dice que si cogemos muchas muestras de una población, y empezamos a calcular sus medias, estas se distribuyen siguiendo una normal. Y da igual que la distribución origen sea normal o no, siempre que el número de muestras sea lo suficientemente grande (mientras más infinito mejor). La desviación estándar de esa distribución es la misma que la de la población original dividido por la raíz cuadrada del número de medidas de la muestra. Para aclaraciones ver [este enlace de la Wikipedia](http://es.wikipedia.org/wiki/Teorema_del_l%C3%ADmite_central) o, si entendéis inglés, [este vídeo es muy bueno](http://www.youtube.com/watch?v=J1twbrHel3o).  
+Hay un teorema, que se llama **[ Teorema Central del Límite](http://www.graphpad.com/help/prism5/prism5help.html?the_central_limit_theorem_of_statistics.htm)** que dice que si cogemos muchas muestras de una población, y empezamos a calcular sus medias, estas se distribuyen siguiendo una normal. Y da igual que la distribución origen sea normal o no, siempre que el número de muestras sea lo suficientemente grande (mientras más infinito mejor). La desviación estándar de esa distribución es la misma que la de la población original dividido por la raíz cuadrada del número de medidas de la muestra. Para aclaraciones ver [este enlace de la Wikipedia](http://es.wikipedia.org/wiki/Teorema_del_l%C3%ADmite_central) o, si entendéis inglés, [este vídeo es muy bueno](http://www.youtube.com/watch?v=J1twbrHel3o).
 
-Es decir, que si tenemos una muestra con una media de 3.37, y desviación típica 0.41 con 50 datos seguramente venga de una distribución con media también 3.37 y desviación típica 2.9. Pero esto, que es aproximadamente verdad, **no es del todo cierto**. Porque no sabemos la desviación típica de la población, el 0.41 es tan sólo la de nuestra muestra; la cual, lo mismo que la media variará entre unas muestras y otras. 
+Es decir, que si tenemos una muestra con una media de 3.37, y desviación típica 0.41 con 50 datos seguramente venga de una distribución con media también 3.37 y desviación típica 2.9. Pero esto, que es aproximadamente verdad, **no es del todo cierto**. Porque no sabemos la desviación típica de la población, el 0.41 es tan sólo la de nuestra muestra; la cual, lo mismo que la media variará entre unas muestras y otras.
 
 ## La distribución t de Student
 
@@ -82,9 +82,13 @@ Así que no pudiendo usar la distribución normal, porque la varianza (que es el
 
 Esta distribución se llama *t de Student*, o simplemente *t*. A medida de aumenta el tamaño de la muestra se va pareciendo más a la distribución normal, y con una muestra de más de 25 o 30 medidas el prácticamente ya son idénticas.
 
-**Pregunta:** *¿Cual es la probabilidad de que teniendo una población total de media X (la que digamos), tomemos una muestra de 50 valores y su media nos dé 3.73?*<br />**Respuesta:** Por el teorema central del límite que habíamos nombrado antes, sabemos que la distribución de las medias es una distribución normal, independientemente de la forma que tenga la distribución origen.
+**Pregunta:** *¿Cual es la probabilidad de que teniendo una población total de media X (la que digamos), tomemos una muestra de 50 valores y su media nos dé 3.73?*
 
-**Pregunta:**  *¿Cual es la probabilidad de que si tenemos una muestra con media 3.73, esta provenga de una población -normal o no- con media X (la que digamos)?* <br />**Respuesta:** Pues debería ser también normal, pero como no sabemos la varianza de la población sino sólo la de nuestra muestra, nos tenemos que resignar a usar la menos precisa t de Student.
+**Respuesta:** Por el teorema central del límite que habíamos nombrado antes, sabemos que la distribución de las medias es una distribución normal, independientemente de la forma que tenga la distribución origen.
+
+**Pregunta:**  *¿Cual es la probabilidad de que si tenemos una muestra con media 3.73, esta provenga de una población -normal o no- con media X (la que digamos)?*
+
+**Respuesta:** Pues debería ser también normal, pero como no sabemos la varianza de la población sino sólo la de nuestra muestra, nos tenemos que resignar a usar la menos precisa t de Student.
 
 ## Intervalos de confianza para la media
 
@@ -92,15 +96,19 @@ La distribución de t nos dice cual es la probabilidad de que la media de la pob
 
 {% include image.html file="ci_media_cuch2.png" caption="" %}
 
-Como vemos, si la media de la muestra es 3.73 lo más probable es que la del total esté en torno a ese valor, simplemente porque no hay motivos para pensar que no sea así. No obstante también podría ser 3.70, o 3.75. 
+Como vemos, si la media de la muestra es 3.73 lo más probable es que la del total esté en torno a ese valor, simplemente porque no hay motivos para pensar que no sea así. No obstante también podría ser 3.70, o 3.75.
 
-Sin embargo a medida que nos alejamos del valor medio es más improbable que la media de la población vaya a ser esa. Por ejemplo fijaos en el 3.5. Su probabilidad es casi cero. Lo que significa esto es que *si la media de 50 valores nos ha salido 3.73 con una desviación típica de 0.41, es muy muy improbable que la muestra venga de una población en la que la media fuera 3.5.*. 
+Sin embargo a medida que nos alejamos del valor medio es más improbable que la media de la población vaya a ser esa. Por ejemplo fijaos en el 3.5. Su probabilidad es casi cero. Lo que significa esto es que *si la media de 50 valores nos ha salido 3.73 con una desviación típica de 0.41, es muy muy improbable que la muestra venga de una población en la que la media fuera 3.5.*.
 
 En vista de que no tenemos un valor determinado para la media, sólo podemos indicar el intervalo en que consideramos más probable que esté. Si tomamos el intervalo que va 3.61 a 3.85 tendremos un 95% de probabilidades de que la media real esté contenida en él. Mientras que si cogemos un intervalo más amplio como el que va entre 3.57 y 3.89 la probabilidad sube hasta 99%. Es lo que se denominan *intervalos de confianza al 95% o al 99%*.
 
-**Pregunta:***¿Podemos estar seguros de que la media no está, por decir algo, entre 4 y 5?*<br />**Respuesta:** Podemos estar *casi* seguros, por ejemplo la probabilidad de que así fuera es de 1 en 80000. Mientras que la del intervalo 5-6 es prácticamente cero.
+**Pregunta:***¿Podemos estar seguros de que la media no está, por decir algo, entre 4 y 5?*
 
-**Pregunta:** *¿Pero entonces la media no es 3.73?*<br />**Respuesta:** ¡No! Es imposible que la capacidad sea un número clavado como 3.73, en la naturaleza no existen esos números tan redondos, los que los redondeamos y aproximamos somos siempre nosotros. La probabilidad de que sea exactamente 3.73 ... es justamente cero. Sí, es el valor más probable de todos, pero para nosotros es uno más en el intervalo. De hecho la probabilidad de que la medida real esté comprendida entre 3.73 y 3.74 no llega al 7%. No significa que no pueda ser esa, sino que con los datos que sabemos sólo podríamos asegurarlo con una confianza del 7%.
+**Respuesta:** Podemos estar *casi* seguros, por ejemplo la probabilidad de que así fuera es de 1 en 80000. Mientras que la del intervalo 5-6 es prácticamente cero.
+
+**Pregunta:** *¿Pero entonces la media no es 3.73?*
+
+**Respuesta:** ¡No! Es imposible que la capacidad sea un número clavado como 3.73, en la naturaleza no existen esos números tan redondos, los que los redondeamos y aproximamos somos siempre nosotros. La probabilidad de que sea exactamente 3.73 ... es justamente cero. Sí, es el valor más probable de todos, pero para nosotros es uno más en el intervalo. De hecho la probabilidad de que la medida real esté comprendida entre 3.73 y 3.74 no llega al 7%. No significa que no pueda ser esa, sino que con los datos que sabemos sólo podríamos asegurarlo con una confianza del 7%.
 
 ## Expresar del resultado
 

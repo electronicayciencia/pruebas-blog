@@ -18,7 +18,7 @@ Como la mejor forma de ver cómo funciona algo es practicándolo, he escrito una
 
 A los que ya conocéis las generalidades del bus, permitidme dar un repaso rápido para encaminar el artículo antes de ir a las profundidades.
 
-A diferencia del 1-Wire, I2C tiene una **línea de reloj** dedicada. Eso quiere decir que el reloj lo controlamos nosotros. Y por eso no habrá problema si el tiempo de espera resulta ser 15us en lugar de 5us. Problema que sí se da en otros buses como 1-Wire. 
+A diferencia del 1-Wire, I2C tiene una **línea de reloj** dedicada. Eso quiere decir que el reloj lo controlamos nosotros. Y por eso no habrá problema si el tiempo de espera resulta ser 15us en lugar de 5us. Problema que sí se da en otros buses como 1-Wire.
 
 Además es relativamente **lento** en el modo estándar. La frecuencia habitual de I2C es 100kHz. Indica la máxima frecuencia a la cual el dispositivo puede trabajar con fiabilidad, pero no la mínima, y de hecho puede ser tan baja como queramos. Como luego veremos se trata de un arma de doble filo, pues de no incorporar un *timeout* propio, un dispositivo puede dejar **bloqueado** el bus entero.
 
@@ -60,7 +60,7 @@ Todo se entiende mejor con un pequeño ejemplo.
 
 El I2C es uno de los buses que mejor se presta al *bit banging*. Se llama así a la práctica de emular por software bit a bit lo que normalmente haría un hardware dedicado.
 
-El bus tiene una linea de reloj dedicada. Eso lo simplifica todo muchísimo. Porque al contrario de lo que ocurría con 1-wire, donde los tiempos de espera eran críticos, **en I2C el tiempo *no existe***. El único tiempo que importa es el que marcamos nosotros mediante la linea SCL. 
+El bus tiene una linea de reloj dedicada. Eso lo simplifica todo muchísimo. Porque al contrario de lo que ocurría con 1-wire, donde los tiempos de espera eran críticos, **en I2C el tiempo *no existe***. El único tiempo que importa es el que marcamos nosotros mediante la linea SCL.
 
 Como os anticipaba, he escrito unas funciones para emular I2C por software en Raspberry Pi utilizando WiringPi y las he subido a un [ repositorio github](https://electronicayciencia.github.io/wPi_soft_i2c/).
 
@@ -171,7 +171,7 @@ i2c_t i2c_init(int scl, int sda) {
 
  port.scl = scl;
  port.sda = sda;
-
+ 
  pinMode(scl, INPUT);
  pinMode(sda, INPUT);
  pullUpDnControl(scl, PUD_UP);
@@ -239,7 +239,7 @@ void i2c_send_bit(i2c_t port, int bit) {
   _i2c_release(port.sda);
  else
   _i2c_pull(port.sda);
-
+  
  _i2c_release_wait(port.scl);
  _i2c_pull(port.scl);
 
@@ -261,7 +261,7 @@ int i2c_read_bit(i2c_t port) {
  s = digitalRead(port.sda);
  _i2c_pull(port.scl);
  _i2c_pull(port.sda);
-
+ 
  return s;
 }
 ```
@@ -343,7 +343,7 @@ Podría contaros cómo se compone una conversación I2C típica. Tienen todas un
 
 De nuevo, para resaltar lo obvio, el bus I2C es un **bus**, y eso significa varios dispositivos conectados a los mismos cables. Al igual que en cualquier bus se necesita una forma de dirigirse a uno concreto de todos los dispositivos al alcance. En **1-wire** es una dirección única de 64 bit, en **SPI** es una línea física individual de Chip Select... En **I2C** cada dispositivo tiene una dirección de 7 bit, con una parte fija y -en muchos integrados de uso común- otra variable.
 
-Los 4 primeros bit de la dirección corresponden a lo que se llama el "**grupo**" de dispositivos. Pretende ser una especie de categoría, pero no vais a encontrar un criterio definido para la agrupación. Por ejemplo el grupo 7 (0111) agrupa chips relacionados con el manejo de LCD. El grupo 8 (1000), integrados para recepción de radio y televisión. El grupo A (1010) contiene memorias EEPROM, relojes o calendarios. El 9 (1001) contiene al ADC **PCF8591**, y también selectores de video, entre otros. El C (1100) agrupa integrados relacionados con RF (sintonizadores, PLL, etc). 
+Los 4 primeros bit de la dirección corresponden a lo que se llama el "**grupo**" de dispositivos. Pretende ser una especie de categoría, pero no vais a encontrar un criterio definido para la agrupación. Por ejemplo el grupo 7 (0111) agrupa chips relacionados con el manejo de LCD. El grupo 8 (1000), integrados para recepción de radio y televisión. El grupo A (1010) contiene memorias EEPROM, relojes o calendarios. El 9 (1001) contiene al ADC **PCF8591**, y también selectores de video, entre otros. El C (1100) agrupa integrados relacionados con RF (sintonizadores, PLL, etc).
 
 Hay dos grupos especiales: el 1111, que está reservado para utilizarlo en integrados que usan direcciones de 10 bit en lugar de las habituales de 7 bit; y el 0000 para broadcast.
 
@@ -403,7 +403,7 @@ i2c_t i2c = i2c_init(9,8);
 
 Recordad que en Raspberry Pi 3 los pines GPIO 8 y 9 (numeración wiringpi) tienen la función de I2C por **hardware**. Si lo tenéis habilitado es recomendable elegir otros pines o bien descargar los módulos I2C del kernel.
 
-Ahora vamos al datasheet del integrado -[disponible aquí](http://www.nxp.com/documents/data_sheet/PCF8591.pdf)-. Lo primero que buscamos es su dirección I2C, **48h**. 
+Ahora vamos al datasheet del integrado -[disponible aquí](http://www.nxp.com/documents/data_sheet/PCF8591.pdf)-. Lo primero que buscamos es su dirección I2C, **48h**.
 
 Para usarlo en modo ADC debemos empezar enviando el byte de control. Con este byte indicaremos cómo disponer las entradas y el canal que nos interesa leer.
 
@@ -455,36 +455,27 @@ Y ya para terminar el artículo, he creído interesante contar con las funciones
 
 La invocación es mediante la consola de comandos indicando, igual que para **i2c_init**, los puertos **SCL** y **SDA** en numeración wiringpi.
 
- 
+    
 
     $ ./i2cli 9 8
 
     I2C Command Line Interface
-
     I2C ready. SCL: 9, SDA: 8
 
 Admite los siguientes comandos:
 
     s: envía señal Start
-
     p: envía señal stoP
-
     a: envía un bit 0 (Ack)
-
     n: envía un bit 1 (Nak)
-
     wHH: envía el byte HH en hexadecimal y lee el ack
-
     r: recibe un byte, no envía ningún ack
-
     q: salir
-
     C: barre el bus en busca de dispositivos
 
 Por ejemplo, tenemos una EEPROM tipo 24lc128. Su dirección habitual es entre el 50h y el 53h.
 
     i2cli> C
-
     * Device found at 50h  (R: a1, W: a0)
 
 Nos indica que, siendo la dirección 50h, para una operación de **lectura** debemos enviar A1h (50h más un bit a 1) y para escritura A0h.
@@ -492,61 +483,37 @@ Nos indica que, siendo la dirección 50h, para una operación de **lectura** deb
 Vamos a escribir los valores **5b** y **5c** por ejemplo, en la **dirección** 0001h. Para lo cual escribimos la dirección del chip, a continuación la dirección de memoria y seguidamente los datos. Al terminal mandamos un stop para finalizar la operación. En ese momento la EEPROM guarda los datos y durante unos 5ms su dirección I2C no contesta.
 
     i2cli> s      ; start
-
     i2cli> wa0    ; 50h -> escritura
-
     a0 -> ACK
-
     i2cli> w00    ; address MSB 00h
-
     00 -> ACK
-
     i2cli> w00    ; address LSB 01h
-
     00 -> ACK
-
     i2cli> w5b    ; write 0001: 5b
-
     5b -> ACK
-
     i2cli> w5c    ; write 0002: 5c
-
     5c -> ACK
-
     i2cli> p      ; stop
 
 Ahora vamos a leer el valor escrito en la dirección **0002h**, que debe ser 5c. Para esto, según el datasheet, debemos lanzar la operación primero como si fuera una escritura y escribir los dos bytes de la dirección desde la que queremos leer:
 
     i2cli> s      ; start
-
     i2cli> wa0    ; 50h write
-
     a0 -> ACK
-
     i2cli> w00    ; address MSB 00h
-
     00 -> ACK
-
     i2cli> w02    ; address LSB 02h
-
     02 -> ACK
 
 Pero a diferencia de antes, ahora no enviamos datos, sino que continuación, sin lanzar un stop, debemos enviar de nuevo el start. Y proceder como si la operación fuera de **lectura**. Leyendo tantos bytes como deseemos desde la dirección solicitada en adelante.
 
     i2cli> s   ; restart
-
     i2cli> wa1    ; 50h read
-
     a1 -> ACK
-
     i2cli> r   ; read byte
-
     5c         ; byte in 0002: 5c 
-
     i2cli> p   ; ack
-
     i2cli> q   ; quit
-
     i2cli> Bye!
 
 Nada más por ahora. Si os interesa el tema, os dejo un documento comparando tipos de buses en especial I2C: [http://www.nxp.com/documents/customer_presentation/design_con_2003_tecforum_i2c_bus_overview.pdf](http://www.nxp.com/documents/customer_presentation/design_con_2003_tecforum_i2c_bus_overview.pdf)
@@ -554,6 +521,4 @@ Nada más por ahora. Si os interesa el tema, os dejo un documento comparando tip
 El manual de las funciones lo podéis encontrar en [https://electronicayciencia.github.io/wPi_soft_i2c/](https://electronicayciencia.github.io/wPi_soft_i2c/).
 
 Los archivos utilizados para elaborar este artículo están en el repositorio [https://github.com/electronicayciencia/wPi_soft_i2c](https://github.com/electronicayciencia/wPi_soft_i2c)
-
-
 

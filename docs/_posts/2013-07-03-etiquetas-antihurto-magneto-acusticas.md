@@ -54,7 +54,7 @@ El **número 3** no es más que un separador de plástico.
 
 El **número 4** es una tira de material ferromagnético, es decir *imantable*. Y sirve para alterar el campo magnético que rodea a las tiras de aleación.
 
-Existe una propiedad física que se llama [**magnetostricción**](https://es.wikipedia.org/wiki/Magnetostricci%C3%B3n) y consiste en que un material se estira y se encoge cuando está inmerso en un campo magnético alterno. Naturalmente son movimientos microscópicos e invisibles. La próxima vez que paséis cerca de un transformador tal vez oigáis un zumbido. Aunque sabemos que no tienen ninguna pieza móvil, los transformadores mal sujetos vibran al paso de la corriente alterna. Es por la magnetostricción del núcleo, que hace que se estire y se encoja microscópicamente cincuenta veces por segundo. Como la vibración es muy pequeña, se nota más en los transformadores grandes.
+Existe una propiedad física que se llama [<b>magnetostricción</b>](https://es.wikipedia.org/wiki/Magnetostricci%C3%B3n) y consiste en que un material se estira y se encoge cuando está inmerso en un campo magnético alterno. Naturalmente son movimientos microscópicos e invisibles. La próxima vez que paséis cerca de un transformador tal vez oigáis un zumbido. Aunque sabemos que no tienen ninguna pieza móvil, los transformadores mal sujetos vibran al paso de la corriente alterna. Es por la magnetostricción del núcleo, que hace que se estire y se encoja microscópicamente cincuenta veces por segundo. Como la vibración es muy pequeña, se nota más en los transformadores grandes.
 
 Bueno pues la aleación de la que hablábamos tiene esa misma característica pero potenciada. No sólo eso, además las tiras están cortadas con un largo y un ancho calculados para que, de la misma forma que una cuerda de guitarra, vibren a una frecuencia exacta.
 
@@ -67,7 +67,7 @@ El límite de audición llega hasta 20kHz por lo que la frecuencia de 58kHz es u
 No es la primera vez que hablamos en este blog de fenómenos de resonancia. Por favor, leed estas dos entradas si no lo habéis hecho para tener presente un ejemplo más cercano y muy visual de lo que vamos a hacer a continuación:
 
 - [Espectroscopía casera con copas]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %})
-- [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %})
+- [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %})<br>
 
 En estas dos entradas empleábamos sonido audible, y copas normales. Lo que viene después es exactamente el mismo fenómeno pero con campos magnéticos y frecuencias ultrasónicas. Parece muy abstracto, pero en realidad es algo muy típico.
 
@@ -216,7 +216,7 @@ Además, decíamos que la frecuencia de resonancia variaba según estuviera magn
 
 Las etiquetas sólo responden al campo magnético de 58kHz cuando la placa polarizadora está imantada, decimos entonces que está activada. Y si está desimantada no hay respuesta. Así que sólo tenemos que imantar y desimantar el metal.
 
-Es un proceso sencillo pero que tiene su técnica. Por ejemplo, este vídeo: [Cómo imantar/magnetizar y desimantar/desmagnetizar un destornillador](https://www.youtube.com/watch?v=JRiSIXBV-aw). Para imantarlo hay que pasar el imán varias veces a corta distancia (tocando incluso). 
+Es un proceso sencillo pero que tiene su técnica. Por ejemplo, este vídeo: [Cómo imantar/magnetizar y desimantar/desmagnetizar un destornillador](https://www.youtube.com/watch?v=JRiSIXBV-aw). Para imantarlo hay que pasar el imán varias veces a corta distancia (tocando incluso).
 
 Los metales ferromagnéticos (imantables) están formados por *dominios magnéticos* independientes. Que son como pequeños imanes en su interior. Al principio estos dominios están orientados al azar, y la magnetización resultante es cero, porque se anulan entre sí. Pero cuando acercamos un imán potente, lo que hacemos es orientar los dominios magnéticos. Haciendo que en lugar de anularse mutuamente, sumen sus fuerzas. Es cuando se manifiesta el magnetismo.
 
@@ -277,7 +277,7 @@ En cuanto pasamos con la etiqueta sin desactivar la amplitud asciende, supera el
 
 {% include image.html file="detector_disparado.png" caption="" %}
 
-Entre el verde y el rojo, hay una zona amarilla que es de *incertidumbre*. La  señal es muy alta para provenir de pulsos normales, pero no tan alta como para detectar claramente una etiqueta activada. Puede ser simplemente ruido, puede ser una etiqueta activa pero defectuosa o puede que no se haya desactivado bien al pasar por caja y por tanto resuene a una frecuencia diferente a la principal con menos intensidad. 
+Entre el verde y el rojo, hay una zona amarilla que es de *incertidumbre*. La  señal es muy alta para provenir de pulsos normales, pero no tan alta como para detectar claramente una etiqueta activada. Puede ser simplemente ruido, puede ser una etiqueta activa pero defectuosa o puede que no se haya desactivado bien al pasar por caja y por tanto resuene a una frecuencia diferente a la principal con menos intensidad.
 
 Se trata de una medida indirecta, que necesita una etiqueta claramente activa o inactiva, una señal muy fuerte y varios pulsos con eco seguidos para hacer subir el nivel por encima del disparo. Un valor de *alpha* de **0.0002** dispararía la alarma al cabo de, aproximadamente, una décima de segundo.
 
@@ -316,7 +316,7 @@ Hay aparatos que emiten ruido en una frecuencia cercana 58kHz con la intención 
 
 Espero que os haya resultado un tema interesante. Para terminar os dejo varios ficheros.
 
-[Fichero básico](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_basico.zip?attredirects=0&d=1)
+[Fichero básico](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_basico.zip?attredirects=0&amp;d=1)
 
 - Excel para el cálculo del circuito resonante.
 - Excel para el cálculo de los temporizadores 555.
@@ -325,16 +325,14 @@ Espero que os haya resultado un tema interesante. Para terminar os dejo varios f
 - Software de detección en Perl/Tk.
 - Patente original en PDF.
 
-[Fichero imágenes](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_imag.zip?attredirects=0&d=1)
+[Fichero imágenes](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_imag.zip?attredirects=0&amp;d=1)
 
 - Imágenes y fotografías del proceso.
 - Fuente de las imágenes compuestas en formato Gimp.
 
-[Fichero sonido](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_wav.zip?attredirects=0&d=1)
+[Fichero sonido](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_wav.zip?attredirects=0&amp;d=1)
 
 - Capturas de sonido usadas en el artículo.
 
 {% include image.html file="IMAG0465.jpg" caption="" %}
-
-
 

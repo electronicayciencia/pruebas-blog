@@ -48,7 +48,7 @@ Hay que pensar despacio cómo presentar los resultados ya que de ello depende la
 
 {% include image.html file="tabla.png" caption="" %}
 
-Los atacantes crecen hacia abajo, mientras que los defensores lo hacen hacia la derecha. 
+Los atacantes crecen hacia abajo, mientras que los defensores lo hacen hacia la derecha.
 
 La tabla está dividida en tres zonas. El color rojo indica que hay más de un 75% de probabilidades de que gane el atacante. El color azul lo mismo pero para el defensor. El color cielo aquí es neutro. Fijaos que la diagonal siempre es neutra. Eso significa que a igual número de ejércitos, ningún jugador tiene *significativamente* más probabilidades de ganar que el otro (en el caso 1 vs. 1 un 58% frente a 42% no es significativo).
 

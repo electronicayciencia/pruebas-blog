@@ -11,19 +11,16 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/watchdog-para
 
 Hoy os quiero presentar un sencillo *watchdog* que reinicie automáticamente el PC cuando detecta que este se ha colgado.
 
-Hay multitud de circuitos de este estilo en Internet. Desde el más simple [missing pulse detector](http://www.ecelab.com/circuit-miss-pulse-det.htm) a los más profesionales que tienen interfaz PCI pasando por los basados en el [74123](http://www.simandl.cz/stranky/elektro/resetator/resetator.htm) o los más modernos usando [chips dedicados](http://www.maxim-ic.com/landing.cfm?lp=410&CMP=4576). Pero todos se basan en lo mismo: esperamos recibir una señal cada cierto tiempo, si no se recibe en un intervalo dado, asumimos que el PC está muerto y se reinicia.
+Hay multitud de circuitos de este estilo en Internet. Desde el más simple [missing pulse detector](http://www.ecelab.com/circuit-miss-pulse-det.htm) a los más profesionales que tienen interfaz PCI pasando por los basados en el [74123](http://www.simandl.cz/stranky/elektro/resetator/resetator.htm) o los más modernos usando [chips dedicados](http://www.maxim-ic.com/landing.cfm?lp=410&amp;CMP=4576). Pero todos se basan en lo mismo: esperamos recibir una señal cada cierto tiempo, si no se recibe en un intervalo dado, asumimos que el PC está muerto y se reinicia.
 
 El que os presento hoy está compuesto de un 7490, que es un contador decádico, y un [ICM7556](http://www.maxim-ic.com/quick_view2.cfm/qv_pk/1503), que no es más que un LM556 de toda la vida con consumo y otras cositas mejoradas. Uso estos porque eran los que tenía por casa cuando diseñé el circuito, pero con cualquier otro contador se podría hacer también.
 
 Antes de nada tenemos que buscar una señal que se reciba periódicamente mientras el PC responda. Una opción sería mandar por el puerto serie una cadena, y que el PC nos respondiera otra, dándolo por muerto si no lo hace en un determinado tiempo. Pero tiene algunos inconvenientes:
 
-1. Para empezar necesitaríamos un puerto serie, que en los PCs modernos empiezan a desaparecer lentamente en favor del mucho menos amistoso USB (comunicarse con el puerto serie es muy sencillo, comunicarse usando el USB es una odisea de narices, menos mal que podemos hacer un conversor sencillo para ocasiones concretas).
-
-1. Por un lado necesitaríamos un programa especial corriendo en segundo plano, que estuviera escuchando en ese puerto y respondiera adecuadamente. Este programa debe programarse para el sistema operativo que se esté usando, debe instalarse y hasta que no empezara a funcionar el dispositivo podría creer que el PC está colgado.
-
-1. Por otro lado, ocupamos un puerto libre, que podemos necesitar o no.
-
-1. Y por último para construir este circuito sería necesario un microcontrolador **que también podría colgarse**. Por eso lo ideal para hacer de watchdog es un circuito cuanto más simple mejor.
+1. Para empezar necesitaríamos un puerto serie, que en los PCs modernos empiezan a desaparecer lentamente en favor del mucho menos amistoso USB (comunicarse con el puerto serie es muy sencillo, comunicarse usando el USB es una odisea de narices, menos mal que podemos hacer un conversor sencillo para ocasiones concretas).<br>
+1. Por un lado necesitaríamos un programa especial corriendo en segundo plano, que estuviera escuchando en ese puerto y respondiera adecuadamente. Este programa debe programarse para el sistema operativo que se esté usando, debe instalarse y hasta que no empezara a funcionar el dispositivo podría creer que el PC está colgado.<br>
+1. Por otro lado, ocupamos un puerto libre, que podemos necesitar o no.<br>
+1. Y por último para construir este circuito sería necesario un microcontrolador **que también podría colgarse**. Por eso lo ideal para hacer de watchdog es un circuito cuanto más simple mejor.<br>
 
 La señal que yo he empleado es el led del disco duro, es habitual que un PC lea del disco duro de vez en cuando, desde que arranca hasta que se apaga.
 
@@ -47,13 +44,10 @@ Cuando todas las salidas de IC1 están a nivel alto -lo que significa que al sig
 
 Esta alarma sonará durante todo el periodo previo al reinicio.
 
-## Notas
+**Notas**
 
-- Los colores de los cables sólo son orientativos. (Bl = Blanco, Nj = Naranja, Rj = Rojo, Ng = Negro).
-
+- Los colores de los cables sólo son orientativos. (Bl = Blanco, Nj = Naranja, Rj = Rojo, Ng = Negro).<br>
 - Los terminales nombrados SL2 son para conectar un interruptor para activar o desactivar el circuito a voluntad.
 - SL3 es el conector de alimentación. Este circuito se conecta a cualquier toma de tensión de 5 voltios.
-- La numeración de los componentes es un tanto caótica.
-
-
+- La numeración de los componentes es un tanto caótica.<br>
 

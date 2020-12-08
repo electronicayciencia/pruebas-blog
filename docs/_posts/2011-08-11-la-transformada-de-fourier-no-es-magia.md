@@ -40,7 +40,7 @@ Antes de dar respuesta a la pregunta anterior, hay que familiarizarse con otro p
 
 En primer lugar definimos un intervalo. Que será un vector de N puntos igualmente espaciados. Por ejemplo tomaremos el intervalo de 0 a 2π. ¿Por qué? Pues porque como vamos a trabajar con senos y cosenos parece una elección apropiada. Claro que no es la única opción válida. Y dentro de ese intervalo evaluamos la función en 1000 puntos (1000 *samples*).
 
-```
+```matlab
 npuntos = 1000;
 inicio  = 0;
 fin     = 2*pi;
@@ -113,7 +113,7 @@ Todavía no vamos a hablar de Hercios, solamente llamamos *frecuencia* al númer
 Ya hemos visto lo que pasa cuando "comparamos" (*correlamos*) funciones de una sola frecuencia, sinusoidales puras. Pues vamos a componer una función sumando frecuencias puras y a ver si también podemos hacer el mismo análisis que hemos hecho antes. Cogemos nuestra onda de muestra, por ejemplo una composición de cosenos y senos con las frecuencias 2, 5 y 6:
 
 $$
-anal\_frec = \cos 2x +\cos 5x +\sin 6x 
+anal\_frec = \cos 2x +\cos 5x +\sin 6x
 $$
 
 {% include image.html file="anal_frec.png" caption="" %}
@@ -122,11 +122,27 @@ Lo llamamos *anal_frec* para que sea más fácil de leer. Esto es lo que pasa cu
 
 Usando el **coseno**:
 
-sum(anal_frec.*cos(1*x)) = 0<br />**sum(anal_frec.*cos(2*x)) = 500**<br />sum(anal_frec.*cos(3*x)) = 0<br />sum(anal_frec.*cos(4*x)) = 0<br />**sum(anal_frec.*cos(5*x)) = 500**<br />sum(anal_frec.*cos(6*x)) = 0<br />sum(anal_frec.*cos(7*x)) = 0<br />sum(anal_frec.*cos(8*x)) = 0<br />sum(anal_frec.*cos(9*x)) = 0
+    sum(anal_frec.*cos(1*x)) = 0
+    sum(anal_frec.*cos(2*x)) = 500
+    sum(anal_frec.*cos(3*x)) = 0
+    sum(anal_frec.*cos(4*x)) = 0
+    sum(anal_frec.*cos(5*x)) = 500
+    sum(anal_frec.*cos(6*x)) = 0
+    sum(anal_frec.*cos(7*x)) = 0
+    sum(anal_frec.*cos(8*x)) = 0
+    sum(anal_frec.*cos(9*x)) = 0
 
 Usando el **seno**:
 
-sum(anal_frec.*sin(1*x)) = 0<br />sum(anal_frec.*sin(2*x)) = 0<br />sum(anal_frec.*sin(3*x)) = 0<br />sum(anal_frec.*sin(4*x)) = 0<br />sum(anal_frec.*sin(5*x)) = 0<br />**sum(anal_frec.*sin(6*x)) = 500**<br />sum(anal_frec.*sin(7*x)) = 0<br />sum(anal_frec.*sin(8*x)) = 0<br />sum(anal_frec.*sin(9*x)) = 0
+    sum(anal_frec.*sin(1*x)) = 0
+    sum(anal_frec.*sin(2*x)) = 0
+    sum(anal_frec.*sin(3*x)) = 0
+    sum(anal_frec.*sin(4*x)) = 0
+    sum(anal_frec.*sin(5*x)) = 0
+    sum(anal_frec.*sin(6*x)) = 500
+    sum(anal_frec.*sin(7*x)) = 0
+    sum(anal_frec.*sin(8*x)) = 0
+    sum(anal_frec.*sin(9*x)) = 0
 
 Ya veis cómo se identifican perfectamente las frecuencias que componen la señal. ¿Cuanto menos es curioso, no?
 
@@ -134,23 +150,29 @@ Ya veis cómo se identifican perfectamente las frecuencias que componen la seña
 
 Ya hemos comprobado que **en una suma de varias frecuencias el resultado es cero salvo para las frecuencias que componen la onda.** ¿Y cuando no vale cero, cuánto vale? Pues es independiente de la frecuencia, y en nuestro dominio de 0 a 2π vale justo la mitad de los puntos del intervalo. Aunque puede ser distinto en otras definiciones de la función. Si había mil puntos, el resultado es 500. Como digo independientemente de la frecuencia, y ya sea para el seno o para el coseno, ved:
 
-sum(sin(3*x).*sin(3*x)) = 500<br />sum(sin(7*x).*sin(7*x)) = 500
+    sum(sin(3*x).*sin(3*x)) = 500
+    sum(sin(7*x).*sin(7*x)) = 500
+    
+    sum(cos(4*x).*cos(4*x)) = 500
+    sum(cos(9*x).*cos(9*x)) = 500
 
-sum(cos(4*x).*cos(4*x)) = 500<br />sum(cos(9*x).*cos(9*x)) = 500
-
-Un resultado más práctico sería dividir por ese valor máximo. Así nos dará 1 cuando las funciones son iguales y 0 cuando son completamente diferentes. Y siempre dará el mismo valor cojamos los puntos que cojamos. A esta operación se le llama **normalización**. 
+Un resultado más práctico sería dividir por ese valor máximo. Así nos dará 1 cuando las funciones son iguales y 0 cuando son completamente diferentes. Y siempre dará el mismo valor cojamos los puntos que cojamos. A esta operación se le llama **normalización**.
 
 Y digo que es un valor más práctico porque mirad lo que pasa cuando sumo funciones de diferentes amplitudes:
 
 $$
-anal\_ampl = 1\cos 3x  + \frac{1}{2} \cos 4x 
+anal\_ampl = 1\cos 3x  + \frac{1}{2} \cos 4x
 $$
 
 {% include image.html file="anal_ampl.png" caption="" %}
 
 Ahora hago el mismo análisis que antes, hasta el 5 para abreviar:
 
-sum(anal_ampl.*cos(1*x))/500 = 0<br />sum(anal_ampl.*cos(2*x))/500 = 0<br />**sum(anal_ampl.*cos(3*x))/500 = 1**<br />**sum(anal_ampl.*cos(4*x))/500 = 1/2**<br />sum(anal_ampl.*cos(5*x))/500 = 0
+    sum(anal_ampl.*cos(1*x))/500 = 0
+    sum(anal_ampl.*cos(2*x))/500 = 0
+    sum(anal_ampl.*cos(3*x))/500 = 1
+    sum(anal_ampl.*cos(4*x))/500 = 1/2
+    sum(anal_ampl.*cos(5*x))/500 = 0
 
 El resultado es 1 para la frecuencia 3, porque para eso hemos dividido. Mientras que para la frecuencia 4 sólo es 0.5, que justamente es la amplitud que le habíamos puesto a esa frecuencia.
 
@@ -166,11 +188,11 @@ $$
 
 Si lo analizamos con el coseno ya no nos da 1:
 
-sum(anal_fase.*cos(2*x))/500 =  0.87758
+    sum(anal_fase.*cos(2*x))/500 =  0.87758
 
 Y más extraño aún, cuando le aplicamos el seno obtenemos un valor negativo:
 
-sum(anal_fase.*sin(2*x))/500 = -0.47943
+    sum(anal_fase.*sin(2*x))/500 = -0.47943
 
 El 1/2 es la fase inicial, que va desde $$-{\pi \over 2}$$ a $$+{\pi \over 2}$$ . El que los resultados no sean 0 y 1 lo que nos dice es que la onda no viene ni de un seno ni de un coseno. Sino que es una mezcla del seno y coseno.
 
@@ -215,7 +237,7 @@ Bien, para una señal ya sabemos decir qué frecuencias la componen, en qué pro
 
 Vamos a meter estos cálculos en una función para tenerlos bien a mano y le llamamos por ejemplo *correla*.
 
-```cpp
+```matlab
 function [amplitud, fase, real, imag] = correla(frecuencia, senal, intervalo)
  % Asumimos que tanto senal como intervalo son un vectores fila de igual tamaño.
  norm = numel(intervalo)/2;
@@ -271,7 +293,7 @@ fase = 0
 
 Las frecuencias con amplitud distinta de 0 son 2 y 5, la frecuencia 2 tiene 1/2 de amplitud y su fase inicial es aproximadamente -1/3. La amplitud de la frecuencia 5 es 9/10 y no tiene fase inicial, es 0. Comparemos el resultado con la primera señal incógnita, que es:
 
-senal_incognita_1 = 0.5*cos(2*x-0.333) + 0.9*cos(5*x);
+    senal_incognita_1 = 0.5*cos(2*x-0.333) + 0.9*cos(5*x);
 
 No está nada mal. Vamos con la **segunda señal incógnita**:
 
@@ -279,7 +301,7 @@ No está nada mal. Vamos con la **segunda señal incógnita**:
 
 Esas ondulaciones parecen de una frecuencia mucho más alta que 5. Así que si nos ponemos a hacerlo a mano nos vamos a aburrir. Mejor lo metemos dentro de un bucle y hacemos que el programa pruebe automáticamente las frecuencias desde 1 hasta, por ejemplo 50 y que escriba por pantalla únicamente las amplitudes que superen un valor, digamos 0.001:
 
-```cpp
+```matlab
 function analiza_correla(senal,intervalo)
  % Vamos correlando la señal con frecuencias desde 1 a 50
  for i = [1:50]
@@ -303,7 +325,7 @@ Frec: 47 -> Ampl: 0.300, Fase: 0.000
 
 Efectivamente, la definición de *senal_incognita_2* era:
 
-senal_incognita_2 = 0.9*cos(2*x+1) + 0.5*cos(12*x) + 0.3*cos(47*x);
+    senal_incognita_2 = 0.9*cos(2*x+1) + 0.5*cos(12*x) + 0.3*cos(47*x);
 
 La función *analiza_correla*, esa que nos da las frecuencias y las fases de cualquier señal, no es sino una versión casera de nuestra transformada de Fourier.
 
@@ -313,9 +335,9 @@ Lo que hemos hecho hasta ahora es lo que se llama una DFT, una **transformada di
 
 En octave la función FFT recibe una forma de onda y devuelve un vector de números complejos de todas las frecuencias posibles (es un poco más, pero de momento nos quedamos con esto). El primer elemento del resultado corresponde con la frecuencia 0, la componente continua de la señal. Lo hemos obviado antes y lo vamos a omitir ahora porque es un caso especial. El segundo elemento es la frecuencia 1, el tercero la 2, y así.
 
-Montamos un bucle similar al que hicimos con *correla*; salvo que en lugar de calcular la FFT frecuencia a frecuencia, calculamos todo y luego el bucle actúa sobre el vector de resultados: 
+Montamos un bucle similar al que hicimos con *correla*; salvo que en lugar de calcular la FFT frecuencia a frecuencia, calculamos todo y luego el bucle actúa sobre el vector de resultados:
 
-```cpp
+```matlab
 function analiza_fft(senal)
  % Calculamos la FFT de la senal de entrada
  % Nos devolverá coordenadas cartesianas, pasamos a polares.
@@ -326,6 +348,7 @@ function analiza_fft(senal)
  % tenido en cuenta pero FFT no lo preve.
  norm = numel(senal)/2;
  ampl = ampl / norm;
+ 
 
  % Calculamos las frecuencias del 0 al 50
  % El primer elemento de la matriz es 1.
@@ -362,13 +385,14 @@ prueba_real.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, m
 
 Cargamos el fichero en Octave:
 
-octave:123> senal = wavread ("prueba_real.wav");
+    octave:123> senal = wavread ("prueba_real.wav");
 
 Veamos el tamaño:
 
-octave:129> size(senal)<br />ans =
-
-    35142       1
+    octave:129> size(senal)
+    ans =
+    
+        35142       1
 
 Tiene 35142 samples, si tuviera 44100 duraría exactamente un segundo. En este caso dura 0.796 segundos simplemente dividiendo.
 
@@ -376,20 +400,22 @@ Vamos a pasar de las funciones que hemos hecho y vamos a ir al grano ¿cómo se 
 
 Calculamos la FFT de nuestra señal y la dividimos entre la mitad del número de puntos en el intervalo. Ojo que **este intervalo no va de 0 a 2π**, sobre el valor de normalización podríamos hablar más, pero después de todo no es más que un factor de escala.
 
-octave:151> fourier = fft(senal)/17571;<br />octave:152> size (fourier)<br />ans =
-
-    35142       1
+    octave:151> fourier = fft(senal)/17571;
+    octave:152> size (fourier)
+    ans =
+    
+        35142       1
 
 Ya vemos que nos devuelve un vector del mismo número de elementos que el que le pasamos. ¿Qué contiene el resultado?
 
 - **El primer elemento**. El elemento 0 (aunque aquí es 1 porque el índice de las matrices en octave comienza por 1) es la frecuencia 0. Esto es, la componente continua. Aquí va a ser casi siempre muy pequeña, prácticamente 0 porque las tarjetas de sonido incorporan un condensador para eliminar la continua. Cualquier valor que aparezca se deberá al offset de fábrica del conversor ADC que incorpore la tarjeta. Como curiosidad siempre es real, y el valor que sale es el doble.
-- **Los elementos del 1 a la mitad del intervalo,** en este caso del 2 al 17571 son complejos como los que hemos visto ya. Su módulo indica la amplitud y su argumento la fase de la frecuencia. El elemento 2 corresponde a la frecuencia más baja y el 17571 a la más alta. ¿Cual es la frecuencia más alta? Pues es precisamente la mitad de la de muestreo. Ese resultado se llama [Teorema de Nyquist-Shannon](http://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon). Como el archivo se grabó a 44100 muestras por segundo, la mayor frecuencia que se pudo registrar es de 22050Hz (que ya está por encima del rango audible, por eso los CD se graban a 44100Hz).
+- **Los elementos del 1 a la mitad del intervalo,** en este caso del 2 al 17571 son complejos como los que hemos visto ya. Su módulo indica la amplitud y su argumento la fase de la frecuencia. El elemento 2 corresponde a la frecuencia más baja y el 17571 a la más alta. ¿Cual es la frecuencia más alta? Pues es precisamente la mitad de la de muestreo. Ese resultado se llama <a href="http://es.wikipedia.org/wiki/Teorema_de_muestreo_de_Nyquist-Shannon">Teorema de Nyquist-Shannon</a>. Como el archivo se grabó a 44100 muestras por segundo, la mayor frecuencia que se pudo registrar es de 22050Hz (que ya está por encima del rango audible, por eso los CD se graban a 44100Hz).
 - **El elemento 17572**, justo en el punto medio, nos aparece porque tenemos un número par de puntos. Quitando el primer elemento que es el 0, queda un número impar de puntos. Es también real siempre.
 - **Los elementos del 17573 en adelante**, no aportan más información de la que ya tenemos, pues no son más que los complejos conjugados de los elementos anteriores (del 2 al 17571) a modo de espejo.
 
 Así que para nuestro análisis nos quedamos con los elementos que van desde el 1 al 17571 y descartamos el resto:
 
-fourier = fourier(1:17571)
+    fourier = fourier(1:17571)
 
 De esos, el 1 es la frecuencia 0Hz y el 17571 corresponde a 22050Hz. Aquí es muy importante que notéis que la frecuencia máxima sólo depende de la velocidad de muestreo, mientras que la FFT va a devolver más o menos valores según el tamaño de la muestra que le pasemos. Por eso al analizar muestras muy breves no tenemos precisión en la frecuencia (salen muy pocos puntos), y para tener precisión en la frecuencia necesitamos muestras más largas, con lo que perdemos precisión en el tiempo. ¿No os suena a un **principio de incertidumbre**? Justo, es eso mismo.
 
@@ -412,7 +438,7 @@ frecs  = [inicio:bw:fin-bw];
 
 Como a priori no tenemos idea de por donde andan las amplitudes, no tiene sentido fijar un umbral mínimo. Así que lo mejor será hacer un gráfico inicialmente para tener una idea. Aquí no nos interesan las fases, sólo las amplitudes.
 
-plot(frecs, abs(fourier))
+    plot(frecs, abs(fourier))
 
 {% include image.html file="tr_f_lineal.png" caption="" %}
 
@@ -424,11 +450,11 @@ Eso está mejor. Ahí vemos el **espectro de frecuencias** de la señal de entra
 
 Primero obtenemos un vector con las amplitudes en decibelios.
 
-decibelios = 10*log(abs(fourier));
+    decibelios = 10*log(abs(fourier));
 
 Y seleccionamos de tales amplitudes aquellas que superen los -55dB:
 
-picos = find(decibelios > -55);
+    picos = find(decibelios > -55);
 
 Y sabiendo las posiciones de los picos, listamos las frecuencias y las amplitudes correspondientes:
 
@@ -438,7 +464,6 @@ ans =
 
      50.196    -43.140
         ...
-
    1062.908    -31.894
    1064.163    -28.219
    1065.417    -22.614
@@ -447,12 +472,10 @@ ans =
    1069.182    -25.794
    1070.437    -30.263
         ...
-
    2209.894    -48.728
    2211.149    -46.431 *
    2212.404    -53.628
         ...
-
    4038.296    -50.119
    4039.551    -49.515 *
 ```
@@ -464,6 +487,4 @@ Por ejemplo *snd* tiene múltiples opciones de análisis. El resultado no puede 
 {% include image.html file="captura_snd.png" caption="" %}
 
 También supongo que habréis visto en sitios que en lugar de hacerlo con el módulo del resultado lo hacen con el **cuadrado**. Se hace cuando nos interesa más la **potencia** que la amplitud, pues esta varía con el cuadrado de la amplitud. No importa, como hemos tomado logaritmos calcular el cuadrado no es más que multiplicar por dos; al fin y al cabo un simple cambio de escala, pero el resultado es el mismo. Lo mismo que ocurría con la normalización. La diferencia sólo se nota si vamos a usar los resultados numéricos en cálculos posteriores.
-
-
 

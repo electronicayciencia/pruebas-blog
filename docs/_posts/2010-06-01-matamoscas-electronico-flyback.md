@@ -10,7 +10,7 @@ thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_0l2Lgz8NI/AAAAAAAAANw/OAc8VbW
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/matamoscas-electronico-flyback.html
 ---
 
-Hace unas semanas pedí por correo un aparato poco común en España, o por lo menos yo no lo he visto nunca. El caso es que lo pedí por curiosidad y porque costaba 4€. Se trata de un [matamoscas electrónico](http://www.1freeaday.com/page.php?file=product&id=10006731), y se supone que fríe a los insectos con una descarga. Es parecido una raqueta de tenis, pero tiene tres niveles de malla. Las dos mallas exteriores tiene unos huecos grandes para permitir el paso del bicho hacia la malla interior, que es de un mallado mucho más tupido. En cuanto la víctima toca ambas mallas recibe una descarga de más de 600V.
+Hace unas semanas pedí por correo un aparato poco común en España, o por lo menos yo no lo he visto nunca. El caso es que lo pedí por curiosidad y porque costaba 4€. Se trata de un [matamoscas electrónico](http://www.1freeaday.com/page.php?file=product&amp;id=10006731), y se supone que fríe a los insectos con una descarga. Es parecido una raqueta de tenis, pero tiene tres niveles de malla. Las dos mallas exteriores tiene unos huecos grandes para permitir el paso del bicho hacia la malla interior, que es de un mallado mucho más tupido. En cuanto la víctima toca ambas mallas recibe una descarga de más de 600V.
 
 La pregunta es ¿cómo obtiene 600V si se alimenta con dos pilas de 1.5V? Creo que no tardé ni diez minutos en desmontarlo. Veamos cómo funciona.
 
@@ -22,7 +22,7 @@ Hay varios métodos para elevar la tensión de una batería hasta los 600V. En e
 
 Un transformador normal se diseña para que la transferencia de energía desde el primario al secundario sea óptima. Eso nos garantiza un buen rendimiento. Y esto se hace pensando en que la corriente que aplicamos al primario es sinusoidal pura, como lo es la tensión de 220V / 50Hz (110V / 60Hz) que tenemos en casa, y también los 30kV de los cables de media y alta tensión.
 
-Si alimentamos un transformador normal con una onda que no es pura, por ejemplo una onda cuadrada, esta tiene armónicos; frecuencias espurias más allá de los 50Hz para las que no está diseñado, y se traduce en pérdidas y calor. Pero lo que es peor, tiene cambios bruscos de 0 al 100% de golpe y viceversa. 
+Si alimentamos un transformador normal con una onda que no es pura, por ejemplo una onda cuadrada, esta tiene armónicos; frecuencias espurias más allá de los 50Hz para las que no está diseñado, y se traduce en pérdidas y calor. Pero lo que es peor, tiene cambios bruscos de 0 al 100% de golpe y viceversa.
 
 Un **flyback** está precisamente diseñado para funcionar en esas condiciones. No está optimizado para transferir energía sino para acumular un campo magnético muy fuerte en su núcleo. Se trata de alimentar el primario a golpes, crear el campo magnético y de repente cortar la corriente lo más rápido posible para que se induzca un campo enorme y se transfiera al secundario.
 
@@ -47,7 +47,7 @@ El esquema es el siguiente:
     Q1: 2SD1616
     T1: (ver texto)*
 
-Se trata nada más (y nada menos) que de un oscilador de bloqueo ([*blocking oscillator*](http://en.wikipedia.org/wiki/Blocking_oscillator)), o más bien una ligera modificación de este. Es el circuito típico para excitar un flyback.
+Se trata nada más (y nada menos) que de un oscilador de bloqueo ([<em>blocking oscillator</em>](http://en.wikipedia.org/wiki/Blocking_oscillator)), o más bien una ligera modificación de este. Es el circuito típico para excitar un flyback.
 
 1. El transistor Q1 está en principio apagado.
 1. Cuando se pulsa el interruptor la corriente circula desde la batería hacia la resistencia R2, atraviesa la bobina de feedback y llega hasta la base del transistor.
@@ -71,7 +71,7 @@ En los terminales de C1 se llega fácilmente a los 600V, un condensador de 270nF
 
 ## Peligrosidad de una descarga
 
-Os puedo asegurar que si sentís una descarga no querréis repetir. Sin embargo para los humanos, por dolorosa que sea la sensación, **no implica daño** permanente en los tejidos. La energía que acumula C1 es pequeña; eso significa que recibiremos 600V durante un tiempo muy corto, cortísimo. Tal energía se puede calcular así: 
+Os puedo asegurar que si sentís una descarga no querréis repetir. Sin embargo para los humanos, por dolorosa que sea la sensación, **no implica daño** permanente en los tejidos. La energía que acumula C1 es pequeña; eso significa que recibiremos 600V durante un tiempo muy corto, cortísimo. Tal energía se puede calcular así:
 
 $$
 W_C = {1 \over 2} C V^2
@@ -85,7 +85,11 @@ Así que mucho cuidado al desmontar cámaras con flash, televisores y otros apar
 
 Por último, las bromas y juegos que implican descargas tienen [este mismo principio]({{site.baseurl}}{% post_url 2010-10-06-bromas-de-alta-tension %}), pero al no utilizar condensador no suponen el peligro anterior.
 
-Os dejo estos enlaces donde podéis encontrar información sobre flybacks, hay muchos más buscando un poco en Internet.<br />[http://madlabs.info/flyback.shtml](http://madlabs.info/flyback.shtml)<br />[http://www.powerlabs.org/flybackdriver.htm](http://www.powerlabs.org/flybackdriver.htm)
+Os dejo estos enlaces donde podéis encontrar información sobre flybacks, hay muchos más buscando un poco en Internet.
+
+[http://madlabs.info/flyback.shtml](http://madlabs.info/flyback.shtml)
+
+[http://www.powerlabs.org/flybackdriver.htm](http://www.powerlabs.org/flybackdriver.htm)
 
 Los archivos utilizados para hacer esta entrada están disponibles en [este enlace](http://sites.google.com/site/electronicayciencia/friemosquitos.rar).
 

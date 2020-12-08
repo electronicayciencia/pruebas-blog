@@ -35,18 +35,18 @@ void ir_send(unsigned int32 code)
 {
  unsigned char i = 0;
  disable_interrupts(GLOBAL); 
-
+ 
  // Envío el START
  set_pwm1_duty(13);
  delay_us(9000);
-
+ 
  set_pwm1_duty(0);
  delay_us(4500);
 
  // Voy desgranando el código
  while (i < 32) {
   #bit first = code.31
-
+  
   // Transmitimos un 1
   if (first) {
    set_pwm1_duty(13);
@@ -54,7 +54,7 @@ void ir_send(unsigned int32 code)
    set_pwm1_duty(0);
    delay_us(1690); 
   }
-
+  
   // Transmitimos un 0
   else {
    set_pwm1_duty(13);
@@ -62,16 +62,16 @@ void ir_send(unsigned int32 code)
    set_pwm1_duty(0);
    delay_us(560); 
   }
-
+  
   code <<= 1;
   i++;
  }
-
+ 
  // Bit de parada
  set_pwm1_duty(13);
  delay_us(560); 
  set_pwm1_duty(0);
-
+ 
  enable_interrupts(GLOBAL);
 }
 ```

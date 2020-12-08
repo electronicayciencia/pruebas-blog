@@ -12,7 +12,7 @@ thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TH-2Bada6mI/AAAAAAAAAWk/qvmVjuY
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/sensor-optico-sencillo-con-amplio-rango.html
 ---
 
-Llevo ya unas cuantas entradas que no publico algo serio de electrónica. Espero que os guste este experimento. Se trata de usar la capacidad parásita de un LED para medir la luz incidente. Aviso de que esta entrada es larga. 
+Llevo ya unas cuantas entradas que no publico algo serio de electrónica. Espero que os guste este experimento. Se trata de usar la capacidad parásita de un LED para medir la luz incidente. Aviso de que esta entrada es larga.
 
 Comenzaremos hablando de lo que es el rango dinámico, luego presentaré el esquema del montaje que se va a utilizar y la programación necesaria tanto en el PIC como en el PC. Después haremos un gráfico con los datos recogidos donde se ven distintos fenómenos y finalmente explicaré el principio físico en que se apoya.
 
@@ -30,7 +30,7 @@ Que un led se puede usar como fotodiodo no es ninguna novedad. Hay dos formas de
 
 En un fotodiodo normal, la **intensidad** que circula estando polarizado en inversa es función de la luz que incide sobre él. En la construcción del fotodiodo se ha tenido en cuenta maximizar este efecto, porque esa es la función principal del componente. Sin embargo un LED no está hecho para eso. Igualmente, un LED es un diodo abierto a la luz, y si lo empleamos como fotodiodo también notaremos un incremento de la corriente inversa. Pero es muy leve, y así tal cual no nos va a servir.
 
-La segunda forma es más ingeniosa. Consiste en aprovechar la **capacidad parásita** del dispositivo. Un LED tiene dos patas conductoras. Cuando está polarizado en directa estas patas están *unidas* por una unión semi**conductora**, sin embargo cuando está inversamente polarizado, tales están *separadas* por la misma unión **semi**conductora. Se trata de un resumen rápido, al final del artículo lo explico con un poco más de detalle. El caso es que cuando están separadas se forma una capacidad ridícula, del orden de los picoFaradios. 
+La segunda forma es más ingeniosa. Consiste en aprovechar la **capacidad parásita** del dispositivo. Un LED tiene dos patas conductoras. Cuando está polarizado en directa estas patas están *unidas* por una unión semi**conductora**, sin embargo cuando está inversamente polarizado, tales están *separadas* por la misma unión **semi**conductora. Se trata de un resumen rápido, al final del artículo lo explico con un poco más de detalle. El caso es que cuando están separadas se forma una capacidad ridícula, del orden de los picoFaradios.
 
 El truco está en que la corriente inversa que era demasiado leve para detectarla, es suficiente para descargar la capacidad parásita que decíamos antes en un tiempo determinado. Entonces se trata de polarizar el LED en inversa para *cargar* la capacidad, como si fuera un condensador. Y acto seguido cortar la corriente y medir la tensión en las patillas para ver cuanto tarda en descargarse. Como es una capacidad tan pequeña, el tiempo de descarga depende mucho de esa corriente. Y por tanto de la luz que incida.
 
@@ -38,7 +38,7 @@ La idea es buena, vamos a perfeccionarla:
 
 - En primer lugar utilizaremos un microcontrolador. No sólo porque es la forma más simple de hacerlo sino porque tiene las propiedades que necesitamos.
 - Por ejemplo para medir la tensión sin descargar una capacidad tan pequeña, necesitamos una impedancia de entrada altísima. Las entradas tipo CMOS de cualquier micro serán perfectas. Mejores que las de tecnología TTL.
-- También necesitamos que el umbral esté bien definido para que no haya oscilaciones al medir. Después de todo sólo necesitamos saber la entrada está a nivel alto o a nivel bajo, no queremos saber qué tensión concreta tiene. Conviene aprovechar las entradas de tipo [Schmitt Trigger](http://es.wikipedia.org/wiki/Disparador_Schmitt) si las hubiera.
+- También necesitamos que el umbral esté bien definido para que no haya oscilaciones al medir. Después de todo sólo necesitamos saber la entrada está a nivel alto o a nivel bajo, no queremos saber qué tensión concreta tiene. Conviene aprovechar las entradas de tipo <a href="http://es.wikipedia.org/wiki/Disparador_Schmitt">Schmitt Trigger</a> si las hubiera.
 - Por último los tiempos de descarga pueden ser desde algunos microsegundos a varios minutos dependiendo de la iluminación y del LED concreto. De nuevo cualquier micro nos sirve para medir estos tiempos.
 
 Un vicio habitual es que una vez se conocen y se aprenden a usar los microcontroladores, se deja de pensar en circuitos analógicos que podrían ser igual o más sencillos. He visto tirar de PICs en temporizadores que se  harían fácilmente con [un par de transistores]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) o con [integrados comunes]({{site.baseurl}}{% post_url 2010-03-23-watchdog-para-pc-con-alarma %}). Antes de poneros a programar es una buena costumbre pensar si está justificado, bien por tiempo de diseño, bien por precio, o por simplicidad o por capacidad escalado. Aunque después de todo, como el circuito va a ser para nosotros lo haremos como nos dé la gana.
@@ -49,7 +49,11 @@ Para las pruebas he usado un PIC12F683. Se podría hacer con cualquier otro mode
 
 {% include image.html file="esquema.png" caption="" %}
 
-Esta es la configuración de los pines:<br /><table><tbody><tr><th>Pin</th><th>Puerto</th><th>I/O</th><th>Función</th></tr><tr><td>7</td><td>GP0</td><td>O</td><td>TX serie (9600,8,E,1)</td></tr><tr><td>6</td><td>GP1</td><td>O</td><td>LED o Altavoz</td></tr><tr><td>5</td><td>GP2</td><td>I</td><td>LED sensor</td></tr><tr><td>3</td><td>GP4</td><td>ADC</td><td>LDR, opcional</td></tr></tbody></table><br />He preparado dos versiones del programa. En la primera se va alternando la salida del puerto GP1 cada vez que se descarga el sensor. Si conectamos un LED a ese puerto lo veremos parpadear más lentamente en la oscuridad y más rápido cuando le dé la luz. Cuando la intermitencia sea demasiado rápida para verla, mejor conectamos un altavoz y así oiremos el tono. 
+Esta es la configuración de los pines:
+
+<table><tbody><tr><th>Pin</th><th>Puerto</th><th>I/O</th><th>Función</th></tr><tr><td>7</td><td>GP0</td><td>O</td><td>TX serie (9600,8,E,1)</td></tr><tr><td>6</td><td>GP1</td><td>O</td><td>LED o Altavoz</td></tr><tr><td>5</td><td>GP2</td><td>I</td><td>LED sensor</td></tr><tr><td>3</td><td>GP4</td><td>ADC</td><td>LDR, opcional</td></tr></tbody></table>
+
+He preparado dos versiones del programa. En la primera se va alternando la salida del puerto GP1 cada vez que se descarga el sensor. Si conectamos un LED a ese puerto lo veremos parpadear más lentamente en la oscuridad y más rápido cuando le dé la luz. Cuando la intermitencia sea demasiado rápida para verla, mejor conectamos un altavoz y así oiremos el tono.
 
 En la segunda versión se hace una medida cada segundo y se transfiere la información al PC utilizando una conexión serie, gracias a [este adaptador]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %}) RS232-USB.
 
@@ -82,23 +86,23 @@ La programación del PIC no podía ser más sencilla. Pego un extracto de la seg
 void main()
 {
  unsigned int32 contador;
-
+ 
  setup_timer_0(RTCC_INTERNAL|RTCC_DIV_1);
  setup_oscillator(OSC_8MHZ);
  port_a_pullups(FALSE);
 
  for (;;) {
   contador = 0;
-
+  
   // cargar el led sensor y reiniciar el contador
   output_high (PIN_Sensor);
   delay_us(delay_carga);
-
+  
   // poner el pin en modo INPUT y comenzar a contar
   // hasta que se apague
   while (input(PIN_Sensor))
    contador++; 
-
+  
   // Lo máximo son 4294967295, 10 dígitos.
   // El paquete que se envía es del tipo: (0000000000)\n
   printf("(%010Lu)\n", contador);
@@ -116,7 +120,7 @@ El tiempo de descarga puede llegar a varios segundos, o minutos. Si *contador* f
 Observad una cosa, ¿recordáis que habíamos hablado de que el rango dinámico de la vista es de aproximadamente 1.000.000.000? Pues es del orden de la variable *contador*. Con 32 bits tendríamos para un rango de 96dB, mientras que con 16 para sólo 48. El que 16 bits se queden cortos y necesitemos 32 es una buena señal. El rango en dB se calcula así, siendo **b** la longitud en bits:
 
 $$
- 10\cdot\log_{10}(2^{b}-1) 
+10\cdot\log_{10}(2^{b}-1)
 $$
 
 ## Programación del PC
@@ -217,7 +221,7 @@ Como curiosidad, he medido el sensor en la oscuridad más completa que he podido
 
 He probado y estando oscuro detecta luces tan tenues como un mechero, o la luz del móvil. El problema es que midiendo en la oscuridad los tiempos se disparan por encima de los 30 segundos. Y eso reduce el tipo de usos que se le pueden dar.
 
-**¿Por qué pasa?**
+## ¿Por qué pasa?
 
 Para saber cuál es la causa de todo lo que hemos desarrollado en esta entrada hay que entender primero cómo funciona un diodo. En [esta página](http://www.electronics-tutorials.ws/diode/diode_3.html) tienen algunos tutoriales interesantes, y he cogido un par de imágenes que me vienen bien para explicar lo siguiente. Supongo que ya sabéis cómo funciona un diodo y por qué conduce en un sentido sí y en el otro no.
 
@@ -225,7 +229,7 @@ Este es por dentro el diodo en estado de reposo, o sea sin que le apliquemos nin
 
 {% include image.html file="diode13.gif" caption="" %}
 
- Ahora vamos a aplicarle un potencial inverso. Digamos que los *portadores de carga* (electrones y huecos) se apiñan atraídos por el potencial a los lados del material. Si ahora quitamos la batería (cortamos el potencial sin juntar las patillas) se habrá quedado un campo eléctrico. Es el principio de un condensador. 
+Ahora vamos a aplicarle un potencial inverso. Digamos que los *portadores de carga* (electrones y huecos) se apiñan atraídos por el potencial a los lados del material. Si ahora quitamos la batería (cortamos el potencial sin juntar las patillas) se habrá quedado un campo eléctrico. Es el principio de un condensador.
 
 {% include image.html file="diode6.gif" caption="" %}
 

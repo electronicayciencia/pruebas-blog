@@ -120,7 +120,7 @@ sub recompose {
 			$text .= "    ".$parts{$element}."\n\n";
 		}
 		elsif ($type eq "spanmono-block" or $type eq "divmono-block") {
-			$text .= "```".$parts{$element}."\n```\n\n";
+			$text .= "```".getlang($parts{$element})."\n$parts{$element}\n```\n\n";
 		}
 		elsif ($type eq "monogroup") {
 			for my $monoline ($parts{$element} =~ m{\|\|##([-\w]+-\d+)##\|\|}g) {
@@ -133,12 +133,49 @@ sub recompose {
 		}
 	}
 
+	# inner elements
+	for my $element ($text =~ m{--##([-\w]+-\d+)##--}g) {
+		my ($type, $num) = $element =~ /([-\w]+)-(\d+)/;
+
+		if ($type eq "link") {
+			$text =~ s{--##$element##--}{$parts{$element}};
+		}
+		elsif ($type eq "postlink") {
+			$text =~ s{--##$element##--}{$parts{$element}};
+		}
+		else {
+			print STDERR "Warning: unknown type '$type' recomposing: '$element'.\n";
+		}
+	}
+
 	$text =~ s{^\s+}{}g;
 	$text =~ s{\s+$}{}g;
+
+	if ($text =~ m{\|\|##} or $text =~ m{--##}) {
+			print STDERR "Warning: incomplete substitution.\n";
+	}
 
 	return $text;
 }
 
+
+sub getlang {
+  	my $c = shift;
+
+	if ($c =~ m{my\s+\$}) {
+	    return "perl";
+	}
+
+	if ($c =~ m{subplot} or $c =~ m{^\s*%}m or $c =~ m{\w+\(:,\d+\)}) {
+	    return "matlab";
+	}
+
+	if ($c =~ m{#define} or $c =~ m{int main}) {
+	    return "c";
+	}
+
+	return "";
+}
 
 
 sub html2md {
@@ -274,22 +311,10 @@ sub format_pre {
 	$c =~ s{\n+$}{}g;
 	$c =~ s{^\n+}{}g;
 	
-	# Blogspot syntax for perl does not exist. Is cpp marked but is it actually perl?
-	if ($c =~ m{my\s+\$}) {
-	    $lang = "perl";
-	}
-
-	if ($c =~ m{subplot} or $c =~ m{^\s*%}m or $c =~ m{\w+\(:,\d+\)}) {
-	    $lang = "matlab";
-	}
-
-	if ($c =~ m{#define} or $c =~ m{int main}) {
-	    $lang = "c";
-	}
+	$lang = getlang($c) || $lang;
 	
 	return parts_store("```$lang\n$c\n```", "codeblock");
 }
-
 
 sub format_list {
 	my ($block, $tag) = @_;
@@ -433,6 +458,10 @@ sub format_paragraph {
 	if ($block eq "") {  # null par
 		return "";
 	}
+	
+	if (not $block =~ /\w/) {  # only format par?
+		return "";
+	}
 
 	return parts_store($block, "paragraph");
 }
@@ -553,7 +582,7 @@ sub process_body {
 	$s =~ s{(<table[^>]*>.*?</table>)}{format_table($1)}ge;
 
 	# Section titles
-	$s =~ s{<br>\s*<b>(\w.{3,80})</b>\s*<br>}{format_section($1)}ge;
+	$s =~ s{(<br>|\|\|)\s*<b>([^\(].{2,80}?)</b>\s*(<br>|\|\|)}{$1.format_section($2).$3}ge;
 
 	# Second level structures
 	# ------------------------------------------------------
@@ -562,7 +591,7 @@ sub process_body {
 	# This will remove divs from non capured structures, like iframes or objects.
 	# But it is neccesary in order to group monolines.
 	$s =~ s{<div[^>]*>(.*?)</div>}{$1}msg;
-	$s =~ s{<span[^>]*>(.*?)</div>}{$1}msg;
+	$s =~ s{<span[^>]*>(.*?)</span>}{$1}msg;
 
 	# block of monolines
 	$s =~ s{<br>((?:(?:\|\|##spanmono-line-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;

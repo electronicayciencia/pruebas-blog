@@ -54,7 +54,7 @@ Es otra cosa. Vuelvo a soldar el potenciómetro en su sitio y vamos a por el sig
 
 ## El interruptor de posición
 
-Hay un mando que selecciona la función, y si hace mal contacto también puede meter ruido. Se trata de un conmutador de 3 posiciones y 4 circuitos. Como este (imagen tomada de [eBay](http://www.ebay.com/itm/5-x-15mm-High-Knob-16-Pin-3-Position-4P3T-PCB-Vertical-Slide-Switch-0-5A-50V-DC-/150959203854?pt=LH_DefaultDomain_0&hash=item2325dea60e)):
+Hay un mando que selecciona la función, y si hace mal contacto también puede meter ruido. Se trata de un conmutador de 3 posiciones y 4 circuitos. Como este (imagen tomada de [eBay](http://www.ebay.com/itm/5-x-15mm-High-Knob-16-Pin-3-Position-4P3T-PCB-Vertical-Slide-Switch-0-5A-50V-DC-/150959203854?pt=LH_DefaultDomain_0&amp;hash=item2325dea60e)):
 
 {% include image.html file="ux_a12022800ux0248_ux_c.jpg" caption="" %}
 
@@ -106,7 +106,7 @@ He aquí el esquema. No vamos a interpretarlo completo, sólo algunas zonas que 
 - De **morado**, debajo del amplificador y que se inserta en este, un circuito **atenuador**. De aquí son los transistores y el diodo misteriosos de la placa.
 - En el centro, color **amarillo**, el selector de funciones SW2.
 
-Empezamos por el interruptor **SW2**. Es un conmutador de tres posiciones y cuatro circuitos. Cada una de las posiciones es *CD (letra C), cinta (tape, letra T) y radio (R)*. Aunque tiene cuatro circuitos independientes (**SW2-1**, **SW2-2**, **SW2-3** y **SW2-4**) en realidad sólo se usan tres de ellos porque el 3 y 4 están unidos. **SW2-1** y **SW2-2** seleccionan la fuente de sonido para los canales derecho e izquierdo. La patilla común del conmutador va hacia la entrada del amplificador, mientras que las otras vienen de los diferentes reproductores. Los conmutadores **SW2-3** y **SW2-4** alimentan el circuito seleccionado en cada caso: CD, cinta o radio. 
+Empezamos por el interruptor **SW2**. Es un conmutador de tres posiciones y cuatro circuitos. Cada una de las posiciones es *CD (letra C), cinta (tape, letra T) y radio (R)*. Aunque tiene cuatro circuitos independientes (**SW2-1**, **SW2-2**, **SW2-3** y **SW2-4**) en realidad sólo se usan tres de ellos porque el 3 y 4 están unidos. **SW2-1** y **SW2-2** seleccionan la fuente de sonido para los canales derecho e izquierdo. La patilla común del conmutador va hacia la entrada del amplificador, mientras que las otras vienen de los diferentes reproductores. Los conmutadores **SW2-3** y **SW2-4** alimentan el circuito seleccionado en cada caso: CD, cinta o radio.
 
 Así, si seleccionamos la posición *radio* **SW2-1** y **SW2-2** llevarán la salida de la radio al amplificador, y **SW2-3** y **4** conmutarán la alimentación desde la fuente hacia el sintonizador para que podamos recibir emisoras. Igualmente ocurrirá si elegimos CD o cinta.
 
@@ -134,7 +134,7 @@ Al comienzo **V1** (debajo, en rojo) suministra cero voltios. En tales condicion
 
 {% include image.html file="delay_plot.png" caption="" %}
 
-Un segundo más tarde, cuando desaparece la tensión de **V1**, el condensador se descarga de golpe a través de la unión Base-Emisor. Esto podría dañar el transistor si no se protege con una resistencia en el emisor. Por lo que la conmutación es casi inmediata en este otro sentido. Una vez en corte, **C1** termina de descargarse a través de **R1**. 
+Un segundo más tarde, cuando desaparece la tensión de **V1**, el condensador se descarga de golpe a través de la unión Base-Emisor. Esto podría dañar el transistor si no se protege con una resistencia en el emisor. Por lo que la conmutación es casi inmediata en este otro sentido. Una vez en corte, **C1** termina de descargarse a través de **R1**.
 
 Volviendo al esquema anterior, cuando se cierra **LEAF** se alimenta el amplificador y al cabo de un instante **Q203** empezará a conducir, eliminando la tensión que llegaba a la base de los transistores **Q202** y **Q201**. El condensador **C207** se descarga a través de la unión base-emisor de estos y posteriormente a través de **R213** -el diodo **D201** impide que sea de otra manera-. Sin su tensión de polarización, los transistores son un circuito abierto, retiran el cortocircuito y así la señal puede alcanzar la entrada de **IC2** para ser amplificada.
 
@@ -154,15 +154,7 @@ Esto es sólo un hobby, pero ¿podría ser un negocio? Entre todo -localizar la 
 
 ¿Cuanto puedes cobrarle a un cliente por reparar un electrodoméstico de 60€? Divide eso entre 6 y tendrás el precio de una hora de tu trabajo. La otra opción, más sensata, es esperar un mes a tener el interruptor y cambiarlo. Por eso me viene a la cabeza un cartel que leí hace tiempo:
 
-> *En este taller se hacen tres tipos de reparaciones: buena, rápida y barata; pero tenga en cuenta que*
-> 
-> *La buena y rápida no será barata.*
-> 
-> *La rápida y barata no será buena.*
-> 
-> *La buena y barata no será rápida.*
+> *En este taller se hacen tres tipos de reparaciones: buena, rápida y barata; pero tenga en cuenta que**La buena y rápida no será barata.**La rápida y barata no será buena.**La buena y barata no será rápida.*
 
-Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.](https://sites.google.com/site/electronicayciencia/sg331-blog.zip?attredirects=0&d=1)
-
-
+Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.](https://sites.google.com/site/electronicayciencia/sg331-blog.zip?attredirects=0&amp;d=1)
 

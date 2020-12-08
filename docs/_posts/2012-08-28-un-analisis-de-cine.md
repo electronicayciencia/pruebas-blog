@@ -12,7 +12,7 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2012/08/un-analisis-d
 
 Vamos a hablar de cine, también hablaremos de programación, de estadística y tratamiento de datos, todo ello -te lo aseguro- relacionado con el cine. El gusto es algo muy subjetivo, por supuesto, pero hay gustos más y menos comunes así que, por una vez, me vais a permitir ser vuestro crítico de cine.
 
-¿Conoces la web [Filmaffinity](http://www.filmaffinity.com/)? No es nueva, y no tengo nada que ver con ella, pero aún así me gustaría presentártela. Déjame que escriba primero una reseña, para que puedas entender todo este artículo que gira en torno a ella. 
+¿Conoces la web [Filmaffinity](http://www.filmaffinity.com/)? No es nueva, y no tengo nada que ver con ella, pero aún así me gustaría presentártela. Déjame que escriba primero una reseña, para que puedas entender todo este artículo que gira en torno a ella.
 
 Para quien no la conozca digamos que es una web muy bien hecha, ideal para descubrir más películas que te puedan gustar. De manera similar a la idea de Last.fm para música, en función de tus votaciones busca usuarios con gustos similares a los tuyos "almas gemelas" y te los presenta para que puedas ver qué más películas han votado estos. Esta era la idea original hace algunos años, junto con la *navegación cruzada* (pinchas en un actor y salen su películas, en una película y te lleva a su ficha, entre los datos puedes pinchar en su director y aparecen sus películas, en un género, en una lista, etc). Recientemente han incorporado otras funciones muy interesantes.
 
@@ -24,7 +24,7 @@ Vamos a fijarnos en dos buenas películas: [El señor de los anillos 3: El retor
 
 {% include image.html file="esdla-eendp.png" caption="" %}
 
-*El retorno del rey* es una película mayoritaria, bien hecha y para todos los públicos. Es cierto que a algunos sectores como a los seguidores de Tolkien les resultará especialmente buena (o mala dependiendo de lo tolerantes que estén dispuestos a ser con la adaptación). Una historia fantástica donde el bueno es muy bueno y el malo muy malo, al final triunfa el bien sobre el mal y todos felices. Por lo general este tipo de historias gustan, de ahí tenemos muchos dieces, nueves y ochos. Hay también quien no tolera los fallos de guión, quien esperaba más o quien simplemente le aburren estas historias por lineales y repetitivas. Por eso tenemos las notas bajas, hay bastantes votos por debajo del 6. 
+*El retorno del rey* es una película mayoritaria, bien hecha y para todos los públicos. Es cierto que a algunos sectores como a los seguidores de Tolkien les resultará especialmente buena (o mala dependiendo de lo tolerantes que estén dispuestos a ser con la adaptación). Una historia fantástica donde el bueno es muy bueno y el malo muy malo, al final triunfa el bien sobre el mal y todos felices. Por lo general este tipo de historias gustan, de ahí tenemos muchos dieces, nueves y ochos. Hay también quien no tolera los fallos de guión, quien esperaba más o quien simplemente le aburren estas historias por lineales y repetitivas. Por eso tenemos las notas bajas, hay bastantes votos por debajo del 6.
 
 Una pregunta que nos planteamos en este artículo es **¿por qué alguien ve una película y le acaba poniendo un 1?** ¿Decepción? ¿Rabia? Si desde el principio piensas que es tan mala que le vas a poner un 1 ni siquiera la ves.
 
@@ -41,7 +41,7 @@ Vamos a ver dos películas también populares pero con otra distribución muy di
 ¿Por qué pasa esto? Es lo que nos preguntábamos hace unas líneas. La mayoría de la gente vemos películas que pensamos que nos van a gustar. Si antes de verla creyéramos que le vamos a poner un 1, no perderíamos el tiempo y directamente veríamos otra cosa. Se me ocurren varios motivos:
 
 - **Popularidad.** La película llega a tanta gente que acaba por verla (y votarla) mucha gente que no es su público objetivo. Recomendaciones de amigos, películas que se ven en fiestas, en medios de transporte, etc.
-- **Publicidad engañosa.** Un trailer que no refleja la película y fija unas expectativas mucho más altas de lo que se merece. Por ejemplo [este sería el trailer](http://www.youtube.com/watch?v=ZSGsh9so_dA) de *2001: Odisea en el espacio* si se fuera a estrenar este verano.
+- **Publicidad engañosa.** Un trailer que no refleja la película y fija unas expectativas mucho más altas de lo que se merece. Por ejemplo <a href="http://www.youtube.com/watch?v=ZSGsh9so_dA">este sería el trailer</a> de *2001: Odisea en el espacio* si se fuera a estrenar este verano.
 - **Decepción.** La película es de un actor o un director que nos suele gustar, pero esta vez no ha seguido su línea.
 - **Obligación.** Películas que vemos "forzados" porque les gustan a los demás, novia, novio, grupo de amigos...
 - **Voto de oídas.** Votos que se emiten sin haber visto la película, basados en lo que la gente dice.
@@ -79,6 +79,7 @@ use HTML::Entities;
 # En lugar de la descarga al azar, que provoca muchas colisiones
 # se prefiere una descarga sistemática.
 
+
 $| = 1;
 my $wget = 'wget -O - -q';
 
@@ -93,6 +94,7 @@ while (my $linea = <$fh>) {
 }
 close $fh;
 
+
 # Ahora vamos letra por letra viendo cuántas páginas tiene
 my @letras = qw/* 0-9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z/;
 for my $letra (@letras) {
@@ -103,7 +105,7 @@ for my $letra (@letras) {
 
  my ($max) = $html =~ m{1 de (\d+)</td>};
  redo if not $max;
-
+ 
  print "$max páginas.\n";
 
  # Bajamos cada página
@@ -126,7 +128,7 @@ for my $letra (@letras) {
   for my $id (@ids) {
 
    next if not $id;
-
+   
    print "\n$letra $pagina/$max $id: ";
    (print "La tenemos" and next) if $tenemos{$id};
 
@@ -140,7 +142,7 @@ for my $letra (@letras) {
    next if not $html;
 
    my ($titulo) = $html =~ m{<title>\s*(.+)\s+- FilmAffinity</title>};
-   my ($votos)  = $html =~ m{>\s*([\d\.]+)\s*votos};
+   my ($votos)  = $html =~ m{>\s*([\d\.]+)\s*votos</div>};
    my @pctvotos = $html =~ /rat10=([\d\.]+)&rat9=([\d\.]+)&rat8=([\d\.]+)&rat7=([\d\.]+)&rat6=([\d\.]+)&rat5=([\d\.]+)&rat4=([\d\.]+)&rat3=([\d\.]+)&rat2=([\d\.]+)&rat1=([\d\.]+)/;
 
    # Si no tiene suficientes votos o hubo un error toma otra
@@ -159,7 +161,6 @@ for my $letra (@letras) {
    # Abrimos y cerramos, para sincronizar en el momento
    open my $fh, ">> $fich_data";
     print $fh "$id|$titulo|$votos|@pctvotos\n";
-
    close $fh;
   }
  }
@@ -168,11 +169,11 @@ for my $letra (@letras) {
 print "\n";
 ```
 
-Entre las <strong>líneas 1 a 19</strong> cargamos lo necesario y definimos algunas variables: el fichero de salida, que será una base de datos tipo CSV llamada *peliculas.dat*. 
+Entre las **líneas 1 a 19** cargamos lo necesario y definimos algunas variables: el fichero de salida, que será una base de datos tipo CSV llamada *peliculas.dat*.
 
-Hasta la <strong>línea 26</strong> leemos el fichero de salida y almacenamos en un hash los identificadores de las películas que ya hemos bajado para, en caso de interrumpir el programa, omitir la petición y no duplicarlos.
+Hasta la **línea 26** leemos el fichero de salida y almacenamos en un hash los identificadores de las películas que ya hemos bajado para, en caso de interrumpir el programa, omitir la petición y no duplicarlos.
 
-En la <strong>línea 30</strong> empieza el bucle principal. Recorreremos todas las letras de la clasificación de películas. Supongamos que empezamos por la A. En la <strong>línea 44</strong> pedimos la primera página que será [http://www.filmaffinity.com/es/allfilms_A_1.html](http://www.filmaffinity.com/es/allfilms_A_1.html). Por supuesto la petición puede fallar por diversas causas, para eso está la línea siguiente. Esta vez, en caso de fallo lo volvemos a intentar, otras veces continuamos con el siguiente. Es posible que necesitemos ejecutar dos o tres veces el programa para asegurarnos de que tenemos los datos de todas las películas.
+En la **línea 30** empieza el bucle principal. Recorreremos todas las letras de la clasificación de películas. Supongamos que empezamos por la A. En la **línea 44** pedimos la primera página que será [http://www.filmaffinity.com/es/allfilms_A_1.html](http://www.filmaffinity.com/es/allfilms_A_1.html). Por supuesto la petición puede fallar por diversas causas, para eso está la línea siguiente. Esta vez, en caso de fallo lo volvemos a intentar, otras veces continuamos con el siguiente. Es posible que necesitemos ejecutar dos o tres veces el programa para asegurarnos de que tenemos los datos de todas las películas.
 
 En la **linea 36** obtenemos cuántas páginas hay bajo esta letra. Y en la **línea 42** comenzamos a bajarnos todas las páginas de esa misma letra desde la 1 hasta la máxima que haya.
 
@@ -262,13 +263,13 @@ Dibujamos primeramente un histograma para ver cómo se distribuye el número de 
 
 {% include image.html file="hist_votos.png" caption="" %}
 
-Haced click en cualquiera de las imágenes para ampliarlas. ¿Qué significa este gráfico? Pues que Filmaffinity alberga muchísimas películas que sólo conocen unas pocas personas. Es una distribución muy típica de <strong>páginas especializadas</strong> donde hay muchas cosas muy específicas que sólo se conocen en círculos concretos. La buena noticia es que podremos reducir mucho el número de datos sin temor a dejarnos fuera películas conocidas.
+Haced click en cualquiera de las imágenes para ampliarlas. ¿Qué significa este gráfico? Pues que Filmaffinity alberga muchísimas películas que sólo conocen unas pocas personas. Es una distribución muy típica de **páginas especializadas** donde hay muchas cosas muy específicas que sólo se conocen en círculos concretos. La buena noticia es que podremos reducir mucho el número de datos sin temor a dejarnos fuera películas conocidas.
 
 Con una escala tan amplia, si queremos explorar las barras inferiores tenemos que tomar logaritmos en el eje Y.
 
 {% include image.html file="hist_logvotos.png" caption="" %}
 
-Ahora se ve un poco mejor. Podríamos decir que el máximo está en 2, y a partir de ahí decrece. Pero no hay realmente un valle, ni un descenso brusco, sino una cola que decrece gradualmente a cero. Significa que Filmaffinity tiene un <strong>público muy variado</strong> en cuanto a su criterio. Que cada persona ha visto y votado películas diferentes. Si hubiera público especialista y público erudito veríamos dos máximos, no es el caso.
+Ahora se ve un poco mejor. Podríamos decir que el máximo está en 2, y a partir de ahí decrece. Pero no hay realmente un valle, ni un descenso brusco, sino una cola que decrece gradualmente a cero. Significa que Filmaffinity tiene un **público muy variado** en cuanto a su criterio. Que cada persona ha visto y votado películas diferentes. Si hubiera público especialista y público erudito veríamos dos máximos, no es el caso.
 
 Otro parámetro que podemos estudiar es la distribución de notas. Dado el vector con los porcentajes, la nota se calcula como un producto escalar:
 
@@ -282,7 +283,7 @@ En realidad no habría que dividir entre 100, sino entre la suma de los coeficie
 nota = (10 9 ... 1) . (pct10 pct9 ... pct1) / sum(pct10 pct9 ... pct1)
 ```
 
-Como el vector de porcentajes tiene dos dimensiones hay que replicar el multiplicador tantas veces como sea necesario. Así calculamos el vector de notas de todas las películas (importante sumar en la segunda dimensión -por filas-). En inglés, el producto escalar se llama *dot product* por eso la función de Matlab se llama *dot*: 
+Como el vector de porcentajes tiene dos dimensiones hay que replicar el multiplicador tantas veces como sea necesario. Así calculamos el vector de notas de todas las películas (importante sumar en la segunda dimensión -por filas-). En inglés, el producto escalar se llama *dot product* por eso la función de Matlab se llama *dot*:
 
 ```
 >> mul = 10:-1:1;
@@ -306,16 +307,16 @@ Las notas mayores son más frecuentes que las menores, y hay un corte muy pronun
 
 Ya habíamos visto cómo hay muchísimas películas con pocos votos, y unas pocas con muchos votos. Por ejemplo, el mínimo es 10 votos, mientras que las 10 películas más votadas tienen diez mil veces más:
 
--  **141.961**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
--  **139.653**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
--  **138.985**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
--  **138.252**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
--  **135.238**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
--  **134.232**  [Gladiator  (El gladiador) (2000)](http://www.filmaffinity.com/es/film392075.html) 
--  **132.699**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
--  **132.556**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
--  **131.305**  [Titanic (1997)](http://www.filmaffinity.com/es/film814379.html) 
--  **130.371**  [Algo pasa con Mary (1998)](http://www.filmaffinity.com/es/film499860.html) 
+-  **141.961**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
+-  **139.653**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
+-  **138.985**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
+-  **138.252**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
+-  **135.238**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
+-  **134.232**  <a href="http://www.filmaffinity.com/es/film392075.html">Gladiator  (El gladiador) (2000)</a> 
+-  **132.699**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
+-  **132.556**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
+-  **131.305**  <a href="http://www.filmaffinity.com/es/film814379.html">Titanic (1997)</a> 
+-  **130.371**  <a href="http://www.filmaffinity.com/es/film499860.html">Algo pasa con Mary (1998)</a> 
 
 Al quedarnos sólo con las que tienen un mínimo de votos estamos descartando tanto las películas que no lleguen a ese número como sus votos. Lo siguiente es un gráfico del porcentaje de películas y de votos que descartamos al eliminar las películas que no lleguen a un mínimo:
 
@@ -331,7 +332,7 @@ Si nos quedáramos sólo con las que tienen más de 2000 votos, estaríamos desc
 
 ## Sobrevaloradas e infravaloradas
 
-Para continuar el análisis nos vamos a quedar con las que tienen <strong>más de 20000 votos</strong>, que además coincide con que son las mil primeras películas (968 exactamente). Vamos a multiplicar la columna de los votos por cada porcentaje y así sabremos cuantos dieces, nueves, etc. tienen. Después de contar cuantos votos hay de cada valor, lo normalizamos a 100 para dibujar un gráfico:
+Para continuar el análisis nos vamos a quedar con las que tienen **más de 20000 votos**, que además coincide con que son las mil primeras películas (968 exactamente). Vamos a multiplicar la columna de los votos por cada porcentaje y así sabremos cuantos dieces, nueves, etc. tienen. Después de contar cuantos votos hay de cada valor, lo normalizamos a 100 para dibujar un gráfico:
 
 ```matlab
 >> vot20k = votos(votos(:,2) > 20000,:);
@@ -341,7 +342,6 @@ Para continuar el análisis nos vamos a quedar con las que tienen <strong>más d
 ans =
 
     6.7107   13.7383   21.3029   22.9011   16.7085    8.9657    4.2818    2.7920    1.5945    1.0046
-
 ```
 
 {% include image.html file="tipica20k.png" caption="" %}
@@ -374,46 +374,46 @@ Ya tenemos los datos cargados en Excel y definidas las formulas para nuestras m�
 
 Siguiendo el apartado anterior, empezaremos por las películas (omito las series) más "sobrevaloradas" en Filmaffinity:
 
--  **73,9%**  [Dogville (2003)](http://www.filmaffinity.com/es/film573847.html) 
--  **71,3%**  [Mulholland Drive (2001)](http://www.filmaffinity.com/es/film178603.html) 
--  **66,7%**  [El árbol de la vida (2011)](http://www.filmaffinity.com/es/film447606.html) 
--  **64,0%**  [Todo sobre mi madre (1999)](http://www.filmaffinity.com/es/film374559.html) 
--  **63,4%**  [Bailar en la oscuridad (2000)](http://www.filmaffinity.com/es/film552917.html) 
--  **61,5%**  [La pasión de Cristo (2004)](http://www.filmaffinity.com/es/film332621.html) 
--  **59,2%**  [The Rocky Horror Picture Show (1975)](http://www.filmaffinity.com/es/film782908.html) 
--  **59,1%**  [[•REC] (2007)](http://www.filmaffinity.com/es/film575554.html) 
--  **58,8%**  [Elephant (2003)](http://www.filmaffinity.com/es/film553137.html) 
--  **58,6%**  [Miedo y asco en Las Vegas (1998)](http://www.filmaffinity.com/es/film587730.html) 
--  **58,6%**  [Funny Games  (Juegos divertidos) (1997)](http://www.filmaffinity.com/es/film315125.html) 
--  **58,0%**  [Moulin Rouge (2001)](http://www.filmaffinity.com/es/film255392.html) 
--  **55,7%**  [Torrente, el brazo tonto de la ley (1998)](http://www.filmaffinity.com/es/film334167.html) 
--  **55,6%**  [Mujeres al borde de un ataque de nervios (1988)](http://www.filmaffinity.com/es/film813529.html) 
--  **55,5%**  [La mala educación (2004)](http://www.filmaffinity.com/es/film855531.html) 
+-  **73,9%**  <a href="http://www.filmaffinity.com/es/film573847.html">Dogville (2003)</a> 
+-  **71,3%**  <a href="http://www.filmaffinity.com/es/film178603.html">Mulholland Drive (2001)</a> 
+-  **66,7%**  <a href="http://www.filmaffinity.com/es/film447606.html">El árbol de la vida (2011)</a> 
+-  **64,0%**  <a href="http://www.filmaffinity.com/es/film374559.html">Todo sobre mi madre (1999)</a> 
+-  **63,4%**  <a href="http://www.filmaffinity.com/es/film552917.html">Bailar en la oscuridad (2000)</a> 
+-  **61,5%**  <a href="http://www.filmaffinity.com/es/film332621.html">La pasión de Cristo (2004)</a> 
+-  **59,2%**  <a href="http://www.filmaffinity.com/es/film782908.html">The Rocky Horror Picture Show (1975)</a> 
+-  **59,1%**  <a href="http://www.filmaffinity.com/es/film575554.html">[•REC] (2007)</a> 
+-  **58,8%**  <a href="http://www.filmaffinity.com/es/film553137.html">Elephant (2003)</a> 
+-  **58,6%**  <a href="http://www.filmaffinity.com/es/film587730.html">Miedo y asco en Las Vegas (1998)</a> 
+-  **58,6%**  <a href="http://www.filmaffinity.com/es/film315125.html">Funny Games  (Juegos divertidos) (1997)</a> 
+-  **58,0%**  <a href="http://www.filmaffinity.com/es/film255392.html">Moulin Rouge (2001)</a> 
+-  **55,7%**  <a href="http://www.filmaffinity.com/es/film334167.html">Torrente, el brazo tonto de la ley (1998)</a> 
+-  **55,6%**  <a href="http://www.filmaffinity.com/es/film813529.html">Mujeres al borde de un ataque de nervios (1988)</a> 
+-  **55,5%**  <a href="http://www.filmaffinity.com/es/film855531.html">La mala educación (2004)</a> 
 
 Como ya habíamos previsto algunas son películas controvertidas, violentas, otras son absurdas, o "para chicas", no voy a decir si a mi me parecen buenas o malas, pero desde luego hay mucha gente que las odia, tanta como gente que le encantan. Desde luego, si quieres ver algo que no te deje igual lo mejor es ver alguna de esta lista para saber de qué bando estás.
 
 Pero al igual que hay películas "sobrevaloradas", también las hay infravaloradas. Estas serían las que tienen menos unos y más dieces de lo normal. Aquí tenéis las quince primeras:
 
--  **-26,3%**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
--  **-21,1%**  [Uno de los nuestros (1990)](http://www.filmaffinity.com/es/film978961.html) 
--  **-21,1%**  [12 hombres sin piedad (Doce hombres sin piedad) (1957)](http://www.filmaffinity.com/es/film695552.html) 
--  **-19,8%**  [La ventana indiscreta (1954)](http://www.filmaffinity.com/es/film802694.html) 
--  **-19,7%**  [El apartamento (1960)](http://www.filmaffinity.com/es/film795770.html) 
--  **-19,4%**  [El golpe (1973)](http://www.filmaffinity.com/es/film385464.html) 
--  **-18,9%**  [Senderos de gloria (1957)](http://www.filmaffinity.com/es/film448956.html) 
--  **-18,3%**  [La gran evasión (1963)](http://www.filmaffinity.com/es/film537233.html) 
--  **-16,8%**  [La soga (1948)](http://www.filmaffinity.com/es/film425873.html) 
--  **-15,6%**  [Con la muerte en los talones (1959)](http://www.filmaffinity.com/es/film351704.html) 
--  **-14,2%**  [El tercer hombre (1949)](http://www.filmaffinity.com/es/film357391.html) 
--  **-14,1%**  [Rebeca (1940)](http://www.filmaffinity.com/es/film167667.html) 
--  **-14,0%**  [En el nombre del padre (1993)](http://www.filmaffinity.com/es/film376985.html) 
--  **-13,5%**  [Perdición (1944)](http://www.filmaffinity.com/es/film207165.html) 
--  **-13,4%**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
--  **-12,9%**  [Testigo de cargo (1957)](http://www.filmaffinity.com/es/film667376.html) 
--  **-12,9%**  [Alguien voló sobre el nido del cuco (1975)](http://www.filmaffinity.com/es/film371621.html) 
--  **-12,7%**  [American History X (1998)](http://www.filmaffinity.com/es/film261972.html) 
--  **-11,9%**  [Con faldas y a lo loco (1959)](http://www.filmaffinity.com/es/film353180.html) 
--  **-11,8%**  [Toro salvaje (1980)](http://www.filmaffinity.com/es/film789039.html) 
+-  **-26,3%**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
+-  **-21,1%**  <a href="http://www.filmaffinity.com/es/film978961.html">Uno de los nuestros (1990)</a> 
+-  **-21,1%**  <a href="http://www.filmaffinity.com/es/film695552.html">12 hombres sin piedad (Doce hombres sin piedad) (1957)</a> 
+-  **-19,8%**  <a href="http://www.filmaffinity.com/es/film802694.html">La ventana indiscreta (1954)</a> 
+-  **-19,7%**  <a href="http://www.filmaffinity.com/es/film795770.html">El apartamento (1960)</a> 
+-  **-19,4%**  <a href="http://www.filmaffinity.com/es/film385464.html">El golpe (1973)</a> 
+-  **-18,9%**  <a href="http://www.filmaffinity.com/es/film448956.html">Senderos de gloria (1957)</a> 
+-  **-18,3%**  <a href="http://www.filmaffinity.com/es/film537233.html">La gran evasión (1963)</a> 
+-  **-16,8%**  <a href="http://www.filmaffinity.com/es/film425873.html">La soga (1948)</a> 
+-  **-15,6%**  <a href="http://www.filmaffinity.com/es/film351704.html">Con la muerte en los talones (1959)</a> 
+-  **-14,2%**  <a href="http://www.filmaffinity.com/es/film357391.html">El tercer hombre (1949)</a> 
+-  **-14,1%**  <a href="http://www.filmaffinity.com/es/film167667.html">Rebeca (1940)</a> 
+-  **-14,0%**  <a href="http://www.filmaffinity.com/es/film376985.html">En el nombre del padre (1993)</a> 
+-  **-13,5%**  <a href="http://www.filmaffinity.com/es/film207165.html">Perdición (1944)</a> 
+-  **-13,4%**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
+-  **-12,9%**  <a href="http://www.filmaffinity.com/es/film667376.html">Testigo de cargo (1957)</a> 
+-  **-12,9%**  <a href="http://www.filmaffinity.com/es/film371621.html">Alguien voló sobre el nido del cuco (1975)</a> 
+-  **-12,7%**  <a href="http://www.filmaffinity.com/es/film261972.html">American History X (1998)</a> 
+-  **-11,9%**  <a href="http://www.filmaffinity.com/es/film353180.html">Con faldas y a lo loco (1959)</a> 
+-  **-11,8%**  <a href="http://www.filmaffinity.com/es/film789039.html">Toro salvaje (1980)</a> 
 
 Todo el análisis es un artificio matemático, y sin embargo no puedo estar más de acuerdo con esta lista. Si quieres recomendar una película estas son las que, al menos, no van a decepcionar. Me explico. En el caso de *Cadena perpetua* o *Uno de los nuestros*, que tienen 114.000 y 75.000 votos, en el momento de escribir este artículo no tienen -hasta donde podemos saber, dado que los datos sólo tienen un dígito decimal- **ni un sólo 1 o 2**. De 114000 personas que la han visto (que no son pocas, el máximo es 142000 votos de *Forrest Gump*) nadie ha votado 1 o 2, contando con que estas dos son películas largas, sin efectos especiales, sin finales espectaculares, todo guión y como la vida misma. Me pregunto quién pudo poner 1 a *Doce hombres sin piedad* pero es significativo que no tenga ni 2 y 3. Eso, para mi, tiene más mérito que tener muchos 7 u 8.
 
@@ -423,82 +423,80 @@ Por ahora ya está bien, lo terminamos aquí. Os dejo otras listas obtenidas al 
 
 Las más votadas:
 
--  **141961**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
--  **139653**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
--  **138985**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
--  **138252**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
--  **135238**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
--  **134232**  [Gladiator  (El gladiador) (2000)](http://www.filmaffinity.com/es/film392075.html) 
--  **132699**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
--  **132556**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
--  **131305**  [Titanic (1997)](http://www.filmaffinity.com/es/film814379.html) 
--  **130371**  [Algo pasa con Mary (1998)](http://www.filmaffinity.com/es/film499860.html) 
--  **129973**  [Kill Bill: Volumen 1 (2003)](http://www.filmaffinity.com/es/film524439.html) 
--  **124816**  [La naranja mecánica (1971)](http://www.filmaffinity.com/es/film745383.html) 
--  **121921**  [El Señor de los anillos: Las dos torres (2002)](http://www.filmaffinity.com/es/film944222.html) 
--  **121455**  [El silencio de los corderos (1991)](http://www.filmaffinity.com/es/film768790.html) 
--  **120771**  [El sexto sentido (1999)](http://www.filmaffinity.com/es/film607127.html)
+-  **141961**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
+-  **139653**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
+-  **138985**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
+-  **138252**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
+-  **135238**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
+-  **134232**  <a href="http://www.filmaffinity.com/es/film392075.html">Gladiator  (El gladiador) (2000)</a> 
+-  **132699**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
+-  **132556**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
+-  **131305**  <a href="http://www.filmaffinity.com/es/film814379.html">Titanic (1997)</a> 
+-  **130371**  <a href="http://www.filmaffinity.com/es/film499860.html">Algo pasa con Mary (1998)</a> 
+-  **129973**  <a href="http://www.filmaffinity.com/es/film524439.html">Kill Bill: Volumen 1 (2003)</a> 
+-  **124816**  <a href="http://www.filmaffinity.com/es/film745383.html">La naranja mecánica (1971)</a> 
+-  **121921**  <a href="http://www.filmaffinity.com/es/film944222.html">El Señor de los anillos: Las dos torres (2002)</a> 
+-  **121455**  <a href="http://www.filmaffinity.com/es/film768790.html">El silencio de los corderos (1991)</a> 
+-  **120771**  <a href="http://www.filmaffinity.com/es/film607127.html">El sexto sentido (1999)</a>
 
 La lista de mejor valoradas la podéis ver en Filmaffinity, así que os pego las mejor valoradas según la nota corregida:
 
--  **9,14**  [El Padrino (1972)](http://www.filmaffinity.com/es/film809297.html) 
--  **9,05**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
--  **8,96**  [12 hombres sin piedad (Doce hombres sin piedad) (1957)](http://www.filmaffinity.com/es/film695552.html) 
--  **8,94**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
--  **8,86**  [Testigo de cargo (1957)](http://www.filmaffinity.com/es/film667376.html) 
--  **8,85**  [El golpe (1973)](http://www.filmaffinity.com/es/film385464.html) 
--  **8,79**  [La lista de Schindler (1993)](http://www.filmaffinity.com/es/film656153.html) 
--  **8,79**  [El apartamento (1960)](http://www.filmaffinity.com/es/film795770.html) 
--  **8,78**  [Senderos de gloria (1957)](http://www.filmaffinity.com/es/film448956.html) 
--  **8,76**  [Tiempos modernos (1936)](http://www.filmaffinity.com/es/film726746.html) 
--  **8,75**  [Ser o no ser (1942)](http://www.filmaffinity.com/es/film684718.html) 
--  **8,75**  [Uno de los nuestros (1990)](http://www.filmaffinity.com/es/film978961.html) 
--  **8,74**  [El gran dictador (1940)](http://www.filmaffinity.com/es/film155010.html) 
--  **8,74**  [Perdición (1944)](http://www.filmaffinity.com/es/film207165.html) 
--  **8,72**  [El crepúsculo de los dioses (1950)](http://www.filmaffinity.com/es/film536488.html) 
+-  **9,14**  <a href="http://www.filmaffinity.com/es/film809297.html">El Padrino (1972)</a> 
+-  **9,05**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
+-  **8,96**  <a href="http://www.filmaffinity.com/es/film695552.html">12 hombres sin piedad (Doce hombres sin piedad) (1957)</a> 
+-  **8,94**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
+-  **8,86**  <a href="http://www.filmaffinity.com/es/film667376.html">Testigo de cargo (1957)</a> 
+-  **8,85**  <a href="http://www.filmaffinity.com/es/film385464.html">El golpe (1973)</a> 
+-  **8,79**  <a href="http://www.filmaffinity.com/es/film656153.html">La lista de Schindler (1993)</a> 
+-  **8,79**  <a href="http://www.filmaffinity.com/es/film795770.html">El apartamento (1960)</a> 
+-  **8,78**  <a href="http://www.filmaffinity.com/es/film448956.html">Senderos de gloria (1957)</a> 
+-  **8,76**  <a href="http://www.filmaffinity.com/es/film726746.html">Tiempos modernos (1936)</a> 
+-  **8,75**  <a href="http://www.filmaffinity.com/es/film684718.html">Ser o no ser (1942)</a> 
+-  **8,75**  <a href="http://www.filmaffinity.com/es/film978961.html">Uno de los nuestros (1990)</a> 
+-  **8,74**  <a href="http://www.filmaffinity.com/es/film155010.html">El gran dictador (1940)</a> 
+-  **8,74**  <a href="http://www.filmaffinity.com/es/film207165.html">Perdición (1944)</a> 
+-  **8,72**  <a href="http://www.filmaffinity.com/es/film536488.html">El crepúsculo de los dioses (1950)</a> 
 
 Las que más dieces tienen:
 
-- **54487**  [El Padrino (1972)](http://www.filmaffinity.com/es/film809297.html) 
--  **38158**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
--  **35770**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
--  **35162**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
--  **31844**  [La lista de Schindler (1993)](http://www.filmaffinity.com/es/film656153.html) 
--  **28530**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
--  **26835**  [La naranja mecánica (1971)](http://www.filmaffinity.com/es/film745383.html) 
--  **25088**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
--  **24461**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
--  **23991**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
--  **22667**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
--  **22344**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
--  **21144**  [Blade Runner (1982)](http://www.filmaffinity.com/es/film358476.html) 
--  **19873**  [El Señor de los anillos: Las dos torres (2002)](http://www.filmaffinity.com/es/film944222.html) 
--  **19471**  [Amelie (2001)](http://www.filmaffinity.com/es/film151039.html) 
+- **54487**  <a href="http://www.filmaffinity.com/es/film809297.html">El Padrino (1972)</a> 
+-  **38158**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
+-  **35770**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
+-  **35162**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
+-  **31844**  <a href="http://www.filmaffinity.com/es/film656153.html">La lista de Schindler (1993)</a> 
+-  **28530**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
+-  **26835**  <a href="http://www.filmaffinity.com/es/film745383.html">La naranja mecánica (1971)</a> 
+-  **25088**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
+-  **24461**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
+-  **23991**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
+-  **22667**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
+-  **22344**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
+-  **21144**  <a href="http://www.filmaffinity.com/es/film358476.html">Blade Runner (1982)</a> 
+-  **19873**  <a href="http://www.filmaffinity.com/es/film944222.html">El Señor de los anillos: Las dos torres (2002)</a> 
+-  **19471**  <a href="http://www.filmaffinity.com/es/film151039.html">Amelie (2001)</a> 
 
 Las que más unos:
 
--  **8549**  [Dos tontos muy tontos (1994)](http://www.filmaffinity.com/es/film688273.html) 
--  **6625**  [El proyecto de la Bruja de Blair (1999)](http://www.filmaffinity.com/es/film545832.html) 
--  **5843**  [Torrente 3: El protector (2005)](http://www.filmaffinity.com/es/film107203.html) 
--  **4852**  [Waterworld (1995)](http://www.filmaffinity.com/es/film160303.html) 
--  **4819**  [Ace Ventura: Operación África (1995)](http://www.filmaffinity.com/es/film557766.html) 
--  **4532**  [Independence Day (1996)](http://www.filmaffinity.com/es/film542328.html) 
--  **4479**  [Scary Movie (2000)](http://www.filmaffinity.com/es/film232939.html) 
--  **4305**  [Catwoman (2004)](http://www.filmaffinity.com/es/film217898.html) 
--  **4114**  [Dr. Dolittle (1998)](http://www.filmaffinity.com/es/film800313.html) 
--  **4089**  [Crepúsculo  (Twilight) (2008)](http://www.filmaffinity.com/es/film146914.html) 
--  **4078**  [Austin Powers: Misterioso agente internacional (1997)](http://www.filmaffinity.com/es/film577638.html) 
--  **4074**  [Misión imposible 2 (M:I-2) (2000)](http://www.filmaffinity.com/es/film250881.html) 
--  **4014**  [Batman & Robin (1997)](http://www.filmaffinity.com/es/film159422.html) 
--  **3027**  [American Pie (1999)](http://www.filmaffinity.com/es/film345561.html) 
--  **2972**  [Sé lo que hicisteis el último verano (1997)](http://www.filmaffinity.com/es/film515456.html) 
+-  **8549**  <a href="http://www.filmaffinity.com/es/film688273.html">Dos tontos muy tontos (1994)</a> 
+-  **6625**  <a href="http://www.filmaffinity.com/es/film545832.html">El proyecto de la Bruja de Blair (1999)</a> 
+-  **5843**  <a href="http://www.filmaffinity.com/es/film107203.html">Torrente 3: El protector (2005)</a> 
+-  **4852**  <a href="http://www.filmaffinity.com/es/film160303.html">Waterworld (1995)</a> 
+-  **4819**  <a href="http://www.filmaffinity.com/es/film557766.html">Ace Ventura: Operación África (1995)</a> 
+-  **4532**  <a href="http://www.filmaffinity.com/es/film542328.html">Independence Day (1996)</a> 
+-  **4479**  <a href="http://www.filmaffinity.com/es/film232939.html">Scary Movie (2000)</a> 
+-  **4305**  <a href="http://www.filmaffinity.com/es/film217898.html">Catwoman (2004)</a> 
+-  **4114**  <a href="http://www.filmaffinity.com/es/film800313.html">Dr. Dolittle (1998)</a> 
+-  **4089**  <a href="http://www.filmaffinity.com/es/film146914.html">Crepúsculo  (Twilight) (2008)</a> 
+-  **4078**  <a href="http://www.filmaffinity.com/es/film577638.html">Austin Powers: Misterioso agente internacional (1997)</a> 
+-  **4074**  <a href="http://www.filmaffinity.com/es/film250881.html">Misión imposible 2 (M:I-2) (2000)</a> 
+-  **4014**  <a href="http://www.filmaffinity.com/es/film159422.html">Batman &amp; Robin (1997)</a> 
+-  **3027**  <a href="http://www.filmaffinity.com/es/film345561.html">American Pie (1999)</a> 
+-  **2972**  <a href="http://www.filmaffinity.com/es/film515456.html">Sé lo que hicisteis el último verano (1997)</a> 
 
-En [este enlace](https://sites.google.com/site/electronicayciencia/Estad-pelis.zip?attredirects=0&d=1) encontraréis el siguiente contenido:
+En [este enlace](https://sites.google.com/site/electronicayciencia/Estad-pelis.zip?attredirects=0&amp;d=1) encontraréis el siguiente contenido:
 
 - El artículo en sí en formato texto y las imágenes.
 - El programa en Perl y el fichero resultante películas.dat con los datos a 08/08/2012.
 - Los ficheros .m de Matlab para el cálculo de los gráficos.
 - El Excel con los datos cargados y procesados, filtros y cálculos necesarios.
-
-
 

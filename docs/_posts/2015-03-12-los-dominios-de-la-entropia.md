@@ -19,13 +19,11 @@ Estamos en 1850. Un tal [Clausius](http://es.wikipedia.org/wiki/Rudolf_Clausius)
 
 > *En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.*
 > 
-> *En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo [sin darse con las demás](https://es.wikipedia.org/wiki/Camino_libre_medio). Así que más o menos tienen todas la misma velocidad.*
+> *En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo <a href="https://es.wikipedia.org/wiki/Camino_libre_medio">sin darse con las demás</a>. Así que más o menos tienen todas la misma velocidad.*
 > 
 > *Pero en un gas es distinto, muy distinto... por algo gas viene del griego Kaos. Las partículas de un gas pueden moverse libremente, ocupar la posición que quieran dentro del contenedor, moverse con cualquier velocidad, chocar unas con otras. Para describir el estado de un gas necesito decir la posición y velocidad de cada partícula que lo forma, porque no tiene ninguna estructura.*
 > 
-> *Así, un sistema es más complicado de describir físicamente cuantos más [estados posibles](https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29) tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura.* 
-> 
-> *Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.*
+> *Así, un sistema es más complicado de describir físicamente cuantos más <a href="https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29">estados posibles</a> tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura.* *Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.*
 
 Casi cien años después, en 1948, un ingeniero eléctrico graduado en matemáticas, poco conocido por entonces, pensó que este concepto de cuán difícil es describir un sistema no tiene por qué ser algo exclusivo de la física. Pensó que, en general, sea lo que sea que estemos describiendo necesitaremos más o menos información para hacerlo. Y publicó un articulito generalizando el concepto de entropía y dando una fórmula para calcular la cantidad de información.
 
@@ -33,51 +31,47 @@ Hay que decir que al principio no se dio cuenta, pero acababa de dar un salto de
 
 Supongamos que quiero una pizza:
 
-    *por favor, una pizza de peperoni.*
+    por favor, una pizza de peperoni.
 
 Ese mensaje tiene cierta cantidad de información, suficiente para que el camarero nos traiga una pizza de peperoni. Si ahora yo dijera:
 
-    *una pizza con doble de peperoni*
+    una pizza con doble de peperoni
 
 Estaría aportando información adicional al mensaje de antes. Pero aumentar la cantidad de peperoni no aumenta la cantidad de información, sólo cambia el mensaje, pero no lo hace más largo:
 
-    *una pizza con triple de peperoni*
+    una pizza con triple de peperoni
 
-<br />
-
-    *una pizza con cuádruple de peperoni*
+    una pizza con cuádruple de peperoni
 
 Luego entonces la cantidad de información es la misma, aunque cambie el contenido de dicha información.
 
 También podemos alargar el mensaje sin aportar información extra, pero entonces ciertas partes del mensaje serán redundantes. Algo así como haría Jimmy el Dos Veces:
 
-    *una pizza margarita*
+    una pizza margarita
 
-<br />
-
-    *una pizza margarita, horneada, con su albahaca y su tomate*
+    una pizza margarita, horneada, con su albahaca y su tomate
 
 La redundancia no tiene por qué ser mala. Nos permite seguir entendiendo el mensaje aunque una porción se pierda. Muy importante en el lenguaje hablado, por ejemplo.
 
 La entropía, y esta fue la gran aportación de Shannon, está íntimamente ligada a la compresión de los mensajes. Porque un mensaje lo podremos comprimir hasta la cantidad mínima de información que lleva. Aquí influye, como en la entropía física, la cantidad de estados posibles y la estructura interna (el orden), por ejemplo el mensaje:
 
-    *ccc*
+    ccc
 
 puede describirse como "*3 ces*", y sin embargo:
 
-    *cccccccccccccccccccccccccc*
+    cccccccccccccccccccccccccc
 
 puede escribirse como "*26 ces*" mucho más comprimido. De igual modo
 
-    *abcdefghijklmnopqrstuvwxyz*
+    abcdefghijklmnopqrstuvwxyz
 
-puede describirse como "*las letras ordenadas de la a a la z*", y podría abreviarse sencillamente como 
+puede describirse como "*las letras ordenadas de la a a la z*", y podría abreviarse sencillamente como
 
-    *a-z*
+    a-z
 
 mientras que:
 
-    *kdupwopylacnghzrcgojdjxuwv*
+    kdupwopylacnghzrcgojdjxuwv
 
 aún teniendo la misma longitud que antes y las mismas letras, **no puede ser abreviado**. Luego de alguna manera esta última cadena tiene más entropía, más desorden, o más aleatoriedad que las anteriores. ¿Correcto? Bueno... ya veremos.
 
@@ -92,17 +86,13 @@ El concepto anterior es muy general. Y viene a decir que **las cosas más frecue
 Del concepto anterior se suelen deducir cosas erróneas. Por ejemplo que cadenas como:
 
     fseptrnhgjzoywmkxqilcubadv,
-
     qjhrbvozwykiscgnpfaemtdulx,
-
     prsfcaidhtubwyxjvozeqmkgln o
-
     eynawotsbqpvgcikuzxhdmjlrf
 
 tienen "más entropía" que, por ejemplo,
 
     abcdefghijklmnopqrstuvwxyz o
-
     zyxwvutsrqponmlkjihgfedcba
 
 sin embargo esto sólo es así porque nosotros hemos decidido una ordenación arbitraria del abecedario. Ese contexto, esa estructura interna a un ordenador se le escapa, es ajeno a la definición de entropía. Estos mensajes **tienen todos la misma entropía**: la equivalente a un mensaje de 26 letras todas distintas entre sí.
@@ -134,95 +124,60 @@ Tenemos un par de programitas en Perl para hacer los cálculos. Hay un enlace al
 Alimentamos el programita *feed.pl* con el TOP de Alexa y el resultado es un fichero con datos estadísticos de frecuencias relativas para cada letra:
 
     "_" : 3.860414
-
     "0" : 0.001153
-
     ...
-
     "9" : 0.000435
-
     "a" : 0.086051
-
     "b" : 0.022417
-
     "c" : 0.045581
-
     "d" : 0.031477
-
     "e" : 0.102742
-
     "f" : 0.017150
 
 Como es de esperar, las letras "e" y "a" son las más comunes y tienen frecuencias relativas más altas que las demás. Mientras que los números ocurren menos veces en los nombre de los dominios.
 
-Ha habido que tener la precaución de eliminar el Dominio de Primer Nivel porque al ser mucho ".com" o ".org" introducían en sesgo importante. También he eliminado los caracteres que no son alfanuméricos, como el guión o el punto. 
+Ha habido que tener la precaución de eliminar el Dominio de Primer Nivel porque al ser mucho ".com" o ".org" introducían en sesgo importante. También he eliminado los caracteres que no son alfanuméricos, como el guión o el punto.
 
 Ahora tenemos un segundo programa, que calcula la entropía de cada palabra de una lista, siguiendo la [fórmula dada por Shannon](http://es.wikipedia.org/wiki/Entrop%C3%ADa_%28informaci%C3%B3n%29). El razonamiento lo podéis ver en la Wikipedia, pero dicho de una forma rápida se trata de calcular el logaritmo de la rareza de algo (o sea la inversa de la frecuencia) y multiplicar por cuántas veces aparece. Así con todos los símbolos y finalmente se suma. El resultado es la cantidad de información necesaria para representar la muestra.
 
-Un paso adicional que también haremos es dividir por la longitud total del dominio, calculando la entropía por símbolo. Porque si no lo hiciéramos así favoreceríamos los dominios más cortos frente a los más largos. 
+Un paso adicional que también haremos es dividir por la longitud total del dominio, calculando la entropía por símbolo. Porque si no lo hiciéramos así favoreceríamos los dominios más cortos frente a los más largos.
 
 Como decíamos antes, esta forma de cálculo **no tiene para nada en cuenta el orden** de las letras. Si lo aplicamos sobre las cadenas de antes el resultado es el mismo para todas. Por la sencilla razón de que todas tienen las mismas letras el mismo número de veces:
 
     3.702 abcdefghijklmnopqrstuvwxyz
-
     3.702 zyxwvutsrqponmlkjihgfedcba
-
     3.702 fseptrnhgjzoywmkxqilcubadv
-
     3.702 qjhrbvozwykiscgnpfaemtdulx
-
     3.702 prsfcaidhtubwyxjvozeqmkgln
-
     3.702 eynawotsbqpvgcikuzxhdmjlrf
 
 Vamos a probar qué entropía nos da para los 500 dominios más visitados en España, que era nuestro control negativo. Es decir, esperamos entropías en general bajas.
 
     2.518 series
-
     2.537 terra
-
     2.592 elitetorrent
-
     2.617 sensacine
-
     2.622 elcorreo
-
     ...
-
     4.363 los40
-
     4.593 office365
-
     4.862 7769domain
-
     4.939 ad131m
-
     5.222 bet365
 
 Muy bien, parece que funciona. Va desde 2.5 para los dominios con letras más usuales, hasta más de 5 para los que tienen nombres con muchos números. Vamos a comparar los resultados con varios dominios aleatorios del troyano Downadup que sólo están formados por letras y esperamos que los valores sean mucho más altos.
 
     2.730 ecrreaictepimeli
-
     2.787 rrirdtecowehieer
-
     2.906 lpciilaowoaiiwea
-
     2.920 reitweamiicfaife
-
     2.940 rrrglcrderidihga
-
     ...
-
     4.371 wpcwphjjljpqwffj
-
     4.383 jjjocwpgwqrczqpf
-
     4.413 jfhjefpjjjjfjgtp
-
     4.460 wdhhwpwwqqqzjpmo
-
     4.467 jjziwwwtwzwhfjpj
-
     4.557 pzdjqwpgjjfcjfjc
 
 Vaya... los dominios aleatorios arrojan resultados desde el 2.7 para los que están formados por letras muy frecuentes hasta el 4.5 para los que tienen muchas letras infrecuentes.
@@ -235,7 +190,7 @@ Pues desde el punto de vista entrópico, la frecuencia de los caracteres en los 
 
 ## La decisión
 
-No, no es una novela de John Grisham. Es que histograma en mano, tenemos que contestar a la pregunta: *¿el dominio X es aleatorio o no?*
+No, no es una novela de John Grisham. Es que histograma en mano, tenemos que contestar a la pregunta: _*¿el dominio X es aleatorio o no?*_
 
 Señor abogado, a la vista del histograma anterior podríamos decir tres cosas:
 
@@ -270,7 +225,7 @@ Por ejemplo, ¿qué tal si representamos en un gráfico la relación entre posit
 
 El punto óptimo según este criterio está en entropía 3.6, punto en que cometeríamos un fallo por cada 12 aciertos. Oye, es un 90% de eficacia; la leche.
 
-Sólo hay un problemilla... que si bien la cantidad de falsos positivos con este umbral es poca (un 4%), los dominios aleatorios detectados no llegan ni a la mitad de los que deberían ser, tan sólo pillamos el 48%. 
+Sólo hay un problemilla... que si bien la cantidad de falsos positivos con este umbral es poca (un 4%), los dominios aleatorios detectados no llegan ni a la mitad de los que deberían ser, tan sólo pillamos el 48%.
 
 Lo siento, pero la realidad es cruel. Las pruebas 100% sensibles e infalibles no existen.
 
@@ -282,7 +237,7 @@ Así que lo mejor es que representemos en un gráfico la fracción de falsos pos
 
 {% include image.html file="ROC_letras.png" caption="" %}
 
-A simple vista no se diferencian mucho. Sin embargo hay un criterio objetivo para indicar si un test es mejor que otro. Se supone que mientras más arriba a la izquierda esté la curva, mejor diferenciación hace el test. Pues el criterio consiste en calcular el área bajo la curva que es el número que tenéis en la leyenda. 
+A simple vista no se diferencian mucho. Sin embargo hay un criterio objetivo para indicar si un test es mejor que otro. Se supone que mientras más arriba a la izquierda esté la curva, mejor diferenciación hace el test. Pues el criterio consiste en calcular el área bajo la curva que es el número que tenéis en la leyenda.
 
 No os lo he dicho pero resulta que en realidad esa curva que habíamos puesto desde el primer caso es muy famosa. Tan famosa que hasta tiene nombre: se llama **curva ROC**. Algunos dicen que lo de ROC viene de *Curva del Operador de Radar*. Otros dicen que viene de *Característica Operativa del Receptor*.
 
@@ -295,15 +250,10 @@ Al grano, el área bajo la curva en el primer caso, cuando calculábamos la entr
 La siguiente prueba es con tríos de letras a ver si así el resultado es mejor. Por ejemplo "google" esta vez estaría compuesto por:
 
     ^go
-
     goo
-
     oog
-
     ogl
-
     gle
-
     le$
 
 Es de suponer que la probabilidad de que dos letras habituales salgan juntan en algo generado al azar es baja. Pero tres letras juntas es todavía más difícil. De hecho, hay 49248 combinaciones posibles, incluyendo los símbolos de comienzo y final de palabra.
@@ -313,39 +263,24 @@ Haremos lo mismo que antes: tomaremos el TOP 1M de Alexa, calcularemos la probab
 Para el caso de los dominios legítimos, tenemos este resultado:
 
     5.290 sport
-
     5.332 blogspot
-
     5.736 marca
-
     5.779 series
-
     ...
-
     9.529 3djuegos
-
     9.820 fiuxy
-
     10.064 ad131m
-
     10.151 adplxmd
-
     10.409 7769domain
 
 Hasta ahora muy parecido a lo anterior. Y para los aleatorios:
 
     8.272 dcleweelowheergg
-
     8.369 ecrreaictepimeli
-
     8.674 otelprchhhefeigr
-
     ...
-
     13.613 pfpfzwpqjrgfhhqa
-
     13.682 pzdjqwpgjjfcjfjc
-
     13.865 rzcjlpfzfjjwpjwi
 
 No queda del todo claro que sea mejor. Vamos a compararlo dibujando la curva ROC junto a los otros dos.
@@ -363,47 +298,28 @@ Me gustaría terminar este artículo hablándoos del principio *GIGO*. Desde el 
 Vamos a hacer una cosa, calculemos la entropía utilizando el método de trígrafos de lo que llamamos "*dominios válidos*" y ordenémoslo de menor a mayor entropía. A ver qué sale. Los primeros dominios que aparecen, los de menor entropía son:
 
     5.011 blogs
-
     5.148 mares
-
     5.151 rester
-
     5.175 store
-
     5.182 caree
-
     5.185 lines
-
     5.195 inter
-
     5.213 comed
-
     5.214 stern
-
     5.216 tions
 
 Dominios cortos sin mayor interés. Claro que, si nos vamos a mirar los dominios "válidos" con mayor entropía:
 
     14.252 0p78qfr8q7
-
     14.259 r0j57fbs5wvd74b
-
     14.259 xn22c9ba4a8bwcb4i4a5cg8b
-
     14.297 061x79xzldqja621
-
     14.310 9cd47096ab1495d8d3b18667f6a52b9c
-
     14.383 b33d8ac9ea7318e83d193ec9cf4
-
     14.391 g5p7wt0zbk
-
     14.422 b5cf5a1ec553b9d09df8ebf30885601c1c
-
     14.430 491gxrw8ifhy8hg1
-
     14.495 bff9ddc870e3ab3c1a2a8f6158328af2df
-
     14.653 5e9e45c3f9381f5ffa8c5a5bd97405e99fb
 
 ¡Oh, atrevida ignorancia! Resulta que entre nuestra lista de dominios válidos se han colado algunos que más bien parecen de los malos. Aparecen dominios como *491gxrw8ifhy8hg1.com* o *5e9e45c3f9381f5ffa8c5a5bd97405e99fb.com* que casualmente parece un hash y que, al contrario de lo que cabría imaginar, existe y resuelve a la ip 50.19.87.86.
@@ -416,15 +332,13 @@ Por favor, nunca olvides esto: todos los sistemas que trabajan con unos datos de
 
 Pero ¿y si el dominio no es del todo aleatorio? Angler EK es un *kit de exploiting* del que se está oyendo últimamente. Podéis ver una descripción aquí: [Threat Spotlight: Angler Lurking in the Domain Shadows](http://blogs.cisco.com/security/talos/angler-domain-shadowing). Para ocultar sus llamadas hace uso de una técnica que se llama *Domain Shadow* y que consiste en robarle las credenciales a un administrador de algún dominio de GoDaddy y crear subdominios del dominio principal apuntando a la IP del panel de control.
 
-Por ejemplo, alguien obtuvo las credenciales del dominio *keytone.net* y dio de alta algunos subdominios 
+Por ejemplo, alguien obtuvo las credenciales del dominio *keytone.net* y dio de alta algunos subdominios
 
 ```
 036ncy4zgj.keytone.net
 042emb3ilv.keytone.net
 06yd2l4vc9.keytone.net
 ```
-
- 
 
 Para el administrador del dominio es totalmente transparente y no advertirá nada a menos que liste los subdominios que tiene a su nombre, ya que por lo general son gratuitos. Para el analista de malware es una faena porque muchas veces las listas blancas se hacen por dominio completo, por lo que si keytone.net está en lista blanca, todos sus subdominios -incluyendo los anteriores- también lo estarán.
 
@@ -433,6 +347,8 @@ Este es un gráfico comparativo de la entropía de los dominios de Angler EK, co
 {% include image.html file="angler_glob_topES.png" caption="" %}
 
 ¿Por qué la distribución de Angler tiene **dos máximos**? Obviamente porque hay dos tipos de dominios diferente. Si miramos el listado veremos que los subdominios pueden ser pseudoaleatorios,como estos:
+
+    
 
 ```
 acaibehbjdjd.mysupercouponzz.info
@@ -475,6 +391,4 @@ La última pregunta, si el test serviría para diferenciarlos la podéis respond
 {% include image.html file="roc_trigs_anglerrec.png" caption="" %}
 
 Nada más por el momento. Gracias por leer hasta aquí. Los scripts en Perl, ficheros, resultados, etc los podéis encontrar en este enlace: [fuentes](https://www.dropbox.com/s/33g8kci6uncbb0v/entropia_digrafos.zip).
-
-
 

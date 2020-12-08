@@ -17,9 +17,9 @@ Hay tres tipos de coches radiocontrolados de gama baja. Por supuesto no tienen p
 
 Como digo, en los modelos RC de hoy nos encontramos sólo tres tipos de circuitos. Porque los fabricantes son los mismos y apenas cambian los esquemas. El esquema depende de los canales que tenga el coche. Los **canales** son las acciones independientes que puede realizar.
 
-- **Esquema de un canal:** Estos son los más básicos y sólo tienen un botón en el mando. Son los típicos que nada más encenderlos el coche va hacia adelante. Cuando pulsamos el botón va hacia atrás y al mismo tiempo gira, para seguir avanzando en cuanto soltemos el pulsador. El circuito es muy simple: un transmisor en el mando y un receptor sintonizado en le coche. En cuando el receptor capta la señal del mando conmuta la dirección. A menudo la señal ni siquiera va modulada.
+- **Esquema de un canal:** Estos son los más básicos y sólo tienen un botón en el mando. Son los típicos que nada más encenderlos el coche va hacia adelante. Cuando pulsamos el botón va hacia atrás y al mismo tiempo gira, para seguir avanzando en cuanto soltemos el pulsador. El circuito es muy simple: un transmisor en el mando y un receptor sintonizado en le coche. En cuando el receptor capta la señal del mando conmuta la dirección. A menudo la señal ni siquiera va modulada.<br>
 
-- **Esquema de dos canales:** Estos tienen tres estados: hacia delante, hacia atrás y parado. Tienen dos pulsadores, uno para avanzar y otro para retroceder que pueden ser independientes o unidos en una palanca. El transmisor es un oscilador que puede emitir dos tonos de frecuencias distintas (250Hz y 1000Hz), ya describimos el funcionamiento en [esta entrada]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}). En cuanto al receptor, el esquema suele basarse en el [integrado RX-3](http://www.alldatasheet.com/datasheet-pdf/pdf/156482/SILAN/RX-3.html) de Silan. Ese va a ser el que describamos hoy.
+- **Esquema de dos canales:** Estos tienen tres estados: hacia delante, hacia atrás y parado. Tienen dos pulsadores, uno para avanzar y otro para retroceder que pueden ser independientes o unidos en una palanca. El transmisor es un oscilador que puede emitir dos tonos de frecuencias distintas (250Hz y 1000Hz), ya describimos el funcionamiento en [esta entrada]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}). En cuanto al receptor, el esquema suele basarse en el <a href="http://www.alldatasheet.com/datasheet-pdf/pdf/156482/SILAN/RX-3.html">integrado RX-3</a> de Silan. Ese va a ser el que describamos hoy.
 
 - **Esquema de cinco canales:** Son los coches con funciones de atrás-adelante-turbo e izquierda-derecha. En este caso ya no es cómodo utilizar frecuencias distintas para cada opción, así que se usa modulación digital. Tanto el transmisor como el receptor utilizan integrados dedicados. El TX-2B y el RX-2B respectivamente. No vamos a hablar de ellos hoy.
 
@@ -55,7 +55,7 @@ El integrado RX-3 incorpora dos amplificadores inversores listos para usar. Las 
 
 Las resistencias y condensadores que componen esta sección son las redes de realimentación de ambos amplificadores. El primero de ellos tiene una amplificación de unos 30dB que se reduce muchísimo para frecuencias altas por efecto del condensador de 500pF en paralelo con la resistencia.
 
-La segunda etapa está configurada con una ganancia de 10dB. Todo esto *grosso modo* sin contar las pérdidas por los condensadores de acoplamiento, en serie con las resistencias de entrada, que separan la corriente continua y sólo dejan pasar la alterna. 
+La segunda etapa está configurada con una ganancia de 10dB. Todo esto *grosso modo* sin contar las pérdidas por los condensadores de acoplamiento, en serie con las resistencias de entrada, que separan la corriente continua y sólo dejan pasar la alterna.
 
 Toda la etapa amplificadora tiene una ganancia de 40dB. El tono detectado se aplica a la patilla 4 del integrado. Esta es la entrada de señal demodulada. Cuando a esta patilla llegue un tono de 1000Hz se pondrá a nivel alto la patilla 11 -forward- y el coche andará hacia adelante. En cambio cuando llegue un tono de 250Hz se encenderá la patilla 9 -backward- y rodará hacia atrás.
 
@@ -73,7 +73,7 @@ Hay variantes de este esquema. En el esquema hay 5 transistores NPN y 1 PNP. Sin
 
 Por último, la sección D es la alimentación del circuito. No hay mucho que destacar aquí. Hay componentes que faltan en la placa comercial, por ejemplo el diodo D1, que previene contra inversión de las baterías, se lo han ahorrado. Así como algunos condensadores de filtrado.
 
-Vemos que la parte que alimenta a la etapa A va desacoplada mediante una resistencia de 100Ω y un condensador. Sirve para que ninguna señal residual de RF pueda filtrarse a la línea de alimentación e interferir con el integrado. 
+Vemos que la parte que alimenta a la etapa A va desacoplada mediante una resistencia de 100Ω y un condensador. Sirve para que ninguna señal residual de RF pueda filtrarse a la línea de alimentación e interferir con el integrado.
 
 En algunos circuitos esta parte no está bien diseñada, y se acopla la RF con la alimentación, también puede pasar por medio de las capacidades parásitas entre las pistas por ejemplo. En muchos casos de comportamiento errático, sobre todo con microcontroladores este es el problema.
 

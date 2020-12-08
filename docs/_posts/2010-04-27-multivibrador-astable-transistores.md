@@ -54,7 +54,9 @@ Haciendo lo mismo que antes, vamos a eliminar Q1 del circuito y vamos a sustitui
 
 {% include image.html file="astable_estado2.png" caption="" %}
 
-Vemos que C1 va a ir desde -0.7V hasta los Vcc-0.7V, rápidamente pues R1 es pequeña.<br />C2 va a (des)cargarse lentamente a través de R3 desde los Vcc-0.7V hasta los -Vcc, **¡MENTIRA!** sólo va a llegar hasta -0.7V. Porque cuando llegue ahí Q1 va a conducir, va a llevar a masa el + de C1 y va a aplicar a la base de Q2 toda la carga de C1 invertida, llevándolo al corte. Y provocando el estado 1 de nuevo.
+Vemos que C1 va a ir desde -0.7V hasta los Vcc-0.7V, rápidamente pues R1 es pequeña.
+
+C2 va a (des)cargarse lentamente a través de R3 desde los Vcc-0.7V hasta los -Vcc, **¡MENTIRA!** sólo va a llegar hasta -0.7V. Porque cuando llegue ahí Q1 va a conducir, va a llevar a masa el + de C1 y va a aplicar a la base de Q2 toda la carga de C1 invertida, llevándolo al corte. Y provocando el estado 1 de nuevo.
 
 Vemos que cuando eso pase tendremos:
 
@@ -69,7 +71,7 @@ Que son justamente las condiciones iniciales que dimos para el estado 1. Así el
 
 ## Calcular los componentes
 
-Para empezar, nos interesa que los condensadores se cargen por R1 y R4 más rápidamente de lo que se descargan por R2 o R3. Porque cuando ocurra la transición queremos que el otro ya esté cargado. Así que R1 < R2 y R4 < R3. Por simplicidad haremos R1 = R4. Pero no nos interesa que la corriente que fluye Emisor-Colector durante la carga queme los transistores. Dependidiendo de la tensión de alimentación, un valor entre 100ohm y 1k estaría bien. Recordad cumplir las condiciones anteriores.
+Para empezar, nos interesa que los condensadores se cargen por R1 y R4 más rápidamente de lo que se descargan por R2 o R3. Porque cuando ocurra la transición queremos que el otro ya esté cargado. Así que R1 &lt; R2 y R4 &lt; R3. Por simplicidad haremos R1 = R4. Pero no nos interesa que la corriente que fluye Emisor-Colector durante la carga queme los transistores. Dependidiendo de la tensión de alimentación, un valor entre 100ohm y 1k estaría bien. Recordad cumplir las condiciones anteriores.
 
 El tiempo que tarda en conmutar del estado 1 al estado 2 viene dado por lo que le lleva a C1 descargase desde los Vcc-0.7V hasta los -0.7V. Lo hace a través de R2, y usando la [ecuación de carga de un condensador](http://www.electronicafacil.net/tutoriales/Carga-descarga-condensador.html) tenemos:
 
@@ -99,7 +101,7 @@ Este último valor es el que suele darse habitualmente. La aproximación tiene u
 
 - **Condensadores**: Para un cerámico o uno de poliester no hay problema, pero en un electrolítico invertir los terminales para cargarlo del revés puede destruirlo. Si bien es cierto que aquí sólo se llegan a cargar invertidos hasta los 0.7V.
 
-- **Tiempo**: El tiempo viene determinado por la capacidad de C1 y C2 así como por R2 y R3. Mientras más altos sean estos valores más durará cada estado. Pero si usamos unos condensadores demasiado grandes, puede que tengan demasiadas pérdidas y el circuito no empiece a oscilar. Igualmente para las resistencias, si aumentamos demasiado el valor de R2 por ejemplo, puede que no pase corriente bastante para polarizar la base de Q2 una vez se alcance la tensión de disparo. Si no puede llevarlo a conducción, no se alcanzará nunca el estado 2. Si se necesitan retardos mayores se puede optar por transistores darlington, aunque dado el coste de los condensadores de la capacidad necesaria es mejor optar por otros temporizadores como el NE555 o el [CD4060](http://www.google.com/search?q=cd4060+timer).
+- **Tiempo**: El tiempo viene determinado por la capacidad de C1 y C2 así como por R2 y R3. Mientras más altos sean estos valores más durará cada estado. Pero si usamos unos condensadores demasiado grandes, puede que tengan demasiadas pérdidas y el circuito no empiece a oscilar. Igualmente para las resistencias, si aumentamos demasiado el valor de R2 por ejemplo, puede que no pase corriente bastante para polarizar la base de Q2 una vez se alcance la tensión de disparo. Si no puede llevarlo a conducción, no se alcanzará nunca el estado 2. Si se necesitan retardos mayores se puede optar por transistores darlington, aunque dado el coste de los condensadores de la capacidad necesaria es mejor optar por otros temporizadores como el NE555 o el <a href="http://www.google.com/search?q=cd4060+timer">CD4060</a>.
 
 -  **Frecuencia**: Así como hay un límite superior del periodo, también hay un límite inferior. Puede pasar que queramos un periodo tan bajo que usemos condensadores y resistencias muy pequeños. Entonces al conectar el circuito se cargarán ambos casi al instante, para dos los transistores. Así el circuito queda en un estado estable y no oscila. Por no hablar de que a esas frecuencias si oscilara sería muy inestable, variando la frecuencia sólo con acercar o alejar la mano. Si queremos frecuencias de MHz tendremos que usar otros osciladores, a ser posible sintonizados por un cristal de cuarzo.
 
@@ -114,6 +116,4 @@ Para hacer que siempre empiece del mismo lado tenemos que romper nosotros la sim
 La única forma de hacer que ambos ciclos duren lo mismo (salvo pequeñas diferencias) y que siempre empiece por el mismo sitio es forzándolo nosotros: en lugar de poner el interruptor en la alimentación, ponerlo en la base de algún transistor.
 
 Nada más alimentar el circuito llegará a un estado que dependerá de dónde hayamos puesto el interruptor. Y no hará nada más, porque esta incompleto. Cuando pulsemos el interruptor el circuito oscilará partiendo de ese estado inicial que siempre será el mismo. La desventaja es que siempre habrá un consumo de corriente aunque el interruptor esté apagado.
-
-
 

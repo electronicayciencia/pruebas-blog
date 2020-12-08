@@ -42,7 +42,7 @@ Utilizaremos el puerto serie para la transmisión, si vuestro ordenador ya no ti
 
 Tras presentar una cabecera se queda esperando comandos. Los comandos constan de una letra y un número. La letra puede ser **p** si queremos cambiar el **periodo** u **o** si queremos cambiar la **duración del pulso**. El número que sigue son los microsegundos de duración.
 
-Si por ejemplo queremos cambiar el tiempo del pulso a 1ms, que son 1000us pondremos 
+Si por ejemplo queremos cambiar el tiempo del pulso a 1ms, que son 1000us pondremos
 
     o1000
 
@@ -51,7 +51,7 @@ Tal que así:
     Prueba de servo.
     Escribe oXXXX para variar el tiempo On
     o pXXXX para variar el periodo
-
+    
     >o1000
     Ton = 1000
     Periodo = 200000
@@ -85,11 +85,10 @@ También he pasado de **gets** por dos motivos. El primero es que no tiene lími
 // y además tiene echo remoto (se ve lo que envías mientras escribes)
 #include <input.c>
 
-short activo =     0;   // indica si el pin está activo
 
+short activo =     0;   // indica si el pin está activo
                         // si lo hiciera con una instruccion bit
                         // no podría cambiarlo en el #define fácilmente
-
 long Ton     =  1000;   // tiempo de duración del pulso (us)
 long Periodo = 20000;   // duracion del periodo (us)
 
@@ -101,7 +100,6 @@ void  TIMER1_isr(void)
  /* Lo activamos y plantamos la interrupción
     para que se desactive al rato 
     Los valores de offset estan calculados con el simulador */
-
  if (!activo) {
   activo = 1;
   output_high(PIN_Servo);
@@ -114,17 +112,17 @@ void  TIMER1_isr(void)
  }
 }
 
+
+
 void main()
 {
  setup_oscillator(OSC_4MHZ);
-
+ 
     setup_adc_ports(NO_ANALOGS|VSS_VDD);
-
  setup_adc(ADC_OFF);
-
+ 
  /* Timer1 con resolución de 1us,
     desbordamiento en 65.535ms a 4MHz */
-
  setup_timer_1(T1_INTERNAL|T1_DIV_BY_1);
 
  printf("Prueba de servo.\r\n");
@@ -133,6 +131,7 @@ void main()
 
  enable_interrupts(INT_TIMER1);
  enable_interrupts(GLOBAL);
+
 
  for(;;) {
   char string[10];
@@ -143,7 +142,7 @@ void main()
   //strcpy(string,"o1234"); (DEBUG)
   var   = string[0];
   valor = atol(string+1);
-
+  
   if (valor <= 0) {
    puts("Valor no valido.");
   }
@@ -155,22 +154,20 @@ void main()
     else { 
      Ton = valor;
     }
-
    }
    else if (var == 'p') {
     Periodo = valor;
-
    }
    else {
     puts("Comando no reconocido."); 
-
    }
-
+   
    printf("\nTon = %Lu\r\n", Ton);
    printf("Periodo = %Lu\r\n", Periodo);
   }
  } 
 }
+
 
 /* Versión reducida de atol:
    Esta versión sólo trabaja con positivos y en decimal.
@@ -183,7 +180,7 @@ long atol(char *s)
 
  indice = 0;
  result = 0;
-
+ 
  c = s[indice];
  while (c >= '0' && c <= '9') {
    result = 10*result + (c - '0');

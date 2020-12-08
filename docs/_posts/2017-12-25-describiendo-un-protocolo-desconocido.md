@@ -20,7 +20,7 @@ Hay programas tipo [Universal Radio Hacker](https://github.com/jopohl/urh), dest
 
 ## Modulación de radiofrecuencia
 
-Hace tiempo estaba escaneando cerca de un rango de [trunking](https://en.wikipedia.org/wiki/Trunked_radio_system), cuando me encontré una señal muy fuerte. Tan fuerte como para saturar la etapa de entrada y causar todo tipo de interferencias en las frecuencias adyacentes. Bajé la ganancia del SDR y la sintonicé. 
+Hace tiempo estaba escaneando cerca de un rango de [trunking](https://en.wikipedia.org/wiki/Trunked_radio_system), cuando me encontré una señal muy fuerte. Tan fuerte como para saturar la etapa de entrada y causar todo tipo de interferencias en las frecuencias adyacentes. Bajé la ganancia del SDR y la sintonicé.
 
 {% include image.html file="frecuencias_editado.png" caption="Señal desconocida. Continua y periódica." %}
 
@@ -34,7 +34,7 @@ Y esta, para comparar, es un ejemplo de un canal de control MPT-1327:
 
 Aunque no se parece al ejemplo, sí tienen varias cosas en común: ambas son señales digitales, y aunque la modulación es diferente el ancho de banda es similar. Los más atentos habréis observado que ambas son señales continuas. Eso significa que o bien no hay respuesta, o si la hay se espera por otra frecuencia diferente. En el primer caso se trataría de algún tipo de radiodifusión; en el segundo caso estaríamos captando el canal de bajada de algún sistema bidireccional.
 
-Diríamos que es una señal digital modulada en FM estrecha mediante subportadora de audio, práctica muy habitual. Busqué en Internet por si encontraba qué era, sin resultado. 
+Diríamos que es una señal digital modulada en FM estrecha mediante subportadora de audio, práctica muy habitual. Busqué en Internet por si encontraba qué era, sin resultado.
 
 Capturamos una muestra y la abriremos en un editor de sonido. En un primer momento nos serviría con la grabación desde SDRSharp. Pero más adelante necesitaremos capturar gran cantidad de paquetes para deducir el protocolo, por lo tanto a la larga nos vendrá bien un receptor por línea de comandos.
 
@@ -42,7 +42,7 @@ Usando Gnuradio programaremos un sencillo receptor de FM estrecha, este sería e
 
 {% include image.html file="esquema_gnuradio.png" caption="Esquema del receptor FM." %}
 
-Consta de una fuente RTL-SDR, y a continuación un paso bajo con corte en 12kHz para quedarnos sólo con el canal principal. 
+Consta de una fuente RTL-SDR, y a continuación un paso bajo con corte en 12kHz para quedarnos sólo con el canal principal.
 
 Después insertamos un resampler para bajar la frecuencia de muestreo de 1MHz a, por ejemplo, 88.2kHz. Lo siguiente es un demodulador de FM, que transformará las muestras I/Q en valores de coma flotante. Fijaremos la desviación máxima en 5kHz ya que la máxima frecuencia útil no supera los 2400Hz, como luego veremos.
 
@@ -60,7 +60,7 @@ rtl_fm -p 47 -g 49 -f $FREQ -s 20000 -
 
 Este comando instancia un demodulador de FM estrecha. El muestreo sería a 20000Hz lo que teóricamente nos permitiría captar hasta 10kHz, un ancho de canal suficiente.
 
-Como ya sabéis, en un demodulador de FM la salida es proporcional a la desviación respecto a la frecuencia central. El emisor transmite con una cierta desviación, y mientras más ancho pongamos el canal menor será comparativamente la desviación y por tanto la salida del receptor. O sea, si configuramos un ancho de banda demasiado grande empeorará la relación señal ruido. 
+Como ya sabéis, en un demodulador de FM la salida es proporcional a la desviación respecto a la frecuencia central. El emisor transmite con una cierta desviación, y mientras más ancho pongamos el canal menor será comparativamente la desviación y por tanto la salida del receptor. O sea, si configuramos un ancho de banda demasiado grande empeorará la relación señal ruido.
 
 Por otra parte, si ajustamos el ancho de banda a la desviación del emisor, encontraremos problemas debidos a la baja estabilidad en frecuencia de los receptores RTL-SDR. En el comando anterior hemos especificado un error de 47 ppm. Realmente el error varía con la temperatura. Cuando el receptor se calienta o se enfría la frecuencia real de sintonía cambia ligeramente. Si hubiéramos especificado un ancho de canal muy estrecho tendríamos mejor relación señal/ruido al principio pero con cualquier cambio de temperatura perderíamos la señal.
 
@@ -70,14 +70,13 @@ Necesitamos filtrar y amplificar la salida del receptor, lo haremos utilizando e
 sox -t raw -r 20000 -es -b 16 -c 1 - \
     -t raw -r 44100 - \
     sinc 300-3200 compand 0.01,0.01 -100,0 -20
-
 ```
 
 Este comando se divide en tres partes. La primera parte se refiere a la entrada de datos. El programa rtl_fm genera muestras de 16bit en formato entero con signo, *-t raw -r 20000 -es -b 16 -c 1 -* indica leer muestras de la entrada estándar, en formato binario entero de 16 bits, a un ritmo de 20kHz, un sólo canal.
 
 La segunda parte hace referencia a la salida. *-t raw -r 44100 -* quiere decir que la salida la haremos también por la salida estándar y de igual modo en formato binario, pero con un muestreo de 44100Hz. Remuestreando la señal no vamos a ganar calidad pero nos facilitará luego el proceso posterior.
 
-Tras la salida listamos los efectos deseados: *sinc 300-3200* consiste en un filtro paso banda entre 300 y 3200Hz y *compand 0.01,0.01 -100,0 -13* hace las veces de Control Automático de Ganancia. En este momento los valores son orientativos, más adelante podríamos ajustarlos por experimentación. 
+Tras la salida listamos los efectos deseados: *sinc 300-3200* consiste en un filtro paso banda entre 300 y 3200Hz y *compand 0.01,0.01 -100,0 -13* hace las veces de Control Automático de Ganancia. En este momento los valores son orientativos, más adelante podríamos ajustarlos por experimentación.
 
 El comando *compand* tiene, a su vez, otros tres argumentos. El primer par de números son los tiempos durante los que promediaremos la señal de entrada con el objetivo de determinar su valor medio. El primero de ellos se llama parámetro de ataque y se tiene en cuenta al bajar el volumen de una entrada muy alta. El segundo tiempo, llamado de relajación, es similar pero actúa al subir el volumen de una entrada tenue.
 
@@ -87,7 +86,7 @@ El siguiente parámetro son puntos de la función de transferencia. En nuestro c
 
 ## Modulación de audiofrecuencia
 
-Ya tenemos nuestra señal de audio. Lo siguiente es identificar su modulación. Podría ser de amplitud, de frecuencia o de fase (u otras combinaciones raras). Las dos primeras se identifican con facilidad, la de fase requiere cierta experiencia. Luego dentro de cada grupo hay variantes. 
+Ya tenemos nuestra señal de audio. Lo siguiente es identificar su modulación. Podría ser de amplitud, de frecuencia o de fase (u otras combinaciones raras). Las dos primeras se identifican con facilidad, la de fase requiere cierta experiencia. Luego dentro de cada grupo hay variantes.
 
 Empecemos viendo la señal en un editor de sonido:
 
@@ -97,23 +96,23 @@ La amplitud es más o menos constante, la fase también. Podría tratarse de alg
 
 {% include image.html file="ffsk2400.png" caption="Demodulación estimada \"a mano\"." %}
 
-En una modulación FSK binaria, una frecuencia suele ser doble de la otra. Y, además, el bitrate (la tasa de transmisión de datos) igual a la frecuencia inferior. Tal condición facilita las cosas a la hora de cambiar una frecuencia por la otra. Ya que los cambios se producen tras un periodo completo de la frecuencia inferior, o dos periodos completos de la frecuencia superior -por ser la frecuencia doble-. No hay inversión de la fase, ni discontinuidades en la amplitud. 
+En una modulación FSK binaria, una frecuencia suele ser doble de la otra. Y, además, el bitrate (la tasa de transmisión de datos) igual a la frecuencia inferior. Tal condición facilita las cosas a la hora de cambiar una frecuencia por la otra. Ya que los cambios se producen tras un periodo completo de la frecuencia inferior, o dos periodos completos de la frecuencia superior -por ser la frecuencia doble-. No hay inversión de la fase, ni discontinuidades en la amplitud.
 
-No es obligatorio. En esta ocasión, encontramos semiperiodos de 1200Hz entremezclados con periodos completos de 2400Hz. Lo cual nos lleva a pensar que el bitrate no es 1200Hz sino 2400Hz, produciéndose un cambio por semiperiodo de 1200 o por periodo completo de 2400. 
+No es obligatorio. En esta ocasión, encontramos semiperiodos de 1200Hz entremezclados con periodos completos de 2400Hz. Lo cual nos lleva a pensar que el bitrate no es 1200Hz sino 2400Hz, produciéndose un cambio por semiperiodo de 1200 o por periodo completo de 2400.
 
 Una consecuencia de cambiar tras un semiperiodo es la inversión de fase. En la imagen anterior, el segundo periodo h está en oposición de fase respecto al primer periodo h debido a que están separados por un semiperiodo l. No sucede igual cuando dos periodos h están separados por un periodo completo l.
 
-Por tanto es una modulación de frecuencia, pero también de fase. Hay una modulación llamada FFSK (Fast FSK), o también [Minimum-shift keying](https://en.wikipedia.org/wiki/Minimum-shift_keying) que podría encajar en esta descripción. Para comprobarlo tomaremos una señal MSK junto con la de prueba y haremos un análisis básico. Esta es *la transformada de Fourier del pobre*. 
+Por tanto es una modulación de frecuencia, pero también de fase. Hay una modulación llamada FFSK (Fast FSK), o también [Minimum-shift keying](https://en.wikipedia.org/wiki/Minimum-shift_keying) que podría encajar en esta descripción. Para comprobarlo tomaremos una señal MSK junto con la de prueba y haremos un análisis básico. Esta es *la transformada de Fourier del pobre*.
 
 Se trata de identificar los cruces por cero de la entrada y contar cuántas muestras separan dos cruces consecutivos. Por supuesto, sólo funciona correctamente si la señal está centrada. En cada semiperiodo se produce un paso por cero. De ahí haciendo un histograma del número de muestras entre ellos tenemos un análisis de frecuencias muy básico:
 
 {% include image.html file="msk_vs_ffsk.png" caption="Comparativa de pasos por cero entre FFSK y nuestra señal." %}
 
-No obstante, nos basta para apreciar la diferencia. En nuestra señal hay dos frecuencias perfectamente diferenciadas. Los cruces por cero se producen cada 18-19 muestras, o bien cada 36-37. En MSK hay un pico en las 24-25 muestras (equivalente a una frecuencia de 1800Hz) otro pico en la de 2400 y luego varias intermedias. 
+No obstante, nos basta para apreciar la diferencia. En nuestra señal hay dos frecuencias perfectamente diferenciadas. Los cruces por cero se producen cada 18-19 muestras, o bien cada 36-37. En MSK hay un pico en las 24-25 muestras (equivalente a una frecuencia de 1800Hz) otro pico en la de 2400 y luego varias intermedias.
 
 A la vista del resultado optamos por tratar esta modulación como **BFSK-2400** (Binary Frequency-shift keying con un bitrate de 2400Hz). Ignoro si este esquema tiene algún nombre técnico más específico. Daos cuenta de que es la opción más lógica, sí, pero por lo que sabemos hasta ahora podría ser correcta o equivocada.
 
-Existen múltiples algoritmos para demodular FSK. Hoy os propongo uno la mar de sencillo: un detector de paso por cero. Calcularemos el valor absoluto de la entrada y contaremos el tiempo entre dos cruces consecutivos para determinar si se trata de 1200 o 2400Hz. 
+Existen múltiples algoritmos para demodular FSK. Hoy os propongo uno la mar de sencillo: un detector de paso por cero. Calcularemos el valor absoluto de la entrada y contaremos el tiempo entre dos cruces consecutivos para determinar si se trata de 1200 o 2400Hz.
 
 La primera tiene un semiperiodo de 416us y la segunda de 208us. El promedio entre ambos semiperiodos es 312us, llamémoslo Tau. También definimos unas cotas inferior y superior arbitrarias clasificaremos el tiempo entre un cruce y otro:
 
@@ -151,7 +150,7 @@ Este sería el mismo paquete anterior decodificado en bits:
 
 A primera vista tiene muchos ceros. Eso es bueno: estadísticamente los valores bajos son más frecuentes que los valores altos; también es habitual rellenar campos vacíos con ceros. Veamos si podemos deducir algún patrón en una muestra de varios paquetes.
 
-El más importante de todos es **la cabecera**. En general cualquier sistema espera recibir unos bits concretos al comienzo para saber que está escuchando un paquete y no el ruido de fondo. Diríamos que la cabecera es casi obligatoria. Por tanto, entre los bits capturados buscaremos una secuencia común al inicio. 
+El más importante de todos es **la cabecera**. En general cualquier sistema espera recibir unos bits concretos al comienzo para saber que está escuchando un paquete y no el ruido de fondo. Diríamos que la cabecera es casi obligatoria. Por tanto, entre los bits capturados buscaremos una secuencia común al inicio.
 
 En este caso es fácil porque la señal es un flujo continuo y se ve claramente donde empieza y donde acaba cada trama. Basta con tomar como un paquete cualquier cosa entre una secuencia de más de 10 unos seguidos.
 
@@ -207,7 +206,7 @@ Recolocando los bytes según lo anterior obtendríamos:
 
 ¡Sí! Encajan incluso los bits de la cabecera.
 
-En este tipo de esquemas suele incorporarse también un bit de paridad par o impar que es el primero o el último. Si ese fuera el caso estaríamos ante un código de 7 bits más uno de paridad. Contemos los unos de cada bloque para comprobarlo. 
+En este tipo de esquemas suele incorporarse también un bit de paridad par o impar que es el primero o el último. Si ese fuera el caso estaríamos ante un código de 7 bits más uno de paridad. Contemos los unos de cada bloque para comprobarlo.
 
 El primer y segundo bloques tienen ambos 4 unos; el tercer bloque 8; el cuarto bloque 4, el quinto 4 unos también. Se momento se cumple paridad par. El sexto byte tiene 3 unos... podría ser un error, no lo contamos. El séptimo tiene otros 3, el octavo sólo un uno... Descartamos lo de la paridad.
 
@@ -248,7 +247,7 @@ Intentemos agrupar los bites con este código.
 
 ## Serialización de bytes (segunda parte)
 
-Mediante el mismo procedimiento tratamos de separar los grupos. Tomamos varios paquetes, los alineamos y observamos. 
+Mediante el mismo procedimiento tratamos de separar los grupos. Tomamos varios paquetes, los alineamos y observamos.
 
 {% include image.html file="paquetes_nrzs_groups.png" caption="Cada 9 bits, el décimo es necesariamente 1." %}
 
@@ -286,7 +285,6 @@ En cuanto a la paridad de los grupos (sin contar el bit de parada): el primero t
 
 ```
 Ocurrencias #unos
-
           1 0
       10514 1
           2 2
@@ -294,10 +292,9 @@ Ocurrencias #unos
           1 4
        7176 5
        1646 7
-
 ```
 
-Los grupos pares casi no aparecen. ¡Hay claramente una paridad impar! No puede ser casualidad, hemos encajado una pieza. Será nuestro primer **punto de anclaje**. 
+Los grupos pares casi no aparecen. ¡Hay claramente una paridad impar! No puede ser casualidad, hemos encajado una pieza. Será nuestro primer **punto de anclaje**.
 
 Resumiendo lo que llevamos hasta ahora:
 
@@ -390,7 +387,7 @@ Tamaño  Byte#5     Binario
 
 El último bit va alternando, lo cual se corresponde con lo esperado en una secuencia. Cuando incrementamos una cuenta en binario el último bit toma valores alternos. La cuestión es que entre un número y el siguiente cambian siempre dos bits: el último y otro más, no necesariamente consecutivos. ¿Podría ser el bit de paridad en realidad el 1º en lugar del 9º y por eso cambian dos: *el bit correspondiente* y el de paridad? Tal vez, pero aún así eso de "el bit correspondiente" no parece obvio. Sólo me di cuenta tras copiarlo a mano y transcribirlo a una pizarra.
 
-Ignorando el último bit tenemos: 
+Ignorando el último bit tenemos:
 
 ```
 1100
@@ -404,7 +401,7 @@ Ignorando el último bit tenemos:
 ...
 ```
 
-Siempre cambia un bit, y sólo uno. Hemos supuesto que es una sucesión creciente. ¿En qué tipo de sucesión cambia sólo un bit entre un número y el siguiente? ¡El [código **Gray**](https://en.wikipedia.org/wiki/Gray_code)! El código gray se suele utilizar en conmutadores mecánicos porque su característica es precisamente esa: sólo cambia un bit entre dos números consecutivos.
+Siempre cambia un bit, y sólo uno. Hemos supuesto que es una sucesión creciente. ¿En qué tipo de sucesión cambia sólo un bit entre un número y el siguiente? ¡El [código <b>Gray</b>](https://en.wikipedia.org/wiki/Gray_code)! El código gray se suele utilizar en conmutadores mecánicos porque su característica es precisamente esa: sólo cambia un bit entre dos números consecutivos.
 
 Pensad por ejemplo en una sucesión:
 
@@ -504,7 +501,7 @@ tardes bienvenidos a
 servicio, gracias.
 ```
 
-Sí, hay texto. Inspeccionando más a fondo, encontramos cadenas como: *Se<f1>or@s Buenas\nTardes*. La ñ está codificada como f1, esto indica un juego de caracteres [ISO-8859-1 o Latin1](https://cs.stanford.edu/people/miles/iso8859.html).
+Sí, hay texto. Inspeccionando más a fondo, encontramos cadenas como: *Se&lt;f1&gt;or@s Buenas\nTardes*. La ñ está codificada como f1, esto indica un juego de caracteres [ISO-8859-1 o Latin1](https://cs.stanford.edu/people/miles/iso8859.html).
 
 No hay padding al final de texto, y puede estar tanto al principio como al final del paquete de donde deducimos que:
 
@@ -522,16 +519,16 @@ Los bytes en rojo son de texto. A la derecha del todo queda el byte final del pa
 Lo más importante ahora es que hemos identificado la longitud. ¿Por qué es importante? Porque nos va a llevar a descubrir la estructura de los campos en un paquete. Veréis, tenemos un paquete con texto justo al final, antes del byte de checksum tal que así:
 
 ```
-... 05 01 00 00 00 20 03 0f 7e 00 00 01 6c 65 2e 20 47 72 61 63 69 61 73 34
+... 05 01 00 00 00 20 03 0f 7e 00 00 01 6c 65 2e 20 47 72 61 63 69 61 73 34 
 ```
 
 Para orientaros, el byte de longitud es 0f, es decir 15 caracteres de datos y a continuación el checksum 34. Adicionalmente casi todos los campos de texto vienen precedidos por una secuencia 20 03. Ahora buscaremos un paquete en el que el texto no esté al final, puede que cueste encontrarlo pero lo hallaremos guiados por la secuencia 20 03.
 
 ```
-... 01 00 00 00 05 01 00 00 00 20 03 05 0e 00 00 01 2e 5b 20 00 01 00 9d
+... 01 00 00 00 05 01 00 00 00 20 03 05 0e 00 00 01 2e 5b 20 00 01 00 9d 
 ```
 
-El byte inmediatamente tras 20 03 es la longitud, 05, así pues: 
+El byte inmediatamente tras 20 03 es la longitud, 05, así pues:
 
 ```
 01 00 00 00 05 01 00 00 00 20 03 
@@ -545,6 +542,7 @@ Fijémonos ahora en el trozo llamado "resto del paquete". Son 5 bytes. Suponemos
 
 ```
 ff 0f c6 15 1a 40 00 00 01 01 00 00 00 02 01 00 00 00 03 01 00 00 00 04 01 00 00 00 05 01 00 de
+
 
 ff 0f c6 15     -> cabecera
 1a              -> longitud del paquete
@@ -571,7 +569,7 @@ d2 0f 21 73 00
 c5 1f 34 73 00 
 5b 19 45 73 00 
 00 00 20 03 0d 71 00 00 02 20 67 72 61 63 69 61 73 2e 
-c1
+c1 
 ```
 
 En realidad, indagando un poco se puede descomponer la estructura en:
@@ -582,7 +580,7 @@ rr rr tt tt ll dd dd dd ...
 
 Los bytes **rr** se refieren al receptor (siendo 00 00 en campos dirigidos a todos los receptores), **tt** es el tipo de campo (por ejemplo 20 02 para mensajes broadcast, 20 03 para mensajes dirigidos), **ll** es la longitud y a continuación los datos.
 
-La estructura se cumple para todos los paquetes recibidos correctamente. Este será nuestro tercer y último **punto de anclaje**. 
+La estructura se cumple para todos los paquetes recibidos correctamente. Este será nuestro tercer y último **punto de anclaje**.
 
 Pero dejaremos aquí el artículo. Pues mi objetivo era únicamente encontrar el cometido de la señal, no abundar en los detalles del protocolo.
 
@@ -596,11 +594,9 @@ Sí explicaré, para satisfacer vuestra curiosidad y premiar a quienes habéis l
 
 Imaginad la complicación de gestionar, por ejemplo, una flota de autobuses en una gran ciudad. Con calles cortadas, vehículos mal aparcados, coches que se averían, colisiones, atascos de tráfico, incidentes con viajeros, objetos perdidos, etc. La logística de mantener una frecuencia constante en una ruta exige conocer en todo momento la posición de la flota y su estado, así como enviar avisos en tiempo real a un coche, a toda la línea o a todos en general.
 
-Si os interesa el tema, hay bastante información al respecto en Internet. Por dar algún enlace tenéis: [Sistemas De Monitorización De La Flota De Autobuses En Tiempo Real](http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/EspeInf/EnergiayCC/06Divulgaci%C3%B3n/6eEventos/JornParqueCircula2014/Ficheros/06MonitFlotaBusEMT.pdf). 
+Si os interesa el tema, hay bastante información al respecto en Internet. Por dar algún enlace tenéis: [Sistemas De Monitorización De La Flota De Autobuses En Tiempo Real](http://www.madrid.es/UnidadesDescentralizadas/Sostenibilidad/EspeInf/EnergiayCC/06Divulgaci%C3%B3n/6eEventos/JornParqueCircula2014/Ficheros/06MonitFlotaBusEMT.pdf).
 
 En cuanto al proceso, estoy seguro de que lo habéis disfrutado si contáis con la paciencia y el interés para seguirlo y comprenderlo.
 
 Feliz Navidad.
-
-
 

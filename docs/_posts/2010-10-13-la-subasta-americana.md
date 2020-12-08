@@ -43,7 +43,7 @@ Imaginad que estáis en la playa y veis a alguien que pide ayuda porque la marea
 
 Te lanzas al agua y nadas hacia él, pero la marea lo arrastra cada vez más adentro. Tú te alejas de la costa y en tu interior eres consciente de que mientras más te alejes más fácil es que tú tampoco puedas salir.
 
-Así que tienes que decidir, si sigues avanzando llegas hasta él y lo rescatas el riesgo habrá merecido la pena. Si decides que estás lejos de la playa y que debes volver, habrás arriesgado tu vida para nada. 
+Así que tienes que decidir, si sigues avanzando llegas hasta él y lo rescatas el riesgo habrá merecido la pena. Si decides que estás lejos de la playa y que debes volver, habrás arriesgado tu vida para nada.
 
 Pero si no te rindes a tiempo no podrás salir tu ni por supuesto rescatarlo tampoco. Morirás por nada.
 
@@ -95,7 +95,7 @@ Los bienes que se subastan por este procedimiento suelen ser extraordinarios y v
 
 Nadie quiere perder dinero y los asistentes tienen a hacer pujas mucho más modestas que las que harían en una subasta normal. Si no se tiene cuidado al fijar la puja inicial se puede acabar vendiendo un bien a un precio muy inferior a su valor. Sin embargo no es problema para el vendedor porque el resto de postores también pagan su parte. El comprador compra un bien a un bajo precio y el vendedor obtiene el mismo o más dinero. Así no parece tan absurdo ¿verdad?
 
-Otros decían que lo mejor es **pujar un precio desorbitado** para asegurarte de que nadie puja más que tu y ganas la subasta. Pero si haces eso acabarás pagando mucho por algo que no lo merece. 
+Otros decían que lo mejor es **pujar un precio desorbitado** para asegurarte de que nadie puja más que tu y ganas la subasta. Pero si haces eso acabarás pagando mucho por algo que no lo merece.
 
 La situación óptima es saber exactamente cuanto vale el bien que se está subastando y **pujar justamente** eso. Así si te lo llevas no habrás pagado de más. Y si no te lo llevas ambos (el ganador y tu) habréis perdido dinero. Claro que tú más que él.
 

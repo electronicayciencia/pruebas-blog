@@ -10,9 +10,9 @@ thumbnail: https://2.bp.blogspot.com/-T6HGSbA05Q4/WDGfA8Y3XkI/AAAAAAAABFA/Q9dHZi
 blogger_orig_url: https://electronicayciencia.blogspot.com/2016/11/conexion-gpio-de-raspberry-pi-3.html
 ---
 
-<br />Este verano me compré una Raspberry Pi. ¿Es extraño que alguien que escribe un blog de electrónica no tenga una Raspberry? Tal vez. El caso es que quería contaros mis primeras pruebas centradas en la experimentación con la conexión GPIO. 
+Este verano me compré una Raspberry Pi. ¿Es extraño que alguien que escribe un blog de electrónica no tenga una Raspberry? Tal vez. El caso es que quería contaros mis primeras pruebas centradas en la experimentación con la conexión GPIO.
 
-Si habéis leído otros artículos de este blog dedicados a microcontroladores sabréis que suelo usar PIC. El objetivo de este artículo es reproducir algunas funciones para las usábamos PIC pero usando un dispositivo infinitamente más potente.  
+Si habéis leído otros artículos de este blog dedicados a microcontroladores sabréis que suelo usar PIC. El objetivo de este artículo es reproducir algunas funciones para las usábamos PIC pero usando un dispositivo infinitamente más potente.
 
 Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios a modo de introducción. Seguiremos con el manejo básico de los pines I/O usando la shell. Después pasaremos al **PWM** mediante la utilidad **gpio** de **WiringPi** y controlaremos un servo como ejemplo. Finalmente, para probar el **I2C** manejaremos un ADC tipo **PCF8591** por medio de los drivers internos.
 
@@ -26,7 +26,7 @@ Empecemos por un repaso básico. Estos dispositivos se llaman Low Cost Single Bo
 
 La versión 3, que es la que voy a usar, salió en febrero de 2016 y cuenta con WiFi incorporada, Ethernet, varios puertos USB, HDMI y conectores para cámara, display, etc. Está basada en el BCM2837, evolución del BCM2835, un SoC (System on Chip) de Broadcom bien conocido. Un System on Chip no es más que un procesador, GPU y demás funciones integradas en un sólo componente. Se parece mucho a la electrónica de un smartphone. Este modelo es un ARM de 64bits a 1.2GHz, quad core y con 1Gb de RAM.
 
-De la arquitectura no puedo contar mucho, ya que Raspberry no es Open Hardware. Hay disponibles versiones reducidas del esquema eléctrico, pero por hasta la fecha no hay intención de liberar el esquema completo. Por tanto muchos de los resultados se basan en la experimentación. 
+De la arquitectura no puedo contar mucho, ya que Raspberry no es Open Hardware. Hay disponibles versiones reducidas del esquema eléctrico, pero por hasta la fecha no hay intención de liberar el esquema completo. Por tanto muchos de los resultados se basan en la experimentación.
 
 El chip que controla los puertos USB y la conexión Ethernet es el mismo, un LAN9514 de Microchip, produciendo un cuello de botella. Tened esto en cuenta si planeáis usarlo como NAS. Dado el precio del integrado y el uso general al que se destina el producto me parece una decisión de diseño más que razonable.
 
@@ -44,7 +44,7 @@ El **adaptador**, para un uso ocasional sirve perfectamente con un cargador de m
 
 El sistema operativo va en una **tarjeta Micro SD**, el tamaño no importa siempre que quepa el sistema operativo y el software que queráis instalar, el mínimo sin entorno gráfico diría que una de 2Gb.
 
-Otros accesorios que considero muy útiles son un latiguillo de **cable de red** Ethernet para conectarla al router o al PC y un conector USB-Serie sobre todo para los que uséis portátil. Veremos por qué más adelante. 
+Otros accesorios que considero muy útiles son un latiguillo de **cable de red** Ethernet para conectarla al router o al PC y un conector USB-Serie sobre todo para los que uséis portátil. Veremos por qué más adelante.
 
 También os vendrá bien un juego de cables con conectores **Dupont** para experimentar:
 
@@ -80,7 +80,7 @@ Entre los 40 terminales contamos con:
 - Un bus **I2C**.
 - Dos buses **SPI**.
 
-Lógicamente todas estas funciones se pueden emular también por software en caso necesario, por supuesto con menor rendimiento que con el hardware nativo. Muchas librerías para Raspberry lo incluyen. 
+Lógicamente todas estas funciones se pueden emular también por software en caso necesario, por supuesto con menor rendimiento que con el hardware nativo. Muchas librerías para Raspberry lo incluyen.
 
 Por contra hemos de decir que no tenemos otros extras que incorporan algunos microcontroladores tales como **entradas analógicas** o comparadores accesibles desde el software.
 
@@ -94,7 +94,7 @@ Entrando un poco en detalles tenemos:
 
 {% include image.html max-width="480px" file="raspberry-pi-circuit-gpio-input-pins.png" caption="Equivalente electrónico de un terminal GPIO. <a href=\"http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications\">mosaic-industries</a>" %}
 
-En general cada pin se puede configurar individualmente para funcionar como una salida o entrada de alta impedancia, con posibilidad de tener pull-up y pull-down ambas de 50kohm. 
+En general cada pin se puede configurar individualmente para funcionar como una salida o entrada de alta impedancia, con posibilidad de tener pull-up y pull-down ambas de 50kohm.
 
 La tensión aplicada a una entrada no debería nunca ser superior ni inferior a la tensión de alimentación del integrado. Es decir, debe estar entre 0 y 3.3V. Los diodos que veis apenas llevan corriente y no serán capaces de mitigar una sobretensión en las entradas.
 
@@ -128,7 +128,7 @@ Lo primero que haremos es "exportar" la patilla que queramos manejar. Así por e
 echo 11 > /sys/class/gpio/export
 ```
 
-Si ahora listamos el directorio /sys/class/gpio nos habrá creado un subdirectorio llamado /sys/class/gpio/gpio11. Si queremos que GPIO11 actúe como una entrada usaremos 
+Si ahora listamos el directorio /sys/class/gpio nos habrá creado un subdirectorio llamado /sys/class/gpio/gpio11. Si queremos que GPIO11 actúe como una entrada usaremos
 
 ```
 echo in > /sys/class/gpio/gpio11/direction
@@ -141,7 +141,7 @@ $ cat /sys/class/gpio11/value
 0
 ```
 
-Mientras que si queremos que sea una salida, usaremos 
+Mientras que si queremos que sea una salida, usaremos
 
 ```
 echo out > /sys/class/gpio/gpio11/direction
@@ -155,7 +155,7 @@ echo 1 > /sys/class/gpio/gpio11/value
 
 ## I/O básico con ayuda de gpio
 
-El método anterior es muy sencillo para probar aunque está bastante limitado. No se puede activar la resistencia de *pull up* o *pull down* por hardware, por ejemplo. 
+El método anterior es muy sencillo para probar aunque está bastante limitado. No se puede activar la resistencia de *pull up* o *pull down* por hardware, por ejemplo.
 
 La siguiente manera más sencilla es utilizando la interfaz por línea de comandos de [WiringPi gpio](http://wiringpi.com/the-gpio-utility/). En Raspbian basta instalar el paquete llamado wiringpi. Incluye la línea de comandos y también las cabeceras C que usaremos en otros artículos. Hay más librerías, pero de momento los ejemplos los haremos con WiringPi.
 
@@ -175,7 +175,7 @@ do
 done
 ```
 
-En el ejemplo hemos elegido el pin 25, que equivale al 26 según la numeración del BCM, que también es la GPIO26 (aunque en algunos sitios también aparece como GPIO25) y que en el conector físico es el pin número 37. 
+En el ejemplo hemos elegido el pin 25, que equivale al 26 según la numeración del BCM, que también es la GPIO26 (aunque en algunos sitios también aparece como GPIO25) y que en el conector físico es el pin número 37.
 
 Leer el estado es igual de fácil, fijando la patilla como entrada y configurando el pull up o pull down:
 
@@ -204,15 +204,23 @@ Habíamos visto que para este servo se deben mandar impulsos de entre 1 y 2 ms, 
 
 {% include image.html max-width="480px" file="servo_datasheet.png" caption="Forma de onda indicada en el datasheet del servo." %}
 
-Se puede hacer de dos formas, por software haciendo un bucle, o por hardware usando el módulo de PWM. 
+Se puede hacer de dos formas, por software haciendo un bucle, o por hardware usando el módulo de PWM.
 
 En el caso de Raspberry, hacerlo por software es sencillo porque, a diferencia de un microcontrolador, dispone de threads. Es decir, hilos de ejecución paralelos. De forma que podemos lanzar un thread con el bucle de impulsos y otro con el programa principal. En un microcontrolador generalmente no se puede hacer eso, y tener un bucle software encargado solamente de los impulsos dificulta luego el resto del programa.
 
 Para nuestro ejemplo lo haremos por PWM, que una vez aprendemos a usarlo es muy sencillo. El BCM2835 tiene dos canales de PWM, los llamaremos PWM0 y PWM1, cada uno se puedo conectar a ciertas patillas del integrado, pero no todas están en la conexión GPIO. Los puertos que tenemos a nuestra disposición en la Raspberry Pi 3 para PWM son los siguientes:
 
-Canal **PWM0**:<br />- BCM 12 (pin físico 32, WiringPi 26)<br />- BCM 18 (pin físico 12, WiringPi 1)
+Canal **PWM0**:
 
-Canal **PWM1**:<br />- BCM 13 (pin físico 33, WiringPi 23)<br />- BCM 19 (pin físico 35, WiringPi 24)
+- BCM 12 (pin físico 32, WiringPi 26)
+
+- BCM 18 (pin físico 12, WiringPi 1)
+
+Canal **PWM1**:
+
+- BCM 13 (pin físico 33, WiringPi 23)
+
+- BCM 19 (pin físico 35, WiringPi 24)
 
 El módulo PWM tiene funciones avanzadas como salida balanceada o serialización de hasta 32 palabras de 16 bit. La serialización no la vamos a usar por ahora, pero el **modo balanceado** sí es conveniente que lo conozcáis.
 
@@ -245,7 +253,7 @@ Según indica el datasheet, el registro de Rango PWM es de 32 bit, suponemos que
 
 Ahora vamos a controlar el servo. Haremos un procedimiento similar, aunque para simplificar los cálculos vamos a fijar pwmc=19. Como la frecuencia era de 19.2, al dividirla por 19 tenemos un pulso cada 1us aproximadamente.
 
-La frecuencia para el servo era 50Hz, esto es 20ms de periodo, así pues pwmr=20000. 
+La frecuencia para el servo era 50Hz, esto es 20ms de periodo, así pues pwmr=20000.
 
 Si los tiempos para nivel alto están entre 1 y 2ms, el valor permitido para pwm está entre 1000 y 2000 respectivamente. Siendo el centro pwm = 1500.
 
@@ -310,7 +318,7 @@ No voy contaros en detalle cómo funciona el protocolo I2C aunque si os interesa
 
 Para la práctica usaremos las herramientas del paquete i2c-tools, está en la paquetería de Raspbian.
 
-El hardware I2C de la Raspberry requiere de un driver del kernel que tendremos que cargar previamente. Generalmente está habilitado por defecto, pero por si acaso verificadlo siguiendo las instrucciones de este enlace: [Configuring I2C | Adafruit's Raspberry Pi Lesson 4. GPIO Setup](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c). 
+El hardware I2C de la Raspberry requiere de un driver del kernel que tendremos que cargar previamente. Generalmente está habilitado por defecto, pero por si acaso verificadlo siguiendo las instrucciones de este enlace: [Configuring I2C | Adafruit's Raspberry Pi Lesson 4. GPIO Setup](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c).
 
 Ahora ejecutaremos la utilidad i2cdetect para comprobar que efectivamente tenemos un bus I2C habilitado:
 
@@ -331,9 +339,7 @@ Cuando un chip recibe su identificador responde llevando la linea de datos a niv
 
 ```
 pi@raspberrypi:~$ i2cdetect -y 1
-
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -346,7 +352,7 @@ pi@raspberrypi:~$ i2cdetect -y 1
 
 En este caso ha recibido **respuesta** para la dirección **48h**, equivalente en binario a 1001000; la dirección fija 1001 y las tres lineas programables puestas a 0. Ya sabemos que la comunicación de la Raspberry Pi con el dispositivo está funcionando, ahora estudiemos el datasheet en busca de comandos para enviar.
 
-Las tramas I2C suelen tener la misma estructura: 
+Las tramas I2C suelen tener la misma estructura:
 
 - Se envía una la señal de **Start**. Que consiste en llevar la línea de datos a nivel bajo mientras la linea de reloj sigue en nivel alto. Esto es excepcional, porque todos los cambios de la linea de datos se hacen siempre estando la linea de reloj en nivel bajo.
 - A continuación se trasmiten 7 bits con el **direccionamiento**, indicando el dispositivo al que se dirige la transmisión, más un octavo bit que indicará el tipo de **operación**: 1 para operaciones de lectura y 0 para escritura.
@@ -381,13 +387,11 @@ La primera parte podemos conseguirla con i2cget. Nos dirigimos al chip en el bus
 La segunda parte hay que hacerla separada, porque i2cget no permite leer varios bytes seguidos. Así que leemos primero la última lectura almacenada en el chip, aunque no nos sirva para nada, porque sólo al leerla es cuando se inicia la siguiente conversión que es la que queremos:
 
     pi@raspberrypi:~$ i2cget -y 1 0x48
-
     0x3b
 
 En este momento nos ha devuelto el valor de la última conversión que tenía almacenada. Y ahora comienza la conversión actual. Volvemos a lanzar el comando tras unos instantes para darle tiempo a terminar:
 
     pi@raspberrypi:~$ i2cget -y 1 0x48
-
     0xcc
 
 Este sería el valor actual recién medido.
@@ -403,6 +407,7 @@ El siguiente script realiza una medida en el canal que le pasemos como primer ar
 # Canal 3: Potenciómetro
 CHAN=$1
 ADDR=0x48
+
 
 i2cset -y 1 $ADDR $CHAN   # selecciona ch1
 sleep 0.01
@@ -422,6 +427,4 @@ Por ejemplo el siguiente comando fija la salida a su valor medio. Primero enviam
 Hasta aquí la primera parte de las pruebas. El siguiente artículo lo dedicaremos a leer un sensor de temperatura con interfaz **1-Wire** de Maxim-Dallas, esta vez en C y con todo detalle. Espero que os haya servido y gracias por leer hasta el final.
 
 Los archivos, imágenes, y datasheets más importantes los tenéis en este enlace: [Ficheros.](https://www.dropbox.com/s/6q0wkuhbft3tflx/raspberryintro.zip?dl=0)
-
-
 

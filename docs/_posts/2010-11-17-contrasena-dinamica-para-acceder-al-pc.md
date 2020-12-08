@@ -24,7 +24,7 @@ Pero la pregunta es, si cada vez que entre la clave es distinta ¿cómo sé yo c
 
 En este caso la clave es el algoritmo. Al espía no se bastará capturar una clave o veinte, necesitará descubrir con qué algoritmo respondemos. Porque si intenta entrar y su respuesta es errónea, el programa nos alertará.
 
-Hay algoritmos que aunque el intruso sepa el algoritmo sería incapaz de generar una clave válida a partir de una clave usada. Es el caso del intercambio de claves Diffie-Hellman basado en el problema del logaritmo discreto. Pero como no es cuestión de teclear varias decenas de cifras cada vez que nos conectemos, vamos a usar algoritmos un poco menos seguros. 
+Hay algoritmos que aunque el intruso sepa el algoritmo sería incapaz de generar una clave válida a partir de una clave usada. Es el caso del intercambio de claves Diffie-Hellman basado en el problema del logaritmo discreto. Pero como no es cuestión de teclear varias decenas de cifras cada vez que nos conectemos, vamos a usar algoritmos un poco menos seguros.
 
 Como cualquier móvil hoy en día tiene una calculadora básica tenemos muchas operaciones para elegir. Por ejemplo podríamos elegir *las cuatro últimas cifras del cuadrado del número*. Si el ordenador nos pasa el número **3465** nosotros responderíamos con **6225**. Hay infinitos algoritmos para elegir. Algunos os habréis dado cuenta de que precisamente este no es muy inteligente.
 
@@ -84,6 +84,7 @@ $SIG{HUP}  = \&tomar_medidas;
 $SIG{INT}  = \&tomar_medidas;
 $SIG{CHLD} = \&tomar_medidas;
 
+
 # Variable global con el nombre del usuario
 my $usuario = $ENV{LOGNAME} || $ENV{USER} || "Perfecto desconocido";
 $usuario = ucfirst($usuario);
@@ -93,6 +94,7 @@ $usuario = ucfirst($usuario);
 if (not exists $ENV{SSH_CLIENT}) {
  do_shell();
 }
+
 
 # Le hacemos una pregunta al usuario con los parámetros
 my @params = parametros();
@@ -107,6 +109,7 @@ if (calcular(@params) eq $respuesta) {
  do_shell();
 }
 
+
 # Tomar medidas en caso de que algo no funcione bien.
 # La shell se lanza con exec, que no retorna. 
 # Luego si de cualquier forma llegamos a esta función (ya sea por un fallo
@@ -114,7 +117,9 @@ if (calcular(@params) eq $respuesta) {
 tomar_medidas();
 exit(1);
 
+
 ##############################################################################
+
 
 # Proporciona un array con los parámetros que se le dan al usuario.
 sub parametros {
@@ -124,6 +129,7 @@ sub parametros {
  #$param2 = 77;
  return($param1, $param2);
 }
+
 
 # Devuelve 0 si la respuesta coincide con el número que se esperaría.
 # Se le pasan los parámetros de &parametros.
@@ -143,6 +149,7 @@ sub calcular {
  return $respuesta;
 }
 
+
 # Hemos comprobado que el usuario es legítimo y ejecutamos la shell.
 sub do_shell {
  syslog('notice', 'Respuesta correcta, entra %s.', $usuario);
@@ -157,6 +164,7 @@ sub interr {
  tomar_medidas();
 }
 
+
 # Esta función toma las medidas que se prevean. Generalmente enviar un correo
 # o bloquear la IP atacante al cabo de algunos intentos.
 sub tomar_medidas {
@@ -165,7 +173,7 @@ sub tomar_medidas {
  syslog('notice',
      'Respuesta incorrecta al desafio para %s: acceso denegado.',
      $usuario);
-
+ 
  my $smtp = Net::SMTP->new('localhost');
     $smtp->mail($usuario.'@localhost');
     $smtp->to($usuario.'@localhost');

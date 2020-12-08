@@ -28,7 +28,7 @@ El artículo lo voy a dedicar a este otro método; pero antes, es necesario repa
 Si tuviste la suerte de estudiar ondas en algún momento te sonará que la amplitud de una **onda plana** venía dada por una formula con este aspecto:
 
 $$
- y = \sin(kx - \omega t) 
+y = \sin(kx - \omega t)
 $$
 
 Tal vez nunca lo estudiaste, tal vez usabas otras letras, tal vez usabas el coseno en lugar del seno, o puede que fuera con signo más, o que los términos estén cambiados de orden. Me da igual. Insisto, todo eso son detalles irrelevantes. Lo importante, lo más importante, yo diría *lo único importante* es que se trata de una función armónica con doble dependencia: del tiempo y de la posición. Y lo demás son letras.
@@ -39,11 +39,11 @@ Las constantes de proporcionalidad que multiplican a las variables de las que de
 
 Como norma general la función *sin* se calcula en radianes. Por eso ω se llama *frecuencia angular* en lugar de sólo frecuencia. Y la única diferencia es que va multiplicada por *2π*, que son los radianes que hay en un *loquesea* (en 1 metro, en 1 segundo, etc).
 
-Y la **k**, pues es otra frecuencia. Pero en lugar de ser una frecuencia temporal, es una *frecuencia espacial*. Cuando se empezaba a experimentar con esto se le llamó número de onda (*wavenumber* en inglés). Si pudiéramos parar el tiempo y medir en varios puntos a lo largo del espacio, el número de onda indicaría cuántas veces por metro se completa el ciclo, o cuántas longitudes de onda hay en un metro. O en 2π radianes si nos referimos al número de onda angular. Esto último es lo que se representa con la letra k. 
+Y la **k**, pues es otra frecuencia. Pero en lugar de ser una frecuencia temporal, es una *frecuencia espacial*. Cuando se empezaba a experimentar con esto se le llamó número de onda (*wavenumber* en inglés). Si pudiéramos parar el tiempo y medir en varios puntos a lo largo del espacio, el número de onda indicaría cuántas veces por metro se completa el ciclo, o cuántas longitudes de onda hay en un metro. O en 2π radianes si nos referimos al número de onda angular. Esto último es lo que se representa con la letra k.
 
 Así funciona la propagación de una onda de sonido en el aire (es un gif animado, hay varios en el artículo, lo aviso por si tienes desactivadas las animaciones):
 
-{% include image.html file="longipatm.gif" caption="Onda de presión. <a href=\"http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm\" target=\"_blank\">ISVR, U. of Southampton</a>.****" %}
+{% include image.html file="longipatm.gif" caption="Onda de presión. <a href=\"http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm\" target=\"_blank\">ISVR, U. of Southampton</a>.<b><em></em></b>" %}
 
 Para medir la frecuencia temporal nos fijamos continuamente en el mismo punto. Como por ejemplo en el inicio. La onda sube y baja a un ritmo constante. Eso es la frecuencia temporal, si es lineal f o ν; si es frecuencia angular ω.
 
@@ -53,7 +53,9 @@ El inverso del periodo espacial (longitud de onda) será la frecuencia espacial 
 
 Una explicación rápida y un tanto apresurada, lo sé. No hay que recordarlo, sólo tenerlo presente para cuando llegue el experimento. Para terminar este repaso aquí tenéis una equivalencia entre las variables que hacen referencia al espacio y al tiempo:
 
-<table><tbody><tr><th colspan="2">Tiempo</th><th colspan="2">Espacio</th></tr><tr><th>Símbolo</th><th>Nombre</th><th>Nombre</th><th>Símbolo</th></tr><tr><td>τ o T</td><td>Periodo (s)</td><td>Longitud de onda (m)</td><td>λ</td></tr><tr><td>ν ó f = 1/T</td><td>Frecuencia (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>ṽ = 1/λ</td></tr><tr><td>ω = 2π f</td><td>Frec. angular (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>k = 2π ṽ</td></tr></tbody></table><br />Todo esto se vuelve mas interesante cuando el tiempo se trata como otra dimensión más, entonces  se habla de ondas en cuatro dimensiones, del espacio-tiempo... Claro que se hace sólo para ondas electromagnéticas, se llama *Formulación covariante del electromagnetismo* y digamos que no me cabe en este margen.
+<table><tbody><tr><th colspan="2">Tiempo</th><th colspan="2">Espacio</th></tr><tr><th>Símbolo</th><th>Nombre</th><th>Nombre</th><th>Símbolo</th></tr><tr><td>τ o T</td><td>Periodo (s)</td><td>Longitud de onda (m)</td><td>λ</td></tr><tr><td>ν ó f = 1/T</td><td>Frecuencia (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>ṽ = 1/λ</td></tr><tr><td>ω = 2π f</td><td>Frec. angular (s<sup>-1</sup>)</td><td>Número de onda (m<sup>-1</sup>)</td><td>k = 2π ṽ</td></tr></tbody></table>
+
+Todo esto se vuelve mas interesante cuando el tiempo se trata como otra dimensión más, entonces  se habla de ondas en cuatro dimensiones, del espacio-tiempo... Claro que se hace sólo para ondas electromagnéticas, se llama *Formulación covariante del electromagnetismo* y digamos que no me cabe en este margen.
 
 ## Espectroscopía de Fourier
 
@@ -77,9 +79,9 @@ Con la tecnología actual medir distancias pequeñas es fácil. Y para dejar la 
 
 En un espectroscopio uno de los espejos es móvil. Un detalle: en realidad, por motivos prácticos, no son espejos sino retroreflectores, reflectores de esquina o catadióptricos. De ese modo uno de los rayos recorre siempre un camino fijo, mientras que el camino del otro rayo se varía moviendo el espejo. El resultado es que la interferencia sigue una sucesión de máximos y mínimos dependiendo de la posición del espejo móvil.
 
-Hay vídeos en Youtube donde se aprecia muy bien el fenómeno. En este por ejemplo, [Michelson Interferometer & Path Variations](https://www.youtube.com/watch?v=87pPoGuLSuw&t=1m10s). Por si en el futuro retiran el vídeo o cambia el enlace os dejo un GIF animado con unos segundos para que veáis a lo que me refiero:
+Hay vídeos en Youtube donde se aprecia muy bien el fenómeno. En este por ejemplo, [Michelson Interferometer &amp; Path Variations](https://www.youtube.com/watch?v=87pPoGuLSuw&amp;t=1m10s). Por si en el futuro retiran el vídeo o cambia el enlace os dejo un GIF animado con unos segundos para que veáis a lo que me refiero:
 
-{% include image.html file="michelson_path_variations_lowres.gif" caption="Anillos de interferencia en un interferómetro de Michelson. <a href=\"https://www.youtube.com/watch?v=87pPoGuLSuw&t=1m10s\" target=\"_blank\">Youtube</a>." %}
+{% include image.html file="michelson_path_variations_lowres.gif" caption="Anillos de interferencia en un interferómetro de Michelson. <a href=\"https://www.youtube.com/watch?v=87pPoGuLSuw&amp;t=1m10s\" target=\"_blank\">Youtube</a>." %}
 
 Cuando el operador mueve el tornillo micrométrico (a la derecha de la imagen), varia la longitud de uno de los brazos, y los anillos de interferencia se desplazan hacia afuera o hacia adentro. Si medimos la luz en el centro, por ejemplo, detectaremos una sucesión de máximos y mínimos. La distancia entre los anillos depende de la longitud de onda de la luz. Con un láser verde, de longitud de onda más corta que el rojo del vídeo, estarían más juntos.
 
@@ -87,7 +89,7 @@ Cuando el operador mueve el tornillo micrométrico (a la derecha de la imagen), 
 
 Por si no habéis leído otras entradas del blog, me empeño en ilustrar experimentos con ondas sonoras. Es un hobby. En esta ocasión vamos a medir la frecuencia de un sonido utilizando su variable espacial, y no cómo habitualmente lo hacemos, con su variable temporal.
 
-En lugar de un interferómetro de Michelson, que es poco práctico para ondas sonoras, utilizaré una forma de interferencia más sencilla: las ondas estacionarias dentro de un tubo de longitud variable. Lo que viene a ser muy parecido a un [tubo de Kundt](https://es.wikipedia.org/wiki/Tubo_de_Kundt). 
+En lugar de un interferómetro de Michelson, que es poco práctico para ondas sonoras, utilizaré una forma de interferencia más sencilla: las ondas estacionarias dentro de un tubo de longitud variable. Lo que viene a ser muy parecido a un [tubo de Kundt](https://es.wikipedia.org/wiki/Tubo_de_Kundt).
 
 {% include image.html file="montaje.png" caption="Esquema del montaje. EP." %}
 
@@ -104,15 +106,14 @@ Contemos los picos. Salen 20 en una distancia de unos 85cm. Haciendo una regla d
 De lo que hay que darse cuenta ahora es de que 11.76 es precisamente **el número de onda** (el lineal, no el angular) de la frecuencia. De hecho, para 4000Hz, y una velocidad de propagación en el aire de 343m/s el número de onda resulta:
 
 $$
- \tilde\nu = \frac{1}{\lambda} = \frac{1}{ \frac{v}{f}} = \frac{f}{v} 
-$$
- 
-
-$$
- \tilde\nu = \frac{4000s^{-1}}{343m/s} = 11.66m^{-1} 
+\tilde\nu = \frac{1}{\lambda} = \frac{1}{ \frac{v}{f}} = \frac{f}{v}
 $$
 
-Pero salta a la vista que el resultado no es ninguna sinusoidal. Para desglosar qué otras frecuencias componen el interferograma es para lo que debemos realizar una Trasformada de Fourier. 
+$$
+\tilde\nu = \frac{4000s^{-1}}{343m/s} = 11.66m^{-1}
+$$
+
+Pero salta a la vista que el resultado no es ninguna sinusoidal. Para desglosar qué otras frecuencias componen el interferograma es para lo que debemos realizar una Trasformada de Fourier.
 
 Las Transformadas pasan de un dominio a su recíproco. Decimos que pasamos *del dominio del tiempo* al dominio del inverso del tiempo, es decir, al dominio *de la frecuencia*. De la misma manera podríamos decir que pasaremos del *dominio del espacio* al *dominio de número de onda*.
 
@@ -120,7 +121,7 @@ Obviamente convertir el número de onda a frecuencia en Hercios es trivial sabie
 
 ## El software de captación
 
-Antes de realizar más medidas voy a explicaros cómo es el software de captación que he utilizado. Se trata de un programita en Perl con tres hilos de ejecución. 
+Antes de realizar más medidas voy a explicaros cómo es el software de captación que he utilizado. Se trata de un programita en Perl con tres hilos de ejecución.
 
 En el flujo principal se monitoriza el valor de la variable desplazamiento y cuando este cambia se anota en un log su valor y el volumen en ese punto.
 
@@ -174,7 +175,7 @@ sub update_slevel_loop {
 
  $ENV{AUDIODRIVER} = "alsa";
  open my $sox, "-|",  "rec -q -D -c 1 -r 48000 --buffer 32 -b 32 -t raw -" or die;
-
+ 
  while ( (read ($sox, my $buf, 4*1024)) != 0 ) {
   # Valor medio, calculado a partir de un rectificador de onda completa
   $S = $alpha * abs($_) + (1-$alpha) * $S for unpack("i*", $buf);
@@ -188,7 +189,7 @@ El circuito que podría medir eso es un rectificador y un filtro, como el que se
 
 {% include image.html max-width="480px" file="am_diode_detector.png" caption="Detector de envolvente. EP." %}
 
-Sin embargo resulta más sencillo emular el circuito por software. De tal manera que muestreamos el sonido para después rectificarlo y filtrarlo usando conceptos de DSP. Esto se hace en la línea 
+Sin embargo resulta más sencillo emular el circuito por software. De tal manera que muestreamos el sonido para después rectificarlo y filtrarlo usando conceptos de DSP. Esto se hace en la línea
 
 ```
 $S = $alpha * abs($_) + (1-$alpha) * $S
@@ -234,7 +235,7 @@ Lo primero es cargar el fichero y separar las variables para el cálculo posteri
 
 - **El tiempo** no lo vamos a utilizar, pero por si acaso le llamamos *t* y lo convertimos a tiempo relativo restándole t<sub>0</sub>.
 - **La posición** del ratón la llamamos *x* y la hacemos relativa respecto del punto inicial. También la convertimos de ticks de ratón a metros utilizando el ya mencionado factor de 145.1 ticks por centímetro.
-- Para **el volumen**, lo llamaremos *y* y lo normalizaremos dividiendo por el valor máximo, sea cual sea este. Dado que todos los valores eran positivos, la media de todos será mayor que cero y saldrá un pico muy fuerte cuando hagamos la FFT en la frecuencia 0. Así que lo que hacemos es poner un condensador en serie para bloquear la corriente continua. O su equivalente en DSP que es restar el valor medio. 
+- Para **el volumen**, lo llamaremos *y* y lo normalizaremos dividiendo por el valor máximo, sea cual sea este. Dado que todos los valores eran positivos, la media de todos será mayor que cero y saldrá un pico muy fuerte cuando hagamos la FFT en la frecuencia 0. Así que lo que hacemos es poner un condensador en serie para bloquear la corriente continua. O su equivalente en DSP que es restar el valor medio. <br>
 
 Hemos intentado recoger los datos en promedio cada 0.35mm. Sin embargo, debido a cómo se leen los eventos del ratón, puede que los puntos no estén equiespaciados, sino que unos están cada 0.5mm y otros cada 0.2mm. Eso supone un problema para el próximo paso, ya que el algoritmo de la Transformada Rápida de Fourier (FFT) asume que los datos están equiespaciados, y por eso se hace necesario un paso previo.
 
@@ -325,7 +326,7 @@ Aquí se aprecia el pico de 15kHz y, algo muy especial, un segundo armónico en 
 
 Una vez más, la frecuencia de muestreo de la tarjeta no la usamos para derivar la frecuencia sino nada más que para calcular el volumen recibido, y por eso no es un límite.
 
-¿Y cuáles son los límites del instrumento? 
+¿Y cuáles son los límites del instrumento?
 
 - La **frecuencia máxima** viene dada por la resolución espacial. Es decir, mientras más juntas tomemos las medidas mayor número de onda podremos medir, y por tanto mayores frecuencias.
 - La **resolución en frecuencia** viene dada por la longitud de tubo. Sí la longitud. Un tubo más largo permitirá más recorrido del émbolo, más periodos registrados y por tanto mayor precisión luego en la transformada.
@@ -340,7 +341,7 @@ Por ejemplo en este caso mezclamos 4kHz y 11kHz? Esperamos ver dos picos de 4 y 
 
 Ya habíamos visto en esta otra entrada lo que pasa al introducir dos frecuencias en un sistema no lineal: [La Distorsión Armónica Total (THD)]({{site.baseurl}}{% post_url 2013-03-26-la-distorsion-armonica-total-thd %}). Y lo podemos observar de nuevo en este resultado.
 
-Están presentes: 
+Están presentes:
 
 - El pico de 4kHz, correspondiente a una de las señales de entrada.
 - El pico de 11kHz, correspondiente a la otra de las frecuencias de entrada.
@@ -350,9 +351,7 @@ Están presentes:
 
 Por ahora lo dejaremos aquí.
 
-Buscando documentación para el artículo me he encontrado este trabajo y aunque no es una referencia como tal, sí creo que vale la pena mencionarlo para los que tengáis más interés en el tema: [unizar.es - TAD de Jesus Cortes Rodicio.pdf](http://www.unizar.es/departamentos/fisica_aplicada/tads/TAD%20de%20Jesus%20Cortes%20Rodicio.pdf) 
+Buscando documentación para el artículo me he encontrado este trabajo y aunque no es una referencia como tal, sí creo que vale la pena mencionarlo para los que tengáis más interés en el tema: [unizar.es - TAD de Jesus Cortes Rodicio.pdf](http://www.unizar.es/departamentos/fisica_aplicada/tads/TAD%20de%20Jesus%20Cortes%20Rodicio.pdf)
 
 Espero que os haya gustado esta aproximación poco convencional a las ondas sonoras. Encontraréis los ficheros de esta entrada, el software en Perl, ficheros de Octave, logs e imágenes en este enlace: [FT_espectrosonido.zip](https://www.dropbox.com/s/sicisf3hudu6xl9/FT_espectrosonido.zip)
-
-
 

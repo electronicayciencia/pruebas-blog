@@ -19,7 +19,7 @@ Hace ya tiempo conté una forma de decodificar el protocolo RC5 utilizando un PI
 
 Para empezar supongamos que nos llega una señal como la de arriba. Las lineas verticales separan los periodos y es más fácil de ver donde empieza y acaba cada símbolo. Recordemos la dos reglas de oro:
 
-1. **Siempre, siempre hay una transición en mitad de un periodo**. Precisamente porque [tiene la señal de reloj incorporada](http://en.wikipedia.org/wiki/Self-clocking_signal). Recordad que es para ayudarnos a sincronizar el reloj del receptor con el del transmisor. Aunque casi nunca se ajusta dinámicamente; simplemente sincronizamos al principio y nos limitamos a dar error si se desincroniza. Aunque ya vimos como se puede ajustar dinámicamente la frecuencia de reloj para decodificar señales tipo [Aiken Biphase]({{site.baseurl}}{% post_url 2010-11-24-decodificar-aiken-biphase-con-perl %}) cuando leímos la banda magnética de las tarjetas de crédito.
+1. **Siempre, siempre hay una transición en mitad de un periodo**. Precisamente porque <a href="http://en.wikipedia.org/wiki/Self-clocking_signal">tiene la señal de reloj incorporada</a>. Recordad que es para ayudarnos a sincronizar el reloj del receptor con el del transmisor. Aunque casi nunca se ajusta dinámicamente; simplemente sincronizamos al principio y nos limitamos a dar error si se desincroniza. Aunque ya vimos como se puede ajustar dinámicamente la frecuencia de reloj para decodificar señales tipo [Aiken Biphase]({{site.baseurl}}{% post_url 2010-11-24-decodificar-aiken-biphase-con-perl %}) cuando leímos la banda magnética de las tarjetas de crédito.
 1. **Si la transición es hacia arriba (de 0 a 1) se interpreta como un 1, si es hacia abajo, se interpreta como un 0.** Lo que también podría decirse como *si el pulso positivo está a la izquierda del periodo es un 0 y si está a la derecha es un 1*. Mira la imagen de abajo, te ayudará.
 
 {% include image.html file="rc5.png" caption="" %}
@@ -62,9 +62,12 @@ Pegamos el código y a continuación os explico cómo funciona.
 #define RC5_DONE 3
 #define RC5_MARK 4
 
+
+
 unsigned int16 rc5_COMANDO = 0; // S1 y S2.
 unsigned int16 rc5_t;
 unsigned char rc5_stad = 0;
+
 
 #int_TIMER1
 void  TIMER1_isr(void) 
@@ -82,7 +85,7 @@ void  RA_isr(void)
  unsigned char semiperiodos;
 
  int_time = get_timer1();
-
+ 
  
  semiperiodos = input(IR_PIN); // para limpiar la interrupción
  clear_interrupt(INT_RA);
@@ -94,10 +97,10 @@ void  RA_isr(void)
  if (rc5_stad > RC5_S1) {
   signed int16 lapso;
   lapso = (signed int16) (rc5_t - int_time);
-
+  
   if (lapso < 0)  lapso = - lapso;
   lapso -= TMR1_TOL;
-
+  
   if (lapso < 0) {
    semiperiodos = 1;
   } 
@@ -110,20 +113,20 @@ void  RA_isr(void)
   } 
 
  } 
-
+ 
  // COMENZAR AQUI
  // Es el pulso de start1
  if (rc5_stad == 0) {
   rc5_COMANDO = 0b0000000000000011;
   rc5_stad++;  // maquina iniciada (estado 1)
  }
-
+ 
  // es el segundo pulso (marca de continuidad del start1)
  else if (rc5_stad == RC5_S1){
   rc5_t = int_time;
   rc5_stad++;  // primer pulso recibido (estado 2)
  }
-
+ 
  // es el tercer pulso (confirmación de start2)
  else if (rc5_stad == RC5_S2) {
 
@@ -136,7 +139,7 @@ void  RA_isr(void)
   rc5_t /= 2;  // media entre los dos
   rc5_stad++;  // cálculo del periodo completado (estado 3)
  }
-
+ 
  // transición sin marca de continuación
  // se ha invertido el bit
  else if ( semiperiodos == 2 ) {
@@ -144,13 +147,13 @@ void  RA_isr(void)
   // No debería darse el caso
   #bit OLDlastBit = rc5_COMANDO.1
   #bit NEWlastBit = rc5_COMANDO.0
-
+  
   if (rc5_stad == RC5_MARK) {
    //error("Error de protocolo.");
    rc5_stad = 0;
    goto END;
   }
-
+  
   rc5_COMANDO <<= 1;
   NEWlastBit = ~OLDlastBit;
  }
@@ -167,11 +170,11 @@ void  RA_isr(void)
    #bit NEWlastBit = rc5_COMANDO.0
    rc5_COMANDO <<= 1;
    NEWlastBit = OLDlastBit;
-
+   
    rc5_stad = RC5_DONE;
   }
  }
-
+ 
  else {
   rc5_stad = RC5_RESET; // algún error
  } 
@@ -179,6 +182,9 @@ void  RA_isr(void)
 END:
  set_timer1(0);
 }
+
+
+
 
 void main()
 {
@@ -189,6 +195,7 @@ void main()
    enable_interrupts(INT_RA);
    enable_interrupts(GLOBAL);
    setup_oscillator(OSC_4MHZ);
+
 
  for (;;) {
   if (bit_test (rc5_COMANDO, 7)) {
@@ -203,11 +210,11 @@ El bucle de recepción está en la interrupción RA. Lo primero que hacemos cuan
 
 Hay que tener en cuenta que este programa es sólo para que veais el algoritmo. En la vida real tendríamos que poner una condición para ver si lo que ha cambiado es el pin al que tenemos conectado el sensor o es otro distinto.
 
-Todo gira alrededor de una máquina de estados. El estado inicial es el **estado cero**. Las variables están en sus valores por defecto y el sistema está listo para empezar a recibir un comando. 
+Todo gira alrededor de una máquina de estados. El estado inicial es el **estado cero**. Las variables están en sus valores por defecto y el sistema está listo para empezar a recibir un comando.
 
 ## Inicialización
 
-Llega la primera transición. Nuestro objetivo ahora es calcular el semiperíodo para cuando lleguen las transiciones de los datos poder saber qué significan. Sabemos, por definición del protocolo, que lo primero que nos va a llegar son dos bit de start y van a ser sendos unos. Mirad la imagen de arriba, son las transiciones 1, 2 y 3 y entre cada una hay un semiperíodo.  Podría calcular la duración del semiperíodo simplemente basándome en la diferencia entre la 1ª y la 2ª. Pero ya que son dos marcas de start es más fiable si calculo la diferencia de tiempos entre la 1 y la 2, y también de la 2 a la 3 y luego hago una media. 
+Llega la primera transición. Nuestro objetivo ahora es calcular el semiperíodo para cuando lleguen las transiciones de los datos poder saber qué significan. Sabemos, por definición del protocolo, que lo primero que nos va a llegar son dos bit de start y van a ser sendos unos. Mirad la imagen de arriba, son las transiciones 1, 2 y 3 y entre cada una hay un semiperíodo.  Podría calcular la duración del semiperíodo simplemente basándome en la diferencia entre la 1ª y la 2ª. Pero ya que son dos marcas de start es más fiable si calculo la diferencia de tiempos entre la 1 y la 2, y también de la 2 a la 3 y luego hago una media.
 
 Como decíamos, llega la primera transición. Id a la línea 80, donde dice "Comenzar aquí". Estamos en el estado cero, todo reseteado. A lo más que podemos aspirar aquí es a poner los dos unos de start en la variable COMANDO y poco más. Pero lo más importante que hacemos es pasar al **estado uno** y salir reiniciando timer 1 como habíamos dicho.
 
@@ -226,6 +233,7 @@ Ahora sí vamos a explicar cómo hacemos la comparación, vamos a la línea 58 d
 Si estuviéramos programando en un PC, para saber si int_time es equivalente a rc5_t con una tolerancia del 10% haríamos una comparación tal que así:
 
     if (int_time > 0.90*rc5_t) && 
+
        (int_time < 1.10*rc5_t) ...
 
 Pero en un microcontrolador este tipo de cosas conviene evitarlas, principalmente porque los compiladores no suelen estar tan optimizados y malgastan los limitados bits de RAM. Además implícitamente estamos obligando al compilador a:

@@ -13,7 +13,7 @@ Este sencillo proyecto es ideal para quienes quieran ver con un ejemplo el funci
 
 Un inciso rápido para los profanos: para observar colonias de bacterias, estas se depositan en una placa con gelatina y se cultivan cuales plantas. Para que crezcan se necesita una temperatura estable entre 35 y 38 grados más o menos; si baja crecen muy lentamente, y si sube se asan. El objetivo es obtener 37ºC estabilizados.
 
-Hay varias formas de hacer una estufa casera, yo opté por lo fácil: coger una yogurtera vieja y aplicarle un termostato que la encienda y la apague cuando sea necesario. Hay quien lo hace con una caja aislante (de corcho o madera) y un lámpara incandescente, es un buen método, pero a menudo las colonias crecen mejor a oscuras. He visto proyectos hasta con un secador, es muy buena idea, una fuente de calor con un ventilador que lo distribuye. 
+Hay varias formas de hacer una estufa casera, yo opté por lo fácil: coger una yogurtera vieja y aplicarle un termostato que la encienda y la apague cuando sea necesario. Hay quien lo hace con una caja aislante (de corcho o madera) y un lámpara incandescente, es un buen método, pero a menudo las colonias crecen mejor a oscuras. He visto proyectos hasta con un secador, es muy buena idea, una fuente de calor con un ventilador que lo distribuye.
 
 Aunque como digo me quedo con la yogurtera. Otra opción es aprovechar la resistencia de nicrom de un brasero que no se use. La fuente de calor va al gusto del experimentador, yo aporto el termostato.
 
@@ -29,15 +29,15 @@ Cuando la temperatura (tensión en la entrada -) es mayor de la seleccionada (te
 
 No hemos usado ningún tipo de histéresis en el comparador, ya que lo que pretendemos no es tener un rango sino una temperatura fija. Además el optotriac que hemos usado incorpora detección de cruce por cero, y sólo se disparará en la parte baja del ciclo de alterna.
 
-Debido a que no hemos amplificado la salida del LM35 trabajamos con tensiones del orden de mV. No es del todo recomendable trabajar con tensiones tan bajas, pues una mínima interferencia puede activar o desactivar momentáneamente el termostato, pero en este caso prima la sencillez del circuito. 
+Debido a que no hemos amplificado la salida del LM35 trabajamos con tensiones del orden de mV. No es del todo recomendable trabajar con tensiones tan bajas, pues una mínima interferencia puede activar o desactivar momentáneamente el termostato, pero en este caso prima la sencillez del circuito.
 
 ## Cálculo de los componentes
 
-Lo más importante es calcular R2, R3 y R4 pues de su valor depende el rango de temperaturas de trabajo. Yo lo he calculado para darle un rango entre 27 y 40ºC. [En esta hoja](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dEFpQmhOdmNndjVqWllBcHA2NnZTQXc&hl=es&authkey=CKPH-dII) tenéis los cálculos. Los valores en negrita son introducidos manualmente, los que están en letra normal son calculados.
+Lo más importante es calcular R2, R3 y R4 pues de su valor depende el rango de temperaturas de trabajo. Yo lo he calculado para darle un rango entre 27 y 40ºC. [En esta hoja](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dEFpQmhOdmNndjVqWllBcHA2NnZTQXc&amp;hl=es&amp;authkey=CKPH-dII) tenéis los cálculos. Los valores en negrita son introducidos manualmente, los que están en letra normal son calculados.
 
 Calculamos R1 a partir de la tensión de alimentación para que por el zener circulen como mínimo 5mA. Despreciamos la corriente que absorbe el sensor. Tened cuidado con la tensión del zener que uséis, que esté dentro del margen de alimentación del LM35. Necesitaríamos 1530 ohm, como el valor no es crítico usaremos 1k. Con ese valor nos da 7.65mA, es aceptable.
 
-Lo primero es medir R3. Es un potenciómetro de 10k, que una vez medido resulta ser de 10400ohm. R2 y R4 se calculan atendiendo a la tensión zener y al rango que se pida. Después se ajustan a los valores estándar de mercado más próximos y se recalcula el rango de temperaturas. Más tarde conviene medir con un téster la tensión en la patilla 3 de IC1 porque debido a la tolerancia de las resistencias se va a desviar de los cálculos. Tendréis que jugar un poco con R2B hasta ajustar el rango deseado. 
+Lo primero es medir R3. Es un potenciómetro de 10k, que una vez medido resulta ser de 10400ohm. R2 y R4 se calculan atendiendo a la tensión zener y al rango que se pida. Después se ajustan a los valores estándar de mercado más próximos y se recalcula el rango de temperaturas. Más tarde conviene medir con un téster la tensión en la patilla 3 de IC1 porque debido a la tolerancia de las resistencias se va a desviar de los cálculos. Tendréis que jugar un poco con R2B hasta ajustar el rango deseado.
 
 Tras los cálculos los valores quedan:
 

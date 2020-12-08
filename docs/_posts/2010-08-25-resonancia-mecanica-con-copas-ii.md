@@ -39,7 +39,7 @@ Eso es sólo con el micrófono y el altavoz, veamos lo que pasa cuando intercalo
 
 {% include image.html file="alternando_detalle.png" caption="" %}
 
-Sólo se ve afectada la frecuencia 1404Hz, correspondiente al segundo sistema resonante. Tal como sabíamos la copa absorbe energía y se pone a vibrar en su frecuencia de resonancia, mientras que *ignora* el resto de frecuencias. 
+Sólo se ve afectada la frecuencia 1404Hz, correspondiente al segundo sistema resonante. Tal como sabíamos la copa absorbe energía y se pone a vibrar en su frecuencia de resonancia, mientras que *ignora* el resto de frecuencias.
 
 Veamos lo que ocurre si alternamos una copa y la otra entre micrófono y altavoz:
 
@@ -72,9 +72,9 @@ Pues bien, esta disminución de la intensidad que tanto cuesta ver en un sistema
 
 - **Un sistema antirrobo**: No hablo de los modernos que usan RFID, sino de los antiguos que constan de un emisor y un receptor enfrentados. La intensidad que ve el receptor es constante mientras que no se interponga un objeto que resuene en la frecuencia acordada. Cuando entre emisor y receptor pasa un objeto resonante absorbe parte de la energía del campo. Esta disminución brusca la detecta inmediatamente el receptor que se pone a pitar como loco.
 
-- **Un sistema de control de trenes**: concretamente el [sistema INDUSI](http://www.sh1.org/eisenbahn/rindusi2.htm). La locomotora cuenta con tres osciladores a 500Hz, 1000Hz y 2000Hz. Sobre la vía hay osciladores que resuenan a cada una de esas frecuencias o no, dependiendo del estado de la señal. Cuando el tren pasa sobre una baliza que resuena en 2000Hz, por ejemplo, se detecta una alteración en ese oscilador de cabina. Concretamente, una señal de 2000Hz significa que el tren está rebasando una señal de parada y el sistema activaría automáticamente el freno de emergencia.
+- **Un sistema de control de trenes**: concretamente el <a href="http://www.sh1.org/eisenbahn/rindusi2.htm">sistema INDUSI</a>. La locomotora cuenta con tres osciladores a 500Hz, 1000Hz y 2000Hz. Sobre la vía hay osciladores que resuenan a cada una de esas frecuencias o no, dependiendo del estado de la señal. Cuando el tren pasa sobre una baliza que resuena en 2000Hz, por ejemplo, se detecta una alteración en ese oscilador de cabina. Concretamente, una señal de 2000Hz significa que el tren está rebasando una señal de parada y el sistema activaría automáticamente el freno de emergencia.
 
-- **Resonancia Magnética**: En este caso no nos interesa la disminución del campo, sino la vibración posterior. La [resonancia magnética](http://webs2002.uab.es/vicente_aige/reso1.htm) se basa en enviar un pulso oscilante para excitar los protones desapareados de un núcleo atómico y luego escuchar cómo se produce la relajación. Este *eco* es distinto dependiendo de tipo de átomo, y de la materia que lo rodea. Interpretando digitalmente esa información se pueden distinguir tejidos, órganos, etc. que luego se presentan en una pantalla.
+- **Resonancia Magnética**: En este caso no nos interesa la disminución del campo, sino la vibración posterior. La <a href="http://webs2002.uab.es/vicente_aige/reso1.htm">resonancia magnética</a> se basa en enviar un pulso oscilante para excitar los protones desapareados de un núcleo atómico y luego escuchar cómo se produce la relajación. Este *eco* es distinto dependiendo de tipo de átomo, y de la materia que lo rodea. Interpretando digitalmente esa información se pueden distinguir tejidos, órganos, etc. que luego se presentan en una pantalla.
 
 Os dejo los archivos [aquí](https://sites.google.com/site/electronicayciencia/resonancia_pulsante.rar) por si queréis hacer más pruebas.
 
@@ -83,6 +83,4 @@ Os dejo los archivos [aquí](https://sites.google.com/site/electronicayciencia/r
 - **tonos_1068_1404_512.wav**: Pulso de esas tres frecuencias combinadas.
 - **sin_copa.dat**: Intensidad media de un pulso recibido sin copa intermedia.
 - **con_copa.dat**: Intensidad media de un pulso con una de las frecuencias atenuada.
-
-
 

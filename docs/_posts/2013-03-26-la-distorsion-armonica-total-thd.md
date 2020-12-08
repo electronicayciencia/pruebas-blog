@@ -95,19 +95,19 @@ En el espectro de frecuencias lo vemos así. Por ejemplo tenemos una señal de 3
 Para explicarlo de manera sencilla recurrimos a la siguiente [identidad trigonométrica](http://es.wikipedia.org/wiki/Identidades_trigonom%C3%A9tricas#Paso_de_producto_a_suma):
 
 $$
- \sin(x) \sin(y) = {\cos(x - y) - \cos(x + y) \over 2} 
+\sin(x) \sin(y) = {\cos(x - y) - \cos(x + y) \over 2}
 $$
 
 Y para el seno **al cuadrado** tendríamos que
 
 $$
- \sin^2 x = \sin (x)  \sin (x) = {\cos(x - x) - \cos(x + x) \over 2} = {\cos(0) \over 2} + {cos(2x)\over 2} 
+\sin^2 x = \sin (x)  \sin (x) = {\cos(x - x) - \cos(x + x) \over 2} = {\cos(0) \over 2} + {cos(2x)\over 2}
 $$
 
 puesto que $$\cos(0) = 1$$ resulta
 
 $$
- \sin^2(x) = {1 \over 2} + {\cos(2x) \over 2} 
+\sin^2(x) = {1 \over 2} + {\cos(2x) \over 2}
 $$
 
 ahí tenemos nuestro desplazamiento (el 1/2 inicial), nuestro cambio de fase (el seno cambia a coseno), nuestra merma de amplitud y, sobre todo, el cambio de frecuencia x a 2x.
@@ -192,7 +192,7 @@ Se calcula aplicando a la entrada una señal de frecuencia y amplitud conocidas.
 
 Siempre que se da el dato de la THD, se debe indicar también para qué frecuencia y amplitud de entrada.
 
-Con LTSpice analizamos los diez primeros armónicos del circuito simple -gráfica anterior- y este es el resultado:<br />
+Con LTSpice analizamos los diez primeros armónicos del circuito simple -gráfica anterior- y este es el resultado:
 
 ```
 Fourier components of V(out)
@@ -234,7 +234,7 @@ Si hacemos la misma gráfica que con el otro parece que no hay más frecuencias 
 
 {% include image.html file="thc_.05_lin.png" caption="" %}
 
-Veamos qué sale en el análisis de Fourier:<br />
+Veamos qué sale en el análisis de Fourier:
 
 ```
 Fourier components of V(out)
@@ -273,20 +273,20 @@ Quitando los amplificadores baratos, la THD últimamente es tan baja que que ha 
 
 La música nunca es una sinusoide pura. ¿Qué pasa con la distorsión en este caso?
 
-Bueno, pues al igual que una función suave podía aproximarse por una serie de potencias, una función periódica (como una onda de la forma que sea) puede aproximarse como suma de varios senos (o cosenos). Es lo que se llama Serie de Fourier (ver [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %})). Y se ve muy bien en esta imagen (tomada de [la Wikipedia](http://es.wikipedia.org/wiki/Serie_de_Fourier)). 
+Bueno, pues al igual que una función suave podía aproximarse por una serie de potencias, una función periódica (como una onda de la forma que sea) puede aproximarse como suma de varios senos (o cosenos). Es lo que se llama Serie de Fourier (ver [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %})). Y se ve muy bien en esta imagen (tomada de [la Wikipedia](http://es.wikipedia.org/wiki/Serie_de_Fourier)).
 
 {% include image.html file="fourier_triangular_wikipedia.gif" caption="" %}
 
 Tenemos una señal de entrada compuesta por dos frecuencias. Un tono **a** de 300 Hz y otro tono **b** de 500 Hz.
 
 $$
- y = \sin(2 \pi a t) +  \sin(2 \pi a t) 
+y = \sin(2 \pi a t) +  \sin(2 \pi a t)
 $$
 
 Para no liarnos con los números, simplificamos obviando los factores (no hagáis esto en un examen) y lo escribiremos así:
 
 $$
- y = f_a + f_b 
+y = f_a + f_b
 $$
 
 Queriendo decir *y está compuesta de un tono **a** y otro **b***. Por favor, estad atentos a los subíndices y tratad de no perderos; son muchos términos pero es sólo sumar y restar.
@@ -294,7 +294,7 @@ Queriendo decir *y está compuesta de un tono **a** y otro **b***. Por favor, es
 Cuando la amplificación es perfectamente lineal tenemos esto:
 
 $$
- Out = k \times y = k f_a + k f_b 
+Out = k \times y = k f_a + k f_b
 $$
 
 Cada frecuencia se amplifica por su parte, y no hay mayor problema. La forma de la salida es la misma que a la entrada sólo que más grande o más pequeña según k sea mayor o menor que 1. Lo mismo que antes.
@@ -306,35 +306,35 @@ Pero ¿y si la amplificación no es del todo lineal y tiene un pequeño **térmi
 Pues al igual que antes:
 
 $$
- Out = k_0 \times y + k_1 \times y^2 
+Out = k_0 \times y + k_1 \times y^2
 $$
 
 Ahora lo que va al cuadrado no es un seno, sino una suma de dos senos independientes. Y habrá que aplicar la regla del cuadrado de una suma:
 
 $$
- (a+b)^2 = a^2 + 2ab + b^2 
+(a+b)^2 = a^2 + 2ab + b^2
 $$
 
 También vimos que al multiplicar senos de dos frecuencias distintas (ab) se utiliza esta identidad:
 
 $$
- \sin(x) \sin(y) = {\cos(x - y) - \cos(x + y) \over 2} 
+\sin(x) \sin(y) = {\cos(x - y) - \cos(x + y) \over 2}
 $$
 
 Expresado en frecuencias y sin tener en cuenta las amplitudes ni las fases sería así:
 
 $$
- f_a \times \f_b = f_{a-b} + f_{a+b}
+f_a \times \f_b = f_{a-b} + f_{a+b}
 $$
 
 Cuando elevamos al cuadrado ambas frecuencias son la misma y nos sale:
 
 $$
- f_a^2 = f_a \times \f_a = f_{a-a} + f_{a+a}
+f_a^2 = f_a \times \f_a = f_{a-a} + f_{a+a}
 $$
 
 $$
- f_a^2 = f_0 + f_{2a}
+f_a^2 = f_0 + f_{2a}
 $$
 
 Como ya vimos antes, al elevar una frecuencia al **cuadrado** el resultado era una componente continua más una frecuencia doble (armónico).
@@ -342,24 +342,24 @@ Como ya vimos antes, al elevar una frecuencia al **cuadrado** el resultado era u
 Es decir, suponiendo que k1 y k2 ambas valen 1, para simplificar:
 
 $$
- Out = y + y^2 = (f_a + f_b) + (f_a + f_b)^2
+Out = y + y^2 = (f_a + f_b) + (f_a + f_b)^2
 $$
 
 Haciendo a parte el cuadrado:
 
 $$
- ( f_a + f_b )^2 = f_a^2 + f_a f_b + f_b^2
+( f_a + f_b )^2 = f_a^2 + f_a f_b + f_b^2
 $$
 
 $$
- ( f_a + f_b )^2 = f_0 + f_{2a} + f_{a+b} + f_{a-b} + f_0 + f_{2b}
+( f_a + f_b )^2 = f_0 + f_{2a} + f_{a+b} + f_{a-b} + f_0 + f_{2b}
 $$
 
 En total:
 
 {% include image.html file="eq1.gif" caption="" %}
 
-Los términos de arriba son las mismas frecuencias originales amplificadas. Pero los términos de abajo son armónicos, y frecuencias sumas y restas, estos son los llamados [**productos de intermodulación de segundo orden**](http://en.wikipedia.org/wiki/Intermodulation). Es decir, que entran 300 Hz y 500 Hz pero salen:
+Los términos de arriba son las mismas frecuencias originales amplificadas. Pero los términos de abajo son armónicos, y frecuencias sumas y restas, estos son los llamados [<b>productos de intermodulación de segundo orden</b>](http://en.wikipedia.org/wiki/Intermodulation). Es decir, que entran 300 Hz y 500 Hz pero salen:
 
 ```
 a   =  300 Hz
@@ -381,7 +381,7 @@ Visto en el espectro:
 Pues, de nuevo sin tener en cuenta amplitudes, deberíamos añadir un término a lo anterior:
 
 $$
- (f_a + f_b)^3 = f_a^3 + f_a^2 f_b + f_a f_b^2 + f_b^3 
+(f_a + f_b)^3 = f_a^3 + f_a^2 f_b + f_a f_b^2 + f_b^3
 $$
 
 Ya vimos cómo frecuencia al cubo resulta en ella misma más el tercer armónico:

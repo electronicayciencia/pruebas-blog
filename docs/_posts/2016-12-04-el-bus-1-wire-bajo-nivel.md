@@ -42,7 +42,7 @@ A su izquierda está el bloque llamado **scratchpad**. Es un registro que podemo
 
 La **ROM** es una memoria de sólo lectura donde está el número de serie del dispositivo. En cualquier bus donde hay más de un receptor conectado, se necesita una forma de identificar al destinatario. En un bus SPI tenemos una línea dedicada *Slave Select*. En un I2C tenemos un código mitad fijo, mitad personalizado. Los dispositivos 1-Wire tienen un **número de serie** de 64bit que los identifica por si hubiera varios sensores conectados al mismo bus.
 
-El formato del número de serie es como sigue:<br /></break>
+El formato del número de serie es como sigue:
 
 - Identificador de la **familia**: siempre será 10h para DS1820 y DS18S20. 28h para DS18B20 y 22h para el DS1822. Este código nos dice el tipo de chip conectado, podrían ser sensores, números de serie digitales, interruptores, memorias, etc.
 - Número de **serie** propiamente dicho, 48 bit. Con 48 bits hay espacio para 10<sup>14</sup> identificadores diferentes por lo que la probabilidad de colisión es mínima.
@@ -228,12 +228,12 @@ Por último damos un tiempo prudencial para que los dispositivos se inicien corr
 /* Sends a reset pulse and waits for a presence response */
 int reset (int pin) {
  int v;
-
+ 
  low (pin, 960);
  delayMicrosecondsHard (60);
  v = digitalRead(pin);
  delayMicroseconds(300); 
-
+ 
  return !v;
 }
 ```
@@ -308,7 +308,6 @@ char read_byte(pin) {
 
  for (i=0; i < 8; i++) {
      int b;
-
   b = read_bit(pin);
   b = b << i;
   byte = byte | b;
@@ -342,31 +341,26 @@ La idea es esa, sí. Realmente hay un fundamento matemático muy robusto detrás
 Ejemplo. Tenemos un programa que calcula el CRC8 del argumento que se le pase. Y nos da el resultado en hexadecimal y su carácter correspondiente.
 
     ./crc ElectronicaYciencia
-
     25h '%'
 
 El CRC correspondiente al mensaje "ElectronicaYciencia" es el 25h, equivalente al carácter '%'. Si ahora calculamos el CRC de ElectronicaYciencia añadiendo el caracter "%" este es el nuevo resultado:
 
     ./crc ElectronicaYciencia%
-
     00h ''
 
 Cero. Significa que el mensaje está íntegro. Probamos de nuevo:
 
     ./crc "Esto es un mensaje de prueba. ¿Llega bien?"
-
     53h 'S'
 
 Ahora añadiendo la letra "S" al final:
 
     ./crc "Esto es un mensaje de prueba. ¿Llega bien?S"
-
     00h ''
 
 El resultado es cero. El mensaje está bien. Probemos a introducir algún error. Por ejemplo cambiando cualquiera de las letras.
 
     ./crc "Esto es un mensa)e de prueba. ¿Llega bien?S"
-
     E9h '�'
 
 El CRC deja de ser 0 y sabemos que hay algún **fallo**. Ciertos CRC tienen la capacidad de detectar  el error y corregirlo. No es el caso.
@@ -400,7 +394,6 @@ unsigned char crc8 (char *str, size_t len) {
    // If crc_carry XOR byte_carry we make crc XOR div
    if (crc_carry ^ byte_carry)
     crc ^= div;
-
   }
  }
 
@@ -451,8 +444,8 @@ Observad cómo tras leer 8 bytes e imprimirlos hemos llamado a la función **crc
 
 El resultado es este:
 
+    
     Reading ROM data (Cmd 33h)
-
     10 8c 67 e3 01 08 00 30     OK
 
 Desglosado de esta manera:
@@ -464,7 +457,6 @@ Desglosado de esta manera:
 En ocasiones por unas causas o por otras el mensaje puede llegar mal, por ejemplo así:
 
     Reading ROM data (Cmd 33h)
-
     10 8c 67 e3 01 0a 00 30     ROM data read ERROR.
 
 El byte 08h anterior (0000 1000 en binario) lo hemos leído como 0ah (0000 1010). Al haber cambiado uno de los bits del mensaje, el crc ya no coincide y el error se detecta.
@@ -509,14 +501,14 @@ int read_scratchpad(int pin, char *buff) {
   buff[i] = read_byte(PIN);
   printf("%02x ", buff[i]);
  }
-
+  
  if (crc8(buff, 9)) {
   puts("\tScratchpad data read ERROR, try again.");
  }
  else {
   puts("\tOK");
  }
-
+  
  reset(PIN);
 }
 ```
@@ -553,7 +545,7 @@ Para terminar, estas son las cabeceras de nuestro programa:
 #define TREC 2        /* Line pull up recovery time us */
 ```
 
-Y a seguidamente la función *main*: 
+Y a seguidamente la función *main*:
 
 1. Inicializa la librería WiringPi. Fija la prioridad máxima y configura los pines y las resistencias de pullup.
 1. Reinicia el bus y espera confirmación por parte de algún esclavo. Si no hay nada escuchando termina el programa.
@@ -611,7 +603,7 @@ int main (void)
 Aquí podemos ver el resultado de la ejecución:
 
 ```
-$ sudo ./ds1820
+<span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;"><span style="font-size: small;">$ sudo ./ds1820
 DS1820 Test Program for Raspberry Pi
 Device present!
 
@@ -624,16 +616,15 @@ Reading temperature:
 Temperature (low res) is 17.0ºC
 
 COUNT_PER_C: 16, COUNT_REMAIN: 10
-Temperature (hi res) is 17.12ºC
-
+Temperature (hi res) is 17.12ºC</span>
+</span>
 ```
+
+    
 
 Es todo por ahora. [En este enlace](https://www.dropbox.com/s/pyztfqt63qx3iys/ds1820_rpi.zip?dl=0) podéis encontrar los programas y archivos utilizados durante la elaboración del artículo, incluyendo:
 
 - El programa principal ds1820.c
-- Los programas utilizados para los ejemplos de crc, benchmarks de funciones de espera, etc.
-
+- Los programas utilizados para los ejemplos de crc, benchmarks de funciones de espera, etc.<br>
 - Imágenes. Datasheet del ds1820.
-
-
 

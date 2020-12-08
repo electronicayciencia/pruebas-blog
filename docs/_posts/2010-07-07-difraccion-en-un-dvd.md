@@ -61,7 +61,7 @@ $$
 
 Dice el estándar DVD en [este documento](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-267.pdf) (página 12) que:
 
-> 10.6.2 Track geometryIn the Information Zone tracks are constituted by a 360° turn of a spiral.The track pitch shall be 0,74 µm ± 0,03 µm.**The track pitch averaged over the Data Zone shall be 0,74 µm ± 0,01 µm**.
+> <div style="font-family: inherit;">10.6.2 Track geometry</div><div style="font-family: inherit;">In the Information Zone tracks are constituted by a 360° turn of a spiral.</div><div style="font-family: inherit;">The track pitch shall be 0,74 µm ± 0,03 µm.</div><div style="font-family: inherit;">**The track pitch averaged over the Data Zone shall be 0,74 µm ± 0,01 µm**.</div>
 
 Nosotros hemos obtenido 0.734 lo que nos da un **error menor del 1%** (fijaos que es del orden de los 10nm). Y eso con un montaje rudimentario, midiendo solamente un ángulo y sin tener en cuenta el cálculo de errores (propagación). Realmente es una pasada la precisión que se puede alcanzar con un láser.
 
@@ -69,7 +69,7 @@ La conclusión es que un DVD se comporta como una red de difracción de **1360 l
 
 ## Los órdenes superiores
 
-He preparado una hoja de cálculo para este apartado. Está en [este enlace](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc&hl=es&authkey=CIjFp_UF). Ahora uso el dato de 0.74µm. Con el ángulo incidente 0, totalmente perpendicular tenemos este caso.
+He preparado una hoja de cálculo para este apartado. Está en [este enlace](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc&amp;hl=es&amp;authkey=CIjFp_UF). Ahora uso el dato de 0.74µm. Con el ángulo incidente 0, totalmente perpendicular tenemos este caso.
 
 {% include image.html file="dvd_0_720.png" caption="" %}
 
@@ -107,7 +107,7 @@ Poniendo el rayo incidente donde antes estaba el rojo. Vemos hasta el tercer ord
 
 {% include image.html file="cd_rj_en-1.png" caption="" %}
 
-Y lo que es más importante, es que para obtener la anchura de 60º que teníamos antes con un DVD en segundo orden, con un CD tenemos que recurrir al tercer orden, y será mucho más débil. 
+Y lo que es más importante, es que para obtener la anchura de 60º que teníamos antes con un DVD en segundo orden, con un CD tenemos que recurrir al tercer orden, y será mucho más débil.
 
 En la imagen de abajo veis los rayos que produce un CD. Si os fijáis bien en el mazo de cartas se ve el rayo difractado de tercer orden que debería coincidir con el transmitido (puntero). Aquí lo he desviado un poco para que se vea. Digamos que en lugar de estar a 54º le láser está a 50º respecto a la normal del CD.
 

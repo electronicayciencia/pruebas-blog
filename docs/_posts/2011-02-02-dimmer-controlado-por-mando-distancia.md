@@ -36,7 +36,7 @@ Al final, por muchas vueltas que demos, la función principal del dimmer es regu
 
 Un [TRIAC](http://www.unicrom.com/Tut_triac.asp) es un dispositivo electrónico con tres patillas. Una de ellas es la puerta y las otras dos actúan de interruptor. Cuando metemos tensión en la puerta, pasa corriente entre los dos terminales principales siempre y cuando entre estos dos haya un mínimo de diferencia de potencial. Y se queda conduciendo mientras siga habiendo esa tensión por encima del mínimo, aunque hayamos desconectado la puerta.
 
-En este caso hemos utilizado un optotriac para aislar el micro de la alta tensión (es recomendable cuando además tenemos una fuente de alimentación sin transformador, y una patilla directamente a la red para ver cuando pasa por cero). Lo malo del optotriac es que tiene por dentro un LED que hay que alimentar, y que puede consumir desde 5mA en algunas versiones, hasta 20mA en otros modelos. Y la fuente que teníamos iba justita para alimentar el micro, no nos sobran 15mA para alimentar el LED de continuo. 
+En este caso hemos utilizado un optotriac para aislar el micro de la alta tensión (es recomendable cuando además tenemos una fuente de alimentación sin transformador, y una patilla directamente a la red para ver cuando pasa por cero). Lo malo del optotriac es que tiene por dentro un LED que hay que alimentar, y que puede consumir desde 5mA en algunas versiones, hasta 20mA en otros modelos. Y la fuente que teníamos iba justita para alimentar el micro, no nos sobran 15mA para alimentar el LED de continuo.
 
 Afortunadamente no es un problema mayor, ya que habíamos dicho que una vez disparado el TRIAC este conducirá hasta que la tensión alterna pase por cero. Así que lo que vamos a hacer es:
 

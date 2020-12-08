@@ -27,7 +27,7 @@ Sóplate en el dedo. Ahora mójate el dedo y sopla de nuevo. ¿Se nota más frí
 
 Imaginad la evaporación como una disolución de agua en el aire. Servirá, aunque el símil no es exacto porque implica un cambio de fase previo a vapor de agua -al contrario que la sal, que cuando se disuelve en agua no pasa a estado líquido-. El cambio de fase de líquido a gaseoso absorbe siempre una determinada cantidad de energía correspondiente al calor latente de vaporización.
 
-Cuando salimos de la ducha el aire está cargado de vapor. Y se nota frío pero no se nota mucho. Como ya sabíamos, al agua *le cuesta* más disolverse en aire húmedo. Como pasa en una disolución, la cantidad de agua que puede disolverse tiene un límite hasta que esta se satura. 
+Cuando salimos de la ducha el aire está cargado de vapor. Y se nota frío pero no se nota mucho. Como ya sabíamos, al agua *le cuesta* más disolverse en aire húmedo. Como pasa en una disolución, la cantidad de agua que puede disolverse tiene un límite hasta que esta se satura.
 
 Para saber cuánto es el límite ponemos aire y agua *pura* en un recipiente cerrado durante un rato. Tomamos nota de la temperatura, presión atmosférica y otros datos de interés. Como el aire y el agua están en contacto y el recipiente hermético, con el tiempo se alcanzará el equilibrio.
 
@@ -51,7 +51,7 @@ Realmente con un termómetro húmedo lo que estamos midiendo es una aproximació
 
 {% include image.html file="sat_adiabatico.png" caption="Saturador adiabático." %}
 
-El montaje anterior se llama **saturador adiabático** y si lo pensáis, es muy parecido a la brisa del mar o al aire cerca de una piscina. Un enfriador evaporativo, luego lo veremos, es parecido. Entonces la termodinámica nos lleva a preguntarnos: dadas unas condiciones iniciales de temperatura y humedad ¿A qué temperatura saldría el aire, si lo saturamos del todo? 
+El montaje anterior se llama **saturador adiabático** y si lo pensáis, es muy parecido a la brisa del mar o al aire cerca de una piscina. Un enfriador evaporativo, luego lo veremos, es parecido. Entonces la termodinámica nos lleva a preguntarnos: dadas unas condiciones iniciales de temperatura y humedad ¿A qué temperatura saldría el aire, si lo saturamos del todo?
 
 Para responder a eso están las **cartas psicrométricas**, que son una representación gráfica más elaborada que la tabla de antes, donde están representadas las variables más importantes. Aquí tenéis una simplificada para las variables que nos interesan. Podéis abrir la imagen en otra pestaña para ampliarla:
 
@@ -93,7 +93,7 @@ Lo que hay a continuación es un ventilador, en este caso cilíndrico. Sirve  pa
 
 {% include image.html max-width="363px" file="20170807_192618.jpg" caption="Vista trasera una vez retirado el panel." %}
 
-Podemos considerar que el aire se satura durante el tiempo que está atravesando el panel. Asumiendo un flujo uniforme el grado de saturación alcanzado depende de tres variables: 
+Podemos considerar que el aire se satura durante el tiempo que está atravesando el panel. Asumiendo un flujo uniforme el grado de saturación alcanzado depende de tres variables:
 
 - El **caudal de aire** que arroja el ventilador, volumen de aire por segundo.
 - El **volumen del panel** de celulosa posterior.
@@ -189,7 +189,7 @@ Para la lectura de la humedad, el proceso es similar. En el datasheet se indica 
 
 Una cosa más, los lectores de humedad no son fiables en los extremos. De hecho el datasheet ya nos avisa de que el HTU21D puede operar fuera del rango 5%-95%, pero que las medidas devueltas tienen un error mayor que en el interior del intervalo.
 
-Cuando midamos la temperatura del agua lo haremos con una sonda de temperatura en cuyo interior lleva **DS18B20**. Ya habíamos tratado en detalle estos sensores en la entrada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}). A diferencia del antiguo DS1820, el nuevo modelo DS18B20 ya nos da la precisión necesaria sin tener que leer los pulsos restantes. Por lo que la forma de leer el chip se simplifica. Tenéis el datalogger empleado en Github: [ds18b20_logger.c](https://github.com/electronicayciencia/ds1820/blob/master/ds18b20_logger.c). 
+Cuando midamos la temperatura del agua lo haremos con una sonda de temperatura en cuyo interior lleva **DS18B20**. Ya habíamos tratado en detalle estos sensores en la entrada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}). A diferencia del antiguo DS1820, el nuevo modelo DS18B20 ya nos da la precisión necesaria sin tener que leer los pulsos restantes. Por lo que la forma de leer el chip se simplifica. Tenéis el datalogger empleado en Github: [ds18b20_logger.c](https://github.com/electronicayciencia/ds1820/blob/master/ds18b20_logger.c).
 
 Eso sí, mientras más largo es el cable, más tiempo de recuperación tenéis que dejar al bus. En nuestro caso, los 2us que habíamos usado en pruebas anteriores no son suficientes y hubo que aumentarlo a 15us para tener una comunicación fiable.
 
@@ -203,7 +203,7 @@ Al encender el ventilador este crea un flujo de aire que promedia la temperatura
 
 Como ya hemos explicado, un evaporativo es un ventilador más un humidificador. Pero vamos a ver cómo se comporta en una salita un tarde de verano. Por favor, tened en cuenta que las pruebas sólo están hechas con un modelo concreto, los resultados pueden no ser extrapolables a otros fabricantes.
 
-Llenamos la cubeta de agua y lo encendemos a la máxima potencia, y lo graficamos. En el eje izquierdo está la temperatura en grados centígrados. En el eje derecho la humedad relativa en tanto porciento. 
+Llenamos la cubeta de agua y lo encendemos a la máxima potencia, y lo graficamos. En el eje izquierdo está la temperatura en grados centígrados. En el eje derecho la humedad relativa en tanto porciento.
 
 {% include image.html file="RHT_interior.png" caption="Enfriador evaporativo funcionando en interior. Click para ampliar." %}
 
@@ -217,7 +217,7 @@ $$
 \rho = \frac{T_{in} - T_{out}}{T_{in} - T_{wet}}
 $$
 
-Para este caso se obtiene un valor de [34%](https://www.google.es/search?q=%2831+-+26%29+%2F+%2831+-+16.3%29). Muy inferior a lo que podría conseguirse. Como ya vimos antes, este rendimiento depende de múltiples factores; por ejemplo el caudal de aire o el tamaño del panel. 
+Para este caso se obtiene un valor de [34%](https://www.google.es/search?q=%2831+-+26%29+%2F+%2831+-+16.3%29). Muy inferior a lo que podría conseguirse. Como ya vimos antes, este rendimiento depende de múltiples factores; por ejemplo el caudal de aire o el tamaño del panel.
 
 Sin embargo, tened en cuenta una cosa: puede ser que el fabricante **no** pretendiera saturar demasiado el aire de salida. Porque recibir aire al 100% de humedad en la cara tampoco es agradable, de hecho resulta agobiante. Al fin y al cabo este es un evaporativo portátil, en el que prima la comodidad, bajo consumo, poco peso y tamaño reducido. La cosa cambiaría si fuera un sistema instalado en la casa, por ejemplo.
 
@@ -237,7 +237,7 @@ Con esta definición siempre hablamos de rendimiento termodinámico, no lo confu
 
 {% include image.html file="RHT_exterior.png" caption="Enfriador evaporativo funcionando en el exterior. Click para ampliar." %}
 
-En esta prueba el aire que entra está prácticamente seco (0% RH) y a una temperatura de 33.7ºC. El evaporativo tan sólo es capaz de llegar al 20% de saturación reduciendo la temperatura hasta los 27.2ºC. O sea unos 5ºC. 
+En esta prueba el aire que entra está prácticamente seco (0% RH) y a una temperatura de 33.7ºC. El evaporativo tan sólo es capaz de llegar al 20% de saturación reduciendo la temperatura hasta los 27.2ºC. O sea unos 5ºC.
 
 Teóricamente, la temperatura de saturación serían 12ºC, pero ya hemos visto que estamos muy lejos de ese 100% ni tampoco lo queremos. Eso sí, saturando al 20% deberíamos haber obtenido 24.2ºC, pero en su lugar sólo tenemos 27.2. El rendimiento para este caso se queda sólo en **68%**. Posiblemente la velocidad de salida es demasiado alta para un aire de entrada tan caliente.
 
@@ -253,11 +253,13 @@ Ya sabemos que el cuerpo se refrigera también evaporando agua -sudor en nuestro
 
 Entonces cabe preguntarse, si el enfriador evaporativo ya ha evaporado parte del agua, entonces entra en competencia directa con el mecanismo de enfriamiento corporal. Así pues, puede que a la salida obtengamos aire más frío, pero realmente no nos ayude a refrescarnos.
 
-Para responder a eso tenemos las tablas de sensación térmica. La sensación térmica real incluiría más factores como la velocidad del viento, el índice de radiación UV, el estado del cielo, etc. 
+Para responder a eso tenemos las tablas de sensación térmica. La sensación térmica real incluiría más factores como la velocidad del viento, el índice de radiación UV, el estado del cielo, etc.
 
 Pero restringiéndonos al par Temperatura y Humedad hay dos algoritmos que son los más utilizados. Uno es el [Heat Index](https://en.wikipedia.org/wiki/Heat_index) y el otro es el [Humidex](https://en.wikipedia.org/wiki/Humidex). El Heat Index lo podéis ver traducido como *Temperatura de bochorno* aunque lo más común es *Sensación Térmica* o temperatura aparente. El Humidex es una corrección a la fórmula que empezó a utilizarse en Canadá. Utilizaremos el primero.
 
-El cálculo del Heat Index lo tenéis propuesto en <br />[Heat Index Equation](http://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml). Tened en cuenta que está definido para grados Fahrenheit por lo que habrá que hacer la conversión antes y después del cálculo. Antes de crucificar a quienes usan la escala Fahrenheit, pensad que 0ºF son -17ºC, una temperatura típica de invierno en muchos sitios. Y 100ºF es aproximadamente la temperatura del cuerpo humano. Aunque nos resulte arbitraria es, sin embargo, muy práctica para hablar del clima.
+El cálculo del Heat Index lo tenéis propuesto en
+
+[Heat Index Equation](http://www.wpc.ncep.noaa.gov/html/heatindex_equation.shtml). Tened en cuenta que está definido para grados Fahrenheit por lo que habrá que hacer la conversión antes y después del cálculo. Antes de crucificar a quienes usan la escala Fahrenheit, pensad que 0ºF son -17ºC, una temperatura típica de invierno en muchos sitios. Y 100ºF es aproximadamente la temperatura del cuerpo humano. Aunque nos resulte arbitraria es, sin embargo, muy práctica para hablar del clima.
 
 El Heat Index se calcula como una regresión con múltiples ajustes, por tanto tomadlo como una aproximación y no como valores exactos. Esta es la gráfica anterior añadiendo la línea con la sensación térmica (línea roja más gruesa):
 
@@ -302,6 +304,4 @@ Normalmente una habitación tiene mucho más de 3m<sup>2</sup> pero el efecto de
 Para terminar, no quería dejar de mencionar que los **persas** ya usaban la evaporación para enfriar el aire en el 1er milenio a.C. Os dejo un enlace para empezar a mirar si os interesa el tema: [Captador de viento](https://es.wikipedia.org/wiki/Captador_de_viento)
 
 Los archivos utilizados para la elaboración del artículo están en [este enlace](https://www.dropbox.com/s/0hbx6pi0gc3odlx/Evaporativo.zip?dl=0).
-
-
 

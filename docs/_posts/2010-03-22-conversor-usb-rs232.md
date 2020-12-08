@@ -10,7 +10,11 @@ thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S6eJBnFshtI/AAAAAAAAAAM/1iBSbl7
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/conversor-usb-rs232.html
 ---
 
-Hola.<br />Para inaugurar este blog he elegido un proyecto muy sencillo y muy práctico. Se trata de adaptar un barato conversor de 2€ para poder comunicarnos con un microcontrolador. Es útil en caso de que vuestro PC no tenga puerto serie y sólo tenga puertos USB, o si lo tiene  generalmente está poco accesible en la parte de atrás de la torre. <br />En esta ocasión no se trata de diseñar y construir nuestro conversor, porque por el precio que tiene no merece la pena el tiempo que invertiríamos. Además necesitaríamos cierta práctica trabajando con SMD. Hay conversores de varios precios, el más barato que he visto está en [Dealextreme](http://www.dealextreme.com/details.dx/sku.24799). Una vez desmontado podéis verlo en esta foto. Disculpad la calidad.<br />
+Hola.
+
+Para inaugurar este blog he elegido un proyecto muy sencillo y muy práctico. Se trata de adaptar un barato conversor de 2€ para poder comunicarnos con un microcontrolador. Es útil en caso de que vuestro PC no tenga puerto serie y sólo tenga puertos USB, o si lo tiene  generalmente está poco accesible en la parte de atrás de la torre.
+
+En esta ocasión no se trata de diseñar y construir nuestro conversor, porque por el precio que tiene no merece la pena el tiempo que invertiríamos. Además necesitaríamos cierta práctica trabajando con SMD. Hay conversores de varios precios, el más barato que he visto está en [Dealextreme](http://www.dealextreme.com/details.dx/sku.24799). Una vez desmontado podéis verlo en esta foto. Disculpad la calidad.
 
 {% include image.html file="Imagen148.jpg" caption="" %}
 
@@ -18,11 +22,11 @@ Está basado en el popular PL2303 de Prolific. Descripción y datasheet [aqui](h
 
 {% include image.html file="db9_null_loop.png" caption="" %}
 
-La imagen está tomada de [esta web](http://www.lammertbies.nl/comm/info/RS-232_null_modem.html), donde se detallan los pros y los contras de cada conexionado.<br />Recomiendo eliminar las clavijas DB9 y USB y sustituirlas por sendos cables. Eliminar el conector USB es sencillo. Para extraer el DB9 quizá tengáis que serrar los pines, porque están soldados por ambos lados. Para terminar, un poco de retráctil evitará que toquemos con la placa en sitios delicados.
+La imagen está tomada de [esta web](http://www.lammertbies.nl/comm/info/RS-232_null_modem.html), donde se detallan los pros y los contras de cada conexionado.
+
+Recomiendo eliminar las clavijas DB9 y USB y sustituirlas por sendos cables. Eliminar el conector USB es sencillo. Para extraer el DB9 quizá tengáis que serrar los pines, porque están soldados por ambos lados. Para terminar, un poco de retráctil evitará que toquemos con la placa en sitios delicados.
 
 {% include image.html file="Imagen149.jpg" caption="" %}
 
 Notas adicionales:
-
-
 

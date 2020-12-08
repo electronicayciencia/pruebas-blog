@@ -12,11 +12,8 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/el-transistor
 El transistor se inventó en el 1947 y desde entonces raro es el circuito en el que no lo usamos, bien sea en como componente individual o en grupo formando un operacional, o un microcontrolador. Sin embargo, a pesar de esta omnipresencia, es un componente poco comprendido en general por nosotros los aficionados. Las ecuaciones que lo definen son complicadas y para simularlo se necesitan modelos con decenas de parámetros sutiles. Fijaos en el modelo SPICE para el 2N2222:
 
     .model Q2N2222A NPN (IS=14.34F  XTI=3  EG=1.11  VAF= 74.03  BF=255.9
-
     +NE=1.307  ISE=14.34F  IKF=.2847  XTB=1.5  BR=6.092  NC=2  ISC=0  IKR=0
-
     +RC=1  CJC=7.306P  MJC=.3416  VJC=.75  FC=.5  CJE=22.01P  MJE=.377
-
     +VJE=.75  TR=46.91N  TF=411.1P  ITF=.6  VTF=1.7  XTF=3  RB=10)
 
 Y son solo los parámetros para una simulación decente, en un datasheet completo vienen bastantes más. Por suerte para nosotros, para el uso diario hay modelos simplificados y con conocer cuatro relaciones simples nos basta. Pero no caigamos en el error de pensar que eso es todo, el transistor es una maravilla de la física de estado sólido.
@@ -120,7 +117,7 @@ $$
 la v la sabemos, la aplica el transistor. Si despejamos la i:
 
 $$
- i = \frac{1}{L} \int v dt 
+i = \frac{1}{L} \int v dt
 $$
 
 Entonces con una tensión constante,
@@ -186,7 +183,7 @@ Como sabemos el valor de la inductancia, vamos a usar la ecuaciones que explicam
 Habíamos visto que el voltaje en un momento dado venía dado por:
 
 $$
- V(t) = V_0 e^{-\frac{R}{2L} t } \cos (\omega t)
+V(t) = V_0 e^{-\frac{R}{2L} t } \cos (\omega t)
 $$
 
 con
@@ -227,7 +224,7 @@ $$
 
 Aunque nos falta saber el valor de $$\omega$$. Sin embargo lo calculamos también a partir del tiempo entre picos. La diferencia entre dos máximos o dos mínimos consecutivos es un periodo (T). Como aquí tenemos máximos y mínimos, la diferencia entre dos picos consecutivos es un semiperiodo ( $$\frac{T}{2}$$ ).
 
-Puesto que 
+Puesto que
 
 $$
 \omega = \frac{2\pi}{T}
@@ -239,9 +236,9 @@ $$
 \omega = \frac{\pi}{t_2-t_1}
 $$
 
-He plasmado esas ecuaciones en [esta hoja de cálculo](https://spreadsheets.google.com/spreadsheet/ccc?key=0AjHcMU3xvtO8dG5vNHhrTHZxUnJwTU5FOVZreHZRVHc&hl=es) para varios picos, excluyendo el primero. Como no da lo mismo para todos los picos, al final hago la media. Se podría haber hecho una regresión, pero no merece la pena meterme ya en más berenjenales:
+He plasmado esas ecuaciones en [esta hoja de cálculo](https://spreadsheets.google.com/spreadsheet/ccc?key=0AjHcMU3xvtO8dG5vNHhrTHZxUnJwTU5FOVZreHZRVHc&amp;hl=es) para varios picos, excluyendo el primero. Como no da lo mismo para todos los picos, al final hago la media. Se podría haber hecho una regresión, pero no merece la pena meterme ya en más berenjenales:
 
-<iframe frameborder="0" height="200" src="https://spreadsheets0.google.com/spreadsheet/pub?hl=es&hl=es&key=0AjHcMU3xvtO8dG5vNHhrTHZxUnJwTU5FOVZreHZRVHc&single=true&gid=0&output=html&widget=true" width="610"></iframe>
+<iframe frameborder="0" height="200" src="https://spreadsheets0.google.com/spreadsheet/pub?hl=es&amp;hl=es&amp;key=0AjHcMU3xvtO8dG5vNHhrTHZxUnJwTU5FOVZreHZRVHc&amp;single=true&amp;gid=0&amp;output=html&amp;widget=true" width="610"></iframe>
 
 El resultado es 81kΩ en promedio para la resistencia entre el colector y la base, y 4pF para la capacidad parásita.
 

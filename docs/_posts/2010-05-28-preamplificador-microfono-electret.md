@@ -65,7 +65,7 @@ Se recomienda utilizar un sólo operacional para ganancias menores a ×20 y dos 
 
 {% include image.html file="buffer.png" caption="" %}
 
-En algunos casos se utiliza un [**buffer**](http://es.wikipedia.org/wiki/Amplificador_operacional#Seguidor), que es un amplificador de ganancia 1, es decir no amplifica nada. Su misión es adaptar la impedancia, pues presenta una alta impedancia de entrada, útil para tomar la señal del micro; y una baja impedancia de salida, que puede aplicarse a las siguientes etapas.
+En algunos casos se utiliza un [<b>buffer</b>](http://es.wikipedia.org/wiki/Amplificador_operacional#Seguidor), que es un amplificador de ganancia 1, es decir no amplifica nada. Su misión es adaptar la impedancia, pues presenta una alta impedancia de entrada, útil para tomar la señal del micro; y una baja impedancia de salida, que puede aplicarse a las siguientes etapas.
 
 ## Respuesta en frecuencia
 

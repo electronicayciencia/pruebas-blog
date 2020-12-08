@@ -54,40 +54,36 @@ En general, cuando un ratón -o cualquier dispositivo de entrada- tiene algo que
 
 **Pulsación de botón (EV_KEY):** Se envía cuando cambia el estado de alguno de los botones, es decir, cuando se pulsa o se libera un botón. Su código corresponde al botón que se ha pulsado. Y su valor puede ser 1 o 0. Es 1 si el botón está presionado, y es 0 si lo que hemos hecho es liberarlo.
 
-**Sincronismo (EV_SYN):** En ocasiones se pueden dar varios eventos simultáneamente. Por ejemplo mientras movemos el ratón en ambos ejes (diagonalmente) y con un botón pulsado (arrastrando), movemos la rueda con el otro dedo. El evento de sincronización se envía cuando han terminado de enviarse todos los eventos que el dispositivo tuviera en cola en ese momento. 
+**Sincronismo (EV_SYN):** En ocasiones se pueden dar varios eventos simultáneamente. Por ejemplo mientras movemos el ratón en ambos ejes (diagonalmente) y con un botón pulsado (arrastrando), movemos la rueda con el otro dedo. El evento de sincronización se envía cuando han terminado de enviarse todos los eventos que el dispositivo tuviera en cola en ese momento.
 
-*Ejemplo 1:*<br />Si apretamos el botón izquierdo con el ratón quieto se generará un evento EV_KEY, cuyo código (subtipo) será BTN_LEFT y cuyo valor será 1. Seguido inmediatamente por un evento EV_SYN indicando el fin de la transmisión.
+*Ejemplo 1:*
 
-*Ejemplo 2:*<br />Si movemos el ratón lentamente en diagonal se generarán eventos EV_REL. <br />Primero con subtipo X y luego con subtipo Y cuyo valor será un número bajo normalmente 1 o -1 dependiendo de la dirección. Y tras ellos un evento EV_SYN. Es decir la secuencia sería: 
+Si apretamos el botón izquierdo con el ratón quieto se generará un evento EV_KEY, cuyo código (subtipo) será BTN_LEFT y cuyo valor será 1. Seguido inmediatamente por un evento EV_SYN indicando el fin de la transmisión.
+
+*Ejemplo 2:*
+
+Si movemos el ratón lentamente en diagonal se generarán eventos EV_REL.
+
+Primero con subtipo X y luego con subtipo Y cuyo valor será un número bajo normalmente 1 o -1 dependiendo de la dirección. Y tras ellos un evento EV_SYN. Es decir la secuencia sería:
 
     EV_REL REL_X 1
-
     EV_REL REL_Y 1
-
     EV_SYN
-
     EV_REL REL_X 1
-
     EV_REL REL_Y 2
-
     EV_SYN
-
     EV_REL REL_X 1
-
     EV_REL REL_Y 1
-
     EV_SYN
 
-*Ejemplo 3:*<br />Si hacemos clic con el botón derecho sin mover el ratón tendríamos la secuencia:
+*Ejemplo 3:*
+
+Si hacemos clic con el botón derecho sin mover el ratón tendríamos la secuencia:
 
     EV_KEY BTN_RIGTH 1
-
     EV_SYN
-
     (pausa)
-
     EV_KEY BTN_RIGTH 0
-
     EV_SYN.
 
 Sabiendo esto he escrito un programita que lee los eventos y reacciona de la siguiente manera:
@@ -128,6 +124,7 @@ use Linux::Input;
 use Switch;
 use Time::HiRes;
 
+
 use constant {
  EV_SYN    => 0x00,
  EV_KEY    => 0x01,
@@ -151,6 +148,7 @@ my $X = 0;
 my $Y = 0;
 my $logprefix = "/tmp/log_odometer";
 my $logtimer  = 0.1; # segundos entre cada registro de estado
+
 
 my $logfile;
 my $logfh;
@@ -198,7 +196,7 @@ dar con el fichero del dispositivo.
 Para averiguar id_x basta ejecutar xinput y buscar el id= correspondiente.
 ";
  exit;
-
+ 
 }
 
 sub ordered_exit {
@@ -237,6 +235,8 @@ sub on_rel {
   case REL_Y { on_rel_y($ev) }
  }
 }
+
+
 
 # --- Funciones de usuario ---
 sub on_rel_x {
@@ -304,7 +304,6 @@ Para invocar el programa hay que proporcionar **dos parámetros**, ambos numéri
 Para esta prueba tendremos dos ratones, el ratón habitual que usaremos como siempre, y el de bola para las medidas. Sucede que los ratones y los teclados pertenecen a una clase especial de dispositivos USB llamados HID (Human Interface Devices). VMWare crea un único dispositivo de entrada virtual con todos los HID que encuentra en el sistema anfitrión y los unifica. Nos viene mal porque para este experimento necesitamos tener un ratón funcional y otro dedicado a medir que no mueva el cursor ni haga clics donde no debe. Para que VMWare trate los dispositivos HID como cualquier otro USB y nos deje conectarlos y desconectarlos a nuestro antojo hay que añadir estas dos líneas al fichero de configuración de la máquina virtual:
 
     usb.generic.allowHID = "TRUE"
-
     usb.generic.allowLastHID = "TRUE"
 
 ## Medir distancias
@@ -323,13 +322,13 @@ El resultado es 1451 pulsos cada 10cm. Concretamente el intervalo de confianza a
 
 Y esta es otra ocasión propicia para resaltar, una vez más, la diferencia entre **precisión** y **exactitud**. Usando un ratón la medida es muy precisa, notaremos cuando haya un cambio de tan sólo 0.07mm. Y al calcular la posición a partir del número de pulsos son saldrán hasta tres cifras decimales. Muy preciso todo.
 
-Ahora bien, del ajuste se puede deducir el error promedio y según parece las medidas se desvían en promedio alrededor de 1mm por arriba o por abajo de la medida real. Cierto es que este error es tan pequeño que bien podría estar causado por nosotros mismos al situar la punta un milímetro antes o después. Y, por supuesto, ni que decir tiene que variar 1mm a lo largo de un recorrido de 70cm es un resultado muy bueno. 
+Ahora bien, del ajuste se puede deducir el error promedio y según parece las medidas se desvían en promedio alrededor de 1mm por arriba o por abajo de la medida real. Cierto es que este error es tan pequeño que bien podría estar causado por nosotros mismos al situar la punta un milímetro antes o después. Y, por supuesto, ni que decir tiene que variar 1mm a lo largo de un recorrido de 70cm es un resultado muy bueno.
 
 Si embargo la clave aquí está en que sólo podemos fiarnos de la medida hasta el orden de los milímetros, por mucho que la precisión sea de menos de una décima.
 
 ## Posiciones y velocidades
 
-Ahora que sabemos que cada centímetro vienen a ser 145 pulsos vamos a graficar una de las pruebas de 10cm. El primer gráfico será de la posición respecto al tiempo. 
+Ahora que sabemos que cada centímetro vienen a ser 145 pulsos vamos a graficar una de las pruebas de 10cm. El primer gráfico será de la posición respecto al tiempo.
 
 {% include image.html file="st_10cm_01.png" caption="Gráfico posición/tiempo (clic para ampliar)" %}
 
@@ -356,7 +355,7 @@ La imagen anterior está hecha tirando del hilo cada vez más deprisa. Y sabido 
 Aprovechando el montaje, esta vez en lugar de tirar yo del hilo con la mano, voy a atar un peso en el extremo y lo voy a dejar caer. En los breves instantes hasta que se alcanza la velocidad máxima esperamos un Movimiento Uniformemente Acelerado debido a la fuerza de la gravedad. En este caso, con velocidad inicial nula, la distancia recorrida en función del tiempo sigue la ecuación de una parábola:
 
 $$
- s = {1 \over 2} a t^2 
+s = {1 \over 2} a t^2
 $$
 
 Y eso es precisamente lo que obtenemos, los datos se ajustan a una parábola con muy poco error:
@@ -374,6 +373,4 @@ El asunto es que los cronómetros por entonces no eran como ahora y claro, medir
 Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: [https://en.wikipedia.org/wiki/Atwood_machine](https://en.wikipedia.org/wiki/Atwood_machine)
 
 Nada más de este tema por ahora. Espero que os haya gustado. Como siempre, los archivos y programas propios utilizados para la elaboración de este artículo podéis descargarlos de aquí: [https://sites.google.com/site/electronicayciencia/ratonbola.zip](https://sites.google.com/site/electronicayciencia/ratonbola.zip)
-
-
 

@@ -12,7 +12,7 @@ blogger_orig_url: https://electronicayciencia.blogspot.com/2017/05/raspberry-pi-
 
 Hoy os quiero hablar sobre el generador de frecuencias de la Raspberry. Veremos cómo el BCM2835 está preparado para generar frecuencias de hasta 500Mhz. Explicaremos en qué consiste la función de GPIOCLK. Ampliaremos las posibilidades de la librería WiringPi parcheando su código fuente y os contaré cómo funciona un divisor de frecuencia fraccionario. Por fin, para terminar, como experimento práctico, conectaremos el generador a un ADC para dibujar la respuesta en frecuencia de algunos circuitos.
 
-Sí, otra entrada de Raspberry con fuerte contenido técnico -vamos, un coñazo-. 
+Sí, otra entrada de Raspberry con fuerte contenido técnico -vamos, un coñazo-.
 
 {% include image.html file="FreqOsc2.png" caption="Rango de frecuencias posibles utilizando las fuentes INTOSC y PLLD." %}
 
@@ -50,9 +50,7 @@ A continuación seleccionamos el divisor más cercano a la frecuencia que querem
 La máxima frecuencia generable es la de la fuente, y la mínima es la de la fuente dividida entre 4095. Eso nos da los siguientes rangos:
 
             MIN     MAX
-
     INTOSC 4688 Hz     19.2 MHz
-
     PLLD  122.1 kHz     500 MHz
 
 Por supuesto el divisor es **un número entero**. Por tanto no podemos generar cualquier frecuencia sino sólo 4095 de ellas dentro de cada rango. Al representar los posibles resultados en un gráfico quedaría así:
@@ -63,7 +61,7 @@ De lo anterior sacamos dos conclusiones: La primera es que la frecuencia mínima
 
 Cuando se pueden usar ambas fuentes ¿cuál nos conviene más? Siempre la de mayor frecuencia. Como la frecuencia se obtiene dividiendo la original por un número, mientras más grande sea este divisor menor será el error y más precisión tendremos.
 
-En el gráfico siguiente se aprecia muy bien. Esta es una simulación de cuál sería el error en la frecuencia generada desde 1 a 10MHz empleando una u otra fuente. 
+En el gráfico siguiente se aprecia muy bien. Esta es una simulación de cuál sería el error en la frecuencia generada desde 1 a 10MHz empleando una u otra fuente.
 
 {% include image.html file="error_freqs.png" caption="Comparación del error relativo al usar una fuente u otra." %}
 
@@ -81,7 +79,7 @@ Hay un "*truco*" para dividir por un número no entero. No parece muy limpio per
 
 Vamos a empezar suponiendo una fuente de 10Hz, o sea genera 10 pulsos por segundo. Es fácil obtener una frecuencia de 5Hz: tendría que dividir por 2. Este caso está representado en la parte superior del dibujo:
 
-{% include image.html file="divifrac.png" caption="Ilustración gráfica de la técnica *pulse swallow* en un divisor fraccionario." %}
+{% include image.html file="divifrac.png" caption="Ilustración gráfica de la técnica <em>pulse swallow</em> en un divisor fraccionario." %}
 
 Arriba está mi frecuencia de reloj de 10 pulsos por segundo. Cada raya vertical es un pulso. He representado 3 segundos.
 
@@ -89,7 +87,7 @@ Para obtener los 5Hz que decíamos fijo el divisor a 2, es decir, genero un puls
 
 Vamos ahora al caso central: quiero una frecuencia de 4Hz a partir de los 10Hz originales. Tendría que dividir por 2.5. ¿Cómo lo hago? Si la frecuencia de referencia en lugar de ser 10Hz fuese 8Hz sería más fácil porque dividiendo 8Hz entre 2 saldrían los 4Hz.
 
-No podemos hacer que la frecuencia del oscilador sea de 8Hz, hemos dicho que es 10Hz, pero sí podemos hacer que cada segundo se generen 8 pulsos en lugar de los 10. Bastaría simplemente con eliminar 1 pulso de cada 5 en la fuente original. Eso es lo que hace un divisor fraccionario: suprime pulsos periódicamente de la frecuencia original. Dicha técnica se llama [*pulse swallowing*](https://en.wikipedia.org/wiki/Pulse-swallowing_counter).
+No podemos hacer que la frecuencia del oscilador sea de 8Hz, hemos dicho que es 10Hz, pero sí podemos hacer que cada segundo se generen 8 pulsos en lugar de los 10. Bastaría simplemente con eliminar 1 pulso de cada 5 en la fuente original. Eso es lo que hace un divisor fraccionario: suprime pulsos periódicamente de la frecuencia original. Dicha técnica se llama [<em>pulse swallowing</em>](https://en.wikipedia.org/wiki/Pulse-swallowing_counter).
 
 Hagamos el mismo ejercicio para obtener 3Hz. Tercer caso del dibujo. Tendríamos que dividir 10 entre 3.3. Si en vez de 10Hz la frecuencia origen fuera 9Hz sería tan simple como dividir por 3. La frecuencia deseada se obtendría tragándose un pulso de cada 10 y dividiendo entre 3.
 
@@ -167,15 +165,15 @@ Bueno, no salen 2.2Hz exactos, pero un error menor del 1% es aceptable. Veamos e
 
 {% include image.html file="fg_2.2_10.png" caption="Resultado de generar 2.2Hz quitando 10 pulsos cada 83." %}
 
-Otra posible solución es recurrir a la estadística para quitar un pulso de cada 8.333. Obtenemos un número entre 0 y 1 y si es mayor de 1/8.333 nos tragamos el pulso. Este sería el bucle principal de nuestro programa ahora: 
+Otra posible solución es recurrir a la estadística para quitar un pulso de cada 8.333. Obtenemos un número entre 0 y 1 y si es mayor de 1/8.333 nos tragamos el pulso. Este sería el bucle principal de nuestro programa ahora:
 
 ```cpp
 if (v == 1) && (v ~= last_v) % raising edge
-
+            
     if (rand >= 1/fcounter_max)
         icounter = icounter + 1;
     end
-
+    
 end
 ```
 
@@ -185,7 +183,9 @@ y este es el resultado:
 
 Como veis las frecuencias se orientan alrededor de la buscada el resultado es bastante malo. Depende mucho de la distribución que elijamos, la distribución uniforme no es la mejor para esto.
 
-Hay un término medio entre la solución periódica (que mete muchas frecuencias indeseadas) y el puro azar (que da un resultado muy disperso). <br />Esta vez sólo vamos a dejar a la suerte decidir si 8.333 está más próximo a 8 o a 9. En lugar de calcular un número aleatorio en cada iteración, lento y con muy mal resultado como hemos visto, haremos lo siguiente:
+Hay un término medio entre la solución periódica (que mete muchas frecuencias indeseadas) y el puro azar (que da un resultado muy disperso).
+
+Esta vez sólo vamos a dejar a la suerte decidir si 8.333 está más próximo a 8 o a 9. En lugar de calcular un número aleatorio en cada iteración, lento y con muy mal resultado como hemos visto, haremos lo siguiente:
 
 Cuando fcounter alcance el valor máximo, recalcularemos el valor máximo para la próxima iteración. Usaremos la variable f. Simplemente sumamos a 8.333 un número aleatorio entre -0.5 y 0.5 y truncamos el resultado. Unas veces dará 8, otras dará 9. Estadísticamente dos tercios de las veces dará 8 y un tercio 9.
 
@@ -209,21 +209,20 @@ if (v == 1) && (v ~= last_v) % raising edge
 end
 ```
 
-Realmente la función *rand()* devuelve un número entre 0 y 1, pero como luego hacemos el redondeo hacia abajo es matemáticamente equivalente a sumar un número entre -0.5 y +0.5. Al cabo de las iteraciones la componente aleatoria termina por cancelarse entre sí y sólo queda la parte fija de 8.333... 
+Realmente la función *rand()* devuelve un número entre 0 y 1, pero como luego hacemos el redondeo hacia abajo es matemáticamente equivalente a sumar un número entre -0.5 y +0.5. Al cabo de las iteraciones la componente aleatoria termina por cancelarse entre sí y sólo queda la parte fija de 8.333...
 
 ```
 mean(floor(rand(1,1e6) + 8.3333))
 
 ans =
     8.3332
-
 ```
 
 Está técnica se llama *dithering* y me encanta, me parece muy ingenioso. Añadir ruido a una señal cuantificada y redondear para reducir la parte periódica y los "saltos" que al fin y al cabo es la causa del llamado *ruido de cuantización*.
 
 Se usa muchísimo en tratamiento de señales. Con imágenes se ilustra muy bien la técnica. Para ajustar una fotografía a una paleta reducida de colores o incluso a blanco y negro como en un periódico. Hay muchos algoritmos de dithering. Por favor, mirad las imágenes de Wikipedia: [Dither](https://en.wikipedia.org/wiki/Dither).
 
-El resultado es bastante mejor al evitar patrones periódicos en la señal de salida, sin llegar al extremo aleatorio. Fijaos que el gráfico esta vez comienza en -120dB: 
+El resultado es bastante mejor al evitar patrones periódicos en la señal de salida, sin llegar al extremo aleatorio. Fijaos que el gráfico esta vez comienza en -120dB:
 
 {% include image.html file="fg_2.2_dither.png" caption="Resultado de generar 2.2Hz utilizando dithering." %}
 
@@ -235,7 +234,7 @@ Main frequency:    2.200Hz (-13.10dB)
 Mean frequency:    2.200Hz (Error: +0.00%)
 ```
 
-La última técnica que os voy a contar es una variante para mejorar el resultado, aunque en esta ocasión no se nota apenas. 
+La última técnica que os voy a contar es una variante para mejorar el resultado, aunque en esta ocasión no se nota apenas.
 
 Se trata de introducir una retroalimentación para controlar mejor el proceso. En la versión anterior -con dithering- sólo el azar decide si el bucle siguiente acabará en 8 o en 9, sólo el azar. Estadísticamente el resultado está garantizado pero no tenemos ningún control sobre él.
 
@@ -250,10 +249,10 @@ e = 0;
 f = floor(fcounter_max);
 
 ...
-
+    
 if (v == 1) && (v ~= last_v) % raising edge
     fcounter = fcounter + 1;
-
+        
     if (fcounter == f)
         f = floor(fcounter_max + rand + 0.85*e);
         e = fcounter_max - f;
@@ -261,11 +260,11 @@ if (v == 1) && (v ~= last_v) % raising edge
     else
         icounter = icounter + 1;
     end
-
+        
 end
 ```
 
-El 0.85 multiplicando a e se llama *factor de realimentación*. No podemos ponerlo a 1 porque volveríamos al caso de una señal periódica a la salida con el consecuente ruido. 
+El 0.85 multiplicando a e se llama *factor de realimentación*. No podemos ponerlo a 1 porque volveríamos al caso de una señal periódica a la salida con el consecuente ruido.
 
 El resultado es una señal de 2.2Hz más estrecha y potente. Con sus armónicos también más estrechos y más potentes.
 
@@ -273,7 +272,7 @@ El resultado es una señal de 2.2Hz más estrecha y potente. Con sus armónicos 
 
 Pero lo más importante es una consecuencia de la técnica que no se aprecia en este caso de uso. Como el valor anterior influye en el valor futuro forzando el cambio (realimentación), las variaciones en la señal de salida se suceden más rápidamente de lo dictado por la pura estadística. O sea que el ruido será de una frecuencia más alta de lo normal. Por eso se dice que el ruido está desplazado hacia la parte alta del espectro de frecuencias. Resulta muy útil en frecuencias bajas, por ejemplo, ya que al mover el ruido fuera de la banda audible nos facilita filtrarlo a la salida.
 
-Esta técnica recibe el nombre de [*noise shaping*](http://digitalsoundandmusic.com/5-3-7-the-mathematics-of-dithering-and-noise-shaping/) y es el fundamento de los filtros MASH.
+Esta técnica recibe el nombre de [<em>noise shaping</em>](http://digitalsoundandmusic.com/5-3-7-the-mathematics-of-dithering-and-noise-shaping/) y es el fundamento de los filtros MASH.
 
 El BCM2835 incorpora un filtro MASH (Multi-stAge noise SHaping) de varias etapas. Para comprender bien cómo funciona leed este artículo de *Analog*: [Fundamental principles behind the Sigma-Delta ADC topology: part 2](http://www.analog.com/media/en/technical-documentation/technical-articles/Fundamental-Principles-Behind-the-Sigma-Delta-ADC-Topology-Part-2.pdf).
 
@@ -296,7 +295,7 @@ Sólo hay un pequeño problema: funciona únicamente con el oscilador a 19.2MHz.
 
 A la espera de que en una nueva versión se soporten varias fuentes, vamos a aprovechar la principal ventaja del software libre y colaborativo. He clonado el repositorio original y he modificado el código de WiringPi en una [rama paralela](https://github.com/electronicayciencia/WiringPi/blob/gpioclock/wiringPi/wiringPi.c#L1198) para utilizar el oscilador de 500MHz como fuente cuando sea posible. La fuente se selecciona automáticamente entre el oscilador local y PLLD en función de la frecuencia solicitada.
 
-He subido también un [*pull request*](https://github.com/WiringPi/WiringPi/pull/53) pero tened en cuenta que podría no admitirse, pues esta no es la forma recomendada por el autor a la hora de aceptar contribuciones.
+He subido también un [<em>pull request</em>](https://github.com/WiringPi/WiringPi/pull/53) pero tened en cuenta que podría no admitirse, pues esta no es la forma recomendada por el autor a la hora de aceptar contribuciones.
 
 Un aviso: los cambios sólo están probados en mi Raspberry Pi 3, en otros modelos podría no funcionar correctamente.
 
@@ -307,7 +306,7 @@ git clone -b gpioclock --single-branch \
 ```
 
 ```
-https://github.com/electronicayciencia/WiringPi wiringpi_eyc
+    https://github.com/electronicayciencia/WiringPi wiringpi_eyc
 ```
 
 Otro de los cambios introducidos es mostrar la frecuencia generada realmente tras la invocación de gpio. Para verificarlo volved a lanzar los comandos *gpio* anteriores y generad una frecuencia de 15MHz, por ejemplo. Como no he activado el divisor decimal la frecuencia real no será 15MHz exactos:
@@ -333,7 +332,7 @@ De izquierda a derecha:
 - **Rectificador**. Sirve para obtener el valor medio de la señal a la salida del circuito.
 - Usaremos el **ADC** PCF8591 y la librería soft_i2c para leer los valores de manera continua. Si recordáis, ya escribimos sobre él en entradas anteriores.
 
-Los esquemas serán lo más sencillos posible para no distraer la atención del tema principal del artículo. Empezamos por el esquema del rectificador. Un clásico [rectificador de media onda](http://www.circuitstoday.com/half-wave-rectifiers). 
+Los esquemas serán lo más sencillos posible para no distraer la atención del tema principal del artículo. Empezamos por el esquema del rectificador. Un clásico [rectificador de media onda](http://www.circuitstoday.com/half-wave-rectifiers).
 
 {% include image.html max-width="480px" file="esq_rectificador.png" caption="Esquema del rectificador utilizado." %}
 
@@ -348,7 +347,7 @@ Saber qué ocurre dentro de un circuito tan simple nos ayudará a escoger los va
 
 Nos interesa que la subida sea lo más rápida posible. De lo contrario a las frecuencias altas les costará llegar a la parte 2 antes de que la salida vuelva a nivel bajo.
 
-El valor estable depende de la caída del diodo. En un diodo de silicio, para intensidades muy pequeñas como estas suele estar en torno a los 0.4 a 0.6V. Podríamos escoger otro tipo de diodo, por ejemplo uno de germanio o un diodo Schottky. 
+El valor estable depende de la caída del diodo. En un diodo de silicio, para intensidades muy pequeñas como estas suele estar en torno a los 0.4 a 0.6V. Podríamos escoger otro tipo de diodo, por ejemplo uno de germanio o un diodo Schottky.
 
 Las características del diodo influirán también en el retroceso de la parte 3. Hay diodos especialmente diseñados para minimizar este efecto, son recificadores rápidos y se emplean en casos donde se requiere elevar la tensión por medio de una inducción. Por ejemplo en un dispositivo TENS, en el Flash de una máquina fotográfica o en [un matamoscas]({{site.baseurl}}{% post_url 2010-06-01-matamoscas-electronico-flyback %}).
 
@@ -362,7 +361,7 @@ C = 470p
 D = 1N4148
 ```
 
-A continuación medimos la respuesta en frecuencia del rectificador. 
+A continuación medimos la respuesta en frecuencia del rectificador.
 
 {% include image.html file="bp_rectificador.png" caption="Respuesta en frecuencia del rectificador." %}
 
@@ -374,11 +373,11 @@ A continuación, el esquema del amplificador:
 
 Su función es proteger la salida de la Raspberry. Y como sólo tiene que amplificar ondas cuadradas no nos preocupamos de la distorsión. Sí debemos preocuparnos del ancho de banda y ahí es donde entra R3. Esta es la respuesta en frecuencia del amplificador tal como está con el emisor degenerado. Con este esquema tan simple hay una caída de la amplificación a partir de los 2MHz más o menos:
 
-{% include image.html file="bp_ampl_con_re.png" caption="Respuesta en frecuencia del amplificador **con** resistencia de emisor." %}
+{% include image.html file="bp_ampl_con_re.png" caption="Respuesta en frecuencia del amplificador <b>con</b> resistencia de emisor." %}
 
 De por sí el ancho de banda de un emisor común no es muy grande, pero si lo forzamos además eliminando la resistencia de emisor la caída comienza en los 700kHz y es muchísimo más acusada:
 
-{% include image.html file="bp_ampl_sin_re.png" caption="Respuesta en frecuencia del amplificador **sin** resistencia de emisor." %}
+{% include image.html file="bp_ampl_sin_re.png" caption="Respuesta en frecuencia del amplificador <b>sin</b> resistencia de emisor." %}
 
 ## Resonancia
 
@@ -397,7 +396,7 @@ He tenido que usar un potenciómetro para reducir el nivel de salida. La respues
 El pico se da en torno a los 330kHz. Pero vemos también que hay otros picos menores antes de llegar al máximo principal. ¿A qué se deben? De derecha a izquierda, los primeros picos antes del máximo son:
 
 ```
-37.065 Hz
+ 37.065 Hz
  47.407 Hz
  66.666 Hz
 110.982 Hz
@@ -417,6 +416,4 @@ El software escrito durante la elaboración del artículo lo tenéis en el [GitH
 - **Local**: Esta parte del software se ejecuta en un Linux local con entorno gráfico. Contiene el script plot_freq.sh junto con varias imágenes de ejemplo. El script invoca por ssh a su contraparte remota, obtiene el resultado y lo representa gráficamente.
 
 Esto en cuanto al software. El resto de ficheros, pruebas imágenes y resultados os los dejo como siempre en [este enlace](https://www.blogger.com/blogger.g?blogID=1915800988134045998#). Espero que el artículo os haya resultado ilustrativo. Hasta la próxima.
-
-
 

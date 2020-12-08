@@ -68,13 +68,13 @@ $$
 d = {\lambda L \over x} = {650 \cdot 10^{-9} \times 2,30 \over 8.91 \cdot 10^{-3}}
 $$
 
-lo que nos da una separación de 0.167mm. Que vienen a ser 6 líneas por milímetro. Los cálculos están en [esta hoja](https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dGktMUdLVmdVVDVzVHBXd3IwNm9aaFE&hl=es&single=true&gid=0&output=html), en negrita están los datos que tenemos.
+lo que nos da una separación de 0.167mm. Que vienen a ser 6 líneas por milímetro. Los cálculos están en [esta hoja](https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dGktMUdLVmdVVDVzVHBXd3IwNm9aaFE&amp;hl=es&amp;single=true&amp;gid=0&amp;output=html), en negrita están los datos que tenemos.
 
-Vamos a mirar la cinta a través de un microscopio tipo [cuentahilos](http://buscon.rae.es/draeI/SrvltConsulta?TIPO_BUS=3&LEMA=cuentah%C3%ADlos) para comprobar que eso es verdad.
+Vamos a mirar la cinta a través de un microscopio tipo [cuentahilos](http://buscon.rae.es/draeI/SrvltConsulta?TIPO_BUS=3&amp;LEMA=cuentah%C3%ADlos) para comprobar que eso es verdad.
 
 {% include image.html file="BENQ0038.JPG" caption="" %}
 
-La graduación mayor son milímetros. Contamos efectivamente 6 líneas por milímetro. 
+La graduación mayor son milímetros. Contamos efectivamente 6 líneas por milímetro.
 
 Si tenemos en cuenta que lo que el encoder detecta es el cambio entre blanco y negro, hay 12 cambios por milímetro, que son 300 intervalos en una sola pulgada. Así pues con el motor sólo se puede obtener una resolución horizontal de 300 [dpi](http://es.wikipedia.org/wiki/Puntos_por_pulgada). Para obtener más resolución aún necesitamos que el cabezal esté dividido en dos salidas de tinta en cada intervalo. Pensad si hay dos salidas de tinta en el mismo intervalo, cómo serán de finas y por qué se atascan y se ensucian con esa facilidad.
 

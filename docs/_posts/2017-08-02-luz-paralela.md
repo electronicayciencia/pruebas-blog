@@ -17,7 +17,7 @@ Intentemos dar un repaso dentro de lo posible a este asunto sin entrar en los de
 
 Permitidme una breve disertación. Durante mi etapa escolar, siendo yo niño o adolescente, una de las cosas que encontraba más frustrantes era tratar de reproducir en casa el experimento que venía en el libro, siguiendo al pie de la letra el dibujo y la descripción, y que no funcionase.
 
-El diagrama ilustrativo tiene que ayudar a entender los conceptos, simplificado pero sin ser abiertamente falso. Acompañemos una explicación de cómo sería el experimento en la realidad o por qué no funcionaría con ese montaje tan simple. 
+El diagrama ilustrativo tiene que ayudar a entender los conceptos, simplificado pero sin ser abiertamente falso. Acompañemos una explicación de cómo sería el experimento en la realidad o por qué no funcionaría con ese montaje tan simple.
 
 Quisiera conocer al tipo que hizo el experimento de la doble rendija de Young con un cristal ahumado, una vela y una caja de zapatos y vio el patrón de difracción que todos conocemos. Para ilustrar lo que quiero decir, en este video lo hacen de una forma similar pero que de hecho, funciona: [The Original Double Slit Experiment - Veritasium](https://www.youtube.com/watch?v=Iuv6hY6zsd0).
 
@@ -37,7 +37,7 @@ Si interponemos un objeto entre la fuente y una pantalla se proyectará una somb
 
 Los bordes de la sombra son nítidos y bien definidos. En fotografía a las fuentes de luz que proyectan sombras con los bordes definidos se les llama *luz dura*. Sucede cuando la luz viene de un área pequeña. En este caso un punto. Por ejemplo la iluminación directa del Sol, o el flash de una cámara fotográfica. Por contra, una *luz blanda* proyecta sombras con los bordes difuminados o apenas proyecta sombra. Se da cuando la fuente de luz es extensa. Es lo que vemos en un día nublado, o al usar luz indirecta.
 
-La onda se propaga en forma de esfera, hemos dicho. A medida que nos alejemos de la fuente esa esfera tendrá un radio mayor y por tanto tendrá que cubrir mayor superficie. Por eso la luz se verá más débil mientras más nos alejemos, en concreto pierde potencia con el cuadrado del radio. 
+La onda se propaga en forma de esfera, hemos dicho. A medida que nos alejemos de la fuente esa esfera tendrá un radio mayor y por tanto tendrá que cubrir mayor superficie. Por eso la luz se verá más débil mientras más nos alejemos, en concreto pierde potencia con el cuadrado del radio.
 
 Además, cuando la luz viene de un área muy estrecha la potencia siempre es mayor en la dirección hacia la fuente. Y si proyectamos en una pantalla el efecto es que el centro siempre tiene más fuerza que los bordes. Esto en fotografía se llama viñeteo y sucede cuando, como en este caso, la intensidad luminosa es función del ángulo.
 
@@ -106,7 +106,7 @@ Por ese motivo no podemos colimar un diodo led normal hasta convertirlo en un la
 
 {% include image.html max-width="300px" file="led-no-puntual.jpg" caption="Un led no puede considerarse a priori una fuente puntual." %}
 
-Venden colimadores para LEDs, sí, son básicamente lentes convergentes de mucha potencia. Sin embargo, al no ser el LED una fuente puntual los rayos no salen paralelos y la lente solamente actúa como concentrador de luz. Sirve para concentrar el haz de luz en un ángulo menor, así ilumina menos superficie pero más intensamente. Los llevan por ejemplo los flash de los teléfonos móviles. 
+Venden colimadores para LEDs, sí, son básicamente lentes convergentes de mucha potencia. Sin embargo, al no ser el LED una fuente puntual los rayos no salen paralelos y la lente solamente actúa como concentrador de luz. Sirve para concentrar el haz de luz en un ángulo menor, así ilumina menos superficie pero más intensamente. Los llevan por ejemplo los flash de los teléfonos móviles.
 
 {% include image.html file="extensa-lentecolimadora.png" caption="Habitualmente se utiliza una lente para concentrar el área de radiación." %}
 
@@ -116,7 +116,7 @@ Veréis a lo largo del proceso que no se puede colimar una fuente de luz real si
 
 El primer paso para colimar una fuente extensa es volverla todo lo puntual que podamos. Eso lo conseguimos interponiendo una superficie con una pequeña apertura llamada **pinhole**. Aquí hay dos variables, el diámetro de la apertura, y la separación a la fuente. Mientras menor el orificio, más puntual será la fuente de luz y mejor el resultado -más coherente-. Pero menos luz dejará pasar, y más se dispersará la que pase.
 
-Un material excelente para esto es el papel de aluminio. Es un material muy fácil de manipular; blando; con un alfiler se pueden practicar orificios tan finos como se desee; y además ¿sabéis que los metales no dejan pasar la luz? Por ser conductor, es completamente opaco. 
+Un material excelente para esto es el papel de aluminio. Es un material muy fácil de manipular; blando; con un alfiler se pueden practicar orificios tan finos como se desee; y además ¿sabéis que los metales no dejan pasar la luz? Por ser conductor, es completamente opaco.
 
 En los buenos conductores las cargas eléctricas -electrones- se pueden mover libremente y sin apenas pérdidas. Porque son cargas libres. Como las cargas se mueven, se alinean para compensar el campo eléctrico, de manera que el campo eléctrico resultante en el interior de un conductor cerrado siempre es cero. Es el famoso efecto jaula de Faraday.
 
@@ -126,7 +126,7 @@ Sin campo eléctrico en el interior tampoco hay onda electromagnética. La luz e
 
 Bueno, lo anterior es cierto dentro de un rango de frecuencias. Cuando los electrones ya no son capaces de seguir el ritmo, a partir de esa frecuencia es como si el material se volviera dieléctrico y nada de lo anterior se cumple. Pero ya esta fuera del rango visible, por ahora no nos atañe.
 
-A continuación el ejemplo de una fuente extensa a la que hemos bloqueado todo paso de luz salvo por un pequeño orificio. Al igual que hacíamos en el caso de una fuente puntual ideal colocamos una lente convergente con la apertura en su foco. 
+A continuación el ejemplo de una fuente extensa a la que hemos bloqueado todo paso de luz salvo por un pequeño orificio. Al igual que hacíamos en el caso de una fuente puntual ideal colocamos una lente convergente con la apertura en su foco.
 
 En este caso he colocado también una lente divergente cuya única misión es engrosar el rayo de luz para que la ilustración no quedara muy alargada. Veamos la sombra proyectada por dos objetos a diferentes distancias.
 
@@ -158,7 +158,7 @@ Un led no es la mejor opción porque el factor luz emitida por unidad de área e
 
 Hay otra forma de colimar un haz de luz. Consiste en usar un colimador, un filtro que solamente deje pasar los rayos en la dirección que queremos, y todos paralelos entre sí.
 
-Imaginad una fuente de luz como si fuera una ducha, o una regadera. En una ducha perfecta los chorros están alineados y son uniformes. Pero en una algo más usada o barata, habrá agujeros taponados por la cal, otros medio taponados, otros agujeros apuntarán en una dirección que no les corresponde. 
+Imaginad una fuente de luz como si fuera una ducha, o una regadera. En una ducha perfecta los chorros están alineados y son uniformes. Pero en una algo más usada o barata, habrá agujeros taponados por la cal, otros medio taponados, otros agujeros apuntarán en una dirección que no les corresponde.
 
 Ahora imaginad una fuente de luz no colimada como una ducha vieja, con chorros de agua saliendo en todas direcciones y unos más fuertes que otros.
 
@@ -227,7 +227,7 @@ Probablemente también utilizara un espejo para dirigir el rayo de luz hacia la 
 
 ## Pasarse de coherentes
 
-Bien, ya tenemos nuestra fuente de luz pasando a través de un pequeño orificio. Lo cual la convierte en luz puntual... y coherente. 
+Bien, ya tenemos nuestra fuente de luz pasando a través de un pequeño orificio. Lo cual la convierte en luz puntual... y coherente.
 
 Cuanto más coherente más fácil de colimar, sí. Pero a veces se nos olvida que la luz es una onda, y una onda coherente también tiene sus problemas. Tiene tendencia a interferir consigo misma a poco que le pongamos cualquier obstáculo pequeño, originando los fenómenos de **difracción**.
 
@@ -239,11 +239,11 @@ Siento que la imagen no sea de muy buena calidad. Cuesta enfocar estas cosas con
 
 ¿Recuerda a las ondulaciones que haría en la superficie del agua verdad? Es lo que tienen las ondas, que sea cual sea su naturaleza todas se rigen por la misma ecuación.
 
-Pero además de las ondulaciones ¿habéis visto que el centro de la aguja es claro y luminioso? 
+Pero además de las ondulaciones ¿habéis visto que el centro de la aguja es claro y luminioso?
 
 Seguramente esta historia ya la conocéis, pero para los que no, permitidme que os haga un resumen. A finales del siglo XVIII existía un acalorado debate sobre si la luz estaba formada por pequeñas partículas o por el contrario era una onda propagándose en algún tipo de medio.
 
-Había evidencias en ambos sentidos. Por ejemplo la luz rebota en un espejo, algo propio de las partículas, además, de ser una onda no se propagaría siempre en línea recta. 
+Había evidencias en ambos sentidos. Por ejemplo la luz rebota en un espejo, algo propio de las partículas, además, de ser una onda no se propagaría siempre en línea recta.
 
 Por otro lado, era difícil explicar la refracción con la teoría corpuscular, sin recurrir a un cambio de medio en la propagación de una onda. Newton había visto ya cómo un prisma dispersa la luz en varios colores, pero se mantenía firme defensor de la teoría corpuscular.
 
@@ -267,13 +267,11 @@ François Arago, el presidente de la comisión, más partidario de la ciencia qu
 
 En mitad del círculo negro, justo donde debía haber opacidad total, aparece un pequeño puntito luminoso. Este hecho era completamente inexplicable si la luz está formada por partículas, y eso fue lo que convenció a la mayoría de los asistentes.
 
-Así quedó desterrada la teoría corpuscular de la luz a favor de la teoría ondulatoria durante el siglo XIX. A finales de siglo Maxwell consiguió  deducir la velocidad de la luz a partir de las ecuaciones del campo electromagnético. 
+Así quedó desterrada la teoría corpuscular de la luz a favor de la teoría ondulatoria durante el siglo XIX. A finales de siglo Maxwell consiguió  deducir la velocidad de la luz a partir de las ecuaciones del campo electromagnético.
 
-Se hicieron cientos de experimentos basados en la difracción y la interferencia, especialmente para caracterizar el medio de propagación de la luz, recordad a Michelson y Morley. Con esto quedó confirmada la teoría ondulatoria... Al menos hasta que Einstein volvió a recurrir a los cuantos de luz para explicar el efecto fotoeléctrico en 1905. 
+Se hicieron cientos de experimentos basados en la difracción y la interferencia, especialmente para caracterizar el medio de propagación de la luz, recordad a Michelson y Morley. Con esto quedó confirmada la teoría ondulatoria... Al menos hasta que Einstein volvió a recurrir a los cuantos de luz para explicar el efecto fotoeléctrico en 1905.
 
 Ahora ya había pruebas muy contundentes de ambas teorías, hubo que esperar a 1924, tras multitud de experimentos que contradecían la física conocida hasta ese momento, para que Louis de Broglie, inspirado en experimentos de difracción con electrones, propusiera su famosa dualidad Onda-Corpúsculo. Pero esto da para otra historia...
 
 Los ficheros utilizados para elaborar el artículo los tenéis en [este enlace](https://www.dropbox.com/s/y0a1qqkbc5a5xg1/LuzParalela.zip?dl=0).
-
-
 

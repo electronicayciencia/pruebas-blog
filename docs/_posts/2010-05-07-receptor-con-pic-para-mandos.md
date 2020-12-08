@@ -28,7 +28,7 @@ Podéis ver una explicación más extensa del protocolo en [esta web](http://www
 
 A la vista de lo anterior, lo que voy a usar para distinguir el 0 del 1 es el lapso entre dos **transiciones hacia 0V**. Si transcurren 1125us lo que se transmitió fue un **0**, si transcurren 2250us entonces se tratará de un **1**.
 
-Para tener cierta tolerancia no voy a exigir que tales intervalos sean exactos; puesto que su punto medio es **1687us** la transición que supere ese umbral será considerada un 1, la que esté por debajo un 0. También fijaré una duración máxima y otra mínima y toda señal que exceda esos intervalos será considerada un error de recepción. Para el tiempo máximo usaré el doble del intervalo medio (que es la suma de la duración del 0 y el 1): **3375us**. Para el mínimo usaré la mitad del intervalo medio (que corresponde con 2/3 de la duración del 0): **843us**.  Entonces ignoramos por completo todas las transiciones que sean de 0 a 5V (subidas) y para cada transición de bajado que detectemos comprobamos el tiempo que pasó desde la anterior: 
+Para tener cierta tolerancia no voy a exigir que tales intervalos sean exactos; puesto que su punto medio es **1687us** la transición que supere ese umbral será considerada un 1, la que esté por debajo un 0. También fijaré una duración máxima y otra mínima y toda señal que exceda esos intervalos será considerada un error de recepción. Para el tiempo máximo usaré el doble del intervalo medio (que es la suma de la duración del 0 y el 1): **3375us**. Para el mínimo usaré la mitad del intervalo medio (que corresponde con 2/3 de la duración del 0): **843us**.  Entonces ignoramos por completo todas las transiciones que sean de 0 a 5V (subidas) y para cada transición de bajado que detectemos comprobamos el tiempo que pasó desde la anterior:
 
 - Si fue **menor de 843us**: demasiado bajo para ser un 0. Error.
 - Si fue **entre 843 y 1687us**: se trata de un 0. Bit correcto.
@@ -130,7 +130,6 @@ void  RA_isr(void)
  }
 
     last_port_IR = port_IR;
-
  clear_interrupt(INT_RA);
 }
 
@@ -141,20 +140,21 @@ void main()
    /****************** INICIALIZAR **********************/
    setup_oscillator(OSC_4MHZ);
    IR_Estado = IR_RESET;
-
+   
    // Deshabilitamos periféricos
    port_a_pullups(FALSE);
    setup_adc_ports(NO_ANALOGS|VSS_VDD);
    setup_adc(ADC_OFF);
    setup_ccp1(CCP_OFF);
-
+   
    // Timer 1 controla el receptor IR.
    setup_timer_1(T1_INTERNAL|T1_DIV_BY_2);
+
 
    enable_interrupts(INT_TIMER1);  // reset estado IR
    enable_interrupts(INT_RA);  // RX pulso IR
    enable_interrupts(GLOBAL);
-
+   
    printf ("-- Preparado para recibir --\n");
    /****************** BUCLE PRINCIPAL **********************/
  for (;;) {
@@ -163,7 +163,7 @@ void main()
    /* Se han recibido 32 bits de comando IR */
    IR_Estado = IR_INHIBIDO;
    printf("Comando recibido: %LX\n", IR_comando);
-
+   
    /* Reseteamos la máquina de estados */
    IR_comando = 0;
    IR_Estado = IR_RESET;
@@ -172,7 +172,7 @@ void main()
 }
 ```
 
-El trabajo se desarrolla en la interrupción de cambio de estado RA_isr. Cuando una entrada del puerto A cambia de nivel lógico se llama a esta interrupción. Entonces nos aseguramos de que  
+El trabajo se desarrolla en la interrupción de cambio de estado RA_isr. Cuando una entrada del puerto A cambia de nivel lógico se llama a esta interrupción. Entonces nos aseguramos de que
 
 - a) la patilla que ha cambiado es en la que está conectada al receptor de infrarrojos *PIN_IR*
 - b) que sea una transición de bajada y no de subida.
@@ -181,7 +181,7 @@ Y hacemos las comprobaciones de tiempo. En caso de recibir el bit correctamente 
 
 **Timer1** nos está sirviendo de *timeout* para el caso que un código se cortara por la mitad. Cada vez que recibimos un bit ponemos a cero TMR1. Si la recepción se corta TMR1 se desbordará y la máquina de estados se pondrá de nuevo a 0. Previamente se hace una comprobación para no borrar un comando que se hubiera recibido correctamente pero no se hubiera leído aún.
 
-Durante el bucle principal se comprueba *IR_Estado* en busca de un comando. En caso de una correcta recepción este vale 32 (*IR_COMPLETO*). Si es así leemos el comando de la variable *IR_comando* y realizamos la acción correspondiente. Tras esto tenemos que poner el autómata a recibir poniendo *IR_Estado* a valor 0.  El valor *IR_INHIBIDO* no es imprescindible usarlo, pero se puede indicar por claridad. Cuando el estado es 32 la recepción está inhibida igualmente. 
+Durante el bucle principal se comprueba *IR_Estado* en busca de un comando. En caso de una correcta recepción este vale 32 (*IR_COMPLETO*). Si es así leemos el comando de la variable *IR_comando* y realizamos la acción correspondiente. Tras esto tenemos que poner el autómata a recibir poniendo *IR_Estado* a valor 0.  El valor *IR_INHIBIDO* no es imprescindible usarlo, pero se puede indicar por claridad. Cuando el estado es 32 la recepción está inhibida igualmente.
 
 ## Simulación en MPLAB
 
@@ -205,7 +205,7 @@ La interpretación del código es como sigue:
                 11111101 (253) -> Código aparato (general)
                 10011010 (154) -> Comando (botón pulsado)
                 01100101 (---) -> Comando invertido (verificación)
-
+    
     00FD4AB5 -> 00000000 (   0) -> Código aparato (extendido)
                 11111101 (253) -> Código aparato (general)
                 01001010 ( 74) -> Comando (botón pulsado)
@@ -222,6 +222,4 @@ En [este enlace](http://sites.google.com/site/electronicayciencia/receptorNEC.ra
 - Ejemplo de estímulos SBS para pruebas.
 - Utilidad dat2sbs.
 - Ejemplo de fichero dat guardado por Xoscope.
-
-
 

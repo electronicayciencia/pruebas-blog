@@ -19,10 +19,10 @@ No hace falta decir que sólo podemos hacer el barrido mientras no estamos conec
 
 El programa *airodump-ng*, de la suite [Aircrack](http://www.aircrack-ng.org/doku.php?id=airodump-ng), nos da la información necesaria y ya se encarga de comunicarse con los drivers de la tarjeta wifi. El formato de salida es algo así:
 
-    CH  9 ][ Elapsed: 1 min ][ 2007-04-26 17:41 ][ WPA handshake: 00:14:6C:7E:40:80
-    BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
-    00:09:5B:1C:AA:1D   -51  16       10        0    0  11  54.  OPN              NETGEAR
-    00:14:6C:7A:41:81   -64 100       57       14    1   9  11e  WEP  WEP         bigbear
+    CH  9 ][ Elapsed: 1 min ][ 2007-04-26 17:41 ][ WPA handshake: 00:14:6C:7E:40:80>
+    BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID>
+    00:09:5B:1C:AA:1D   -51  16       10        0    0  11  54.  OPN              NETGEAR>
+    00:14:6C:7A:41:81   -64 100       57       14    1   9  11e  WEP  WEP         bigbear>
 
 Lo que a nosotros nos interesa es esta parte:
 
@@ -78,11 +78,11 @@ while (<$airodump>) {
  # la calidad de recepción y el número de balizas.
  /^\s+$BSSID\s+(-\d+)\s+(\d+)\s+(\d+)/ or next;
  ($pow, $rxq, $beac) = ($1,$2,$3);
-
+ 
  # Comprobamos que se haya recibido alguna baliza más.
  next if $beac == $beac_old;
  $beac_old = $beac;
-
+ 
  # Calculamos la frecuencia sabiendo la potencia.
  my $frecuencia = ($F_max-$F_min)/(-$P_max)*($pow-$P_min)+$F_min;
  $frecuencia > $F_max and $frecuencia = $F_max;
@@ -125,13 +125,13 @@ Una vez definidos los parámetros, el bucle principal es bien sencillo:
 - Emitimos una señal acústica. Línea **49**, ver más abajo.
 - Y por último mostramos por pantalla los datos. Línea **51**. Notad el carácter \r al comienzo y la ausencia de \n al final. Lo que hace que se escriba siempre en la misma línea. Como la longitud del mensaje es siempre creciente no es necesario poner en blanco la línea antes de escribir la siguiente.
 
-## La función *tono*
+## La función <em>tono</em>
 
-Hay dos cosas importantes que aprender de este programa. Una, el cómo utilizar la salida de un programa para interpretarla y hacer cosas con ella. Eso lo conseguimos con la llamada a *open* de la línea **31**. Notad la redirección de stderr a stdout para capturarlo todo.  
+Hay dos cosas importantes que aprender de este programa. Una, el cómo utilizar la salida de un programa para interpretarla y hacer cosas con ella. Eso lo conseguimos con la llamada a *open* de la línea **31**. Notad la redirección de stderr a stdout para capturarlo todo.
 
 Y la otra es cómo hacer sonar el altavoz. Os cuento, hay dos maneras de emitir sonidos:
 
-- Utilizando /dev/dsp o /dev/audio. Abrimos el dispositivo, le configuramos la frecuencia de muestreo y el tipo de samples que vamos a enviar. O mejor aún, cargar algún módulo de CPAN que nos lo haga. Como por ejemplo [Audio::DSP](http://search.cpan.org/~sethj/Audio-DSP-0.02/DSP.pm) o [Audio::OSS](http://search.cpan.org/~djhd/Audio-OSS-0.0501/OSS.pm). Nos generamos nuestra sinusoide de la frecuencia que queramos y ya tenemos un tono. Es un método estupendo para hacer un generador de funciones, o reproducir un archivo de audio. Sin embargo da problemas para generar tonos discontinuos, breves y sobre todo en tiempo real, como los que necesitamos.
+- Utilizando /dev/dsp o /dev/audio. Abrimos el dispositivo, le configuramos la frecuencia de muestreo y el tipo de samples que vamos a enviar. O mejor aún, cargar algún módulo de CPAN que nos lo haga. Como por ejemplo <a href="http://search.cpan.org/~sethj/Audio-DSP-0.02/DSP.pm">Audio::DSP</a> o <a href="http://search.cpan.org/~djhd/Audio-OSS-0.0501/OSS.pm">Audio::OSS</a>. Nos generamos nuestra sinusoide de la frecuencia que queramos y ya tenemos un tono. Es un método estupendo para hacer un generador de funciones, o reproducir un archivo de audio. Sin embargo da problemas para generar tonos discontinuos, breves y sobre todo en tiempo real, como los que necesitamos.
 - Aunque tampoco hay que complicarse tanto. Para lo que queremos basta con utilizar el altavoz interno de la placa base, lo que siempre se ha llamado *system bell*. Aunque ahora también lo controle la tarjeta de sonido. Y tiene la ventaja de que son llamadas no bloqueantes y prácticamente en tiempo real.
 
 En Linux, el altavoz del sistema es un dispositivo que pertenece a la consola y se controla con dos llamadas *ioctl*. Mirad lo que dice la [Guía de Programación](http://tldp.org/LDP/lpg-0.4.pdf) :
@@ -156,7 +156,7 @@ En Linux, el altavoz del sistema es un dispositivo que pertenece a la consola y 
 
 Tal guía, a propósito, data del año 1995-1996. Y como nota curiosa, en la sección siguiente cuando habla de programar una tarjeta de sonido, el autor cierra el apartado tal que así:
 
-> You are right if you guessed that you use ioctl() to manipulate these devices. The ioctl() requests are defined in < linux/soundcard.h > and begin with SNDCTL.
+> You are right if you guessed that you use ioctl() to manipulate these devices. The ioctl() requests are defined in &lt; linux/soundcard.h &gt; and begin with SNDCTL.
 > 
 > Since I don’t own a soundcard someone else has to continue here
 > Sven van der Meer v0.3.3, 19 Jan 1995
@@ -165,7 +165,9 @@ A lo que íbamos. Según dice la guía, a nosotros lo que nos conviene es la lla
 
 Si miramos el manual de Perl, para llamar a una ioctl tendríamos que cargar primero las definiciones así:
 
- require "sys/ioctl.ph";<br />Sin embargo tanto en xubuntu como en Backtrack 5 no da más que problemas. Así que he terminado mirando a mano el número de la llamada. Nos vamos al directorio "/usr/include/linux" y ahí buscamos con *grep* la llamada KDMKTONE. Línea **62**. 
+     require "sys/ioctl.ph";
+
+Sin embargo tanto en xubuntu como en Backtrack 5 no da más que problemas. Así que he terminado mirando a mano el número de la llamada. Nos vamos al directorio "/usr/include/linux" y ahí buscamos con *grep* la llamada KDMKTONE. Línea **62**.
 
 Lo de los ticks es curioso, resulta que en la placa base hay un temporizador -o más bien había, recordad que esto data de los primeros PC y ha cambiado muchísimo, la mayoría de las cosas se mantienen sólo por compatibilidad hacia atrás-. Pero permitidme que siga hablando en presente. Pues en la placa base hay un temporizador/contador, que suele ser un chip del tipo [8254 de Intel](http://en.wikipedia.org/wiki/Intel_8253). Ese chip oscila teóricamente a 1193181.8181Hz. ¿Por qué esa frecuencia? Pues tiene que ver con el estándar NTSC de las primeras gráficas a color (CGA). La información completa está en la página de la Wikipedia que os he enlazado antes.
 

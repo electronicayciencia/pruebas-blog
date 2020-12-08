@@ -17,7 +17,7 @@ Había pensado proyectar un contador de radiación de verdad. Al fin y al cabo t
 
 Durante todo este artículo hablaremos de radiactividad. Describiremos cómo funciona un tubo Geiger-Müller y lo simularemos en el firmware de un PIC. Después hablaremos de contadores y construiremos un indicador analógico. Para terminar, nos centraremos en las unidades radiológicas y programaremos un dosímetro digital.
 
-{% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio *disparando* partículas dentro de una cámara de niebla." %}
+{% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio <em>disparando</em> partículas dentro de una cámara de niebla." %}
 
 ## El tubo Geiger-Müller
 
@@ -53,9 +53,9 @@ Para un detector genérico de campo lo importante es encontrar objetos con conta
 
 ¿Y clasificando las **betas** no se podría saber también? No es tan fácil. El espectro de la emisión beta es mucho más difuso. ¿Por qué? Eso fue algo que intrigó a los físicos durante décadas. El descubrimiento del neutrino es una historia fascinante...
 
-Según la energía del fotón gamma, este interacciona más o menos con el tubo. O sea que según el isótopo, el medidor dará una lectura mayor o menor para la misma dosis. El SBM-20 registra 29 cps/miliroentgen/hora para el <sup>226</sup>Ra y de 22 para el Cobalto 60. 
+Según la energía del fotón gamma, este interacciona más o menos con el tubo. O sea que según el isótopo, el medidor dará una lectura mayor o menor para la misma dosis. El SBM-20 registra 29 cps/miliroentgen/hora para el <sup>226</sup>Ra y de 22 para el Cobalto 60.
 
-El valor del datasheet sólo es orientativo porque luego los tubos tienen cierta tolerancia en la fabricación. Siempre es necesario calibrar el medidor. Se toma una fuente de actividad conocida -comúnmente de Cesio 137 o Cobalto 60- y se sitúa próxima al tubo en unas condiciones concretas. Se miden los pulsos por minuto o por segundo y con eso tenemos el valor de pulsos por segundo por cada miliroentgen/hora. 
+El valor del datasheet sólo es orientativo porque luego los tubos tienen cierta tolerancia en la fabricación. Siempre es necesario calibrar el medidor. Se toma una fuente de actividad conocida -comúnmente de Cesio 137 o Cobalto 60- y se sitúa próxima al tubo en unas condiciones concretas. Se miden los pulsos por minuto o por segundo y con eso tenemos el valor de pulsos por segundo por cada miliroentgen/hora.
 
 ¿Y si luego el isótopo que medimos es otro, o una mezcla de varios? Pues el medidor revelará contaminación radiactiva igualmente, pero la lectura no será exacta.
 
@@ -97,7 +97,7 @@ Tal como habíamos adelantado, este es el bucle principal:
 
 Aquí tenéis el software: [GitHub termogeiger](https://github.com/electronicayciencia/termogeiger/tree/master/firmware/termogeiger). También os dejo un hex con el código compilado para programar directamente un PIC12F683.
 
-Quiero destacar el **generador aleatorio**. Se trata de un XorShift de 32 bits. Es un algoritmo muy rápido porque sólo usa xor y desplazamientos de bits. Apropiado para microcontroladores de poca potencia como en este caso. También es relativamente nuevo, fue propuesto por George Marsaglia en **2003**. 
+Quiero destacar el **generador aleatorio**. Se trata de un XorShift de 32 bits. Es un algoritmo muy rápido porque sólo usa xor y desplazamientos de bits. Apropiado para microcontroladores de poca potencia como en este caso. También es relativamente nuevo, fue propuesto por George Marsaglia en **2003**.
 
 Es apropiado para conseguir que los tics de nuestro detector parezcan fortuitos.
 
@@ -134,9 +134,9 @@ void randomize() {
   xs <<= 1;
   xs |= a;
  }
-
+ 
  if (xs == 0) xs = 1;
-
+ 
  printf("Random seed: %Lx\r\n", xs);
 }
 ```
@@ -188,7 +188,10 @@ Esta ecuación debemos optimizarla para su uso en un microcontrolador sin FPU. N
 La división, por ejemplo, está formada por valores fijos, constantes. La precalculamos y la llamaremos **A**.
 
 $$
-\begin{split}<br />y &=A (x-x_{0})+ y_{0}\\\\<br />&= Ax\ \underbrace{-Ax_{0} + y_{0}}_{-B}<br />\end{split}
+\begin{split}
+y &=A (x-x_{0})+ y_{0}\\\\
+&= Ax\ \underbrace{-Ax_{0} + y_{0}}_{-B}
+\end{split}
 $$
 
 La suma $-Ax_{0} + y_{0}$ es también constante, no depende de x, la llamaremos **B**. Realmente,  como en este caso es siempre negativa, la llamaremos $-B$ y nos ahorramos poner el signo menos todo el rato. Reescribimos la ecuación anterior de esta otra forma:
@@ -200,12 +203,15 @@ $$
 siendo
 
 $$
-\begin{split}<br />A &= \frac { y_{1}-y_{0}} {x_{1}-x_{0}} \\\\<br />B &= Ax_{0} - y_{0}<br />\end{split}
+\begin{split}
+A &= \frac { y_{1}-y_{0}} {x_{1}-x_{0}} \\\\
+B &= Ax_{0} - y_{0}
+\end{split}
 $$
 
 {% include image.html file="temp_R_ADC_cpm_a_b.png" caption="" %}
 
-Operar en coma flotante tampoco es buena idea. Ya lo vimos antes en [<br />La presión atmosférica, BMP280]({{site.baseurl}}{% post_url 2018-10-07-la-presion-atmosferica-bmp280 %}). Pasaremos a punto fijo para ahorrarle trabajo al procesador y nos queda:
+Operar en coma flotante tampoco es buena idea. Ya lo vimos antes en [<br>La presión atmosférica, BMP280]({{site.baseurl}}{% post_url 2018-10-07-la-presion-atmosferica-bmp280 %}). Pasaremos a punto fijo para ahorrarle trabajo al procesador y nos queda:
 
 {% include image.html file="temp_adc_cpm_a_b_final.png" caption="" %}
 
@@ -220,6 +226,7 @@ unsigned int32 app_table_a[] =
 
 unsigned int32 app_table_b[] =
 {1182,30486,1102780,29450360,1132164465}
+
 
 /* Returns a value between 0-65535 as a function of ADC level */
 unsigned int16 apertura(int8 x) {
@@ -246,7 +253,7 @@ unsigned int16 apertura(int8 x) {
 }
 ```
 
-Os podéis descargar la [hoja de cálculo aquí](https://github.com/electronicayciencia/termogeiger/raw/master/firmware/termogeiger/TermoGeiger.xlsx). 
+Os podéis descargar la [hoja de cálculo aquí](https://github.com/electronicayciencia/termogeiger/raw/master/firmware/termogeiger/TermoGeiger.xlsx).
 
 Tras detenernos en las dos funciones más importantes, vamos al bucle principal.
 
@@ -254,12 +261,12 @@ Tras detenernos en las dos funciones más importantes, vamos al bucle principal.
 while(true) {
  unsigned long rnd,app;
  unsigned int adc;
-
+ 
  /* Read ADC while calculating random number */
  read_adc(ADC_START_ONLY);
  rnd = rand16b();
  adc = read_adc(ADC_READ_ONLY);
-
+ 
  /* Calculate opening from ADC value */
  app = apertura(adc);
 
@@ -278,7 +285,7 @@ A partir de la lectura del ADC calculamos el umbral. Para lo cual usamos la func
 
 Si el número aleatorio resulta ser inferior a la apertura, activamos el **buzzer** poniendo el pin de salida a nivel alto. Luego reiniciamos el *Timer0* y activamos el controlador de interrupciones. Al cabo de 512us, *Timer0* se desbordará y generará una interrupción, desactivando el altavoz.
 
-Podríamos haber esperado los 512us en el bucle, pero no lo hacemos así. Desactivamos la salida en segundo plano porque así, si la radiación es muy alta, se produce un efecto de **saturación**. *Timer0* estaría prácticamente todo el tiempo reiniciándose y no llegaría a lanzarse nunca la interrupción de apagado. 
+Podríamos haber esperado los 512us en el bucle, pero no lo hacemos así. Desactivamos la salida en segundo plano porque así, si la radiación es muy alta, se produce un efecto de **saturación**. *Timer0* estaría prácticamente todo el tiempo reiniciándose y no llegaría a lanzarse nunca la interrupción de apagado.
 
 Este efecto sucede realmente. Un tubo GM tras descargarse necesita un pequeño tiempo de recuperación. Si se somete a una radiación muy elevada está todo el rato descargado y no mide. Incluso podría darse el caso de que, ante una radiación muy intensa, la lectura fuera anormalmente baja.
 
@@ -298,7 +305,7 @@ El que vamos a hacer nosotros consiste simplemente en un circuito rectificador f
 
 Los pulsos entran por la izquierda, atravesando **R12**. Su propósito es limitar la corriente a través de la base del transistor **Q2**. Hay mucho margen. La corriente debe ser lo suficientemente alta como para llevar al transistor a saturación, pero a la vez lo suficientemente baja como para no exceder el máximo de salida del PIC (20mA).
 
-Durante el tiempo que Q2 está activo, **C3** se carga a través de **R9**. La misión de esta resistencia es limitar la corriente a través del transistor. En el caso del 2N3904 no debería exceder los 200mA. 
+Durante el tiempo que Q2 está activo, **C3** se carga a través de **R9**. La misión de esta resistencia es limitar la corriente a través del transistor. En el caso del 2N3904 no debería exceder los 200mA.
 
 El transistor también actúa como rectificador. **C3** se descargará a través de **R10** y **R11**. La primera está actuando de [shunt](https://es.wikipedia.org/wiki/Shunt_(electr%C3%B3nica)) para proporcionar al condensador una vía de descarga paralela al medidor. La segunda limita la corriente que atraviesa el micro amperímetro y será quien determine el fondo de escala. Entre las dos determinarán la velocidad con la que la aguja vuelve a cero.
 
@@ -340,7 +347,7 @@ void TIMER0_isr(void)
 {
  t0of++;
 }
-
+ 
 #int_TIMER1
 void TIMER1_isr(void) 
 {
@@ -350,7 +357,6 @@ void TIMER1_isr(void)
  if (get_timer0() >= MIN_COUNT || 
      t1of         >= MAX_T1_OF) 
      ready = 1;
-
 }
 ```
 
@@ -384,7 +390,7 @@ Desde el primer momento se sabía que eran radiaciones ionizantes. Así pues, ti
 
 Así fue como se definió el **roentgen** o röntgen en 1928 para medir la dosis (por entonces sólo se hablaba de dosis, sin apellidos). Como la radiación se emite de continuo, es conveniente introducir una unidad de tiempo; de ahí los *roentgen/h*. Luego sólo hay que multiplicar por el tiempo de exposición para saber a cuántos roentgen en total has estado *expuesto*.
 
-Al principio sólo se estudiaban los rayos X. Pues era lo único con utilidad práctica: hacer radiografías. Más adelante cobraron relevancia otras radiaciones -gamma, beta, neutrones- y comprendimos mejor cómo causan sus efectos. Resultó que los roentgen sólo funcionaban bien para medir la dosis de rayos X, y medio bien para los rayos gamma. Un avance importante fue relacionar los efectos con la cantidad **energía** que estas partículas ceden a la materia al atravesarla. 
+Al principio sólo se estudiaban los rayos X. Pues era lo único con utilidad práctica: hacer radiografías. Más adelante cobraron relevancia otras radiaciones -gamma, beta, neutrones- y comprendimos mejor cómo causan sus efectos. Resultó que los roentgen sólo funcionaban bien para medir la dosis de rayos X, y medio bien para los rayos gamma. Un avance importante fue relacionar los efectos con la cantidad **energía** que estas partículas ceden a la materia al atravesarla.
 
 Por ejemplo, una partícula muy rápida, muy pequeña y sin carga como puede ser el neutrino apenas interactúa con nada. Pueden atravesarte diariamente millones de neutrinos y dará igual. La probabilidad de que alguno se encuentre con un átomo de tu cuerpo es insignificante.
 
@@ -394,7 +400,7 @@ El sistema CGS, propuesto por Gauss, era el estándar en vigor desde finales del
 
 La recomendación fue dejar de usar el Roentgen porque no reflejaba con exactitud los efectos de las nuevas radiaciones descubiertas desde su definición. Se modificó el concepto de dosis por considerarse ambiguo, sustituyéndose por el de *exposición*. Esta pasó a darse en términos de Culombios por kilogramo de aire. Hoy en día el roentgen se usa sobre todo en EEUU.
 
-La unidad de *dosis absorbida* pasó de ser el rad a ser el **Gray**, otra nueva unidad definida en términos de Julios por kilogramo. 
+La unidad de *dosis absorbida* pasó de ser el rad a ser el **Gray**, otra nueva unidad definida en términos de Julios por kilogramo.
 
 Mientras, se iban sucediendo avances en la comprensión de los efectos biológicos. En parte gracias a los estudios en supervivientes de Hiroshima y Nagasaki. El bombardeo había sucedido en 1945. Eran los únicos sucesos hasta la fecha en los que fueron irradiados un gran número de seres humanos, y de los que se ha podido hacer seguimiento en el tiempo.
 
@@ -445,6 +451,4 @@ Cuando exponemos el medidor a un foco caliente, la detección alcanza las 4000 C
 {% include image.html file="counter_lcd_4000cpm.png" caption="Contador midiendo un objeto caliente. EyC." %}
 
 El código fuente y los esquemas para construir este medidor os los dejo aquí: [GitHub de Electronicayciencia - TermoGeiger](https://github.com/electronicayciencia/termogeiger).
-
-
 

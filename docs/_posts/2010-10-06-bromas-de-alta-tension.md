@@ -52,9 +52,11 @@ Para reducir costes al mínimo lo que han hecho es utilizar componentes no está
 
 Además hay un oscilador, representado por un interruptor. Que es una placa con una gota de resina Epoxy, diseñada para conectar y desconectar con una frecuencia de 150Hz.
 
-Resulta que si medimos la tensión de salida con un tester *True RMS* sólo marca 7V. Claro, eso es el valor medio, RMS. En realidad el valor de pico alcanza fácilmente los miles de voltios y no se puede medir así. 
+Resulta que si medimos la tensión de salida con un tester *True RMS* sólo marca 7V. Claro, eso es el valor medio, RMS. En realidad el valor de pico alcanza fácilmente los miles de voltios y no se puede medir así.
 
 Para medirlo nos basamos en la longitud del arco eléctrico (o sea de la chispa que hace). El aire seco tiene una [rigidez dieléctrica](http://campus.usal.es/%7Eelectricidad/Principal/Circuitos/Diccionario/Diccionario.php?b=id:154) de unos 3MV/m. Quiere decir que si la chispa mide 1m es que tiene una tensión de 3.000.000 de voltios.
 
-Nuestra chispa no llega a más de medio milímetro por lo que suponemos que la tensión de salida puede ser de unos 1000V. Nada mal a partir de tres pilas botón. Y pulsos de 1000V son suficientes para dar un buen susto. Y sin daño porque el tiempo que se necesitaría para dañar el tejido es del orden de minutos, y<br />se retira la mano antes.
+Nuestra chispa no llega a más de medio milímetro por lo que suponemos que la tensión de salida puede ser de unos 1000V. Nada mal a partir de tres pilas botón. Y pulsos de 1000V son suficientes para dar un buen susto. Y sin daño porque el tiempo que se necesitaría para dañar el tejido es del orden de minutos, y
+
+se retira la mano antes.
 

@@ -18,12 +18,20 @@ El programa funciona seleccionando al azar un nombre y dos apellidos; una vía y
 Por ejemplo, en una historia sucede un juicio. Algunos personajes pueden tener relevancia más adelante, pero el resto sólo aparecen esta vez, y no merece la pena dedicarle mucho tiempo. Sin contar con que eso puede distraerte y hacerte perder otras ideas.
 
 * **Juez:** Dña. Susana García Perón
+
 * **Comparecen por parte de la Acusación:**- **Abogado:** Blanca Gomez Alcala. Calle Kindelan 9, 6ºD.- **Testigos:**Sabina Diaz Ordoñez. Calle Blanqueo Viejo 12, 4ºD. Agente de seguros.Hannah Rachel Montilla Madrid. Carretera De La Zubia 3, 2ºE. Recepcionista.Domingo Bonillo Jimenez. Calle Aire 18, 2ºD. Médico forense.Escolástico Herranz Barron. Cuesta Aljibe De Trillo 5, 5ºH. Herrero.
-* **Comparecen por parte de la Defensa:**- **Abogado:** Eduardo Martin Villar. Calle Pianista Rosa Sabater 18.- **Testigos:**Maria Isabel Almansa Flores. Calle Sancti Spiritus 2. Psicólogo.Virginia Lopez Sedeno. Calle Francisco Hurtado Izquierdo 16, 6ºH. Deportista.<br />En otra ocasión lo que necesitamos es sólo una lista de empleados de una compañía, u otro tipo de lista donde no necesitamos todos los datos. Para eso hay variedad de funciones en el módulo:
+
+* **Comparecen por parte de la Defensa:**- **Abogado:** Eduardo Martin Villar. Calle Pianista Rosa Sabater 18.- **Testigos:**Maria Isabel Almansa Flores. Calle Sancti Spiritus 2. Psicólogo.Virginia Lopez Sedeno. Calle Francisco Hurtado Izquierdo 16, 6ºH. Deportista.
+
+En otra ocasión lo que necesitamos es sólo una lista de empleados de una compañía, u otro tipo de lista donde no necesitamos todos los datos. Para eso hay variedad de funciones en el módulo:
 
 **getNombre:** Antonio**getApellido:** Jabalquinto**getNombreCompleto**: Jose Tomas Dodero Ruiz**getCalle**: Calle Tiberio**getCalleyNumero**: Callejon Del Pretorio 14**getProfesion**: Camarera**getPersona**: Eloy Garcia Almendro. Calle Correo Viejo 8. Actor.
+
 **getNombresCompletos:**1.- M Cristina Lopez Barba2.- Emilio Jesús Gomez Pescuezo3.- Pablo Jimenez Caro4.- Jose-Maria Montiel Garcia5.- M Trinidad Jimenez Bravo
-**getPersonas:**1.- Carmen Maria Molero Padilla. Placeta Fernandez De Moratin 7, 4ºF. Guía turístico.2.- Eugenia Jimenez Lopez. Calle Tio Vazquez 21. Abogado de oficio.3.- Antonio Jose Veredas Ariza. Calle Pisas 23, 2ºC. Supervisor.4.- Sonia Moreno Lachica Millan. Calle Albondon 24. Esteticista.5.- Paloma Rider Jimenez. Calle Parra De San Cecilio 13. Recepcionista.<br />Para asignar edad sólo tendríamos que generar un número aleatorio en el margen que necesitemos. Cuidando, eso sí, de adaptar el oficio y la edad a las circunstancias. Por ejemplo no es realista que un niño de 12 años sea astronauta, o que una señora de 76 trabaje como herrero. No es imposible, pero desde luego sería inusual y eso **distrae la atención** del receptor, pues este pasa a fijarse más en el personaje que en la historia. Claro que a veces es eso lo que se pretende.
+
+**getPersonas:**1.- Carmen Maria Molero Padilla. Placeta Fernandez De Moratin 7, 4ºF. Guía turístico.2.- Eugenia Jimenez Lopez. Calle Tio Vazquez 21. Abogado de oficio.3.- Antonio Jose Veredas Ariza. Calle Pisas 23, 2ºC. Supervisor.4.- Sonia Moreno Lachica Millan. Calle Albondon 24. Esteticista.5.- Paloma Rider Jimenez. Calle Parra De San Cecilio 13. Recepcionista.
+
+Para asignar edad sólo tendríamos que generar un número aleatorio en el margen que necesitemos. Cuidando, eso sí, de adaptar el oficio y la edad a las circunstancias. Por ejemplo no es realista que un niño de 12 años sea astronauta, o que una señora de 76 trabaje como herrero. No es imposible, pero desde luego sería inusual y eso **distrae la atención** del receptor, pues este pasa a fijarse más en el personaje que en la historia. Claro que a veces es eso lo que se pretende.
 
 Sin embargo el módulo no tiene el cuenta ni las tildes ni la concordancia de género a la hora de asignar oficio, así un señor llamado Manolo podría aparecer como actriz. Hay que tener cuidado con eso y siempre repasar manualmente las listas que genere el programa.
 

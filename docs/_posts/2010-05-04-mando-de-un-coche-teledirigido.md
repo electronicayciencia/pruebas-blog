@@ -16,11 +16,11 @@ Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botone
 
 {% include image.html file="circuito.png" caption="" %}
 
-El circuito consta de dos partes. Un [oscilador astable]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) de BF, y un [oscilador *Pierce*](http://pr.erau.edu/%7Elyallj/ee412/pierce_exp.html) con un cristal de 27.145MHz como emisor de RF.
+El circuito consta de dos partes. Un [oscilador astable]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) de BF, y un [oscilador <em>Pierce</em>](http://pr.erau.edu/%7Elyallj/ee412/pierce_exp.html) con un cristal de 27.145MHz como emisor de RF.
 
 ## Baja frecuencia
 
-Empezaremos hablando de la etapa de audio, o de baja frecuencia. Está compuesta por un sencillo oscilador astable con los transistores PNP Q2 y Q3. Similar al que estudiamos en la entrada que enlazo arriba. Aunque este tiene algunos elementos particulares. 
+Empezaremos hablando de la etapa de audio, o de baja frecuencia. Está compuesta por un sencillo oscilador astable con los transistores PNP Q2 y Q3. Similar al que estudiamos en la entrada que enlazo arriba. Aunque este tiene algunos elementos particulares.
 
 - Las resistencias **R7** y **R8** están en paralelo con los condensadores de 470nF que determinan la frecuencia de oscilación del astable. Se utilizan para que que el pico de tensión inversa de los condensadores no fría por avalancha la unión BE en los transistores. De lo contrario, como ésta es de -5V (ver el datasheet), no podríamos alimentar el circuito con 9V.
 - La resistencia **R10**, en el emisor de Q3, introduce una asimetría y asegura que el circuito siempre comience a oscilar y no quede en un estado estable.

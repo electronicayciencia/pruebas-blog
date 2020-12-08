@@ -77,6 +77,7 @@ function [tiempos, espectro, frecuencias] = ECGpreparar (senal, sampl_rate)
  t_bw    = (t_fin-t_inicio)/t_npuntos;
  tiempos  = [t_inicio:t_bw:t_fin-t_bw];
 
+
  % -- Frecuencias --
  espectro  = fft(senal);
  f_npuntos = numel(espectro) / 2;
@@ -107,7 +108,7 @@ grid
 axis('tight')
 axis([0,450])
 xlabel('Frecuencia (Hz)')
-title("Electrocardiograma - sin filtrar")
+title("Electrocardiograma - sin filtrar") 
 ```
 
 {% include image.html file="ecg_f_sinfiltrar.png" caption="" %}
@@ -116,7 +117,7 @@ title("Electrocardiograma - sin filtrar")
 
 - Lo más llamativo son los **picos** en 100, 200, 300... en general en los armónicos **pares** de 50Hz pero NO en 50Hz. Podría ser una señal de 50Hz rectificada, o alguna interferencia de 100Hz de un tubo fluorescente o un televisor. A priori tan sólo podemos intuir el origen. Lo que nos interesa es que son picos de una frecuencia muy exacta, y eso nos facilitará el filtrado.
 - Predominan las **frecuencias bajas**, por debajo de 50Hz casi todo. Por encima de 100Hz prácticamente no hay nada salvo ruido e interferencias. 
-- A medida que nos acercamos a 0Hz el espectro tiende también a 0. Eso no debería pasar. Echamos en falta el llamado [1/f noise](http://j.mp/oqfd4R), también conocido como ruido rosa, presente en cualquier sistema electrónico y que aumenta con la inversa de la frecuencia al aproximarse a los 0Hz. ¿Por qué no aparece aquí? Pues porque las tarjetas de sonido incorporan un filtro para eliminar la corriente continua del micrófono. Y este filtro pasa-altos es el que elimina toda la componente espectral de baja frecuencia. Si quisiéramos mejorar la medida deberíamos [eliminar tal filtro]({{site.baseurl}}{% post_url 2010-10-20-medir-valores-logicos-con-tarjeta-de %}). De momento vamos a dejarlo así.
+- A medida que nos acercamos a 0Hz el espectro tiende también a 0. Eso no debería pasar. Echamos en falta el llamado <a href="http://j.mp/oqfd4R">1/f noise</a>, también conocido como ruido rosa, presente en cualquier sistema electrónico y que aumenta con la inversa de la frecuencia al aproximarse a los 0Hz. ¿Por qué no aparece aquí? Pues porque las tarjetas de sonido incorporan un filtro para eliminar la corriente continua del micrófono. Y este filtro pasa-altos es el que elimina toda la componente espectral de baja frecuencia. Si quisiéramos mejorar la medida deberíamos [eliminar tal filtro]({{site.baseurl}}{% post_url 2010-10-20-medir-valores-logicos-con-tarjeta-de %}). De momento vamos a dejarlo así.
 
 Vamos a purgar la señal operando directamente en el espacio de la frecuencias, sobre todo viene muy bien para eliminar una o varias frecuencias molestas. Para hacerlo en el espacio del tiempo tendríamos que tener un filtro digital, etc. Pero aquí, puesto que tenemos la onda grabada y no existe esa presión de procesarlo en tiempo real no vamos a hacerlo así.
 
@@ -182,26 +183,26 @@ end
 
 Para aplicar este proceso a varias muestras de datos lo mejor es hacemos un pequeño script en Octave. Lo llamaremos ECGfiltra:
 
-```cpp
+```matlab
 function [ c ] = ECGfiltra( a, sr )
  % normalizamos
  a=a/max(abs(a));
-
+ 
  % obtenemos la FFT:
  b  = fft(a);       % b es la fft de a
  np = numel(b) / 2; % np numero de puntos;
  b  = b(1:np);      % truncamos la fft
-
+ 
  % cancelamos la red y sus armónicos:
  for i=101:100:sr/2; % 100 es para este caso, ver texto*
   b(i) = (b(i-1) + b(i+1)) / 2;
  end
-
+ 
  f_bw  = (sr/2 / np);
  f = [0:f_bw:sr/2-f_bw];
 
  b = b .* gauss(f',1,0,40);
-
+ 
  % reobtenemos la forma de onda filtrada
  b = [b ; 0 ; conj(flipdim(b(2:np)))]; % completamos la FFT
  c = real(ifft(b)); % nos quedamos sólo la parte real
@@ -223,7 +224,7 @@ El resultado es algo mejor, y se intuye más o menos la forma de un ECG.
 
 Aún queda algo de ruido, pero cada vez es más difícil filtrarlo. Pensad que aunque lo llame *ruido* puede ser una señal legítima, otra cosa es que no sea la que queremos. Pero, por ejemplo, algunas ondulaciones pueden deberse a la respiración u otros movimientos musculares.
 
-Os he explicado la electrónica que interviene en registrar un electro, pero no soy médico y no sabría explicaros más. Si os interesa la interpretación fisiológica os recomiendo este artículo (y el blog en general, me gusta mucho): [El electrocardiograma, ese garabato con picos y curvas](http://perarduaadastra.eu/2010/01/el-electrocardiograma-ese-garabato-con-picos-y-curvas/). Un poco más técnico y para apreciar cómo varía la forma de la onda dependiendo de dónde se coloquen los electrodos (derivaciones) [este otro enlace](http://www.ecglibrary.com/ecghome.html). 
+Os he explicado la electrónica que interviene en registrar un electro, pero no soy médico y no sabría explicaros más. Si os interesa la interpretación fisiológica os recomiendo este artículo (y el blog en general, me gusta mucho): [El electrocardiograma, ese garabato con picos y curvas](http://perarduaadastra.eu/2010/01/el-electrocardiograma-ese-garabato-con-picos-y-curvas/). Un poco más técnico y para apreciar cómo varía la forma de la onda dependiendo de dónde se coloquen los electrodos (derivaciones) [este otro enlace](http://www.ecglibrary.com/ecghome.html).
 
 Si os fijáis, antes de la caída brusca de la onda Q hay un pequeño pico. Es muy probable que lo hayamos inducido nosotros al filtrar, pues no olvidéis que filtrando lo que hemos hecho no es otra cosa que deformar la onda. Con un gel más conductor y una tarjeta de sonido adaptada, la onda que mediríamos sería más fuerte (mayor relación señal/ruido) y podríamos haber usado otro filtrado menos agresivo.
 
@@ -237,12 +238,12 @@ El procedimiento es sencillo, como en el electro colocamos dos electrodos, uno e
 
 Poco nítido; o más bien digamos que no se ve nada. Está claro que la señal está al mismo nivel que el ruido. Formas de mejorar la medida, varias:
 
-- **Acercarnos** a la fuente. Los electrodos que se utilizan para esta prueba suelen apoyarse en el globo ocular o incluso en la córnea. Para haceros una idea visitad [esta página](http://webvision.med.utah.edu/book/the-electroretinogram-erg/the-electroretinogram-clinical-applications/). Es una forma de aumentar la relación señal/ruido. La descarto por motivos obvios.
+- **Acercarnos** a la fuente. Los electrodos que se utilizan para esta prueba suelen apoyarse en el globo ocular o incluso en la córnea. Para haceros una idea visitad <a href="http://webvision.med.utah.edu/book/the-electroretinogram-erg/the-electroretinogram-clinical-applications/">esta página</a>. Es una forma de aumentar la relación señal/ruido. La descarto por motivos obvios.
 - Repetir y **promediar**. Al contrario que en el caso anterior del electrocardiograma, en el que queríamos un registro continuo de la actividad del corazón, lo que buscamos en un ERG es una respuesta a un impulso aislado. Este método consiste en aprovechar que el ruido es básicamente aleatorio, mientras que la señal que queremos medir es la misma cada vez. Así que se toman varias medidas (10 por ejemplo) y se promedian. El ruido, que repito es aleatorio, se cancelara pues en promedio vale cero y la señal se realzará distinguiéndose de él. No tengo tantas medidas para hacer la prueba, pero sería interesante hacerlo.
 - Obtener el **perfil del ruido**. Como sabemos el momento en que ocurre la estimulación (el disparo del flash) todo lo anterior es ruido. Se puede obtener el espectro de frecuencias que componen el ruido y tratar de eliminarlo restándolo de la señal recibida. Se hace también con la FFT pero es más complicado. Veremos algunos gráficos aunque no lo voy a aplicar.
 - Y por último, **filtrar** lo que queramos. El mismo procedimiento que hicimos en la sección anterior.
 
-Vamos a hablar del **perfil del ruido**. Esta es la señal antes de disparar el flash. Se supone que el ojo está adaptado a la oscuridad. 
+Vamos a hablar del **perfil del ruido**. Esta es la señal antes de disparar el flash. Se supone que el ojo está adaptado a la oscuridad.
 
 {% include image.html file="erg_t_ruido.png" caption="" %}
 

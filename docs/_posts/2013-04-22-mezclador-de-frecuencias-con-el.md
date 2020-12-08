@@ -67,11 +67,11 @@ Dicho esto, **IC1A** está configurado como **no inversor** lo que nos da una al
 
 **C1** se necesita para adaptar los niveles de tensión dado que la referencia de **IC1A** es la masa virtual, mientras que la señal de entrada la aplicamos con referencia a la masa real del circuito.
 
-Como ya sabéis, la amplificación viene determinada por **R2** y **R3**. En nuestro caso es de 34dB, lo que quiere decir que amplificará 50 veces la entrada. 
+Como ya sabéis, la amplificación viene determinada por **R2** y **R3**. En nuestro caso es de 34dB, lo que quiere decir que amplificará 50 veces la entrada.
 
 **R1** está pensada para alimentar un micrófono electret, pero si queremos alimentar cualquier otro circuito desde el conector de entrada, no hay más que sustituirla por un simple puente.
 
-Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto [**ganancia - ancho de banda**](https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product). Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.
+Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto [<b>ganancia - ancho de banda</b>](https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product). Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.
 
 {% include image.html file="gbp.gif" caption="" %}
 
@@ -115,7 +115,7 @@ Para hacer este gráfico hemos aplicado dos frecuencias separadas por 4kHz. La *
 
 Tras la conversión, la señal se filtra por los condensadores **C3** y **C6** como ya hemos dicho y se recompone en el último paso del circuito: un amplificador diferencial cuyo núcleo es **IC1B**.
 
-Es el paso lógico puesto que uno de los interruptores conduce durante el semiciclo positivo de la señal de control y el otro durante el negativo. De esta manera recomponemos una señal simétrica. 
+Es el paso lógico puesto que uno de los interruptores conduce durante el semiciclo positivo de la señal de control y el otro durante el negativo. De esta manera recomponemos una señal simétrica.
 
 Recordad que en los amplificadores diferenciales **R5** tiene que ser igual a **R8**, **R6** igual a **R9** y la ganancia viene dada por **R6**/**R5**. Aproximadamente 2.
 
@@ -133,7 +133,7 @@ Si aplicamos a la entrada una señal de 54kHz, en verde de unos 75mV en la salid
 
 Con este circuito ya podemos explorar con la tarjeta de sonido las frecuencias no audibles. Ahora todo depende de lo que conectemos a la entrada:
 
-- Si conectamos una antena de ferrita y una etapa de entrada a FET tendremos un receptor VLF. He intentado recibir la señal [DCF77](http://es.wikipedia.org/wiki/DCF77), que emite en 77.5kHz pero no he podido.
+- Si conectamos una antena de ferrita y una etapa de entrada a FET tendremos un receptor VLF. He intentado recibir la señal <a href="http://es.wikipedia.org/wiki/DCF77">DCF77</a>, que emite en 77.5kHz pero no he podido.
 - Si conectamos un micrófono piezoeléctrico será un captador de ultrasonidos.
 - Si conectamos una bobina y un circuito LC sintonizado "escucharemos" la resonancia electromagnética al igual que hicimos con la resonancia mecánica en esta otra entrada: [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %}).
 
@@ -141,7 +141,5 @@ Una vez terminado, la placa nos queda más o menos así. Digo más o menos porqu
 
 {% include image.html file="IMAG0415.jpg" caption="" %}
 
-En [este enlace](https://sites.google.com/site/electronicayciencia/mixer4066.zip?attredirects=0&d=1) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
-
-
+En [este enlace](https://sites.google.com/site/electronicayciencia/mixer4066.zip?attredirects=0&amp;d=1) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
 

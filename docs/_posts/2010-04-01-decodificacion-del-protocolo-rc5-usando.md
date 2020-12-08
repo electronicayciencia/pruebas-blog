@@ -41,7 +41,7 @@ El protocolo RC5 se compone de:
 
 En total son 14 bits.
 
-En [esta pagina web](http://www.sbprojects.com/knowledge/ir/rc5.htm) hay unas imágenes muy buenas de cómo funciona la modulación RC5 y otras: 
+En [esta pagina web](http://www.sbprojects.com/knowledge/ir/rc5.htm) hay unas imágenes muy buenas de cómo funciona la modulación RC5 y otras:
 
 > All bits are of equal length of 1.778ms in this protocol, with half of the bit time filled with a burst of the 36kHz carrier and the other half being idle. A **logical zero is represented by a burst in the first half** of the bit time. A **logical one is represented by a burst in the second half** of the bit time.
 
@@ -81,7 +81,7 @@ La línea superior en la imagen indica con un punto numerado el lugar de cada tr
 1. 1. Aquí pararíamos, porque con este ya hemos recibido nuestros 10 bits. En el caso de RC5 son 14 bits.
 1. nada.
 
-El número decodificado es 
+El número decodificado es
 
     1101001101
 
