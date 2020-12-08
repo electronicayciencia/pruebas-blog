@@ -34,7 +34,7 @@ sub parts_store {
 	my %inpara = (
 	 	link => 1,
 		postlink => 1,
-		'spanmono-line' => 1,
+		'spanmono-line' => 0, # there are spans inside of divs
 		
 		paragraph => 0,
 		table => 0,
@@ -78,6 +78,67 @@ sub parts_store {
 
 	return $delimiter_in.$id.$delimiter_out;
 }
+
+
+# Regenerate text from parts
+sub recompose {
+	my $structure = shift;
+	my $text;
+
+	# outer elements
+	for my $element ($structure =~ m{\|\|##([-\w]+-\d+)##\|\|}g) {
+		my ($type, $num) = $element =~ /([-\w]+)-(\d+)/;
+
+		if ($type eq "paragraph") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "object") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "img") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "section") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "quote") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "table") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "eqn") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "codeblock") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "ol" or $type eq "ul") {
+			$text .= $parts{$element}."\n\n";
+		}
+		elsif ($type eq "spanmono-line" or $type eq "divmono-line") {
+			$text .= "    ".$parts{$element}."\n\n";
+		}
+		elsif ($type eq "spanmono-block" or $type eq "divmono-block") {
+			$text .= "```".$parts{$element}."\n```\n\n";
+		}
+		elsif ($type eq "monogroup") {
+			for my $monoline ($parts{$element} =~ m{\|\|##([-\w]+-\d+)##\|\|}g) {
+				$text .= "    ".$parts{$monoline}."\n";
+			}
+		    $text .= "\n";	
+		}
+		else {
+			print STDERR "Warning: unknown type '$type' recomposing: '$element'.\n"
+		}
+	}
+
+	$text =~ s{^\s+}{}g;
+	$text =~ s{\s+$}{}g;
+
+	return $text;
+}
+
 
 
 sub html2md {
@@ -307,8 +368,6 @@ sub format_table {
 	return parts_store($block, "table");
 }
 
-
-
 sub format_equation {
 	my $block = shift;
 
@@ -324,7 +383,10 @@ sub format_equation {
 	$block =~ s{&amp;}{&}g;
 	$block =~ s{<br>}{\n}g;
 	
-	return parts_store($block, "eqn");
+	$block =~ s{^\s+}{}g;
+	$block =~ s{\s+$}{}g;
+
+	return parts_store("\$\$\n$block\n\$\$", "eqn");
 }
 
 sub format_link {
@@ -348,11 +410,16 @@ sub format_paragraph {
 	
 	# Replace br and trim
 	$block =~ s{<br>}{\n}g;
-	$block =~ s{\n+$}{}g;
-	$block =~ s{^\n+}{}g;
+	$block =~ s{\s+$}{}g;
+	$block =~ s{^\s+}{}g;
 
 	if ($block =~ m{\|\|}) {
 		print STDERR "Warning, outside-paragraph delimiter found in: '$block'.\n";
+		return "";
+	}
+	
+	if ($block =~ m{<div}) {
+		print STDERR "Warning, div tag inside paragraph: '$block'.\n";
 		return "";
 	}
 
@@ -491,21 +558,36 @@ sub process_body {
 	# Second level structures
 	# ------------------------------------------------------
 	
+	# Remove styles of the remainder at this point
+	# This will remove divs from non capured structures, like iframes or objects.
+	# But it is neccesary in order to group monolines.
+	$s =~ s{<div[^>]*>(.*?)</div>}{$1}msg;
+	$s =~ s{<span[^>]*>(.*?)</div>}{$1}msg;
+
 	# block of monolines
-	$s =~ s{<br>((?:(?:||##spanmono-line-\d+##||)(?:<br>)*)+)<br>}{format_monogroup($1)}ge;
-	$s =~ s{<br>((?:(?:||##divmono-line-\d+##||)(?:<br>)*)+)<br>}{format_monogroup($1)}ge;
+	$s =~ s{<br>((?:(?:\|\|##spanmono-line-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;
+	$s =~ s{<br>((?:(?:\|\|##divmono-line-\d+##\|\|)(?:<br>)*)+)<br>}{"<br>".format_monogroup($1)."<br>"}ge;
 
 	# paragraphs
 	# Okay, that's black magic
-	$s =~ s{(?:^|<br>|##\|\|)([^\|].*?)(?:$|<br>|\|\|##)}{format_paragraph($1)}mge;
+	$s =~ s{(^|<br>|##\|\|)([^\|].*?)($|<br>|\|\|##)}{$1.format_paragraph($2).$3}mge;
+	$s =~ s{(^|<br>|##\|\|)([^\|].*?)($|<br>|\|\|##)}{$1.format_paragraph($2).$3}mge;
 
-
+	# Only <br> and parts. Now only parts.
+	$s =~ s{<br>}{}g;
+	
 
 	# Process non-structured text
 	# ------------------------------------------------------
 	
 	# New paragraph
 	#$s =~ s{<br>}{\n}g;
+
+	# Recompose article body from abstract structure
+	# ------------------------------------------------------
+	
+	$s = recompose($s);
+
 
 	return $s;
 }
@@ -522,5 +604,5 @@ $body = process_body($body);
 print "---\n$head\n---\n\n$body\n\n";
 
 
-print "\n\n".Dumper(\%parts)."\n\n";
+#print "\n\n".Dumper(\%parts)."\n\n";
 
