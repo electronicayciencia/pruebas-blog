@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Error 404: File Not Found | Assembla</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+
+    <style type="text/css" media="screen">
+      html {
+        color: #363c44;
+        font-size: 15px;
+        line-height: 18px;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      body {margin: 0;}
+
+      ::-moz-selection {
+        background: #b3d4fc;
+        text-shadow: none;
+      }
+
+      ::selection {
+        background: #b3d4fc;
+        text-shadow: none;
+      }
+
+      /* ===== Initializr Styles ==================================================
+      Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+      ========================================================================== */
+
+      .wrapper {
+        width: 90%;
+        margin: 0 5%;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+      }
+
+      h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      a {
+        color: #79b9bc;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover {text-decoration: underline;}
+
+      /* ===================
+      ALL: ASSEMBLA Theme
+      =================== */
+
+      .header-container {
+        border-bottom: 1px solid #e8f0f2;
+        padding: 10px 0;
+      }
+
+      .logo {
+        background-image: url("https://www.assembla.com/uploads/263238-assembla-logo.svg");
+        background-image: none, url("https://www.assembla.com/uploads/263238-assembla-logo.svg");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        margin-top: 15px;
+        z-index: 99;
+        position: relative;
+        width: 160px;
+        height: 45px;
+        display: inline-block;
+        overflow: hidden;
+        text-indent: -9999px;
+        margin: 0;
+      }
+
+      section {
+        float: right;
+        width: 50%;
+      }
+
+      aside {
+        margin-right: 20px;
+        float: left;
+      }
+
+      .illo {
+        background-image: url("https://assets.assembla.com/images/error-pages/illo-404.svg");
+        background-image: none, url("https://assets.assembla.com/images/error-pages/illo-404.svg");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        z-index: 99;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      /* ==============
+      MOBILE: Main
+      ============== */
+
+      .main {padding: 30px 0;}
+
+      .footer-container footer {
+        border-top: 1px solid #e8f0f2;
+        padding: 20px 0;
+        font-size: 14px;
+      }
+
+      /* ==========================================================================
+      Media Queries
+      ========================================================================== */
+
+      @media only screen and (min-width: 200px) {
+        .wrapper {margin: 0 auto;}
+
+        h2 {
+          font-size: 100px;
+          line-height: 50px;
+          margin: 20px 0;
+        }
+
+        h3 {
+          font-size: 22px;
+          line-height: 26px;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 13px;
+          line-height: 18px;
+        }
+
+        .illo {
+          width: 220px;
+          height: 220px;
+        }
+
+        aside {
+          margin-right: 0;
+          float: left;
+        }
+
+        section {
+          float: left;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (min-width: 480px) {
+        .wrapper {margin: 0 auto;}
+
+        h2 {
+          font-size: 100px;
+          line-height: 50px;
+          margin: 50px 0 20px;
+        }
+
+        h3 {
+          font-size: 22px;
+          line-height: 26px;
+          margin: 10px 0;
+        }
+
+        p {
+          font-size: 13px;
+          line-height: 18px;
+        }
+
+        .illo {
+          width: 220px;
+          height: 220px;
+        }
+
+        aside {float: left;}
+
+        section {
+          float: right;
+          width: 50%;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .wrapper {
+          max-width: 768px; /* 1140px - 10% for margins */
+          margin: 0 auto;
+        }
+
+        h2 {
+          font-size: 160px;
+          line-height: 100px;
+          margin: 50px 0 20px;
+        }
+
+        h3 {
+          font-size: 32px;
+          line-height: 36px;
+          margin: 10px 0 20px;
+        }
+
+        .illo {
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+      @media only screen and (min-width: 1140px) {
+        .wrapper {
+          max-width: 1026px; /* 1140px - 10% for margins */
+          margin: 0 auto;
+        }
+
+        h2 {
+          font-size: 200px;
+          line-height: 150px;
+          margin: 50px 0 20px;
+        }
+
+        h3 {
+          font-size: 40px;
+          line-height: 44px;
+          margin: 10px 0 40px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 22px;
+        }
+
+        .illo {
+          width: 400px;
+          height: 400px;
+        }
+      }
+
+      /* ==========================================================================
+      Helper classes
+      ========================================================================== */
+
+      .clearfix:before,
+      .clearfix:after {
+        content: " ";
+        display: table;
+      }
+
+      .clearfix:after {
+        clear: both;
+      }
+
+      .clearfix {
+        *zoom: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header-container">
+      <header class="wrapper clearfix">
+        <h1><a href="https://www.assembla.com/" class="logo">Assembla</a></h1>
+      </header>
+    </div>
+
+    <div class="main-container">
+      <div class="main wrapper clearfix">
+        <aside><div class="illo"></div></aside>
+        <section>
+          <h2>404</h2>
+          <h3>Page Not Found</h3>
+          <p>Looks like the page has moved or isn't around anymore. Try going to our <a href="https://www.assembla.com/">homepage</a>. If you need a hand, <a href="mailto:support@assembla.com">get in touch</a>.</p>
+        </section>
+      </div> <!-- #main -->
+    </div> <!-- #main-container -->
+
+    <div class="footer-container">
+      <footer class="wrapper">
+        <p>Copyright &copy; 2006-<span id="current-year"></span> Assembla, Inc</p>
+      </footer>
+    </div>
+
+    <script>
+      var year = document.getElementById("current-year").innerHTML = new Date().getFullYear();
+    </script>
+  </body>
+</html>
