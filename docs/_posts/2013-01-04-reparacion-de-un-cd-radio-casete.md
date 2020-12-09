@@ -7,6 +7,7 @@ tags:
 - circuitos
 - amplificadores
 featured-image: sg331.jpg
+assets: /pruebas-blog/assets/2013/01/reparacion-de-un-cd-radio-casete
 ---
 
 He pensado que podría empezar este año publicando una entrada en el blog, que lo tengo algo olvidado desde el verano. Así que feliz año nuevo a todos y mis mejores deseos.
@@ -158,5 +159,5 @@ Esto es sólo un hobby, pero ¿podría ser un negocio? Entre todo -localizar la 
 > - La rápida y barata no será buena.
 > - La buena y barata no será rápida.
 
-Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.](https://sites.google.com/site/electronicayciencia/sg331-blog.zip?attredirects=0&amp;d=1)
+Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.]({{page.assets}}/sg331-blog.zip)
 

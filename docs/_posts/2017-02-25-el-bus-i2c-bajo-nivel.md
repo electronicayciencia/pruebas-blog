@@ -7,6 +7,7 @@ tags:
 - programacion
 - raspberrypi
 featured-image: I2c_logo.svg.png
+assets: /pruebas-blog/assets/2017/02/el-bus-i2c-bajo-nivel
 ---
 
 Siendo de los protocolos más utilizados, para algunos aficionados el bus I2C continúa siendo gran interrogante hoy en día. Dada la buena recepción de la entrada anterior, titulada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}) vamos a hacer otra dedicada a I2C con todo detalle.
@@ -348,7 +349,7 @@ Hay dos grupos especiales: el 1111, que está reservado para utilizarlo en integ
 
 **No hay** una tabla actualizada donde estén todos los grupos y las direcciones asignadas. El motivo se puede entender desde el punto de vista del fabricante. Según NXP, si se hiciera pública la tabla de direcciones asignadas y libres cualquier fabricante de integrados podría escoger una dirección libre y apropiársela para sus chips. Puesto que el espacio de direcciones es muy limitado tal práctica va en contra del buen funcionamiento del protocolo.
 
-Pero sí hay una lista del año 1999... [http://simplemachines.it/doc/IC12_97_I2C_ALLOCATION.pdf](http://simplemachines.it/doc/IC12_97_I2C_ALLOCATION.pdf)
+Pero sí hay una lista del año 1999... [http://simplemachines.it/doc/IC12_97_I2C_ALLOCATION.pdf]({{page.assets}}/IC12_97_I2C_ALLOCATION.pdf)
 
 Los **tres bits siguientes** pueden ser fijos o variables. Son variables en los dispositivos que admiten más de una unidad del mismo tipo en el bus. Por ejemplo las memorias serie tipo **24LCXXX** tienen tres bit variables. Lo cual permite que convivan hasta 8 en el mismo bus. Desde la 1010000 hasta la 1010111. Otros integrados sólo tienen dos bits variables, otros uno o ninguno.
 
@@ -402,7 +403,7 @@ i2c_t i2c = i2c_init(9,8);
 
 Recordad que en Raspberry Pi 3 los pines GPIO 8 y 9 (numeración wiringpi) tienen la función de I2C por **hardware**. Si lo tenéis habilitado es recomendable elegir otros pines o bien descargar los módulos I2C del kernel.
 
-Ahora vamos al datasheet del integrado -[disponible aquí](http://www.nxp.com/documents/data_sheet/PCF8591.pdf)-. Lo primero que buscamos es su dirección I2C, **48h**.
+Ahora vamos al datasheet del integrado -[disponible aquí]({{page.assets}}/PCF8591.pdf)-. Lo primero que buscamos es su dirección I2C, **48h**.
 
 Para usarlo en modo ADC debemos empezar enviando el byte de control. Con este byte indicaremos cómo disponer las entradas y el canal que nos interesa leer.
 
@@ -515,7 +516,7 @@ Pero a diferencia de antes, ahora no enviamos datos, sino que continuación, sin
     i2cli> q   ; quit
     i2cli> Bye!
 
-Nada más por ahora. Si os interesa el tema, os dejo un documento comparando tipos de buses en especial I2C: [http://www.nxp.com/documents/customer_presentation/design_con_2003_tecforum_i2c_bus_overview.pdf](http://www.nxp.com/documents/customer_presentation/design_con_2003_tecforum_i2c_bus_overview.pdf)
+Nada más por ahora. Si os interesa el tema, os dejo un documento comparando tipos de buses en especial I2C: [http://www.nxp.com/documents/customer_presentation/design_con_2003_tecforum_i2c_bus_overview.pdf]({{page.assets}}/design_con_2003_tecforum_i2c_bus_overview.pdf)
 
 El manual de las funciones lo podéis encontrar en [https://electronicayciencia.github.io/wPi_soft_i2c/](https://electronicayciencia.github.io/wPi_soft_i2c/).
 

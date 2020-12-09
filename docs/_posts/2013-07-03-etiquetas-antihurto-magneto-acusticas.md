@@ -11,6 +11,7 @@ tags:
 - Perl
 - amplificadores
 featured-image: Sensormatic-Am-58kHz-Security-Label.jpg
+assets: /pruebas-blog/assets/2013/07/etiquetas-antihurto-magneto-acusticas
 ---
 
 En esta entrada quiero hablaros de un sistema anti hurtos que casi todos habréis visto. Se utiliza desde hace unos años en muchos establecimientos para productos que antes no contaban con estas medidas de seguridad.
@@ -144,7 +145,7 @@ La salida de **IC1A** se conecta a la patilla reset de **IC1B**. De tal forma qu
 
 La función del puente **JP1** es permitirnos escoger la forma de la salida. Si queremos generar una onda continua de 58kHz o pulsante. Es muy útil a la hora de medir la frecuencia con un frecuencímetro. Si activamos la modulación, y la portadora se vuelve intermitente, será muy difícil determinar la frecuencia exacta del oscilador.
 
-La señal en la patilla de salida de **IC1B** se aplica a la base de **T2**. **T1** y **T3** forman la etapa de salida. Es una configuración básica de salida en [push-pull](https://es.wikipedia.org/wiki/Salida_push-pull). Y es muy conveniente para suministrar pero también drenar corriente de un circuito. En este caso del circuito resonante que forman la bobina (**COIL**) y **C4**. Al fin y al cabo es el esquema que recomienda Microchip para excitar un RFID de 125kHz en su Application Note [microID® 125 kHz RFID System Design Guide](http://ww1.microchip.com/downloads/en/devicedoc/51115f.pdf).
+La señal en la patilla de salida de **IC1B** se aplica a la base de **T2**. **T1** y **T3** forman la etapa de salida. Es una configuración básica de salida en [push-pull](https://es.wikipedia.org/wiki/Salida_push-pull). Y es muy conveniente para suministrar pero también drenar corriente de un circuito. En este caso del circuito resonante que forman la bobina (**COIL**) y **C4**. Al fin y al cabo es el esquema que recomienda Microchip para excitar un RFID de 125kHz en su Application Note [microID® 125 kHz RFID System Design Guide]({{page.assets}}/51115f.pdf).
 
 Sin embargo hay una cosa más. Nuestra placa no sólo genera una frecuencia de 58kHz. Sino que como hemos vito la corta en seco a intervalos regulares. Cortar la alimentación a una bobina es algo que no le sienta nada bien, de hecho le sienta fatal. Y reacciona al igual que cuando intentamos parar en seco un columpio: nos golpea con toda su inercia. En una bobina tenemos que parar el pico de tensión inversa, que es mayor cuanto mayor sea la inductancia. Con la bobina que hemos construido puede llegar a los 72 voltios.
 
@@ -315,7 +316,7 @@ Hay aparatos que emiten ruido en una frecuencia cercana 58kHz con la intención 
 
 Espero que os haya resultado un tema interesante. Para terminar os dejo varios ficheros.
 
-[Fichero básico](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_basico.zip?attredirects=0&amp;d=1)
+[Fichero básico]({{page.assets}}/EAS_Antirrobo_basico.zip)
 
 - Excel para el cálculo del circuito resonante.
 - Excel para el cálculo de los temporizadores 555.
@@ -324,12 +325,12 @@ Espero que os haya resultado un tema interesante. Para terminar os dejo varios f
 - Software de detección en Perl/Tk.
 - Patente original en PDF.
 
-[Fichero imágenes](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_imag.zip?attredirects=0&amp;d=1)
+[Fichero imágenes]({{page.assets}}/EAS_Antirrobo_imag.zip)
 
 - Imágenes y fotografías del proceso.
 - Fuente de las imágenes compuestas en formato Gimp.
 
-[Fichero sonido](https://sites.google.com/site/electronicayciencia/EAS_Antirrobo_wav.zip?attredirects=0&amp;d=1)
+[Fichero sonido]({{page.assets}}/EAS_Antirrobo_wav.zip)
 
 - Capturas de sonido usadas en el artículo.
 

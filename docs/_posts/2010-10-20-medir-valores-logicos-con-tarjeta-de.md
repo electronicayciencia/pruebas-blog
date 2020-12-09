@@ -6,11 +6,12 @@ tags:
 - circuitos
 - PC
 featured-image: BENQ0004.JPG
+assets: /pruebas-blog/assets/2010/10/medir-valores-logicos-con-tarjeta-de
 ---
 
 Hoy os cuento el primer intento de una prueba que quería hacer desde hace tiempo. Se trata de adaptar una tarjeta de sonido para poder medir también valores de tensión continua. Este es uno de esos experimentos que tienen muchas posibilidades de salir mal, o por lo menos, de no salir tan bien como esperábamos. Las cosas no siempre salen a la primera.
 
-La prueba la he hecho con una tarjeta USB [muy barata](http://www.dealextreme.com/details.dx/sku.22475). Está basada en el chipset [TP6911 de Tenx](http://www.tenx.com.tw/Files/Doc/266/DS-TP6911_V10.pdf) y sus cualidades de grabación son bastante pobres:
+La prueba la he hecho con una tarjeta USB [muy barata](http://www.dealextreme.com/details.dx/sku.22475). Está basada en el chipset [TP6911 de Tenx]({{page.assets}}/DS-TP6911_V10.pdf) y sus cualidades de grabación son bastante pobres:
 
 - ADC de 10 bits.
 - Frecuencia de muestreo 24kHz

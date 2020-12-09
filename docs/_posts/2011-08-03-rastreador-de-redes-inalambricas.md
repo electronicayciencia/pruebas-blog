@@ -6,6 +6,7 @@ tags:
 - programacion
 - linux
 - Perl
+assets: /pruebas-blog/assets/2011/08/rastreador-de-redes-inalambricas
 ---
 
 Hoy os traigo un artículo breve de programación. Este programa nos ayudará a localizar la fuente de una wifi siempre y cuando tengamos una antena directiva. A modo de radar, el sistema emitirá un tono cada vez que recibamos una baliza de la red seleccionada, y de una frecuencia más alta mientras mayor sea la potencia recibida.
@@ -133,7 +134,7 @@ Y la otra es cómo hacer sonar el altavoz. Os cuento, hay dos maneras de emitir 
 - Utilizando /dev/dsp o /dev/audio. Abrimos el dispositivo, le configuramos la frecuencia de muestreo y el tipo de samples que vamos a enviar. O mejor aún, cargar algún módulo de CPAN que nos lo haga. Como por ejemplo <a href="http://search.cpan.org/~sethj/Audio-DSP-0.02/DSP.pm">Audio::DSP</a> o <a href="http://search.cpan.org/~djhd/Audio-OSS-0.0501/OSS.pm">Audio::OSS</a>. Nos generamos nuestra sinusoide de la frecuencia que queramos y ya tenemos un tono. Es un método estupendo para hacer un generador de funciones, o reproducir un archivo de audio. Sin embargo da problemas para generar tonos discontinuos, breves y sobre todo en tiempo real, como los que necesitamos.
 - Aunque tampoco hay que complicarse tanto. Para lo que queremos basta con utilizar el altavoz interno de la placa base, lo que siempre se ha llamado *system bell*. Aunque ahora también lo controle la tarjeta de sonido. Y tiene la ventaja de que son llamadas no bloqueantes y prácticamente en tiempo real.
 
-En Linux, el altavoz del sistema es un dispositivo que pertenece a la consola y se controla con dos llamadas *ioctl*. Mirad lo que dice la [Guía de Programación](http://tldp.org/LDP/lpg-0.4.pdf) :
+En Linux, el altavoz del sistema es un dispositivo que pertenece a la consola y se controla con dos llamadas *ioctl*. Mirad lo que dice la [Guía de Programación]({{page.assets}}/lpg-0.4.pdf) :
 
 > **7.1 Programming the internal speaker**
 > 

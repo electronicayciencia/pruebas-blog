@@ -7,6 +7,7 @@ tags:
 - programacion
 - Perl
 featured-image: es_ES.png
+assets: /pruebas-blog/assets/2010/05/convertir-palabras-en-numeros-ii
 ---
 
 En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html) programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un *número* escrito con un conjunto de 27 símbolos *{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}* y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:
@@ -58,7 +59,7 @@ Con esto podríamos sumar y restar palabras tal como si fueran números, calcula
 
 ## Analizar un texto
 
-Lo primero que vamos a analizar es una lista de palabras en español. Para eso he fusionado dos diccionarios. Uno es el de Open Office, y otro lo he encontrado buscando en Google, en [este enlace](http://tools.assembla.com/svn/homedevel/devel/ftrie/diccionario.txt). Como curiosidad mirad un histograma con la longitud de las palabras:
+Lo primero que vamos a analizar es una lista de palabras en español. Para eso he fusionado dos diccionarios. Uno es el de Open Office, y otro lo he encontrado buscando en Google, en [este enlace]({{page.assets}}/diccionario.txt). Como curiosidad mirad un histograma con la longitud de las palabras:
 
 [<img border="0" height="231" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773" width="400" />](https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773)Los números los podéis ver aquí: [datos originales](http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&amp;single=true&amp;gid=0&amp;output=html). Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en *mente*) tiene nada menos que 24 letras: **electroencefalografistas**.
 
@@ -72,7 +73,7 @@ Y este otro gráfico se obtiene cuando lo aplicamos al **inglés** estadounidens
 
 {% include image.html file="en_US.png" caption="" %}
 
-Si os fijáis, todo el rango de la 'W' que está muy presente en la lengua inglesa, no existe en el gráfico castellano. El segundo gráfico que genera el programa es detallado, sin embargo es muy grande para verlo de una pieza con claridad. Voy a comentar el espectro de la lista combinada de la que os hablé antes, os dejo [el enlace](http://sites.google.com/site/electronicayciencia/esp_grande.png) y a continuación pego algunas partes interesantes:
+Si os fijáis, todo el rango de la 'W' que está muy presente en la lengua inglesa, no existe en el gráfico castellano. El segundo gráfico que genera el programa es detallado, sin embargo es muy grande para verlo de una pieza con claridad. Voy a comentar el espectro de la lista combinada de la que os hablé antes, os dejo [el enlace]({{page.assets}}/esp_grande.png) y a continuación pego algunas partes interesantes:
 
 {% include image.html file="esp_a.png" caption="" %}
 
@@ -88,5 +89,5 @@ Y para terminar, estos son los intervalos que presentan un pico en el espectro. 
 
 Tened en cuenta que este estudio está hecho sobre una lista de palabras y no refleja el uso diario del idioma. Si analizáramos un texto con sentido habría muchas palabras que se repiten mucho, como las preposiciones o los determinantes. No podemos observar esto en una lista de palabras. No obstante refleja el uso de esta aplicación que convierte palabras en números decimales que era la intención al escribirlo.
 
-Podéis encontrar los archivos relativos a esta entrada [en este enlace](http://sites.google.com/site/electronicayciencia/pal2num.rar).
+Podéis encontrar los archivos relativos a esta entrada [en este enlace]({{page.assets}}/pal2num.rar).
 

@@ -7,6 +7,7 @@ tags:
 - PC
 - Perl
 featured-image: prov_prefijos.png
+assets: /pruebas-blog/assets/2010/07/colorear-regiones-de-un-mapa-con-perl
 ---
 
 Por razones laborales tenía la necesidad de tomar un mapa de España y colorear las regiones según ciertos parámetros. Hay multitud de herramientas para hacer eso pero no con las propiedades que necesitaba, así que me vi en la necesidad de hacer algo concreto
@@ -19,11 +20,11 @@ Por razones laborales tenía la necesidad de tomar un mapa de España y colorear
 
 No puedo publicar la herramienta completa, pero bastará con la idea y un  módulo de Perl de ejemplo.
 
-La mejor forma de colorear un mapa es partir de una **imagen vectorial**, donde cada región es un objeto y se le asigna el color de fondo que corresponda. Pero no encontré ningún mapa vectorial de España por provincias que pudiera reutilizar fácilmente. Varias aplicaciones en java y javascript y en flash. Pero adaptar eso y encontrar la forma de cambiar el color y renderizarlo desde linea de comandos me iba a llevar tiempo. Más tarde encontré un [buen mapa](http://upload.wikimedia.org/wikipedia/commons/5/5a/Provinces_of_Spain.svg) en formato SVG -fácil de manipular-, pero ya tenía programada la herramienta.
+La mejor forma de colorear un mapa es partir de una **imagen vectorial**, donde cada región es un objeto y se le asigna el color de fondo que corresponda. Pero no encontré ningún mapa vectorial de España por provincias que pudiera reutilizar fácilmente. Varias aplicaciones en java y javascript y en flash. Pero adaptar eso y encontrar la forma de cambiar el color y renderizarlo desde linea de comandos me iba a llevar tiempo. Más tarde encontré un [buen mapa]({{page.assets}}/Provinces_of_Spain.svg) en formato SVG -fácil de manipular-, pero ya tenía programada la herramienta.
 
 ## Plantilla
 
-Opté por una **solución no tan perfecta**, pero igualmente válida y muy ligera. Lo primero tomé un mapa mudo de España, grandecito y completo, por ejemplo [este](http://upload.wikimedia.org/wikipedia/commons/6/6a/Provinces_of_Spain_%28Blank_map%29.png). La idea es sencilla: primero voy a colorear cada región de un color distinto que la identifique. Y luego, usando ***convert*** (de [ImageMagick](http://www.imagemagick.org/script/index.php), reemplazaré ese color por el que tenga que tener tal región según los datos.
+Opté por una **solución no tan perfecta**, pero igualmente válida y muy ligera. Lo primero tomé un mapa mudo de España, grandecito y completo, por ejemplo [este]({{page.assets}}/Provinces_of_Spain_-Blank_map-.png). La idea es sencilla: primero voy a colorear cada región de un color distinto que la identifique. Y luego, usando ***convert*** (de [ImageMagick](http://www.imagemagick.org/script/index.php), reemplazaré ese color por el que tenga que tener tal región según los datos.
 
 Por simplificar, ya que los datos que tengo van agrupados por prefijo telefónico, he coloreado Madrid con el color #000091, Barcelona con el #000093, La Coruña con #000981 o Valencia y Alicante ambos con el #000096, etc. La numeración telefónica oficial de España la podéis consultar en [este enlace](http://www.cmt.es/cmt_ptl_ext/SelectOption.do?tipo=html&amp;detalles=090027198008a055&amp;nav=norma_buscador) de la CMT: *APÉNDICE. Listado de atribuciones y adjudicaciones vigentes del plan nacional de numeración telefónica*.
 
@@ -49,7 +50,7 @@ Cuando los valores son centrales y no importa hacia qué lado se produce la desv
 
 En ocasiones, cuando tenemos valores muy distintos en la misma imagen se emplean gradientes de 6 o más colores. Ejemplos típicos son las escalas de calor que evolucionan desde negro a blanco pasando por azul, verde, amarillo y rojo. Hay multitud de modelos.
 
-En la página antes dicha hay varios gradientes con sus archivos .dat, para transformar ese formato a un array de Perl se usa el script *grad2perl.pl* que os incluyo. Luego este gradiente hay que cargarlo en el módulo *ColorUtils.pm* (ver enlace de CPAN). Este no lo incluyo porque es un sólo archivo pm que se puede descargar fácilmente [de CPAN](http://search.cpan.org/%7Ejanert/Graphics-ColorUtils-0.17/lib/Graphics/ColorUtils.pm) .
+En la página antes dicha hay varios gradientes con sus archivos .dat, para transformar ese formato a un array de Perl se usa el script *grad2perl.pl* que os incluyo. Luego este gradiente hay que cargarlo en el módulo *ColorUtils.pm* (ver enlace de CPAN). Este no lo incluyo porque es un sólo archivo pm que se puede descargar fácilmente [de CPAN]({{page.assets}}/ColorUtils.pm) .
 
 ## Uso
 
@@ -78,5 +79,5 @@ Después la imagen se guarda en un archivo con formato PNG y se inserta el títu
 
 {% include image.html file="mapacolor_ej1.png" caption="" %}
 
-Os dejo el programita **[aquí](http://sites.google.com/site/electronicayciencia/mapacolor.zip)** listo para descargar**.**
+Os dejo el programita **[aquí]({{page.assets}}/mapacolor.zip)** listo para descargar**.**
 

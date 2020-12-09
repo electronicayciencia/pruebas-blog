@@ -9,6 +9,7 @@ tags:
 - amplificadores
 featured-image: filtrosinc.png
 description: Introducción a los DSP y uso de un dsPIC.
+assets: /pruebas-blog/assets/2020/06/tu-primer-proyecto-con-dsp
 ---
 
 Un **DSP** es un chip pensado para hacer **Procesado Digital de Señales**. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.

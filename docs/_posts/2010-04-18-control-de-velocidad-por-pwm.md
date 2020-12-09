@@ -6,6 +6,7 @@ tags:
 - reciclado
 - circuitos
 featured-image: velomtr_sch.png
+assets: /pruebas-blog/assets/2010/04/control-de-velocidad-por-pwm
 ---
 
 Algo ligero para hoy. Se trata de un control de potencia por Modulación de Anchura de Pulsos (PWM). Está basado en un TL494CN que desoldé de una fuente de alimentación para PC estropeada. Como siempre al final de la entrada os dejo un enlace a los ficheros, incluido el datasheet y una nota de aplicación de TI titulada [Designing Switching Voltage Regulators With the TL494](http://focus.tij.co.jp/jp/lit/an/slva001d/slva001d.pdf).
@@ -46,5 +47,5 @@ Aquí tenéis una foto del circuito terminado.
 
 {% include image.html max-width="480px" file="BENQ0020.JPG" caption="" %}
 
-En [este enlace](http://sites.google.com/site/electronicayciencia/velomotor.rar) os dejo los ficheros de Eagle, el datasheet, la nota de aplicación antes mencionada y las fotos.
+En [este enlace]({{page.assets}}/velomotor.rar) os dejo los ficheros de Eagle, el datasheet, la nota de aplicación antes mencionada y las fotos.
 

@@ -7,6 +7,7 @@ tags:
 - programacion
 - DimmerIR
 featured-image: interrupciones.png
+assets: /pruebas-blog/assets/2011/02/dimmer-controlado-por-mando-distancia
 ---
 
 Si no seguís el blog o no recordáis de qué iba este proyecto, hay un resumen en esta entrada donde presentábamos el hardware: [Dimmer controlado por mando a distancia: el hardware]({{site.baseurl}}{% post_url 2010-12-10-dimmer-controlado-por-mando-distancia %}). Os recomiendo que la leáis porque hoy os traigo el software que hay que programar en el micro para hacer funcionar ese hardware.
@@ -106,5 +107,5 @@ Os decía antes que la puesta en marcha es un lío. Y se podía haber simplifica
 
 En definitiva, como experimento, cada una de las entradas del proyecto [DimmerIR](http://electronicayciencia.blogspot.com/search/label/DimmerIR) me ha enseñado cosas y me ha dado la experiencia necesaria para ahondar en este tipo de proyectos. Espero que, tanto si os habéis animado a construir el circuito, como si sólo lo habéis seguido por encima os haya aportado ideas que os sirvan para vuestros futuros proyectos.
 
-Os dejo el software en [este enlace](https://sites.google.com/site/electronicayciencia/DimmerIR_sw.rar). Y si tenéis cualquier duda escribid un comentario.
+Os dejo el software en [este enlace]({{page.assets}}/DimmerIR_sw.rar). Y si tenéis cualquier duda escribid un comentario.
 

@@ -6,6 +6,7 @@ tags:
 - óptica
 - física
 - DimmerIR
+assets: /pruebas-blog/assets/2010/06/curva-de-respuesta-del-dimmer-ir
 ---
 
 Hay varias entradas dedicadas a un proyecto para hacer un regulador de intensidad luminosa controlado (dimmer) por un mando a distancia infrarrojo. El proyecto tiene una parte hardware -pic, fuente de alimentación sin condensador, optotriac y triac-, y otra parte que es software. De la primera parte hablaremos más adelante.
@@ -22,7 +23,7 @@ Para que las subidas y bajadas de luz sean a intervalos regulares tenemos que co
 
 Eso se llama la [<em>ley de Weber</em>](http://es.wikipedia.org/wiki/Ley_de_Weber), que acaba diciendo que la respuesta de los sentidos es **logarítmica**. Esta "ley" tiene una historia interesante y de ella hablaré en otra entrada. Para el ojo se cumple muy bien con baja intensidad de luz. Por ejemplo la escala de brillo de las estrellas es logarítmica y da muy buenos resultados. En el siguiente gráfico se ve muy bien ([http://webvision.med.utah.edu/light_dark.html](http://webvision.med.utah.edu/light_dark.html)).
 
-[<img border="0" height="320" src="http://webvision.med.utah.edu/imageswv/KallDark12.jpg" width="201" />](http://webvision.med.utah.edu/imageswv/KallDark12.jpg)
+[<img border="0" height="320" src="http://webvision.med.utah.edu/imageswv/KallDark12.jpg" width="201" />]({{page.assets}}/KallDark12.jpg)
 
 Sin embargo aquí Weber no funciona porque trabajamos con luz más fuerte. Nos interesa más otra ley que es la [<em>ley de Stevens</em>](http://en.wikipedia.org/wiki/Stevens%27_power_law). Stevens propone que la respuesta no es logarítmica sino **potencial**, se podría decir que la ley de Stevens sustituye a la de Weber. Para el coeficiente debemos hacer varias pruebas y quedarnos con el que más nos guste.
 

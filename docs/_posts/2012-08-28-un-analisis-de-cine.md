@@ -7,6 +7,7 @@ tags:
 - programacion
 - Perl
 featured-image: esdla-eendp.png
+assets: /pruebas-blog/assets/2012/08/un-analisis-de-cine
 ---
 
 Vamos a hablar de cine, también hablaremos de programación, de estadística y tratamiento de datos, todo ello -te lo aseguro- relacionado con el cine. El gusto es algo muy subjetivo, por supuesto, pero hay gustos más y menos comunes así que, por una vez, me vais a permitir ser vuestro crítico de cine.
@@ -492,7 +493,7 @@ Las que más unos:
 -  **3027**  <a href="http://www.filmaffinity.com/es/film345561.html">American Pie (1999)</a> 
 -  **2972**  <a href="http://www.filmaffinity.com/es/film515456.html">Sé lo que hicisteis el último verano (1997)</a> 
 
-En [este enlace](https://sites.google.com/site/electronicayciencia/Estad-pelis.zip?attredirects=0&amp;d=1) encontraréis el siguiente contenido:
+En [este enlace]({{page.assets}}/Estad-pelis.zip) encontraréis el siguiente contenido:
 
 - El artículo en sí en formato texto y las imágenes.
 - El programa en Perl y el fichero resultante películas.dat con los datos a 08/08/2012.

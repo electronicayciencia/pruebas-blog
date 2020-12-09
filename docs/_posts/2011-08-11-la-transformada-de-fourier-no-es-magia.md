@@ -7,6 +7,7 @@ tags:
 - linux
 - sonido
 featured-image: captura_snd.png
+assets: /pruebas-blog/assets/2011/08/la-transformada-de-fourier-no-es-magia
 ---
 
 Este no es el típico artículo en plan "¡Ey, no es magia: sólo son matemáticas avanzadas y te da igual porque no vas a entender ni jota!".
@@ -31,7 +32,7 @@ Sin embargo lo que hoy os voy a mostrar, si me lo permitís, es que no se trata 
 
 {% include image.html file="audacity_pr_real.png" caption="" %}
 
-Tenemos una señal, por ejemplo la de arriba. [Escuchadla](https://sites.google.com/site/electronicayciencia/prueba_real.wav). Es un sonido suave, pero ¿de qué frecuencia? ¿Es sólo de una frecuencia pura o es una mezcla de varias?
+Tenemos una señal, por ejemplo la de arriba. [Escuchadla]({{page.assets}}/prueba_real.wav). Es un sonido suave, pero ¿de qué frecuencia? ¿Es sólo de una frecuencia pura o es una mezcla de varias?
 
 ## Correlación
 

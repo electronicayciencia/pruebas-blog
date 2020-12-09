@@ -7,6 +7,7 @@ tags:
 - osciladores
 - raspberrypi
 featured-image: FreqOsc2.png
+assets: /pruebas-blog/assets/2017/05/raspberry-pi-como-generador-de
 ---
 
 Hoy os quiero hablar sobre el generador de frecuencias de la Raspberry. Veremos cómo el BCM2835 está preparado para generar frecuencias de hasta 500Mhz. Explicaremos en qué consiste la función de GPIOCLK. Ampliaremos las posibilidades de la librería WiringPi parcheando su código fuente y os contaré cómo funciona un divisor de frecuencia fraccionario. Por fin, para terminar, como experimento práctico, conectaremos el generador a un ADC para dibujar la respuesta en frecuencia de algunos circuitos.
@@ -273,11 +274,11 @@ Pero lo más importante es una consecuencia de la técnica que no se aprecia en 
 
 Esta técnica recibe el nombre de [<em>noise shaping</em>](http://digitalsoundandmusic.com/5-3-7-the-mathematics-of-dithering-and-noise-shaping/) y es el fundamento de los filtros MASH.
 
-El BCM2835 incorpora un filtro MASH (Multi-stAge noise SHaping) de varias etapas. Para comprender bien cómo funciona leed este artículo de *Analog*: [Fundamental principles behind the Sigma-Delta ADC topology: part 2](http://www.analog.com/media/en/technical-documentation/technical-articles/Fundamental-Principles-Behind-the-Sigma-Delta-ADC-Topology-Part-2.pdf).
+El BCM2835 incorpora un filtro MASH (Multi-stAge noise SHaping) de varias etapas. Para comprender bien cómo funciona leed este artículo de *Analog*: [Fundamental principles behind the Sigma-Delta ADC topology: part 2]({{page.assets}}/Fundamental-Principles-Behind-the-Sigma-Delta-ADC-Topology-Part-2.pdf).
 
 Según el manual, no se debe conectar el filtro MASH por encima de los 25MHz. Aún así veréis proyectos que lo aprovechan, y de una forma sorprendente, como por ejemplo [PiFM](http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_Transmitter) o también [rpitx](https://github.com/F5OEO/rpitx).
 
-Si el tema os interesa y queréis comprender bien cómo funciona un PLL fraccionario leed esta nota de aplicación de TI [AN-1879 Fractional N Frequency Synthesis](http://www.ti.com/lit/an/snaa062a/snaa062a.pdf).
+Si el tema os interesa y queréis comprender bien cómo funciona un PLL fraccionario leed esta nota de aplicación de TI [AN-1879 Fractional N Frequency Synthesis]({{page.assets}}/snaa062a.pdf).
 
 ¿Suficiente teoría por hoy? Vamos a la práctica.
 

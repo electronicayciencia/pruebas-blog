@@ -9,6 +9,7 @@ tags:
 - circuitos
 - Perl
 featured-image: esquema.png
+assets: /pruebas-blog/assets/2010/09/sensor-optico-sencillo-con-amplio-rango
 ---
 
 Llevo ya unas cuantas entradas que no publico algo serio de electrónica. Espero que os guste este experimento. Se trata de usar la capacidad parásita de un LED para medir la luz incidente. Aviso de que esta entrada es larga.
@@ -124,7 +125,7 @@ $$
 
 ## Programación del PC
 
-Ahora que tenemos un circuito que envía datos periódicamente al PC, tendremos que recogerlos. He optado por hacer el programa en Perl. El módulo [Device::SerialPort](http://search.cpan.org/dist/Device-SerialPort/SerialPort.pm) que podéis encontrar en CPAN es muy fácil de usar y además funciona tanto en Linux como en Windows.
+Ahora que tenemos un circuito que envía datos periódicamente al PC, tendremos que recogerlos. He optado por hacer el programa en Perl. El módulo [Device::SerialPort]({{page.assets}}/SerialPort.pm) que podéis encontrar en CPAN es muy fácil de usar y además funciona tanto en Linux como en Windows.
 
 El [adaptador]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %}) que hemos usado se conecta al USB y, en Linux, crea un dispositivo serie de nombre */dev/ttyUSB?*. Nosotros tenemos que leer del puerto hasta encontrar una cadena con el formato *(xxxxxxxxxx)* que son los paquetes que transmite el detector.
 
@@ -250,5 +251,5 @@ Así utilizado, el tiempo de medición depende de la cantidad de luz. Con poca l
 
 También hemos aprendido a medir capacidades con un PIC. Este método nos puede servir más adelante en otros proyectos.
 
-Como siempre, os dejo los archivos [en esta dirección](https://sites.google.com/site/electronicayciencia/sensorled.rar). Van las dos versiones del programa para el micro (sonido, y transmisor de datos) y el recolector de datos en Perl. Así como los datos recogidos durante el experimento.
+Como siempre, os dejo los archivos [en esta dirección]({{page.assets}}/sensorled.rar). Van las dos versiones del programa para el micro (sonido, y transmisor de datos) y el recolector de datos en Perl. Así como los datos recogidos durante el experimento.
 

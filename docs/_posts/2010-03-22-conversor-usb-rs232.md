@@ -7,6 +7,7 @@ tags:
 - reciclado
 - PC
 featured-image: Imagen148.jpg
+assets: /pruebas-blog/assets/2010/03/conversor-usb-rs232
 ---
 
 Hola.

@@ -5,6 +5,7 @@ author: Electrónica y Ciencia
 tags:
 - estadística
 featured-image: esperanza_aciertos.png
+assets: /pruebas-blog/assets/2011/09/estadistica-de-los-examenes-tipo-test
 ---
 
 La semana pasada hice un examen tipo test. Eran 150 preguntas y pedían, para aprobar, el 70%. La pregunta es ¿ese 70% tiene su justificación matemática o es más bien un limite arbitrario? Vamos a hablar de cómo interviene el azar al responder preguntas y de las diferentes formas de compensarlo.

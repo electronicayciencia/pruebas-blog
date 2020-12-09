@@ -4,6 +4,7 @@ title: 'Síntesis de cloroformo a partir de productos de limpieza: estequiometr�
 author: Electrónica y Ciencia
 tags:
 - química
+assets: /pruebas-blog/assets/2010/08/sintesis-de-cloroformo-partir-de
 ---
 
 Hay multitud de productos químicos en cualquier casa y las reacciones entre ellos son múltiples y variadas. Al mezclar, por ejemplo, un álcali clorado como la lejía con un ácido fuerte también basado en el cloro como el salfumán, se produce una neutralización con generoso desprendimiento de cloro. Este gas es tóxico, irritante y mata por asfixia, así que cuidado con él.
@@ -16,7 +17,7 @@ Viendo el experimento desde el punto de vista químico, lo que sucede es la [<b>
 
 Estoy flojo de orgánica, si alguien es capaz de entender el párrafo anterior que por favor me lo explique.
 
-**Nota** aclaratoria para los tertulianos de [endoroot](http://www.endoroot.com/modules/newbb/viewtopic.php?topic_id=3154&amp;forum=4&amp;post_id=31258)  que están debatiendo el tema. La reacción del haloformo se utiliza en  determinación cualitativa tanto de acetona como de alcoholes secundarios  y de etanol. No se suele usar la del cloroformo sino la del iodoformo.  No os costará encontrar [referencias](http://www.google.com/search?q=ethanol+iodoform).  En general sustancias que contienen una estructura R-CO-CH3. Si R es  otro CH3 hablamos de acetona. Si R es un simple H lo que tenemos es  etanal (acetaldehido) que también funciona. La reacción no se da con  etanol directamente, pero este [fácilmente](http://www.chemguide.co.uk/organicprops/alcohols/chi3flowoh.gif) se oxida a etanal.
+**Nota** aclaratoria para los tertulianos de [endoroot](http://www.endoroot.com/modules/newbb/viewtopic.php?topic_id=3154&amp;forum=4&amp;post_id=31258)  que están debatiendo el tema. La reacción del haloformo se utiliza en  determinación cualitativa tanto de acetona como de alcoholes secundarios  y de etanol. No se suele usar la del cloroformo sino la del iodoformo.  No os costará encontrar [referencias](http://www.google.com/search?q=ethanol+iodoform).  En general sustancias que contienen una estructura R-CO-CH3. Si R es  otro CH3 hablamos de acetona. Si R es un simple H lo que tenemos es  etanal (acetaldehido) que también funciona. La reacción no se da con  etanol directamente, pero este [fácilmente]({{page.assets}}/chi3flowoh.gif) se oxida a etanal.
 
 ## Estequiometría
 

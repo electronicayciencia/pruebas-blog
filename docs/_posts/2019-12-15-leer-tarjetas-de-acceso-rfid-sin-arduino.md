@@ -8,6 +8,7 @@ tags:
 - osciladores
 - amplificadores
 featured-image: fob_foto.jpg
+assets: /pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
 ---
 
 Hoy comenzaremos hablando de osciladores, palos de bambú y géiseres y terminaremos hablando de seguridad física. Porque ¿sabes que las cocinas de inducción, los cargadores inalámbricos y algunos antirrobos se basan en el mismo principio que los tornos de entrada al trabajo?
@@ -24,7 +25,7 @@ En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.ba
 
 Lo primero que necesitamos es un oscilador. ¿Podríamos haber usado un generador de funciones? Sí, por supuesto, pero este es un blog de electrónica a bajo nivel. Para leer una tarjeta RFID también se puede usar un lector con un Arduino o una Raspberry y dejarnos de historias.
 
-Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil de construir. Hay muchas opciones. En esta ocasión he optado por un oscilador de **relajación** usando comparadores LM393 ([datasheet](http://www.ti.com/lit/ds/symlink/lm2903-n.pdf)). Se trata de un comparador muy habitual y, si miráis el datasheet, su tiempo de respuesta es de 300ns, así que nos servirá para oscilar hasta pasado el MHz si hiciera falta.
+Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil de construir. Hay muchas opciones. En esta ocasión he optado por un oscilador de **relajación** usando comparadores LM393 ([datasheet]({{page.assets}}/lm2903-n.pdf)). Se trata de un comparador muy habitual y, si miráis el datasheet, su tiempo de respuesta es de 300ns, así que nos servirá para oscilar hasta pasado el MHz si hiciera falta.
 
 A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior.
 

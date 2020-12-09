@@ -5,6 +5,7 @@ author: Electrónica y Ciencia
 tags:
 - PC
 featured-image: BENQ0003.JPG
+assets: /pruebas-blog/assets/2010/09/vierten-la-tinta-adrede-las-impresoras
 ---
 
 Una entrada rápida antes del rollo estadístico que va a salir este miércoles.

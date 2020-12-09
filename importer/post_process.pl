@@ -11,6 +11,8 @@
 my $postsdir = "_posts";
 my $description_file = "descriptions.dat";
 my $default_description = "";
+my $assets_local_dir = "/home/reinoso/pruebas-blog/docs/assets";
+my $assets_base_url = "/pruebas-blog/assets";
 
 
 use strict;
@@ -30,6 +32,8 @@ use Data::Dumper;
 
 my %parts;
 my $featured_image;
+my $assets_url;
+my $assets_local;
 
 # Get description from title.
 # beware with ':'
@@ -44,6 +48,15 @@ sub get_description {
 	}
 	close $fh;
 	return $default_description;
+}
+
+# Return the relative url for file name
+sub get_assets_location {
+	my $filename = shift;
+	my ($year, $mon, $day, $title) = $filename =~ m{^.*/(\d+)-(\d+)-(\d+)-(.+)\.html$} or 
+		die "Filename $filename non conformant.\n";
+	
+	return ("$assets_base_url/$year/$mon/$title", "$assets_local_dir/$year/$mon/$title");
 }
 
 
@@ -229,6 +242,8 @@ sub trim {
 	return $s;
 }
 
+
+# Needs global variable assets.
 sub process_head {
 	my $s = shift;
 	$s = trim($s);
@@ -250,6 +265,9 @@ sub process_head {
 	my ($title) = $s =~ m{^title: (.*)$}m;
 	my $descr = get_description($title);
 	$s =~ s{$}{\ndescription: $descr} if $descr;
+
+	# Add assets variable
+	$s =~ s{$}{\nassets: $assets_url} if $assets_url;
 
 	# Collapse blanks
 	$s =~ s/\n+/\n/g;
@@ -471,6 +489,23 @@ sub format_equation {
 
 sub format_link {
 	my ($href, $text) = @_;
+	my $asset = 0;
+
+	my $link = $href;
+	$link =~ s/#.*$//; # strip this, is local to browser
+	if ($link =~ m{.*/([^/]+\.[a-z]\w+)($|\?.*)}i) {
+
+		my $file = $1;
+		$file =~ s/%25/%/g;
+		$file =~ s/%../-/g;
+
+		# Link may be a local asset?
+		if ($file and -e "$assets_local/$file") {
+			#print STDERR "Debug: link '$href' now is local '$file'.\n";
+			return parts_store("[$text]({{page.assets}}/$file)", "link");
+		}
+	}
+
 	return parts_store("[$text]($href)", "link");
 }
 
@@ -687,7 +722,14 @@ sub process_body {
 }
 
 
-my $content = do { local $/; <> };
+my $filename = $ARGV[0] or die "Usage: $0 yyyy-mm-dd-posttitle.html\n";
+
+open my $fh, $filename or die "$!\n";
+my $content = do { local $/; <$fh> };
+close $fh;
+
+($assets_url, $assets_local) = get_assets_location($filename);
+
 my ($head, $body) = $content =~ m/^---$(.+?)^---$(.*)/ms;
 
 

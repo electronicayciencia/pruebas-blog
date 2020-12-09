@@ -5,6 +5,7 @@ author: Electrónica y Ciencia
 tags:
 - estadística
 featured-image: t_normalizada_m1m2.png
+assets: /pruebas-blog/assets/2010/09/inferencia-estadistica-ii-introduccion
 ---
 
 En una [entrada anterior]({{site.baseurl}}{% post_url 2010-09-01-inferencia-estadistica-capacidad-de-una %}) sobre estadística, nos quedamos a las puertas de hablar de los tests de hipótesis. Los principios de este tema no suelen explicarse del todo bien en los textos de estadística.

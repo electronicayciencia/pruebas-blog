@@ -7,6 +7,7 @@ tags:
 - sonido
 - amplificadores
 featured-image: linea_recta.png
+assets: /pruebas-blog/assets/2013/03/la-distorsion-armonica-total-thd
 ---
 
 Cualquier aficionado a la música o a la electrónica conoce lo que es la distorsión. En este artículo hablaremos de la importancia de la no linealidad en la distorsión y de cómo se mide si un amplificador distorsiona más o menos que otro.
@@ -427,7 +428,7 @@ Evidentemente cuanto más peso tengan los términos de orden superior más poten
 
 Pero no toda distorsión es mala. En un amplificador por supuesto que sí, pero en otros circuitos es justo lo contrario: aprovechamos precisamente la no linealidad. ¿Os habéis fijado en que siempre aparece la frecuencia suma y la frecuencia diferencia? Pues eso se puede potenciar, y nos interesa por ejemplo para hacer [receptores de radio](http://es.wikipedia.org/wiki/Receptor_superheterodino). O **demoduladores**.
 
-Hay integrados dedicados exclusivamente a mezclar frecuencias para obtener la diferencia o la suma de ellas. Uno muy conocido es el [NE602](http://www.nxp.com/documents/data_sheet/SA602A.pdf). Aunque tiene también sus detractores, precisamente por los productos de **tercer orden**: [Why NOT to use the NE602](http://home.tiscali.nl/curious_about/PA1DSP/Articles/why_not_to_use_the_ne602_.doc/index.html)  .
+Hay integrados dedicados exclusivamente a mezclar frecuencias para obtener la diferencia o la suma de ellas. Uno muy conocido es el [NE602]({{page.assets}}/SA602A.pdf). Aunque tiene también sus detractores, precisamente por los productos de **tercer orden**: [Why NOT to use the NE602](http://home.tiscali.nl/curious_about/PA1DSP/Articles/why_not_to_use_the_ne602_.doc/index.html)  .
 
 En la siguiente entrada haremos un circuito **mezclador** de frecuencias. Aunque no basado en lo anterior, sino en otro principio diferente también muy interesante.
 

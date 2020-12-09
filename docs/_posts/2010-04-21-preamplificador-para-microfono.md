@@ -8,6 +8,7 @@ tags:
 - sonido
 - amplificadores
 featured-image: BENQ0013.JPG
+assets: /pruebas-blog/assets/2010/04/preamplificador-para-microfono
 ---
 
 Actualización: Este es un preamplificador de baja calidad a transistores que tiene puntos flojos. Si buscas preamplificar un micrófono de una manera más sencilla tal vez te interesa [esta otra entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}).

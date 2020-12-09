@@ -8,6 +8,7 @@ tags:
 - programacion
 - biología
 featured-image: uranium-cloud-chamber.gif
+assets: /pruebas-blog/assets/2019/07/un-contador-radiactivo-de-mentira
 ---
 
 Hoy os propongo *imitar* un contador Geiger. Suena como tal, mide como tal, pero -en vez a la radiación- reacciona a la **temperatura**.
@@ -42,7 +43,7 @@ Otro ejemplo, el LND-712, tiene además una ventana para detectar partículas al
 
 Para aprender más sobre distintos tubos y sus características podéis visitar [ GM Tube Info](https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported)
 
-Ahora bien, radiaciones hay de muchos tipos. Hay partículas **alfa**, tan gordas y cargadas que se dejan toda su energía en atravesar unos centímetros de aire o una fina hoja de papel. Hay partículas **beta** que son electrones rápidos (algunos muy rápidos). Hay partículas **gamma** que son fotones muy energéticos. Un repaso rápido [si recordáis](https://upload.wikimedia.org/wikipedia/commons/4/48/EM-spectrum.svg), en orden creciente los fotones van así: las ondas de radio (incluyendo microondas), infrarrojos, luego luz visible -del rojo al violeta-, ultravioleta A y B, luego UV-C [(estos ya son un poco ionizantes)](https://www.hongkongfp.com/2017/10/26/partygoers-left-burns-light-sensitivity-hypebeast-event-landmark/), después van los **rayos X** y finalmente, todo lo que sigue con energías mayores, eso son los rayos Gamma. Luego en partículas también están los neutrones, muones, neutrinos, etc.
+Ahora bien, radiaciones hay de muchos tipos. Hay partículas **alfa**, tan gordas y cargadas que se dejan toda su energía en atravesar unos centímetros de aire o una fina hoja de papel. Hay partículas **beta** que son electrones rápidos (algunos muy rápidos). Hay partículas **gamma** que son fotones muy energéticos. Un repaso rápido [si recordáis]({{page.assets}}/EM-spectrum.svg), en orden creciente los fotones van así: las ondas de radio (incluyendo microondas), infrarrojos, luego luz visible -del rojo al violeta-, ultravioleta A y B, luego UV-C [(estos ya son un poco ionizantes)](https://www.hongkongfp.com/2017/10/26/partygoers-left-burns-light-sensitivity-hypebeast-event-landmark/), después van los **rayos X** y finalmente, todo lo que sigue con energías mayores, eso son los rayos Gamma. Luego en partículas también están los neutrones, muones, neutrinos, etc.
 
 ¿Y un tubo GM las detecta todas? ¡Qué va! Las alfa y las beta sí son fáciles de detectar, porque están cargadas y crean iones fácilmente. Las alfa no pueden atravesar las paredes del tubo si son metálicas o de vidrio, pero hay tubos con una fina ventana de mica para poder detectarlas. Los rayos X y gammas no tienen carga, aunque llevan tanta energía que arrancan electrones de las mismísimas paredes del tubo y esos electrones sí provocan la descarga. Detectar neutrones requiere de un tubo especial.
 
@@ -252,7 +253,7 @@ unsigned int16 apertura(int8 x) {
 }
 ```
 
-Os podéis descargar la [hoja de cálculo aquí](https://github.com/electronicayciencia/termogeiger/raw/master/firmware/termogeiger/TermoGeiger.xlsx).
+Os podéis descargar la [hoja de cálculo aquí]({{page.assets}}/TermoGeiger.xlsx).
 
 Tras detenernos en las dos funciones más importantes, vamos al bucle principal.
 

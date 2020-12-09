@@ -7,6 +7,7 @@ tags:
 - sonido
 - amplificadores
 featured-image: copa.jpg
+assets: /pruebas-blog/assets/2010/04/espectroscopia-casera-con-copas
 ---
 
 La [espectroscopia](http://es.wikipedia.org/wiki/Espectroscopia) es una técnica analítica que nos permite distinguir los componentes de una sustancia desconocida. Aprovecha que cada molécula tiene una configuración específica y por tanto unas frecuencias de resonancia que la caracterizan. En estas frecuencias la molécula vibra acumulando la energía de la onda, hecho que puede producir calor. Tal es el fundamento del microondas.
@@ -96,5 +97,5 @@ Para terminar, os dejo el espectro completo de A hasta los 15.000Hz. Espero que 
 
 {% include image.html file="espectro_A.png" caption="" %}
 
-Como siempre, podéis encontrar los ficheros utilizados en esta entrada [aquí](http://sites.google.com/site/electronicayciencia/espectroscopia_copas.zip).
+Como siempre, podéis encontrar los ficheros utilizados en esta entrada [aquí]({{page.assets}}/espectroscopia_copas.zip).
 

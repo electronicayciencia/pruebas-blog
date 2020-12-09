@@ -7,6 +7,7 @@ tags:
 - DimmerIR
 - telemandos
 featured-image: 0_1.png
+assets: /pruebas-blog/assets/2010/05/receptor-con-pic-para-mandos
 ---
 
 El formato NEC es una de las codificaciones más extendidas en los mandos a distancia de electrodomésticos baratos, sobre todo los de marca *Nisu*: televisores, vídeos, TDT, DVD, minicadenas, etc. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-01-decodificacion-del-protocolo-rc5-usando %}) ya hablamos sobre otro protocolo de mando a distancia: el RC5. Leer el formato NEC es mucho más sencillo, pero por otro lado requiere más memoria.
@@ -214,7 +215,7 @@ Como veis, dentro de cada código el comando se transmite dos veces. Una vez nor
 
 {% include image.html file="tren_de_pulsos_desglosado.png" caption="" %}
 
-En [este enlace](http://sites.google.com/site/electronicayciencia/receptorNEC.rar) os dejo los ficheros utilizados:
+En [este enlace]({{page.assets}}/receptorNEC.rar) os dejo los ficheros utilizados:
 
 - Código en C y cabeceras.
 - Imágenes.

@@ -7,6 +7,7 @@ tags:
 - circuitos
 - osciladores
 featured-image: VI_C.png
+assets: /pruebas-blog/assets/2011/05/el-circuito-rlc-serie-oscilaciones
 ---
 
 Antes de nada, os quiero pedir disculpas por el parón que ha sufrido el blog lo que va de año. Todos necesitamos un respiro de vez en cuando, y otras aficiones me han comido mucho tiempo.

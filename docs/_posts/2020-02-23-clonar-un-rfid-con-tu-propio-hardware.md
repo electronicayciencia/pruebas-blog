@@ -7,6 +7,7 @@ tags:
 - programacion
 - circuitos
 featured-image: yellow_fob.jpg
+assets: /pruebas-blog/assets/2020/02/clonar-un-rfid-con-tu-propio-hardware
 ---
 
 En el [artículo anterior]({{site.baseurl}}{% post_url 2019-12-15-leer-tarjetas-de-acceso-rfid-sin-arduino %}) tratamos sobre leer tarjetas de proximidad. Y acabamos diciendo lo fácil que es copiar las más básicas.
@@ -33,7 +34,7 @@ El EM4305 es más simple. Su datasheet tiene 19 páginas frente a las 47 página
 
 ## El EM4305
 
-Aquí tenéis el [datasheet](http://www.emmicroelectronic.com/sites/default/files/products/datasheets/4205-4305-DS-01.pdf). Lo leemos buscando la respuesta a tres preguntas: ¿Cómo nos comunicamos con él? ¿Cómo grabamos un mensaje? ¿Cómo configuramos la velocidad y modulación?
+Aquí tenéis el [datasheet]({{page.assets}}/4205-4305-DS-01.pdf). Lo leemos buscando la respuesta a tres preguntas: ¿Cómo nos comunicamos con él? ¿Cómo grabamos un mensaje? ¿Cómo configuramos la velocidad y modulación?
 
 El fabricante nos presenta este chip enumerando sus características. Dice que tiene 16 registros de 32 bits de memoria. Identificador único de 32 bits, protección por contraseña, bloqueo de escritura, compatible con los estándares de identificación animal, etc. Desde nuestro punto de vista lo más importante es:
 
@@ -64,7 +65,7 @@ Respondiendo a las preguntas del principio: *¿Cómo nos comunicamos con él?* I
 
 ## Hardware
 
-El [EM4095](https://www.emmicroelectronic.com/sites/default/files/products/datasheets/em4095_ds.pdf) es un integrado especialmente diseñado para interactuar con el EM4305 y similares. Es muy sencillo de usar. Tan sólo requiere antena, algunos componentes y un microcontrolador. Paso. Me quedo con el microcontrolador sólo.
+El [EM4095]({{page.assets}}/em4095_ds.pdf) es un integrado especialmente diseñado para interactuar con el EM4305 y similares. Es muy sencillo de usar. Tan sólo requiere antena, algunos componentes y un microcontrolador. Paso. Me quedo con el microcontrolador sólo.
 
 En estos proyectos de baja frecuencia la velocidad de transferencia también es baja. RF/32 por ejemplo son 4kHz. Se puede procesar en un microcontrolador de propósito general. Para jugar con velocidades no mucho mayores ya necesitaríamos un DSP.
 
@@ -198,7 +199,7 @@ Para escribir en un registro, habríamos enviado la estructura del comando **wri
 
 ¿Recordáis cómo hemos ido simplificando el firmware y dejándole esa complejidad a nuestro yo del **futuro**?
 
-Pues como cabía esperar, nos ha quedado un software algo complejo, sólo voy a dar algunas pinceladas. Lo tenéis completo en GitHub: [em4205.py](https://github.com/electronicayciencia/rfid-rw/blob/master/soft_pc/em4205.py).
+Pues como cabía esperar, nos ha quedado un software algo complejo, sólo voy a dar algunas pinceladas. Lo tenéis completo en GitHub: [em4205.py]({{page.assets}}/em4205.py).
 
 Hay un conjunto de cosas básicas que hemos decidido hacer en el software:
 
@@ -387,7 +388,7 @@ Parecen idénticos. Pero... un momento, estamos haciendo todas las pruebas con u
 
 {% include image.html file="rdm6300_reader.jpg" caption="Lector comercial RFID 125kHz. Fuente: Aliexpress." %}
 
-Con ayuda de un sencillo programa (que os dejo en GitHub: [rdm6300.py](https://github.com/electronicayciencia/rfid-rw/blob/master/soft_pc/rdm6300.py)) comprobaremos si este lector también da la misma lectura para el original y la copia. Probaré a suplantar al *Sr. Jiminis* con mi llavero amarillo.
+Con ayuda de un sencillo programa (que os dejo en GitHub: [rdm6300.py]({{page.assets}}/rdm6300.py)) comprobaremos si este lector también da la misma lectura para el original y la copia. Probaré a suplantar al *Sr. Jiminis* con mi llavero amarillo.
 
 {% include image.html file="fake_acces_control.png" caption="Control de acceso simulado. Se identifica al Sr. Jiminis con ambos dispositivos." %}
 

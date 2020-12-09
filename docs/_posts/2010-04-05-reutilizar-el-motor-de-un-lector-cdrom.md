@@ -6,6 +6,7 @@ tags:
 - reciclado
 - PC
 featured-image: imagecompatibility.php
+assets: /pruebas-blog/assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom
 ---
 
 Hoy tenemos un lector de CDROM para desguazar. Es un tanto antiguo, pero eso nos favorece. Como ya os podéis imaginar mientras más moderno es un cacharro, mayor grado de integración y más complicado es reutilizar sus componentes.
@@ -35,7 +36,7 @@ Encontrar su datasheet es una tarea de chinos (a veces literalmente). Cada fabri
 - ¿Hay más motores que controle ese driver? Algunos integrados también llevan el motor del pick-up o de la bandeja. Si veis que esos motores van a parar al mismo integrado, debe indicarse en el datasheet.
 - Por último, casi todos los datasheet incluyen un ejemplo de aplicación. Y los fabricantes no le echan mucha imaginación, comprobad que en buena medida se corresponden.
 
-En mi caso descubrí que la referencia que veis arriba se corresponde con el patillaje del KA3020D. Cuyo datasheet podéis encontrar [aquí](http://sites.google.com/site/electronicayciencia/KA3020D-BA6869FP.pdf). Y este esquema de ejemplo es muy parecido al que veo en la placa -es difícil asegurarlo, teniendo en cuenta que los componentes son SMD y el PCB tiene varias capas-.
+En mi caso descubrí que la referencia que veis arriba se corresponde con el patillaje del KA3020D. Cuyo datasheet podéis encontrar [aquí]({{page.assets}}/KA3020D-BA6869FP.pdf). Y este esquema de ejemplo es muy parecido al que veo en la placa -es difícil asegurarlo, teniendo en cuenta que los componentes son SMD y el PCB tiene varias capas-.
 
 {% include image.html file="esquema_tipico.png" caption="" %}
 

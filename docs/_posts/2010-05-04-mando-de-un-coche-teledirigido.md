@@ -7,6 +7,7 @@ tags:
 - osciladores
 - telemandos
 featured-image: circuito.png
+assets: /pruebas-blog/assets/2010/05/mando-de-un-coche-teledirigido
 ---
 
 Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botones, es el clásico *avanza / gira mientras retrocede*. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-30-obtener-el-esquema-desde-una-placa-de %}) obtuvimos el esquema desde la placa. Ahora, como prometimos, lo analizaremos para saber cómo funciona.
@@ -36,5 +37,5 @@ Como la oscilación depende de que haya tensión positiva en el colector de Q1, 
 
 La salida del oscilador pasa a través de C3 que filtrará la componente continua. C2, L1 y C1 forman un filtro pasabajos para atenuar las frecuencias espurias de la modulación, así como los armónicos generados por Q1. L1 está formada por 16 espiras de hilo de 0.4mm sobre un soporte de 7mm de diámetro provisto de núcleo de ferrita ajustable. Ya el hecho de que esté sellado con cera nos indica que es importante efectuar un buen ajuste para maximizar potencia a la frecuencia que queremos mientras eliminamos las indeseadas.
 
-Como de costumbre os dejo los archivos utilizados en esta entrada [aquí](http://sites.google.com/site/electronicayciencia/mandobao.rar).
+Como de costumbre os dejo los archivos utilizados en esta entrada [aquí]({{page.assets}}/mandobao.rar).
 

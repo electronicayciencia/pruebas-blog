@@ -7,6 +7,7 @@ tags:
 - sonido
 - amplificadores
 featured-image: conn_electret.png
+assets: /pruebas-blog/assets/2010/06/utilizar-un-microfono-electret
 ---
 
 Habíamos publicado en [esta entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}) los pasos a la hora de registrar una señal, concretamente una señal sonora. Habíamos planteado más o menos estos:
@@ -59,7 +60,7 @@ Todo eso contando, claro, que vamos a usar el micrófono para captar señales en
 
 ## Cómo conectar una cápsula electret
 
-Hay decenas de páginas que explican cómo conectarla. Cuando compras una, a veces trae un papelito con el esquema. En esta imagen se ve bien (encontrada [aquí](http://www.mare.ee/indrek/speakit/electret.png)):
+Hay decenas de páginas que explican cómo conectarla. Cuando compras una, a veces trae un papelito con el esquema. En esta imagen se ve bien (encontrada [aquí]({{page.assets}}/electret.png)):
 
 {% include image.html file="conn_electret.png" caption="" %}
 
@@ -101,5 +102,5 @@ El que las cápsulas estén preamplificadas es una ventaja para registrar sonido
 
 Es todo por ahora. Si os ha interesado el tema podéis encontrar mucha más información buscando un poco. En esta página he encontrado un interesante artículo sobre micrófonos [http://sound.westhost.com/articles/microphones.htm](http://sound.westhost.com/articles/microphones.htm).
 
-Aquí el datasheet del [2SK596](http://sites.google.com/site/electronicayciencia/2sk596.pdf).
+Aquí el datasheet del [2SK596]({{page.assets}}/2sk596.pdf).
 

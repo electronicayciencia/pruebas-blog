@@ -7,6 +7,7 @@ tags:
 - óptica
 - Perl
 featured-image: sopa.png
+assets: /pruebas-blog/assets/2012/05/convolucion-de-dos-imagenes-homografos
 ---
 
 En [una entrada anterior]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}) os decía que en breve presentaría una aplicación de la transformada de Fourier en dos dimensiones. Pues bien, [como decíamos ayer](http://curistoria.blogspot.com.es/2008/04/fray-luis-de-len-como-decamos-ayer.html), voy a utilizar la transformada, y más concretamente multiplicar dos transformadas, para encontrar patrones dentro de una imagen. Lo que técnicamente se llama *Template Matching*.
@@ -354,7 +355,7 @@ cіenсіa сіenсіa cіencia
 сiеnсіa cіеnсia сіеnсiа
 ```
 
-Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo <em>verbatim</em>](http://support.google.com/websearch/bin/answer.py?hl=es&amp;p=g_verb&amp;answer=1734130) de google para que no os muestre palabras semejantes o relacionadas):
+Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo <em>verbatim</em>]({{page.assets}}/answer.py) de google para que no os muestre palabras semejantes o relacionadas):
 
 {% include image.html file="ciencia_google.png" caption="" %}
 
@@ -374,5 +375,5 @@ Otros navegadores, por comodidad permiten al usuario decidir si prefiere ver el 
 
 No me consta que sea un ataque muy difundido a día de hoy, pero es una amenaza y podría ser un problema de seguridad en el futuro.
 
-Como siempre os dejo el código, una base de datos para pruebas, algunas imágenes y ejemplos en [este enlace](https://sites.google.com/site/electronicayciencia/homografos.zip).
+Como siempre os dejo el código, una base de datos para pruebas, algunas imágenes y ejemplos en [este enlace]({{page.assets}}/homografos.zip).
 

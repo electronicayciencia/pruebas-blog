@@ -7,6 +7,7 @@ tags:
 - sonido
 - amplificadores
 featured-image: alim_dual.png
+assets: /pruebas-blog/assets/2010/05/preamplificador-microfono-electret
 ---
 
 Viendo las estadísticas del blog me sorprende la cantidad de gente que busca un preamplificador para micrófono. Creo que sería bueno publicar algunas entradas al respecto.

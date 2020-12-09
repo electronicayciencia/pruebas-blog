@@ -4,11 +4,12 @@ title:  "Try One Post"
 date:   2020-12-01
 tags: catI catII catIII
 description: Here is the description
+assets: /prueba-blog/assets/2020/12/try-one-post
 ---
 
 This name ends in .md, not .markdown.
 
-This is a static asset for you: [file1](file1.txt).
+This is a static asset for you: [file1]({{assets}}/file1.txt).
 
 
 Code:
@@ -33,6 +34,7 @@ Var.page: {{ page.path }}
 
 - Custom var: {{page.assetfolder}}
 - Site.baseurl: {{site.baseurl}}
+- Testing: {{site.testing}}
 - page.slug: {{page.slug}}
 - page.assets: {{page.assets}}
 

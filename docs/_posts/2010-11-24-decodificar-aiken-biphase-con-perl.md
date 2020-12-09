@@ -7,6 +7,7 @@ tags:
 - Perl
 - amplificadores
 featured-image: acelerando.png
+assets: /pruebas-blog/assets/2010/11/decodificar-aiken-biphase-con-perl
 ---
 
 Antes de nada quería mandar un saludo a Explorer de [perlenespanol.com](http://perlenespanol.com/). Porque, sin conocernos previamente, se ve que le gustan mis artículos. Pues casi desde que empecé con el blog todo lo que escribo que tenga que ver con Perl acaba reseñado en su foro.
@@ -39,7 +40,7 @@ Por si os ha sorprendido: sí, se puede. Con un cabezal de cinta se pueden leer 
 
 Casi todas las tarjetas se adhieren a un formato concreto. Por la sencilla razón de que es más fácil implementar una norma que ya está hecha y se usa, que diseñar un sistema desde cero. No obstante también los hay que usan sus propios [formatos no estándar](http://www.gae.ucm.es/%7Epadilla/extrawork/magexam2.html). Por lo general casi siempre se usa Aiken Biphase pero no es el único sistema.
 
-Doy brevemente unas pinceladas sobre cómo se graba la información en una banda magnética para que entendáis de dónde viene la forma de la señal que vamos a tratar. El siguiente dibujo está sacado de [http://www.gae.ucm.es/~padilla/extrawork/card-o-rama.txt](http://www.gae.ucm.es/%7Epadilla/extrawork/card-o-rama.txt). La cabeza grabadora/lectora es simplemente un anillo de un metal ferromagnético pero no cerrado, sino con un hueco diminuto en la pate que se expone a la cinta. Hay un cable que está enrollado al anillo, con muchas muchas espiras, y es con el que captaremos la señal, o la grabaremos.
+Doy brevemente unas pinceladas sobre cómo se graba la información en una banda magnética para que entendáis de dónde viene la forma de la señal que vamos a tratar. El siguiente dibujo está sacado de [http://www.gae.ucm.es/~padilla/extrawork/card-o-rama.txt]({{page.assets}}/card-o-rama.txt). La cabeza grabadora/lectora es simplemente un anillo de un metal ferromagnético pero no cerrado, sino con un hueco diminuto en la pate que se expone a la cinta. Hay un cable que está enrollado al anillo, con muchas muchas espiras, y es con el que captaremos la señal, o la grabaremos.
 
     >
 

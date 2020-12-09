@@ -6,6 +6,7 @@ tags:
 - circuitos
 - telemandos
 featured-image: alzado_placa.JPG
+assets: /pruebas-blog/assets/2010/09/receptor-coche-rc-de-dos-canales
 ---
 
 Alguien anónimo me dejó un comentario en [esta entrada]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}) pidiendo que, ya que había analizado el transmisor, describiera también el receptor. El comentario lo borré, por la falta de cuidado de su redactor, pero la petición me pareció acertada. Un receptor típico de un coche barato *made in China* no tiene mucha miga. Este que os presento es de uno que me costó entre 3 y 4 euros (para quienes les resulte más familiar, unos 4.5 USD).
@@ -80,5 +81,5 @@ En algunos circuitos esta parte no está bien diseñada, y se acopla la RF con l
 
 Por si os interesa el tema, hay una página con otros esquemas de este tipo que me ha gustado mucho: [http://talkingelectronics.com/projects/27MHz%20Transmitters/27MHzLinks-2.html](http://talkingelectronics.com/projects/27MHz%20Transmitters/27MHzLinks-2.html)
 
-Y como de costumbre, os dejo los archivos [aquí](https://sites.google.com/site/electronicayciencia/ReceptorRC_RX-3.rar).
+Y como de costumbre, os dejo los archivos [aquí]({{page.assets}}/ReceptorRC_RX-3.rar).
 

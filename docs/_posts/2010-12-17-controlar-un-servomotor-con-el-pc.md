@@ -6,6 +6,7 @@ tags:
 - microcontroladores
 - programacion
 featured-image: pulsos_wikipedia.png
+assets: /pruebas-blog/assets/2010/12/controlar-un-servomotor-con-el-pc
 ---
 
 Supongo que muchos estaréis familiarizados con los servos. No es mi caso. Por unas cosas u otras nunca me he dedicado al modelismo ni a la robótica así que para mí estos motores como si no existieran. Sin embargo hace unas semanas vi uno barato en [DealExtreme](http://www.dealextreme.com/details.dx/sku.12832) y pensé que algún día puedo necesitarlo. Y para entonces mejor saber cómo se usa. Así que esta primera prueba no va a ser nada elaborado, solamente un servo, un PIC, y un PC para dar las órdenes.
@@ -244,5 +245,5 @@ En cuanto la de duración del pulso he visto que va entre 0.5ms y 2.5ms. Por deb
 
 A partir de ahí basta extrapolar para saber cuánto tiene que durar el pulso para situar el motor en la posición que queramos. Luego habrá que tener en cuenta la velocidad de giro.
 
-Esto es todo por ahora. Os dejo el enlace a los archivos [aquí](https://sites.google.com/site/electronicayciencia/servo_t1yt2.rar).
+Esto es todo por ahora. Os dejo el enlace a los archivos [aquí]({{page.assets}}/servo_t1yt2.rar).
 

@@ -6,6 +6,7 @@ tags:
 - osciladores
 - amplificadores
 featured-image: fuentev_cir.png
+assets: /pruebas-blog/assets/2011/07/el-transistor-ese-gran-desconocido
 ---
 
 El transistor se inventó en el 1947 y desde entonces raro es el circuito en el que no lo usamos, bien sea en como componente individual o en grupo formando un operacional, o un microcontrolador. Sin embargo, a pesar de esta omnipresencia, es un componente poco comprendido en general por nosotros los aficionados. Las ecuaciones que lo definen son complicadas y para simularlo se necesitan modelos con decenas de parámetros sutiles. Fijaos en el modelo SPICE para el 2N2222:

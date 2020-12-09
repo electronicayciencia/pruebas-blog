@@ -7,6 +7,7 @@ tags:
 - circuitos
 - osciladores
 featured-image: friemosquitos.png
+assets: /pruebas-blog/assets/2010/06/matamoscas-electronico-flyback
 ---
 
 Hace unas semanas pedí por correo un aparato poco común en España, o por lo menos yo no lo he visto nunca. El caso es que lo pedí por curiosidad y porque costaba 4€. Se trata de un [matamoscas electrónico](http://www.1freeaday.com/page.php?file=product&amp;id=10006731), y se supone que fríe a los insectos con una descarga. Es parecido una raqueta de tenis, pero tiene tres niveles de malla. Las dos mallas exteriores tiene unos huecos grandes para permitir el paso del bicho hacia la malla interior, que es de un mallado mucho más tupido. En cuanto la víctima toca ambas mallas recibe una descarga de más de 600V.
@@ -90,5 +91,5 @@ Os dejo estos enlaces donde podéis encontrar información sobre flybacks, hay m
 
 [http://www.powerlabs.org/flybackdriver.htm](http://www.powerlabs.org/flybackdriver.htm)
 
-Los archivos utilizados para hacer esta entrada están disponibles en [este enlace](http://sites.google.com/site/electronicayciencia/friemosquitos.rar).
+Los archivos utilizados para hacer esta entrada están disponibles en [este enlace]({{page.assets}}/friemosquitos.rar).
 
