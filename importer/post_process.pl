@@ -9,6 +9,9 @@
 
 # Where to search for a blog post file during local link replacement.
 my $postsdir = "_posts";
+my $description_file = "descriptions.dat";
+my $default_description = "";
+
 
 use strict;
 use warnings;
@@ -27,6 +30,22 @@ use Data::Dumper;
 
 my %parts;
 my $featured_image;
+
+# Get description from title.
+# beware with ':'
+sub get_description {
+	my $title = shift;
+	open my $fh, "< $description_file" or 
+		print STDERR "Warning: cannot open description file\n" and return;
+	while (<$fh>) {
+		chomp;
+		my ($t, $d) = /"(.+)";"(.*)"/ or next;
+		return $d if ($t eq $title);
+	}
+	close $fh;
+	return $default_description;
+}
+
 
 sub parts_store {
 	my $str = shift;
@@ -224,6 +243,11 @@ sub process_head {
 
 	# Add featured image
 	$s =~ s{$}{\nfeatured-image: $featured_image} if $featured_image;
+
+	# Add description
+	my ($title) = $s =~ m{^title: (.*)$}m;
+	my $descr = get_description($title);
+	$s =~ s{$}{\ndescription: $descr} if $descr;
 
 	return $s;
 }

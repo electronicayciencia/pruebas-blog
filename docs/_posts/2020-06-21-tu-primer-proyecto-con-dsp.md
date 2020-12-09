@@ -10,6 +10,7 @@ tags:
 thumbnail: https://1.bp.blogspot.com/-KY-Fe0A3-rQ/Xu5iQX-ItMI/AAAAAAAABls/BMEiVoxzjl8AWaN7rMVqE3dVykTKJJvtgCLcBGAsYHQ/s72-c/filtrosinc.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2020/06/tu-primer-proyecto-con-dsp.html
 featured-image: filtrosinc.png
+description: Introducción a los DSP y uso de un dsPIC.
 ---
 
 Un **DSP** es un chip pensado para hacer **Procesado Digital de Señales**. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.
