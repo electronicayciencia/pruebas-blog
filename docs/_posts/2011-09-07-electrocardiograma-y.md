@@ -21,7 +21,7 @@ La primera dificultad que nos encontramos al plantar un conductor en la piel es 
 
 El componente clave se llama **[amplificador de instrumentación](http://es.wikipedia.org/wiki/Amplificador_de_instrumentaci%C3%B3n)**. De la Wikipedia:
 
-> <quote> An instrumentation (or instrumentational) amplifier is a type of differential amplifier [...] Additional characteristics include low noise, very high open-loop gain, very high common-mode rejection ratio, and very high input impedances.</quote>
+>  An instrumentation (or instrumentational) amplifier is a type of differential amplifier [...] Additional characteristics include low noise, very high open-loop gain, very high common-mode rejection ratio, and very high input impedances.
 
 Es decir:
 

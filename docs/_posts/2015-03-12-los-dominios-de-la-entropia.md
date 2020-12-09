@@ -17,13 +17,15 @@ La entropía es un concepto físico muy fácil de comprender, lo que pasa es que
 
 Estamos en 1850. Un tal [Clausius](http://es.wikipedia.org/wiki/Rudolf_Clausius), estudiando cosas que se calientan, estaba [dándole vueltas a lo siguiente](https://es.wikipedia.org/wiki/Segundo_principio_de_la_termodin%C3%A1mica):
 
-> *En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.*
+> En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.
 > 
-> *En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo <a href="https://es.wikipedia.org/wiki/Camino_libre_medio">sin darse con las demás</a>. Así que más o menos tienen todas la misma velocidad.*
+> En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo <a href="https://es.wikipedia.org/wiki/Camino_libre_medio">sin darse con las demás</a>. Así que más o menos tienen todas la misma velocidad.
 > 
-> *Pero en un gas es distinto, muy distinto... por algo gas viene del griego Kaos. Las partículas de un gas pueden moverse libremente, ocupar la posición que quieran dentro del contenedor, moverse con cualquier velocidad, chocar unas con otras. Para describir el estado de un gas necesito decir la posición y velocidad de cada partícula que lo forma, porque no tiene ninguna estructura.*
+> Pero en un gas es distinto, muy distinto... por algo gas viene del griego Kaos. Las partículas de un gas pueden moverse libremente, ocupar la posición que quieran dentro del contenedor, moverse con cualquier velocidad, chocar unas con otras. Para describir el estado de un gas necesito decir la posición y velocidad de cada partícula que lo forma, porque no tiene ninguna estructura.
 > 
-> *Así, un sistema es más complicado de describir físicamente cuantos más <a href="https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29">estados posibles</a> tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura.* *Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.*
+> Así, un sistema es más complicado de describir físicamente cuantos más <a href="https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29">estados posibles</a> tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura. 
+
+> Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.
 
 Casi cien años después, en 1948, un ingeniero eléctrico graduado en matemáticas, poco conocido por entonces, pensó que este concepto de cuán difícil es describir un sistema no tiene por qué ser algo exclusivo de la física. Pensó que, en general, sea lo que sea que estemos describiendo necesitaremos más o menos información para hacerlo. Y publicó un articulito generalizando el concepto de entropía y dando una fórmula para calcular la cantidad de información.
 
@@ -215,7 +217,7 @@ En el otro lado, si ponemos el límite en 4 sólo detectaríamos como aleatorios
 
 Reflexiona lo anterior con esta frase, y cuando te marees sigue leyendo:
 
-> *La sensibilidad es la fracción de verdaderos positivos y la especificidad la fracción de verdaderos negativos.* -Wikipedia
+> La sensibilidad es la fracción de verdaderos positivos y la especificidad la fracción de verdaderos negativos. -Wikipedia
 
 ¿Entonces el límite donde lo ponemos? Pues en algún punto donde encontremos un equilibrio entre los verdaderos positivos y los falsos positivos.
 

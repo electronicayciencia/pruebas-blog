@@ -389,6 +389,12 @@ sub format_blockquote {
 	$block =~ s{<br>}{\n}g;
 	$block =~ s{^}{> }gm;
 	
+	$block =~ s{<em>}{}g;  # italic tags not supported on blockquote
+	$block =~ s{</em>}{}g;
+	
+	$block =~ s{<quote>}{}g; # not needed
+	$block =~ s{</quote>}{}g;
+	
 	$block = html2md($block);
 
 	return parts_store($block, "quote");
@@ -484,9 +490,6 @@ sub process_body {
 	
 	# Fixes for particular cases
 	$s =~ s{Exploit K</b>it}{Exploit Kit</b>}g;
-	$s =~ s{<blockquote[^>]*><blockquote[^>]*>}{<blockquote>}g;    # for reparacion-de-un-radiocasete
-	$s =~ s{</blockquote></blockquote>}{</blockquote>}g;           # for reparacion-de-un-radiocasete
-	$s =~ s{</blockquote><blockquote[^>]*>}{}g;                # for reparacion-de-un-radiocasete
     $s =~ s{"<span [^>]*monospace[^>]*>(.*?)</span>"}{`$1`}g;      # for afsk-desde-cero
 	#	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
 	$s =~ s{<factor de="" ruido=""></factor>}{};                   # preamplificador-microfono-electret
@@ -494,7 +497,8 @@ sub process_body {
     $s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sintetizador-pll
     $s =~ s{\\f_(a|b)}{f_$1}g;                           # thd
     $s =~ s{^<div class="separator".*?</div>Hoy vamos}{Hoy vamos}g;                           # thd
-
+	$s =~ s{</i></blockquote><blockquote><blockquote class="tr_bq"><i>La buena.*?pida.</i></blockquote></blockquote><ul>  </ul>}
+	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
 
 	# Remove fixed texts
 	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
@@ -573,6 +577,9 @@ sub process_body {
 	$s =~ s{<a href="[^"]+electronicayciencia.blogspot.com/(.+?).html">(.*?)</a>}{link_post_to_local($1, $2)}gmse;
 	$s =~ s{<a href="[^"]+electronicayciencia.blogspot.com.es/(.+?).html">(.*?)</a>}{link_post_to_local($1, $2)}gmse;
 	
+	# <blockquote></blockquote>
+	$s =~ s{<blockquote[^>]*>(.+?)</blockquote>}{format_blockquote($1)}msge;
+	
 	# Format unordered list blocks
 	$s =~ s{(<ul>.*?</ul>)}{format_list($1, "ul")}msge;
 	
@@ -581,9 +588,6 @@ sub process_body {
 
 	# Format pre blocks
 	$s =~ s{(<pre.*?</pre>)}{format_pre($1)}msge;
-
-	# <blockquote></blockquote>
-	$s =~ s{<blockquote[^>]*>(.+?)</blockquote>}{format_blockquote($1)}msge;
 
 	# convert span monospaced into pre blocks
 	$s =~ s{<div[^>]*monospace[^>]*>(.*?)</div>}{format_monospace($1, "div")}mge;

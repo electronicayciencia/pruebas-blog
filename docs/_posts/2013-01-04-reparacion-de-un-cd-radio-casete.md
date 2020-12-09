@@ -154,7 +154,10 @@ Esto es sólo un hobby, pero ¿podría ser un negocio? Entre todo -localizar la 
 
 ¿Cuanto puedes cobrarle a un cliente por reparar un electrodoméstico de 60€? Divide eso entre 6 y tendrás el precio de una hora de tu trabajo. La otra opción, más sensata, es esperar un mes a tener el interruptor y cambiarlo. Por eso me viene a la cabeza un cartel que leí hace tiempo:
 
-> *En este taller se hacen tres tipos de reparaciones: buena, rápida y barata; pero tenga en cuenta que**La buena y rápida no será barata.**La rápida y barata no será buena.**La buena y barata no será rápida.*
+> En este taller se hacen tres tipos de reparaciones: buena, rápida y barata; pero tenga en cuenta que
+> - La buena y rápida no será barata.
+> - La rápida y barata no será buena.
+> - La buena y barata no será rápida.
 
 Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.](https://sites.google.com/site/electronicayciencia/sg331-blog.zip?attredirects=0&amp;d=1)
 

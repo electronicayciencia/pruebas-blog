@@ -177,5 +177,5 @@ Me doy por satisfecho si con este artículo he conseguido transmitir tres simple
 
 Todo lo anterior referido a exámenes de una sola opción correcta en la que todas las opciones son a priori igualmente probables.   Luego habrá preguntas trampa, como las preguntas de elección múltiple que ya son otro cantar, o las opciones que son todas verdades pero unas más verdaderas que otras. Lo cual me recuerda este comentario que leí hace un tiempo en [meneame](http://www.meneame.net/story/como-jugar-mente-alumnos/00019).
 
-> <quote>*Me acuerdo de un profesor al que le dije en una revisión "eso es como si me preguntas 'Ronaldo es a) brasileño b) futbolista c) jugador del Madrid d) rico' y el tío fue y me dice 'claramente es la a, porque Ronaldo dentro de X años estará retirado y puede que no tenga tanto dinero como ahora pero no podrá evitar haber nacido en Brasil'*</quote>
+> Me acuerdo de un profesor al que le dije en una revisión "eso es como si me preguntas 'Ronaldo es a) brasileño b) futbolista c) jugador del Madrid d) rico' y el tío fue y me dice 'claramente es la a, porque Ronaldo dentro de X años estará retirado y puede que no tenga tanto dinero como ahora pero no podrá evitar haber nacido en Brasil'
 
