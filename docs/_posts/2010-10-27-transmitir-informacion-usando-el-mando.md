@@ -8,6 +8,7 @@ tags:
 - telemandos
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TMbtzX86gpI/AAAAAAAAAZ4/sP0rkgS7ItI/s72-c/Imagen256.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/transmitir-informacion-usando-el-mando.html
+featured-image: Imagen256.jpg
 ---
 
 Hoy vamos a ver una introducción a la transmisión digital de señales. Veremos los conceptos básicos y haremos una pequeña práctica con los materiales que tenemos a mano. Caracterizaremos el sistema y programaremos un par de PICs para que hagan las funciones de transmisor y receptor.

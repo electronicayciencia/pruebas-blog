@@ -7,6 +7,7 @@ tags:
 - amplificadores
 thumbnail: http://2.bp.blogspot.com/-LRAL6zX3zPk/ThSTMmIv03I/AAAAAAAAAeo/9BKddQMH-Ds/s72-c/fuentev_cir.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/el-transistor-ese-gran-desconocido.html
+featured-image: fuentev_cir.png
 ---
 
 El transistor se inventó en el 1947 y desde entonces raro es el circuito en el que no lo usamos, bien sea en como componente individual o en grupo formando un operacional, o un microcontrolador. Sin embargo, a pesar de esta omnipresencia, es un componente poco comprendido en general por nosotros los aficionados. Las ecuaciones que lo definen son complicadas y para simularlo se necesitan modelos con decenas de parámetros sutiles. Fijaos en el modelo SPICE para el 2N2222:

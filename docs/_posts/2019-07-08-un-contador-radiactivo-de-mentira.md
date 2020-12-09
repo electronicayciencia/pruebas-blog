@@ -9,6 +9,7 @@ tags:
 - biología
 thumbnail: https://1.bp.blogspot.com/-69FO4qVz6cA/XSOm8xRMhuI/AAAAAAAABeI/vBGMo7FonIIdWwiH6wXuKXmFm3O0NjbugCEwYBhgL/s72-c/uranium-cloud-chamber.gif
 blogger_orig_url: https://electronicayciencia.blogspot.com/2019/07/un-contador-radiactivo-de-mentira.html
+featured-image: uranium-cloud-chamber.gif
 ---
 
 Hoy os propongo *imitar* un contador Geiger. Suena como tal, mide como tal, pero -en vez a la radiación- reacciona a la **temperatura**.

@@ -8,6 +8,7 @@ tags:
 - radio
 thumbnail: https://4.bp.blogspot.com/-jTHNOSy73Rc/WkDh8QdLFxI/AAAAAAAABRU/iiCjsrORZcAuOsMtyI4h7N9HtblYZAvrgCLcBGAs/s72-c/frecuencias_editado.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/12/describiendo-un-protocolo-desconocido.html
+featured-image: frecuencias_editado.png
 ---
 
 Imagina que estás frente a una pared de roca y quieres escalarla. Buscas alguna indicación y consultas la guía, pero nadie lo ha hecho antes. Nadie te dice cómo empezar ni por donde seguir, sólo debes fijarte con atención y encontrar algún sitio donde agarrarte para ir subiendo lentamente.

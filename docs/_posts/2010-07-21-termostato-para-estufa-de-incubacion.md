@@ -7,6 +7,7 @@ tags:
 - biología
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TESSolWgx_I/AAAAAAAAAS0/-aNQ2ZZeag0/s72-c/esquema.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/termostato-para-estufa-de-incubacion.html
+featured-image: esquema.png
 ---
 
 Este sencillo proyecto es ideal para quienes quieran ver con un ejemplo el funcionamiento básico de un comparador, de un sensor de temperatura y de un triac. Se trata de un termostato muy preciso capaz de regular una temperatura de entre 27 y 40 grados centígrados. Apto para regular una estufa de cultivo casera.

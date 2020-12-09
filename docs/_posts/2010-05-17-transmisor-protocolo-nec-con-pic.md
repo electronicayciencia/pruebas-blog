@@ -8,6 +8,7 @@ tags:
 - telemandos
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S-kVup7rtwI/AAAAAAAAALQ/5pevGj0x7gg/s72-c/trace.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/transmisor-protocolo-nec-con-pic.html
+featured-image: trace.png
 ---
 
 En una [entrada anterior]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %}) propusimos un código para programar un microcontrolador PIC y que fuera capaz de recibir y decodificar la señal que emite un mando a distancia que use el protocolo NEC (los más frecuentes hoy día según mi experiencia). Para complementar esa entrada, hoy os voy a proponer una rutina que envía un código NEC simulando ser un mando a distancia.

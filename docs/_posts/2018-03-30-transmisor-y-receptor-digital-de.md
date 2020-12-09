@@ -11,6 +11,7 @@ tags:
 - amplificadores
 thumbnail: https://2.bp.blogspot.com/-I3GNTSJ9PQ4/Wr5nVOJthyI/AAAAAAAABVQ/Q4Ho5vREOosw83NeqGL7A0q6AMqicNE1ACLcBGAs/s72-c/mod_ultrasonido.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2018/03/transmisor-y-receptor-digital-de.html
+featured-image: mod_ultrasonido.png
 ---
 
 Se puede transmitir información por cable, por infrarrojos, por teléfono, modulando un tono acústico, por ondas de radio... Hoy os voy a describir un sistema de comunicación digital por **ultrasonidos**. Algunos pensaréis que es un circuito vulgar y falto de originalidad. Pero os gustan los esquemas con operacionales, lo sé, lo veo en las estadísticas del blog. Os animo a leerlo.

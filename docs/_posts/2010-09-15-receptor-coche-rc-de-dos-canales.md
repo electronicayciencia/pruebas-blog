@@ -7,6 +7,7 @@ tags:
 - telemandos
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TIYWumVopdI/AAAAAAAAAXk/IcWXbIB6lTs/s72-c/alzado_placa.JPG
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/receptor-coche-rc-de-dos-canales.html
+featured-image: alzado_placa.JPG
 ---
 
 Alguien anónimo me dejó un comentario en [esta entrada]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}) pidiendo que, ya que había analizado el transmisor, describiera también el receptor. El comentario lo borré, por la falta de cuidado de su redactor, pero la petición me pareció acertada. Un receptor típico de un coche barato *made in China* no tiene mucha miga. Este que os presento es de uno que me costó entre 3 y 4 euros (para quienes les resulte más familiar, unos 4.5 USD).

@@ -8,6 +8,7 @@ tags:
 - Perl
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S-LRgBBHq-I/AAAAAAAAAKg/Hs3acO720pc/s72-c/XOR_TABLE.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/criptoanalisis-del-cifrado-xor-simple.html
+featured-image: XOR_TABLE.jpg
 ---
 
 Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simple XOR. Se trata de una herramienta que es capaz de adivinar la clave con que se ha cifrado un archivo y descifrarlo. Nada más que haciendo un criptoanálisis del texto cifrado. Veréis que el algoritmo es sencillo, y por qué dicen los expertos que XOR es un cifrado *de juguete*.

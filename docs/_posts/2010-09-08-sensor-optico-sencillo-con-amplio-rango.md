@@ -10,6 +10,7 @@ tags:
 - Perl
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TH-2Bada6mI/AAAAAAAAAWk/qvmVjuYur9s/s72-c/esquema.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/sensor-optico-sencillo-con-amplio-rango.html
+featured-image: esquema.png
 ---
 
 Llevo ya unas cuantas entradas que no publico algo serio de electrónica. Espero que os guste este experimento. Se trata de usar la capacidad parásita de un LED para medir la luz incidente. Aviso de que esta entrada es larga.

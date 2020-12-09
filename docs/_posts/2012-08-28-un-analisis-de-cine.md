@@ -8,6 +8,7 @@ tags:
 - Perl
 thumbnail: http://2.bp.blogspot.com/-GoIQqr07Lxs/UDy6HxoRhTI/AAAAAAAAAnw/0J_Mcmnkj8Y/s72-c/esdla-eendp.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2012/08/un-analisis-de-cine.html
+featured-image: esdla-eendp.png
 ---
 
 Vamos a hablar de cine, también hablaremos de programación, de estadística y tratamiento de datos, todo ello -te lo aseguro- relacionado con el cine. El gusto es algo muy subjetivo, por supuesto, pero hay gustos más y menos comunes así que, por una vez, me vais a permitir ser vuestro crítico de cine.

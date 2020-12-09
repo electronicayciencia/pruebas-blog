@@ -7,6 +7,7 @@ tags:
 - estadística
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/THY1cH0haUI/AAAAAAAAAWE/gD78P0u3sU4/s72-c/gausiana_2.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/inferencia-estadistica-capacidad-de-una.html
+featured-image: gausiana_2.png
 ---
 
 No es la primera vez que en este blog utilizamos **la excusa más ridícula** para repasar ciertos conceptos. En esta ocasión nos planteamos la siguiente pregunta *¿Cuál es la capacidad de una cucharilla de postre, o de una cuchara sopera?* Veremos que dar respuesta a eso es tan complicado como queramos hacerlo.

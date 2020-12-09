@@ -9,6 +9,7 @@ tags:
 - amplificadores
 thumbnail: http://4.bp.blogspot.com/-q-5HZE1AkSU/UXWWVhcW6PI/AAAAAAAAAxA/vAIWsuwYrh4/s72-c/mixer1_sch_t.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2013/04/mezclador-de-frecuencias-con-el.html
+featured-image: mixer1_sch_t.png
 ---
 
 Hoy describimos un circuito **mezclador** o multiplicador de frecuencias. Un circuito relativamente ignorado por muchos aficionados a la electrónica pero muy importante. Tan importante que es una parte fundamental de casi todos los receptores de radio (incluyendo radios, televisores, conversores de satélite, walkie-talkies, etc): [receptor heterodino](http://ayudaelectronica.com/concepto-receptor-heterodino/) .

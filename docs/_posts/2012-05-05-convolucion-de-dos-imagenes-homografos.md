@@ -8,6 +8,7 @@ tags:
 - Perl
 thumbnail: http://3.bp.blogspot.com/-RILMIvMu-hI/T6Ugd5cw7AI/AAAAAAAAAjU/JGts3lXc0yY/s72-c/sopa.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2012/05/convolucion-de-dos-imagenes-homografos.html
+featured-image: sopa.png
 ---
 
 En [una entrada anterior]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}) os decía que en breve presentaría una aplicación de la transformada de Fourier en dos dimensiones. Pues bien, [como decíamos ayer](http://curistoria.blogspot.com.es/2008/04/fray-luis-de-len-como-decamos-ayer.html), voy a utilizar la transformada, y más concretamente multiplicar dos transformadas, para encontrar patrones dentro de una imagen. Lo que técnicamente se llama *Template Matching*.

@@ -8,6 +8,7 @@ tags:
 - física
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TA0DxL_gpEI/AAAAAAAAAOU/cwTFfLn7kdE/s72-c/BENQ0001.JPG
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/escaner-nuevo-y-difraccion.html
+featured-image: BENQ0001.JPG
 ---
 
 El pasado fin de semana los vecinos nos dieron una multifunción vieja. Una [Lexmark X1270](http://www.lexmark.com/lexmark/product/home/972/0,6970,245102346_653293766_783805388_es,00.html?tabId=7). Hay que reconocer que es buena, pero como todas las de tinta, los cartuchos valen una pasta y duran un suspiro. En fin que como impresora no me serviría de mucho. Pero mi ética me prohíbe desguazar cosas que aún funcionan *(excepto los matamoscas de 3€, hola Salva)*, antes la dejo junto a un contenedor.

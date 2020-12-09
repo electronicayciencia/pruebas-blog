@@ -8,6 +8,7 @@ tags:
 - amplificadores
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S78MxV7IzRI/AAAAAAAAAEY/wNbb59XmSDQ/s72-c/copa.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/espectroscopia-casera-con-copas.html
+featured-image: copa.jpg
 ---
 
 La [espectroscopia](http://es.wikipedia.org/wiki/Espectroscopia) es una técnica analítica que nos permite distinguir los componentes de una sustancia desconocida. Aprovecha que cada molécula tiene una configuración específica y por tanto unas frecuencias de resonancia que la caracterizan. En estas frecuencias la molécula vibra acumulando la energía de la onda, hecho que puede producir calor. Tal es el fundamento del microondas.

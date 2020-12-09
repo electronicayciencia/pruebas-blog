@@ -8,6 +8,7 @@ tags:
 - raspberrypi
 thumbnail: https://1.bp.blogspot.com/-iAx6we0iox4/WfS8_lhMO9I/AAAAAAAABPE/Spbhdw6dwZglFB-ihYON7y-YAru7THotACLcBGAs/s72-c/wargames-02.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/10/demodular-afsk-desde-cero.html
+featured-image: wargames-02.jpg
 ---
 
 Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es posible... ¿Y si os digo que vamos a hablar de radio, de retro-informática, de trenes, de sonido, de matemáticas, de electrónica y de programación suena mejor? Supongo. Y si no busca otra cosa que leer. Hay muy buenos artículos sobre otra cosa en Internet.

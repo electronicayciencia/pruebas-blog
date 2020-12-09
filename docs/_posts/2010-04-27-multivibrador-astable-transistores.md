@@ -8,6 +8,7 @@ tags:
 - osciladores
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S9aXe_DBTdI/AAAAAAAAAGQ/ssuU3xz4G6E/s72-c/astable_npn.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/multivibrador-astable-transistores.html
+featured-image: astable_npn.png
 ---
 
 El astable con dos transistores NPN es de los primeros circuitos que se estudian cuando se habla de transistores en conmutación. Como su esquema es tan simple, es de esas cosas pequeñas que te crees que las entiendes, hasta que te das cuenta de que tú también habrías colocado [los condensadores del revés](http://www.electro-tech-online.com/electronic-projects-design-ideas-reviews/103591-transistor-astable-multivibrator-problem.html). Voy a explicar despacio cómo funciona, y veréis que aunque parece sencillo su funcionamiento es interesante.

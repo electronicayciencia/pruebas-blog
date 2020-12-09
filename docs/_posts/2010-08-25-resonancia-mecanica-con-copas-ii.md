@@ -7,6 +7,7 @@ tags:
 - sonido
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TGKXVJCZEpI/AAAAAAAAAUs/3UrtMtgZJ_0/s72-c/pulso.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/resonancia-mecanica-con-copas-ii.html
+featured-image: pulso.png
 ---
 
 En [esta entrada]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %}) de hace un tiempo, ya habíamos mostrado cómo se comporta un sistema resonante dentro de un campo oscilatorio. Lo que pasa es que en lugar de usar un campo magnético y un [circuito resonante](http://es.wikipedia.org/wiki/Circuito_LC), habíamos usado oscilaciones mecánicas (sonido) y copas como resonadores. Esta entrada es una especie de continuación de aquella por lo que os recomiendo que la leáis también.

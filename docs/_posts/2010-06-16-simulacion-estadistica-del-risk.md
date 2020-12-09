@@ -10,6 +10,7 @@ tags:
 - Perl
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TBY7AJBomYI/AAAAAAAAAPE/4u01WV-KBMk/s72-c/tabla.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/simulacion-estadistica-del-risk.html
+featured-image: tabla.png
 ---
 
 Si juegas al [Risk](http://es.wikipedia.org/wiki/Risk) esta entrada te puede gustar. Si no juegas al Risk pero quieres ver cómo se hace una simulación estadística por ordenador también te sirve. El Risk es un juego de estrategia y suerte. Para quien no lo conozca las batallas se deciden de acuerdo con repetidas tiradas de dados que hacen perder al atacante, al defensor o a ambos 1 o 2 ejércitos en cada una.

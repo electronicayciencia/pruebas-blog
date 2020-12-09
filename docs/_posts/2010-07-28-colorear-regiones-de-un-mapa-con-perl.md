@@ -8,6 +8,7 @@ tags:
 - Perl
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TEbrZydyV8I/AAAAAAAAATk/A39Bd_TQL38/s72-c/prov_prefijos.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/colorear-regiones-de-un-mapa-con-perl.html
+featured-image: prov_prefijos.png
 ---
 
 Por razones laborales tenía la necesidad de tomar un mapa de España y colorear las regiones según ciertos parámetros. Hay multitud de herramientas para hacer eso pero no con las propiedades que necesitaba, así que me vi en la necesidad de hacer algo concreto

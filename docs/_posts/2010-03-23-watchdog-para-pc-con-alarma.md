@@ -7,6 +7,7 @@ tags:
 - PC
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S6kH-TgoGbI/AAAAAAAAAAk/fSKB34ChkTo/s72-c/watchdog.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/watchdog-para-pc-con-alarma.html
+featured-image: watchdog.png
 ---
 
 Hoy os quiero presentar un sencillo *watchdog* que reinicie automáticamente el PC cuando detecta que este se ha colgado.

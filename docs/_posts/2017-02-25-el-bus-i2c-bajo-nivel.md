@@ -8,6 +8,7 @@ tags:
 - raspberrypi
 thumbnail: https://2.bp.blogspot.com/-7KNrtp5llKw/WLF1u6Rm0BI/AAAAAAAABIE/S3czo_YCQv4ZNzL4uHlfwf_KMmjXeLSZACLcB/s72-c/I2c_logo.svg.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/02/el-bus-i2c-bajo-nivel.html
+featured-image: I2c_logo.svg.png
 ---
 
 Siendo de los protocolos más utilizados, para algunos aficionados el bus I2C continúa siendo gran interrogante hoy en día. Dada la buena recepción de la entrada anterior, titulada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}) vamos a hacer otra dedicada a I2C con todo detalle.

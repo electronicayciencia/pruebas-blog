@@ -7,6 +7,7 @@ tags:
 - PC
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TL6rJVdW_JI/AAAAAAAAAZg/5oAWW8oSxF0/s72-c/BENQ0004.JPG
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/medir-valores-logicos-con-tarjeta-de.html
+featured-image: BENQ0004.JPG
 ---
 
 Hoy os cuento el primer intento de una prueba que quería hacer desde hace tiempo. Se trata de adaptar una tarjeta de sonido para poder medir también valores de tensión continua. Este es uno de esos experimentos que tienen muchas posibilidades de salir mal, o por lo menos, de no salir tan bien como esperábamos. Las cosas no siempre salen a la primera.

@@ -7,6 +7,7 @@ tags:
 - DimmerIR
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S64z5O_EjrI/AAAAAAAAAA0/WXLHpeT9a3o/s72-c/grafico_IV_1.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/caracteristica-i-v-de-una-bombilla.html
+featured-image: grafico_IV_1.png
 ---
 
 De todos es sabido que si medimos la resistencia de una bombilla apagada, no obtenemos la resistencia verdadera que ofrece estando encendida. Por el mero hecho de que cuando un material se calienta, su resistencia eléctrica aumenta.

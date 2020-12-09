@@ -9,6 +9,7 @@ tags:
 - amplificadores
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S8x0gtNXYUI/AAAAAAAAAFw/CJRsjtn_pAE/s72-c/BENQ0013.JPG
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/preamplificador-para-microfono.html
+featured-image: BENQ0013.JPG
 ---
 
 Actualización: Este es un preamplificador de baja calidad a transistores que tiene puntos flojos. Si buscas preamplificar un micrófono de una manera más sencilla tal vez te interesa [esta otra entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}).

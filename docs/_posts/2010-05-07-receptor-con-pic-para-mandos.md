@@ -8,6 +8,7 @@ tags:
 - telemandos
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S97lM8Bw1FI/AAAAAAAAAJg/3AlfVlzYbkQ/s72-c/0_1.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/receptor-con-pic-para-mandos.html
+featured-image: 0_1.png
 ---
 
 El formato NEC es una de las codificaciones más extendidas en los mandos a distancia de electrodomésticos baratos, sobre todo los de marca *Nisu*: televisores, vídeos, TDT, DVD, minicadenas, etc. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-01-decodificacion-del-protocolo-rc5-usando %}) ya hablamos sobre otro protocolo de mando a distancia: el RC5. Leer el formato NEC es mucho más sencillo, pero por otro lado requiere más memoria.

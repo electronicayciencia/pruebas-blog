@@ -7,6 +7,7 @@ tags:
 - circuitos
 thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TGz9SnB0oqI/AAAAAAAAAVk/dGNTBVfKuyc/s72-c/termoboli.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/termometro-para-disoluciones.html
+featured-image: termoboli.png
 ---
 
 Lo que os presento en esta entrada es un trabajo de bricolaje más que un circuito. Se trata de un termómetro o, para ser más precisos, una *sonda termométrica* para medir la temperatura de una disolución. Hay experimentos en que tenemos que controlar la temperatura mientras removemos, por ejemplo que no sobrepase los 10ºC. Y a veces queremos saber la temperatura en un punto concreto, por ejemplo para ver cómo aumenta al añadir un ácido. En esta entrada voy a hablar de cómo hacer una "varilla-termómetro" para cuando haga falta.

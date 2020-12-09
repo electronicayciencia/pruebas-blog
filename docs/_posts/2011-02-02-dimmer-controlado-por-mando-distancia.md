@@ -8,6 +8,7 @@ tags:
 - DimmerIR
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TUciFSei_ZI/AAAAAAAAAc8/UnqR7D_1_h4/s72-c/interrupciones.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/02/dimmer-controlado-por-mando-distancia.html
+featured-image: interrupciones.png
 ---
 
 Si no seguís el blog o no recordáis de qué iba este proyecto, hay un resumen en esta entrada donde presentábamos el hardware: [Dimmer controlado por mando a distancia: el hardware]({{site.baseurl}}{% post_url 2010-12-10-dimmer-controlado-por-mando-distancia %}). Os recomiendo que la leáis porque hoy os traigo el software que hay que programar en el micro para hacer funcionar ese hardware.

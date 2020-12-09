@@ -8,6 +8,7 @@ tags:
 - amplificadores
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TAj511KVROI/AAAAAAAAAN4/6b4ju2CO_AA/s72-c/conn_electret.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/utilizar-un-microfono-electret.html
+featured-image: conn_electret.png
 ---
 
 Habíamos publicado en [esta entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}) los pasos a la hora de registrar una señal, concretamente una señal sonora. Habíamos planteado más o menos estos:

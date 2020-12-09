@@ -9,6 +9,7 @@ tags:
 - Perl
 thumbnail: http://2.bp.blogspot.com/-dK8mrWXhi1M/TiA52Qg00lI/AAAAAAAAAfw/dLYDcpJm4Yg/s72-c/interfaz_tk.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/frecuencimetro-para-el-pc.html
+featured-image: interfaz_tk.png
 ---
 
 Después de un par de artículos más bien teóricos ahora os quiero presentar un **montaje práctico**. Vamos a ver cómo hacer un frecuencímetro que sea lo más **sencillo** posible, pero que sea a la vez útil y preciso.

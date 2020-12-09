@@ -8,6 +8,7 @@ tags:
 - amplificadores
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_qN7xKvL2I/AAAAAAAAAMo/CHmAQGlvSfk/s72-c/alim_dual.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/preamplificador-microfono-electret.html
+featured-image: alim_dual.png
 ---
 
 Viendo las estadísticas del blog me sorprende la cantidad de gente que busca un preamplificador para micrófono. Creo que sería bueno publicar algunas entradas al respecto.

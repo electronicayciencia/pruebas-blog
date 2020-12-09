@@ -8,6 +8,7 @@ tags:
 - circuitos
 thumbnail: https://1.bp.blogspot.com/-_kkLDg0rdkI/XlLR4Cs_ECI/AAAAAAAABj0/IRfqSWFQmXUK9_3B7Pn5q7aeNpTy8PbOgCEwYBhgL/s72-c/yellow_fob.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2020/02/clonar-un-rfid-con-tu-propio-hardware.html
+featured-image: yellow_fob.jpg
 ---
 
 En el [artículo anterior]({{site.baseurl}}{% post_url 2019-12-15-leer-tarjetas-de-acceso-rfid-sin-arduino %}) tratamos sobre leer tarjetas de proximidad. Y acabamos diciendo lo fácil que es copiar las más básicas.

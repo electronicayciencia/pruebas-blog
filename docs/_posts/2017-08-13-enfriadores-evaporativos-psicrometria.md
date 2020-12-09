@@ -7,6 +7,7 @@ tags:
 - datalog
 thumbnail: https://4.bp.blogspot.com/-L6EebysRMg4/WZCKia4sskI/AAAAAAAABNY/qL6Lo-UwihwogI-Ut6RMfCCdpDIRGArowCEwYBhgL/s72-c/20170807_192905.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/enfriadores-evaporativos-psicrometria.html
+featured-image: 20170807_192905.jpg
 ---
 
 Hoy quería hablaros de un electrodoméstico digamos intermedio entre los ventiladores y los aires acondicionados: los enfriadores **evaporativos**. En su versión portátil no tienen tanta tradición como refrigeración doméstica aunque os lo vais encontrar junto a los aparatos de aire acondicionado portátiles -pingüinos-, con el reclamo de ser mucho más baratos, más ecológicos, más ligeros, tener un menor consumo y no necesitar instalación ni tubo de salida de aire caliente.

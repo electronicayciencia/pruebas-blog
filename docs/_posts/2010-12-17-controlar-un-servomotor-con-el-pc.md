@@ -7,6 +7,7 @@ tags:
 - programacion
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TQonNl0jTbI/AAAAAAAAAcI/6cnxmlDi6a0/s72-c/pulsos_wikipedia.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/12/controlar-un-servomotor-con-el-pc.html
+featured-image: pulsos_wikipedia.png
 ---
 
 Supongo que muchos estaréis familiarizados con los servos. No es mi caso. Por unas cosas u otras nunca me he dedicado al modelismo ni a la robótica así que para mí estos motores como si no existieran. Sin embargo hace unas semanas vi uno barato en [DealExtreme](http://www.dealextreme.com/details.dx/sku.12832) y pensé que algún día puedo necesitarlo. Y para entonces mejor saber cómo se usa. Así que esta primera prueba no va a ser nada elaborado, solamente un servo, un PIC, y un PC para dar las órdenes.

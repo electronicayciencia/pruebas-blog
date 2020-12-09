@@ -7,6 +7,7 @@ tags:
 - física
 thumbnail: https://3.bp.blogspot.com/-uDmaqo0fIcg/WYILoYeTnZI/AAAAAAAABKk/7QIpfb520WgVeMiGjqK5X2bUYtueEFBfgCLcBGAs/s72-c/Optical-dispersion.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/luz-paralela.html
+featured-image: Optical-dispersion.png
 ---
 
 Para otro experimento necesitaba una fuente de luz blanca cuyos rayos fueran más o menos paralelos. No es algo inmediato. Buscando por ahí veo que hay gente que inocentemente pregunta eso mismo y otros responden con todo rigor. Sin tener en cuenta que, si quien ha preguntado pudiera entender esa respuesta, entonces no habría hecho la pregunta.

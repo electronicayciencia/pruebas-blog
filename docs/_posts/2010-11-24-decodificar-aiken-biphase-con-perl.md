@@ -8,6 +8,7 @@ tags:
 - amplificadores
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TOzCqSZ7y8I/AAAAAAAAAbI/IfhpdxeKdlg/s72-c/acelerando.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/11/decodificar-aiken-biphase-con-perl.html
+featured-image: acelerando.png
 ---
 
 Antes de nada quería mandar un saludo a Explorer de [perlenespanol.com](http://perlenespanol.com/). Porque, sin conocernos previamente, se ve que le gustan mis artículos. Pues casi desde que empecé con el blog todo lo que escribo que tenga que ver con Perl acaba reseñado en su foro.

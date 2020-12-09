@@ -26,6 +26,7 @@ use Data::Dumper;
 
 
 my %parts;
+my $featured_image;
 
 sub parts_store {
 	my $str = shift;
@@ -221,6 +222,9 @@ sub process_head {
 	# Blogger ID is not needed
 	$s =~ s{^blogger_id:.*\n}{}mg;
 
+	# Add featured image
+	$s =~ s{$}{\nfeatured-image: $featured_image} if $featured_image;
+
 	return $s;
 }
 
@@ -233,6 +237,11 @@ sub image_string {
 
 	$name =~ s/%25/%/g;
 	$name =~ s/%../-/g;
+
+	# Not here, because image order may be different if first image has no caption but second does.
+	#if (not defined $featured_image) {
+	#	$featured_image = $name;
+	#}
 
 	# remove caption format
 	$caption =~ s{<span.*?>}{}g;
@@ -634,11 +643,14 @@ sub process_body {
 	# New paragraph
 	#$s =~ s{<br>}{\n}g;
 
-	# Recompose article body from abstract structure
+	# Recompose post body from abstract structure
 	# ------------------------------------------------------
 	
 	$s = recompose($s);
 
+	# Deep into formatted post to get info
+	# ------------------------------------------------------
+	($featured_image) = $s =~ m|{% include image.html[^}]+file="([^"]+)"|;
 
 	return $s;
 }
@@ -648,10 +660,13 @@ my $content = do { local $/; <> };
 my ($head, $body) = $content =~ m/^---$(.+?)^---$(.*)/ms;
 
 
-$head = process_head($head);
+# Process the body first to get featured image
 $body = process_body($body);
 
-# Recompose
+# Complete the header
+$head = process_head($head);
+
+# Recompose jekyll post.
 print "---\n$head\n---\n\n$body\n\n";
 
 

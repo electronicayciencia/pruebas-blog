@@ -9,6 +9,7 @@ tags:
 - biología
 thumbnail: http://1.bp.blogspot.com/-55qUvU7djEk/TmfKhlAdVCI/AAAAAAAAAhQ/aRqsZ3CW36E/s72-c/con624.gif
 blogger_orig_url: https://electronicayciencia.blogspot.com/2011/09/electrocardiograma-y.html
+featured-image: con624.gif
 ---
 
 Este es un artículo sobre DSP con un trasfondo de electromedicina. En una entrada anterior ya vimos lo que era una transformada de Fourier y cómo se utilizaba. [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}). Para entender mejor lo que sigue te recomiendo que la leas si aún no lo has hecho. Hoy vamos a aplicarla para limpiar una señal todo lo que podamos. Pero ¿qué es limpiar? Pues para nosotros es seleccionar, de todo lo que capten nuestros sensores, sólo aquello que nos interesa; eliminando el ruido y otras interferencias.

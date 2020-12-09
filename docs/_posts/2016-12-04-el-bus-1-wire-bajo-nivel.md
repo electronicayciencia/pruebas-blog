@@ -8,6 +8,7 @@ tags:
 - raspberrypi
 thumbnail: https://4.bp.blogspot.com/-69vD3420qYQ/WEQ2eW9NWcI/AAAAAAAABHU/yWDMm6mZU2gPGLMt7AIX8koSK-iPpH8lACEw/s72-c/ds1820.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2016/12/el-bus-1-wire-bajo-nivel.html
+featured-image: ds1820.jpg
 ---
 
 Hoy os traigo una entrada sobre el bus 1-Wire y el sensor de temperatura DS1820, con bastante contenido técnico y nivel de detalle, espero que la disfrutéis.

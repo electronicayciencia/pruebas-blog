@@ -8,6 +8,7 @@ tags:
 - raspberrypi
 thumbnail: https://4.bp.blogspot.com/-77lS0b3YJ4Q/W7oHxllufaI/AAAAAAAABY8/bEygrIOzrCcFqV63_izrCU6dBTDBhQgGgCEwYBhgL/s72-c/baro_goethe_peque.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2018/10/la-presion-atmosferica-bmp280.html
+featured-image: baro_goethe_peque.jpg
 ---
 
 Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube hace calor y cuando baja llueve.

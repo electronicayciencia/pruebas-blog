@@ -8,6 +8,7 @@ tags:
 - PC
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S6eJBnFshtI/AAAAAAAAAAM/1iBSbl7uo5s/s72-c/Imagen148.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/conversor-usb-rs232.html
+featured-image: Imagen148.jpg
 ---
 
 Hola.

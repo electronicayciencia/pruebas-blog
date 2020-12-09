@@ -7,6 +7,7 @@ tags:
 - PC
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S7o9Lr8RPXI/AAAAAAAAACQ/DSEexSvnRRI/s72-c/imagecompatibility.php
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/reutilizar-el-motor-de-un-lector-cdrom.html
+featured-image: imagecompatibility.php
 ---
 
 Hoy tenemos un lector de CDROM para desguazar. Es un tanto antiguo, pero eso nos favorece. Como ya os podéis imaginar mientras más moderno es un cacharro, mayor grado de integración y más complicado es reutilizar sus componentes.

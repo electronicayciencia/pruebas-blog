@@ -8,6 +8,7 @@ tags:
 - osciladores
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TKw-FfV0ZTI/AAAAAAAAAZU/PwC60rt7pGc/s72-c/shock_broma.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/bromas-de-alta-tension.html
+featured-image: shock_broma.jpg
 ---
 
 Vamos a hablar en esta entrada de esos típicos aparatos de broma que dan calambre. Todos los habéis visto, un bolígrafo que da corriente, o un puntero láser, un libro, etc. También hay juegos que el perdedor recibe un calambre, por ejemplo en algunas pistolas láser, o juegos de reflejos. Veamos cómo funcionan.

@@ -7,6 +7,7 @@ tags:
 - PC
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S72vMwQxa1I/AAAAAAAAADI/X5RQfJ2b3mw/s72-c/buscar_wand.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/descifrar-las-contrasenas-guardadas-de.html
+featured-image: buscar_wand.png
 ---
 
 Así como en Firefox tenemos la opción de mostrar una contraseña guardada, en Opera no existe esa posibilidad. En alguna ocasión puede ser útil extraer la lista de las contraseñas guardadas. Como Opera no es *open source* no conocemos el algoritmo de cifrado, lo único que está claro es que, de alguna manera, si el navegador tiene acceso a esa información es que el cifrado debe ser reversible.

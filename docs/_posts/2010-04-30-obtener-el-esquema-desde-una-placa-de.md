@@ -7,6 +7,7 @@ tags:
 - circuitos
 thumbnail: https://4.bp.blogspot.com/_QF4k-mng6_A/S9g7nuV20FI/AAAAAAAAAIE/-RwtDzal4kc/s72-c/BENQ0020.JPG
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/obtener-el-esquema-desde-una-placa-de.html
+featured-image: BENQ0020.JPG
 ---
 
 Pasar de una PCB al esquema es siempre un coñazo, lo hagas como lo hagas. Además es fácil equivocarse y acabar liado con un circuito que no tira ni para atrás. Por eso os quiero presentar un método sistemático que os servirá de guía para no perder el hilo. Para los expertos, lo que vamos buscando es reconstruir el *netlist*.

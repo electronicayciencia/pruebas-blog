@@ -7,6 +7,7 @@ tags:
 - circuitos
 thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/S8N26BRUTEI/AAAAAAAAAFo/YfLJ7vL84Wc/s72-c/velomtr_sch.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/control-de-velocidad-por-pwm.html
+featured-image: velomtr_sch.png
 ---
 
 Algo ligero para hoy. Se trata de un control de potencia por Modulación de Anchura de Pulsos (PWM). Está basado en un TL494CN que desoldé de una fuente de alimentación para PC estropeada. Como siempre al final de la entrada os dejo un enlace a los ficheros, incluido el datasheet y una nota de aplicación de TI titulada [Designing Switching Voltage Regulators With the TL494](http://focus.tij.co.jp/jp/lit/an/slva001d/slva001d.pdf).

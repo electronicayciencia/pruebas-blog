@@ -8,6 +8,7 @@ tags:
 - Perl
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_QA9DSwSiI/AAAAAAAAALg/UtGeAPKiZXI/s72-c/es_ES.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-palabras-en-numeros-ii.html
+featured-image: es_ES.png
 ---
 
 En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html) programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un *número* escrito con un conjunto de 27 símbolos *{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}* y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:

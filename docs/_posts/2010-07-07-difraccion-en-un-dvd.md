@@ -7,6 +7,7 @@ tags:
 - física
 thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TCM3JPNx0RI/AAAAAAAAAQk/CHrfd3eh15s/s72-c/Imagen095.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/difraccion-en-un-dvd.html
+featured-image: Imagen095.jpg
 ---
 
 Todos sabemos que un DVD o un CD presentan iridiscencia cuando se miran bajo un foco de luz. La información de un DVD se guarda en un surco de anchura micrométrica que recorre el disco en espiral. En un milímetro a lo largo del eje central puede haber más de 1000 surcos. Eso le da al DVD las propiedades de una **[red de difracción](http://en.wikipedia.org/wiki/Diffraction_grating)**. No explicaré cómo funciona una red o sus propiedades, hay información de sobra por ahí. Básicamente, debido a interferencias múltiples, cada longitud de onda de las que componen la luz blanca se refleja con un ángulo distinto, así que la luz incidente se descompone en colores. Eso se puede aprovechar para hacer un espectroscopio casero con un DVD o con un CD.

@@ -9,6 +9,7 @@ tags:
 - radio
 thumbnail: https://1.bp.blogspot.com/-s1L2NML6eps/X2ES-BjAHSI/AAAAAAAABqU/iLO0-0DfLf8Px2eMM2Dqckx_nPGlF4-twCPcBGAYYCw/s72-c/HEF4046BP-8649.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2020/09/sintetizador-de-frecuencias-digital-con.html
+featured-image: HEF4046BP-8649.jpg
 ---
 
 Los **PLL** son una pequeña asignatura pendiente de mis comienzos con la electrónica. Y antes o después debía dedicarles una entrada. Es curioso, después de tantos años, mirar hacia atrás y recordar aquellos tiempos en los que, en esencia, no tenías ni idea de lo que estabas haciendo.

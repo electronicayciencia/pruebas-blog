@@ -8,6 +8,7 @@ tags:
 - amplificadores
 thumbnail: http://3.bp.blogspot.com/-qQhNdej8sLc/UVHXvvdAg4I/AAAAAAAAAtw/III5MIwElQ8/s72-c/linea_recta.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2013/03/la-distorsion-armonica-total-thd.html
+featured-image: linea_recta.png
 ---
 
 Cualquier aficionado a la música o a la electrónica conoce lo que es la distorsión. En este artículo hablaremos de la importancia de la no linealidad en la distorsión y de cómo se mide si un amplificador distorsiona más o menos que otro.

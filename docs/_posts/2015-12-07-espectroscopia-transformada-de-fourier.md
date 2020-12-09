@@ -9,6 +9,7 @@ tags:
 - Perl
 thumbnail: http://4.bp.blogspot.com/-y9zgPTC2Dco/VmWmJGmEi1I/AAAAAAAABEI/ms7EsDycjDI/s72-c/old_espectrocope.jpg
 blogger_orig_url: https://electronicayciencia.blogspot.com/2015/12/espectroscopia-transformada-de-fourier.html
+featured-image: old_espectrocope.jpg
 ---
 
 Hoy voy a hablar de ondas. Muchos artículos de este blog tienen que ver con las ondas. Y en ellos, en casi todos, tratamos las propiedades temporales de las ondas; la frecuencia esto, la frecuencia lo otro... Este artículo, a diferencia de los anteriores, vamos a basarlo en las propiedades espaciales.

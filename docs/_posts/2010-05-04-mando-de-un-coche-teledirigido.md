@@ -8,6 +8,7 @@ tags:
 - telemandos
 thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S9qa0bqSxsI/AAAAAAAAAJA/2K3vW7utn8w/s72-c/circuito.png
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/mando-de-un-coche-teledirigido.html
+featured-image: circuito.png
 ---
 
 Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botones, es el clásico *avanza / gira mientras retrocede*. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-30-obtener-el-esquema-desde-una-placa-de %}) obtuvimos el esquema desde la placa. Ahora, como prometimos, lo analizaremos para saber cómo funciona.
