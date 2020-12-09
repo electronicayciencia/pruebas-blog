@@ -334,11 +334,9 @@ Pero ¿y si el dominio no es del todo aleatorio? Angler EK es un *kit de exploit
 
 Por ejemplo, alguien obtuvo las credenciales del dominio *keytone.net* y dio de alta algunos subdominios
 
-```
-036ncy4zgj.keytone.net
-042emb3ilv.keytone.net
-06yd2l4vc9.keytone.net
-```
+    036ncy4zgj.keytone.net
+    042emb3ilv.keytone.net
+    06yd2l4vc9.keytone.net
 
 Para el administrador del dominio es totalmente transparente y no advertirá nada a menos que liste los subdominios que tiene a su nombre, ya que por lo general son gratuitos. Para el analista de malware es una faena porque muchas veces las listas blancas se hacen por dominio completo, por lo que si keytone.net está en lista blanca, todos sus subdominios -incluyendo los anteriores- también lo estarán.
 
@@ -350,24 +348,24 @@ Este es un gráfico comparativo de la entropía de los dominios de Angler EK, co
 
     
     acaibehbjdjd.mysupercouponzz.info
-acaibehbjjcjb.mysupercouponzz.info
-acaibehdbjifi.mysupercouponzz.info
-acaibehdcabid.mysupercouponzz.info
-acaibehdefgcc.mysupercouponzz.info
-acaibehdgghhh.mysupercouponzz.info
-acaibehgcgfgh.mysupercouponzz.info
+    acaibehbjjcjb.mysupercouponzz.info
+    acaibehdbjifi.mysupercouponzz.info
+    acaibehdcabid.mysupercouponzz.info
+    acaibehdefgcc.mysupercouponzz.info
+    acaibehdgghhh.mysupercouponzz.info
+    acaibehgcgfgh.mysupercouponzz.info
 
 o bien formados por palabras, como estos otros:
 
     ounces.rhinestonetemptations.com
-clashes.rhinestonetemptations.com
-country.rhinestonetemptations.com
-getting.rhinestonetemptations.com
-spacing.rhinestonetemptations.com
-regulate.rhinestonetemptations.com
-collecting.rhinestonetemptations.com
-employment.rhinestonetemptations.com
-possession.rhinestonetemptations.com 
+    clashes.rhinestonetemptations.com
+    country.rhinestonetemptations.com
+    getting.rhinestonetemptations.com
+    spacing.rhinestonetemptations.com
+    regulate.rhinestonetemptations.com
+    collecting.rhinestonetemptations.com
+    employment.rhinestonetemptations.com
+    possession.rhinestonetemptations.com 
 
 Ahora parece razonable ver las dos distribuciones mezcladas. El máximo de mayor entropía corresponde a los dominios aleatorios, mientras que el de menor entropía corresponde a los que usan palabras. Hay que recordar que lo que estamos calculando es la entropía por trío, no por carácter, no por dominio completo. Lo que implica que si el dominio tiene una parte aleatoria, pero esta es corta en comparación al nombre completo, la entropía saldrá baja.
 

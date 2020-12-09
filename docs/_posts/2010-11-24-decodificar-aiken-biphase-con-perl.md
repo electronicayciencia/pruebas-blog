@@ -157,9 +157,9 @@ Al principio *Tuno* puede ser la duración del CERO o del UNO (hablamos de esto 
 
     error si            t < 1/4*Tuno 
     mitad si 1/4*Tuno < t <= 3/4*Tuno
-igual si 3/4*Tuno < t <= 3/2*Tuno
-doble si 3/2*Tuno < t <= 5/2*Tuno
-error si 5/2*Tuno < t 
+    igual si 3/4*Tuno < t <= 3/2*Tuno
+    doble si 3/2*Tuno < t <= 5/2*Tuno
+    error si 5/2*Tuno < t 
 
 Pero ¡un momento! Habrá que inicializar *Tuno* de alguna manera. Generalmente al principio de la lectura se repite mucho uno de los dos bits, que suele ser CERO para que el receptor se entere de la velocidad de transmisión. Vamos a intentar dar una vuelca de tuerca y a hacer que nuestro decodificador sea inteligente y sepa cuándo los caracteres iniciales sean CEROS y cuando UNOS. Pero eso no lo puede saber hasta que no encuentre un bit diferente. Si este dura la mitad es que lo de antes eran CEROS. Pero si dura el doble es que lo de antes eran UNOS. Por eso al empezar a leer estamos leyendo caracteres "T", que no sabemos si son UNOS o CEROS hasta leer otro diferente para poder comparar.
 

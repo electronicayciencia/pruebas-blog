@@ -116,15 +116,19 @@ sub recompose {
 		elsif ($type eq "ol" or $type eq "ul") {
 			$text .= $parts{$element}."\n\n";
 		}
+		# Un-grouped mono elements
 		elsif ($type eq "spanmono-line" or $type eq "divmono-line") {
-			$text .= "    ".$parts{$element}."\n\n";
+			$text .= $parts{$element}."\n\n";
 		}
 		elsif ($type eq "spanmono-block" or $type eq "divmono-block") {
-			$text .= "```".getlang($parts{$element})."\n$parts{$element}\n```\n\n";
+			$text .= $parts{$element}."\n\n";
 		}
+		# Mono elements part of a group
 		elsif ($type eq "monogroup") {
-			for my $monoline ($parts{$element} =~ m{\|\|##([-\w]+-\d+)##\|\|}g) {
-				$text .= "    ".$parts{$monoline}."\n";
+			for my $monoelement ($parts{$element} =~ m{\|\|##([-\w]+-\d+)##\|\|}g) {
+				my ($type, $num) = $monoelement =~ /([-\w]+)-(\d+)/;
+				#print STDERR "Debug: monoelement($type - $num) = $parts{$monoelement}\n";
+				$text .= $parts{$monoelement}."\n";
 			}
 		    $text .= "\n";	
 		}
@@ -363,6 +367,8 @@ sub format_monospace {
 	$block =~ s{<br>}{\n}g;
 	$block =~ s{\n+$}{}g;
 	$block =~ s{^\n+}{}g;
+
+	$block =~ s{^}{    }mg; # indent 4 spaces
 
 	# It's just one line or multiple lines?
 	if ($block =~ /\n/) {
