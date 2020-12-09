@@ -6,8 +6,6 @@ tags:
 - gnuplot
 - programacion
 - Perl
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_QA9DSwSiI/AAAAAAAAALg/UtGeAPKiZXI/s72-c/es_ES.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-palabras-en-numeros-ii.html
 featured-image: es_ES.png
 ---
 

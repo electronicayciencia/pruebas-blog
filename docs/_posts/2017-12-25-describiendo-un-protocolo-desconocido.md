@@ -6,8 +6,6 @@ tags:
 - programacion
 - sonido
 - radio
-thumbnail: https://4.bp.blogspot.com/-jTHNOSy73Rc/WkDh8QdLFxI/AAAAAAAABRU/iiCjsrORZcAuOsMtyI4h7N9HtblYZAvrgCLcBGAs/s72-c/frecuencias_editado.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2017/12/describiendo-un-protocolo-desconocido.html
 featured-image: frecuencias_editado.png
 ---
 

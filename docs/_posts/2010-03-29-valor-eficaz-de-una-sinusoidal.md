@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - gnuplot
 - DimmerIR
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S7B8nlQq8sI/AAAAAAAAABU/WLt5TjsmLkM/s72-c/forward_phase.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/valor-eficaz-de-una-sinusoidal.html
 featured-image: forward_phase.png
 ---
 

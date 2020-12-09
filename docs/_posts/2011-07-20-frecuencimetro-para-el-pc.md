@@ -7,8 +7,6 @@ tags:
 - circuitos
 - PC
 - Perl
-thumbnail: http://2.bp.blogspot.com/-dK8mrWXhi1M/TiA52Qg00lI/AAAAAAAAAfw/dLYDcpJm4Yg/s72-c/interfaz_tk.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/frecuencimetro-para-el-pc.html
 featured-image: interfaz_tk.png
 ---
 

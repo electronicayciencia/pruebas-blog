@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - circuitos
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TGz9SnB0oqI/AAAAAAAAAVk/dGNTBVfKuyc/s72-c/termoboli.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/termometro-para-disoluciones.html
 featured-image: termoboli.png
 ---
 

@@ -6,8 +6,6 @@ tags:
 - estadística
 - programacion
 - Perl
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S-LRgBBHq-I/AAAAAAAAAKg/Hs3acO720pc/s72-c/XOR_TABLE.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/criptoanalisis-del-cifrado-xor-simple.html
 featured-image: XOR_TABLE.jpg
 ---
 

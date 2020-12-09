@@ -6,8 +6,6 @@ tags:
 - física
 - linux
 - Perl
-thumbnail: http://3.bp.blogspot.com/-lSP6faz3vBc/VagBoBJnOuI/AAAAAAAABA8/1gbEUoDOpVk/s72-c/raton_y_conector.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2015/07/medir-distancias-con-un-raton-de-bola.html
 featured-image: raton_y_conector.jpg
 ---
 

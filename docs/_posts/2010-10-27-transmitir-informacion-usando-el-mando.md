@@ -6,8 +6,6 @@ tags:
 - estadística
 - circuitos
 - telemandos
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TMbtzX86gpI/AAAAAAAAAZ4/sP0rkgS7ItI/s72-c/Imagen256.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/transmitir-informacion-usando-el-mando.html
 featured-image: Imagen256.jpg
 ---
 

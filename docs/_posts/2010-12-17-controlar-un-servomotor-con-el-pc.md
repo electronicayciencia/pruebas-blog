@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TQonNl0jTbI/AAAAAAAAAcI/6cnxmlDi6a0/s72-c/pulsos_wikipedia.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/12/controlar-un-servomotor-con-el-pc.html
 featured-image: pulsos_wikipedia.png
 ---
 

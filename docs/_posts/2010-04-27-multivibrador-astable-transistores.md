@@ -6,8 +6,6 @@ tags:
 - circuitos
 - sonido
 - osciladores
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S9aXe_DBTdI/AAAAAAAAAGQ/ssuU3xz4G6E/s72-c/astable_npn.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/multivibrador-astable-transistores.html
 featured-image: astable_npn.png
 ---
 

@@ -5,7 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - programacion
 - Perl
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/comparar-matrices-en-perl.html
 ---
 
 En algunas ocasiones tenemos dos listas y necesitamos saber qué elementos *han entrado* nuevos en la segunda, cuales estaban en la primera pero no en la segunda -*han salido*- y cuales se han mantenido. Podríamos utilizar el módulo [Array::Diff](http://search.cpan.org/%7Etypester/Array-Diff-0.05002/lib/Array/Diff.pm) pero tiene un defecto, y es que **depende del orden**. Como utiliza un algoritmo similar a Diff, cuando los elementos cambian de orden el módulo ofrece resultados incorrectos.

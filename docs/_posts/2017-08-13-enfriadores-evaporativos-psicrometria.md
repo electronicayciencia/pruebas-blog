@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - física
 - datalog
-thumbnail: https://4.bp.blogspot.com/-L6EebysRMg4/WZCKia4sskI/AAAAAAAABNY/qL6Lo-UwihwogI-Ut6RMfCCdpDIRGArowCEwYBhgL/s72-c/20170807_192905.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/enfriadores-evaporativos-psicrometria.html
 featured-image: 20170807_192905.jpg
 ---
 

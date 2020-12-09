@@ -6,8 +6,6 @@ tags:
 - gnuplot
 - óptica
 - Perl
-thumbnail: http://3.bp.blogspot.com/-RILMIvMu-hI/T6Ugd5cw7AI/AAAAAAAAAjU/JGts3lXc0yY/s72-c/sopa.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2012/05/convolucion-de-dos-imagenes-homografos.html
 featured-image: sopa.png
 ---
 

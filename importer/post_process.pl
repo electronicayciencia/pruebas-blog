@@ -235,11 +235,13 @@ sub process_head {
 
 	# Remove date headers from front matter. 
 	# Cause issues with timezone and relative links.
-	$s =~ s{^date:.*\n}{}mg;
-	$s =~ s{^modified_time:.*\n}{}mg;
+	$s =~ s{^date:.*$}{}mg;
+	$s =~ s{^modified_time:.*$}{}mg;
 
 	# Blogger ID is not needed
-	$s =~ s{^blogger_id:.*\n}{}mg;
+	$s =~ s{^blogger_id:.*$}{}mg;
+	$s =~ s{^blogger_orig_url:.*$}{}mg;  # only needed before run get_descriptions
+	$s =~ s{^thumbnail:.*$}{}mg;
 
 	# Add featured image
 	$s =~ s{$}{\nfeatured-image: $featured_image} if $featured_image;
@@ -248,6 +250,11 @@ sub process_head {
 	my ($title) = $s =~ m{^title: (.*)$}m;
 	my $descr = get_description($title);
 	$s =~ s{$}{\ndescription: $descr} if $descr;
+
+	# Collapse blanks
+	$s =~ s/\n+/\n/g;
+	$s =~ s/\s+$//g;
+	$s =~ s/^\s+//g;
 
 	return $s;
 }

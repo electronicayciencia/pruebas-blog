@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - circuitos
-thumbnail: https://1.bp.blogspot.com/-_kkLDg0rdkI/XlLR4Cs_ECI/AAAAAAAABj0/IRfqSWFQmXUK9_3B7Pn5q7aeNpTy8PbOgCEwYBhgL/s72-c/yellow_fob.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2020/02/clonar-un-rfid-con-tu-propio-hardware.html
 featured-image: yellow_fob.jpg
 ---
 

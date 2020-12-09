@@ -6,8 +6,6 @@ tags:
 - circuitos
 - osciladores
 - telemandos
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S9qa0bqSxsI/AAAAAAAAAJA/2K3vW7utn8w/s72-c/circuito.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/mando-de-un-coche-teledirigido.html
 featured-image: circuito.png
 ---
 

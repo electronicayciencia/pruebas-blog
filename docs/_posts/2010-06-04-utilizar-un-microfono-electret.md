@@ -6,8 +6,6 @@ tags:
 - circuitos
 - sonido
 - amplificadores
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TAj511KVROI/AAAAAAAAAN4/6b4ju2CO_AA/s72-c/conn_electret.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/utilizar-un-microfono-electret.html
 featured-image: conn_electret.png
 ---
 

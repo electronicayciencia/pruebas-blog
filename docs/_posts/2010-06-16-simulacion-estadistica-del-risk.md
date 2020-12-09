@@ -8,8 +8,6 @@ tags:
 - programacion
 - PC
 - Perl
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TBY7AJBomYI/AAAAAAAAAPE/4u01WV-KBMk/s72-c/tabla.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/simulacion-estadistica-del-risk.html
 featured-image: tabla.png
 ---
 

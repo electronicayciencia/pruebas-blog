@@ -4,7 +4,6 @@ title: 'Síntesis de cloroformo a partir de productos de limpieza: estequiometr�
 author: Electrónica y Ciencia
 tags:
 - química
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/sintesis-de-cloroformo-partir-de.html
 ---
 
 Hay multitud de productos químicos en cualquier casa y las reacciones entre ellos son múltiples y variadas. Al mezclar, por ejemplo, un álcali clorado como la lejía con un ácido fuerte también basado en el cloro como el salfumán, se produce una neutralización con generoso desprendimiento de cloro. Este gas es tóxico, irritante y mata por asfixia, así que cuidado con él.

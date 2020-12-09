@@ -7,8 +7,6 @@ tags:
 - sonido
 - osciladores
 - amplificadores
-thumbnail: http://4.bp.blogspot.com/-q-5HZE1AkSU/UXWWVhcW6PI/AAAAAAAAAxA/vAIWsuwYrh4/s72-c/mixer1_sch_t.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2013/04/mezclador-de-frecuencias-con-el.html
 featured-image: mixer1_sch_t.png
 ---
 

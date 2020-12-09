@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - DimmerIR
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TUciFSei_ZI/AAAAAAAAAc8/UnqR7D_1_h4/s72-c/interrupciones.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/02/dimmer-controlado-por-mando-distancia.html
 featured-image: interrupciones.png
 ---
 

@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - PC
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S7o9Lr8RPXI/AAAAAAAAACQ/DSEexSvnRRI/s72-c/imagecompatibility.php
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/reutilizar-el-motor-de-un-lector-cdrom.html
 featured-image: imagecompatibility.php
 ---
 

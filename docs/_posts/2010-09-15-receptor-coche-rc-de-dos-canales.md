@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - circuitos
 - telemandos
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TIYWumVopdI/AAAAAAAAAXk/IcWXbIB6lTs/s72-c/alzado_placa.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/receptor-coche-rc-de-dos-canales.html
 featured-image: alzado_placa.JPG
 ---
 

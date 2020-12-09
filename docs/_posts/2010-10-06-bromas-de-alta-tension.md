@@ -6,8 +6,6 @@ tags:
 - física
 - circuitos
 - osciladores
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TKw-FfV0ZTI/AAAAAAAAAZU/PwC60rt7pGc/s72-c/shock_broma.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/bromas-de-alta-tension.html
 featured-image: shock_broma.jpg
 ---
 

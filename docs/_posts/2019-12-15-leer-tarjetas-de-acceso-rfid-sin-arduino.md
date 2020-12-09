@@ -7,8 +7,6 @@ tags:
 - circuitos
 - osciladores
 - amplificadores
-thumbnail: https://1.bp.blogspot.com/-YP10YRcmAhg/XfZU-Sz2UtI/AAAAAAAABgg/zKC2MA5oCz8ICUfVJXC0ZZiaCFmD0M-pQCLcBGAsYHQ/s72-c/fob_foto.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino.html
 featured-image: fob_foto.jpg
 ---
 

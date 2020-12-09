@@ -6,8 +6,6 @@ tags:
 - física
 - sonido
 - amplificadores
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S78MxV7IzRI/AAAAAAAAAEY/wNbb59XmSDQ/s72-c/copa.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/espectroscopia-casera-con-copas.html
 featured-image: copa.jpg
 ---
 

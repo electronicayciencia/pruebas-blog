@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - telemandos
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S6unBV3c1PI/AAAAAAAAAAs/NxDVJMxT5pA/s72-c/rc5.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/decodificacion-del-protocolo-rc5-usando.html
 featured-image: rc5.png
 ---
 

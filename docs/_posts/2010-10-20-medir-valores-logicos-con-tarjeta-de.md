@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - circuitos
 - PC
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TL6rJVdW_JI/AAAAAAAAAZg/5oAWW8oSxF0/s72-c/BENQ0004.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/medir-valores-logicos-con-tarjeta-de.html
 featured-image: BENQ0004.JPG
 ---
 

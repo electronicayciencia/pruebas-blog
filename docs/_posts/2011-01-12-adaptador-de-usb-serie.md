@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - PC
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TStgDyln2mI/AAAAAAAAAcU/Pidp-oEJy_U/s72-c/BENQ0005.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/01/adaptador-de-usb-serie.html
 featured-image: BENQ0005.JPG
 ---
 

@@ -8,8 +8,6 @@ tags:
 - física
 - circuitos
 - Perl
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TH-2Bada6mI/AAAAAAAAAWk/qvmVjuYur9s/s72-c/esquema.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/sensor-optico-sencillo-con-amplio-rango.html
 featured-image: esquema.png
 ---
 

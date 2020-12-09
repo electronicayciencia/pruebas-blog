@@ -6,8 +6,6 @@ tags:
 - física
 - circuitos
 - osciladores
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/S_0l2Lgz8NI/AAAAAAAAANw/OAc8VbWOsOo/s72-c/friemosquitos.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/matamoscas-electronico-flyback.html
 featured-image: friemosquitos.png
 ---
 

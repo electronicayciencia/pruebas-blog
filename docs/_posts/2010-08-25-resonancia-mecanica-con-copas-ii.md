@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - física
 - sonido
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TGKXVJCZEpI/AAAAAAAAAUs/3UrtMtgZJ_0/s72-c/pulso.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/08/resonancia-mecanica-con-copas-ii.html
 featured-image: pulso.png
 ---
 

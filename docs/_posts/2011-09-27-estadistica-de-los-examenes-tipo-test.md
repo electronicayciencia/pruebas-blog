@@ -4,8 +4,6 @@ title: Estadística de los exámenes tipo test
 author: Electrónica y Ciencia
 tags:
 - estadística
-thumbnail: http://2.bp.blogspot.com/-B7aDmfEwk5Y/ToILkHOpuwI/AAAAAAAAAiM/Jr-7i3tG22I/s72-c/esperanza_aciertos.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/09/estadistica-de-los-examenes-tipo-test.html
 featured-image: esperanza_aciertos.png
 ---
 

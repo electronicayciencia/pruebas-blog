@@ -6,8 +6,6 @@ tags:
 - reparaciones
 - circuitos
 - amplificadores
-thumbnail: http://3.bp.blogspot.com/-wDk25D9EvYk/UOW7AnBP9cI/AAAAAAAAArQ/QosQaH32m98/s72-c/sg331.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2013/01/reparacion-de-un-cd-radio-casete.html
 featured-image: sg331.jpg
 ---
 

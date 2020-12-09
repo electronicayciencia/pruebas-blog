@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - raspberrypi
-thumbnail: https://2.bp.blogspot.com/-T6HGSbA05Q4/WDGfA8Y3XkI/AAAAAAAABFA/Q9dHZilrCTAeVFju9l1OiRHIsJOK9DQxgCEw/s72-c/300px-Pi-GPIO-header.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2016/11/conexion-gpio-de-raspberry-pi-3.html
 featured-image: 300px-Pi-GPIO-header.png
 ---
 

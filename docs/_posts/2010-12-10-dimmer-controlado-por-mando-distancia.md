@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - circuitos
 - DimmerIR
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TQFA4nSi-RI/AAAAAAAAAb0/or_wWE9GOiU/s72-c/esquema_dimmerIr.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/12/dimmer-controlado-por-mando-distancia.html
 featured-image: esquema_dimmerIr.png
 ---
 

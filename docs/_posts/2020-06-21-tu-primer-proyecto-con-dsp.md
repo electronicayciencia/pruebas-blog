@@ -7,8 +7,6 @@ tags:
 - programacion
 - circuitos
 - amplificadores
-thumbnail: https://1.bp.blogspot.com/-KY-Fe0A3-rQ/Xu5iQX-ItMI/AAAAAAAABls/BMEiVoxzjl8AWaN7rMVqE3dVykTKJJvtgCLcBGAsYHQ/s72-c/filtrosinc.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2020/06/tu-primer-proyecto-con-dsp.html
 featured-image: filtrosinc.png
 description: Introducción a los DSP y uso de un dsPIC.
 ---

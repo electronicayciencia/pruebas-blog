@@ -4,7 +4,6 @@ title: La subasta americana
 author: Electrónica y Ciencia
 tags:
 - estadística
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/la-subasta-americana.html
 ---
 
 Últimamente no tengo mucho tiempo para escribir. Veis que las entradas que estoy sacando estas semanas son cortitas y con poca chicha. A ver si saco un poco más de tiempo y escribo sobre el circuito del DimmerIR, o la tercera entrada de estadística, u otra sobre transmisiones digitales.

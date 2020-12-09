@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - circuitos
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/S8N26BRUTEI/AAAAAAAAAFo/YfLJ7vL84Wc/s72-c/velomtr_sch.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/control-de-velocidad-por-pwm.html
 featured-image: velomtr_sch.png
 ---
 

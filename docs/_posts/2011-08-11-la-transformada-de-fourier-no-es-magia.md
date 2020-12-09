@@ -6,8 +6,6 @@ tags:
 - programacion
 - linux
 - sonido
-thumbnail: http://2.bp.blogspot.com/-U--Cs4BwCsw/TkQKXEQ7cAI/AAAAAAAAAgg/7hcjpKLnSLY/s72-c/captura_snd.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/08/la-transformada-de-fourier-no-es-magia.html
 featured-image: captura_snd.png
 ---
 

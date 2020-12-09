@@ -6,8 +6,6 @@ tags:
 - óptica
 - reciclado
 - física
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TA0DxL_gpEI/AAAAAAAAAOU/cwTFfLn7kdE/s72-c/BENQ0001.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/escaner-nuevo-y-difraccion.html
 featured-image: BENQ0001.JPG
 ---
 

@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - telemandos
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S-kVup7rtwI/AAAAAAAAALQ/5pevGj0x7gg/s72-c/trace.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/transmisor-protocolo-nec-con-pic.html
 featured-image: trace.png
 ---
 

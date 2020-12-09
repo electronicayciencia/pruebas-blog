@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - estadística
 - Perl
-thumbnail: http://1.bp.blogspot.com/-KqzhDLWu1ks/VQC2fVVRPHI/AAAAAAAAA-8/1W5xOTgJqh4/s72-c/distribs_letras.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2015/03/los-dominios-de-la-entropia.html
 featured-image: distribs_letras.png
 ---
 

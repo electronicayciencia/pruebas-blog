@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - programacion
 - PC
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S72vMwQxa1I/AAAAAAAAADI/X5RQfJ2b3mw/s72-c/buscar_wand.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/descifrar-las-contrasenas-guardadas-de.html
 featured-image: buscar_wand.png
 ---
 

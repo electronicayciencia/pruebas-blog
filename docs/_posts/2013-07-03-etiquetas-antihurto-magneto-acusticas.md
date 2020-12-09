@@ -10,8 +10,6 @@ tags:
 - osciladores
 - Perl
 - amplificadores
-thumbnail: http://2.bp.blogspot.com/-8qxMUAyyrUQ/UdRnZ51rDGI/AAAAAAAAA5Q/wZCJFnnFAk8/s72-c/Sensormatic-Am-58kHz-Security-Label.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2013/07/etiquetas-antihurto-magneto-acusticas.html
 featured-image: Sensormatic-Am-58kHz-Security-Label.jpg
 ---
 

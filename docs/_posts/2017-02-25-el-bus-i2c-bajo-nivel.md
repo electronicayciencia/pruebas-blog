@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - programacion
 - raspberrypi
-thumbnail: https://2.bp.blogspot.com/-7KNrtp5llKw/WLF1u6Rm0BI/AAAAAAAABIE/S3czo_YCQv4ZNzL4uHlfwf_KMmjXeLSZACLcB/s72-c/I2c_logo.svg.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2017/02/el-bus-i2c-bajo-nivel.html
 featured-image: I2c_logo.svg.png
 ---
 

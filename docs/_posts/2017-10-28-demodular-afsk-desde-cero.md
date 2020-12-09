@@ -6,8 +6,6 @@ tags:
 - programacion
 - circuitos
 - raspberrypi
-thumbnail: https://1.bp.blogspot.com/-iAx6we0iox4/WfS8_lhMO9I/AAAAAAAABPE/Spbhdw6dwZglFB-ihYON7y-YAru7THotACLcBGAs/s72-c/wargames-02.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2017/10/demodular-afsk-desde-cero.html
 featured-image: wargames-02.jpg
 ---
 

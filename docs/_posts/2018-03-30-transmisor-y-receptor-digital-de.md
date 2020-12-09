@@ -9,8 +9,6 @@ tags:
 - sonido
 - raspberrypi
 - amplificadores
-thumbnail: https://2.bp.blogspot.com/-I3GNTSJ9PQ4/Wr5nVOJthyI/AAAAAAAABVQ/Q4Ho5vREOosw83NeqGL7A0q6AMqicNE1ACLcBGAs/s72-c/mod_ultrasonido.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2018/03/transmisor-y-receptor-digital-de.html
 featured-image: mod_ultrasonido.png
 ---
 

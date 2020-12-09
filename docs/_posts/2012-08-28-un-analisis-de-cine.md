@@ -6,8 +6,6 @@ tags:
 - estadística
 - programacion
 - Perl
-thumbnail: http://2.bp.blogspot.com/-GoIQqr07Lxs/UDy6HxoRhTI/AAAAAAAAAnw/0J_Mcmnkj8Y/s72-c/esdla-eendp.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2012/08/un-analisis-de-cine.html
 featured-image: esdla-eendp.png
 ---
 

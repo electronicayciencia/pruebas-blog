@@ -4,8 +4,6 @@ title: "¿Vierten la tinta adrede las impresoras de inyección?"
 author: Electrónica y Ciencia
 tags:
 - PC
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TJcjr5J9vMI/AAAAAAAAAYk/2JMCclSfF3s/s72-c/BENQ0003.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/vierten-la-tinta-adrede-las-impresoras.html
 featured-image: BENQ0003.JPG
 ---
 

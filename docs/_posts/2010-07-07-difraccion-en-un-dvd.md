@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - óptica
 - física
-thumbnail: http://3.bp.blogspot.com/_QF4k-mng6_A/TCM3JPNx0RI/AAAAAAAAAQk/CHrfd3eh15s/s72-c/Imagen095.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/difraccion-en-un-dvd.html
 featured-image: Imagen095.jpg
 ---
 

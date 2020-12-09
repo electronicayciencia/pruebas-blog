@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/TTXzAf8kRpI/AAAAAAAAAcs/Z4NT-g8qBJg/s72-c/11011110.grid.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/01/programacion-pic-para-decodificar-rc5.html
 featured-image: 11011110.grid.png
 ---
 

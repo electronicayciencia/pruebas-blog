@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - gnuplot
 - DimmerIR
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/S64z5O_EjrI/AAAAAAAAAA0/WXLHpeT9a3o/s72-c/grafico_IV_1.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/03/caracteristica-i-v-de-una-bombilla.html
 featured-image: grafico_IV_1.png
 ---
 

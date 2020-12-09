@@ -6,8 +6,6 @@ tags:
 - circuitos
 - sonido
 - amplificadores
-thumbnail: http://3.bp.blogspot.com/-qQhNdej8sLc/UVHXvvdAg4I/AAAAAAAAAtw/III5MIwElQ8/s72-c/linea_recta.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2013/03/la-distorsion-armonica-total-thd.html
 featured-image: linea_recta.png
 ---
 

@@ -6,8 +6,6 @@ tags:
 - programacion
 - PC
 - Perl
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TEbrZydyV8I/AAAAAAAAATk/A39Bd_TQL38/s72-c/prov_prefijos.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/colorear-regiones-de-un-mapa-con-perl.html
 featured-image: prov_prefijos.png
 ---
 

@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - osciladores
 - amplificadores
-thumbnail: http://2.bp.blogspot.com/-LRAL6zX3zPk/ThSTMmIv03I/AAAAAAAAAeo/9BKddQMH-Ds/s72-c/fuentev_cir.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/07/el-transistor-ese-gran-desconocido.html
 featured-image: fuentev_cir.png
 ---
 

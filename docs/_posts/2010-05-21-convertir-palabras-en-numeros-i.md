@@ -4,7 +4,6 @@ title: Convertir palabras en números (I)
 author: Electrónica y Ciencia
 tags:
 - programacion
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html
 ---
 
 Tenemos herramientas muy potentes para machacar números, calcular medidas estadísticas, gráficos, distancias, etc. Hoy os propongo jugar con algunas de esas herramientas pero aplicadas a las palabras, al **lenguaje**. Claro que las letras no son números, hemos de buscar una función que asigne un número a cada combinación de letras. Hemos de buscar *una aplicación del conjunto de las palabras a los números*.

@@ -7,8 +7,6 @@ tags:
 - física
 - sonido
 - Perl
-thumbnail: http://4.bp.blogspot.com/-y9zgPTC2Dco/VmWmJGmEi1I/AAAAAAAABEI/ms7EsDycjDI/s72-c/old_espectrocope.jpg
-blogger_orig_url: https://electronicayciencia.blogspot.com/2015/12/espectroscopia-transformada-de-fourier.html
 featured-image: old_espectrocope.jpg
 ---
 

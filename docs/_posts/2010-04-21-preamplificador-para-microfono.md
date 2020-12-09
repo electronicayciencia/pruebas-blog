@@ -7,8 +7,6 @@ tags:
 - PC
 - sonido
 - amplificadores
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S8x0gtNXYUI/AAAAAAAAAFw/CJRsjtn_pAE/s72-c/BENQ0013.JPG
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/04/preamplificador-para-microfono.html
 featured-image: BENQ0013.JPG
 ---
 

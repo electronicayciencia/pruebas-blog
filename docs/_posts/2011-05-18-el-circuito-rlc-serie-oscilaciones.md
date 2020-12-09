@@ -6,8 +6,6 @@ tags:
 - física
 - circuitos
 - osciladores
-thumbnail: http://4.bp.blogspot.com/-mKnPzWrM3yo/TdQaeYqW_bI/AAAAAAAAAdc/diqxZOXT2Vo/s72-c/VI_C.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/05/el-circuito-rlc-serie-oscilaciones.html
 featured-image: VI_C.png
 ---
 

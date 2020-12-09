@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - física
 - estadística
-thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/THY1cH0haUI/AAAAAAAAAWE/gD78P0u3sU4/s72-c/gausiana_2.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/09/inferencia-estadistica-capacidad-de-una.html
 featured-image: gausiana_2.png
 ---
 

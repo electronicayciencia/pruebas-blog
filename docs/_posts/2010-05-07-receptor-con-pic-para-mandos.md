@@ -6,8 +6,6 @@ tags:
 - microcontroladores
 - DimmerIR
 - telemandos
-thumbnail: http://4.bp.blogspot.com/_QF4k-mng6_A/S97lM8Bw1FI/AAAAAAAAAJg/3AlfVlzYbkQ/s72-c/0_1.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/05/receptor-con-pic-para-mandos.html
 featured-image: 0_1.png
 ---
 

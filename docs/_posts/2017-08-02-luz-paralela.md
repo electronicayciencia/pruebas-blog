@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - óptica
 - física
-thumbnail: https://3.bp.blogspot.com/-uDmaqo0fIcg/WYILoYeTnZI/AAAAAAAABKk/7QIpfb520WgVeMiGjqK5X2bUYtueEFBfgCLcBGAs/s72-c/Optical-dispersion.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2017/08/luz-paralela.html
 featured-image: Optical-dispersion.png
 ---
 

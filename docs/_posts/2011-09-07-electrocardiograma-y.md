@@ -7,8 +7,6 @@ tags:
 - sonido
 - amplificadores
 - biología
-thumbnail: http://1.bp.blogspot.com/-55qUvU7djEk/TmfKhlAdVCI/AAAAAAAAAhQ/aRqsZ3CW36E/s72-c/con624.gif
-blogger_orig_url: https://electronicayciencia.blogspot.com/2011/09/electrocardiograma-y.html
 featured-image: con624.gif
 ---
 

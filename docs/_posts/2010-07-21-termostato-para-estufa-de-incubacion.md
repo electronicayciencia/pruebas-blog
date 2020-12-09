@@ -5,8 +5,6 @@ author: Electrónica y Ciencia
 tags:
 - circuitos
 - biología
-thumbnail: http://1.bp.blogspot.com/_QF4k-mng6_A/TESSolWgx_I/AAAAAAAAAS0/-aNQ2ZZeag0/s72-c/esquema.png
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/07/termostato-para-estufa-de-incubacion.html
 featured-image: esquema.png
 ---
 

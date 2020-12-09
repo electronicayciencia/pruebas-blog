@@ -6,7 +6,6 @@ tags:
 - programacion
 - PC
 - Perl
-blogger_orig_url: https://electronicayciencia.blogspot.com/2010/06/generador-de-personajes-ficticios-en.html
 ---
 
 De vez en cuando escribo historias de intriga para jugar a modo de rol con los amigos. Cuando uno escribe una historia llega un momento en que tiene que poner nombre a los personajes. Inventarse nombres ficticios y realistas es difícil. Cualquiera puede poner nombre a un personaje, pero si necesitas varios te puede llevar cierto tiempo.
