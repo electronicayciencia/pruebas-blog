@@ -8,6 +8,8 @@ description: Here is the description
 
 This name ends in .md, not .markdown.
 
+This is a static asset for you: {{page.assets}}file1.txt.
+
 Code:
 
 ```xml
