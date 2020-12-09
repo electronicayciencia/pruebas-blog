@@ -8,7 +8,8 @@ description: Here is the description
 
 This name ends in .md, not .markdown.
 
-This is a static asset for you: {{page.assets}}file1.txt.
+This is a static asset for you: [file1](file1.txt).
+
 
 Code:
 
@@ -35,7 +36,6 @@ Var.page: {{ page.path }}
 - page.slug: {{page.slug}}
 - page.assets: {{page.assets}}
 
-![My helpful screenshot]({{site.baseurl}}/assets/{{page.slug}}/img/a-cat.png)
 
 
 {% include image.html max-width="200px" file="a-cat.png" caption="This is the Jekyll logo." %}
