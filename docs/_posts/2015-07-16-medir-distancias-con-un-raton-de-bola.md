@@ -28,11 +28,11 @@ Antes de meterme en faena os voy a contar cómo funcionan los ratones mecánicos
 
 El encoder -y yo uso la palabra encoder aunque en español debería decirse "codificador óptico"- consta de un led y un fotodiodo, como podéis ver en esta imagen. El led es el componente de color claro, casi translúcido, y el fotodiodo es negro.
 
-{% include image.html file="ratonbola_2.png" caption="" %}
+{% include image.html max-width="300px" file="ratonbola_2.png" caption="" %}
 
 Entre los dos hay una rueda que tiene ranuras muy finas, las cuales van interrumpiendo la luz que llega al receptor. A más velocidad, más veces por segundo se interrumpe el rayo luminoso.
 
-{% include image.html file="ratonbola_1.png" caption="" %}
+{% include image.html max-width="480px" file="ratonbola_1.png" caption="" %}
 
 El truco está en que el **fotodiodo es doble**. Lleva un fotodiodo arriba y otro igual debajo. Así puede no deducir la velocidad a partir de la frecuencia con que se interrumpe la luz, sino también la dirección del movimiento: si primero se corta la luz en el fotodiodo inferior y luego en el superior, ese lado de la rueda está subiendo. Si primero se corta arriba y luego abajo, entonces está bajando ese lado de la rueda.
 

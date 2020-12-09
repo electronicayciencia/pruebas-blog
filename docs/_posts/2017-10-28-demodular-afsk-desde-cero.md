@@ -42,7 +42,7 @@ Para modular en FSK se necesitan dos osciladores o bien un oscilador de frecuenc
 
 Imaginad por un momento que estamos explorando el espectro radioeléctrico. Buscamos una señal para ilustrar un artículo sobre modulaciones digitales, por ejemplo. Nos vamos a UHF, alrededor 447.700MHz nos llama la atención un grupo de señales bastante fuertes.
 
-{% include image.html max-width="460.5px" file="misteriosa_sdr2.png" caption="Grupo de señales misteriosas. EyC." %}
+{% include image.html max-width="460px" file="misteriosa_sdr2.png" caption="Grupo de señales misteriosas. EyC." %}
 
 Están emitiendo en FM estrecha (NFM), por diferenciarlo de FM ancha que serían las emisiones comerciales entre 88 y 108MHz. Emiten, como decía, un pitido monótono interrumpido de forma periódica por una trama modulada. Parece lo suficientemente simple como para servir de ejemplo. Y a la vez lo suficientemente raro como para despertar el interés que quien lo lea. ¿Qué puede ser ese grupo de señales?
 

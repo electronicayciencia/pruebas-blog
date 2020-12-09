@@ -59,7 +59,7 @@ Necesitaremos instalar la librería OpenSSL (libssl) si no la tenemos ya instala
 
 Para encontrar el archivo *wand.dat* podemos escribir en la barra de direcciones *about:config* y acto seguido buscar *wand*:
 
-{% include image.html file="buscar_wand.png" caption="" %}
+{% include image.html max-width="480px" file="buscar_wand.png" caption="" %}
 
 Ni que decir tiene que este programita sólo será útil si no hemos establecido una contraseña maestra. Lo he probado con las versiones 9 y 10 para Linux y para Windows, con el resto debería funcionar también. A menos que cambien el algoritmo en el futuro. Encontraréis el archivo adaptado para Linux, junto con un fichero *wand.dat* para pruebas y el ejecutable ya compilado [en este enlace](http://sites.google.com/site/electronicayciencia/unwand.zip).
 

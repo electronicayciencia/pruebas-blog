@@ -24,7 +24,7 @@ En este artículo vamos a ver algunos experimentos sencillos de espectroscopia a
 
 Tomemos una copa, un vodka con naranja estaría bien. Ahora vamos a por una **copa vacía** para hacer las pruebas. Lo primero que hemos de obtener son las frecuencias de oscilación libre de esa copa. Estas dependerán del tamaño y forma, así como de la composición y grosor del material. De ahí el timbre característico de una copa de fino cristal de Bohemia, frente a una copa usual de vino o un simple vaso. Y de ahí también el que varíe cuando se llena de un líquido, cuando se toca, etc.
 
-{% include image.html file="copa.jpg" caption="" %}
+{% include image.html max-width="300px" file="copa.jpg" caption="" %}
 
 Podríamos utilizar un oscilador y un micrófono. Si variamos la frecuencia mientras visualizamos la amplitud de la señal captada veremos cómo crece al acercarnos a una frecuencia de resonancia. Este método es viable y así es como se hacía antes de que existieran los ordenadores, cuando no era tan sencillo calcular la [Transformada de Fourier](http://es.wikipedia.org/wiki/Transformada_r%C3%A1pida_de_Fourier). Otro día me detendré en explicarla, porque es realmente interesante; baste hoy con decir que es una operación tal que, a partir de un sonido, obtiene las frecuencias de que se compone.
 
@@ -41,7 +41,7 @@ Parece sencillo, sólo necesitamos un sonido que se componga de todas las frecue
 
 Lo siguiente es un sonograma creado por el programa [baudline](http://www.baudline.com/). El tiempo avanza hacia abajo de la pantalla, siguiendo el eje vertical. Las frecuencias están en el eje horizontal.
 
-{% include image.html file="globo.png" caption="" %}
+{% include image.html max-width="480px" file="globo.png" caption="" %}
 
 Cuando aportamos energía a la copa, esta absorbe la que corresponde con sus frecuencias características y a continuación la emite. Lo que vemos es un aporte inicial de energía -la explosión- y a continuación los *ecos*. Hay tres tonos principales, los llamaremos A1, A2 y A3 (copa A, tonos 1, 2 y 3) de 1160Hz, 2410Hz y alrededor de 4400Hz. Nos centraremos en A1 y A2, vale la pena observar que son dos tonos limpios, en el sentido de que ninguno presenta armónicos superiores.
 
@@ -71,7 +71,7 @@ Hagámoslo más interesante. Antes hemos dicho que se podía intuir la composici
 
 Tengo un sistema compuesto de tres copas, llamémoslas A (la que hemos usado antes), B y C. Cada copa tendrá unos picos de emisión, esos los nombraremos con un número correlativo. En el siguiente sonograma vemos los picos excitando cada copa individualmente para ver su espectro característico y después todas al mismo tiempo para ver el espectro completo del sistema.
 
-{% include image.html file="sistemaCopas.png" caption="" %}
+{% include image.html max-width="480px" file="sistemaCopas.png" caption="" %}
 
 Antes de nada recordar que lo que estamos viendo no es un espectro de emisión, es un sonograma. Los picos no son picos, sino prolongaciones de esa frecuencia en el tiempo posterior a la excitación. Aún así hablaré de picos por comodidad. Realmente se parece más a una [Resonancia Magnética (RMN)](http://es.wikipedia.org/wiki/Resonancia_magn%C3%A9tica_nuclear), pero no quiero complicar más la entrada.
 
@@ -87,9 +87,9 @@ He sacrificado definición de la imagen en favor de que se vea más claro lo sig
 
 - **El pico A3** parece que esté dividido en dos muy próximos. En efecto al menos los picos A2 y A3 se desdoblan. Es algo común en espectroscopia, y pueden deberse a una acción externa (como el <a href="http://es.wikipedia.org/wiki/Efecto_Zeeman">efecto Zeeman</a> o el <a href="http://es.wikipedia.org/wiki/Efecto_Stark">efecto Stark</a>), pero aquí seguramente se deba a defectos en el material. Estos son los picos anteriores ampliados. Se necesita estrujar la FFT para obtenerlos y no se ven del todo bien.
 
-{% include image.html file="tono_A2.png" caption="" %}
+{% include image.html max-width="225px" file="tono_A2.png" caption="" %}
 
-{% include image.html file="tono_A3.png" caption="" %}
+{% include image.html max-width="117px" file="tono_A3.png" caption="" %}
 
 ## Espectro completo de A
 

@@ -47,7 +47,7 @@ Un vicio habitual es que una vez se conocen y se aprenden a usar los microcontro
 
 Para las pruebas he usado un PIC12F683. Se podría hacer con cualquier otro modelo más básico ya que no usamos ninguna función avanzada.
 
-{% include image.html file="esquema.png" caption="" %}
+{% include image.html max-width="480px" file="esquema.png" caption="" %}
 
 Esta es la configuración de los pines:
 
@@ -227,11 +227,11 @@ Para saber cuál es la causa de todo lo que hemos desarrollado en esta entrada h
 
 Este es por dentro el diodo en estado de reposo, o sea sin que le apliquemos ningún potencial:
 
-{% include image.html file="diode13.gif" caption="" %}
+{% include image.html max-width="300px" file="diode13.gif" caption="" %}
 
 Ahora vamos a aplicarle un potencial inverso. Digamos que los *portadores de carga* (electrones y huecos) se apiñan atraídos por el potencial a los lados del material. Si ahora quitamos la batería (cortamos el potencial sin juntar las patillas) se habrá quedado un campo eléctrico. Es el principio de un condensador.
 
-{% include image.html file="diode6.gif" caption="" %}
+{% include image.html max-width="300px" file="diode6.gif" caption="" %}
 
 Si medimos inmediatamente, habrá la misma tensión que habíamos aplicado al principio. Y lentamente se irá descargando para llegar a la imagen primera. Cuando los portadores estén otra vez distribuidos ya no habrá campo eléctrico ni por tanto tensión en las patillas. Estará descargado.
 

@@ -83,7 +83,7 @@ Ved por ejemplo la herencia árabe en nuestra lengua en las palabras que empieza
 
 En esta zona vemos como detrás de una 'P' habitualmente viene una vocal. Salvo contados casos que son *PS*.
 
-{% include image.html file="esp_co.png" caption="" %}
+{% include image.html max-width="336px" file="esp_co.png" caption="" %}
 
 Y para terminar, estos son los intervalos que presentan un pico en el espectro. En la 'c' hay gran cantidad de palabras que empiezan por *con* o *com*. Y en la 'd' el pico se debe a *des*. ¿Por qué? Pues porque *con* y *des* son prefijos que combinan con multitud de palabras. Además si abrís el gráfico en grande veréis que no hay apenas palabras en las letras 'k', y al final del abecedario 'v,w, x, y,z'. Estas últimas letras no existía en el abecedario latino, del que procede el español, se incorporaron más tarde y por eso figuran las últimas.
 

@@ -229,7 +229,7 @@ sub process_head {
 sub image_string {
 	my ($name, $width, $caption) = @_;
 
-	#print STDERR "Width: $width\n";
+	#print STDERR "DEBUG: Image name: $name, Width: $width\n";
 
 	$name =~ s/%25/%/g;
 	$name =~ s/%../-/g;
@@ -245,7 +245,7 @@ sub image_string {
 	$caption =~ s{"}{\\"}g;
 
 	if ($width ne "" and $width < 400) {
-	    $width *= 1.5;
+	    $width = int($width * 1.5); # magnifier
 		my $string = "{% include image.html max-width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}";
 		return parts_store($string, "img");
 	}
@@ -491,7 +491,10 @@ sub process_body {
 	#	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
 	$s =~ s{<factor de="" ruido=""></factor>}{};                   # preamplificador-microfono-electret
 	$s =~ s{2010/06/difraccion-en-un-dvd}{2010/07/difraccion-en-un-dvd}g;
-    $s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sistetizador-pll
+    $s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sintetizador-pll
+    $s =~ s{\\f_(a|b)}{f_$1}g;                           # thd
+    $s =~ s{^<div class="separator".*?</div>Hoy vamos}{Hoy vamos}g;                           # thd
+
 
 	# Remove fixed texts
 	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
@@ -554,6 +557,9 @@ sub process_body {
 	
 	# Same, without width
 	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{image_string($1,"",$3)}sge;
+	
+	# Images with link and width, but no caption
+	$s =~ s{<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,120}?</a>}{image_string($1,$3,"")}sge;
 
 	# Images with link only
 	# <a href="...blogspot.com/.../Imagen149.jpg" ... ><img ... src="...blogspot.com/.../Imagen149.jpg" ... /></a>

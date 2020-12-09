@@ -369,7 +369,7 @@ Es prácticamente plana hasta los 100MHz. Tiene ruido en las frecuencias bajas, 
 
 A continuación, el esquema del amplificador:
 
-{% include image.html max-width="424.5px" file="esq_amplificador.png" caption="Esquema del amplificador buffer utilizado." %}
+{% include image.html max-width="424px" file="esq_amplificador.png" caption="Esquema del amplificador buffer utilizado." %}
 
 Su función es proteger la salida de la Raspberry. Y como sólo tiene que amplificar ondas cuadradas no nos preocupamos de la distorsión. Sí debemos preocuparnos del ancho de banda y ahí es donde entra R3. Esta es la respuesta en frecuencia del amplificador tal como está con el emisor degenerado. Con este esquema tan simple hay una caída de la amplificación a partir de los 2MHz más o menos:
 

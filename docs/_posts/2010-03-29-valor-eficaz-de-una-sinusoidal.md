@@ -13,7 +13,7 @@ Continuamos con el proyecto *DimmerIR*. La intención como ya habéis supuesto e
 
 Voy a usar un TRIAC para sólo dejar pasar parte de cada semiciclo, la forma de onda que recibe la bombilla es así:
 
-{% include image.html file="forward_phase.png" caption="" %}
+{% include image.html max-width="300px" file="forward_phase.png" caption="" %}
 
 Debido a los cambios bruscos de tensión, esta forma de atenuación sólo sirve para cargas resistivas. Olvidaros de conectar una bombilla de bajo consumo.
 

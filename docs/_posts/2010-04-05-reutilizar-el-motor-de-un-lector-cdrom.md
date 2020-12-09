@@ -17,7 +17,7 @@ Lo que me propongo es hacer funcionar el motor principal del CDROM, el que gira 
 
 El truco es alimentar las bobinas en su momento oportuno o mejor, con un determinado *desfase*, pero NO es un motor paso a paso. Buscando por Internet encontraréis esquemas y proyectos que utilizan un micro para aplicar corriente alterna a las bobinas. El problema es que estos chismes están diseñados para funcionar con una señal sinusoidal y no cuadrada. Además si no usamos los sensores Hall seguramente no excitemos cada bobina a tiempo y tendremos unas pérdidas de aúpa.
 
-{% include image.html file="trifasica.png" caption="" %}
+{% include image.html max-width="480px" file="trifasica.png" caption="" %}
 
 Dentro de los diversos tipos que hay, podemos distinguir los que efectivamente cuentan con sensores Hall, y los que se sirven de la tensión inducida en las bobinas que en cada momento no estén activas, o miden la [Fuerza Contraelectromotriz](http://es.wikipedia.org/wiki/Fuerza_contraelectromotriz) de cada bobina.
 
@@ -62,7 +62,7 @@ Ahora que somos dueños del motor, nos interesa saber la velocidad que alcanza a
 
 Para oir ese 'tic' **sin frenar el motor** -eso es importante- atamos un hilo corto al eje y lo ponemos en marcha. Parte del hilo se enrollará mientras el extremo queda rotando con el motor. Ponemos una hoja de papel de forma que el hilo la toque de refilón en cada vuelta y visualizamos la señal en el PC.
 
-{% include image.html file="max_rpms.png" caption="" %}
+{% include image.html max-width="480px" file="max_rpms.png" caption="" %}
 
 En la imagen se aprecian picos de mayor amplitud (fruto del toque contra la hoja) y otros de menor amplitud, que no son otra cosa sino ecos del primero ya que el golpe contra la hoja no es seco. Medimos el periodo entre dos picos 'altos', y obtenemos 5056us. Lo que nos da un periodo de 197 vueltas por segundo o unas 11800 revoluciones por minuto.
 
@@ -74,11 +74,11 @@ Hay algunos experimentos curiosos con discos que giran. Aprovechando esta entrad
 
 El **disco de Newton**, como podéis ver debajo tiene varios colores pintados de tal forma que al girar da la sensación de ser blanco. Simplemente por la suma aditiva de luces. Con un prisma vemos que la luz blanca está compuesta por varios colores, aquí vemos el efecto contrario, componemos esa luz blanca a base de superponer colores a una velocidad mayor que el refresco de la retina.
 
-{% include image.html file="disco_newton.jpg" caption="" %}
+{% include image.html max-width="300px" file="disco_newton.jpg" caption="" %}
 
 El **disco de Benham** me resulta mucho más curioso. Se trata de una ilusión óptica por la cual un disco con un determinado diseño, pintado únicamente con tinta negra sobre fondo blanco, produce al girar la sensación de estar coloreado. Hay varios diseños, este que os pongo aquí es el que me ha dado mejor resultado.
 
-{% include image.html file="Benham-s_Disc.PNG" caption="" %}
+{% include image.html max-width="292px" file="Benham-s_Disc.PNG" caption="" %}
 
 Hay mucha información en Internet sobre ambos fenómenos y os animo a seguir investigando.
 

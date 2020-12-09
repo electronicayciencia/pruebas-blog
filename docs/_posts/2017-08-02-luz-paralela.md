@@ -233,7 +233,7 @@ Cuanto más coherente más fácil de colimar, sí. Pero a veces se nos olvida qu
 
 Esto es lo que pasa al interponer una aguja en un rayo de Sol pasando por un agujerito en la ventana:
 
-{% include image.html max-width="394.5px" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
+{% include image.html max-width="394px" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
 
 Siento que la imagen no sea de muy buena calidad. Cuesta enfocar estas cosas con un móvil porque tendría que enfocar a infinito y sin embargo el móvil se empeña en enfocar la pantalla. A simple vista la imagen es mucho más viva.
 

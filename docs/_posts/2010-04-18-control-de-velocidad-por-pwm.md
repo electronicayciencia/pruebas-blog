@@ -45,7 +45,7 @@ El circuito puede alimentarse entre 7 y 30V aunque los valores de R3 y R4 están
 
 Aquí tenéis una foto del circuito terminado.
 
-{% include image.html file="BENQ0020.JPG" caption="" %}
+{% include image.html max-width="480px" file="BENQ0020.JPG" caption="" %}
 
 En [este enlace](http://sites.google.com/site/electronicayciencia/velomotor.rar) os dejo los ficheros de Eagle, el datasheet, la nota de aplicación antes mencionada y las fotos.
 

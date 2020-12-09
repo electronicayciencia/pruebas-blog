@@ -99,7 +99,7 @@ Ya os habéis dado cuenta de que sólo se induce cuando cambia el flujo, y ese c
 
 Ya veis la que la regla del Aiken Biphase es sencilla, os pego esta imagen de la Wikipedia.
 
-{% include image.html file="bmc.png" caption="" %}
+{% include image.html max-width="480px" file="bmc.png" caption="" %}
 
 ## Preamplificador de entrada
 
@@ -107,7 +107,7 @@ Hemos dicho que no se necesita electrónica ninguna para conectar el lector a la
 
 Aunque no es necesario un amplificador, yo sí voy a utilizarlo porque facilita captar correctamente la señal. Este es el circuito, que como veis no es más que un amplificador inversor que [habíamos explicado ya]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}). Este tiene una ganancia de 7.5 veces aproximadamente. Los componentes no son críticos, sirve casi cualquier operacional y las resistencias que tengáis por el taller.
 
-{% include image.html file="amplificador.png" caption="" %}
+{% include image.html max-width="480px" file="amplificador.png" caption="" %}
 
 El condensador de entrada merece mención aparte. Si usamos capacidades muy bajas, por debajo de 47nF vamos a hacer que las frecuencias bajas estén muy atenuadas. Y el *valle* que hay entre los picos se deformará apareciendo un pico secundario a modo de rebote. Y el lector se va a confundir con esos picos. En cambio si usamos una capacidad alta por encima de 10uF la forma de la onda no se va a deformar apenas, y los picos aparecerán claros y contundentes. Pero también se van a colar ruidos de baja frecuencia que hacen que el tren de pulsos suba y baje como en una montaña rusa. Aunque el algoritmo adaptativo que os presento tolera esas variaciones, si podemos es mejor que nos las quitemos. Yo he hecho las pruebas con una capacidad de 470nF y funciona aceptablemente.
 

@@ -72,7 +72,7 @@ lo que nos da una separación de 0.167mm. Que vienen a ser 6 líneas por milíme
 
 Vamos a mirar la cinta a través de un microscopio tipo [cuentahilos](http://buscon.rae.es/draeI/SrvltConsulta?TIPO_BUS=3&amp;LEMA=cuentah%C3%ADlos) para comprobar que eso es verdad.
 
-{% include image.html file="BENQ0038.JPG" caption="" %}
+{% include image.html max-width="480px" file="BENQ0038.JPG" caption="" %}
 
 La graduación mayor son milímetros. Contamos efectivamente 6 líneas por milímetro.
 

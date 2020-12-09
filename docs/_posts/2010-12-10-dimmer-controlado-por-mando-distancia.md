@@ -53,7 +53,7 @@ Una vez tenemos el PIC alimentado necesitamos saber cuando la tensión de red pa
 
 Mirad el datasheet de un PIC como el 12F683 y fijaos cómo son por dentro las entradas de tipo IO *entrada/salida*:
 
-{% include image.html file="entrada.png" caption="" %}
+{% include image.html max-width="300px" file="entrada.png" caption="" %}
 
 La imagen no está sacada del datasheet, sino de esta **Nota de Aplicación** donde viene más simplificado: [Interfacing to AC Power Lines](http://ww1.microchip.com/downloads/en/AppNotes/00521c.pdf). El caso es que tienen dos diodos limitadores. Lo que quiere decir que aunque apliquemos 220V directamente al pin del PIC **no se dañará** siempre y cuando limitemos la intensidad. **R2** es una resistencia de un valor muy elevado, suficiente para elevar la tensión hasta nivel alto, pero con una intensidad muy baja para no destruir los diodos. La tensión en el puerto GP2 oscilará entre 0 cuando la tensión de red pase por el semiciclo negativo hasta 5V como máximo en el semiciclo positivo. En cualquiera de las dos transiciones sabemos que la tensión acaba de pasar o va a pasar inmediatamente por cero.
 
@@ -96,9 +96,9 @@ Lo bueno de usar microcontroladores es que el circuito es muy simple y siempre s
 
 Esta es la PCB con las pistas vistas por el lado de cobre:
 
-{% include image.html file="pistas1.png" caption="" %}
+{% include image.html max-width="480px" file="pistas1.png" caption="" %}
 
-{% include image.html file="pistas2.png" caption="" %}
+{% include image.html max-width="480px" file="pistas2.png" caption="" %}
 
 Y así es como quedaría el circuito ya montado:
 

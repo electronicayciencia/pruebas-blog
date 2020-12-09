@@ -50,7 +50,7 @@ Simplificando, en el eje X está el valor y en el eje Y la probabilidad. Quiere 
 
 Los valores típicos de la campana se miden en unidades de error, en *desviaciones típicas*. Así entre la media menos s y la media más s se espera que se sitúen el 68% de las medidas. Entre la media menos 2s y la media +2s se esperan que estén el 95%, etc. Ved [esta imagen de la Wikipedia](http://upload.wikimedia.org/wikipedia/commons/3/37/Standard_deviation_diagram_%28decimal_comma%29.svg).
 
-{% include image.html file="gausiana_tipificada.png" caption="" %}
+{% include image.html max-width="480px" file="gausiana_tipificada.png" caption="" %}
 
 En nuestro caso las medidas se distribuyen de esta manera:
 

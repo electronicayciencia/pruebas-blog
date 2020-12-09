@@ -10,7 +10,46 @@ thumbnail: http://2.bp.blogspot.com/_QF4k-mng6_A/TMbtzX86gpI/AAAAAAAAAZ4/sP0rkgS
 blogger_orig_url: https://electronicayciencia.blogspot.com/2010/10/transmitir-informacion-usando-el-mando.html
 ---
 
-{% include image.html file="hist_BA.png" caption="" %}
+Hoy vamos a ver una introducción a la transmisión digital de señales. Veremos los conceptos básicos y haremos una pequeña práctica con los materiales que tenemos a mano. Caracterizaremos el sistema y programaremos un par de PICs para que hagan las funciones de transmisor y receptor.
+
+Lo primero es un transmisor y un receptor. Lo tenemos, vamos a usar el [transmisor]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}) y el [receptor]({{site.baseurl}}{% post_url 2010-09-15-receptor-coche-rc-de-dos-canales %}) de un coche teledirigido. El circuito receptor no está pensado para esto y no trabaja demasiado bien, lo veremos. El consumo del transmisor ronda los 12mA, mientras que el del receptor es de 9.5mA. La velocidad que conseguiremos es de 14 baudios, poco más de un byte por segundo. Muy lenta para algunas cosas, pero por ejemplo se podría utilizar en un sensor inalámbrico de lluvia, de temperatura o una alarma.
+
+## Transmisión de la señal
+
+Para hacer llegar información (datos) de un punto a otro necesitamos usar varios elementos. Si os acordáis del modelo OSI, vamos a trabajar en la primera capa, la más baja y cruel de todas: la [capa física](http://es.wikipedia.org/wiki/Capa_f%C3%ADsica). Resumiendo, esta capa transmite información de un lado a otro, dándole igual los errores con que llegue. De eso ya se encargarán otras capas superiores.
+
+Y dentro de esta, vamos a construir los cimientos desde el sótano describiendo nuestro medio, canal, modulación, codificación y alguna idea relativa al protocolo.
+
+- **Medio:** Es el medio que se usa para mover la información, puede ser por ejemplo un cable eléctrico o uno de fibra optica. En nuestro caso es transmisión inalámbrica, así que nuestro medio son las ondas radioeléctricas. 
+
+- **Portadora:** Pero el espectro radioeléctrico es muy amplio. Y habrá que decir qué parte de él usamos. 27.145MHz es la frecuencia a la que trabajan la mayoría de los coches teledirigidos de gama baja. No siempre se indica pero por las características concretas de nuestro proyecto conviene.
+
+- **Modulación:** Los bits se transmiten haciendo variar algún parámetro de la portadora que el receptor pueda detectar. Podemos variar <a href="http://www.textoscientificos.com/redes/modulacion/ask">la amplitud (ASK)</a> por ejemplo, o la <a href="http://es.wikipedia.org/wiki/Modulaci%C3%B3n_por_desplazamiento_de_frecuencia">frecuencia de la portadora (FSK)</a>. Nuestro transmisor funciona en modulación de amplitud, y tiene dos frecuencias distintas con las que modula la portadora en función del botón que pulsemos. Una es 250Hz y la otra 1kHz. <br><br>Este tipo de modulación se llama <a href="http://en.wikipedia.org/wiki/Frequency-shift_keying#Audio_FSK">AFSK</a>. Significa que variamos la frecuencia de modulación, pero no la de la portadora en sí, que seguirá siendo 27.145MHz. No es lo mismo que FSK aunque muchas veces se habla de FSK por simplificar.
+
+- **Codificación:** Ya sabemos el parámetro que varía. Habrá que determinar cuando significa un bit 0 y qué forma toma un bit 1. Eso es la codificación. Hay varias formas de hacerlo. Ya vimos cómo funciona la codificación [Manchester]({{site.baseurl}}{% post_url 2010-04-01-decodificacion-del-protocolo-rc5-usando %}) o la [Codificación por Separación de Pulsos]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %}) hablando de mandos a distancia RC5 y NEC respectivamente.<br>No me voy a enrollar contando las bondades e inconvenientes de las codificaciones que se usan hoy en día. Aquí voy a usar una que se llama <a href="http://es.wikipedia.org/wiki/C%C3%B3digos_NRZ">No Retorno a Cero</a> porque es la más sencilla de implementar y de entender para la prueba de concepto.
+
+- **Protocolo:** Como nuestra transmisión es unidireccional de emisor a receptor no hay respuesta. Así que el protocolo que implementemos tiene que ser lo más robusto posible, porque el receptor no puede pedir que le vuelvan a enviar un paquete que ha llegado mal. Pero eso lo dejamos para más adelante. De momento no nos interesa. Si acaso podríamos incorporar un bit de paridad.<br><br>Decidimos enviar los datos en paquetes de 8 bits (byte) más un bit de inicio, para probar. Si luego encontramos una aplicación concreta podemos dedicar 4 de esos 8 bits a una cosa y otros 4 a otra, o mandar paquetes de 32 en vez de 8 bits, lo que necesitemos.
+
+## Caracterizar el sistema
+
+Bueno. Ya que tenemos un poco de idea de cómo transmitir información digital vamos a coger nuestros circuitos transmisor y receptor del coche teledirigido y obtendremos algunas características clave. Como por ejemplo el alcance o la demora entre que pulsamos un botón y en el transmisor y el receptor se entera. Este retardo es el que va a limitar la velocidad de transmisión, porque si cambiamos de tono para el 0 y para el 1 demasiado rápido el receptor no se va a enterar y no nos servirá de nada. Así que lo primero que tenemos que medir es cuánto tarda en recibir la señal.
+
+Una característica típica de los detectores de tono (que es lo que lleva el integrado RX-3 para saber qué botón pulsamos), es que funcionan más deprisa cuanto más alta es la frecuencia que tienen que detectar. Digamos que el tiempo que tarda en identificar un tono es proporcional a su periodo. Como aquí los tonos que tenemos son de 250 y 1000Hz ya os digo yo que la velocidad de transmisión va a ser muy baja.
+
+Como tenemos dos botones en el mando, tenemos tres estados:
+
+- A: Parado. Ningún botón activo.
+- B: Grave. El botón del tono grave está pulsado.
+- C: Agudo. Pulsamos el botón del tono agudo.
+
+Habrá que medir cuánto tarda en pasar del estado A al B, del B al C y del C al A, y viceversa. Son pues, 6 transiciones que se pueden hacer en bucle:
+
+    Estad:   A  ->  B  ->  C  ->  A  ->  C  ->  B  -> A
+    Trans:      AB       BC       CA       AC      CB        BA
+
+Lo hacemos con este montaje, en el que el receptor y el transmisor van conectados al mismo PIC.
+
+{% include image.html max-width="450px" file="Imagen256.jpg" caption="" %}
 
 Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en el enlace que hay al final de la entrada, dentro del directorio transiciones. El algoritmo es muy sencillo y consiste en lo siguiente:
 
@@ -25,7 +64,7 @@ Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en e
 
 Si pusiéramos la oreja en la antena esto es lo que oiríamos:
 
-{% include image.html file="transiciones.png" caption="" %}
+{% include image.html max-width="261px" file="transiciones.png" caption="" %}
 
 Aquí vemos un sonograma de Baudline. El tiempo transcurre hacia abajo y las frecuencias aumentan hacia la derecha. Como es una onda cuadrada, las lineas verticales son los armónicos. En el estado A no hay ninguna señal. En el B las líneas están muy juntas porque se trata de los armónicos de una onda de 250Hz (250Hz, 500Hz, 750Hz, 1000Hz, 1250Hz, etc). En cambio la frecuencia moduladora para el estado C es de 1000Hz. Y los armónicos son múltiplos de 1000 (1000Hz, 2000Hz, 3000Hz, etc), por eso salen más separados.
 
@@ -50,11 +89,11 @@ Lo ideal sería quedarnos sólo con el C, pero como para transmitir algo tenemos
 
 En realidad no siempre tardan lo mismo. Va a haber un valor mínimo del tiempo de detección, por debajo del cual no se detecta nada. Pero habrá veces que tarde más o tarde menos dependiendo por ejemplo de la calidad de la recepción. Hay una distribución estadística, que se llama [de Weibull](http://es.wikipedia.org/wiki/Distribuci%C3%B3n_de_Weibull) que más o menos modela este comportamiento. No vamos a hacer el test porque creo que ya queda fuera del ámbito del artículo. Para las tres transiciones podemos dibujar tres histogramas que nos darán una idea de cual es el margen que tenemos que dejar si queremos que el receptor no se confunda. Esto es importante, porque la tasa de error va en funciona de este tiempo. Si dejamos un tiempo demasiado corto podremos transmitir más rápido pero a costa de tener más errores, habrá símbolos que se reciban bien (1 o 0) y otras veces se recibirán mal (un 0 por un 1 o al revés).
 
-{% include image.html file="hist_BA.png" caption="" %}
+{% include image.html max-width="480px" file="hist_BA.png" caption="" %}
 
 En la imagen superior vemos que la transición hacia A (apagado) desde cualquiera de los estados activos (lo que tarda el receptor en enterarse de que hemos soltado el botón) ronda los 182ms. Puede ocurrir que se detecta antes, por diversas causas, pero es raro que se detecte antes de 178ms. Y hay un tiempo mínimo donde la probabilidad de que se detecte es cero. Por ejemplo en t=0 no vamos a detectar nada, porque es evidente que el integrado necesita un tiempo para procesar la señal y conmutar.
 
-{% include image.html file="hist_AC.png" caption="" %}
+{% include image.html max-width="480px" file="hist_AC.png" caption="" %}
 
 La transición hacia C es mucho más rápida, de hecho en la imagen superior se notan los pasos discretos de tiempo. Lo mismo que la anterior, lo normal es que se detecte en 15ms. Puede darse en menos tiempo pero también puede tardar más.
 
@@ -68,7 +107,7 @@ Resumiendo, con 70ms de duración de cada simbolo tenemos una velocidad máxima 
 
 Ya tenemos todo listo. Vamos a usar el método de No Retorno a Cero, con una velocidad de 14 baudios. Si transmitimos paquetes de 8 bits, y teniendo en cuenta los tiempos de parada (de 200ms) es algo más de 1 byte por segundo. Basta programar un poco para tener dos PICs, uno actuando sobre el transmisor con un texto preprogramado y otro con el receptor.
 
-{% include image.html file="Imagen005.jpg" caption="" %}
+{% include image.html max-width="480px" file="Imagen005.jpg" caption="" %}
 
 He usado un pequeño truco para sincronizar las dos partes. Porque al haber tanta inercia es fácil que el receptor se pierda. Consiste en que al inicio siempre transmito un 0. Como es el que más tarda, el retardo también sirve para el 1. Si no lo hiciera, el receptor perdería el hilo en los signos que empezaran por 1. Ese truco se llama **Look At Me** y se usa en casi todos los dispositivos remotos. Tened en cuenta que aunque yo conmute siempre a un tiempo fijo en el transmisor, al receptor le llega la señal cada vez con un retardo distinto. Por eso tengo que ver qué estado hay al final de los 70ms. Si lo viera a la mitad unas veces se recibiría bien (para los 1, que tardan menos por ser el tono más agudo) y otras mal.
 

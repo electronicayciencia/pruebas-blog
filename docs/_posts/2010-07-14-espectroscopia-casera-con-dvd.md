@@ -25,7 +25,7 @@ Ver las líneas espectrales de una luz valiéndose de un CD es muy fácil y no t
 
 Hemos obtenido la foto de un espectro interesante, por ejemplo este
 
-{% include image.html file="Imagen065_2.jpg" caption="" %}
+{% include image.html max-width="225px" file="Imagen065_2.jpg" caption="" %}
 
 Ni que decir tiene que **los colores** de la imagen **son aproximados** ya que tanto la cámara como el monitor trabajan con valores de Rojo-Verde-Azul y algunas frecuencias (colores) quedan fuera de su alcance y no se pueden reproducir.
 
@@ -65,7 +65,7 @@ Fijaos en el doblete amarillo que se distingue fácilmente. Es del mercurio y es
 
 Cuando vemos un doblete en el amarillo es tentador pensar que estamos resolviendo el doblete de la **línea D del sodio**. Pero no es el caso, primero porque estamos observando una lámpara de mercurio, no de sodio, y aunque podría contener trazas no darían unas líneas tan intensas. Sin embargo hay otra forma de verlo, mirad la imagen original:
 
-{% include image.html file="Imagen188.jpg" caption="" %}
+{% include image.html max-width="300px" file="Imagen188.jpg" caption="" %}
 
 El espectro anterior está calculado en la línea media, así que vamos a suponer que el ancho total es de 320 pixeles (que es el ancho de la imagen). Habíamos dicho en la [primera parte]({{site.baseurl}}{% post_url 2010-07-07-difraccion-en-un-dvd %}) que la anchura en grados del segundo orden de difracción es de 60. Tenemos 320 pixeles para reproducir 60º de espectro. Mirad la posición y separación de las lineas del doblete del mercurio y del sodio:
 

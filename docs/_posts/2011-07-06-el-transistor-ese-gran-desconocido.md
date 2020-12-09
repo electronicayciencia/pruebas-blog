@@ -54,7 +54,7 @@ Vemos como a medida que la resistencia aumenta pasa menos corriente por ella, si
 
 Por la ley de ohm sabemos que, para una resistencia dada, la intensidad es proporcional a la tensión. Eso lo podemos aprovechar para construir una fuente de corriente constante. Cogemos el regulador de antes y ponemos de carga una resistencia fija. Como la tensión era siempre la misma, por esa resistencia pasará siempre una intensidad concreta. Y además es independiente de la tensión de alimentación, así que podemos variar la tensión de colector sin alterar el circuito. Pues ya está:
 
-{% include image.html file="fuentei_cir.png" caption="" %}
+{% include image.html max-width="286px" file="fuentei_cir.png" caption="" %}
 
 En el circuito de arriba la caída base-emisor es de aproximadamente 0.837V (medido en la simulación). Así que la tensión en el emisor es de
 
@@ -106,7 +106,7 @@ La línea roja es la ganancia en corriente (beta) del transistor. Durante la zon
 
 Bien, hasta aquí la parte aburrida de repaso. Ahora vamos a coger nuestra fuente de intensidad y en lugar de aplicarle una resistencia le vamos a conectar una bobina. Recordemos que la bobina se opone a los cambios de corriente. Lo vimos en la entrada anterior: [El circuito RLC serie: oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %}).
 
-{% include image.html file="fuente_L_cir.png" caption="" %}
+{% include image.html max-width="288px" file="fuente_L_cir.png" caption="" %}
 
 Así pensando un poco esperamos que al principio oponga una resistencia muy grande, tendiendo a infinito. Con una resistencia muy grande el transistor estaba saturado, y lo que le aplicaba era una tensión constante. Sabíamos que la ecuación de una bobina era:
 
@@ -148,7 +148,7 @@ Pero... ¿Un ángulo recto? Está claro que ni de coña. En la naturaleza las co
 
 Decíamos antes que lo de la ganancia constante era porque habíamos cogido un transistor ideal. Vamos a coger otro, por ejemplo un 2N2222.
 
-{% include image.html file="fuente_noideal_cir.png" caption="" %}
+{% include image.html max-width="274px" file="fuente_noideal_cir.png" caption="" %}
 
 Vamos a graficar de nuevo la ganancia en corriente, como hicimos antes:
 
@@ -166,7 +166,7 @@ El caso es que cuando un diodo se polariza en directa (aplicando tensión positi
 
 Decíamos antes que ese corte súbito de la resistencia en una bobina no era normal. Y no lo es. Vamos a ver qué pasa cuando la conectamos a un transistor un poco más "real".
 
-{% include image.html file="fuenteVIL_noideal_cir.png" caption="" %}
+{% include image.html max-width="291px" file="fuenteVIL_noideal_cir.png" caption="" %}
 
 Ya vimos en la entrada anterior, sobre oscilaciones amortiguadas, que la bobina actúa como una masa que tiene inercia. Y que cuando le cambiamos la corriente no reacciona al momento sino que siempre se pasa un poquito. ¡Y eso es justamente lo que hace también en este caso!
 

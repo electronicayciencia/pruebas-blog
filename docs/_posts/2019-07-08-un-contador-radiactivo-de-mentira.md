@@ -161,11 +161,11 @@ Las NTC se modelan usando dos parámetros: la resistencia a 25ºC y el parámetr
 
 Con eso calculamos la resistencia a una temperatura dada:
 
-{% include image.html file="temp_R_cpm.png" caption="" %}
+{% include image.html max-width="480px" file="temp_R_cpm.png" caption="" %}
 
 La resistencia del divisor **R1** es de 10k. De ahí calcularemos la tensión en la **patilla 3** del integrado y también el valor del ADC correspondiente a dicha tensión.
 
-{% include image.html file="temp_R_ADC_cpm.png" caption="" %}
+{% include image.html max-width="480px" file="temp_R_ADC_cpm.png" caption="" %}
 
 El programa no entiende de temperaturas, sino de valores recogidos en el ADC. Por eso la columna es **verde**. Este es un dato del programa.
 
@@ -175,7 +175,7 @@ El generador aleatorio tiene una salida de 16bit, su valor máximo es 65535 y el
 
 Repetimos el mismo cálculo para las demás temperaturas:
 
-{% include image.html file="temp_adc_cpm_apertura.png" caption="" %}
+{% include image.html max-width="480px" file="temp_adc_cpm_apertura.png" caption="" %}
 
 Y ahora, para cualquier otro valor que no esté en la tabla, tan sólo debemos interpolar entre los dos valores más cercanos. La ecuación de una interpolación lineal es así:
 

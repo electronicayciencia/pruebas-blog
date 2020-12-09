@@ -39,7 +39,7 @@ Si el agua se enfría al evaporarse, cabe preguntarse ¿hasta qué temperatura?.
 
 Pero resulta que la temperatura de bulbo húmedo depende de cuán seco esté el ambiente. Podríamos utilizar dos termómetros, uno normal y el otro humedecido para medir la humedad relativa. Tal aparato se llama **psicrómetro**. Luego ambos termómetros se agitan en el aire y se miran las temperaturas de uno y otro.
 
-{% include image.html max-width="292.5px" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
+{% include image.html max-width="292px" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
 
 Si el aire está saturado de humedad al 100%, dará igual que mojemos el termómetro porque del agua no se va a evaporar nada. En tal caso la temperatura húmeda será la misma que la seca. Los psicrómetros vienen con una tabla de doble entrada que nos da la humedad relativa en función de ambas temperaturas o en función de la temperatura seca y de la diferencia entre ambas.
 
@@ -181,7 +181,7 @@ La lectura ha sido 0x69CC, el CRC es AC. Lo primero que debemos hacer es poner l
 
 A continuación el datasheet nos da una fórmula para convertir la lectura a grados centígrados. El resultado es [25.77ºC](https://www.google.es/search?q=-46.85+%2B175.72+*+0x69CC+%2F+2**16).
 
-{% include image.html file="conversion_temp.png" caption="" %}
+{% include image.html max-width="300px" file="conversion_temp.png" caption="" %}
 
 En cuanto al CRC, esta vez no lo voy a comprobar; me fío del resultado. Tenéis una explicación de cómo funciona un CRC en la entrada dedicada a [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}).
 

@@ -16,7 +16,7 @@ Si habéis leído otros artículos de este blog dedicados a microcontroladores s
 
 Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios a modo de introducción. Seguiremos con el manejo básico de los pines I/O usando la shell. Después pasaremos al **PWM** mediante la utilidad **gpio** de **WiringPi** y controlaremos un servo como ejemplo. Finalmente, para probar el **I2C** manejaremos un ADC tipo **PCF8591** por medio de los drivers internos.
 
-{% include image.html file="300px-Pi-GPIO-header.png" caption="" %}
+{% include image.html max-width="279px" file="300px-Pi-GPIO-header.png" caption="" %}
 
 ## La placa base
 
