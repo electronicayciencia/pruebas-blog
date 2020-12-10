@@ -22,7 +22,7 @@ Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios 
 
 Empecemos por un repaso básico. Estos dispositivos se llaman Low Cost Single Board Computers, que quiere decir que es un ordenador completo, de bajo consumo, con características modestas que está contenido en una placa un poco mayor que una tarjeta de crédito. Hay de varias marcas, distintos precios y diseños. El más común es de marca Raspberry. Fue también el primero en tener una acogida masiva. Hay otras marcas como ODroid o Banana Pi, cada uno con sus características y sus precios.
 
-{% include image.html file="pi_board_pinout.jpg" caption="Placa y conexionado de Raspberry Pi3. [stackexchange](http://raspberrypi.stackexchange.com/questions/40318/raspberry-pi-2-can-gpio-pins-29-40-be-used-gpio-gen-input-output-configurable-in)." %}
+{% include image.html file="pi_board_pinout.jpg" caption="Placa y conexionado de Raspberry Pi3. <a href=\"http://raspberrypi.stackexchange.com/questions/40318/raspberry-pi-2-can-gpio-pins-29-40-be-used-gpio-gen-input-output-configurable-in\">stackexchange</a>." %}
 
 La versión 3, que es la que voy a usar, salió en febrero de 2016 y cuenta con WiFi incorporada, Ethernet, varios puertos USB, HDMI y conectores para cámara, display, etc. Está basada en el BCM2837, evolución del BCM2835, un SoC (System on Chip) de Broadcom bien conocido. Un System on Chip no es más que un procesador, GPU y demás funciones integradas en un sólo componente. Se parece mucho a la electrónica de un smartphone. Este modelo es un ARM de 64bits a 1.2GHz, quad core y con 1Gb de RAM.
 
@@ -70,7 +70,7 @@ Habitualmente el acceso a memoria sólo se podría hacer como root, sin embargo 
 
 La conexión gpio de este modelo tiene 40pin, con un conector igual al que usaban los discos duros IDE hace tiempo. Venden cables para conectarlos con una protoboard, pero no os lo recomiendo a menos que sólo vayáis a usar la Raspberry para experimentar porque estas clavijas una vez encajadas cuesta mucho quitarlas y se rompen con facilidad. En su lugar es preferible que compréis cables con conectores Dupont hembra-hembra y también macho-hembra.
 
-{% include image.html max-width="399px" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. [techgeeks](http://techgeeks.de/). " %}
+{% include image.html max-width="399px" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. <a href=\"http://techgeeks.de/\">techgeeks</a>. " %}
 
 Entre los 40 terminales contamos con:
 
@@ -92,7 +92,7 @@ Entrando un poco en detalles tenemos:
 
 **Terminales de GPIO**. Es la conexión para periféricos del BCM.
 
-{% include image.html max-width="480px" file="raspberry-pi-circuit-gpio-input-pins.png" caption="Equivalente electrónico de un terminal GPIO. [mosaic-industries](http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications)" %}
+{% include image.html max-width="480px" file="raspberry-pi-circuit-gpio-input-pins.png" caption="Equivalente electrónico de un terminal GPIO. <a href=\"http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications\">mosaic-industries</a>" %}
 
 En general cada pin se puede configurar individualmente para funcionar como una salida o entrada de alta impedancia, con posibilidad de tener pull-up y pull-down ambas de 50kohm.
 
@@ -108,7 +108,7 @@ El primer punto problemático es la numeración. Básicamente hay 3 sistemas:
 - El número de terminal físico del conector de 40 pin.
 - La numeración de wiringPi, que usa numeración propia pero a diferencia de las anteriores no varía entre versiones de Raspberry Pi.
 
-{% include image.html file="gpio1.png" caption="Tabla de equivalencia numeración. [WiringPi](http://wiringpi.com/pins/)." %}
+{% include image.html file="gpio1.png" caption="Tabla de equivalencia numeración. <a href=\"http://wiringpi.com/pins/\">WiringPi</a>." %}
 
 Así pues, tenemos el GPIO7, que en numeración de BCM es el 4, corresponde al pin 7 del conector y lleva la numeración WiringPi 7.
 

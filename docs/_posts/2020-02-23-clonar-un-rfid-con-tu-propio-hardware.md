@@ -121,7 +121,7 @@ Nuestro beneficio está en vender impresoras, no en hacer software. Como no nos 
 
 Lo que he descrito es una [Winprinter](https://en.wikipedia.org/wiki/Graphics_Device_Interface#GDI_printers). A finales de los 90 era frecuente encontrarte [winmodems](https://www.tldp.org/HOWTO/Modem-HOWTO-2.html#ss2.6), que no eran sino [módems por software](https://es.wikipedia.org/wiki/M%C3%B3dem_por_software). Hoy ocurre menos, pero cierto hardware -barato y popular- nunca funcionará bien en Linux y esta es la razón. Generalmente es más fácil configurar el hardware de gama media/alta. No porque en Linux sean unos elitistas, sino porque el firmware hace lo que debe hacer y su driver es más sencillo. El firmware actúa como pantalla abstrayendo al driver de la electrónica. Cuando el driver está muy ligado al hardware, se vuelve demasiado **específico**. Con un problema añadido: el fabricante nunca hará público ese nivel de detalle. De hecho, en ocasiones se necesita ingeniería inversa para entender cómo funciona.
 
-{% include image.html file="WinmodemAndRegularModem.jpg" caption="A la izquierda un Winmodem. El ahorro en componentes es a costa de un<br /> driver complejo y propietario. A la derecha un módem completo. Fuente: [Wikipedia](https://en.wikipedia.org/wiki/Softmodem)" %}
+{% include image.html file="WinmodemAndRegularModem.jpg" caption="A la izquierda un Winmodem. El ahorro en componentes es a costa de un<br /> driver complejo y propietario. A la derecha un módem completo. Fuente: <a href=\"https://en.wikipedia.org/wiki/Softmodem\" target=\"_blank\">Wikipedia</a>" %}
 
 Volviendo a nuestro proyecto, la idea es escribir un *firmware* lo más ligero posible y hacer por software todo lo demás.
 

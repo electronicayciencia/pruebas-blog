@@ -52,9 +52,9 @@ Lo que vamos a hacer es, manteniendo el circuito soldado a la placa y sus compon
 Con estas 4 líneas podemos aprovechar el driver mientras aún está en la placa del CDROM. Basta con aplicar tensión a la placa procedente de una fuente de alimentación para PC y conectar nuestras líneas secuestradas:
 
 - Start/Stop a +5V.
--  Brake a 0V.
+- Brake a 0V.
 - Ec: a 2.5V.
-- Ecr: potenciómetro para regular la velocidad. La velocidad es proporcional a Ecr - Ec. 
+- Ecr: potenciómetro para regular la velocidad. La velocidad es proporcional a Ecr - Ec.
 
 ## Determinar la velocidad de rotación
 

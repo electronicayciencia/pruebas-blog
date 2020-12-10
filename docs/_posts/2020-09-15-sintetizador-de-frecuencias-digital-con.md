@@ -142,7 +142,7 @@ Pero no hay que irse a frecuencias tan altas. La estabilidad de los osciladores 
 
 Una de mis primeras emisoras fue una modesta [*President Wilson*](http://www.rigpix.com/cbfreeband/president_wilson.htm) de segunda mano. Cabe recordar que la marca President tenía distintos modelos de emisoras con nombres de presidentes estadounidenses. Desconozco el criterio para elegir el nombre, pero por ejemplo la President **Harry** o Wilson eran muy sencillas, 40 canales AM y (algunos modelos) FM. Mientras la **President Lincoln** era un equipo muy potente que -en teoría- ni siquiera era apropiado para CB.
 
-{% include image.html file="president_wilson.jpg" caption="La President Wilson, una de mis primeras emisoras. [www.rigpix.com](http://www.rigpix.com/cbfreeband/president_wilson.htm)." %}
+{% include image.html file="president_wilson.jpg" caption="La President Wilson, una de mis primeras emisoras. <a href=\"http://www.rigpix.com/cbfreeband/president_wilson.htm\" target=\"_blank\">www.rigpix.com</a>." %}
 
 Si no recuerdo mal, los diseños eran de Uniden (empresa japonesa) y los comercializaban otras marcas como President, Galaxy, Cobra o SuperStar. A veces tal cual, a veces mejorando algunas partes como los filtros.
 
@@ -191,7 +191,7 @@ El **PIC16F88** tiene un oscilador interno, no necesito usar un **cuarzo**. Lo h
 El **código fuente** del programa lo tenéis en GitHub. No lo pego para no alargar el artículo.
 
 - [soft_pic/main.h](https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.h)
-- [soft_pic/main.c](https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.c) 
+- [soft_pic/main.c](https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.c)
 
 Así quedaría montado sobre una protoboard:
 
@@ -245,6 +245,4 @@ Entradas del blog relacionadas:
 - [Raspberry Pi como generador de frecuencias]({{site.baseurl}}{% post_url 2017-05-01-raspberry-pi-como-generador-de %}).
 - [La Distorsión Armónica Total (THD)]({{site.baseurl}}{% post_url 2013-03-26-la-distorsion-armonica-total-thd %})
 - [Frecuencímetro para el PC]({{site.baseurl}}{% post_url 2011-07-20-frecuencimetro-para-el-pc %})
-
-</div>
 

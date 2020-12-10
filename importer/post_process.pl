@@ -107,7 +107,7 @@ sub parts_store {
 	my $counter = $parts{_counter}{$type};
 	my $id = "$type-$counter";
 
-	$parts{$id} = $str;
+	$parts{$id} = $str;	
 
 	return $delimiter_in.$id.$delimiter_out;
 }
@@ -217,14 +217,25 @@ sub getlang {
 
 sub html2md {
   	my $s = shift;
+	my $vars_allowed = shift; # image captions do not allow variables
 
+	# Remove empty
+	$s =~ s{<b>\s*</b>}{}g;
+	$s =~ s{<em>\s*</em>}{}g;
+	$s =~ s{<b>\s*</b>}{}g;
+	$s =~ s{<em>\s*</em>}{}g;
+
+	# Go to markdown
 	$s =~ s{<b>}{**}g;
 	$s =~ s{</b>}{**}g;
 	$s =~ s{<em>}{*}g;
 	$s =~ s{</em>}{*}g;
 	
+	# TODO: not yet
+	#$s =~ s{<br>}{  \n}g;
+
 	# Links
-	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2)}ge;
+	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2, $vars_allowed)}ge;
 
 	# Font size or color: deprecated
 	# wait until monospaced divs/spans have been identified
@@ -302,7 +313,7 @@ sub format_image {
 	# seriously, also format on br tags: <br style="..."/>
 	$caption =~ s{<br.*?>}{<br />}g;
 
-	$caption = html2md($caption);
+	$caption = html2md($caption, 0); # no vars allowed.
 
 	# escape quotes
 	$caption =~ s{"}{\\"}g;
@@ -403,6 +414,10 @@ sub format_list {
 	return "" unless @items;
 	
 	map (html2md($_), @items);
+	map (s{(<br>|\s+)+$}{}g, @items);
+	map (s{^(<br>|\s+)+}{}g, @items);
+	
+
 
 	$tag eq "ul" and s/^/- / for @items;
 	$tag eq "ol" and s/^/1. / for @items;
@@ -495,7 +510,7 @@ sub format_equation {
 }
 
 sub format_link {
-	my ($href, $text) = @_;
+	my ($href, $text, $vars_allowed) = @_;
 	my $asset = 0;
 
 	$text = html2md($text);
@@ -511,7 +526,14 @@ sub format_link {
 		# Link may be a local asset?
 		if ($file and -e "$assets_local/$file") {
 			#print STDERR "Debug: link '$href' now is local '$file'.\n";
-			return parts_store("[$text]({{page.assets}}/$file)", "link");
+			
+			# Image captions do not allow variables.
+			if ($vars_allowed) {
+				return parts_store("[$text]({{page.assets}}/$file)", "link");
+			}
+			else {
+				return parts_store("[$text]($assets_url/$file)", "link");
+			}
 		}
 	}
 
@@ -578,9 +600,10 @@ sub process_body {
 	#	$s =~ s{<br />(R1 = [^>]+)<br />}{\n\n```$1```\n\n}g;          # preamplificador-microfono-electret
 	$s =~ s{<factor de="" ruido=""></factor>}{};                   # preamplificador-microfono-electret
 	$s =~ s{2010/06/difraccion-en-un-dvd}{2010/07/difraccion-en-un-dvd}g;
-    $s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sintetizador-pll
+	#$s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sintetizador-pll
     $s =~ s{\\f_(a|b)}{f_$1}g;                           # thd
     $s =~ s{^<div class="separator".*?</div>Hoy vamos}{Hoy vamos}g;                           # thd
+	$s =~ s{bmp280.html"><br />La presión}{bmp280.html">La presión}; #contador-radiactivo
 	$s =~ s{</i></blockquote><blockquote><blockquote class="tr_bq"><i>La buena.*?pida.</i></blockquote></blockquote><ul>  </ul>}
 	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
 
@@ -690,7 +713,7 @@ sub process_body {
 	# ------------------------------------------------------
 	
 	# Remove styles of the remainder at this point
-	# This will remove divs from non capured structures, like iframes or objects.
+	# This will remove divs from non captured structures, like iframes or objects.
 	# But it is neccesary in order to group monolines.
 	$s =~ s{<div[^>]*>(.*?)</div>}{$1}msg;
 	$s =~ s{<span[^>]*>(.*?)</span>}{$1}msg;
@@ -720,7 +743,21 @@ sub process_body {
 	
 	$s = recompose($s);
 
-	# Deep into formatted post to get info
+	for my $tag ($s =~ m{(<.*?>)}g) {
+		next if $tag eq "<br />";
+		next if $tag eq "<sup>";
+		next if $tag eq "</sup>";
+		next if $tag eq "<sub>";
+		next if $tag eq "</sub>";
+		next if $tag =~ /^<iframe/;
+		next if $tag eq "</iframe>";
+		next if $tag =~ /^<audio/;
+		next if $tag eq "</audio>";
+		next if $tag =~ /^<script/;
+		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
+	}
+
+	# Dive into now formatted text to get info
 	# ------------------------------------------------------
 	($featured_image) = $s =~ m|{% include image.html[^}]+file="([^"]+)"|;
 

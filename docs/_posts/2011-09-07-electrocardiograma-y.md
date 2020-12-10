@@ -28,7 +28,7 @@ Es decir:
 - Es un **amplificador diferencial:** es decir, que amplifica sólo la diferencia entre las dos entradas. Es de suponer que el ruido será más o menos el mismo en toda la superficie de la piel, sin embargo la tensión cardiaca es distinta a ambos lados del pecho. Por eso nos interesa el modo diferencial.
 - **Bajo ruido:** Nos viene bien, si lo que vamos a medir son microvoltios mientras menos ruido meta el componente más claro se verá.
 - **Ganancia elevada:** Muy práctico para medir señales débiles.
-- Rechazo muy alto al **modo común:** Cualquier amplificador, por muy diferencial que sea, tiene asimetrías siempre. Y eso hace que no cancele por completo las señales que se aplican por igual a ambas entradas. En un amplificador de instrumentación esas asimetrías están cuidadas al detalle, por eso -entre otras cosas- son mucho más caros que los operacionales de uso común. 
+- Rechazo muy alto al **modo común:** Cualquier amplificador, por muy diferencial que sea, tiene asimetrías siempre. Y eso hace que no cancele por completo las señales que se aplican por igual a ambas entradas. En un amplificador de instrumentación esas asimetrías están cuidadas al detalle, por eso -entre otras cosas- son mucho más caros que los operacionales de uso común.
 
 El circuito que usé en las pruebas es malísimo e improvisado -de hecho no pasó de la protoboard-. Así que, para preservar mi imagen no lo voy a poner, jeje. Si en otro momento retomo las pruebas con un circuito un poco más elaborado ya publicaré el esquema y la placa para que lo tengáis quien quiera hacerlo en casa. Está basado en este esquema:
 
@@ -116,7 +116,7 @@ title("Electrocardiograma - sin filtrar")
 ¿Qué destacamos de este espectro?
 
 - Lo más llamativo son los **picos** en 100, 200, 300... en general en los armónicos **pares** de 50Hz pero NO en 50Hz. Podría ser una señal de 50Hz rectificada, o alguna interferencia de 100Hz de un tubo fluorescente o un televisor. A priori tan sólo podemos intuir el origen. Lo que nos interesa es que son picos de una frecuencia muy exacta, y eso nos facilitará el filtrado.
-- Predominan las **frecuencias bajas**, por debajo de 50Hz casi todo. Por encima de 100Hz prácticamente no hay nada salvo ruido e interferencias. 
+- Predominan las **frecuencias bajas**, por debajo de 50Hz casi todo. Por encima de 100Hz prácticamente no hay nada salvo ruido e interferencias.
 - A medida que nos acercamos a 0Hz el espectro tiende también a 0. Eso no debería pasar. Echamos en falta el llamado [1/f noise](http://j.mp/oqfd4R), también conocido como ruido rosa, presente en cualquier sistema electrónico y que aumenta con la inversa de la frecuencia al aproximarse a los 0Hz. ¿Por qué no aparece aquí? Pues porque las tarjetas de sonido incorporan un filtro para eliminar la corriente continua del micrófono. Y este filtro pasa-altos es el que elimina toda la componente espectral de baja frecuencia. Si quisiéramos mejorar la medida deberíamos [eliminar tal filtro]({{site.baseurl}}{% post_url 2010-10-20-medir-valores-logicos-con-tarjeta-de %}). De momento vamos a dejarlo así.
 
 Vamos a purgar la señal operando directamente en el espacio de la frecuencias, sobre todo viene muy bien para eliminar una o varias frecuencias molestas. Para hacerlo en el espacio del tiempo tendríamos que tener un filtro digital, etc. Pero aquí, puesto que tenemos la onda grabada y no existe esa presión de procesarlo en tiempo real no vamos a hacerlo así.

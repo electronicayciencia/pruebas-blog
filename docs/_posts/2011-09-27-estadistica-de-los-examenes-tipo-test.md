@@ -89,7 +89,7 @@ Esta es la gráfica completa de la que hemos visto antes, empieza en el -3.3 que
 Vamos a dividir el gráfico en tres regiones.
 
 - La más grande y obvia es la región "no sabe", alrededor del cero.
-- Si nos movemos hacia la derecha, la región del "sabe". 
+- Si nos movemos hacia la derecha, la región del "sabe".
 - Mientras que a la izquierda queda una región que, para alcanzarla hay que fallar adrede como decíamos antes, o bien tener los conceptos cambiados. Es el "menos sabe".
 
 Quiero calcular la nota que habría que sacar para asegurar con un 99% de posibilidades, que el examinado no lo ha hecho al azar. Se trata de un [test de hipótesis]({{site.baseurl}}{% post_url 2010-09-22-inferencia-estadistica-ii-introduccion %}) de dos colas. En que la hipótesis nula es *la nota se debe al azar* y la hipótesis alternativa es *esa nota no es por casualidad* .
@@ -171,7 +171,7 @@ plot(a*x+b, binopdf(x,n,p))
 
 Me doy por satisfecho si con este artículo he conseguido transmitir tres simples cosas:
 
-- Hacer que cada pregunta fallada reste una cantidad es matemáticamente idéntico que exigir más del 50% para aprobar y es absolutamente necesario hacer alguna de las dos cosas. Sin embargo no hay que aplicar los dos métodos anteriores al mismo tiempo, a menos que sepamos que muchas preguntas son conocidas y queramos subir explícitamente el nivel.<br>
+- Hacer que cada pregunta fallada reste una cantidad es matemáticamente idéntico que exigir más del 50% para aprobar y es absolutamente necesario hacer alguna de las dos cosas. Sin embargo no hay que aplicar los dos métodos anteriores al mismo tiempo, a menos que sepamos que muchas preguntas son conocidas y queramos subir explícitamente el nivel.
 - Si optamos por la resta, cada pregunta debe restar una fracción de punto equivalente a la inversa del número de opciones menos una.
 - Hay un límite mínimo de preguntas para que un examen sea fiable: un examen de 5 preguntas con dos opciones no demuestra nada.
 

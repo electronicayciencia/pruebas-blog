@@ -33,7 +33,7 @@ Si separamos la tabla en dos veremos una propiedad curiosa: cuando A es 0, enton
 
 Otras propiedades interesantes de esta operación:
 
-1. **Es conmutativa:** Es decir que A xor B = B xor A 
+1. **Es conmutativa:** Es decir que A xor B = B xor A
 1. **Asociativa:**(A xor B) xor C = A xor (B xor C)
 1. **Autoinversa:**(A xor B) xor B = A
 

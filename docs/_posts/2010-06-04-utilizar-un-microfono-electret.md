@@ -86,7 +86,7 @@ Decía que el amplificador era solamente un FET. He desmontado una cápsula elec
 - **D.** Material *electret*. Es una de las placas del condensador. Se trata de un dieléctrico al que se le han incorporado cargas fijas. De esa forma no necesitamos una tensión adicional para alimentar el condensador, sino que utilizamos un material que está cargado de forma permanente. Su marco está en contacto con la cubierta metálica.
 - **E.** Placa de metal. La otra placa del condensador. Por su parte de arriba está enfrentada al electret mientras que por abajo conecta con la *puerta* del FET.
 - **F.** FET. Es un 2SK596, abajo os dejo el datasheet. Parece que está diseñado en concreto para este uso.
-- **G.** Placa de circuito impreso. Ahí van soldados los cables, y también el FET. Observad que el terminal superior corresponde al *drain*, y inferior al *source*. Y este último tiene una pista que va a la carcasa exterior. De ahí deducimos que el FET está configurado como *common source*. 
+- **G.** Placa de circuito impreso. Ahí van soldados los cables, y también el FET. Observad que el terminal superior corresponde al *drain*, y inferior al *source*. Y este último tiene una pista que va a la carcasa exterior. De ahí deducimos que el FET está configurado como *common source*.
 
 Dijimos que el marco de D (que va a la cubierta y esta a tierra) y E (la *puerta* del FET) están separados por un aislante B. Ahora bien como ningún aislante es perfecto, lo podemos ver como una resistencia de un valor muy muy alto. Entonces pasa una pequeña corriente a su través, que conecta la *puerta* con la tierra. Esa va a ser nuestra tensión de polarización I<sub>G</sub>.
 

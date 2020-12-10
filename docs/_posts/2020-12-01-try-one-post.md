@@ -9,7 +9,10 @@ assets: /prueba-blog/assets/2020/12/try-one-post
 
 This name ends in .md, not .markdown.
 
-This is a static asset for you: [file1]({{assets}}/file1.txt).
+This is a static asset for you: [file2]({{assets}}/file1.txt).
+
+{% include image.html max-width="200px" file="a-cat.png" caption='This is the  
+Jekyll logo.[file1](/file1.txt)' %}
 
 This is a phrase cutted by two spaces  
 and a line break.

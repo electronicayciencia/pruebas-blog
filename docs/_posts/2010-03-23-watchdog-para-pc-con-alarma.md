@@ -17,10 +17,10 @@ El que os presento hoy está compuesto de un 7490, que es un contador decádico,
 
 Antes de nada tenemos que buscar una señal que se reciba periódicamente mientras el PC responda. Una opción sería mandar por el puerto serie una cadena, y que el PC nos respondiera otra, dándolo por muerto si no lo hace en un determinado tiempo. Pero tiene algunos inconvenientes:
 
-1. Para empezar necesitaríamos un puerto serie, que en los PCs modernos empiezan a desaparecer lentamente en favor del mucho menos amistoso USB (comunicarse con el puerto serie es muy sencillo, comunicarse usando el USB es una odisea de narices, menos mal que podemos hacer un conversor sencillo para ocasiones concretas).<br>
-1. Por un lado necesitaríamos un programa especial corriendo en segundo plano, que estuviera escuchando en ese puerto y respondiera adecuadamente. Este programa debe programarse para el sistema operativo que se esté usando, debe instalarse y hasta que no empezara a funcionar el dispositivo podría creer que el PC está colgado.<br>
-1. Por otro lado, ocupamos un puerto libre, que podemos necesitar o no.<br>
-1. Y por último para construir este circuito sería necesario un microcontrolador **que también podría colgarse**. Por eso lo ideal para hacer de watchdog es un circuito cuanto más simple mejor.<br>
+1. Para empezar necesitaríamos un puerto serie, que en los PCs modernos empiezan a desaparecer lentamente en favor del mucho menos amistoso USB (comunicarse con el puerto serie es muy sencillo, comunicarse usando el USB es una odisea de narices, menos mal que podemos hacer un conversor sencillo para ocasiones concretas).
+1. Por un lado necesitaríamos un programa especial corriendo en segundo plano, que estuviera escuchando en ese puerto y respondiera adecuadamente. Este programa debe programarse para el sistema operativo que se esté usando, debe instalarse y hasta que no empezara a funcionar el dispositivo podría creer que el PC está colgado.
+1. Por otro lado, ocupamos un puerto libre, que podemos necesitar o no.
+1. Y por último para construir este circuito sería necesario un microcontrolador **que también podría colgarse**. Por eso lo ideal para hacer de watchdog es un circuito cuanto más simple mejor.
 
 La señal que yo he empleado es el led del disco duro, es habitual que un PC lea del disco duro de vez en cuando, desde que arranca hasta que se apaga.
 
@@ -46,8 +46,8 @@ Esta alarma sonará durante todo el periodo previo al reinicio.
 
 **Notas**
 
-- Los colores de los cables sólo son orientativos. (Bl = Blanco, Nj = Naranja, Rj = Rojo, Ng = Negro).<br>
+- Los colores de los cables sólo son orientativos. (Bl = Blanco, Nj = Naranja, Rj = Rojo, Ng = Negro).
 - Los terminales nombrados SL2 son para conectar un interruptor para activar o desactivar el circuito a voluntad.
 - SL3 es el conector de alimentación. Este circuito se conecta a cualquier toma de tensión de 5 voltios.
-- La numeración de los componentes es un tanto caótica.<br>
+- La numeración de los componentes es un tanto caótica.
 

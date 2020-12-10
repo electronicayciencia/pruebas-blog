@@ -20,7 +20,7 @@ Para hacer llegar información (datos) de un punto a otro necesitamos usar vario
 
 Y dentro de esta, vamos a construir los cimientos desde el sótano describiendo nuestro medio, canal, modulación, codificación y alguna idea relativa al protocolo.
 
-- **Medio:** Es el medio que se usa para mover la información, puede ser por ejemplo un cable eléctrico o uno de fibra optica. En nuestro caso es transmisión inalámbrica, así que nuestro medio son las ondas radioeléctricas. 
+- **Medio:** Es el medio que se usa para mover la información, puede ser por ejemplo un cable eléctrico o uno de fibra optica. En nuestro caso es transmisión inalámbrica, así que nuestro medio son las ondas radioeléctricas.
 
 - **Portadora:** Pero el espectro radioeléctrico es muy amplio. Y habrá que decir qué parte de él usamos. 27.145MHz es la frecuencia a la que trabajan la mayoría de los coches teledirigidos de gama baja. No siempre se indica pero por las características concretas de nuestro proyecto conviene.
 

@@ -315,7 +315,7 @@ Para paliar el problema hemos previsto que el usuario pueda introducir en la EEP
 Para esta forma de calibrarlo necesitamos alguna referencia. Por ejemplo un oscilador de frecuencia conocida. Si eres radioaficionado y tienes un transmisor de onda corta sintonizado por PLL estás de suerte. También serviría otro frecuencímetro con el que comparar.
 
 - Hay que poner el generador en una frecuencia conocida y conectar el frecuencímetro. Como aún no tenemos ninguna interfaz con el PC conectaremos un terminal serie. A mi me gusta en Linux el **gtkterm**. Nos dará un valor aproximado a la frecuencia que esperamos.
-- Dividiremos el valor de referencia entre el valor obtenido. Así sabremos la desviación. 
+- Dividiremos el valor de referencia entre el valor obtenido. Así sabremos la desviación.
 - Multiplicaremos lo que nos dé por la frecuencia nominal de cuarzo y eso nos dará la frecuencia de oscilación real.
 - Pasaremos el número a hexadecimal para grabarlo en la EEPROM del PIC.
 

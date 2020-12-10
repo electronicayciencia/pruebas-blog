@@ -12,9 +12,9 @@ assets: /pruebas-blog/assets/2010/12/dimmer-controlado-por-mando-distancia
 
 A este proyecto le he dedicado otras entradas en el blog. Se trata de diseñar y construir un circuito para regular la **intensidad de luz** de una lámpara utilizando un mando a distancia.
 
-- Para lo cual necesitamos saber cómo recibir e interpretar la señal de un **mando a distancia**. Por ejemplo uno del tipo NEC ([Receptor con PIC para mandos infrarrojos tipo NEC]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %})). 
-- Además queríamos que la intensidad de luz fuera en **cambios graduales**, con lo que tenemos que tener en cuenta cómo percibimos las variaciones con la vista ([Curva de respuesta del Dimmer IR]({{site.baseurl}}{% post_url 2010-06-23-curva-de-respuesta-del-dimmer-ir %})). 
-- Y, a su vez, para conseguir esa curva es preciso saber cómo varía la tensión en función de la parte del periodo en la que disparemos el triac ([Valor eficaz de una sinusoidal incompleta]({{site.baseurl}}{% post_url 2010-03-29-valor-eficaz-de-una-sinusoidal %})) 
+- Para lo cual necesitamos saber cómo recibir e interpretar la señal de un **mando a distancia**. Por ejemplo uno del tipo NEC ([Receptor con PIC para mandos infrarrojos tipo NEC]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %})).
+- Además queríamos que la intensidad de luz fuera en **cambios graduales**, con lo que tenemos que tener en cuenta cómo percibimos las variaciones con la vista ([Curva de respuesta del Dimmer IR]({{site.baseurl}}{% post_url 2010-06-23-curva-de-respuesta-del-dimmer-ir %})).
+- Y, a su vez, para conseguir esa curva es preciso saber cómo varía la tensión en función de la parte del periodo en la que disparemos el triac ([Valor eficaz de una sinusoidal incompleta]({{site.baseurl}}{% post_url 2010-03-29-valor-eficaz-de-una-sinusoidal %}))
 - y cómo reacciona una bombilla ([Característica V/I de una bombilla]({{site.baseurl}}{% post_url 2010-03-27-caracteristica-i-v-de-una-bombilla %})).
 
 Hoy voy a presentaros el hardware. Para que luego sea más fácil entender el software. He aquí el esquema:

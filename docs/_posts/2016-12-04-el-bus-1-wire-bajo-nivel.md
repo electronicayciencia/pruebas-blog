@@ -26,7 +26,7 @@ El sensor que vais a encontrar más fácilmente es el ds18s20. Es el sucesor del
 
 Por último, también tenéis a la venta la versión más barata ds1822. Se trata de un modelo económico con mayor margen de error. Si los anteriores tienen un error de más/menos 0.5ºC, en este puede llegar hasta los 2ºC.
 
-{% include image.html file="2815.png" caption="Esquema de bloques del DS18S20. [Maxim integrated](https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18S20.html)." %}
+{% include image.html file="2815.png" caption="Esquema de bloques del DS18S20. <a href=\"https://www.maximintegrated.com/en/products/analog/sensors-and-sensor-interface/DS18S20.html\">Maxim integrated</a>." %}
 
 En la imagen superior está esquematizado el funcionamiento del sensor. Veamos primero cómo funciona el bloque más a la derecha, el llamado *Temperature Sensor*.
 
@@ -624,6 +624,6 @@ Temperature (hi res) is 17.12ºC
 Es todo por ahora. [En este enlace]({{page.assets}}/ds1820_rpi.zip) podéis encontrar los programas y archivos utilizados durante la elaboración del artículo, incluyendo:
 
 - El programa principal ds1820.c
-- Los programas utilizados para los ejemplos de crc, benchmarks de funciones de espera, etc.<br>
+- Los programas utilizados para los ejemplos de crc, benchmarks de funciones de espera, etc.
 - Imágenes. Datasheet del ds1820.
 

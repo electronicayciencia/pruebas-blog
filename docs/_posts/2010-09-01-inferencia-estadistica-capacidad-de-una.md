@@ -40,7 +40,7 @@ Es un experimento muy sencillo: tomamos una balanza, y sobre ella colocamos un r
 Ahora hay que pensar un camino para trabajar con estos datos:
 
 - Por un lado podríamos calcular una [regresión lineal](http://www.blogger.com/post-create.g?blogID=1915800988134045998#), cuya pendiente nos daría la capacidad media. Sin embargo hemos hecho la prueba dos veces, y de alguna manera tendríamos que combinar esas medidas, el cálculo se complica.
-- La otra opción es aprovechar que la variable independiente -la X- es incremental: 1 cucharada, 2 cucharadas, 3, 4, 5... así que la capacidad de una cucharada es la diferencia entre cada dos valores consecutivos. Eso es lo que se ve en las columnas *Diferencia*. **Elegimos esta opción.** 
+- La otra opción es aprovechar que la variable independiente -la X- es incremental: 1 cucharada, 2 cucharadas, 3, 4, 5... así que la capacidad de una cucharada es la diferencia entre cada dos valores consecutivos. Eso es lo que se ve en las columnas *Diferencia*. **Elegimos esta opción.**
 
 En las columnas *Diferencia* está la cantidad de agua que contenía cada cucharada... y cada medida es distinta en cada vez. Aún empleando la misma cucharilla, no hay dos cucharadas que contengan exactamente la misma cantidad de líquido. Sabemos que en estos casos en que el error es aleatorio, los valores se distribuyen según la **distribución normal** o campana de Gauss. Con la muestra de la cucharilla 2 tendría esta forma.
 

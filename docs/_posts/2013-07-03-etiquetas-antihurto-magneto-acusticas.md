@@ -67,7 +67,7 @@ El límite de audición llega hasta 20kHz por lo que la frecuencia de 58kHz es u
 No es la primera vez que hablamos en este blog de fenómenos de resonancia. Por favor, leed estas dos entradas si no lo habéis hecho para tener presente un ejemplo más cercano y muy visual de lo que vamos a hacer a continuación:
 
 - [Espectroscopía casera con copas]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %})
-- [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %})<br>
+- [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %})
 
 En estas dos entradas empleábamos sonido audible, y copas normales. Lo que viene después es exactamente el mismo fenómeno pero con campos magnéticos y frecuencias ultrasónicas. Parece muy abstracto, pero en realidad es algo muy típico.
 
