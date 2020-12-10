@@ -6,7 +6,7 @@ tags:
 - gnuplot
 - programacion
 - Perl
-featured-image: es_ES.png
+featured-image: lon-pal-es.png
 assets: /pruebas-blog/assets/2010/05/convertir-palabras-en-numeros-ii
 ---
 
@@ -61,7 +61,9 @@ Con esto podríamos sumar y restar palabras tal como si fueran números, calcula
 
 Lo primero que vamos a analizar es una lista de palabras en español. Para eso he fusionado dos diccionarios. Uno es el de Open Office, y otro lo he encontrado buscando en Google, en [este enlace]({{page.assets}}/diccionario.txt). Como curiosidad mirad un histograma con la longitud de las palabras:
 
-[<img border="0" height="231" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773" width="400" />](https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773)Los números los podéis ver aquí: [datos originales](http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&amp;single=true&amp;gid=0&amp;output=html). Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en *mente*) tiene nada menos que 24 letras: **electroencefalografistas**.
+{% include image.html file="lon-pal-es.png" caption="" %}
+
+Los números los podéis ver aquí: [datos originales](http://spreadsheets.google.com/pub?key=tuJhJL6EMffJAALar8b4tUw&amp;single=true&amp;gid=0&amp;output=html). Dicen que las palabras más usuales en español son de cinco letras. Eso es cierto si no contamos los tiempos verbales, plurales y demás derivaciones. A propósito, la palabra más larga (sin contar formas adverbiales terminadas en *mente*) tiene nada menos que 24 letras: **electroencefalografistas**.
 
 El programa *dominio_espectral.pl* está preparado para obtener todas las palabras de un texto y aplicar *pal2num* (la versión optimizada de *pal2num.pl*) para obtener sus equivalentes numéricos entre 0 y 1. A partir de esos resultados dibuja varios gráficos semejantes a espectros de emisión.
 

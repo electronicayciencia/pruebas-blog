@@ -61,7 +61,11 @@ $$
 
 Dice el estándar DVD en [este documento]({{page.assets}}/Ecma-267.pdf) (página 12) que:
 
-> <div style="font-family: inherit;">10.6.2 Track geometry</div><div style="font-family: inherit;">In the Information Zone tracks are constituted by a 360° turn of a spiral.</div><div style="font-family: inherit;">The track pitch shall be 0,74 µm ± 0,03 µm.</div><div style="font-family: inherit;">**The track pitch averaged over the Data Zone shall be 0,74 µm ± 0,01 µm**.</div>
+> 10.6.2 Track geometry  
+In the Information Zone tracks are constituted by a 360° turn of a spiral.  
+The track pitch shall be 0,74 µm ± 0,03 µm.  
+**The track pitch averaged over the Data Zone shall be 0,74 µm ± 0,01 µm**.  
+
 
 Nosotros hemos obtenido 0.734 lo que nos da un **error menor del 1%** (fijaos que es del orden de los 10nm). Y eso con un montaje rudimentario, midiendo solamente un ángulo y sin tener en cuenta el cálculo de errores (propagación). Realmente es una pasada la precisión que se puede alcanzar con un láser.
 

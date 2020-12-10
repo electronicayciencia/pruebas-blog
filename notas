@@ -4,11 +4,14 @@ artículos destacados
 
 sacar css de custom-head.
 centrar videos
-
+<a name='more'></a> -> <--!more-->
 
 
 posts con fallos:
 en algunos posts quedan divs o spans
 espectroscopia-transformada-de-fourier.html -> <td> en caption
 tags br en etiquetas de imágenes
+
+quitar los div en los quote
+
 

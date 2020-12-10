@@ -242,7 +242,8 @@ sub html2md {
 	$s =~ s{<span [^>]*font-size:[^>]*>(.*?)</span>}{$1}g;
 	$s =~ s{<span [^>]*Apple-style-span[^>]*>(.*?)</span>}{$1}g;
 	$s =~ s{<span [^>]*color[^>]*>(.*?)</span>}{$1}smg;
-	$s =~ s{<div [^>]*color[^>]*>(.*?)</div>}{$1}smg;
+	$s =~ s{<div [^>]*color[^>]*>(.*?)</div>}{$1  \n}smg;
+	$s =~ s{<div [^>]*font-family: inherit;[^>]*>(.*?)</div>}{$1  \n}smg;
 
 	$s =~ s{<span[^>]*>(.*?)</span>}{$1}g;
 
@@ -611,10 +612,14 @@ sub process_body {
 	$s =~ s{2010/06/difraccion-en-un-dvd}{2010/07/difraccion-en-un-dvd}g;
 	#$s =~ s{<div><b>Primer contacto</b>}{<b>Primer contacto</b>}g; # sintetizador-pll
     $s =~ s{\\f_(a|b)}{f_$1}g;                           # thd
-    $s =~ s{^<div class="separator".*?</div>Hoy vamos}{Hoy vamos}g;                           # thd
+	$s =~ s{^<div class="separator".*?</div>Hoy vamos}{Hoy vamos}g;                           # thd
 	$s =~ s{bmp280.html"><br />La presión}{bmp280.html">La presión}; #contador-radiactivo
+	$s =~ s{<td class="tr-caption" style="text-align: center;"><br /></td>}{}; # espectroscopia-transformada-de-fourier
 	$s =~ s{</i></blockquote><blockquote><blockquote class="tr_bq"><i>La buena.*?pida.</i></blockquote></blockquote><ul>  </ul>}
 	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
+
+	# External images now are local assets:
+	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.*?</a>}{format_image("lon-pal-es.png",400,"")}e;
 
 	# Remove fixed texts
 	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
@@ -753,6 +758,7 @@ sub process_body {
 	$s = recompose($s);
 
 	for my $tag ($s =~ m{(<.*?>)}g) {
+		next; # OMIT ALL
 		next if $tag eq "<br />";
 		next if $tag eq "<sup>";
 		next if $tag eq "</sup>";
@@ -767,8 +773,14 @@ sub process_body {
 		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
 	}
 
-	# Dive into now formatted text to get info
+
+	# Fix some particular cases
 	# ------------------------------------------------------
+	#$s =~ s{<img border="0" height="231" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc&amp;oid=3&amp;v=1274193059773" width="400" />}
+	#       {format_image("lon-pal-es.png",400,"")}e;
+	
+
+	# Dive into now formatted text to get info
 	($featured_image) = $s =~ m|{% include image.html[^}]+file="([^"]+)"|;
 
 	return $s;
