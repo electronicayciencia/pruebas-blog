@@ -31,7 +31,7 @@ Ni que decir tiene que **los colores** de la imagen **son aproximados** ya que t
 
 Ahora lo que me gustaría es tenerlo en un gráfico, de Intensidad frente a longitud de onda. Lamentablemente nunca podremos hacer eso con un montaje precario, porque para saber la intensidad necesitamos medir y compensar la respuesta del CCD de la cámara. Y puesto que es la del móvil, no tenemos tales datos. Para la longitud de onda necesitaríamos medir los ángulos de una manera precisa, y tampoco tenemos esa información en la imagen. Si supiéramos el ángulo exacto no tendríamos más que aplicar la transformación que hay en este gráfico:
 
-[<img border="0" height="101" src="https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc&amp;oid=1&amp;zx=optgq5-zbm8j2" width="400" />](https://spreadsheets.google.com/oimg?key=0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc&amp;oid=1&amp;zx=optgq5-zbm8j2)
+{% include image.html file="angulo.png" caption="" %}
 
 Obtenido con [esta hoja de datos](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc&amp;hl=es&amp;authkey=CIjFp_UF). Así que de momento a lo máximo que podemos optar es a un gráfico *Intensidad* - *Píxel* y eso haremos.
 

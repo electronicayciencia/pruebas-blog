@@ -619,7 +619,10 @@ sub process_body {
 	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
 
 	# External images now are local assets:
-	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.*?</a>}{format_image("lon-pal-es.png",400,"")}e;
+	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.{1,200}?<img.*?</a>}{format_image("lon_pal_es.png",400,"")}e;
+	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc.{1,200}?<img.*?</a>}{format_image("angulo.png","","")}e;
+	$s =~ s{<a href="[^"]+webvision.med.utah.edu/imageswv/KallDark12.jpg.*?</a>}{format_image("KallDark12.jpg","400","")}e;
+	$s =~ s{<img height="268" src="[^"]+0AjHcMU3xvtO8dDdZSVhpNXZTaFV0Vk45dlluM0todUE&amp.*?/>}{format_image("sensacion_luminosa.png","","")}e;
 
 	# Remove fixed texts
 	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
@@ -758,7 +761,7 @@ sub process_body {
 	$s = recompose($s);
 
 	for my $tag ($s =~ m{(<.*?>)}g) {
-		next; # OMIT ALL
+		next if $tag !~ /img/; # OMIT ALMOST ANY
 		next if $tag eq "<br />";
 		next if $tag eq "<sup>";
 		next if $tag eq "</sup>";
