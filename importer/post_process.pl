@@ -422,7 +422,7 @@ sub format_list {
 	#  continuation
 	#
 	#- list item 2
-	map (s{<br><br>}{\n\n  }g, @items);
+	map (s{(<br>)+}{\n\n  }g, @items);
 
 
 	$tag eq "ul" and s/^/- / for @items;
