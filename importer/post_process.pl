@@ -550,6 +550,7 @@ sub format_link {
 
 sub format_section {
 	my $s = shift;
+	$s = html2md($s);
 	return parts_store("## $s", "section");
 }
 

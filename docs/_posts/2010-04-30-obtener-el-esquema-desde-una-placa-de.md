@@ -48,7 +48,7 @@ Una vez tengamos la tabla completa es hora de llevarlo al esquema. Hay varios ca
 
 El circuito lo comentaremos en días posteriores.
 
-## El formato <em>netlist</em>
+## El formato *netlist*
 
 Por último, si queremos estar completamente seguros de que hemos dibujado bien el esquema, tenemos la opción de exportar el fichero *netlist* y compararlo con la tabla que hemos hecho al principio. Lógicamente deben coincidir.
 

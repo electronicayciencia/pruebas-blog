@@ -125,7 +125,7 @@ Una vez definidos los parámetros, el bucle principal es bien sencillo:
 - Emitimos una señal acústica. Línea **49**, ver más abajo.
 - Y por último mostramos por pantalla los datos. Línea **51**. Notad el carácter \r al comienzo y la ausencia de \n al final. Lo que hace que se escriba siempre en la misma línea. Como la longitud del mensaje es siempre creciente no es necesario poner en blanco la línea antes de escribir la siguiente.
 
-## La función <em>tono</em>
+## La función *tono*
 
 Hay dos cosas importantes que aprender de este programa. Una, el cómo utilizar la salida de un programa para interpretarla y hacer cosas con ella. Eso lo conseguimos con la llamada a *open* de la línea **31**. Notad la redirección de stderr a stdout para capturarlo todo.
 
