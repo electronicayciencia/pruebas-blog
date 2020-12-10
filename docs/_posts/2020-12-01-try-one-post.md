@@ -12,10 +12,19 @@ This name ends in .md, not .markdown.
 This is a static asset for you: [file2]({{assets}}/file1.txt).
 
 {% include image.html max-width="200px" file="a-cat.png" caption='This is the  
-Jekyll logo.[file1](/file1.txt)' %}
+Jekyll logo. [file1](/file1.txt)' %}
 
 This is a phrase cutted by two spaces  
 and a line break.
+
+
+- bullet item 1 in two parts. This is the first part.
+
+  And this is the second part.
+
+- bullet item 2
+
+
 
 This is a phrase cutted by one space 
 and a line break.

@@ -417,6 +417,12 @@ sub format_list {
 	map (s{(<br>|\s+)+$}{}g, @items);
 	map (s{^(<br>|\s+)+}{}g, @items);
 	
+	#- list item
+	#  
+	#  continuation
+	#
+	#- list item 2
+	map (s{<br><br>}{\n\n  }g, @items);
 
 
 	$tag eq "ul" and s/^/- / for @items;
@@ -756,6 +762,7 @@ sub process_body {
 		next if $tag =~ /^<audio/;
 		next if $tag eq "</audio>";
 		next if $tag =~ /^<script/;
+		next if $tag eq "</script>";
 		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
 	}
 
