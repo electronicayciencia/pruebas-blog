@@ -282,7 +282,7 @@ sub process_head {
 
 
 # Format an image include
-sub image_string {
+sub format_image {
 	my ($name, $width, $caption) = @_;
 
 	#print STDERR "DEBUG: Image name: $name, Width: $width\n";
@@ -301,6 +301,8 @@ sub image_string {
 
 	# seriously, also format on br tags: <br style="..."/>
 	$caption =~ s{<br.*?>}{<br />}g;
+
+	$caption = html2md($caption);
 
 	# escape quotes
 	$caption =~ s{"}{\\"}g;
@@ -639,21 +641,21 @@ sub process_body {
 
 	# Images with caption and link
 	# <table ... <a href="...blogspot.com/.../div_by_5.png" src="...blogspot.com/.../div_by_5.png" width="640" ...>CAPTION</td></tr></tbody></table>
-	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{image_string($1,$3,$4)}sge;
+	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{format_image($1,$3,$4)}sge;
 	
 	# Same, without width
-	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{image_string($1,"",$3)}sge;
+	$s =~ s{<table.{1,200}<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)".{1,300}?<td[^>]+>(.+?)</td>[^"]+?</table>}{format_image($1,"",$3)}sge;
 	
 	# Images with link and width, but no caption
-	$s =~ s{<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,120}?</a>}{image_string($1,$3,"")}sge;
+	$s =~ s{<a href="[^"]*bp.blogspot.com[^"]*?/([^/"]+)".{1,300}?src="([^"]+)" width="(\d+)".{1,120}?</a>}{format_image($1,$3,"")}sge;
 
 	# Images with link only
 	# <a href="...blogspot.com/.../Imagen149.jpg" ... ><img ... src="...blogspot.com/.../Imagen149.jpg" ... /></a>
-	$s =~ s{<a href="[^>]*bp.blogspot.com.*?/([^/"]+)".*?src="(.+?)".*?/></a>}{image_string($1,"","")}sge;
+	$s =~ s{<a href="[^>]*bp.blogspot.com.*?/([^/"]+)".*?src="(.+?)".*?/></a>}{format_image($1,"","")}sge;
 
 	# Direct images, no caption, no link
 	# <img ... src="http://2.bp.blogspot.com/.../db9_null_loop.png" ... />
-	$s =~ s{<img.*?src=".*?bp.blogspot.com.*?/([^/"]+)".*?/>}{image_string($1,"","")}sge;
+	$s =~ s{<img.*?src=".*?bp.blogspot.com.*?/([^/"]+)".*?/>}{format_image($1,"","")}sge;
 
 	# Replace internal links to other posts
 	$s =~ s{<a href="[^"]+electronicayciencia.blogspot.com/(.+?).html">(.*?)</a>}{link_post_to_local($1, $2)}gmse;

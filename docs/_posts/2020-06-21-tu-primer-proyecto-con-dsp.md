@@ -186,7 +186,7 @@ Los DSP son **complicados** y su curva de aprendizaje algo dura. Al principio, s
 - **[dsPIC30F2011/2012/3012/3013 Data Sheet]({{page.assets}}/70139g.pdf)**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
 - **[dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification]({{page.assets}}/80448D.pdf)**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
 
-{% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene <em>bugs</em>. Microchip." %}
+{% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene *bugs*. Microchip." %}
 
 Si fallan los enlaces podéis buscar directamente por el título del documento.
 

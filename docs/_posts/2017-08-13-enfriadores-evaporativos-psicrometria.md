@@ -43,7 +43,7 @@ Pero resulta que la temperatura de bulbo húmedo depende de cuán seco esté el 
 
 Si el aire está saturado de humedad al 100%, dará igual que mojemos el termómetro porque del agua no se va a evaporar nada. En tal caso la temperatura húmeda será la misma que la seca. Los psicrómetros vienen con una tabla de doble entrada que nos da la humedad relativa en función de ambas temperaturas o en función de la temperatura seca y de la diferencia entre ambas.
 
-{% include image.html max-width="480px" file="detalle-tabla-psicrometrica.png" caption="Tabla de diferencias psicrométricas. <a href=\"http://m.termometros.com/es/Psicr%C3%B3metro-medidor-de-humedad-an%C3%A1logico\">termometros.com</a>" %}
+{% include image.html max-width="480px" file="detalle-tabla-psicrometrica.png" caption="Tabla de diferencias psicrométricas. [termometros.com](http://m.termometros.com/es/Psicr%C3%B3metro-medidor-de-humedad-an%C3%A1logico)" %}
 
 Suponed, por ejemplo, la temperatura del termómetro seco es 20ºC y el húmedo marca 16ºC. Hay una diferencia de 4ºC. Según la tabla anterior la humedad relativa sería del 63%.
 
@@ -117,7 +117,7 @@ Por eso hay dos precauciones a tener en cuenta para el mantenimiento de estos el
 
 La pregunta clave aquí es si refresca y cuánto refresca. Para responder a eso vamos a utilizar un pequeño sensor **HTU21D**. También emplearemos una sonda de temperatura DS18B20 más adelante.
 
-{% include image.html max-width="300px" file="htu21d.jpg" caption="Módulo HTU21D. <a href=\"https://www.sparkfun.com/products/retired/12064\">sparkfun.com</a>" %}
+{% include image.html max-width="300px" file="htu21d.jpg" caption="Módulo HTU21D. [sparkfun.com](https://www.sparkfun.com/products/retired/12064)" %}
 
 El HTU21D es un pequeño sensor de temperatura y humedad de tipo capacitivo con comunicación por I2C ([Datasheet HTU21D](http://eu.mouser.com/pdfdocs/HTU21DF.PDF)). Este sensor nos da hasta 12 bits de precisión para la humedad y 14 para la temperatura.
 

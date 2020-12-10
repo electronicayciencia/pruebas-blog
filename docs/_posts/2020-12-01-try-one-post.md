@@ -11,6 +11,11 @@ This name ends in .md, not .markdown.
 
 This is a static asset for you: [file1]({{assets}}/file1.txt).
 
+This is a phrase cutted by two spaces  
+and a line break.
+
+This is a phrase cutted by one space 
+and a line break.
 
 Code:
 

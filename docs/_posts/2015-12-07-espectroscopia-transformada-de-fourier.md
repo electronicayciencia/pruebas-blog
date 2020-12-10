@@ -17,7 +17,7 @@ La espectroscopía es una ciencia cuyo objetivo es conocer la composición de un
 
 Hay dos formas para separar las distintas frecuencias que componen una onda, los métodos directos y los métodos indirectos. Los métodos directos son los que aíslan una determinada frecuencia por medio de algún dispositivo (que se llama monocromador aunque se trate de radiación no visible, tal como infrarrojos). Por ejemplo usando un prisma o una rejilla de difracción para descomponer el haz de luz visible y luego medir la intensidad de luz en cada ángulo. Ese sería un método directo.
 
-{% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. <a href=\"http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy\" target=\"_blank\">Smithsonian</a>.</td><td class=\"tr-caption\" style=\"text-align: center;\"><br />" %}
+{% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. [Smithsonian](http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy).</td><td class=\"tr-caption\" style=\"text-align: center;\"><br />" %}
 
 Los métodos indirectos consisten en obtener la información de todas las frecuencias al mismo tiempo y separar los componentes con ayuda de un ordenador. Y casi siempre implican una Transformada de Fourier. Un método indirecto sería, como hacemos habitualmente para descomponer sonido, registrar la señal durante un tiempo y después aplicar una FFT para obtener el espectro. Si lo anterior te ha sonado a miedo, te interesará esta otra entrada: [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %})
 
@@ -43,7 +43,7 @@ Y la **k**, pues es otra frecuencia. Pero en lugar de ser una frecuencia tempora
 
 Así funciona la propagación de una onda de sonido en el aire (es un gif animado, hay varios en el artículo, lo aviso por si tienes desactivadas las animaciones):
 
-{% include image.html file="longipatm.gif" caption="Onda de presión. <a href=\"http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm\" target=\"_blank\">ISVR, U. of Southampton</a>.<b><em></em></b>" %}
+{% include image.html file="longipatm.gif" caption="Onda de presión. [ISVR, U. of Southampton](http://resource.isvr.soton.ac.uk/spcg/tutorial/tutorial/Tutorial_files/Web-basics-sound.htm).******" %}
 
 Para medir la frecuencia temporal nos fijamos continuamente en el mismo punto. Como por ejemplo en el inicio. La onda sube y baja a un ritmo constante. Eso es la frecuencia temporal, si es lineal f o ν; si es frecuencia angular ω.
 
@@ -69,19 +69,19 @@ Para frecuencias más altas la cosa ya se complica. La radiación infrarroja la 
 
 Y sin embargo una técnica muy empleada es la llamada **FTIR (Fourier Transform Infrared Spectroscopy)**. Cabe preguntarse, ¿cómo aplicas la FFT a una señal que oscila tan rápidamente que no puedes muestrear varias veces en un periodo?
 
-{% include image.html max-width="480px" file="ftir.jpg" caption="Espectroscopio FTIR comercial. <a href=\"http://www.andersonmaterials.com/ftir.html\" target=\"_blank\">andersonmaterials.com</a>" %}
+{% include image.html max-width="480px" file="ftir.jpg" caption="Espectroscopio FTIR comercial. [andersonmaterials.com](http://www.andersonmaterials.com/ftir.html)" %}
 
 Aquí es donde viene la genialidad del método. Todo el rato hablamos de "periodo" refiriéndonos al periodo temporal, a la duración en segundos de un ciclo. Pero la variable temporal es demasiado rápida para medirla. Vamos a cambiar de perspectiva, y tratar de medir la onda en su dependencia espacial.
 
 Con la tecnología actual medir distancias pequeñas es fácil. Y para dejar la onda "estática" podemos recurrir a un interferómetro. En los espectroscopios de verdad se utiliza generalmente un interferómetro de Michelson. Consiste en que el haz de luz que viene de la fuente se divide en dos y se hace interferir consigo mismo. Es el mismo tipo de interferómetro que usaron Michelson y Morley en 1887 para medir la velocidad de arrastre del "viento del ether" y que, lógicamente, no pudieron medir. Dando lugar a una serie de elucubraciones que años más tarde recopiló Einstein en su Relatividad Especial.
 
-{% include image.html file="michelson_fft_spec.gif" caption="Interferómetro de Michelson con un brazo movil. <a href=\"http://scienceworld.wolfram.com/physics/FourierTransformSpectrometer.html\" target=\"_blank\">Wolfram</a>." %}
+{% include image.html file="michelson_fft_spec.gif" caption="Interferómetro de Michelson con un brazo movil. [Wolfram](http://scienceworld.wolfram.com/physics/FourierTransformSpectrometer.html)." %}
 
 En un espectroscopio uno de los espejos es móvil. Un detalle: en realidad, por motivos prácticos, no son espejos sino retroreflectores, reflectores de esquina o catadióptricos. De ese modo uno de los rayos recorre siempre un camino fijo, mientras que el camino del otro rayo se varía moviendo el espejo. El resultado es que la interferencia sigue una sucesión de máximos y mínimos dependiendo de la posición del espejo móvil.
 
 Hay vídeos en Youtube donde se aprecia muy bien el fenómeno. En este por ejemplo, [Michelson Interferometer &amp; Path Variations](https://www.youtube.com/watch?v=87pPoGuLSuw&amp;t=1m10s). Por si en el futuro retiran el vídeo o cambia el enlace os dejo un GIF animado con unos segundos para que veáis a lo que me refiero:
 
-{% include image.html file="michelson_path_variations_lowres.gif" caption="Anillos de interferencia en un interferómetro de Michelson. <a href=\"https://www.youtube.com/watch?v=87pPoGuLSuw&amp;t=1m10s\" target=\"_blank\">Youtube</a>." %}
+{% include image.html file="michelson_path_variations_lowres.gif" caption="Anillos de interferencia en un interferómetro de Michelson. [Youtube](https://www.youtube.com/watch?v=87pPoGuLSuw&amp;t=1m10s)." %}
 
 Cuando el operador mueve el tornillo micrométrico (a la derecha de la imagen), varia la longitud de uno de los brazos, y los anillos de interferencia se desplazan hacia afuera o hacia adentro. Si medimos la luz en el centro, por ejemplo, detectaremos una sucesión de máximos y mínimos. La distancia entre los anillos depende de la longitud de onda de la luz. Con un láser verde, de longitud de onda más corta que el rojo del vídeo, estarían más juntos.
 
