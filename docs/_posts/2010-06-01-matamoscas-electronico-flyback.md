@@ -47,7 +47,7 @@ El esquema es el siguiente:
     Q1: 2SD1616
     T1: (ver texto)*
 
-Se trata nada más (y nada menos) que de un oscilador de bloqueo ([<em>blocking oscillator</em>](http://en.wikipedia.org/wiki/Blocking_oscillator)), o más bien una ligera modificación de este. Es el circuito típico para excitar un flyback.
+Se trata nada más (y nada menos) que de un oscilador de bloqueo ([*blocking oscillator*](http://en.wikipedia.org/wiki/Blocking_oscillator)), o más bien una ligera modificación de este. Es el circuito típico para excitar un flyback.
 
 1. El transistor Q1 está en principio apagado.
 1. Cuando se pulsa el interruptor la corriente circula desde la batería hacia la resistencia R2, atraviesa la bobina de feedback y llega hasta la base del transistor.

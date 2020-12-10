@@ -181,10 +181,10 @@ Por otro lado, son DSP muy sencillos. Pensados para aplicaciones tales como el c
 
 Los DSP son **complicados** y su curva de aprendizaje algo dura. Al principio, sobre todo, necesitaremos consultar la documentación a cada paso. Conviene tener a mano (y haber leído al menos la **introducción** de) estos documentos:
 
-- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70157c.pdf">dsPIC30F/33F Programmer’s Reference Manual</a>**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
-- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70046d.pdf">dsPIC30F Family Reference Manual</a>**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
-- **<a href="http://ww1.microchip.com/downloads/en/devicedoc/70139g.pdf">dsPIC30F2011/2012/3012/3013 Data Sheet</a>**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
-- **<a href="http://ww1.microchip.com/downloads/en/DeviceDoc/80448D.pdf">dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification</a>**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
+- **[dsPIC30F/33F Programmer’s Reference Manual]({{page.assets}}/70157c.pdf)**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
+- **[dsPIC30F Family Reference Manual]({{page.assets}}/70046d.pdf)**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
+- **[dsPIC30F2011/2012/3012/3013 Data Sheet]({{page.assets}}/70139g.pdf)**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
+- **[dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification]({{page.assets}}/80448D.pdf)**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
 
 {% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene <em>bugs</em>. Microchip." %}
 

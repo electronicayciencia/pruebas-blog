@@ -496,7 +496,7 @@ Una carencia importantísima de nuestro esquema es la ausencia total de **acondi
 - La **impedancia** de entrada sea de 50Ω si queremos medir equipos de RF con esta impedancia de salida. O lo más alta posible en otro caso.
 - **Limite la potencia** de entrada. Si no, podríamos destruir el PIC al medir señales demasiado fuertes.
 - **Amplifique**. Generalmente lo que vamos a medir serán señales débiles. Así que es muy importante diseñar una etapa pre-amplificadora que pueda trabajar a la mayor frecuencia que nos permitan los medios que tengamos. De lo contrario parte de los impulsos no se contarán, y mediremos una frecuencia menor de la real, o nada en absoluto.
-- De manera opcional, podríamos contar con un prescaler que **divida por 4 o por 8**. Así podríamos medir hasta 400MHz. Con un par de estos divisores en cascada alcanzamos fácilmente los Gigahercios. Por ejemplo mirad <a href="http://hem.passagen.se/communication/frcpll.html">este circuito</a>.
+- De manera opcional, podríamos contar con un prescaler que **divida por 4 o por 8**. Así podríamos medir hasta 400MHz. Con un par de estos divisores en cascada alcanzamos fácilmente los Gigahercios. Por ejemplo mirad [este circuito](http://hem.passagen.se/communication/frcpll.html).
 
 El proyecto llamado [50MHz Frequency Meter](http://home.exetel.com.au/marknac/50MHz-Frequency-Meter.htm) tiene un esquema interesante que bien nos puede servir como base. Además nos propone otros métodos de calibración también muy buenos:
 

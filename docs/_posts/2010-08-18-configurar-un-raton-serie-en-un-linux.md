@@ -43,7 +43,7 @@ Después de muchas pruebas fallidas, navegando doy con la solución. Esto era lo
 
 ## Causa y solución
 
-En las distribuciones de Linux modernas **no se usan** las secciones InputDevice del xorg.conf. De hecho algunas veces vienen comentadas, o simplemente no existen tales secciones. Ahora (Debian Lenny/Squeeze) se hace todo a través de una capa intermedia llamada [HAL <em>Hardware Abstraction Layer</em>](http://en.wikipedia.org/wiki/HAL_%28software%29). Que es la que permite insertar los pen-drives o los CDROM y que se reconozcan automáticamente por el sistema, además de otras muchas cosas. Tantas cosas que según la página anterior de la Wikipedia, se ha vuelto un monstruo inmantenible y se quiere reemplazar por *udev*.
+En las distribuciones de Linux modernas **no se usan** las secciones InputDevice del xorg.conf. De hecho algunas veces vienen comentadas, o simplemente no existen tales secciones. Ahora (Debian Lenny/Squeeze) se hace todo a través de una capa intermedia llamada [HAL *Hardware Abstraction Layer*](http://en.wikipedia.org/wiki/HAL_%28software%29). Que es la que permite insertar los pen-drives o los CDROM y que se reconozcan automáticamente por el sistema, además de otras muchas cosas. Tantas cosas que según la página anterior de la Wikipedia, se ha vuelto un monstruo inmantenible y se quiere reemplazar por *udev*.
 
 Pues el servidor X lee los dispositivos de HAL, y no de su archivo de configuración, por eso no detectaba el ratón serie, y aunque eliminara el principal PS2 seguía viéndolo. Para que incorpore el nuevo ratón hay que instalar la utilidad **inputattach** (en debian hay un paquete aparte, en Ubuntu creo que viene con la utilidad gpm que antes he nombrado).
 

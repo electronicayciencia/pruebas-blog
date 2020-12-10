@@ -8,6 +8,7 @@ centrar videos
 
 
 posts con fallos:
-
-
+en algunos posts quedan divs o spans
+los textos de los enlaces no están pasados a markdown
+dentro de las listas no se identifican los links ni se pasan a assets locales.
 

@@ -359,7 +359,7 @@ En total:
 
 {% include image.html file="eq1.gif" caption="" %}
 
-Los términos de arriba son las mismas frecuencias originales amplificadas. Pero los términos de abajo son armónicos, y frecuencias sumas y restas, estos son los llamados [<b>productos de intermodulación de segundo orden</b>](http://en.wikipedia.org/wiki/Intermodulation). Es decir, que entran 300 Hz y 500 Hz pero salen:
+Los términos de arriba son las mismas frecuencias originales amplificadas. Pero los términos de abajo son armónicos, y frecuencias sumas y restas, estos son los llamados [**productos de intermodulación de segundo orden**](http://en.wikipedia.org/wiki/Intermodulation). Es decir, que entran 300 Hz y 500 Hz pero salen:
 
 ```
 a   =  300 Hz

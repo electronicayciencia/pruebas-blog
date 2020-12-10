@@ -87,7 +87,7 @@ Para obtener los 5Hz que decíamos fijo el divisor a 2, es decir, genero un puls
 
 Vamos ahora al caso central: quiero una frecuencia de 4Hz a partir de los 10Hz originales. Tendría que dividir por 2.5. ¿Cómo lo hago? Si la frecuencia de referencia en lugar de ser 10Hz fuese 8Hz sería más fácil porque dividiendo 8Hz entre 2 saldrían los 4Hz.
 
-No podemos hacer que la frecuencia del oscilador sea de 8Hz, hemos dicho que es 10Hz, pero sí podemos hacer que cada segundo se generen 8 pulsos en lugar de los 10. Bastaría simplemente con eliminar 1 pulso de cada 5 en la fuente original. Eso es lo que hace un divisor fraccionario: suprime pulsos periódicamente de la frecuencia original. Dicha técnica se llama [<em>pulse swallowing</em>](https://en.wikipedia.org/wiki/Pulse-swallowing_counter).
+No podemos hacer que la frecuencia del oscilador sea de 8Hz, hemos dicho que es 10Hz, pero sí podemos hacer que cada segundo se generen 8 pulsos en lugar de los 10. Bastaría simplemente con eliminar 1 pulso de cada 5 en la fuente original. Eso es lo que hace un divisor fraccionario: suprime pulsos periódicamente de la frecuencia original. Dicha técnica se llama [*pulse swallowing*](https://en.wikipedia.org/wiki/Pulse-swallowing_counter).
 
 Hagamos el mismo ejercicio para obtener 3Hz. Tercer caso del dibujo. Tendríamos que dividir 10 entre 3.3. Si en vez de 10Hz la frecuencia origen fuera 9Hz sería tan simple como dividir por 3. La frecuencia deseada se obtendría tragándose un pulso de cada 10 y dividiendo entre 3.
 
@@ -272,7 +272,7 @@ El resultado es una señal de 2.2Hz más estrecha y potente. Con sus armónicos 
 
 Pero lo más importante es una consecuencia de la técnica que no se aprecia en este caso de uso. Como el valor anterior influye en el valor futuro forzando el cambio (realimentación), las variaciones en la señal de salida se suceden más rápidamente de lo dictado por la pura estadística. O sea que el ruido será de una frecuencia más alta de lo normal. Por eso se dice que el ruido está desplazado hacia la parte alta del espectro de frecuencias. Resulta muy útil en frecuencias bajas, por ejemplo, ya que al mover el ruido fuera de la banda audible nos facilita filtrarlo a la salida.
 
-Esta técnica recibe el nombre de [<em>noise shaping</em>](http://digitalsoundandmusic.com/5-3-7-the-mathematics-of-dithering-and-noise-shaping/) y es el fundamento de los filtros MASH.
+Esta técnica recibe el nombre de [*noise shaping*](http://digitalsoundandmusic.com/5-3-7-the-mathematics-of-dithering-and-noise-shaping/) y es el fundamento de los filtros MASH.
 
 El BCM2835 incorpora un filtro MASH (Multi-stAge noise SHaping) de varias etapas. Para comprender bien cómo funciona leed este artículo de *Analog*: [Fundamental principles behind the Sigma-Delta ADC topology: part 2]({{page.assets}}/Fundamental-Principles-Behind-the-Sigma-Delta-ADC-Topology-Part-2.pdf).
 
@@ -295,7 +295,7 @@ Sólo hay un pequeño problema: funciona únicamente con el oscilador a 19.2MHz.
 
 A la espera de que en una nueva versión se soporten varias fuentes, vamos a aprovechar la principal ventaja del software libre y colaborativo. He clonado el repositorio original y he modificado el código de WiringPi en una [rama paralela](https://github.com/electronicayciencia/WiringPi/blob/gpioclock/wiringPi/wiringPi.c#L1198) para utilizar el oscilador de 500MHz como fuente cuando sea posible. La fuente se selecciona automáticamente entre el oscilador local y PLLD en función de la frecuencia solicitada.
 
-He subido también un [<em>pull request</em>](https://github.com/WiringPi/WiringPi/pull/53) pero tened en cuenta que podría no admitirse, pues esta no es la forma recomendada por el autor a la hora de aceptar contribuciones.
+He subido también un [*pull request*](https://github.com/WiringPi/WiringPi/pull/53) pero tened en cuenta que podría no admitirse, pues esta no es la forma recomendada por el autor a la hora de aceptar contribuciones.
 
 Un aviso: los cambios sólo están probados en mi Raspberry Pi 3, en otros modelos podría no funcionar correctamente.
 

@@ -19,11 +19,11 @@ Estamos en 1850. Un tal [Clausius](http://es.wikipedia.org/wiki/Rudolf_Clausius)
 
 > En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.
 > 
-> En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo <a href="https://es.wikipedia.org/wiki/Camino_libre_medio">sin darse con las demás</a>. Así que más o menos tienen todas la misma velocidad.
+> En un líquido como el agua, es más complicado porque ya sí se mueven, fluyen. No tiene una estructura fija, pero las moléculas del agua, por mucho que se muevan, estarán dentro del agua. Así que su posición no puede ser cualquiera, tiene unos límites. Y lo mismo pasa con la velocidad. En un líquido las partículas rozan mucho entre sí y una no puede acelerar durante mucho tiempo [sin darse con las demás](https://es.wikipedia.org/wiki/Camino_libre_medio). Así que más o menos tienen todas la misma velocidad.
 > 
 > Pero en un gas es distinto, muy distinto... por algo gas viene del griego Kaos. Las partículas de un gas pueden moverse libremente, ocupar la posición que quieran dentro del contenedor, moverse con cualquier velocidad, chocar unas con otras. Para describir el estado de un gas necesito decir la posición y velocidad de cada partícula que lo forma, porque no tiene ninguna estructura.
 > 
-> Así, un sistema es más complicado de describir físicamente cuantos más <a href="https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29">estados posibles</a> tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura. 
+> Así, un sistema es más complicado de describir físicamente cuantos más [estados posibles](https://es.wikipedia.org/wiki/Microestado_%28mec%C3%A1nica_estad%C3%ADstica%29) tenga, y habrá más estados posibles cuanto menos estructurado (menos ordenado) esté. Y por tanto de su temperatura. 
 
 > Voy a inventar una magnitud que indique lo difícil que es describir un sistema y la voy a llamar entropía.
 

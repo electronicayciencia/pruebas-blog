@@ -355,7 +355,7 @@ cіenсіa сіenсіa cіencia
 сiеnсіa cіеnсia сіеnсiа
 ```
 
-Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo <em>verbatim</em>]({{page.assets}}/answer.py) de google para que no os muestre palabras semejantes o relacionadas):
+Comprúebalo copiando y pegando. Cuando buscas en google una homógrafa, aunque se vea idéntica y se lea igual son palabras distintas (acordaos de activar el [modo *verbatim*]({{page.assets}}/answer.py) de google para que no os muestre palabras semejantes o relacionadas):
 
 {% include image.html file="ciencia_google.png" caption="" %}
 

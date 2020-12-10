@@ -222,6 +222,9 @@ sub html2md {
 	$s =~ s{</b>}{**}g;
 	$s =~ s{<em>}{*}g;
 	$s =~ s{</em>}{*}g;
+	
+	# Links
+	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2)}ge;
 
 	# Font size or color: deprecated
 	# wait until monospaced divs/spans have been identified
@@ -396,6 +399,8 @@ sub format_list {
 	my @items = $c =~ m{<li>(.*?)</li>}gm;
 
 	return "" unless @items;
+	
+	map (html2md($_), @items);
 
 	$tag eq "ul" and s/^/- / for @items;
 	$tag eq "ol" and s/^/1. / for @items;
@@ -490,6 +495,8 @@ sub format_equation {
 sub format_link {
 	my ($href, $text) = @_;
 	my $asset = 0;
+
+	$text = html2md($text);
 
 	my $link = $href;
 	$link =~ s/#.*$//; # strip this, is local to browser
@@ -670,9 +677,6 @@ sub process_body {
 
 	# Equations
 	$s =~ s{\\\[(.*?)\\\]}{format_equation($1, "display")}msge;
-
-	# Links
-	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2)}ge;
 
 	# HTML tables
 	$s =~ s{(<table[^>]*>.*?</table>)}{format_table($1)}ge;

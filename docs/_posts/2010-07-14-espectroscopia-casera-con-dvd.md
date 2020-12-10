@@ -43,7 +43,7 @@ Para todo eso he programado un breve programa en C que:
 
 - Usando la librería *libjpeg* extrae la linea que se le diga (por defecto la línea media).
 - Extrae las N líneas adyacentes que se pidan y calcula la media. Por ejemplo puede servir para suavizar el gráfico. Además este efecto se acentúa al ser concéntricas las líneas espectrales. Sirve para eliminar ruido del CCD en las zonas oscuras, como contrapunto ensancha las líneas y vuelve borroso el espectro.
-- Con los tonos de color obtenidos genera una imagen en formato AVS para graficarla con Gnuplot. El formato AVS de imágenes es de los más sencillos que hay. Documentado aquí en dos párrafos: <a href="http://local.wasp.uwa.edu.au/%7Epbourke/dataformats/avs_x/">http://local.wasp.uwa.edu.au/~pbourke/dataformats/avs_x/</a>
+- Con los tonos de color obtenidos genera una imagen en formato AVS para graficarla con Gnuplot. El formato AVS de imágenes es de los más sencillos que hay. Documentado aquí en dos párrafos: [http://local.wasp.uwa.edu.au/~pbourke/dataformats/avs_x/](http://local.wasp.uwa.edu.au/%7Epbourke/dataformats/avs_x/)
 - Si la imagen es en color calcula la intensidad total usando una media cuadrática. Hay multitud de maneras de convertir una imagen a escala de grises, esta es la que mejor resultado me ha dado para las imágenes que tengo. Lo malo es que no incorpora ningún tipo de ponderación de colores.
 - Escribe un archivo con la intensidad luminosa calculada por cada píxel.
 - Escribe un archivo con los comandos de Gnuplot necesarios para hacer el gráfico.

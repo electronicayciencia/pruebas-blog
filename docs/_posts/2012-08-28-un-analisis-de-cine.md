@@ -41,7 +41,7 @@ Vamos a ver dos películas también populares pero con otra distribución muy di
 ¿Por qué pasa esto? Es lo que nos preguntábamos hace unas líneas. La mayoría de la gente vemos películas que pensamos que nos van a gustar. Si antes de verla creyéramos que le vamos a poner un 1, no perderíamos el tiempo y directamente veríamos otra cosa. Se me ocurren varios motivos:
 
 - **Popularidad.** La película llega a tanta gente que acaba por verla (y votarla) mucha gente que no es su público objetivo. Recomendaciones de amigos, películas que se ven en fiestas, en medios de transporte, etc.
-- **Publicidad engañosa.** Un trailer que no refleja la película y fija unas expectativas mucho más altas de lo que se merece. Por ejemplo <a href="http://www.youtube.com/watch?v=ZSGsh9so_dA">este sería el trailer</a> de *2001: Odisea en el espacio* si se fuera a estrenar este verano.
+- **Publicidad engañosa.** Un trailer que no refleja la película y fija unas expectativas mucho más altas de lo que se merece. Por ejemplo [este sería el trailer](http://www.youtube.com/watch?v=ZSGsh9so_dA) de *2001: Odisea en el espacio* si se fuera a estrenar este verano.
 - **Decepción.** La película es de un actor o un director que nos suele gustar, pero esta vez no ha seguido su línea.
 - **Obligación.** Películas que vemos "forzados" porque les gustan a los demás, novia, novio, grupo de amigos...
 - **Voto de oídas.** Votos que se emiten sin haber visto la película, basados en lo que la gente dice.
@@ -307,16 +307,16 @@ Las notas mayores son más frecuentes que las menores, y hay un corte muy pronun
 
 Ya habíamos visto cómo hay muchísimas películas con pocos votos, y unas pocas con muchos votos. Por ejemplo, el mínimo es 10 votos, mientras que las 10 películas más votadas tienen diez mil veces más:
 
--  **141.961**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
--  **139.653**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
--  **138.985**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
--  **138.252**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
--  **135.238**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
--  **134.232**  <a href="http://www.filmaffinity.com/es/film392075.html">Gladiator  (El gladiador) (2000)</a> 
--  **132.699**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
--  **132.556**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
--  **131.305**  <a href="http://www.filmaffinity.com/es/film814379.html">Titanic (1997)</a> 
--  **130.371**  <a href="http://www.filmaffinity.com/es/film499860.html">Algo pasa con Mary (1998)</a> 
+-  **141.961**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
+-  **139.653**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
+-  **138.985**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
+-  **138.252**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
+-  **135.238**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
+-  **134.232**  [Gladiator  (El gladiador) (2000)](http://www.filmaffinity.com/es/film392075.html) 
+-  **132.699**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
+-  **132.556**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
+-  **131.305**  [Titanic (1997)](http://www.filmaffinity.com/es/film814379.html) 
+-  **130.371**  [Algo pasa con Mary (1998)](http://www.filmaffinity.com/es/film499860.html) 
 
 Al quedarnos sólo con las que tienen un mínimo de votos estamos descartando tanto las películas que no lleguen a ese número como sus votos. Lo siguiente es un gráfico del porcentaje de películas y de votos que descartamos al eliminar las películas que no lleguen a un mínimo:
 
@@ -374,46 +374,46 @@ Ya tenemos los datos cargados en Excel y definidas las formulas para nuestras m�
 
 Siguiendo el apartado anterior, empezaremos por las películas (omito las series) más "sobrevaloradas" en Filmaffinity:
 
--  **73,9%**  <a href="http://www.filmaffinity.com/es/film573847.html">Dogville (2003)</a> 
--  **71,3%**  <a href="http://www.filmaffinity.com/es/film178603.html">Mulholland Drive (2001)</a> 
--  **66,7%**  <a href="http://www.filmaffinity.com/es/film447606.html">El árbol de la vida (2011)</a> 
--  **64,0%**  <a href="http://www.filmaffinity.com/es/film374559.html">Todo sobre mi madre (1999)</a> 
--  **63,4%**  <a href="http://www.filmaffinity.com/es/film552917.html">Bailar en la oscuridad (2000)</a> 
--  **61,5%**  <a href="http://www.filmaffinity.com/es/film332621.html">La pasión de Cristo (2004)</a> 
--  **59,2%**  <a href="http://www.filmaffinity.com/es/film782908.html">The Rocky Horror Picture Show (1975)</a> 
--  **59,1%**  <a href="http://www.filmaffinity.com/es/film575554.html">[•REC] (2007)</a> 
--  **58,8%**  <a href="http://www.filmaffinity.com/es/film553137.html">Elephant (2003)</a> 
--  **58,6%**  <a href="http://www.filmaffinity.com/es/film587730.html">Miedo y asco en Las Vegas (1998)</a> 
--  **58,6%**  <a href="http://www.filmaffinity.com/es/film315125.html">Funny Games  (Juegos divertidos) (1997)</a> 
--  **58,0%**  <a href="http://www.filmaffinity.com/es/film255392.html">Moulin Rouge (2001)</a> 
--  **55,7%**  <a href="http://www.filmaffinity.com/es/film334167.html">Torrente, el brazo tonto de la ley (1998)</a> 
--  **55,6%**  <a href="http://www.filmaffinity.com/es/film813529.html">Mujeres al borde de un ataque de nervios (1988)</a> 
--  **55,5%**  <a href="http://www.filmaffinity.com/es/film855531.html">La mala educación (2004)</a> 
+-  **73,9%**  [Dogville (2003)](http://www.filmaffinity.com/es/film573847.html) 
+-  **71,3%**  [Mulholland Drive (2001)](http://www.filmaffinity.com/es/film178603.html) 
+-  **66,7%**  [El árbol de la vida (2011)](http://www.filmaffinity.com/es/film447606.html) 
+-  **64,0%**  [Todo sobre mi madre (1999)](http://www.filmaffinity.com/es/film374559.html) 
+-  **63,4%**  [Bailar en la oscuridad (2000)](http://www.filmaffinity.com/es/film552917.html) 
+-  **61,5%**  [La pasión de Cristo (2004)](http://www.filmaffinity.com/es/film332621.html) 
+-  **59,2%**  [The Rocky Horror Picture Show (1975)](http://www.filmaffinity.com/es/film782908.html) 
+-  **59,1%**  [[•REC] (2007)](http://www.filmaffinity.com/es/film575554.html) 
+-  **58,8%**  [Elephant (2003)](http://www.filmaffinity.com/es/film553137.html) 
+-  **58,6%**  [Miedo y asco en Las Vegas (1998)](http://www.filmaffinity.com/es/film587730.html) 
+-  **58,6%**  [Funny Games  (Juegos divertidos) (1997)](http://www.filmaffinity.com/es/film315125.html) 
+-  **58,0%**  [Moulin Rouge (2001)](http://www.filmaffinity.com/es/film255392.html) 
+-  **55,7%**  [Torrente, el brazo tonto de la ley (1998)](http://www.filmaffinity.com/es/film334167.html) 
+-  **55,6%**  [Mujeres al borde de un ataque de nervios (1988)](http://www.filmaffinity.com/es/film813529.html) 
+-  **55,5%**  [La mala educación (2004)](http://www.filmaffinity.com/es/film855531.html) 
 
 Como ya habíamos previsto algunas son películas controvertidas, violentas, otras son absurdas, o "para chicas", no voy a decir si a mi me parecen buenas o malas, pero desde luego hay mucha gente que las odia, tanta como gente que le encantan. Desde luego, si quieres ver algo que no te deje igual lo mejor es ver alguna de esta lista para saber de qué bando estás.
 
 Pero al igual que hay películas "sobrevaloradas", también las hay infravaloradas. Estas serían las que tienen menos unos y más dieces de lo normal. Aquí tenéis las quince primeras:
 
--  **-26,3%**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
--  **-21,1%**  <a href="http://www.filmaffinity.com/es/film978961.html">Uno de los nuestros (1990)</a> 
--  **-21,1%**  <a href="http://www.filmaffinity.com/es/film695552.html">12 hombres sin piedad (Doce hombres sin piedad) (1957)</a> 
--  **-19,8%**  <a href="http://www.filmaffinity.com/es/film802694.html">La ventana indiscreta (1954)</a> 
--  **-19,7%**  <a href="http://www.filmaffinity.com/es/film795770.html">El apartamento (1960)</a> 
--  **-19,4%**  <a href="http://www.filmaffinity.com/es/film385464.html">El golpe (1973)</a> 
--  **-18,9%**  <a href="http://www.filmaffinity.com/es/film448956.html">Senderos de gloria (1957)</a> 
--  **-18,3%**  <a href="http://www.filmaffinity.com/es/film537233.html">La gran evasión (1963)</a> 
--  **-16,8%**  <a href="http://www.filmaffinity.com/es/film425873.html">La soga (1948)</a> 
--  **-15,6%**  <a href="http://www.filmaffinity.com/es/film351704.html">Con la muerte en los talones (1959)</a> 
--  **-14,2%**  <a href="http://www.filmaffinity.com/es/film357391.html">El tercer hombre (1949)</a> 
--  **-14,1%**  <a href="http://www.filmaffinity.com/es/film167667.html">Rebeca (1940)</a> 
--  **-14,0%**  <a href="http://www.filmaffinity.com/es/film376985.html">En el nombre del padre (1993)</a> 
--  **-13,5%**  <a href="http://www.filmaffinity.com/es/film207165.html">Perdición (1944)</a> 
--  **-13,4%**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
--  **-12,9%**  <a href="http://www.filmaffinity.com/es/film667376.html">Testigo de cargo (1957)</a> 
--  **-12,9%**  <a href="http://www.filmaffinity.com/es/film371621.html">Alguien voló sobre el nido del cuco (1975)</a> 
--  **-12,7%**  <a href="http://www.filmaffinity.com/es/film261972.html">American History X (1998)</a> 
--  **-11,9%**  <a href="http://www.filmaffinity.com/es/film353180.html">Con faldas y a lo loco (1959)</a> 
--  **-11,8%**  <a href="http://www.filmaffinity.com/es/film789039.html">Toro salvaje (1980)</a> 
+-  **-26,3%**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
+-  **-21,1%**  [Uno de los nuestros (1990)](http://www.filmaffinity.com/es/film978961.html) 
+-  **-21,1%**  [12 hombres sin piedad (Doce hombres sin piedad) (1957)](http://www.filmaffinity.com/es/film695552.html) 
+-  **-19,8%**  [La ventana indiscreta (1954)](http://www.filmaffinity.com/es/film802694.html) 
+-  **-19,7%**  [El apartamento (1960)](http://www.filmaffinity.com/es/film795770.html) 
+-  **-19,4%**  [El golpe (1973)](http://www.filmaffinity.com/es/film385464.html) 
+-  **-18,9%**  [Senderos de gloria (1957)](http://www.filmaffinity.com/es/film448956.html) 
+-  **-18,3%**  [La gran evasión (1963)](http://www.filmaffinity.com/es/film537233.html) 
+-  **-16,8%**  [La soga (1948)](http://www.filmaffinity.com/es/film425873.html) 
+-  **-15,6%**  [Con la muerte en los talones (1959)](http://www.filmaffinity.com/es/film351704.html) 
+-  **-14,2%**  [El tercer hombre (1949)](http://www.filmaffinity.com/es/film357391.html) 
+-  **-14,1%**  [Rebeca (1940)](http://www.filmaffinity.com/es/film167667.html) 
+-  **-14,0%**  [En el nombre del padre (1993)](http://www.filmaffinity.com/es/film376985.html) 
+-  **-13,5%**  [Perdición (1944)](http://www.filmaffinity.com/es/film207165.html) 
+-  **-13,4%**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
+-  **-12,9%**  [Testigo de cargo (1957)](http://www.filmaffinity.com/es/film667376.html) 
+-  **-12,9%**  [Alguien voló sobre el nido del cuco (1975)](http://www.filmaffinity.com/es/film371621.html) 
+-  **-12,7%**  [American History X (1998)](http://www.filmaffinity.com/es/film261972.html) 
+-  **-11,9%**  [Con faldas y a lo loco (1959)](http://www.filmaffinity.com/es/film353180.html) 
+-  **-11,8%**  [Toro salvaje (1980)](http://www.filmaffinity.com/es/film789039.html) 
 
 Todo el análisis es un artificio matemático, y sin embargo no puedo estar más de acuerdo con esta lista. Si quieres recomendar una película estas son las que, al menos, no van a decepcionar. Me explico. En el caso de *Cadena perpetua* o *Uno de los nuestros*, que tienen 114.000 y 75.000 votos, en el momento de escribir este artículo no tienen -hasta donde podemos saber, dado que los datos sólo tienen un dígito decimal- **ni un sólo 1 o 2**. De 114000 personas que la han visto (que no son pocas, el máximo es 142000 votos de *Forrest Gump*) nadie ha votado 1 o 2, contando con que estas dos son películas largas, sin efectos especiales, sin finales espectaculares, todo guión y como la vida misma. Me pregunto quién pudo poner 1 a *Doce hombres sin piedad* pero es significativo que no tenga ni 2 y 3. Eso, para mi, tiene más mérito que tener muchos 7 u 8.
 
@@ -423,75 +423,75 @@ Por ahora ya está bien, lo terminamos aquí. Os dejo otras listas obtenidas al 
 
 Las más votadas:
 
--  **141961**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
--  **139653**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
--  **138985**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
--  **138252**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
--  **135238**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
--  **134232**  <a href="http://www.filmaffinity.com/es/film392075.html">Gladiator  (El gladiador) (2000)</a> 
--  **132699**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
--  **132556**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
--  **131305**  <a href="http://www.filmaffinity.com/es/film814379.html">Titanic (1997)</a> 
--  **130371**  <a href="http://www.filmaffinity.com/es/film499860.html">Algo pasa con Mary (1998)</a> 
--  **129973**  <a href="http://www.filmaffinity.com/es/film524439.html">Kill Bill: Volumen 1 (2003)</a> 
--  **124816**  <a href="http://www.filmaffinity.com/es/film745383.html">La naranja mecánica (1971)</a> 
--  **121921**  <a href="http://www.filmaffinity.com/es/film944222.html">El Señor de los anillos: Las dos torres (2002)</a> 
--  **121455**  <a href="http://www.filmaffinity.com/es/film768790.html">El silencio de los corderos (1991)</a> 
--  **120771**  <a href="http://www.filmaffinity.com/es/film607127.html">El sexto sentido (1999)</a>
+-  **141961**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
+-  **139653**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
+-  **138985**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
+-  **138252**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
+-  **135238**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
+-  **134232**  [Gladiator  (El gladiador) (2000)](http://www.filmaffinity.com/es/film392075.html) 
+-  **132699**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
+-  **132556**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
+-  **131305**  [Titanic (1997)](http://www.filmaffinity.com/es/film814379.html) 
+-  **130371**  [Algo pasa con Mary (1998)](http://www.filmaffinity.com/es/film499860.html) 
+-  **129973**  [Kill Bill: Volumen 1 (2003)](http://www.filmaffinity.com/es/film524439.html) 
+-  **124816**  [La naranja mecánica (1971)](http://www.filmaffinity.com/es/film745383.html) 
+-  **121921**  [El Señor de los anillos: Las dos torres (2002)](http://www.filmaffinity.com/es/film944222.html) 
+-  **121455**  [El silencio de los corderos (1991)](http://www.filmaffinity.com/es/film768790.html) 
+-  **120771**  [El sexto sentido (1999)](http://www.filmaffinity.com/es/film607127.html)
 
 La lista de mejor valoradas la podéis ver en Filmaffinity, así que os pego las mejor valoradas según la nota corregida:
 
--  **9,14**  <a href="http://www.filmaffinity.com/es/film809297.html">El Padrino (1972)</a> 
--  **9,05**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
--  **8,96**  <a href="http://www.filmaffinity.com/es/film695552.html">12 hombres sin piedad (Doce hombres sin piedad) (1957)</a> 
--  **8,94**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
--  **8,86**  <a href="http://www.filmaffinity.com/es/film667376.html">Testigo de cargo (1957)</a> 
--  **8,85**  <a href="http://www.filmaffinity.com/es/film385464.html">El golpe (1973)</a> 
--  **8,79**  <a href="http://www.filmaffinity.com/es/film656153.html">La lista de Schindler (1993)</a> 
--  **8,79**  <a href="http://www.filmaffinity.com/es/film795770.html">El apartamento (1960)</a> 
--  **8,78**  <a href="http://www.filmaffinity.com/es/film448956.html">Senderos de gloria (1957)</a> 
--  **8,76**  <a href="http://www.filmaffinity.com/es/film726746.html">Tiempos modernos (1936)</a> 
--  **8,75**  <a href="http://www.filmaffinity.com/es/film684718.html">Ser o no ser (1942)</a> 
--  **8,75**  <a href="http://www.filmaffinity.com/es/film978961.html">Uno de los nuestros (1990)</a> 
--  **8,74**  <a href="http://www.filmaffinity.com/es/film155010.html">El gran dictador (1940)</a> 
--  **8,74**  <a href="http://www.filmaffinity.com/es/film207165.html">Perdición (1944)</a> 
--  **8,72**  <a href="http://www.filmaffinity.com/es/film536488.html">El crepúsculo de los dioses (1950)</a> 
+-  **9,14**  [El Padrino (1972)](http://www.filmaffinity.com/es/film809297.html) 
+-  **9,05**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
+-  **8,96**  [12 hombres sin piedad (Doce hombres sin piedad) (1957)](http://www.filmaffinity.com/es/film695552.html) 
+-  **8,94**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
+-  **8,86**  [Testigo de cargo (1957)](http://www.filmaffinity.com/es/film667376.html) 
+-  **8,85**  [El golpe (1973)](http://www.filmaffinity.com/es/film385464.html) 
+-  **8,79**  [La lista de Schindler (1993)](http://www.filmaffinity.com/es/film656153.html) 
+-  **8,79**  [El apartamento (1960)](http://www.filmaffinity.com/es/film795770.html) 
+-  **8,78**  [Senderos de gloria (1957)](http://www.filmaffinity.com/es/film448956.html) 
+-  **8,76**  [Tiempos modernos (1936)](http://www.filmaffinity.com/es/film726746.html) 
+-  **8,75**  [Ser o no ser (1942)](http://www.filmaffinity.com/es/film684718.html) 
+-  **8,75**  [Uno de los nuestros (1990)](http://www.filmaffinity.com/es/film978961.html) 
+-  **8,74**  [El gran dictador (1940)](http://www.filmaffinity.com/es/film155010.html) 
+-  **8,74**  [Perdición (1944)](http://www.filmaffinity.com/es/film207165.html) 
+-  **8,72**  [El crepúsculo de los dioses (1950)](http://www.filmaffinity.com/es/film536488.html) 
 
 Las que más dieces tienen:
 
-- **54487**  <a href="http://www.filmaffinity.com/es/film809297.html">El Padrino (1972)</a> 
--  **38158**  <a href="http://www.filmaffinity.com/es/film160882.html">Pulp Fiction (1994)</a> 
--  **35770**  <a href="http://www.filmaffinity.com/es/film730528.html">El Padrino. Parte II (1974)</a> 
--  **35162**  <a href="http://www.filmaffinity.com/es/film594480.html">La vida es bella (1997)</a> 
--  **31844**  <a href="http://www.filmaffinity.com/es/film656153.html">La lista de Schindler (1993)</a> 
--  **28530**  <a href="http://www.filmaffinity.com/es/film226427.html">El Señor de los anillos: El retorno del rey (2003)</a> 
--  **26835**  <a href="http://www.filmaffinity.com/es/film745383.html">La naranja mecánica (1971)</a> 
--  **25088**  <a href="http://www.filmaffinity.com/es/film161026.html">Cadena perpetua (1994)</a> 
--  **24461**  <a href="http://www.filmaffinity.com/es/film750283.html">El Señor de los anillos: La comunidad del anillo (2001)</a> 
--  **23991**  <a href="http://www.filmaffinity.com/es/film444796.html">Forrest Gump (1994)</a> 
--  **22667**  <a href="http://www.filmaffinity.com/es/film536945.html">El club de la lucha (1999)</a> 
--  **22344**  <a href="http://www.filmaffinity.com/es/film932476.html">Matrix (1999)</a> 
--  **21144**  <a href="http://www.filmaffinity.com/es/film358476.html">Blade Runner (1982)</a> 
--  **19873**  <a href="http://www.filmaffinity.com/es/film944222.html">El Señor de los anillos: Las dos torres (2002)</a> 
--  **19471**  <a href="http://www.filmaffinity.com/es/film151039.html">Amelie (2001)</a> 
+- **54487**  [El Padrino (1972)](http://www.filmaffinity.com/es/film809297.html) 
+-  **38158**  [Pulp Fiction (1994)](http://www.filmaffinity.com/es/film160882.html) 
+-  **35770**  [El Padrino. Parte II (1974)](http://www.filmaffinity.com/es/film730528.html) 
+-  **35162**  [La vida es bella (1997)](http://www.filmaffinity.com/es/film594480.html) 
+-  **31844**  [La lista de Schindler (1993)](http://www.filmaffinity.com/es/film656153.html) 
+-  **28530**  [El Señor de los anillos: El retorno del rey (2003)](http://www.filmaffinity.com/es/film226427.html) 
+-  **26835**  [La naranja mecánica (1971)](http://www.filmaffinity.com/es/film745383.html) 
+-  **25088**  [Cadena perpetua (1994)](http://www.filmaffinity.com/es/film161026.html) 
+-  **24461**  [El Señor de los anillos: La comunidad del anillo (2001)](http://www.filmaffinity.com/es/film750283.html) 
+-  **23991**  [Forrest Gump (1994)](http://www.filmaffinity.com/es/film444796.html) 
+-  **22667**  [El club de la lucha (1999)](http://www.filmaffinity.com/es/film536945.html) 
+-  **22344**  [Matrix (1999)](http://www.filmaffinity.com/es/film932476.html) 
+-  **21144**  [Blade Runner (1982)](http://www.filmaffinity.com/es/film358476.html) 
+-  **19873**  [El Señor de los anillos: Las dos torres (2002)](http://www.filmaffinity.com/es/film944222.html) 
+-  **19471**  [Amelie (2001)](http://www.filmaffinity.com/es/film151039.html) 
 
 Las que más unos:
 
--  **8549**  <a href="http://www.filmaffinity.com/es/film688273.html">Dos tontos muy tontos (1994)</a> 
--  **6625**  <a href="http://www.filmaffinity.com/es/film545832.html">El proyecto de la Bruja de Blair (1999)</a> 
--  **5843**  <a href="http://www.filmaffinity.com/es/film107203.html">Torrente 3: El protector (2005)</a> 
--  **4852**  <a href="http://www.filmaffinity.com/es/film160303.html">Waterworld (1995)</a> 
--  **4819**  <a href="http://www.filmaffinity.com/es/film557766.html">Ace Ventura: Operación África (1995)</a> 
--  **4532**  <a href="http://www.filmaffinity.com/es/film542328.html">Independence Day (1996)</a> 
--  **4479**  <a href="http://www.filmaffinity.com/es/film232939.html">Scary Movie (2000)</a> 
--  **4305**  <a href="http://www.filmaffinity.com/es/film217898.html">Catwoman (2004)</a> 
--  **4114**  <a href="http://www.filmaffinity.com/es/film800313.html">Dr. Dolittle (1998)</a> 
--  **4089**  <a href="http://www.filmaffinity.com/es/film146914.html">Crepúsculo  (Twilight) (2008)</a> 
--  **4078**  <a href="http://www.filmaffinity.com/es/film577638.html">Austin Powers: Misterioso agente internacional (1997)</a> 
--  **4074**  <a href="http://www.filmaffinity.com/es/film250881.html">Misión imposible 2 (M:I-2) (2000)</a> 
--  **4014**  <a href="http://www.filmaffinity.com/es/film159422.html">Batman &amp; Robin (1997)</a> 
--  **3027**  <a href="http://www.filmaffinity.com/es/film345561.html">American Pie (1999)</a> 
--  **2972**  <a href="http://www.filmaffinity.com/es/film515456.html">Sé lo que hicisteis el último verano (1997)</a> 
+-  **8549**  [Dos tontos muy tontos (1994)](http://www.filmaffinity.com/es/film688273.html) 
+-  **6625**  [El proyecto de la Bruja de Blair (1999)](http://www.filmaffinity.com/es/film545832.html) 
+-  **5843**  [Torrente 3: El protector (2005)](http://www.filmaffinity.com/es/film107203.html) 
+-  **4852**  [Waterworld (1995)](http://www.filmaffinity.com/es/film160303.html) 
+-  **4819**  [Ace Ventura: Operación África (1995)](http://www.filmaffinity.com/es/film557766.html) 
+-  **4532**  [Independence Day (1996)](http://www.filmaffinity.com/es/film542328.html) 
+-  **4479**  [Scary Movie (2000)](http://www.filmaffinity.com/es/film232939.html) 
+-  **4305**  [Catwoman (2004)](http://www.filmaffinity.com/es/film217898.html) 
+-  **4114**  [Dr. Dolittle (1998)](http://www.filmaffinity.com/es/film800313.html) 
+-  **4089**  [Crepúsculo  (Twilight) (2008)](http://www.filmaffinity.com/es/film146914.html) 
+-  **4078**  [Austin Powers: Misterioso agente internacional (1997)](http://www.filmaffinity.com/es/film577638.html) 
+-  **4074**  [Misión imposible 2 (M:I-2) (2000)](http://www.filmaffinity.com/es/film250881.html) 
+-  **4014**  [Batman &amp; Robin (1997)](http://www.filmaffinity.com/es/film159422.html) 
+-  **3027**  [American Pie (1999)](http://www.filmaffinity.com/es/film345561.html) 
+-  **2972**  [Sé lo que hicisteis el último verano (1997)](http://www.filmaffinity.com/es/film515456.html) 
 
 En [este enlace]({{page.assets}}/Estad-pelis.zip) encontraréis el siguiente contenido:
 

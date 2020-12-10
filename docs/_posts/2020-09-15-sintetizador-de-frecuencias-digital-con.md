@@ -140,7 +140,7 @@ La banda de **FM comercial** de 87.5 a 108 MHz también está separada por canal
 
 Pero no hay que irse a frecuencias tan altas. La estabilidad de los osciladores comienza a plantear problemas a partir de los 10 megahercios. Pensemos, por ejemplo, en la **Banda Ciudadana** de 27MHz (CB-27). En España, esta banda va desde 26.965 MHz hasta 27.405 MHz en *40* canales separados 10 kHz.
 
-Una de mis primeras emisoras fue una modesta [<em>President Wilson</em>](http://www.rigpix.com/cbfreeband/president_wilson.htm) de segunda mano. Cabe recordar que la marca President tenía distintos modelos de emisoras con nombres de presidentes estadounidenses. Desconozco el criterio para elegir el nombre, pero por ejemplo la President **Harry** o Wilson eran muy sencillas, 40 canales AM y (algunos modelos) FM. Mientras la **President Lincoln** era un equipo muy potente que -en teoría- ni siquiera era apropiado para CB.
+Una de mis primeras emisoras fue una modesta [*President Wilson*](http://www.rigpix.com/cbfreeband/president_wilson.htm) de segunda mano. Cabe recordar que la marca President tenía distintos modelos de emisoras con nombres de presidentes estadounidenses. Desconozco el criterio para elegir el nombre, pero por ejemplo la President **Harry** o Wilson eran muy sencillas, 40 canales AM y (algunos modelos) FM. Mientras la **President Lincoln** era un equipo muy potente que -en teoría- ni siquiera era apropiado para CB.
 
 {% include image.html file="president_wilson.jpg" caption="La President Wilson, una de mis primeras emisoras. <a href=\"http://www.rigpix.com/cbfreeband/president_wilson.htm\" target=\"_blank\">www.rigpix.com</a>." %}
 
@@ -190,8 +190,8 @@ El **PIC16F88** tiene un oscilador interno, no necesito usar un **cuarzo**. Lo h
 
 El **código fuente** del programa lo tenéis en GitHub. No lo pego para no alargar el artículo.
 
-- <a href="https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.h">soft_pic/main.h</a>
-- <a href="https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.c">soft_pic/main.c</a> 
+- [soft_pic/main.h](https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.h)
+- [soft_pic/main.c](https://github.com/electronicayciencia/pll_4046/blob/master/soft_pic/main.c) 
 
 Así quedaría montado sobre una protoboard:
 
@@ -233,11 +233,11 @@ Espero que os haya gustado. Os dejo los datasheet, imágenes y fuentes en el rep
 
 Enlaces de interés:
 
-- <a href="https://www.youtube.com/watch?v=SS7z8WsXPMk">Basics of Phase Locked Loop Circuits and Frequency Synthesis - w2aew (video - inglés)</a>
-- <a href="https://www.analog.com/media/en/training-seminars/tutorials/MT-086.pdf">Fundamentals of Phase Locked Loops (PLLs) - Analog Devices (inglés)</a>
-- <a href="https://www.analog.com/media/en/technical-documentation/application-notes/AN-30.pdf">Ask the Applications Engineer: PLL SYNTHESIZERS - Analog Devices (inglés)</a>
-- <a href="https://www.robertobizzarri.net/download/download.php?file=NuovaElettronica/Fascicoli/086-087_Nuova_Elettronica.pdf">Nuova Elettronica 086-087 (italiano)</a>
-- <a href="https://en.wikipedia.org/wiki/Frequency_synthesizer">Frequency synthesizer - Wikipedia</a>
+- [Basics of Phase Locked Loop Circuits and Frequency Synthesis - w2aew (video - inglés)](https://www.youtube.com/watch?v=SS7z8WsXPMk)
+- [Fundamentals of Phase Locked Loops (PLLs) - Analog Devices (inglés)]({{page.assets}}/MT-086.pdf)
+- [Ask the Applications Engineer: PLL SYNTHESIZERS - Analog Devices (inglés)]({{page.assets}}/AN-30.pdf)
+- [Nuova Elettronica 086-087 (italiano)]({{page.assets}}/086-087_Nuova_Elettronica.pdf)
+- [Frequency synthesizer - Wikipedia](https://en.wikipedia.org/wiki/Frequency_synthesizer)
 
 Entradas del blog relacionadas:
 

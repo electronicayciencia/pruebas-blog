@@ -401,7 +401,7 @@ Ignorando el último bit tenemos:
 ...
 ```
 
-Siempre cambia un bit, y sólo uno. Hemos supuesto que es una sucesión creciente. ¿En qué tipo de sucesión cambia sólo un bit entre un número y el siguiente? ¡El [código <b>Gray</b>](https://en.wikipedia.org/wiki/Gray_code)! El código gray se suele utilizar en conmutadores mecánicos porque su característica es precisamente esa: sólo cambia un bit entre dos números consecutivos.
+Siempre cambia un bit, y sólo uno. Hemos supuesto que es una sucesión creciente. ¿En qué tipo de sucesión cambia sólo un bit entre un número y el siguiente? ¡El [código **Gray**](https://en.wikipedia.org/wiki/Gray_code)! El código gray se suele utilizar en conmutadores mecánicos porque su característica es precisamente esa: sólo cambia un bit entre dos números consecutivos.
 
 Pensad por ejemplo en una sucesión:
 

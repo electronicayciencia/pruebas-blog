@@ -11,7 +11,7 @@ Hay multitud de productos químicos en cualquier casa y las reacciones entre ell
 
 El experimento de hoy es un clásico casero, la reacción entre acetona y lejía para dar [cloroformo](http://www.insht.es/InshtWeb/Contenidos/Documentacion/TextosOnline/Valores_Limite/Doc_Toxicologica/FicherosSerie2/DLEP%2026.pdf). Hay multitud de vídeos ilustrativos en YouTube.
 
-Viendo el experimento desde el punto de vista químico, lo que sucede es la [<b>reacción del haloformo</b>](http://es.wikipedia.org/wiki/Reacci%C3%B3n_del_haloformo). Consta de varios pasos. Copio de la Wikipedia:
+Viendo el experimento desde el punto de vista químico, lo que sucede es la [**reacción del haloformo**](http://es.wikipedia.org/wiki/Reacci%C3%B3n_del_haloformo). Consta de varios pasos. Copio de la Wikipedia:
 
 > Bajo condiciones básicas, la cetona sufre tautomerización ceto-enol, y subsecuente formación del anión enolato. El enolato sufre ataque electrofílico por el hipohalito (que contiene un halógeno con carga formal +1). Cuando la posición alfa ha sido halogenada exhaustivamente, la molécula sufre una sustitución nucleofílica acílica por hidróxido, con -CX3 como grupo saliente, puesto que está estabilizado por tres EWG. El anión -CX3 abstrae un protón, bien del ácido carboxílico formado, o del solvente, y forma el haloformo.
 
@@ -25,7 +25,9 @@ Lo que sí podemos calcular, sin ser químicos y sin necesidad de entender los p
 
 Veamos esta hoja de cálculo:  [https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dEo3X3IyLWM3SkdFUUF2TXhzV1dzbnc&amp;hl=es&amp;authkey=CO-0lLsK](https://spreadsheets.google.com/ccc?key=0AjHcMU3xvtO8dEo3X3IyLWM3SkdFUUF2TXhzV1dzbnc&amp;hl=es&amp;authkey=CO-0lLsK)
 
-[<br>](https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dEo3X3IyLWM3SkdFUUF2TXhzV1dzbnc&amp;hl=es&amp;single=true&amp;gid=0&amp;output=html)
+<a href="https://spreadsheets.google.com/pub?key=0AjHcMU3xvtO8dEo3X3IyLWM3SkdFUUF2TXhzV1dzbnc&amp;hl=es&amp;single=true&amp;gid=0&amp;output=html">
+
+</a>
 
 Los datos **en negrita** son los datos que introducimos para el problema, los que ya conocemos. Mientras que los números normales son los que calculamos. Las columnas de la izquierda son los datos principales, a la derecha están los cálculos auxiliares.
 

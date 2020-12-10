@@ -68,7 +68,7 @@ El proceso para demodular en amplitud es rectificar la señal y aplicar un filtr
 
 Por lo general, en FSK la frecuencia más alta representa el espacio y la más baja la marca. Aquí, como la frecuencia más alta es la más atenuada, coincide con que los ceros (espacios) son de menor amplitud que los unos (marcas).
 
-Estamos suponiendo que la marca corresponde al 1 y el espacio al 0. Esta suposición se llama [<em>codificación unipolar sin retorno a 0 de tipo nivel</em>](https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ#NRZ-L) (Unipolar non-return-to-zero level).
+Estamos suponiendo que la marca corresponde al 1 y el espacio al 0. Esta suposición se llama [*codificación unipolar sin retorno a 0 de tipo nivel*](https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ#NRZ-L) (Unipolar non-return-to-zero level).
 
 {% include image.html file="discr_1_0.png" caption="Asignación de valores digitales en función de la amplitud. EyC." %}
 

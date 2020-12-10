@@ -71,7 +71,7 @@ Como ya sabéis, la amplificación viene determinada por **R2** y **R3**. En nue
 
 **R1** está pensada para alimentar un micrófono electret, pero si queremos alimentar cualquier otro circuito desde el conector de entrada, no hay más que sustituirla por un simple puente.
 
-Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto [<b>ganancia - ancho de banda</b>](https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product). Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.
+Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto [**ganancia - ancho de banda**](https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product). Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.
 
 {% include image.html max-width="480px" file="gbp.gif" caption="" %}
 
@@ -133,7 +133,7 @@ Si aplicamos a la entrada una señal de 54kHz, en verde de unos 75mV en la salid
 
 Con este circuito ya podemos explorar con la tarjeta de sonido las frecuencias no audibles. Ahora todo depende de lo que conectemos a la entrada:
 
-- Si conectamos una antena de ferrita y una etapa de entrada a FET tendremos un receptor VLF. He intentado recibir la señal <a href="http://es.wikipedia.org/wiki/DCF77">DCF77</a>, que emite en 77.5kHz pero no he podido.
+- Si conectamos una antena de ferrita y una etapa de entrada a FET tendremos un receptor VLF. He intentado recibir la señal [DCF77](http://es.wikipedia.org/wiki/DCF77), que emite en 77.5kHz pero no he podido.
 - Si conectamos un micrófono piezoeléctrico será un captador de ultrasonidos.
 - Si conectamos una bobina y un circuito LC sintonizado "escucharemos" la resonancia electromagnética al igual que hicimos con la resonancia mecánica en esta otra entrada: [Resonancia mecánica con copas II]({{site.baseurl}}{% post_url 2010-08-25-resonancia-mecanica-con-copas-ii %}).
 

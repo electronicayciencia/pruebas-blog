@@ -123,7 +123,7 @@ Otro posible problema es el siguiente. Para activar la base de **Q1**, la tensi�
 
 Es un circuito muy sensible a los cambios en el nivel de entrada. Una señal más fuerte se manifestará con mayor intensidad y cargará el condensador antes que otra más débil. Asimismo, el comparador carece de histéresis y eso podría causar varios cambios seguidos en la salida antes de establecerse en un nivel alto.
 
-¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [<b>NE567</b> (Tone Decoder)]({{page.assets}}/lm567c.pdf), por ejemplo.
+¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [**NE567** (Tone Decoder)]({{page.assets}}/lm567c.pdf), por ejemplo.
 
 ## El receptor, circuito propuesto
 
@@ -285,7 +285,7 @@ El resultado es un tren de pulsos como el siguiente:
 
 {% include image.html file="serial_P_100bauds.png" caption="Tren de pulsos generado por el transmisor. EyC." %}
 
-Nada más iniciarse empieza a generar la **portadora** de 40kHz. En este momento, si hubiera un receptor serie al otro lado activaría la señal [DCD <em>Data Carrier Detect</em>](https://en.wikipedia.org/wiki/Data_Carrier_Detect).
+Nada más iniciarse empieza a generar la **portadora** de 40kHz. En este momento, si hubiera un receptor serie al otro lado activaría la señal [DCD *Data Carrier Detect*](https://en.wikipedia.org/wiki/Data_Carrier_Detect).
 
 Para transmitir un byte lo primero es el bit de **start**, que siempre es 0. Esto interrumpe la línea y avisa al receptor del comienzo de un mensaje. Después se envían los 8 bits.
 

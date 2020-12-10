@@ -16,7 +16,7 @@ Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botone
 
 {% include image.html file="circuito.png" caption="" %}
 
-El circuito consta de dos partes. Un [oscilador astable]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) de BF, y un [oscilador <em>Pierce</em>](http://pr.erau.edu/%7Elyallj/ee412/pierce_exp.html) con un cristal de 27.145MHz como emisor de RF.
+El circuito consta de dos partes. Un [oscilador astable]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) de BF, y un [oscilador *Pierce*](http://pr.erau.edu/%7Elyallj/ee412/pierce_exp.html) con un cristal de 27.145MHz como emisor de RF.
 
 ## Baja frecuencia
 

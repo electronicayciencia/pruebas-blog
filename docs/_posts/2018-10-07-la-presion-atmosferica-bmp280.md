@@ -124,7 +124,7 @@ No he podido encontrar documentos de Bosch explicando el cálculo, por lo que in
 
 Según podemos ver, se compone de dos funciones, una para la temperatura y otra para la presión.
 
-Empezaremos por la temperatura. Miramos la función [<em>bmp280_comp_temp_double</em>](https://github.com/BoschSensortec/BMP280_driver/blob/d1936f9f04f851403f616574ad3493ffd00d16fb/bmp280.c#L505-L511) del API oficial en GitHub. Cito aquí las líneas más relevantes.
+Empezaremos por la temperatura. Miramos la función [*bmp280_comp_temp_double*](https://github.com/BoschSensortec/BMP280_driver/blob/d1936f9f04f851403f616574ad3493ffd00d16fb/bmp280.c#L505-L511) del API oficial en GitHub. Cito aquí las líneas más relevantes.
 
 ```cpp
 var1 = (((double) uncomp_temp) / 16384.0 - ((double) dev->calib_param.dig_t1) / 1024.0)
@@ -340,7 +340,7 @@ Observemos la evolución a lo largo de cualquier día. Por ejemplo, el periodo e
 
 {% include image.html file="presion_intradias.png" caption="Registro de la presión. Detalle. EyC." %}
 
-Hay un máximo justo antes del medio día, y un mínimo a continuación. Pero fíjate en el gráfico completo, el de todos los días. Como a la mitad del día la presión desciende. Durante la mañana o la noche puede subir más, menos o estar estable, pero a mitad del día hay un descenso. Este patrón se repite todos los días y tiene nombre: se llama [<b>marea barométrica</b>](https://www.tiempo.com/ram/398982/la-marea-atmosferica-barometrica/).
+Hay un máximo justo antes del medio día, y un mínimo a continuación. Pero fíjate en el gráfico completo, el de todos los días. Como a la mitad del día la presión desciende. Durante la mañana o la noche puede subir más, menos o estar estable, pero a mitad del día hay un descenso. Este patrón se repite todos los días y tiene nombre: se llama [**marea barométrica**](https://www.tiempo.com/ram/398982/la-marea-atmosferica-barometrica/).
 
 Para evitar este inconveniente, la presión debe medirse siempre a la misma hora del día. Aunque nosotros usaremos un método algo más sofisticado.
 
