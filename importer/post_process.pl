@@ -513,6 +513,8 @@ sub format_link {
 	my ($href, $text, $vars_allowed) = @_;
 	my $asset = 0;
 
+	$vars_allowed = 1 unless defined $vars_allowed;
+
 	$text = html2md($text);
 
 	my $link = $href;

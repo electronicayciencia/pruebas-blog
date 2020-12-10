@@ -17,7 +17,7 @@ Había pensado proyectar un contador de radiación de verdad. Al fin y al cabo t
 
 Durante todo este artículo hablaremos de radiactividad. Describiremos cómo funciona un tubo Geiger-Müller y lo simularemos en el firmware de un PIC. Después hablaremos de contadores y construiremos un indicador analógico. Para terminar, nos centraremos en las unidades radiológicas y programaremos un dosímetro digital.
 
-{% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio <em>disparando</em> partículas dentro de una cámara de niebla." %}
+{% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio *disparando* partículas dentro de una cámara de niebla." %}
 
 ## El tubo Geiger-Müller
 
@@ -33,13 +33,13 @@ Sólo necesitamos un altavoz en serie con el tubo para escuchar un chasquido cua
 
 Pero ¿a cuánta radiación equivalen cuántos tics? Depende de la construcción del tubo, su geometría, composición, y otros factores. Es un dato que suele venir en el datasheet. Por ejemplo para el tubo SBM-20 -muy común-, su datasheet dice:
 
-{% include image.html file="datasheet_SBM-20.png" caption="Extracto de la hoja de características de un tubo SBM-20. <a href=\"https://www.gstube.com/data/2398/\" target=\"_blank\">gstube.com</a>" %}
+{% include image.html file="datasheet_SBM-20.png" caption="Extracto de la hoja de características de un tubo SBM-20. [gstube.com](https://www.gstube.com/data/2398/)" %}
 
 Algunos parámetros son la tensión de trabajo o la resistencia en serie recomendada. Por cómo está construido este tubo, cada pulso va inutilizando un gas de su interior hasta quedar inservible. Por lo tanto, también se indica el tiempo de vida. En este caso 2x10<sup>10</sup> pulsos.
 
 Otro ejemplo, el LND-712, tiene además una ventana para detectar partículas alfa:
 
-{% include image.html file="datasheet_LND712.PNG" caption="Datasheet del LND-712. <a href=\"https://www.lndinc.com/products/geiger-mueller-tubes/712/\" target=\"_blank\">lndinc.com</a>" %}
+{% include image.html file="datasheet_LND712.PNG" caption="Datasheet del LND-712. [lndinc.com](https://www.lndinc.com/products/geiger-mueller-tubes/712/)" %}
 
 Para aprender más sobre distintos tubos y sus características podéis visitar [ GM Tube Info](https://sites.google.com/site/diygeigercounter/technical/gm-tubes-supported)
 
@@ -49,7 +49,7 @@ Ahora bien, radiaciones hay de muchos tipos. Hay partículas **alfa**, tan gorda
 
 Para un detector genérico de campo lo importante es encontrar objetos con contaminación radiactiva o sea **fotones**. La radiactividad más penetrante, común y dañina. Después, una vez determinada la fuente y el grado de contaminación, ya habrá tiempo de tomar una muestra, llevarla al laboratorio y analizarla. Pueden saberse los isótopos radiactivos en la muestra mirando la energía de los fotones gamma que emite.
 
-{% include image.html file="spectrum-with-Cs-137.png" caption="Espectro Gamma desconocido con marcadores en<br />algunos elementos conocidos. <a href=\"https://www.researchgate.net/figure/Unknown-spectrum-with-Cs-137-and-background-gamma-ray-positions-marked_fig64_244395084\" target=\"_blank\">researchgate.net</a> " %}
+{% include image.html file="spectrum-with-Cs-137.png" caption="Espectro Gamma desconocido con marcadores en<br />algunos elementos conocidos. [researchgate.net](https://www.researchgate.net/figure/Unknown-spectrum-with-Cs-137-and-background-gamma-ray-positions-marked_fig64_244395084) " %}
 
 ¿Y clasificando las **betas** no se podría saber también? No es tan fácil. El espectro de la emisión beta es mucho más difuso. ¿Por qué? Eso fue algo que intrigó a los físicos durante décadas. El descubrimiento del neutrino es una historia fascinante...
 
@@ -61,7 +61,7 @@ El valor del datasheet sólo es orientativo porque luego los tubos tienen cierta
 
 Sólo por la radiactividad natural de fondo, un tubo GM puede contar desde 10 a más de 75 cpm dependiendo de la sensibilidad del tubo y de la zona geográfica. En cada lugar del mundo la radiactividad natural es distinta. Podéis ver un mapa actualizado en tiempo real en [GMCmap](https://www.blogger.com/blogger.g?blogID=1915800988134045998).
 
-{% include image.html file="geiger_network_spain_20190625.png" caption="Mapa de contadores en tiempo real. <a href=\"https://www.gmcmap.com/\" target=\"_blank\">GMCMap</a>" %}
+{% include image.html file="geiger_network_spain_20190625.png" caption="Mapa de contadores en tiempo real. [GMCMap](https://www.gmcmap.com/)" %}
 
 ## Esquema eléctrico
 
@@ -406,15 +406,15 @@ Mientras, se iban sucediendo avances en la comprensión de los efectos biológic
 
 La dosis absorbida no era suficiente para pronosticar las consecuencias. Deberíamos multiplicar la dosis absorbida por algún factor para tener en consideración el tipo de radiación. A esa dosis la llamaremos *dosis equivalente*. Los científicos que aún usaban el roentgen definieron para esto el **rem** (röntgen equivalent man) en 1971. O más bien lo redefinieron, porque se llevaba hablando de *dosis biológica* desde hacía 20 años. Los científicos que ya habían adoptado el Sistema Internacional no tardaron en crear una nueva unidad: el *Sievert*.
 
-{% include image.html file="factor_wr.png" caption="Factor de ponderación biológico según radiación (Wr). <a href=\"https://en.wikipedia.org/wiki/Relative_biological_effectiveness\" target=\"_blank\">Wikipedia</a>" %}
+{% include image.html file="factor_wr.png" caption="Factor de ponderación biológico según radiación (Wr). [Wikipedia](https://en.wikipedia.org/wiki/Relative_biological_effectiveness)" %}
 
 Por otro lado, y para terminar, algunos órganos son más **sensibles** que otros. La piel por ejemplo es poco sensible, el tiroides en cambio lo es mucho más. Por otro lado es más fácil irradiar la piel que los órganos internos. Así pues, se define otra dosis, la *dosis efectiva*. También se mide en Sievert, y no es más que la dosis equivalente multiplicada por un coeficiente que depende de la sensibilidad de la zona irradiada.
 
-{% include image.html file="factor_wt.png" caption="Factor de ponderación según el tejido irradiado (Wt). <br /><a href=\"https://journals.sagepub.com/doi/pdf/10.1177/ANIB_37_2-4\" target=\"_blank\">Commission on Radiological Protection</a> - Annals of the ICRP, 103 " %}
+{% include image.html file="factor_wt.png" caption="Factor de ponderación según el tejido irradiado (Wt). <br />[Commission on Radiological Protection](https://journals.sagepub.com/doi/pdf/10.1177/ANIB_37_2-4) - Annals of the ICRP, 103 " %}
 
 Un pequeño esquema para resumirlo:
 
-{% include image.html file="SI_Radiation_dose_units.png" caption="Dosis de radiación en el SI. <a href=\"https://en.wikipedia.org/wiki/Equivalent_dose\" target=\"_blank\">Wikipedia</a>" %}
+{% include image.html file="SI_Radiation_dose_units.png" caption="Dosis de radiación en el SI. [Wikipedia](https://en.wikipedia.org/wiki/Equivalent_dose)" %}
 
 Igual que antes, al ser los efectos **acumulativos**, necesitamos introducir la unidad de tiempo. Por conveniencia la dosis equivalente suele medirse en microsievert por hora (µSv/h), o milisievert por año (mSv/a).
 

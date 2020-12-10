@@ -29,7 +29,7 @@ Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil d
 
 A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior.
 
-{% include image.html file="Shishi-odoshi.jpg" caption="El Shishi-odoshi es el ejemplo típico de oscilador de relajación. <a href=\"https://en.wikipedia.org/wiki/Shishi-odoshi\" target=\"_blank\">Wikipedia.</a> " %}
+{% include image.html file="Shishi-odoshi.jpg" caption="El Shishi-odoshi es el ejemplo típico de oscilador de relajación. [Wikipedia.](https://en.wikipedia.org/wiki/Shishi-odoshi) " %}
 
 A estas alturas ya todos sabéis cómo funciona un comparador. Tiene dos entradas y una salida. Está continuamente comprobando cuál de las dos entradas está a mayor voltaje. Si gana la entrada inversora (signo -), la salida del conmutador está a nivel bajo; conectada a masa. Mientras que si gana la entrada no inversora (signo +), la salida queda **flotante**. No positiva, porque la salida del **LM393** es de colector abierto. O sea, o conecta a negativo o no. Pero no puede suministrar corriente, sólo puede drenarla.
 
@@ -148,7 +148,7 @@ En este clip podéis apreciar la el fenómeno de resonancia con una capacidad pe
 
 Para medir fácilmente la tensión en la bobina conectaremos un *detector de envolvente*. Sólo tiene tres componentes: un diodo detector, un condensador y una resistencia. Os sonará el esquema de las radios AM.
 
-{% include image.html max-width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. <a href=\"https://upload.wikimedia.org/wikipedia/commons/f/f0/C_Simple_envelope_detector.gif\" target=\"_blank\">Wikipedia.</a>" %}
+{% include image.html max-width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. [Wikipedia.](/pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/C_Simple_envelope_detector.gif)" %}
 
 El diodo es fácil: un **1N4148**. Salvo que nos vayamos a frecuencias muy altas, a voltajes muy bajos o a corrientes altas siempre será el 1N4148.
 
@@ -363,13 +363,13 @@ Buscando por el principio del mensaje 0x01002 y por la marca -HID- llegamos a es
 
 Las tarjetas Wiegand fueron de las primeras tarjetas de acceso. En lugar de banda magnética, llevaban el número codificado en unos hilos magnéticos que se leen por [efecto Wiegand](https://en.wikipedia.org/wiki/Wiegand_effect). No se podían reprogramar ni tampoco borrar fácilmente. En definitiva, aptas para uso industrial.
 
-{% include image.html file="Wiegand-wiring.png" caption="El código de las tarjetas Wiegand está grabado en hilos magnéticos en su interior.<br /><a href=\"https://www.getkisi.com/blog/hid-keycard-readers-hacked-using-wiegand-protocol-vulnerability\" target=\"_blank\">Hacking HID with Wiegand Protocol Vulnerability</a>" %}
+{% include image.html file="Wiegand-wiring.png" caption="El código de las tarjetas Wiegand está grabado en hilos magnéticos en su interior.<br />[Hacking HID with Wiegand Protocol Vulnerability](https://www.getkisi.com/blog/hid-keycard-readers-hacked-using-wiegand-protocol-vulnerability)" %}
 
 Y aunque estas ya no se usan, el formato Wiegand continúa vigente hoy día en muchos controles de acceso. En muchos sitios lo que se ha cambiado han sido los lectores y las tarjetas que ahora usan tecnología RFID. Pero la interfaz -y por tanto el resto del sistema- son los mismos desde los años 80 con escasas modificaciones.
 
 Un mensaje Wiegand consta de **26 bits**. El primer bit es un bit de paridad de los 13 primeros bits. Luego vienen 8 bits del llamado *Factory Code* (código de empresa). Le siguen 16 bits del *Card Number*. Y el último es un bit de paridad de los últimos 13 bits. Así:
 
-{% include image.html file="hid_wiegand_format.png" caption="Formato de un mensaje Wiegand.<br /><a href=\"https://www.hidglobal.com/sites/default/files/hid-understanding_card_data_formats-wp-en.pdf\" target=\"_blank\">Understanding Card Data Formats - HID Global</a>" %}
+{% include image.html file="hid_wiegand_format.png" caption="Formato de un mensaje Wiegand.<br />[Understanding Card Data Formats - HID Global](https://www.hidglobal.com/sites/default/files/hid-understanding_card_data_formats-wp-en.pdf)" %}
 
 El mensaje anterior sería:
 

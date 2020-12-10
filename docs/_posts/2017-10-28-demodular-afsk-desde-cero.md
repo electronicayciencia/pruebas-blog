@@ -14,7 +14,7 @@ Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es
 
 Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de páginas son demasiado superficiales o demasiado matemáticas, o se quedan en la descripción o se pierden en detalles sin llegar a hilar el proceso completo.
 
-{% include image.html max-width="300px" file="wargames-02.jpg" caption="Adaptador telefónico. Fotograma de Wargames (1983). <a href=\"https://pc-museum.com/046-imsai8080/wargames.htm\" target=\"_blank\">Fuente</a>." %}
+{% include image.html max-width="300px" file="wargames-02.jpg" caption="Adaptador telefónico. Fotograma de Wargames (1983). [Fuente](https://pc-museum.com/046-imsai8080/wargames.htm)." %}
 
 Esto no son apuntes de teleco, pero créeme: tampoco es una entrada ligera que puedes leer mientras te tomas el café. Es una demostración práctica de cómo se empezó a transmitir información digital. De principio a fin. Sin fórmulas, sin apenas hardware y sin más software que el que vamos a escribir.
 
@@ -96,7 +96,7 @@ Tenemos dos opciones para continuar: o buscamos en Internet con la información 
 
 El tren-tierra es un sistema de radioteléfono adoptado por Renfe en los 80. Sirve para comunicarse entre el puesto de mando y los maquinistas en circulación. Ha caído en desuso en favor de tecnologías más modernas, como GSM-R o el  teléfono móvil. Si os interesa, hay artículos muy buenos sobre él, como [Tren-Tierra, la radiotelefonía ferroviaria española](https://www.trenvista.net/descubre/mundo-ferroviario/tren-tierra-radiotelefonia-ferroviaria/) o [¿Cómo funcionan los trenes? - Comunicaciones ferroviarias](http://comofuncionanlostrenes.blogspot.com.es/2013/04/comunicaciones-ferroviarias.html) de donde es esta foto:
 
-{% include image.html file="Consola-TT-2.jpg" caption="Consola PMR de tren-tierra (centro). <a href=\"http://comofuncionanlostrenes.blogspot.com.es/2013/04/comunicaciones-ferroviarias.html\" target=\"_blank\">Fuente</a>." %}
+{% include image.html file="Consola-TT-2.jpg" caption="Consola PMR de tren-tierra (centro). [Fuente](http://comofuncionanlostrenes.blogspot.com.es/2013/04/comunicaciones-ferroviarias.html)." %}
 
 Para tener ya cerca de 40 años es bastante sofisticado. Permite conversar en full-duplex con un tren en concreto sin que el resto escuchen la conversación, enviar determinadas órdenes o estados predefinidos, indica cuando se ha perdido la cobertura e incluso tiene la capacidad de enviar mensajes de texto.
 
@@ -487,7 +487,7 @@ Ahora tan sólo nos queda encender el receptor y ver cómo se van mostrando paqu
 
 Terminaré esta larga entrada con una **reflexión**. Por un lado, está la satisfacción de saber que hemos hecho todo el proceso nosotros mismos, desde *nada* hasta el final; por otro una nostalgia como la que queda tras aprender un truco de magia. ¿No ha perdido, en cierto modo, el misterio que lo hacía interesante?
 
-{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:<br /><em>Si lo entiendes, es que se ha quedado antiguo</em>. EyC." %}
+{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:<br />*Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
 
 *A mi padre q.e.p.d.*
 

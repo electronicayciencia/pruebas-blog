@@ -67,7 +67,7 @@ Con un haz ideal plano:
 - La sombra siempre es igual al tamaño del objeto, independientemente de la distancia a la fuente o a la pantalla.
 - La potencia de la luz es uniforme en toda la superficie iluminada y apenas varía con la distancia a la fuente.
 
-{% include image.html file="lightbox3.jpg" caption="Rayos de luz paralelos. Fuente: <a href=\"http://www.dynamicscience.com.au/tester/solutions1/magicofsci/lightboxactivities.html\">dynamicscience.com.au</a>" %}
+{% include image.html file="lightbox3.jpg" caption="Rayos de luz paralelos. Fuente: [dynamicscience.com.au](http://www.dynamicscience.com.au/tester/solutions1/magicofsci/lightboxactivities.html)" %}
 
 Un haz de luz paralelo ideal se puede obtener con una fuente puntual puesta en el foco de una lente convergente ideal. Por supuesto, no se aprovecha toda la intensidad de la fuente, sino sólo la que la lente puede recoger. Aquí entran en juego el tamaño y la distancia focal.
 
@@ -221,7 +221,7 @@ En el pasado, sin luz eléctrica, era habitual "jugar" con los rayos de Sol que 
 
 Este sería el montaje real para el experimento de la dispersión. Mucho menos vistoso que la imagen con la que abríamos este artículo:
 
-{% include image.html file="Newton.F2.large.jpg" caption="Montaje descrito por Newton para su experimento de la dispersión. Fuente: <a href=\"http://rsta.royalsocietypublishing.org/content/373/2039/20140213\">Royal Society</a>." %}
+{% include image.html file="Newton.F2.large.jpg" caption="Montaje descrito por Newton para su experimento de la dispersión. Fuente: [Royal Society](http://rsta.royalsocietypublishing.org/content/373/2039/20140213)." %}
 
 Probablemente también utilizara un espejo para dirigir el rayo de luz hacia la lente. Sólo cuando haces prácticas con un rayo de Sol te das cuenta de lo rápido que se mueve y lo poco que tarda en salirse de la pantalla.
 
@@ -263,7 +263,7 @@ La discordia llegó a su fin a principios de s. XIX, durante una congregación d
 
 François Arago, el presidente de la comisión, más partidario de la ciencia que de los razonamientos intuitivos quiso probar a ver. El resultado no pudo ser más contundente:
 
-{% include image.html file="poisson-spot-wikipedia.jpg" caption="Punto de Arago o de Poisson. Fuente: <a href=\"https://en.wikipedia.org/wiki/Arago_spot\">Wikipedia</a>." %}
+{% include image.html file="poisson-spot-wikipedia.jpg" caption="Punto de Arago o de Poisson. Fuente: [Wikipedia](https://en.wikipedia.org/wiki/Arago_spot)." %}
 
 En mitad del círculo negro, justo donde debía haber opacidad total, aparece un pequeño puntito luminoso. Este hecho era completamente inexplicable si la luz está formada por partículas, y eso fue lo que convenció a la mayoría de los asistentes.
 

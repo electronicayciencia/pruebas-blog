@@ -79,7 +79,7 @@ Hay un "*truco*" para dividir por un número no entero. No parece muy limpio per
 
 Vamos a empezar suponiendo una fuente de 10Hz, o sea genera 10 pulsos por segundo. Es fácil obtener una frecuencia de 5Hz: tendría que dividir por 2. Este caso está representado en la parte superior del dibujo:
 
-{% include image.html file="divifrac.png" caption="Ilustración gráfica de la técnica <em>pulse swallow</em> en un divisor fraccionario." %}
+{% include image.html file="divifrac.png" caption="Ilustración gráfica de la técnica *pulse swallow* en un divisor fraccionario." %}
 
 Arriba está mi frecuencia de reloj de 10 pulsos por segundo. Cada raya vertical es un pulso. He representado 3 segundos.
 
@@ -373,11 +373,11 @@ A continuación, el esquema del amplificador:
 
 Su función es proteger la salida de la Raspberry. Y como sólo tiene que amplificar ondas cuadradas no nos preocupamos de la distorsión. Sí debemos preocuparnos del ancho de banda y ahí es donde entra R3. Esta es la respuesta en frecuencia del amplificador tal como está con el emisor degenerado. Con este esquema tan simple hay una caída de la amplificación a partir de los 2MHz más o menos:
 
-{% include image.html file="bp_ampl_con_re.png" caption="Respuesta en frecuencia del amplificador <b>con</b> resistencia de emisor." %}
+{% include image.html file="bp_ampl_con_re.png" caption="Respuesta en frecuencia del amplificador **con** resistencia de emisor." %}
 
 De por sí el ancho de banda de un emisor común no es muy grande, pero si lo forzamos además eliminando la resistencia de emisor la caída comienza en los 700kHz y es muchísimo más acusada:
 
-{% include image.html file="bp_ampl_sin_re.png" caption="Respuesta en frecuencia del amplificador <b>sin</b> resistencia de emisor." %}
+{% include image.html file="bp_ampl_sin_re.png" caption="Respuesta en frecuencia del amplificador **sin** resistencia de emisor." %}
 
 ## Resonancia
 

@@ -142,7 +142,7 @@ Pero no hay que irse a frecuencias tan altas. La estabilidad de los osciladores 
 
 Una de mis primeras emisoras fue una modesta [*President Wilson*](http://www.rigpix.com/cbfreeband/president_wilson.htm) de segunda mano. Cabe recordar que la marca President tenía distintos modelos de emisoras con nombres de presidentes estadounidenses. Desconozco el criterio para elegir el nombre, pero por ejemplo la President **Harry** o Wilson eran muy sencillas, 40 canales AM y (algunos modelos) FM. Mientras la **President Lincoln** era un equipo muy potente que -en teoría- ni siquiera era apropiado para CB.
 
-{% include image.html file="president_wilson.jpg" caption="La President Wilson, una de mis primeras emisoras. <a href=\"http://www.rigpix.com/cbfreeband/president_wilson.htm\" target=\"_blank\">www.rigpix.com</a>." %}
+{% include image.html file="president_wilson.jpg" caption="La President Wilson, una de mis primeras emisoras. [www.rigpix.com](http://www.rigpix.com/cbfreeband/president_wilson.htm)." %}
 
 Si no recuerdo mal, los diseños eran de Uniden (empresa japonesa) y los comercializaban otras marcas como President, Galaxy, Cobra o SuperStar. A veces tal cual, a veces mejorando algunas partes como los filtros.
 

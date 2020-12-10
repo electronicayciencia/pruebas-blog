@@ -407,7 +407,7 @@ Ahora vamos al datasheet del integrado -[disponible aquí]({{page.assets}}/PCF85
 
 Para usarlo en modo ADC debemos empezar enviando el byte de control. Con este byte indicaremos cómo disponer las entradas y el canal que nos interesa leer.
 
-{% include image.html max-width="445px" file="pcf8591_control.png" caption="Byte de control en el PCF8591. <a href=\"http://www.nxp.com/documents/data_sheet/PCF8591.pdf\" target=\"_blank\">NXP</a>." %}
+{% include image.html max-width="445px" file="pcf8591_control.png" caption="Byte de control en el PCF8591. [NXP](/pruebas-blog/assets/2017/02/el-bus-i2c-bajo-nivel/PCF8591.pdf)." %}
 
 Según el dibujo anterior:
 

@@ -22,7 +22,7 @@ Esta revolución ocurrió a lo largo del s.XVII, y cambió el modo de hacer cien
 
 Todo comenzó cuando alguien intentó bombear agua de un pozo de más de 10 metros de profundidad... [y vio que no se podía](https://en.wikipedia.org/wiki/Barometer#History).
 
-{% include image.html max-width="300px" file="BMP280.jpg" caption="Sensor barométrico BMP280. <a href=\"https://www.bosch-sensortec.com/bst/products/all_products/bmp280\" target=\"_blank\">Bosch</a>." %}
+{% include image.html max-width="300px" file="BMP280.jpg" caption="Sensor barométrico BMP280. [Bosch](https://www.bosch-sensortec.com/bst/products/all_products/bmp280)." %}
 
 ## El sensor
 
@@ -34,7 +34,7 @@ Usar este dispositivo con la Raspberry es [muy sencillo](http://wiki.sunfounder.
 
 ¡Ya está! ¿Para qué complicarse? Fin del tutorial.
 
-{% include image.html max-width="480px" file="digital-art-happiness.png" caption="We live in a happy world. <a href=\"https://www.pinterest.es/pin/544794886163949157/\" target=\"_blank\">Pinterest</a>." %}
+{% include image.html max-width="480px" file="digital-art-happiness.png" caption="We live in a happy world. [Pinterest](https://www.pinterest.es/pin/544794886163949157/)." %}
 
 Ahora bien, si buscas el detalle tecnológico, si te preguntas qué pasa dentro de esas librerías... si encuentras el camino más interesante que el destino, sigue leyendo... y prepárate.
 
@@ -116,7 +116,7 @@ Líquido alto: ha bajado la presión o hace más *calor*.
 
 La lectura del barómetro siempre debe compensarse con la del termómetro. Por eso es común ver juntos barómetro y termómetro.
 
-{% include image.html max-width="480px" file="termo_barometer.jpg" caption="Barómetro y termómetro juntos. <a href=\"https://www.amazon.com/Educational-Innovations-Eco-celli-Barometer/dp/B009P8ALI4\" target=\"_blank\">Amazon</a>." %}
+{% include image.html max-width="480px" file="termo_barometer.jpg" caption="Barómetro y termómetro juntos. [Amazon](https://www.amazon.com/Educational-Innovations-Eco-celli-Barometer/dp/B009P8ALI4)." %}
 
 Con frecuencia, omiten la tabla de compensación en los barómetros de interiores, donde se supone que el rango de temperaturas está acotado. El BMP280 introduce la compensación de temperatura dentro del algoritmo de lectura.
 
@@ -314,13 +314,13 @@ Recuerda que el sensor nos muestra el valor absoluto. Y varía con la altura. El
 
 Por ejemplo, 1000 hPa es una presión baja en una ubicación cercana al mar, pero alta para un terreno elevado. Sabiendo nuestra altura sobre el nivel del mar, podemos calcular aproximadamente la presión media esperable por la altura.
 
-{% include image.html file="pressure_altitude.png" caption="Presión en función de la altura. <a href=\"https://www.mide.com/pages/air-pressure-at-altitude-calculator\" target=\"_blank\">Fuente</a>. " %}
+{% include image.html file="pressure_altitude.png" caption="Presión en función de la altura. [Fuente](https://www.mide.com/pages/air-pressure-at-altitude-calculator). " %}
 
 Madrid está de media a **667** m sobre el nivel del mar, lo cual corresponde a unos 937 hPa. Luego el valor 944 que nos parecía muy bajo, es hecho 7 milibares *superior* a la presión media. Diríamos que, con referencia al nivel del mar estaríamos a 1020 mbar (los 1013 estandar más el exceso de 7 mbar).
 
 Como la presión varía con la altura de forma muy lineal, se puede usar un barómetro para determinar la altura a la que vuela un avión. Se llama **altímetro barométrico**.
 
-{% include image.html max-width="480px" file="Altimeter_C-14A_2992.jpg" caption="Altímetro barométrico. <a href=\"https://aeroantique.com/\" target=\"_blank\">aeroantique.com</a>" %}
+{% include image.html max-width="480px" file="Altimeter_C-14A_2992.jpg" caption="Altímetro barométrico. [aeroantique.com](https://aeroantique.com/)" %}
 
 Pero la presión sube y baja según el día, ¿cómo afecta eso a los aviones? Pues en el caso más simple, cuando estás en tierra, ajustas el altímetro hasta que marca la altitud conocida del aeródromo. Y para las aeronaves en vuelo, los aeropuertos transmiten continuamente el dato de la presión atmosférica mediante los servicios [VOLMET](https://en.wikipedia.org/wiki/VOLMET) y [ATIS](https://en.wikipedia.org/wiki/Automatic_terminal_information_service). Al aproximarte al aeropuerto escuchas el dato de la presión (QNH) y ajustas el altímetro de acuerdo a la existente en la zona en ese momento.
 
