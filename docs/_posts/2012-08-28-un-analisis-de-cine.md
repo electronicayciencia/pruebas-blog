@@ -16,6 +16,8 @@ Vamos a hablar de cine, también hablaremos de programación, de estadística y 
 
 Para quien no la conozca digamos que es una web muy bien hecha, ideal para descubrir más películas que te puedan gustar. De manera similar a la idea de Last.fm para música, en función de tus votaciones busca usuarios con gustos similares a los tuyos "almas gemelas" y te los presenta para que puedas ver qué más películas han votado estos. Esta era la idea original hace algunos años, junto con la *navegación cruzada* (pinchas en un actor y salen su películas, en una película y te lleva a su ficha, entre los datos puedes pinchar en su director y aparecen sus películas, en un género, en una lista, etc). Recientemente han incorporado otras funciones muy interesantes.
 
+<!--more-->
+
 ## Distribución de las notas
 
 Evidentemente una de las funciones básicas de la página es votar una película (o una serie, o un documental). Se puede votar en puntos enteros del 1 al 10. Lo primero que caracteriza una película es su calificación. Lo que me gustó de Filmaffinity es que no sólo muestra la nota, sino que muestra también algo que para mi es muy importante y que dice mucho más que la nota: la distribución de los votos.

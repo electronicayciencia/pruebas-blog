@@ -65,6 +65,8 @@ La resistencia de 1k puesta en serie con el LED limita la corriente inversa. La 
 
 Para que no me ocupe toda la página inicial pongo un enlace de *Seguir leyendo*. Si por ahora te interesa pincha debajo.
 
+<!--more-->
+
 ## Programación del micro
 
 La programación del PIC no podía ser más sencilla. Pego un extracto de la segunda versión (la que transmite los datos por el puerto serie) y lo explico.

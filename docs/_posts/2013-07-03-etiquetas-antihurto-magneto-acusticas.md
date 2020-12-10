@@ -24,6 +24,8 @@ Os aviso de que esta va a ser una entrada extensa. Quizá la más extensa de tod
 
 De lo que no hablaremos es de cómo burlar los sistemas.
 
+<!--more-->
+
 ## Anti-hurtos
 
 Para los que no estáis familiarizados, la diferencia entre un sistema anti-hurtos y un antirrobo es que el primero alerta de los hurtos mientras ocurren para que un vigilante se se haga cargo de la situación. Mientras que el segundo tiene como misión impedir el robo por si mismo. Una etiqueta de alarma como esta es un anti-hurto. Una cadena y un candado de una moto, un antirrobo.

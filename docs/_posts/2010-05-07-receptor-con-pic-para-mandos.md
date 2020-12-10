@@ -16,6 +16,8 @@ Ahora bien, sin utilizar ningún instrumento u ordenador ¿como distingo un mand
 
 Debido a lo anterior da la impresión de que esos mandos no van del todo finos. Y las marcas buenas utilizan formatos que sí repitan el código, tal que si no se recibe a la primera el usuario sólo mantiene la tecla pulsada mientras apunta con el mando a distancia.
 
+<!--more-->
+
 ## Rutina de recepción
 
 Como es habitual, se transmite modulando una portadora de entre 36 y 40kHz. Dependiendo de cuando haya señal o no haya interpretamos un 0 o un 1. La información tiene esta forma:

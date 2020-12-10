@@ -16,6 +16,8 @@ Este no es el típico artículo en plan "¡Ey, no es magia: sólo son matemátic
 
 Hace tiempo que quería hablaros de la Transformada de Fourier. Pero no encontraba una forma de presentar el artículo sin que me quedara demasiado matemático. Espero que el enfoque que le voy a dar hoy os sirva para aclarar algunas dudas. Como no quiero entrar en demostraciones muchos puntos los tendré que introducir por las buenas y otros dejarlos a medias. Si algo no os termina de convencer profundizad en el tema, necesitaréis cierto nivel de matemáticas pero comprobaréis que todo está atado y bien atado.
 
+<!--more-->
+
 Veréis, los que tenemos formación matemática conocemos la transformada de Fourier como esto:
 
 $$

@@ -15,6 +15,8 @@ Intentemos dar un repaso dentro de lo posible a este asunto sin entrar en los de
 
 {% include image.html max-width="480px" file="Optical-dispersion.png" caption="Prisma de Newton. Esquema simplificado. <br />Fuente: The Dark Side of the Moon - Pink Floyd" %}
 
+<!--more-->
+
 Permitidme una breve disertación. Durante mi etapa escolar, siendo yo niño o adolescente, una de las cosas que encontraba más frustrantes era tratar de reproducir en casa el experimento que venía en el libro, siguiendo al pie de la letra el dibujo y la descripción, y que no funcionase.
 
 El diagrama ilustrativo tiene que ayudar a entender los conceptos, simplificado pero sin ser abiertamente falso. Acompañemos una explicación de cómo sería el experimento en la realidad o por qué no funcionaría con ese montaje tan simple.

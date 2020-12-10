@@ -15,6 +15,8 @@ Hoy vamos a hablar de uno de esos conceptos que levanta pasiones entre los afici
 
 La entropía es un concepto físico muy fácil de comprender, lo que pasa es que alrededor de él se han escrito tantísimas cosas (con más o menos *sentido artístico*) que buena parte de lo que se dice es un misterio.
 
+<!--more-->
+
 Estamos en 1850. Un tal [Clausius](http://es.wikipedia.org/wiki/Rudolf_Clausius), estudiando cosas que se calientan, estaba [dándole vueltas a lo siguiente](https://es.wikipedia.org/wiki/Segundo_principio_de_la_termodin%C3%A1mica):
 
 > En un sólido, como puede ser una barra de hierro, los átomos están fijos. Cada uno ocupa su lugar dentro de la estructura cristalina y no se mueve. Pueden vibrar si calentamos el metal, pero siempre alrededor del punto que les corresponde. Entonces para decir dónde está cada átomo me basta con decir que es un metal y si acaso que tiene tal temperatura, con eso es suficiente.

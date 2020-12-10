@@ -20,6 +20,8 @@ Lo mejor sería con un encoder óptico, que es muy sensible y no hace ruido ning
 
 {% include image.html max-width="480px" file="raton_y_conector.jpg" caption="Ratón de Paco, gracias Paco" %}
 
+<!--more-->
+
 ## El hardware
 
 Casi nadie quiere ya un ratón de bola. Después de mendigar por el departamento de sistemas, Paco Centollo -nombre ficticio, por supuesto- donó amablemente y para beneficio de este blog y de toda la humanidad, no sólo un ratón de bola calidad suprema, sino también un práctico conversor PS2 a USB.

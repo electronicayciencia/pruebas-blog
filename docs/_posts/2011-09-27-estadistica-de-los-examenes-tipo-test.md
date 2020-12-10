@@ -10,6 +10,8 @@ assets: /pruebas-blog/assets/2011/09/estadistica-de-los-examenes-tipo-test
 
 La semana pasada hice un examen tipo test. Eran 150 preguntas y pedían, para aprobar, el 70%. La pregunta es ¿ese 70% tiene su justificación matemática o es más bien un limite arbitrario? Vamos a hablar de cómo interviene el azar al responder preguntas y de las diferentes formas de compensarlo.
 
+<!--more-->
+
 ## Nota esperada
 
 Comenzaremos con el examen que os digo, 150 preguntas de 4 opciones. Alguna había de respuesta múltiple y de verdadero/falso, pero las vamos a obviar. Si hay cuatro opciones y sólo una es la correcta, no se te escapa que haciéndolo a boleo acertaremos una de cada cuatro preguntas, que son 37. Eso es un 25%. Pero vamos a profundizar un poco más, no siempre que lo hagamos vamos a acertar 37 preguntas. La probabilidad de acertar un número determinado de preguntas viene dada por la distribución de binomial con parámetro P igual a 0.25.

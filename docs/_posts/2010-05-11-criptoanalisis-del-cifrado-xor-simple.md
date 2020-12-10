@@ -14,6 +14,8 @@ Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simp
 
 > An XOR might keep your kid sister from reading your files, but it won’t stop a cryptanalyst for more than a few minutes. -[Bruce Schneier](http://een.iust.ac.ir/profs/Falahati/Cryptography/CrytoBooks/B_Schneier%20-%20Applied%20Cryptography/ch01/01-05.html#Heading5)-
 
+<!--more-->
+
 ## Propiedades de la operación XOR
 
 Para los muy profanos, no iba a decir lo que es un xor y en su lugar iba a pegar un enlace a la Wikipedia, pero creo que os ibais a quedar igual, así que tened en cuenta esto: un xor es la abreviatura de eXclusive OR. Recordad que un OR es *A o B* y por tanto vale 1 en cuanto A o B valgan 1.

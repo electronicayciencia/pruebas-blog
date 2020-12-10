@@ -21,6 +21,8 @@ Habíamos publicado en [esta entrada]({{site.baseurl}}{% post_url 2010-05-28-pre
 
 Vamos a ocuparnos en esta entrada del punto 2: utilizar un micro adecuado y bien preparado. Le prestaremos especial atención a las **cápsulas del tipo electret**, cuya relación calidad/precio es de lo mejorcito del mercado.
 
+<!--more-->
+
 Cuando decimos *el micro adecuado*, igual que *[la chispa adecuada](http://www.dailymotion.com/video/x1qxhu_la-chispa-adecuada-heroes-del-silen_music)*, debemos pensar que, de la amplia variedad disponible, conviene usar el que mejor se ajuste a lo que queremos captar. Un micro piezoeléctrico por ejemplo no nos servirá para la voz, pero será nuestra única opción para grabar ultrasonidos. Un micro de carbon responde justo en las frecuencias de la voz, sin embargo su sensibilidad es pobre. Uno de condensador es mejor, pero necesitamos un voltaje extra y un circuito complicado para que funcione.
 
 Lo bueno del micrófono electret es que tiene las ventajas del de condensador, y la electrónica requerida es muy básica. Ventajas:

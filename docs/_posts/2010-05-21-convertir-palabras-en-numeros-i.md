@@ -11,6 +11,8 @@ Tenemos herramientas muy potentes para machacar números, calcular medidas estad
 
 Nos interesa que las palabras parecidas tengan resultados parecidos, y las diferentes se distancien en el resultado, digamos que de alguna manera nos interesa que sea **lineal**. Sin duda también buscaremos que mantenga un orden, a ser posible que conserve el mismo orden alfabético al que ya estamos acostumbrados.
 
+<!--more-->
+
 Queremos que de cada palabra se obtenga un número distinto. Porque imaginad que dos palabras dan el mismo número. Si tenemos que decir a qué palabra corresponde tal número no podríamos decidirnos por una u otra. O sea que no podríamos volver hacia atrás. Ese tipo de funciones en que un resultado sólo proviene de un origen se llaman **inyectivas**.
 
 Y hacia atrás, nos gustaría que cualquier número que pongamos se pueda traducir en una combinación de letras -que tenga sentido no importa ahora-. Si no hay *huecos* en la imagen, los resultados estarán mejor distribuidos. Una función en la que todos los resultados posibles se corresponden con un origen y no hay ningún resultado "suelto" se llama **suprayectiva** o sobreyectiva.

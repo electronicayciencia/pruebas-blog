@@ -15,6 +15,8 @@ Este es un artículo sobre DSP con un trasfondo de electromedicina. En una entra
 
 Este experimento lo hice en el 2006 y consiste en construir un electrocardiógrafo. Pero ya desde el principio os advierto: si bien captar señales eléctricas en el cuerpo es relativamente sencillo, lo difícil es hacerlo **bien**. Y con hacerlo bien quiero decir que lo que registremos sirva para algo. Cuando un cardiólogo interpreta un electro, espera que los electrodos estén puestos siempre en el mismo sitio, que el gel tenga una conductividad determinada, que el circuito aplique unos filtros ya tipificados (homologación), etc. Así que la forma de onda que nosotros vamos a obtener no va a pasar de ser una mera curiosidad electrónica pues no tiene, ni mucho menos, valor médico alguno.
 
+<!--more-->
+
 ## El circuito
 
 La primera dificultad que nos encontramos al plantar un conductor en la piel es que el cuerpo es una excelente antena. Capta de todo, pero sobre todo ruido electromagnético. Ya me contaréis cómo vamos a registrar tensiones de microvoltios que vienen del corazón con un ruido de fondo tan fuerte.

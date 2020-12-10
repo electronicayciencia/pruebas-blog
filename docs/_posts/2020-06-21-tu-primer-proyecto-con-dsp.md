@@ -20,6 +20,8 @@ En cualquier caso, déjame darte la clave del artículo nada más empezar: una *
 
 {% include image.html file="filtrosinc.png" caption="Pues esto es un filtro digital, aunque no lo parezca. EyC." %}
 
+<!--more-->
+
 ## Filtros digitales
 
 La función principal de un DSP es filtrar. Y hacer transformadas de Fourier... para filtrar más.

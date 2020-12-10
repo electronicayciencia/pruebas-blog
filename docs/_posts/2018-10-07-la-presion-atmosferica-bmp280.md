@@ -24,6 +24,8 @@ Todo comenzó cuando alguien intentó bombear agua de un pozo de más de 10 metr
 
 {% include image.html max-width="300px" file="BMP280.jpg" caption="Sensor barométrico BMP280. [Bosch](https://www.bosch-sensortec.com/bst/products/all_products/bmp280)." %}
 
+<!--more-->
+
 ## El sensor
 
 El BPM280 es un sensor fabricado por Bosch para medir presión y temperatura ambiental. Pertenece a la gama [Sensortec](https://www.bosch-sensortec.com/bst/products/all_products/bmp280). Hay otro sensor parecido, el BME280 (acabado en E, en lugar de en P). Mide presión, temperatura y también humedad. En eBay están casi al mismo precio. Pero si lo compráis sabed que algunos fabricantes envían *por error* el modelo P, que sólo mide presión y temperatura. [BMP280 vs. BME280 sensor confusion](https://goughlui.com/2018/08/05/note-bosch-sensortec-bmp280-vs-bme280-sensor-confusion/).

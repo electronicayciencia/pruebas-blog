@@ -16,6 +16,8 @@ Como la mejor forma de ver cómo funciona algo es practicándolo, he escrito una
 
 {% include image.html max-width="270px" file="I2c_logo.svg.png" caption=" Logo de I2C: Philips, ahora NXP semiconductor" %}
 
+<!--more-->
+
 A los que ya conocéis las generalidades del bus, permitidme dar un repaso rápido para encaminar el artículo antes de ir a las profundidades.
 
 A diferencia del 1-Wire, I2C tiene una **línea de reloj** dedicada. Eso quiere decir que el reloj lo controlamos nosotros. Y por eso no habrá problema si el tiempo de espera resulta ser 15us en lugar de 5us. Problema que sí se da en otros buses como 1-Wire.

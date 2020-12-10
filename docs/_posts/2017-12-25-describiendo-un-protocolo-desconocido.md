@@ -18,6 +18,8 @@ En la entrada anterior [Demodular AFSK, desde cero]({{site.baseurl}}{% post_url 
 
 Hay programas tipo [Universal Radio Hacker](https://github.com/jopohl/urh), destinados a facilitar esta labor. Al profesional le ahorrarán mucho trabajo tedioso. Nosotros, dado que no somos profesionales, lo haremos de modo artesanal sin recurrir a software especializado.
 
+<!--more-->
+
 ## Modulación de radiofrecuencia
 
 Hace tiempo estaba escaneando cerca de un rango de [trunking](https://en.wikipedia.org/wiki/Trunked_radio_system), cuando me encontré una señal muy fuerte. Tan fuerte como para saturar la etapa de entrada y causar todo tipo de interferencias en las frecuencias adyacentes. Bajé la ganancia del SDR y la sintonicé.

@@ -19,6 +19,8 @@ Durante todo este artículo hablaremos de radiactividad. Describiremos cómo fun
 
 {% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio *disparando* partículas dentro de una cámara de niebla." %}
 
+<!--more-->
+
 ## El tubo Geiger-Müller
 
 Un tubo Geiger-Müller se compone de dos electrodos dentro de un recipiente lleno de gas a baja presión.

@@ -17,6 +17,8 @@ Primero vamos a introducir unos conceptos básicos de psicrometría para usarlos
 
 {% include image.html max-width="345px" file="20170807_192905.jpg" caption="Panel de celulosa corrugada." %}
 
+<!--more-->
+
 ## Psicrometría
 
 Si hay algo que me gusta de la termodinámica es que a partir de unos conceptos tremendamente sencillos, y con muy pocos datos de entrada fácilmente observables con instrumentos comunes y corrientes, se puede obtener bastante información interesante sobre el sistema.

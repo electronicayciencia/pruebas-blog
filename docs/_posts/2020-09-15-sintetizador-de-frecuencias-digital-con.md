@@ -22,6 +22,8 @@ El primer circuito que funcionó como debía fue un generador de baja frecuencia
 
 {% include image.html file="HEF4046BP-8649.jpg" caption="El primer integrado que compré.<br />Por el código parece fabricado en 1986. EyC." %}
 
+<!--more-->
+
 ## Primer contacto
 
 PLL -decía mi libro- significa *Phase-Locked Loop* o, en español, bucle de enganche de fase. Se trata de un circuito integrado capaz de entregar una señal de igual frecuencia y en fase con otra señal de referencia. Al menos eso entendí yo en el año 94 o 95.

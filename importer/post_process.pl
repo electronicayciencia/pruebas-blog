@@ -626,7 +626,7 @@ sub process_body {
 
 	# Remove fixed texts
 	$s =~ s{<div class="blogger-post-footer">.*?</div>}{}g;
-	$s =~ s{<a name='more'></a>}{}g;
+	$s =~ s{<a name='more'></a>}{format_paragraph("<!--more-->")}ge;
 	$s =~ s{<div[^>]*separator[^>]*>(.*?)</div>}{$1}msg;
 
 	# Remove stiles from simple tags, replace uncommon format tags and simplify br tags

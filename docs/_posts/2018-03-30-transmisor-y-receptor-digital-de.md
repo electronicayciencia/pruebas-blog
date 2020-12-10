@@ -21,6 +21,8 @@ Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar 
 
 {% include image.html max-width="480px" file="mod_ultrasonido.png" caption="Medidor de distancia por ultrasonidos. Circuito de partida." %}
 
+<!--more-->
+
 ## El transmisor
 
 A la hora de proyectar un circuito para un propósito, considerad que **no existe** algo así como *el mejor*. Hay cientos de circuitos que sirven igualmente. A veces el mejor es el que emplea menos componentes. Otras el más económico, aunque más complicado. Podría ser el más duradero, el que obtiene mayor rendimiento a costa de reducir su vida útil, el que menos consume o más amplio rango de alimentación soporta.

@@ -18,6 +18,8 @@ Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de 
 
 Esto no son apuntes de teleco, pero créeme: tampoco es una entrada ligera que puedes leer mientras te tomas el café. Es una demostración práctica de cómo se empezó a transmitir información digital. De principio a fin. Sin fórmulas, sin apenas hardware y sin más software que el que vamos a escribir.
 
+<!--more-->
+
 ## Modulación analógica
 
 Todo empieza cuando decidimos modificar una propiedad analógica para comunicar estados discretos.

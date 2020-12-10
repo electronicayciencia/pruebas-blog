@@ -17,6 +17,8 @@ Después de un par de artículos más bien teóricos ahora os quiero presentar u
 
 Empezaremos viendo una característica poco conocida de los PICs y construiremos un circuito para aprovecharla. En el firmware del PIC haremos que mande el valor por puerto serie al PC utilizando el conversor USB-&gt;RS232. Pero la frecuencia no será exacta, y hará falta calibrarlo. Para terminar escribiremos una pequeña **interfaz en Perl/Tk** para que nos indique la frecuencia.
 
+<!--more-->
+
 ## Esquema eléctrico
 
 Cuando hablamos de PICs básicos, suelen funcionar con cuarzos de 4MHz, 12, y los más modernos hasta de 20MHz como máximo. Y creemos que ahí está el límite para todo lo que hagamos con ellos. Sin embargo no es así. El contador **TIMER0** puede funcionar de manera asíncrona, sin depender del reloj principal. Se usa normalmente para contar pulsos externos, pero fijaos lo que dice el datasheet del 12F683:

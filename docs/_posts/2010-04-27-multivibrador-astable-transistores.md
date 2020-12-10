@@ -14,6 +14,8 @@ El astable con dos transistores NPN es de los primeros circuitos que se estudian
 
 {% include image.html max-width="300px" file="astable_npn.png" caption="" %}
 
+<!--more-->
+
 ## Estado 1: Q1 conduce, Q2 en corte
 
 Un astable tiene dos estados, y ambos son inestables, de forma que el circuito alterna continuamente uno con otro. Empecemos por el estado 1. Al contrario de otras explicaciones que veréis, yo no voy a partir de cuando se aplica tensión. Mejor os cuento cómo está el circuito justo al empezar el estado 1, como si acabara de conmutar desde el estado 2. De momento tendréis que creerme estas condiciones iniciales, pero al final del artículo entenderéis por qué.

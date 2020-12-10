@@ -14,6 +14,8 @@ He pensado que podría empezar este año publicando una entrada en el blog, que 
 
 Hoy os presento un caso real de una radio que he estado reparando estas vacaciones. Espero que os resulte curioso, o al menos entretenido.
 
+<!--more-->
+
 ## Diagnóstico
 
 El "paciente" es un radio-casete con CD y MP3, modelo Daewoo SG-331. Vamos, toda una fusión de lo retro con lo digital. Por lo que parece la radio no se oye bien, hace ruido.

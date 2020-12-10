@@ -17,6 +17,8 @@ En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/co
 
 Ahora vamos a jugar con esa conversión, veremos algunas propiedades y obtendremos estadísticas aplicándola a varios idiomas.
 
+<!--more-->
+
 ## Ejemplos de cambio de base
 
 Decíamos el otro día que el que un número sea periódico en una base no implica que lo sea en cualquier otra. Esto es consecuencia de que un número racional se puede escribir como una fracción. No ocurre lo mismo con los irracionales. Pi sigue teniendo infinitas cifras no periódicas lo expresemos en la **base entera** que lo expresemos.

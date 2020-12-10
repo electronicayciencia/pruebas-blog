@@ -22,6 +22,8 @@ En una simulación por ordenador hay tres etapas básicas.
 1. Analizar los datos obtenidos.
 1. Presentar los resultados.
 
+<!--more-->
+
 ## Algoritmo y programa
 
 En este caso el algoritmo es sencillamente las reglas del juego.

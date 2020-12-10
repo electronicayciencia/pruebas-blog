@@ -11,6 +11,8 @@ assets: /pruebas-blog/assets/2011/08/rastreador-de-redes-inalambricas
 
 Hoy os traigo un artículo breve de programación. Este programa nos ayudará a localizar la fuente de una wifi siempre y cuando tengamos una antena directiva. A modo de radar, el sistema emitirá un tono cada vez que recibamos una baliza de la red seleccionada, y de una frecuencia más alta mientras mayor sea la potencia recibida.
 
+<!--more-->
+
 ## Fundamento
 
 Cuando pedimos mostrar la lista de redes inalámbricas al alcance ¿de donde sale tal información? Las redes wireless se pueden configurar para que anuncien o no anuncien el punto del acceso. Por defecto, el punto de acceso (o uno de los nodos si es una red ad-hoc) emite al aire unos paquetes anunciando la red. Se conocen como *balizas* y constan, entre otros datos, el nombre de la red y la MAC del punto de acceso. Normalmente se emiten diez balizas por segundo. Así, cuando pedimos la lista de redes el PC hace un barrido (*scan*) de los 11 canales wifi deteniéndose 0.1 o 0.2 segundos en cada canal para ver qué balizas le llegan. Al cabo de 1 o 2 segundos tenemos la lista completa.

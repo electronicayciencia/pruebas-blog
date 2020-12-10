@@ -18,6 +18,8 @@ Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios 
 
 {% include image.html max-width="279px" file="300px-Pi-GPIO-header.png" caption="" %}
 
+<!--more-->
+
 ## La placa base
 
 Empecemos por un repaso básico. Estos dispositivos se llaman Low Cost Single Board Computers, que quiere decir que es un ordenador completo, de bajo consumo, con características modestas que está contenido en una placa un poco mayor que una tarjeta de crédito. Hay de varias marcas, distintos precios y diseños. El más común es de marca Raspberry. Fue también el primero en tener una acogida masiva. Hay otras marcas como ODroid o Banana Pi, cada uno con sus características y sus precios.

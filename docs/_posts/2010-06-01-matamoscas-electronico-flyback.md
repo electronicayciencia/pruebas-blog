@@ -14,6 +14,8 @@ Hace unas semanas pedí por correo un aparato poco común en España, o por lo m
 
 La pregunta es ¿cómo obtiene 600V si se alimenta con dos pilas de 1.5V? Creo que no tardé ni diez minutos en desmontarlo. Veamos cómo funciona.
 
+<!--more-->
+
 No es el único ejemplo de circuitos que obtienen alta tensión a partir de pilas, pensad en el circuito del flash de una cámara de fotos, la fuente de alta tensión para retroiluminación, el tubo fluorescente de un alumbrado de emergencia, una televisión portátil, un encendedor electrónico, un táser, etc.
 
 Hay varios métodos para elevar la tensión de una batería hasta los 600V. En este caso se utiliza lo que se llama un **flyback**.

@@ -16,6 +16,8 @@ Sí, otra entrada de Raspberry con fuerte contenido técnico -vamos, un coñazo-
 
 {% include image.html file="FreqOsc2.png" caption="Rango de frecuencias posibles utilizando las fuentes INTOSC y PLLD." %}
 
+<!--more-->
+
 ## Fuentes internas
 
 Lo primero es decir que el BCM2835 no tiene, como tal, la función de generador de frecuencias. En realidad aprovechamos una función pensada para suministrar reloj a los periféricos externos conectados al chip.

@@ -16,6 +16,8 @@ Sin embargo me llamó la atención que el escáner [es compatible con Linux](htt
 
 Estas multifunción no son más que una impresora a la que se le ha pegado por encima un escáner. De hecho una vez separados son totalmente independientes, sólo comparten la placa principal (el *cerebro*) donde está la alimentación y la clavija USB.
 
+<!--more-->
+
 Me ha gustado el detalle de la fuente de alimentación. Modular, y de hecho extraíble. La placa principal es de pequeño tamaño. He separado el escáner, y me he quedado con lo necesario para hacerlo funcionar para montarlo sobre el tablero del mueble donde tenía el antiguo. El resto, que corresponde a la base y a la impresora lo tiramos.
 
 Para darle solidez al invento he extraído el conector USB y lo he sustituido por un cable. Lo mismo he hecho con los conectores de alimentación.

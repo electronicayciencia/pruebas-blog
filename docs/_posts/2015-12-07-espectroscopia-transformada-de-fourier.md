@@ -19,6 +19,8 @@ Hay dos formas para separar las distintas frecuencias que componen una onda, los
 
 {% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. [Smithsonian](http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy)." %}
 
+<!--more-->
+
 Los métodos indirectos consisten en obtener la información de todas las frecuencias al mismo tiempo y separar los componentes con ayuda de un ordenador. Y casi siempre implican una Transformada de Fourier. Un método indirecto sería, como hacemos habitualmente para descomponer sonido, registrar la señal durante un tiempo y después aplicar una FFT para obtener el espectro. Si lo anterior te ha sonado a miedo, te interesará esta otra entrada: [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %})
 
 El artículo lo voy a dedicar a este otro método; pero antes, es necesario repasar algunos conceptos básicos sobre ondas.

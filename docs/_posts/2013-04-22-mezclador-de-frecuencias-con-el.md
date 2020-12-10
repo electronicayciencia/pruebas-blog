@@ -17,6 +17,8 @@ La finalidad de estos esquemas es tomar una señal de entrada -cuya portadora es
 
 Vamos a utilizar este circuito, no para hacer un receptor de RF, sino para un propósito más sencillo: poder captar con la tarjeta de sonido señales por encima de 20KHz que es el límite ultrasónico.
 
+<!--more-->
+
 ## El límite ultrasónico
 
 Las tarjetas de sonido convencionales muestrean, como máximo, a 44 o 48kHz. Eso **no** quiere decir que la mayor frecuencia que pueden captar sea de 22kHz. En realidad pueden captar señales de mucha mayor frecuencia, que aparecerán "plegadas" a la mitad de la de muestreo. Si no sabéis de qué hablo consultad *Teorema de Nyquist* y *Efecto aliasing* en este enlace de la Wikipedia: [Frecuencia de muestreo](http://es.wikipedia.org/wiki/Frecuencia_de_muestreo).

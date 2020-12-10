@@ -18,6 +18,8 @@ En este artículo vamos a **experimentar** con RFID de **baja frecuencia** (125k
 
 Una cosa más: este es un blog técnico. Si tu única intención es copiar tarjetas, un [clonador chino](https://www.ebay.com/sch/i.html?_nkw=RFID+125KHz+Copier) vale $7.45 y sólo tiene dos botones. No necesitas seguir leyendo, sabrás usarlo.
 
+<!--more-->
+
 El proceso de clonar un identificador tiene cuatro pasos:
 
 **Primero**, caracterizar el mensaje: tamaño, velocidad, modulación, etc. Lógicamente, para emularlo necesitaremos un chip capaz de transmitir de igual modo. Por ejemplo, el mensaje del EM4100 consta de 64 bits transmitidos en ASK con codificación Manchester.

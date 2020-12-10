@@ -21,6 +21,8 @@ En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.ba
 
 {% include image.html max-width="252px" file="fob_foto.jpg" caption="Llave de acceso RFID a 125kHz. EyC." %}
 
+<!--more-->
+
 ## El oscilador
 
 Lo primero que necesitamos es un oscilador. ¿Podríamos haber usado un generador de funciones? Sí, por supuesto, pero este es un blog de electrónica a bajo nivel. Para leer una tarjeta RFID también se puede usar un lector con un Arduino o una Raspberry y dejarnos de historias.

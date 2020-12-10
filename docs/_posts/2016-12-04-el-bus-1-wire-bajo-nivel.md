@@ -16,6 +16,8 @@ En la [entrada anterior]({{site.baseurl}}{% post_url 2016-11-20-conexion-gpio-de
 
 {% include image.html file="ds1820.jpg" caption="Sensor digital de temperatura DS18B20." %}
 
+<!--more-->
+
 Los DS1820, DS18B20 o DS18S20 son sensores digitales de temperatura. Una especie de LM35 digitales si lo preferís. Sus características principales son una resolución de 9 a 12bit, no requieren componentes externos y se pueden alimentar desde el mismo bus de datos.
 
 Lo he escogido para esta entrada porque necesitaba medir temperaturas con cierta precisión. Además me ha parecido un ejercicio digno de compartir, que entraña sutilezas técnicas de distinto tipo.

@@ -15,6 +15,8 @@ Pasar de una PCB al esquema es siempre un coñazo, lo hagas como lo hagas. Adem�
 
 Tengo un sencillo transmisor de un coche de juguete y voy a dibujar el esquema para analizarlo en una próxima entrada. Como la placa es pequeña, con componentes habituales y de una sola cara me servirá de ejemplo.
 
+<!--more-->
+
 - Lo primero que tenéis que hacer es **numerar las pistas** de la placa. A veces, por el tamaño, es más fácil hacerlo sobre una fotografía que sobre la misma placa.
 
 {% include image.html max-width="270px" file="pistas_numeradas.png" caption="" %}

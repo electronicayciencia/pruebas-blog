@@ -14,6 +14,8 @@ En una [entrada anterior]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pi
 
 Las aplicaciones de estos circuitos transmisores son variadas, desde hacernos nuestro propio mando a distancia para algún proyecto hasta apagar *discretamente* el televisor en un bar justo antes del último penalti. También se puede usar para transmisión de datos de manera inalámbrica desde uno o varios sensores, ya que tenemos 32 bits disponibles usaríamos los primeros para indicar un código y el resto para el valor. La velocidad de transferencia sería de unos 15 códigos por segundo. No hay ni que mencionar los las utilidades en domótica que cada uno pueda imaginar, como encender y apagar la TV a determinadas horas, incluso cambiar de canal para aparentar que la casa está habitada mientras estamos de vacaciones; o controlar algún dispositivo por ordenador.
 
+<!--more-->
+
 ## Portadora
 
 La rutina es muy sencilla. Aunque hay un punto que merece especial atención: la modulación en 38kHz de la portadora. Lo más cómodo es usar el **módulo PWM** y configurarlo para esa frecuencia. Cuando queramos transmitir ponemos el duty-cycle al 50% y cuando no queramos lo fijamos al 0%. Con el siguiente código preparamos el módulo CCP:

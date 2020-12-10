@@ -16,6 +16,8 @@ Haremos un recorrido empezando por los amplificadores ideales. Llegaremos a los 
 
 No quiero usar matemáticas complicadas en este artículo. Procuraré hacerlo de la forma más básica aunque sea más largo y en ocasiones incorrecto. Si alguna explicación no la pilláis, mirad los gráficos y todo será más fácil de entender. Recordad que haciendo click en una imagen la ampliaréis. Y si queréis verla más grande aún, abridla en una ventana nueva.
 
+<!--more-->
+
 ## Funciones lineales y no lineales
 
 Matemáticamente una función lineal es simplemente algo como:

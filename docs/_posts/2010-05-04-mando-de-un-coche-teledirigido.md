@@ -18,6 +18,8 @@ Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botone
 
 El circuito consta de dos partes. Un [oscilador astable]({{site.baseurl}}{% post_url 2010-04-27-multivibrador-astable-transistores %}) de BF, y un [oscilador *Pierce*](http://pr.erau.edu/%7Elyallj/ee412/pierce_exp.html) con un cristal de 27.145MHz como emisor de RF.
 
+<!--more-->
+
 ## Baja frecuencia
 
 Empezaremos hablando de la etapa de audio, o de baja frecuencia. Está compuesta por un sencillo oscilador astable con los transistores PNP Q2 y Q3. Similar al que estudiamos en la entrada que enlazo arriba. Aunque este tiene algunos elementos particulares.

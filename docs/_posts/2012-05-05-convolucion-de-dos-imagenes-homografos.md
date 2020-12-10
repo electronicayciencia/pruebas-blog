@@ -12,6 +12,8 @@ assets: /pruebas-blog/assets/2012/05/convolucion-de-dos-imagenes-homografos
 
 En [una entrada anterior]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}) os decía que en breve presentaría una aplicación de la transformada de Fourier en dos dimensiones. Pues bien, [como decíamos ayer](http://curistoria.blogspot.com.es/2008/04/fray-luis-de-len-como-decamos-ayer.html), voy a utilizar la transformada, y más concretamente multiplicar dos transformadas, para encontrar patrones dentro de una imagen. Lo que técnicamente se llama *Template Matching*.
 
+<!--more-->
+
 ## Los Homógrafos
 
 La idea original de lo que aquí llamo Homógrafos no es mía, sino que me la sugirió hace años un compañero de trabajo a quien le agradezco que me permita usarla en este blog.

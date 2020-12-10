@@ -22,6 +22,8 @@ Siempre que necesitemos captar una señal tenemos que cuidar todo el recorrido d
 
 En esta entrada hablaré de los preamplificadores, y más concretamente de los basados en operaciones.
 
+<!--more-->
+
 No voy a explicar lo que es un amplificador operacional, si no lo conocéis podéis mirarlo en la [Wikipedia](http://es.wikipedia.org/wiki/Amplificador_operacional) y en alguno de los enlaces externos de tal página.
 
 ## Alimentación dual y simple
