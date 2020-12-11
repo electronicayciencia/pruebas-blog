@@ -93,7 +93,7 @@ Por si no habéis leído otras entradas del blog, me empeño en ilustrar experim
 
 En lugar de un interferómetro de Michelson, que es poco práctico para ondas sonoras, utilizaré una forma de interferencia más sencilla: las ondas estacionarias dentro de un tubo de longitud variable. Lo que viene a ser muy parecido a un [tubo de Kundt](https://es.wikipedia.org/wiki/Tubo_de_Kundt).
 
-{% include image.html file="montaje.png" caption="Esquema del montaje. EP." %}
+{% include image.html file="montaje.png" caption="Esquema del montaje. EyC." %}
 
 Se trata de un tubo de aproximadamente un metro de longitud. En un extremo he acoplado un altavoz y un micrófono. Y en el otro, un pistón. El pistón va conectado a un hilo que pasa por el rodillo de un ratón que me servirá como sensor de desplazamiento, tal como habíamos visto en la entrada anterior llamada *[Medir distancias con un ratón de bola]({{site.baseurl}}{% post_url 2015-07-16-medir-distancias-con-un-raton-de-bola %})*.
 
@@ -101,7 +101,7 @@ Ya se puede intuir que instrumento no es de precisión, pero servirá. El funcio
 
 Por tanto cabe esperar que, a medida que desplazo el émbolo a lo largo del tubo, habrá unas posiciones en que el micrófono captará un máximo y otras donde captará un mínimo. Y así es. Este es un gráfico del volumen frente a la distancia recorrida por el émbolo cuando generamos por el altavoz una frecuencia de 4kHz:
 
-{% include image.html file="interf_4kHz_picos.png" caption="Cuenta de máximos en un interferograma. EP." %}
+{% include image.html file="interf_4kHz_picos.png" caption="Cuenta de máximos en un interferograma. EyC." %}
 
 Contemos los picos. Salen 20 en una distancia de unos 85cm. Haciendo una regla de tres son 23.5 picos por metro. Las ondas estacionarias, por su naturaleza, generan los máximos cada media longitud de onda, por lo que los 23.5 hay que dividirlos entre dos, para obtener los periodos por metro. 11.76 picos/metro o directamente 11.76 m<sup>-1</sup> porque el "pico" no es una unidad del SI.
 
@@ -189,7 +189,7 @@ Si os fijáis en el programa, lo que hace es utilizar SOX para leer el micrófon
 
 El circuito que podría medir eso es un rectificador y un filtro, como el que se usa en los receptores de AM:
 
-{% include image.html max-width="480px" file="am_diode_detector.png" caption="Detector de envolvente. EP." %}
+{% include image.html max-width="480px" file="am_diode_detector.png" caption="Detector de envolvente. EyC." %}
 
 Sin embargo resulta más sencillo emular el circuito por software. De tal manera que muestreamos el sonido para después rectificarlo y filtrarlo usando conceptos de DSP. Esto se hace en la línea
 
@@ -312,7 +312,7 @@ En el gráfico inferior representamos el espectro de frecuencias del interferogr
 
 Veamos el resultado para la señal de 4000Hz de la que hablábamos antes, puedes hacer click para ampliar, o click con el botón central para abrir las imágenes en otra pestaña aparte:
 
-{% include image.html file="interf_4kHz.png" caption="Resultados para una frecuencia de 4kHz. Click para ampliar. EP." %}
+{% include image.html file="interf_4kHz.png" caption="Resultados para una frecuencia de 4kHz. Click para ampliar. EyC." %}
 
 Además del pico en 4kHz, clavado, se aprecian algunos armónicos en 8, 12 y un pelín en 16kHz. Y no debería ser así, porque la fuente era una sinusoidal pura.
 
@@ -322,7 +322,7 @@ Pero obviemos por un momento las imperfecciones y apreciemos la belleza de calcu
 
 Subamos la frecuencia hasta 15kHz:
 
-{% include image.html file="interf_15kHz.png" caption="Resultados para una frecuencia de 15kHz. Click para ampliar. EP. " %}
+{% include image.html file="interf_15kHz.png" caption="Resultados para una frecuencia de 15kHz. Click para ampliar. EyC. " %}
 
 Aquí se aprecia el pico de 15kHz y, algo muy especial, un segundo armónico en 30kHz. La tarjeta de sonido con la que captaba la onda muestrea como mucho a 48kHz; por lo que la máxima frecuencia que podría arrojar es 24kHz, y sin embargo aquí vemos claramente un pico en 30.
 
@@ -339,7 +339,7 @@ Y, ya que hemos visto que salen armónicos donde no deben, ¿qué pasa si a la e
 
 Por ejemplo en este caso mezclamos 4kHz y 11kHz? Esperamos ver dos picos de 4 y 11kHz pero...
 
-{% include image.html file="interf_4_11.png" caption="Resultados para una frecuencia de 4+11kHz. Click para ampliar. EP. " %}
+{% include image.html file="interf_4_11.png" caption="Resultados para una frecuencia de 4+11kHz. Click para ampliar. EyC. " %}
 
 Ya habíamos visto en esta otra entrada lo que pasa al introducir dos frecuencias en un sistema no lineal: [La Distorsión Armónica Total (THD)]({{site.baseurl}}{% post_url 2013-03-26-la-distorsion-armonica-total-thd %}). Y lo podemos observar de nuevo en este resultado.
 

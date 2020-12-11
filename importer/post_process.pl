@@ -314,6 +314,7 @@ sub format_image {
 	# Replace breaks
 	$caption =~ s{(\s*<br[^>]*>\s*)+}{  \n}g;
 
+	$caption =~ s{\sEP}{ EyC}g;
 
 	$caption = html2md($caption, 0); # no vars allowed.
 
