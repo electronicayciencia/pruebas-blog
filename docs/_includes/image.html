@@ -1,7 +1,7 @@
 <div class="postimage">
 <figure>
    <a href="{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{{ include.file }}">
-	 <img src="{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{{ include.file }}" style="max-width: {{ include.max-width }};"
+	 <img src="{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{{ include.file }}" style="width: {{ include.width }}; max-width: 100%;"
       alt=""/>
    </a>
    <figcaption>{{ include.caption | markdownify }}</figcaption>

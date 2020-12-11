@@ -16,17 +16,17 @@ El AD8313 es un amplificador logarítmico, vale para hacer un S-meter casero (me
 
 Existen adaptadores para SMD, pero no los encuentro en una tienda y paso de pedirlos por Internet. Así que me hice uno. La primera idea es mantener la numeración de las patillas. Eso tiene un problema, y es que iba a necesitar pistas muy finas.
 
-{% include image.html max-width="300px" file="pcb1.png" caption="" %}
+{% include image.html width="300px" file="pcb1.png" caption="" %}
 
 Como resulta que yo no uso placas fotosensibles sino **transferencia térmica** (y no con papel especial sino con papel de publicidad, algún día escribiré sobre cómo hacer placas PCB de forma sencilla y barata). Con la transferencia se pueden hacer pistas finas, pero no tanto como las de la foto, mantener el patillaje está fuera de mi alcance.
 
 En tal caso más vale optar por el esquema más sencillo. Que es el siguiente:
 
-{% include image.html max-width="300px" file="pcb3.png" caption="" %}
+{% include image.html width="300px" file="pcb3.png" caption="" %}
 
 Simplificando el esquema, para que se vean sólo las pistas sería así:
 
-{% include image.html max-width="270px" file="placa_pistas1.png" caption="" %}
+{% include image.html width="270px" file="placa_pistas1.png" caption="" %}
 
 A la hora de hacer la placa, tened en cuenta que trabajamos con pistas muy delgadas. Y si nos pasamos de fuerza con la transferencia puede pasar esto:
 
@@ -40,9 +40,9 @@ Esas patillas no hay más que montarlas sobre un zócalo y ya tenemos nuestro in
 
 El resultado es este:
 
-{% include image.html max-width="480px" file="BENQ0010.JPG" caption="" %}
+{% include image.html width="480px" file="BENQ0010.JPG" caption="" %}
 
-{% include image.html max-width="480px" file="BENQ0019.JPG" caption="" %}
+{% include image.html width="480px" file="BENQ0019.JPG" caption="" %}
 
 En este caso he soldado las patillas de forma que el AD8313 quedara hacia afuera, y **las patillas están invertidas** respecto a como cabría esperar en el esquema de Eagle. Para que quedara conforme al esquema, el SMD debería quedar por debajo. En este caso no me importa porque es para pruebas, pero si para vosotros pudiera ser un problema prestadle atención. De lo contrario pueden quedar reflejadas (la 1 ser en realidad la 4, la 2 ser la 3, etc).
 

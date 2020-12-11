@@ -30,7 +30,7 @@ En [esta página](http://es.wikipedia.org/wiki/Servomotor_de_modelismo) de la Wi
 
 Como ya os he dicho nunca había manejado un servo y no tenía muy claro cómo son los pulsos que hay que enviar. Según la Wikipedia es así:
 
-{% include image.html max-width="480px" file="pulsos_wikipedia.png" caption="" %}
+{% include image.html width="480px" file="pulsos_wikipedia.png" caption="" %}
 
 Pero los valores de 1ms y 2ms son orientativos y dependen del modelo de servo. Y como yo no he podido encontrar el datasheet del MG995 pues me he preparado un PIC para probar con varios.
 

@@ -19,7 +19,7 @@ Empezaremos por construir un oscilador muy sencillo, al que añadiremos un buffe
 
 En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %}). Este lo vamos a dedicar a las oscilaciones forzadas y uno de sus usos más habituales en nuestro día a día.
 
-{% include image.html max-width="252px" file="fob_foto.jpg" caption="Llave de acceso RFID a 125kHz. EyC." %}
+{% include image.html width="252px" file="fob_foto.jpg" caption="Llave de acceso RFID a 125kHz. EyC." %}
 
 <!--more-->
 
@@ -37,7 +37,7 @@ A estas alturas ya todos sabéis cómo funciona un comparador. Tiene dos entrada
 
 Con un comparador se puede hacer un oscilador de relajación siguiendo este esquema:
 
-{% include image.html max-width="480px" file="osci1.png" caption="Oscilador de relajación construido con un comparador LM393. EyC." %}
+{% include image.html width="480px" file="osci1.png" caption="Oscilador de relajación construido con un comparador LM393. EyC." %}
 
 La tensión en la entrada no inversora es fija y viene determinada por el divisor resistivo que forman **R1** y **R2**. Como ambas tienen el mismo valor, la tensión en la unión será la mitad de la de alimentación (2.5V).
 
@@ -60,11 +60,11 @@ Los valores de los componentes no son críticos pero sí conviene tener presente
 
 Aquí una simulación, en verde está la salida del comparador y en azul la carga y descarga del condensador:
 
-{% include image.html max-width="300px" file="osci1_oscill.png" caption="Simulación del circuito anterior. EyC." %}
+{% include image.html width="300px" file="osci1_oscill.png" caption="Simulación del circuito anterior. EyC." %}
 
 ¿Qué pasa si queremos conectar algo a la salida? Pues **C1** que se descarga más rápido porque ahora hay otro circuito consumiendo de él. Necesitaremos desacoplar la salida, y para eso se utiliza un *buffer*:
 
-{% include image.html max-width="480px" file="osci1buffer.png" caption="Oscilador y etapa de salida tipo buffer. EyC." %}
+{% include image.html width="480px" file="osci1buffer.png" caption="Oscilador y etapa de salida tipo buffer. EyC." %}
 
 Este segundo comparador tiene una de sus entradas a tensión fija por el divisor resistivo. Su salida dependerá de la tensión presente en la otra entrada. También he incluido a **C2** como condensador de desacople de alimentación.
 
@@ -80,7 +80,7 @@ En **D1** caen unos 0.7V, y en **D2** otros 0.7. Por tanto la base de **Q2** est
 
 Cuando la salida de **U2** pasa a nivel bajo, la situación es justo la contraria. **Q2** se pone a conducir, y **Q1** se encuentra justo en el límite. El resultado es que **Q1** y **Q2** conducen semiciclos alternos de corriente hacia y desde la carga sin zonas muertas entre ellos. Se llama amplificador de *clase AB*.
 
-{% include image.html max-width="480px" file="osci1bufferpushpull_oscill.png" caption="En un amplificador AB cada transistor conduce un semiciclo completo. EyC." %}
+{% include image.html width="480px" file="osci1bufferpushpull_oscill.png" caption="En un amplificador AB cada transistor conduce un semiciclo completo. EyC." %}
 
 ## Medir bobinas con un osciloscopio
 
@@ -108,7 +108,7 @@ Eso se llama respuesta escalón. Es una oscilación armónica amortiguada cuya f
 
 Con una medida ya tendríamos suficiente para calcular la L, pero el condensador puede estar mal y no tener la capacidad que dice tener, o podríamos habernos equivocado al contar los periodos, por ejemplo. Lo mejor es probar varios condensadores de distinta capacidad y apuntar las frecuencias. Calculamos la L en cada caso y hacemos la media o -si nos ponemos serios- una [regresión lineal](https://www.graphpad.com/quickcalcs/linear2/).
 
-{% include image.html max-width="480px" file="condensadores.jpg" caption="Podríamos determinar el valor de la inductancia midiendo con  
+{% include image.html width="480px" file="condensadores.jpg" caption="Podríamos determinar el valor de la inductancia midiendo con  
 varios condensadores y haciendo después una regresión lineal. EyC" %}
 
 Resumiendo: mi bobina es de **940 ± 20 μH**. Despreciando la resistencia (30Ω), la capacidad parásita de los transistores, el efecto de carga de las sondas y el osciloscopio, la propia capacidad de la bobina y otros errores de medida.
@@ -152,7 +152,7 @@ En este clip podéis apreciar la el fenómeno de resonancia con una capacidad pe
 
 Para medir fácilmente la tensión en la bobina conectaremos un *detector de envolvente*. Sólo tiene tres componentes: un diodo detector, un condensador y una resistencia. Os sonará el esquema de las radios AM.
 
-{% include image.html max-width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. [Wikipedia.](/pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/C_Simple_envelope_detector.gif)" %}
+{% include image.html width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. [Wikipedia.](/pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/C_Simple_envelope_detector.gif)" %}
 
 El diodo es fácil: un **1N4148**. Salvo que nos vayamos a frecuencias muy altas, a voltajes muy bajos o a corrientes altas siempre será el 1N4148.
 
@@ -184,7 +184,7 @@ Hasta ahora nos hemos limitado a la **capa física**. El receptor puede inducir 
 
 Al título. Lo de **tarjetas** tiene poco que explicar, a veces son tarjetas, a veces llaveros, a veces pegatinas y a veces chips subcutáneos.
 
-{% include image.html max-width="480px" file="tres_tarjetas.jpg" caption="Dispositivos RFID. EyC." %}
+{% include image.html width="480px" file="tres_tarjetas.jpg" caption="Dispositivos RFID. EyC." %}
 
 Las tarjetas **identificativas** suelen ser de sólo lectura, y se limitan a transmitir un código. Desde que las arrimas al sensor hasta que las alejas, todo el rato están transmitiendo ese código en bucle. Cuando se activan o desactivan, en realidad ingresamos el código en una base de datos para conceder o denegar el acceso. Pero en la tarjeta no se cambia nada.
 
@@ -198,7 +198,7 @@ El principio físico, lo de modular el campo emitido por el emisor, es válido p
 
 Vamos a probar con esta tarjeta:
 
-{% include image.html max-width="480px" file="fermax_foto.png" caption="Tarjeta de acceso típica a 125kHz. EyC." %}
+{% include image.html width="480px" file="fermax_foto.png" caption="Tarjeta de acceso típica a 125kHz. EyC." %}
 
 Ajustamos la frecuencia a **125kHz** conectamos el osciloscopio para ver la señal. Arriba está la envolvente (acoplada en AC) y abajo la onda cuadrada tras pasar por el comparador.
 
@@ -254,7 +254,7 @@ Es decir, esta tarjeta corresponde al código **0AB49789**. No encuentro la rela
 
 Vamos a hacer otra prueba con un llavero. Fijaos en que tiene grabado por fuera el código **6869636**:
 
-{% include image.html max-width="252px" file="fob_foto.jpg" caption="Llavero RFID. EyC." %}
+{% include image.html width="252px" file="fob_foto.jpg" caption="Llavero RFID. EyC." %}
 
 En el osciloscopio nos aparece una señal más débil porque el diámetro de la bobina es menor que el de la tarjeta.
 
@@ -293,7 +293,7 @@ El código transmitido es **0x0068D284**. Ese número pasado a decimal es justam
 
 Ahora vamos a probar con esta otra tarjeta:
 
-{% include image.html max-width="480px" file="hid_foto.png" caption="Otra tarjeta de acceso a 125kHz. EyC." %}
+{% include image.html width="480px" file="hid_foto.png" caption="Otra tarjeta de acceso a 125kHz. EyC." %}
 
 En lugar de la señal modulada que veíamos antes, ahora tenemos una señal de otra forma:
 
@@ -301,7 +301,7 @@ En lugar de la señal modulada que veíamos antes, ahora tenemos una señal de o
 
 Si la ampliamos un poco:
 
-{% include image.html max-width="480px" file="hid_scope2.png" caption="Modulación de la tarjeta ampliada. EyC." %}
+{% include image.html width="480px" file="hid_scope2.png" caption="Modulación de la tarjeta ampliada. EyC." %}
 
 No parece ni Manchester ni nada conocido. El comparador ya no nos sirve, el analizador lógico tampoco.
 

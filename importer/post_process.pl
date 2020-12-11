@@ -323,7 +323,7 @@ sub format_image {
 
 	if ($width ne "" and $width < 400) {
 	    $width = int($width * 1.5); # magnifier
-		my $string = "{% include image.html max-width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}";
+		my $string = "{% include image.html width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}";
 		return parts_store($string, "img");
 	}
 	else {

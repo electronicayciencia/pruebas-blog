@@ -14,7 +14,7 @@ Siendo de los protocolos más utilizados, para algunos aficionados el bus I2C co
 
 Como la mejor forma de ver cómo funciona algo es practicándolo, he escrito unas funciones para emular un puerto I2C por software para Raspberry Pi utilizando por debajo las funciones de WiringPi. Los ficheros están [en el github del blog](https://electronicayciencia.github.io/wPi_soft_i2c/) y poco a poco los iremos desgranando a lo largo de esta entrada.
 
-{% include image.html max-width="270px" file="I2c_logo.svg.png" caption=" Logo de I2C: Philips, ahora NXP semiconductor" %}
+{% include image.html width="270px" file="I2c_logo.svg.png" caption=" Logo de I2C: Philips, ahora NXP semiconductor" %}
 
 <!--more-->
 
@@ -409,7 +409,7 @@ Ahora vamos al datasheet del integrado -[disponible aquí]({{page.assets}}/PCF85
 
 Para usarlo en modo ADC debemos empezar enviando el byte de control. Con este byte indicaremos cómo disponer las entradas y el canal que nos interesa leer.
 
-{% include image.html max-width="445px" file="pcf8591_control.png" caption="Byte de control en el PCF8591. [NXP](/pruebas-blog/assets/2017/02/el-bus-i2c-bajo-nivel/PCF8591.pdf)." %}
+{% include image.html width="445px" file="pcf8591_control.png" caption="Byte de control en el PCF8591. [NXP](/pruebas-blog/assets/2017/02/el-bus-i2c-bajo-nivel/PCF8591.pdf)." %}
 
 Según el dibujo anterior:
 

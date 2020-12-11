@@ -60,7 +60,7 @@ En la vida real la cosa no es tan simple. Si tu señal es simétrica necesitas a
 
 Sin embargo no vamos a empezar por ahí. Empezaremos por esta otra configuración. Mas simple. El seguidor de tensión:
 
-{% include image.html max-width="480px" file="op_amp_buffer.png" caption="Buffer no inversor o seguidor de tensión. EyC." %}
+{% include image.html width="480px" file="op_amp_buffer.png" caption="Buffer no inversor o seguidor de tensión. EyC." %}
 
 Cuando, como aficionado, lees sobre este circuito te cuentan cómo la salida es igual a la entrada. Eso es **casi** verdad. Salvo por una *millonésima* parte.
 
@@ -80,7 +80,7 @@ Sigamos. El buffer no es la aplicación más típica de un operacional. Lo norma
 
 ¿Cómo lo conseguimos? *engañando* al circuito. Así:
 
-{% include image.html max-width="480px" file="op_amp_non_inv_ampl.png" caption="Amplificador no inversor. EyC." %}
+{% include image.html width="480px" file="op_amp_non_inv_ampl.png" caption="Amplificador no inversor. EyC." %}
 
 Esta vez no conectamos la otra entrada directamente a la salida, sino que lo hacemos a través de un **divisor resistivo**. El amplificador no está midiendo la tensión en la salida, sino sólo una fracción de la misma.
 

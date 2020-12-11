@@ -15,7 +15,7 @@ Hoy quería hablaros de un electrodoméstico digamos intermedio entre los ventil
 
 Primero vamos a introducir unos conceptos básicos de psicrometría para usarlos después. Después veremos las partes de un evaporativo y el principio de funcionamiento. Conectaremos un sensor **HTU21D** para medir la temperatura y humedad a la salida del aparato. Y, de postre, haremos algunas pruebas de rendimiento en distintas condiciones.
 
-{% include image.html max-width="345px" file="20170807_192905.jpg" caption="Panel de celulosa corrugada." %}
+{% include image.html width="345px" file="20170807_192905.jpg" caption="Panel de celulosa corrugada." %}
 
 <!--more-->
 
@@ -41,11 +41,11 @@ Si el agua se enfría al evaporarse, cabe preguntarse ¿hasta qué temperatura?.
 
 Pero resulta que la temperatura de bulbo húmedo depende de cuán seco esté el ambiente. Podríamos utilizar dos termómetros, uno normal y el otro humedecido para medir la humedad relativa. Tal aparato se llama **psicrómetro**. Luego ambos termómetros se agitan en el aire y se miran las temperaturas de uno y otro.
 
-{% include image.html max-width="292px" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
+{% include image.html width="292px" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
 
 Si el aire está saturado de humedad al 100%, dará igual que mojemos el termómetro porque del agua no se va a evaporar nada. En tal caso la temperatura húmeda será la misma que la seca. Los psicrómetros vienen con una tabla de doble entrada que nos da la humedad relativa en función de ambas temperaturas o en función de la temperatura seca y de la diferencia entre ambas.
 
-{% include image.html max-width="480px" file="detalle-tabla-psicrometrica.png" caption="Tabla de diferencias psicrométricas. [termometros.com](http://m.termometros.com/es/Psicr%C3%B3metro-medidor-de-humedad-an%C3%A1logico)" %}
+{% include image.html width="480px" file="detalle-tabla-psicrometrica.png" caption="Tabla de diferencias psicrométricas. [termometros.com](http://m.termometros.com/es/Psicr%C3%B3metro-medidor-de-humedad-an%C3%A1logico)" %}
 
 Suponed, por ejemplo, la temperatura del termómetro seco es 20ºC y el húmedo marca 16ºC. Hay una diferencia de 4ºC. Según la tabla anterior la humedad relativa sería del 63%.
 
@@ -67,7 +67,7 @@ Y para ver hasta donde bajaría la temperatura del aire al saturarlo de humedad,
 
 Con el mismo aire inicial, 30ºC y 20% RH ¿Qué temperatura obtendríamos a la salida si en lugar de llevar la saturación al 100% la dejáramos en el 60%?
 
-{% include image.html max-width="480px" file="PsychrometricChart.3020-60.png" caption="Proceso de saturación adiabática desde el 20% al 60%." %}
+{% include image.html width="480px" file="PsychrometricChart.3020-60.png" caption="Proceso de saturación adiabática desde el 20% al 60%." %}
 
 El resultado es 20.6ºC. Hemos logrado una reducción de temperatura de 9.4ºC nada más que moviendo el aire cerca del agua. Y todo sin intercambiar calor con ningún otro elemento, aquí todo se enfría, el ambiente, el agua, todo, simplemente hemos aprovechado el proceso de conversión de líquido a gas.
 
@@ -77,11 +77,11 @@ En esta página tenéis una tabla psicrométrica para practicar: [Free Online In
 
 Aunque os voy a enseñar el interior de un aparato concreto, ya podéis intuir que el principio de funcionamiento es el mismo en todos. Sólo cambia un poco la disposición en sistemas industriales o domésticos, pero los portátiles son parecidos: Se trata de un ventilador normal y corriente al que se le ha incorporado un panel en la toma de aire, una cubeta con agua, y una bomba para humedecerlo.
 
-{% include image.html max-width="270px" file="20170807_193049.jpg" caption="Vista trasera del enfriador." %}
+{% include image.html width="270px" file="20170807_193049.jpg" caption="Vista trasera del enfriador." %}
 
 Esta es la vista por detrás. Lo primero que encontramos es un filtro de rejilla. Por un lado evita el paso de suciedad al panel de celulosa haciendo que dure más, y por otro homogeniza el flujo de aire. Se aprecia debajo la cubeta con agua.
 
-{% include image.html max-width="306px" file="20170807_192853.jpg" caption="Panel de celulosa, vista lateral." %}
+{% include image.html width="306px" file="20170807_192853.jpg" caption="Panel de celulosa, vista lateral." %}
 
 Este es el panel de *celulosa corrugada*. El corazón del sistema y lo que realmente enfría el aire. Los hay de distintos tipos: esponja de fibra, lana de madera, celulosa...
 
@@ -93,7 +93,7 @@ Un motor bombea agua desde la cubeta hasta unas salidas que hay en la parte supe
 
 Lo que hay a continuación es un ventilador, en este caso cilíndrico. Sirve  para bombear aire humedecido hacia el exterior. En este modelo concreto, se puede intercalar también una resistencia para calentar el aire los días de frío.
 
-{% include image.html max-width="363px" file="20170807_192618.jpg" caption="Vista trasera una vez retirado el panel." %}
+{% include image.html width="363px" file="20170807_192618.jpg" caption="Vista trasera una vez retirado el panel." %}
 
 Podemos considerar que el aire se satura durante el tiempo que está atravesando el panel. Asumiendo un flujo uniforme el grado de saturación alcanzado depende de tres variables:
 
@@ -119,13 +119,13 @@ Por eso hay dos precauciones a tener en cuenta para el mantenimiento de estos el
 
 La pregunta clave aquí es si refresca y cuánto refresca. Para responder a eso vamos a utilizar un pequeño sensor **HTU21D**. También emplearemos una sonda de temperatura DS18B20 más adelante.
 
-{% include image.html max-width="300px" file="htu21d.jpg" caption="Módulo HTU21D. [sparkfun.com](https://www.sparkfun.com/products/retired/12064)" %}
+{% include image.html width="300px" file="htu21d.jpg" caption="Módulo HTU21D. [sparkfun.com](https://www.sparkfun.com/products/retired/12064)" %}
 
 El HTU21D es un pequeño sensor de temperatura y humedad de tipo capacitivo con comunicación por I2C ([Datasheet HTU21D](http://eu.mouser.com/pdfdocs/HTU21DF.PDF)). Este sensor nos da hasta 12 bits de precisión para la humedad y 14 para la temperatura.
 
 Si utilizais cable de cinta de más de 15cm y la línea de reloj y la de datos son contiguas, la comunicación cruzada puede convertirse en un problema. Tenéis que tener especial cuidado con el cross-talk sobre todo al usar las resistencias de pull-up internas tan débiles de la Raspberry (100k). Si no queréis usar resistencias externas de pull-up, entonces lo mejor es dedicarles las líneas de los extremos de la cinta, dejando el positivo de alimentación y masa entre ambas. Eso minimizará el ruido.
 
-{% include image.html max-width="300px" file="20170806_130532.jpg" caption="Vista del enfriador con la Raspberry como data logger." %}
+{% include image.html width="300px" file="20170806_130532.jpg" caption="Vista del enfriador con la Raspberry como data logger." %}
 
 Los sensores de humedad suelen ser inexactos por naturaleza. Un sensor de temperatura se puede calibrar fácilmente poniéndolo en contacto con un líquido a temperatura conocida. Porque los líquidos transmiten muy bien sus propiedades. Un sensor de humedad relativa debe medir y ser calibrado necesariamente en el aire. Y las medidas en el aire no son tan fiables como en un líquido. En el siguiente enlace tenéis una comparativa muy interesante entre diferentes sensores: [ Compare DHT22, AM2302, AM2320, AM2321, SHT71, HTU21D, Si7021, BME280](https://www.kandrsmith.org/RJS/Misc/Hygrometers/calib_many.html).
 
@@ -183,7 +183,7 @@ La lectura ha sido 0x69CC, el CRC es AC. Lo primero que debemos hacer es poner l
 
 A continuación el datasheet nos da una fórmula para convertir la lectura a grados centígrados. El resultado es [25.77ºC](https://www.google.es/search?q=-46.85+%2B175.72+*+0x69CC+%2F+2**16).
 
-{% include image.html max-width="300px" file="conversion_temp.png" caption="" %}
+{% include image.html width="300px" file="conversion_temp.png" caption="" %}
 
 En cuanto al CRC, esta vez no lo voy a comprobar; me fío del resultado. Tenéis una explicación de cómo funciona un CRC en la entrada dedicada a [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}).
 
@@ -247,7 +247,7 @@ Teóricamente, la temperatura de saturación serían 12ºC, pero ya hemos visto 
 
 ¿Significa eso que el cacharro no sirve para nada? No, significa que baja la temperatura pero sólo un poco, quizá menos de lo esperado. Además también sube la humedad, y eso en ambientes muy secos es muy recomendable.
 
-{% include image.html max-width="300px" file="20170807_170420.jpg" caption="La evaporación funciona muy bien para climas secos." %}
+{% include image.html width="300px" file="20170807_170420.jpg" caption="La evaporación funciona muy bien para climas secos." %}
 
 ## Sensación térmica
 

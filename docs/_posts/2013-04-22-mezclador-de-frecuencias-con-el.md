@@ -75,7 +75,7 @@ Como ya sabéis, la amplificación viene determinada por **R2** y **R3**. En nue
 
 Otro parámetro al que tenemos que prestar especial atención cuando diseñamos un amplificador es el producto [**ganancia - ancho de banda**](https://en.wikipedia.org/wiki/Gain%E2%80%93bandwidth_product). Que no es otra cosa que "a mayor ganancia, menor banda pasante". Es un parámetro típico, aunque no exclusivo, de los circuitos con operacionales.
 
-{% include image.html max-width="480px" file="gbp.gif" caption="" %}
+{% include image.html width="480px" file="gbp.gif" caption="" %}
 
 Aquí los valores de **C1** y **R4** tienen un papel decisivo, pues forman un filtro paso-alto que desplaza el comienzo de la banda pasante hacia frecuencias mayores. Así, en lugar de amplificar frecuencias entre 0 y 10kHz, por ejemplo, amplificaríamos entre 20 y 30kHz que nos interesan más.
 
@@ -91,7 +91,7 @@ La configuración no es nada complicada: **R11** y **C7** deciden la frecuencia 
 
 **R11** y **C7** se calculan usando unas tablas que vienen en el datasheet. Por ejemplo, para una resistencia **R11** de 10kohm y una tensión de alimentación de 8 o 9V el valor de **C7** tiene que ser del orden de 1nF. ¿Veis ahora por qué decía antes que la frecuencia depende de la tensión de alimentación?
 
-{% include image.html max-width="418px" file="calculo_rc.png" caption="" %}
+{% include image.html width="418px" file="calculo_rc.png" caption="" %}
 
 La salida del oscilador será la que controle el mezclador.
 
@@ -101,7 +101,7 @@ Siguiendo lo que dijimos al principio, todo se trata de multiplicar dos señales
 
 El integrado **IC2** es un sencillo [CD4066](http://www.natalnet.br/~aroca/afron/CD4066BC.pdf) que contiene 4 interruptores analógicos.
 
-{% include image.html max-width="480px" file="cd4066.png" caption="" %}
+{% include image.html width="480px" file="cd4066.png" caption="" %}
 
 La señal de entrada preamplificada se aplica a la los interruptores C y D. Mientras que la señal del oscilador local que viene de **IC3** la aplicamos a los pines de control que abren o cierran estos interruptores.
 
@@ -141,7 +141,7 @@ Con este circuito ya podemos explorar con la tarjeta de sonido las frecuencias n
 
 Una vez terminado, la placa nos queda más o menos así. Digo más o menos porque esta foto es de una versión anterior y he cambiado algunos componentes.
 
-{% include image.html max-width="466px" file="IMAG0415.jpg" caption="" %}
+{% include image.html width="466px" file="IMAG0415.jpg" caption="" %}
 
 En [este enlace]({{page.assets}}/mixer4066.zip) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
 

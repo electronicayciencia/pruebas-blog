@@ -13,7 +13,7 @@ Para otro experimento necesitaba una fuente de luz blanca cuyos rayos fueran má
 
 Intentemos dar un repaso dentro de lo posible a este asunto sin entrar en los detalles matemáticos.
 
-{% include image.html max-width="480px" file="Optical-dispersion.png" caption="Prisma de Newton. Esquema simplificado.  
+{% include image.html width="480px" file="Optical-dispersion.png" caption="Prisma de Newton. Esquema simplificado.  
 Fuente: The Dark Side of the Moon - Pink Floyd" %}
 
 <!--more-->
@@ -44,7 +44,7 @@ La onda se propaga en forma de esfera, hemos dicho. A medida que nos alejemos de
 
 Además, cuando la luz viene de un área muy estrecha la potencia siempre es mayor en la dirección hacia la fuente. Y si proyectamos en una pantalla el efecto es que el centro siempre tiene más fuerza que los bordes. Esto en fotografía se llama viñeteo y sucede cuando, como en este caso, la intensidad luminosa es función del ángulo.
 
-{% include image.html max-width="480px" file="20170710_220616.jpg" caption="La sombra bajo una fuente plana o puntual está enfocada a cualquier distancia." %}
+{% include image.html width="480px" file="20170710_220616.jpg" caption="La sombra bajo una fuente plana o puntual está enfocada a cualquier distancia." %}
 
 En la práctica, si usamos una fuente puntual:
 
@@ -107,7 +107,7 @@ La fuente no es un punto, es una superficie. Pero el foco de la lente sí es un 
 
 Por ese motivo no podemos colimar un diodo led normal hasta convertirlo en un laser.
 
-{% include image.html max-width="300px" file="led-no-puntual.jpg" caption="Un led no puede considerarse a priori una fuente puntual." %}
+{% include image.html width="300px" file="led-no-puntual.jpg" caption="Un led no puede considerarse a priori una fuente puntual." %}
 
 Venden colimadores para LEDs, sí, son básicamente lentes convergentes de mucha potencia. Sin embargo, al no ser el LED una fuente puntual los rayos no salen paralelos y la lente solamente actúa como concentrador de luz. Sirve para concentrar el haz de luz en un ángulo menor, así ilumina menos superficie pero más intensamente. Los llevan por ejemplo los flash de los teléfonos móviles.
 
@@ -149,7 +149,7 @@ Pero no os dejéis engañar. Las fuentes reales, además de extensas suelen no s
 
 Por ejemplo, este es el resultado de hacer pasar la luz procedente de un LED de 10w cuadrado a través de una lente y un pinhole al final de un tubo de cartón.
 
-{% include image.html max-width="480px" file="20170801_185606.jpg" caption="Imagen de un led proyectado en una pantalla tras hacerlo pasar por un pinhole." %}
+{% include image.html width="480px" file="20170801_185606.jpg" caption="Imagen de un led proyectado en una pantalla tras hacerlo pasar por un pinhole." %}
 
 Para evitarlo podemos utilizar un difusor entre el led y la lente, o bien una lente difusora con el lado plano especialmente pulido. Por supuesto, y como no podía ser de otra manera, perderemos luz.
 
@@ -185,7 +185,7 @@ Una vez puesto el diafragma y eliminados los bordes, dado que los rayos son para
 
 Nos lleva a la siguiente reflexión. Las lentes de gran apertura son caras, y las lentes de calidad más caras aún, y las grandes, de calidad y potentes no digamos. Por eso la opción más interesante es usar una [lente de Fresnel](https://es.wikipedia.org/wiki/Lente_de_Fresnel). Que de hecho es lo que llevaban los antiguos proyectores de diapositivas antes de que el Power Point los sustituyera.
 
-{% include image.html max-width="480px" file="lente-fresnel.png" caption="Lente de Fresnel tamaño folio. Fuente: Aliexpress." %}
+{% include image.html width="480px" file="lente-fresnel.png" caption="Lente de Fresnel tamaño folio. Fuente: Aliexpress." %}
 
 Recapitulando, un buen esquema para conseguir luz más o menos paralela sería:
 
@@ -202,7 +202,7 @@ Pero como os advertía, hemos perdido la mayor parte de la luz original. Este se
 
 Con un esquema similar al descrito se alcanza un grado de paralelismo -o colimación- que ya nos permite ver con claridad fenómenos que no se aprecian con las fuentes extensas a simple vista. Por ejemplo en esta imagen veis el gas saliendo de un encendedor de cocina.
 
-{% include image.html max-width="480px" file="20170710_214323.jpg" caption="Gas saliendo de un encendedor de cocina." %}
+{% include image.html width="480px" file="20170710_214323.jpg" caption="Gas saliendo de un encendedor de cocina." %}
 
 En inglés, eso se llama un [Shadowgraph](https://en.wikipedia.org/wiki/Shadowgraph). El cambio de densidad del medio introduce alteraciones en el haz uniforme y estas se hacen visibles en la proyección. Es típico verlo por ejemplo en la sombra proyectada por una hoguera de día o por las olas del agua en una piscina. Y es la base sobre la que luego se elaboraría la [Fotografía Schlieren](https://es.wikipedia.org/wiki/Fotograf%C3%ADa_Schlieren).
 
@@ -212,7 +212,7 @@ Hay otra forma de conseguir luz más o menos coherente desde una fuente extensa:
 
 La distancia a la que una fuente podría considerarse puntual depende de su tamaño original. Por ejemplo, el Sol aún a millones de kilómetros de distancia es una fuente relativamente extensa. En la siguiente imagen fijaos en que los bordes de las sombras están difusos.
 
-{% include image.html max-width="480px" file="20170715_182100_HDR.jpg" caption="El Sol no es una fuente puntual.  
+{% include image.html width="480px" file="20170715_182100_HDR.jpg" caption="El Sol no es una fuente puntual.  
 Los bordes de las proyecciones no son nítidos." %}
 
 Los rayos del Sol pueden considerarse paralelos porque su divergencia es muy pequeña. De hecho la proyección no suele ser del mismo tamaño que la rendija, sino un poco mayor. Cuando nos movemos por ejemplo en coche o en tren, los objetos del paisaje cambian su ángulo de visión, se quedan atrás. El Sol en cambio parece seguirnos y moverse con nosotros. La razón es que está tan lejos que las distancias de un viaje en tren son insignificantes en comparación y por eso el ángulo bajo el que lo vemos apenas varía.
@@ -237,7 +237,7 @@ Cuanto más coherente más fácil de colimar, sí. Pero a veces se nos olvida qu
 
 Esto es lo que pasa al interponer una aguja en un rayo de Sol pasando por un agujerito en la ventana:
 
-{% include image.html max-width="394px" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
+{% include image.html width="394px" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
 
 Siento que la imagen no sea de muy buena calidad. Cuesta enfocar estas cosas con un móvil porque tendría que enfocar a infinito y sin embargo el móvil se empeña en enfocar la pantalla. A simple vista la imagen es mucho más viva.
 
@@ -257,12 +257,12 @@ Young, a diferencia de como se explica en la escuela, no hizo un experimento con
 
 Después hizo varios experimentos. Uno que él mismo describe fue mirando una vela desde la distancia y a través de un trozo de papel con dos aberturas rectangulares. Se ve una especie de arco iris, parecido a cuando se mira una farola un día de niebla. Conociendo la anchura de las ranuras fue capaz de deducir la longitud de onda de diferentes colores.
 
-{% include image.html max-width="300px" file="20170730_180840.jpg" caption="Plantilla para el experimento de Young.  
+{% include image.html width="300px" file="20170730_180840.jpg" caption="Plantilla para el experimento de Young.  
 Las rendijas más uniformes proyectan patrones más nítidos." %}
 
 Habitualmente se enseña en las escuelas que el experimento de la doble rendija de Young fue lo que convenció a los científicos de la época de que la teoría corpuscular estaba equivocada y la luz era realmente una onda. Pero no fue del todo así.
 
-{% include image.html max-width="318px" file="20170730_165114.jpg" caption="Patrón de difracción con la plantilla anterior." %}
+{% include image.html width="318px" file="20170730_165114.jpg" caption="Patrón de difracción con la plantilla anterior." %}
 
 La discordia llegó a su fin a principios de s. XIX, durante una congregación de la Academia Francesa para tratar de resolver el dilema de si la luz era una onda o un chorro de partículas. Poisson, partidario dogmático de la teoría corpuscular, propuso poner como obstáculo un objeto circular. Según su razonamiento las ondas pueden rodear obstáculos, y si la luz era una onda tenía que poder rodear ese círculo también. Lo cual era absurdo, por supuesto, según Poisson.
 

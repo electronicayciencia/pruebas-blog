@@ -65,7 +65,7 @@ $$
 
 Esta forma de aproximar una función por una serie de potencias de x, se llama **Serie de Taylor**. Por ejemplo mirad esta imagen tomada de la Wikipedia en la que aproximan una exponencial:
 
-{% include image.html max-width="222px" file="taylor_wikipedia.gif" caption="" %}
+{% include image.html width="222px" file="taylor_wikipedia.gif" caption="" %}
 
 Si todos los coeficientes k valieran 0 salvo k<sub>1</sub> saldría una función lineal como la recta del principio. k<sub>1</sub>x se llama *término lineal*.
 
@@ -134,7 +134,7 @@ Por eso decimos que cuando la amplificación no es lineal aparecen **armónicos*
 
 Vamos a ver, en la práctica, de dónde sale la distorsión. Tened en cuenta que los resultados y gráficos del Spice están basados en un modelo, que puede estar más o menos simplificado. Este es nuestro circuito:
 
-{% include image.html max-width="297px" file="sch_bc547_600_720mv_1k.png" caption="" %}
+{% include image.html width="297px" file="sch_bc547_600_720mv_1k.png" caption="" %}
 
 El transistor BC547 es un NPN muy utilizado. Lo polarizamos en **emisor común** de la forma más sencilla posible:
 
@@ -172,7 +172,7 @@ Ahora viene lo bueno, si el máximo son 10 V y el mínimo 7 V, el valor medio es
 
 Pero **NO** en este. Al valor medio de la entrada le corresponden 9.5V -línea gris-. Está desplazado porque las amplitudes no se amplifican por igual. Por ese motivo aunque la entrada puede ser una sinusoidal (en rojo), la salida (en verde) podrá ser cualquier cosa:
 
-{% include image.html max-width="480px" file="out_bc547_600_720mv_1k.png" caption="" %}
+{% include image.html width="480px" file="out_bc547_600_720mv_1k.png" caption="" %}
 
 Electrónicamente ya hemos visto por qué se ha deformado la onda. Pero matemáticamente se podría explicar de esta forma:
 
@@ -221,7 +221,7 @@ Además, tiene una fuerte componente continua, de casi 9V que deberíamos filtra
 
 Tomemos ahora un amplificador **bien diseñado** como este preamplificador que viene de ejemplo en el LTSpice (se llama HandFreePreamp por si queréis buscarlo).
 
-{% include image.html max-width="480px" file="thc_.05_sch.png" caption="" %}
+{% include image.html width="480px" file="thc_.05_sch.png" caption="" %}
 
 Este esquema me gusta porque da muchas otras especificaciones técnicas que caracterizan un amplificador:
 

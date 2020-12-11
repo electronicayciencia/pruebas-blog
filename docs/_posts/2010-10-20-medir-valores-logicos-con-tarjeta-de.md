@@ -21,13 +21,13 @@ Pero más que suficientes para lo que haremos. ¿24kHz es poco? Pues para grabar
 
 Con el tamaño de los componentes que tienen estos productos genéricos *made in China* es poco menos que un trabajo de relojería.
 
-{% include image.html max-width="480px" file="BENQ0004.JPG" caption="" %}
+{% include image.html width="480px" file="BENQ0004.JPG" caption="" %}
 
 ## Configuración de entrada
 
 No voy a meterme en cómo se puede configurar un ADC, Maxim tiene [una buena guía](http://www.maxim-ic.com/app-notes/index.mvp/id/1108). Según el datasheet del TP6911 el circuito debe parecerse a este:
 
-{% include image.html max-width="480px" file="esquema_TP6911.png" caption="" %}
+{% include image.html width="480px" file="esquema_TP6911.png" caption="" %}
 
 A la derecha veis la entrada de micrófono. Con la típica configuración para alimentar un [electret]({{site.baseurl}}{% post_url 2010-06-04-utilizar-un-microfono-electret %}).
 
@@ -41,7 +41,7 @@ Hay un segundo problema. El datasheet TP6911 es muy básico. Y aunque he encontr
 
 Por ejemplo la estructura de la entrada de grabación dicen que es así:
 
-{% include image.html max-width="480px" file="esquema_rec.png" caption="" %}
+{% include image.html width="480px" file="esquema_rec.png" caption="" %}
 
 Sin embargo no se corresponde con el circuito de la tarjeta. La resistencia no existe y si eliminamos el condensador se supone que no deberíamos tener señal de entrada. Sin embargo la tenemos. Es parecido a trabajar a ciegas. Por suerte este hardware es muy barato.
 

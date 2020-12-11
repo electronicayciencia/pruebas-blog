@@ -14,7 +14,7 @@ Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube 
 
 Hablaremos del BMP280, un sensor digital de presión y temperatura con comunicación I2C y SPI. Interpretar la lectura no es fácil, veremos los algoritmos que nos proporciona el fabricante y su API. Lo conectaremos a la Raspberry y registraremos la presión durante unos días. Para terminar estudiaremos las variaciones debidas a la llamada *marea barométrica* y los registros durante una breve tormenta.
 
-{% include image.html max-width="312px" file="baro_goethe_peque.jpg" caption="Botella barométrica o barómetro de Goethe. EyC." %}
+{% include image.html width="312px" file="baro_goethe_peque.jpg" caption="Botella barométrica o barómetro de Goethe. EyC." %}
 
 Hasta el siglo XVI, la ciencia que se enseñaba en las universidades, la ciencia de verdad, en la que creía todo el mundo sin discusión, era la física aristotélica. Entonces llegó Copérnico y nos mostró que, a veces, las verdades bien establecidas y enseñadas durante generaciones no son ciertas. Llegó Francis Bacon y nos enseñó que la ciencia y la dialéctica son cosas distintas; y que algo no es verdad tan sólo porque sea razonable. Galileo nos explicó cómo hacer experimentos y ayudarnos de los números para proceder. Newton recorrió ese camino para sintetizar la nueva ciencia de la época en su obra culmen -que todos conocéis-, enterrando para siempre la física aristotélica.
 
@@ -22,7 +22,7 @@ Esta revolución ocurrió a lo largo del s.XVII, y cambió el modo de hacer cien
 
 Todo comenzó cuando alguien intentó bombear agua de un pozo de más de 10 metros de profundidad... [y vio que no se podía](https://en.wikipedia.org/wiki/Barometer#History).
 
-{% include image.html max-width="300px" file="BMP280.jpg" caption="Sensor barométrico BMP280. [Bosch](https://www.bosch-sensortec.com/bst/products/all_products/bmp280)." %}
+{% include image.html width="300px" file="BMP280.jpg" caption="Sensor barométrico BMP280. [Bosch](https://www.bosch-sensortec.com/bst/products/all_products/bmp280)." %}
 
 <!--more-->
 
@@ -36,7 +36,7 @@ Usar este dispositivo con la Raspberry es [muy sencillo](http://wiki.sunfounder.
 
 ¡Ya está! ¿Para qué complicarse? Fin del tutorial.
 
-{% include image.html max-width="480px" file="digital-art-happiness.png" caption="We live in a happy world. [Pinterest](https://www.pinterest.es/pin/544794886163949157/)." %}
+{% include image.html width="480px" file="digital-art-happiness.png" caption="We live in a happy world. [Pinterest](https://www.pinterest.es/pin/544794886163949157/)." %}
 
 Ahora bien, si buscas el detalle tecnológico, si te preguntas qué pasa dentro de esas librerías... si encuentras el camino más interesante que el destino, sigue leyendo... y prepárate.
 
@@ -104,7 +104,7 @@ El fabricante nos proporciona un driver ya listo con este algoritmo implementado
 
 Los barómetros, por lo general se encuentran influidos por la temperatura ambiente. Es muy fácil de ver en un tipo de barómetro llamado **barómetro de Goethe**; más conocido en eBay como *Glass Barometer Weather Forecast Rain Shine Bottle*.
 
-{% include image.html max-width="312px" file="baro_goethe.jpg" caption="Botella barométrica. El extremo superior está abierto. EyC." %}
+{% include image.html width="312px" file="baro_goethe.jpg" caption="Botella barométrica. El extremo superior está abierto. EyC." %}
 
 Primero llenamos la botella de líquido. El nivel en el brazo lateral, cuyo extremo superior está abierto, alcanza una determinada altura. La presión dentro de la esfera interior no puede variar. Así pues, cuando aumenta la presión exterior, entra por el extremo abierto y empuja el líquido hacia abajo. Y si la presión atmosférica desciende, es la presión dentro de la esfera la que empuja el líquido a subir.
 
@@ -118,7 +118,7 @@ Líquido alto: ha bajado la presión o hace más *calor*.
 
 La lectura del barómetro siempre debe compensarse con la del termómetro. Por eso es común ver juntos barómetro y termómetro.
 
-{% include image.html max-width="480px" file="termo_barometer.jpg" caption="Barómetro y termómetro juntos. [Amazon](https://www.amazon.com/Educational-Innovations-Eco-celli-Barometer/dp/B009P8ALI4)." %}
+{% include image.html width="480px" file="termo_barometer.jpg" caption="Barómetro y termómetro juntos. [Amazon](https://www.amazon.com/Educational-Innovations-Eco-celli-Barometer/dp/B009P8ALI4)." %}
 
 Con frecuencia, omiten la tabla de compensación en los barómetros de interiores, donde se supone que el rango de temperaturas está acotado. El BMP280 introduce la compensación de temperatura dentro del algoritmo de lectura.
 
@@ -177,7 +177,7 @@ En realidad no usamos potencias de 10 -fáciles para nosotros- sino potencias de
 
 Sigamos con los números del ejemplo anterior. Queremos escalar 2.3 a una potencia de 2. He hecho una tabla para el cálculo. La he compartido y podéis verla [aquí](https://docs.google.com/spreadsheets/d/1fQlrgfiAizZDGOhC3fAPFQ1Vk6SMFsVKXnL850K32F8/edit?usp=sharing). Este sería el error cometido en función del factor de escala:
 
-{% include image.html max-width="480px" file="fixed_point_table_2.3.png" caption="Escalado de un número decimal a una potencia de 2 con un tamaño de 8 bits. EyC." %}
+{% include image.html width="480px" file="fixed_point_table_2.3.png" caption="Escalado de un número decimal a una potencia de 2 con un tamaño de 8 bits. EyC." %}
 
 Si el tamaño de entero del procesador fuera 8 bits, no podremos escalarlo más allá de 256 que es el valor máximo. Meteríamos en el registro el valor 147 y nuestro factor de escala sería 64. Lo cual nos daría un error de 3 milésimas.
 
@@ -247,7 +247,7 @@ En su API, el fabricante nos ofrece funciones para calcular la temperatura con c
 
 He preparado una tabla con los tiempos en segundos con y sin optimizaciones del compilador, para 10 millones de iteraciones en una Raspberry Pi 3.
 
-{% include image.html max-width="480px" file="tabla_rendimiento.png" caption="Rendimiento de las funciones en una Raspberry Pi 3.  
+{% include image.html width="480px" file="tabla_rendimiento.png" caption="Rendimiento de las funciones en una Raspberry Pi 3.  
 10M iteraciones. Tiempo en segundos. EyC." %}
 
 En el cálculo de la **temperatura**, la aritmética de punto fijo supera a la de coma flotante. En cambio, si nos vamos al cálculo de la **presión**, es al revés, la aritmética de 64bits es más lenta que la coma flotante. ¿Por qué?
@@ -303,7 +303,7 @@ Comprobaremos el correcto funcionamiento recuperando el ID de dispositivo. Ya lo
 
 En dicho programa escribimos nuestras funciones de comunicación personalizadas. Inicializamos la librería WiringPi y la emulación I2C por software. Y de la línea 115 en adelante, configuramos el API y llamamos a la función de  inicialización. Si todo ha ido bien, esta llamada rellenará el ID de dispositivo .
 
-{% include image.html max-width="480px" file="device_found58.png" caption="El ID del BMP280 es 58h. EyC." %}
+{% include image.html width="480px" file="device_found58.png" caption="El ID del BMP280 es 58h. EyC." %}
 
 A partir de aquí, se trata de experimentar con distintas configuraciones o filtros siguiendo la documentación.
 
@@ -323,7 +323,7 @@ Madrid está de media a **667** m sobre el nivel del mar, lo cual corresponde a 
 
 Como la presión varía con la altura de forma muy lineal, se puede usar un barómetro para determinar la altura a la que vuela un avión. Se llama **altímetro barométrico**.
 
-{% include image.html max-width="480px" file="Altimeter_C-14A_2992.jpg" caption="Altímetro barométrico. [aeroantique.com](https://aeroantique.com/)" %}
+{% include image.html width="480px" file="Altimeter_C-14A_2992.jpg" caption="Altímetro barométrico. [aeroantique.com](https://aeroantique.com/)" %}
 
 Pero la presión sube y baja según el día, ¿cómo afecta eso a los aviones? Pues en el caso más simple, cuando estás en tierra, ajustas el altímetro hasta que marca la altitud conocida del aeródromo. Y para las aeronaves en vuelo, los aeropuertos transmiten continuamente el dato de la presión atmosférica mediante los servicios [VOLMET](https://en.wikipedia.org/wiki/VOLMET) y [ATIS](https://en.wikipedia.org/wiki/Automatic_terminal_information_service). Al aproximarte al aeropuerto escuchas el dato de la presión (QNH) y ajustas el altímetro de acuerdo a la existente en la zona en ese momento.
 

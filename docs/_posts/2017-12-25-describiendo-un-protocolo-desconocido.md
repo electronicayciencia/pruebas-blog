@@ -160,7 +160,7 @@ En este caso es fácil porque la señal es un flujo continuo y se ve claramente 
 
 Lo siguiente es buscar una marca de final del paquete. A diferencia de la cabecera no siempre existe. Para averiguarlo alineamos los finales y comprobamos si tienen algo en común.
 
-{% include image.html max-width="259px" file="paquetes_value_ends.png" caption="No se aprecia ningún patrón común al final de los paquetes." %}
+{% include image.html width="259px" file="paquetes_value_ends.png" caption="No se aprecia ningún patrón común al final de los paquetes." %}
 
 No, parece. Sin embargo, el receptor debe tener alguna manera de saber si ha terminado de recibir la trama y la ha recibido completa. De no hay una marca al final la otra posibilidad es hacer constar la longitud dentro del mensaje. Habría otra posibilidad: dar por terminada la trama cuando hubiera una secuencia de unos suficientemente larga. Pero no resulta práctico.
 
@@ -360,7 +360,7 @@ Un 0.39% es lo esperable en una distribución uniforme de 256 posibles valores. 
 
 Hemos convertido el puzle en una sopa de letras. ¿Te gustan la sopas de letras?
 
-{% include image.html max-width="480px" file="sopa-de-letras.png" caption="¿Te gustan las sopas de letras?" %}
+{% include image.html width="480px" file="sopa-de-letras.png" caption="¿Te gustan las sopas de letras?" %}
 
 Tenemos una muestra de tramas, con bytes hexadecimales que ni siquiera sabemos si están bien decodificados y mucho menos qué significan. ¿Cómo continuamos? ¿Os acordáis de que no había ninguna marca de final de paquete y que por lo tanto esperaríamos encontrar la longitud como dato en el paquete? Bien, pues ¡a buscarla!.
 

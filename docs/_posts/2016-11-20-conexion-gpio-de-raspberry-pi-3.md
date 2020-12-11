@@ -16,7 +16,7 @@ Si habéis leído otros artículos de este blog dedicados a microcontroladores s
 
 Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios a modo de introducción. Seguiremos con el manejo básico de los pines I/O usando la shell. Después pasaremos al **PWM** mediante la utilidad **gpio** de **WiringPi** y controlaremos un servo como ejemplo. Finalmente, para probar el **I2C** manejaremos un ADC tipo **PCF8591** por medio de los drivers internos.
 
-{% include image.html max-width="279px" file="300px-Pi-GPIO-header.png" caption="" %}
+{% include image.html width="279px" file="300px-Pi-GPIO-header.png" caption="" %}
 
 <!--more-->
 
@@ -38,7 +38,7 @@ Lo importante es que todas las versiones cuentan con una conexión GPIO (General
 
 Lo primero que compraría sería una **caja** apropiada para el uso que estéis pensando. La que yo veo más práctica para experimentar es la Pibow Coupé. Las cajas con este formato permiten acceder fácilmente a todos los conectores con un detalle muy útil: tiene serigrafiada la numeración de los pines. Lo único que no me gusta es que los pines GPIO sobresalen ligeramente de la caja y podrían engancharse con algo.
 
-{% include image.html max-width="480px" file="coupe_flotilla.jpg" caption="Caja de acrílico tipo Pibow Coupe, color \"flotilla\"." %}
+{% include image.html width="480px" file="coupe_flotilla.jpg" caption="Caja de acrílico tipo Pibow Coupe, color \"flotilla\"." %}
 
 El **adaptador**, para un uso ocasional sirve perfectamente con un cargador de móvil de 5v. Eso sí, en cuanto queráis conectar un disco duro externo, por ejemplo, se os va a venir abajo. Recomiendan un cargador de 3 amperios, que también os puede servir para cargar un móvil que soporte carga rápida.
 
@@ -50,7 +50,7 @@ Otros accesorios que considero muy útiles son un latiguillo de **cable de red**
 
 También os vendrá bien un juego de cables con conectores **Dupont** para experimentar:
 
-{% include image.html max-width="480px" file="dupont_wire.jpg" caption="Cable arco-iris con conectores Dupont macho-hembra." %}
+{% include image.html width="480px" file="dupont_wire.jpg" caption="Cable arco-iris con conectores Dupont macho-hembra." %}
 
 A propósito, ¿os habéis fijado que el cable que llaman "arco iris" en realidad tiene los mismos colores que las resistencias?
 
@@ -72,7 +72,7 @@ Habitualmente el acceso a memoria sólo se podría hacer como root, sin embargo 
 
 La conexión gpio de este modelo tiene 40pin, con un conector igual al que usaban los discos duros IDE hace tiempo. Venden cables para conectarlos con una protoboard, pero no os lo recomiendo a menos que sólo vayáis a usar la Raspberry para experimentar porque estas clavijas una vez encajadas cuesta mucho quitarlas y se rompen con facilidad. En su lugar es preferible que compréis cables con conectores Dupont hembra-hembra y también macho-hembra.
 
-{% include image.html max-width="399px" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. [techgeeks](http://techgeeks.de/). " %}
+{% include image.html width="399px" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. [techgeeks](http://techgeeks.de/). " %}
 
 Entre los 40 terminales contamos con:
 
@@ -94,7 +94,7 @@ Entrando un poco en detalles tenemos:
 
 **Terminales de GPIO**. Es la conexión para periféricos del BCM.
 
-{% include image.html max-width="480px" file="raspberry-pi-circuit-gpio-input-pins.png" caption="Equivalente electrónico de un terminal GPIO. [mosaic-industries](http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications)" %}
+{% include image.html width="480px" file="raspberry-pi-circuit-gpio-input-pins.png" caption="Equivalente electrónico de un terminal GPIO. [mosaic-industries](http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications)" %}
 
 En general cada pin se puede configurar individualmente para funcionar como una salida o entrada de alta impedancia, con posibilidad de tener pull-up y pull-down ambas de 50kohm.
 
@@ -200,11 +200,11 @@ Quizá una de las características más útiles es leer el estado de toda la int
 
 El siguiente experimento es controlar un servo. Como sabéis, un servo es simplemente un motor con unos engranajes reductores y un control de posición integrado. El modelo que vamos a controlar es el TowerPro MG995, que ya usamos otra entrada anterior: [Controlar un servomotor con el PC]({{site.baseurl}}{% post_url 2010-12-17-controlar-un-servomotor-con-el-pc %}).
 
-{% include image.html max-width="480px" file="prod_560163449c7bf.jpg" caption="Servo para RC modelo TowerPro MG995." %}
+{% include image.html width="480px" file="prod_560163449c7bf.jpg" caption="Servo para RC modelo TowerPro MG995." %}
 
 Habíamos visto que para este servo se deben mandar impulsos de entre 1 y 2 ms, con una frecuencia de 50Hz. Siendo 1.5ms el pulso para que el servo se sitúe en la posición central, 1ms equivale a -60º y 2ms a 60º. Hay otros servos que giran 90º pero este se indica que sólo 60.
 
-{% include image.html max-width="480px" file="servo_datasheet.png" caption="Forma de onda indicada en el datasheet del servo." %}
+{% include image.html width="480px" file="servo_datasheet.png" caption="Forma de onda indicada en el datasheet del servo." %}
 
 Se puede hacer de dos formas, por software haciendo un bucle, o por hardware usando el módulo de PWM.
 
@@ -303,7 +303,7 @@ En su lugar he optado por conectar un módulo ya montado con el integrado **PCF8
 
 El PCF8591 es, como su datasheet indica, un dispositivo de adquisición de datos en un solo chip con interfaz I2C. Tiene 4 entradas analógicas de 8 bit, lo cual nos vendrá muy bien para suplir la carencia analógica de Raspberry. También tiene una salida DAC. Venden módulos con este integrado ya soldados y serigrafiados como el de la foto y son muy populares.
 
-{% include image.html max-width="480px" file="PCF8591.jpg" caption="Modulo de pruebas con PCF8591. Se vende ya montado." %}
+{% include image.html width="480px" file="PCF8591.jpg" caption="Modulo de pruebas con PCF8591. Se vende ya montado." %}
 
 El módulo que encontraréis viene configurado con los siguientes canales:
 
@@ -380,7 +380,7 @@ Sin embargo como la operación del PCF8591 es sumamente simple no hay problema. 
 1. Terminar la transmisión con una marca de **stop**.
 1. Lanzar una operación de **lectura**. Los sucesivos bytes recibidos son las lecturas del ADC. El primer resultado no es una lectura actual, sino la última lectura que tenía almacenada el chip.
 
-{% include image.html max-width="444px" file="pcf8591_control.png" caption="Contenido del byte de control. Datasheet PCF8591." %}
+{% include image.html width="444px" file="pcf8591_control.png" caption="Contenido del byte de control. Datasheet PCF8591." %}
 
 La primera parte podemos conseguirla con i2cget. Nos dirigimos al chip en el bus 1 (el único que hay) con la dirección 0x48, y le enviamos el control 0x01 (canal 1, la LDR por ejemplo):
 

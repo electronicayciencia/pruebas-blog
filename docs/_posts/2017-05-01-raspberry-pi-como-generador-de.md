@@ -336,7 +336,7 @@ De izquierda a derecha:
 
 Los esquemas serán lo más sencillos posible para no distraer la atención del tema principal del artículo. Empezamos por el esquema del rectificador. Un clásico [rectificador de media onda](http://www.circuitstoday.com/half-wave-rectifiers).
 
-{% include image.html max-width="480px" file="esq_rectificador.png" caption="Esquema del rectificador utilizado." %}
+{% include image.html width="480px" file="esq_rectificador.png" caption="Esquema del rectificador utilizado." %}
 
 Saber qué ocurre dentro de un circuito tan simple nos ayudará a escoger los valores para los componentes. Fijaos en esta forma de onda. El gráfico está exagerado para explicarlo, se distinguen 4 partes.
 
@@ -371,7 +371,7 @@ Es prácticamente plana hasta los 100MHz. Tiene ruido en las frecuencias bajas, 
 
 A continuación, el esquema del amplificador:
 
-{% include image.html max-width="424px" file="esq_amplificador.png" caption="Esquema del amplificador buffer utilizado." %}
+{% include image.html width="424px" file="esq_amplificador.png" caption="Esquema del amplificador buffer utilizado." %}
 
 Su función es proteger la salida de la Raspberry. Y como sólo tiene que amplificar ondas cuadradas no nos preocupamos de la distorsión. Sí debemos preocuparnos del ancho de banda y ahí es donde entra R3. Esta es la respuesta en frecuencia del amplificador tal como está con el emisor degenerado. Con este esquema tan simple hay una caída de la amplificación a partir de los 2MHz más o menos:
 
@@ -385,7 +385,7 @@ De por sí el ancho de banda de un emisor común no es muy grande, pero si lo fo
 
 La resonancia LC es de las cosas que mejor se ven en una práctica de laboratorio. Además, es sorprendente lo bien que funciona cuando la inductancia es grande.
 
-{% include image.html max-width="480px" file="foto_inductancia.png" caption="Antena RFID similar a la utilizada en las pruebas." %}
+{% include image.html width="480px" file="foto_inductancia.png" caption="Antena RFID similar a la utilizada en las pruebas." %}
 
 Usaremos como inductancia una antena para etiquetas RFID de 125kHz y un condensador de 220pF. El amplificador es necesario porque la tensión en la unión de L con C puede superar con mucho la tensión de alimentación de la Raspberry. Usando el transistor como buffer en entrada no sobrecargaremos la salida.
 

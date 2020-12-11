@@ -53,7 +53,7 @@ El **registro 4** es el de **configuración**. Ahí se pone si la modulación la
 
 Como curiosidad, hay un bit de configuración llamado *pigeon mode*. Sirve para fijar unos parámetros concretos, bloquea ciertos bits y deja libres otros. Al parecer, un destino importante de estos chips es el control de tiempo en [carreras de palomas](https://es.wikipedia.org/wiki/Carrera_de_palomas#M%C3%A9todo_de_cronometraje_electr%C3%B3nico) mensajeras.
 
-{% include image.html max-width="480px" file="em4305-pigeon-foot-rings.jpg" caption="El EM4305 se usa en carreras de palomas mensajeras. Fuente Aliexpress." %}
+{% include image.html width="480px" file="em4305-pigeon-foot-rings.jpg" caption="El EM4305 se usa en carreras de palomas mensajeras. Fuente Aliexpress." %}
 
 El datasheet nos habla también de cinco comandos, entre ellos **read** y **write** para leer y escribir valores en los registros.
 
@@ -160,7 +160,7 @@ En cuanto a leer del chip, me gusta **Biphase** porque es independiente de la po
 
 Con este dibujo se entenderá mejor:
 
-{% include image.html max-width="480px" file="Biphase.png" caption="Algoritmo de lectura Biphase en un microcontrolador." %}
+{% include image.html width="480px" file="Biphase.png" caption="Algoritmo de lectura Biphase en un microcontrolador." %}
 
 ¿Y si la codificación real que envía el chip es **Manchester** y no Biphase? Sin problema: nosotros lo leemos en biphase igualmente y ya traduciremos el mensaje por software. Es más fácil eso que implementar dos decodificadores diferentes en el firmware.
 
@@ -399,5 +399,5 @@ Suficiente. Confío que os haya resultado interesante esta revisión del mundo R
 
 Os dejo el software, imágenes y otros archivos auxiliares en GitHub: [electronicayciencia/rfid-rw](https://github.com/electronicayciencia/rfid-rw).
 
-{% include image.html max-width="597px" file="meme-rfid.png" caption="" %}
+{% include image.html width="597px" file="meme-rfid.png" caption="" %}
 

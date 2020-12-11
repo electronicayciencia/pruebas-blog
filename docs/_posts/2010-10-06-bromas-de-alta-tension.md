@@ -46,7 +46,7 @@ Así que ya sabemos lo que tenemos que hacer para dar calambre, tener una bobina
 
 Eso es precisamente lo que lleva el circuito de la foto que he puesto arriba.
 
-{% include image.html max-width="480px" file="shock_broma_circuito.png" caption="" %}
+{% include image.html width="480px" file="shock_broma_circuito.png" caption="" %}
 
 Para reducir costes al mínimo lo que han hecho es utilizar componentes no estándar, diseñados para este circuito y fabricados en masa. Por ejemplo la bobina no es tan simple, es un autotransformador que sirve también para elevar la tensión de los picos.
 

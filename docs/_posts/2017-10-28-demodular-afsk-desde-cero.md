@@ -14,7 +14,7 @@ Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es
 
 Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de páginas son demasiado superficiales o demasiado matemáticas, o se quedan en la descripción o se pierden en detalles sin llegar a hilar el proceso completo.
 
-{% include image.html max-width="300px" file="wargames-02.jpg" caption="Adaptador telefónico. Fotograma de Wargames (1983). [Fuente](https://pc-museum.com/046-imsai8080/wargames.htm)." %}
+{% include image.html width="300px" file="wargames-02.jpg" caption="Adaptador telefónico. Fotograma de Wargames (1983). [Fuente](https://pc-museum.com/046-imsai8080/wargames.htm)." %}
 
 Esto no son apuntes de teleco, pero créeme: tampoco es una entrada ligera que puedes leer mientras te tomas el café. Es una demostración práctica de cómo se empezó a transmitir información digital. De principio a fin. Sin fórmulas, sin apenas hardware y sin más software que el que vamos a escribir.
 
@@ -44,7 +44,7 @@ Para modular en FSK se necesitan dos osciladores o bien un oscilador de frecuenc
 
 Imaginad por un momento que estamos explorando el espectro radioeléctrico. Buscamos una señal para ilustrar un artículo sobre modulaciones digitales, por ejemplo. Nos vamos a UHF, alrededor 447.700MHz nos llama la atención un grupo de señales bastante fuertes.
 
-{% include image.html max-width="460px" file="misteriosa_sdr2.png" caption="Grupo de señales misteriosas. EyC." %}
+{% include image.html width="460px" file="misteriosa_sdr2.png" caption="Grupo de señales misteriosas. EyC." %}
 
 Están emitiendo en FM estrecha (NFM), por diferenciarlo de FM ancha que serían las emisiones comerciales entre 88 y 108MHz. Emiten, como decía, un pitido monótono interrumpido de forma periódica por una trama modulada. Parece lo suficientemente simple como para servir de ejemplo. Y a la vez lo suficientemente raro como para despertar el interés que quien lo lea. ¿Qué puede ser ese grupo de señales?
 
@@ -155,7 +155,7 @@ Cuando Internet hizo popular esto cambió. Ahora puedes comprar por una miseria 
 
 Para construir el módem del que os hablaba fue preciso conseguir un chip TCM3105. Muy difícil de encontrar porque había dejado de fabricarse, según me dijeron. Tras unos meses de espera llegó a la tienda y me costó unos 20 euros (3000 pesetas). Como al final mi módem no funcionó, compramos uno ya montado y ahí quedó la cosa.
 
-{% include image.html max-width="480px" file="20171021_133107.jpg" caption="Integrado TCM3105 pedido por Ebay. EyC." %}
+{% include image.html width="480px" file="20171021_133107.jpg" caption="Integrado TCM3105 pedido por Ebay. EyC." %}
 
 Hace poco me dio por buscar en Ebay a ver qué precio tendría, si aún quedaban existencias, el TCM3105. ¡Y cuestan menos de 1 dólar! Sin duda algún fabricante chino ha reanudado su fabricación. Miré el datasheet, compré un par de integrados, tenía los demás componentes por aquí y decidí hacerlos funcionar.
 
@@ -453,13 +453,13 @@ Lo siguiente es hacer un pequeño software intermedio que lea los estados de un 
 
 En primer lugar definimos una interrupción que se invocará en cada cambio de estado de un pin determinado. Dicha interrupción llama a una rutina para cronometrar el tiempo transcurrido desde último cambio de estado. Se divide por el tiempo que dura un símbolo (1/1200s), se redondea al entero más cercano y se insertan tantos unos como dé este resultado menos uno, hasta un máximo de 7 unos. A continuación se escribe un 0 (porque recordad que en el código NRZI(S) un cambio de estado representa siempre un 0 y un no-cambio representa el 1).
 
-{% include image.html max-width="300px" file="nrzis.png" caption="Ejemplo gráfico del código de línea NRZI(S). EyC." %}
+{% include image.html width="300px" file="nrzis.png" caption="Ejemplo gráfico del código de línea NRZI(S). EyC." %}
 
 Para comprobar el funcionamiento de este *driver*, escribimos su inverso. Otro software que recibe por la entrada estándar una cadena formada por los dígitos 0 o 1 y conmuta adecuadamente otro pin GPIO. Dicho programa es [nrzienc](https://github.com/electronicayciencia/afsk-ax25/blob/master/nrzienc.c). A diferencia de los anteriores, necesitamos ejecutarlo con privilegios de **root** para garantizar tiempos más exactos.
 
 Ahora sólo hemos de conectar con una resistencia el pin configurado en nrzienc -supongamos el 25- con el configurado en nrzidec -pongamos el 24, por ejemplo-. El valor es lo de menos, cualquiera por encima de 1k serviría.
 
-{% include image.html max-width="300px" file="esquema1.png" caption="Para probar el programa basta conectar los dos pines. EyC." %}
+{% include image.html width="300px" file="esquema1.png" caption="Para probar el programa basta conectar los dos pines. EyC." %}
 
 Ahora dejamos escuchando el comando nrzidec en un terminal, y mientras invocamos en otro `./nrzienc &lt; test_data/UI.dat`. Debemos ver el mismo patrón de unos y ceros. Es más, si en lugar de mostrar por pantalla la salida de nrzidec, la redirigimos hacia el decodificador de AX.25 con un pipe, tal que así: `./nrzidec | ./decode_ax25` lo que veremos es el contenido del paquete.
 
@@ -489,7 +489,7 @@ Ahora tan sólo nos queda encender el receptor y ver cómo se van mostrando paqu
 
 Terminaré esta larga entrada con una **reflexión**. Por un lado, está la satisfacción de saber que hemos hecho todo el proceso nosotros mismos, desde *nada* hasta el final; por otro una nostalgia como la que queda tras aprender un truco de magia. ¿No ha perdido, en cierto modo, el misterio que lo hacía interesante?
 
-{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:  
+{% include image.html width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:  
 *Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
 
 *A mi padre q.e.p.d.*

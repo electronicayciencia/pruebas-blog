@@ -44,7 +44,7 @@ Esa será la tensión de referencia que vea el operacional. Cuando usemos una pi
 
 Otra opción para nuestra tierra artificial es usar otro operacional con las entradas unidas. El amplificador de la imagen tiene ambas entradas al **mismo potencial** luego su salida debe ser 0V (con un mínimo *offset*). Pero el operacional cuenta con que está alimentado con tensión dual, su salida será 0 referido a esta tensión dual. Realmente la salida será tal que haya el mismo potencial entre esta y la tensión positiva de alimentación, que entre esta y la tensión negativa. En la práctica eso es justo la mitad de la tensión de alimentación, que es lo que queríamos.
 
-{% include image.html max-width="300px" file="masa_virtual_b.png" caption="" %}
+{% include image.html width="300px" file="masa_virtual_b.png" caption="" %}
 
 El problema de usar la tierra artificial para la entrada no inversora, es que no está al mismo potencial que la **tierra real**, la que conectamos a la tierra de otros circuitos a la entrada o la salida (como el micrófono o la tarjeta de sonido). En el circuito anterior la tierra artificial (punto medio del divisor) estaba 4.5V por encima de la tierra real (polo negativo de la pila). Es preciso eliminar la componente continua a la entrada y a la salida y dejar sólo la señal alterna. Eso se consigue interponiendo un condensador y se llama **acoplamiento en alterna**.
 
@@ -56,7 +56,7 @@ El valor de estos condensadores determinará la frecuencia mínima que puede amp
 
 Este tipo de preamplificador es el más utilizado para conectar un micro electret. Es muy fácil de construir. Sus propiedades vienen descritas en muchos sitios, [aquí](http://www.electronicafacil.net/tutoriales/AMPLIFICADOR-INVERSOR.php) por ejemplo.
 
-{% include image.html max-width="300px" file="inversor_crudo.png" caption="" %}
+{% include image.html width="300px" file="inversor_crudo.png" caption="" %}
 
 En este esquema podéis ver un típico amplificador inversor de ganancia  Rf / Rin. Si queremos una ganancia muy elevada tenemos dos opciones:
 
@@ -79,7 +79,7 @@ La banda de frecuencias en las que podemos usar nuestro amplificador la perfilan
 
 Así pues tenemos un filtro pasa-altos *(de primer orden)* en la entrada y uno pasa bajos a la salida. Vamos a tomar el circuito siguiente y lo simularemos para obtener un [diagrama de bode](http://es.wikipedia.org/wiki/Diagrama_de_Bode).
 
-{% include image.html max-width="480px" file="inversor_parabode.png" caption="" %}
+{% include image.html width="480px" file="inversor_parabode.png" caption="" %}
 
 Siendo estos los valores:
 

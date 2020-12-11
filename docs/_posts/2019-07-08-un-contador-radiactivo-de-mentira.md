@@ -17,7 +17,7 @@ Había pensado proyectar un contador de radiación de verdad. Al fin y al cabo t
 
 Durante todo este artículo hablaremos de radiactividad. Describiremos cómo funciona un tubo Geiger-Müller y lo simularemos en el firmware de un PIC. Después hablaremos de contadores y construiremos un indicador analógico. Para terminar, nos centraremos en las unidades radiológicas y programaremos un dosímetro digital.
 
-{% include image.html max-width="480px" file="uranium-cloud-chamber.gif" caption="Uranio *disparando* partículas dentro de una cámara de niebla." %}
+{% include image.html width="480px" file="uranium-cloud-chamber.gif" caption="Uranio *disparando* partículas dentro de una cámara de niebla." %}
 
 <!--more-->
 
@@ -25,7 +25,7 @@ Durante todo este artículo hablaremos de radiactividad. Describiremos cómo fun
 
 Un tubo Geiger-Müller se compone de dos electrodos dentro de un recipiente lleno de gas a baja presión.
 
-{% include image.html max-width="480px" file="geiger_corriente.png" caption="Esquema de uso de un tubo Geiger-Müller. Wikipedia" %}
+{% include image.html width="480px" file="geiger_corriente.png" caption="Esquema de uso de un tubo Geiger-Müller. Wikipedia" %}
 
 Se aplica una tensión del orden de 600v entre los dos electrodos y como los gases secos no conducen pues ahí se queda. Cuando la radiación ionizante atraviesa el tubo, ioniza algunos átomos del gas. Los átomos cargados se aceleran hacia el electrodo contrario y van cogiendo velocidad. Esos iones, a su vez, ionizan más átomos del gas. Se produce una pequeña corriente y podemos detectarla. Muy bien explicado [en este enlace](https://sites.google.com/site/anilandro/04010-geiger-01).
 
@@ -152,7 +152,7 @@ Si vamos a imitar un contador de verdad lo primero es imitar la radiación de fo
 
 Por ejemplo al máximo de temperatura, pongamos 125ºC le correspondería el máximo de cpm que diera nuestro medidor -como podéis intuir, esto depende de la duración del bucle principal-. Este tarda unos 450us en ejecutarse. Eso son unas 2222.2 veces por segundo. Las 133333.3 veces por minuto que veis como máximo.
 
-{% include image.html max-width="300px" file="temp_cpm.png" caption="Tabla de temperatura y CPM asociado. EyC." %}
+{% include image.html width="300px" file="temp_cpm.png" caption="Tabla de temperatura y CPM asociado. EyC." %}
 
 La cual nos da este gráfico.
 
@@ -164,11 +164,11 @@ Las NTC se modelan usando dos parámetros: la resistencia a 25ºC y el parámetr
 
 Con eso calculamos la resistencia a una temperatura dada:
 
-{% include image.html max-width="480px" file="temp_R_cpm.png" caption="" %}
+{% include image.html width="480px" file="temp_R_cpm.png" caption="" %}
 
 La resistencia del divisor **R1** es de 10k. De ahí calcularemos la tensión en la **patilla 3** del integrado y también el valor del ADC correspondiente a dicha tensión.
 
-{% include image.html max-width="480px" file="temp_R_ADC_cpm.png" caption="" %}
+{% include image.html width="480px" file="temp_R_ADC_cpm.png" caption="" %}
 
 El programa no entiende de temperaturas, sino de valores recogidos en el ADC. Por eso la columna es **verde**. Este es un dato del programa.
 
@@ -178,7 +178,7 @@ El generador aleatorio tiene una salida de 16bit, su valor máximo es 65535 y el
 
 Repetimos el mismo cálculo para las demás temperaturas:
 
-{% include image.html max-width="480px" file="temp_adc_cpm_apertura.png" caption="" %}
+{% include image.html width="480px" file="temp_adc_cpm_apertura.png" caption="" %}
 
 Y ahora, para cualquier otro valor que no esté en la tabla, tan sólo debemos interpolar entre los dos valores más cercanos. La ecuación de una interpolación lineal es así:
 
@@ -298,13 +298,13 @@ En un detector de radiactividad el feedback acústico es muy práctico. Sobre to
 
 A principios del siglo XX se situaba el material radiactivo sobre una pantalla especial y se contaban de forma manual los centelleos en un tiempo dado.
 
-{% include image.html max-width="300px" file="contador_manual-.jpg" caption="Contador manual." %}
+{% include image.html width="300px" file="contador_manual-.jpg" caption="Contador manual." %}
 
 Más adelante, conforme se fueron popularizando los componentes eléctricos, condensadores, resistencias o amperímetros se usó un indicador analógico.
 
 El que vamos a hacer nosotros consiste simplemente en un circuito rectificador formado por un transistor, un condensador y algunas resistencias:
 
-{% include image.html max-width="471px" file="contador_analogico_sch.png" caption="Esquema del contador analógico. EyC." %}
+{% include image.html width="471px" file="contador_analogico_sch.png" caption="Esquema del contador analógico. EyC." %}
 
 Los pulsos entran por la izquierda, atravesando **R12**. Su propósito es limitar la corriente a través de la base del transistor **Q2**. Hay mucho margen. La corriente debe ser lo suficientemente alta como para llevar al transistor a saturación, pero a la vez lo suficientemente baja como para no exceder el máximo de salida del PIC (20mA).
 
@@ -328,7 +328,7 @@ Cuando la electrónica avanzó lo suficiente, los medidores analógicos fueron s
 
 Para este proyecto empleo un PIC16F88. El esquema eléctrico se limita a lo imprescindible para leer los pulsos del detector y conectar la LCD. Todo lo demás lo hacemos por software en el PIC.
 
-{% include image.html max-width="480px" file="contador_lcd_sch.png" caption="Esquema del contador digital. EyC." %}
+{% include image.html width="480px" file="contador_lcd_sch.png" caption="Esquema del contador digital. EyC." %}
 
 La entrada se hace a través de la resistencia **R8** hacia la **patilla 3**. Esta patilla se puede configurar como contador asíncrono. Cada transición de nivel bajo a alto en la patilla 3 incrementará *Timer0*. Hace años habíamos usado este mismo método para hacer un frecuencímetro en [Frecuencímetro para el PC]({{site.baseurl}}{% post_url 2011-07-20-frecuencimetro-para-el-pc %}).
 

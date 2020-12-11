@@ -55,7 +55,7 @@ Habrá que medir cuánto tarda en pasar del estado A al B, del B al C y del C al
 
 Lo hacemos con este montaje, en el que el receptor y el transmisor van conectados al mismo PIC.
 
-{% include image.html max-width="450px" file="Imagen256.jpg" caption="" %}
+{% include image.html width="450px" file="Imagen256.jpg" caption="" %}
 
 Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en el enlace que hay al final de la entrada, dentro del directorio transiciones. El algoritmo es muy sencillo y consiste en lo siguiente:
 
@@ -70,7 +70,7 @@ Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en e
 
 Si pusiéramos la oreja en la antena esto es lo que oiríamos:
 
-{% include image.html max-width="261px" file="transiciones.png" caption="" %}
+{% include image.html width="261px" file="transiciones.png" caption="" %}
 
 Aquí vemos un sonograma de Baudline. El tiempo transcurre hacia abajo y las frecuencias aumentan hacia la derecha. Como es una onda cuadrada, las lineas verticales son los armónicos. En el estado A no hay ninguna señal. En el B las líneas están muy juntas porque se trata de los armónicos de una onda de 250Hz (250Hz, 500Hz, 750Hz, 1000Hz, 1250Hz, etc). En cambio la frecuencia moduladora para el estado C es de 1000Hz. Y los armónicos son múltiplos de 1000 (1000Hz, 2000Hz, 3000Hz, etc), por eso salen más separados.
 
@@ -95,11 +95,11 @@ Lo ideal sería quedarnos sólo con el C, pero como para transmitir algo tenemos
 
 En realidad no siempre tardan lo mismo. Va a haber un valor mínimo del tiempo de detección, por debajo del cual no se detecta nada. Pero habrá veces que tarde más o tarde menos dependiendo por ejemplo de la calidad de la recepción. Hay una distribución estadística, que se llama [de Weibull](http://es.wikipedia.org/wiki/Distribuci%C3%B3n_de_Weibull) que más o menos modela este comportamiento. No vamos a hacer el test porque creo que ya queda fuera del ámbito del artículo. Para las tres transiciones podemos dibujar tres histogramas que nos darán una idea de cual es el margen que tenemos que dejar si queremos que el receptor no se confunda. Esto es importante, porque la tasa de error va en funciona de este tiempo. Si dejamos un tiempo demasiado corto podremos transmitir más rápido pero a costa de tener más errores, habrá símbolos que se reciban bien (1 o 0) y otras veces se recibirán mal (un 0 por un 1 o al revés).
 
-{% include image.html max-width="480px" file="hist_BA.png" caption="" %}
+{% include image.html width="480px" file="hist_BA.png" caption="" %}
 
 En la imagen superior vemos que la transición hacia A (apagado) desde cualquiera de los estados activos (lo que tarda el receptor en enterarse de que hemos soltado el botón) ronda los 182ms. Puede ocurrir que se detecta antes, por diversas causas, pero es raro que se detecte antes de 178ms. Y hay un tiempo mínimo donde la probabilidad de que se detecte es cero. Por ejemplo en t=0 no vamos a detectar nada, porque es evidente que el integrado necesita un tiempo para procesar la señal y conmutar.
 
-{% include image.html max-width="480px" file="hist_AC.png" caption="" %}
+{% include image.html width="480px" file="hist_AC.png" caption="" %}
 
 La transición hacia C es mucho más rápida, de hecho en la imagen superior se notan los pasos discretos de tiempo. Lo mismo que la anterior, lo normal es que se detecte en 15ms. Puede darse en menos tiempo pero también puede tardar más.
 
@@ -113,7 +113,7 @@ Resumiendo, con 70ms de duración de cada simbolo tenemos una velocidad máxima 
 
 Ya tenemos todo listo. Vamos a usar el método de No Retorno a Cero, con una velocidad de 14 baudios. Si transmitimos paquetes de 8 bits, y teniendo en cuenta los tiempos de parada (de 200ms) es algo más de 1 byte por segundo. Basta programar un poco para tener dos PICs, uno actuando sobre el transmisor con un texto preprogramado y otro con el receptor.
 
-{% include image.html max-width="480px" file="Imagen005.jpg" caption="" %}
+{% include image.html width="480px" file="Imagen005.jpg" caption="" %}
 
 He usado un pequeño truco para sincronizar las dos partes. Porque al haber tanta inercia es fácil que el receptor se pierda. Consiste en que al inicio siempre transmito un 0. Como es el que más tarda, el retardo también sirve para el 1. Si no lo hiciera, el receptor perdería el hilo en los signos que empezaran por 1. Ese truco se llama **Look At Me** y se usa en casi todos los dispositivos remotos. Tened en cuenta que aunque yo conmute siempre a un tiempo fijo en el transmisor, al receptor le llega la señal cada vez con un retardo distinto. Por eso tengo que ver qué estado hay al final de los 70ms. Si lo viera a la mitad unas veces se recibiría bien (para los 1, que tardan menos por ser el tono más agudo) y otras mal.
 

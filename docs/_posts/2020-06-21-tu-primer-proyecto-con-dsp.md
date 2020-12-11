@@ -163,7 +163,7 @@ Otra característica de los DSP es el ***buffer circular*.** Si trabajamos con l
 
 Hablando de hardware para generar direcciones de memoria de forma enrevesada tenemos lo que se llama *Bit Reverse Mode*. A ver cómo te lo explico... Si vas a contar de 0 a 7 puedes hacerlo en orden 0, 1, 2, 3, 4, 5, 6 y 7. O puedes darle la vuelta a los bits poniendo el menos significativo a la izquierda. Lo cual daría esta secuencia: 0, 4, 2, 6, 1, 5, 3 y 7. ¿Para qué? mira esta imagen de Wikipedia sobre [Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform).
 
-{% include image.html max-width="480px" file="DIT-FFT-butterfly.png" caption="Uno de los algoritmos más usados para calcular la FFT utiliza Bit Reverse Mode. Wikipedia." %}
+{% include image.html width="480px" file="DIT-FFT-butterfly.png" caption="Uno de los algoritmos más usados para calcular la FFT utiliza Bit Reverse Mode. Wikipedia." %}
 
 Por supuesto también necesitaremos instrucciones **específicas** y optimizadas como la ya mencionada MAC y otras:
 
@@ -250,7 +250,7 @@ Lo siguiente es ir haciendo pequeños proyectos para aprender. Tu crees que ya t
 
 Lo siguiente será definir variables en una **zona de memoria** u otra, aquí cada compilador es diferente. Aprenderemos a configurar un buffer circular. A usar la instrucción **MAC** con el **prefech**. Y a trabajar con el formato **fraccionario**. Finalmente habrá que ver cómo se configura el ADC temporizado.
 
-{% include image.html max-width="480px" file="buffer_circular.png" caption="Un búfer circular se configura fácilmente." %}
+{% include image.html width="480px" file="buffer_circular.png" caption="Un búfer circular se configura fácilmente." %}
 
 Con todo lo anterior estamos listos para hacer un detector de señal, por ejemplo. Y si además añadimos un filtro puede convertirse en un detector de bajos. Con un filtro para bajos, otro para medios y uno más de agudos podríamos convertirlo en un **psicodélico**.
 

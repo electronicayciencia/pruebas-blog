@@ -19,7 +19,7 @@ En este artículo describiremos primero analógicamente cómo funcionan transmis
 
 Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar en estos módulos para medir distancias. No he encontrado la referencia exacta, pero a la vista se parecen mucho a los que vienen en el datasheet del modelo [400ST160]({{page.assets}}/1686089.pdf).
 
-{% include image.html max-width="480px" file="mod_ultrasonido.png" caption="Medidor de distancia por ultrasonidos. Circuito de partida." %}
+{% include image.html width="480px" file="mod_ultrasonido.png" caption="Medidor de distancia por ultrasonidos. Circuito de partida." %}
 
 <!--more-->
 
@@ -37,7 +37,7 @@ El transductor podría requerir más corriente de la que puede suministrar el PI
 
 A propósito, cuando queráis excitar un led, un relé o cualquier cosa con un transistor NPN en modo conmutación, siempre emisor a tierra y carga al colector. Nunca al revés.
 
-{% include image.html max-width="480px" file="buffer_emitter_to_ground.png" caption="Conexión de una carga a un transistor NPN. EyC." %}
+{% include image.html width="480px" file="buffer_emitter_to_ground.png" caption="Conexión de una carga a un transistor NPN. EyC." %}
 
 Un transistor NPN está diseñado para trabajar con tensión de base positiva respecto al emisor. Si colocáramos la carga entre emisor y masa, el emisor ya no estaría a 0V porque la carga tendrá una caída de tensión. Haciendo más positivo el emisor del NPN empeoramos su rendimiento.
 
@@ -61,7 +61,7 @@ La máxima frecuencia de reloj para el 12F683 es 20MHz. Este será el valor de *
 
 Nuestro transmisor montado sobre una protoboard. Se aprecia el zócalo para el PIC, y el conector ICSP que usaremos para programarlo y para alimentar el circuito. Los cables de la derecha van al altavoz.
 
-{% include image.html max-width="480px" file="pcb_transmisor.jpg" caption="Transmisor montado sobre una placa perforada. EyC." %}
+{% include image.html width="480px" file="pcb_transmisor.jpg" caption="Transmisor montado sobre una placa perforada. EyC." %}
 
 Más abajo hablaremos del firmware.
 
@@ -111,7 +111,7 @@ Cuando la señal de entrada cese, **C2** se descargará a través de **R3**. La 
 
 Resultado de la simulación:
 
-{% include image.html max-width="480px" file="alternativa2_output.png" caption="Forma de onda de entrada (x100) y de salida en el receptor anterior. EyC." %}
+{% include image.html width="480px" file="alternativa2_output.png" caption="Forma de onda de entrada (x100) y de salida en el receptor anterior. EyC." %}
 
 Si bien funciona en la simulación con **LTSpiceIV** (muy fiable por otra parte), se pueden mejorar algunos aspectos.
 
@@ -307,7 +307,7 @@ La función *wait_for*, dependiendo de sus parámetros, espera a que la línea p
 
 La función *main* configura la ejecución y comienza un bucle en el que lo primero es buscar la portadora. Para lo cual llama a *wait_for* y espera hasta que la línea pase a nivel alto. Si no se recibe en unos segundos, el programa termina por *timeout* con el mensaje **NO CARRIER**.
 
-{% include image.html max-width="480px" file="putty_no_carrier.png" caption="Si no se detecta la portadora en unos segundos, el programa termina. EyC." %}
+{% include image.html width="480px" file="putty_no_carrier.png" caption="Si no se detecta la portadora en unos segundos, el programa termina. EyC." %}
 
 Una vez tenemos la portadora fijada, invocamos a la función *read_byte*. Ahí es donde ocurre todo lo importante.
 
@@ -315,7 +315,7 @@ Primero aguarda la interrupción de la portadora, indicativo de comiendo de la t
 
 Ahora llama a *wait_for* nuevamente para esperar a que la línea vuelva a nivel alto con el byte de stop, pues debería ser el siguiente.
 
-{% include image.html max-width="480px" file="putty_debug.png" caption="Recepción de un byte. EyC." %}
+{% include image.html width="480px" file="putty_debug.png" caption="Recepción de un byte. EyC." %}
 
 De no volver a línea a nivel alto en el tiempo preestablecido, se considerará como *condición de ruptura* y devolverá un error (representado por el carácter 0xFF). El programa volverá entonces a la búsqueda de la portadora como inicialmente.
 

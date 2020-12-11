@@ -139,7 +139,7 @@ $$
 
 Esto que voy a hacer normalmente se hace con la carga, pero la carga almacenada en una bobina es un concepto difícil de imaginar, así que voy a hacerlo con la intensidad.
 
-{% include image.html max-width="300px" file="rlc.png" caption="" %}
+{% include image.html width="300px" file="rlc.png" caption="" %}
 
 Tenemos este circuito RLC serie, sin fuentes de alimentación externas. Se trata de una malla cerrada y por primera ley de Kirchoff o [Ley de Tensiones de Kirchoff](http://es.wikipedia.org/wiki/Leyes_de_Kirchhoff_de_circuitos_el%C3%A9ctricos#Ley_de_tensiones_de_Kirchhoff) la suma de todas las tensiones debe ser cero.
 

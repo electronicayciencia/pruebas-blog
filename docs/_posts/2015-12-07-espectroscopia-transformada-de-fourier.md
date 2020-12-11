@@ -17,7 +17,7 @@ La espectroscopía es una ciencia cuyo objetivo es conocer la composición de un
 
 Hay dos formas para separar las distintas frecuencias que componen una onda, los métodos directos y los métodos indirectos. Los métodos directos son los que aíslan una determinada frecuencia por medio de algún dispositivo (que se llama monocromador aunque se trate de radiación no visible, tal como infrarrojos). Por ejemplo usando un prisma o una rejilla de difracción para descomponer el haz de luz visible y luego medir la intensidad de luz en cada ángulo. Ese sería un método directo.
 
-{% include image.html max-width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. [Smithsonian](http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy)." %}
+{% include image.html width="480px" file="old_espectrocope.jpg" caption="Espectroscopio antiguo. Usa un prisma para dispersar la luz. [Smithsonian](http://americanhistory.si.edu/blog/what-emerging-science-got-public-excited-1860s-spectroscopy)." %}
 
 <!--more-->
 
@@ -71,7 +71,7 @@ Para frecuencias más altas la cosa ya se complica. La radiación infrarroja la 
 
 Y sin embargo una técnica muy empleada es la llamada **FTIR (Fourier Transform Infrared Spectroscopy)**. Cabe preguntarse, ¿cómo aplicas la FFT a una señal que oscila tan rápidamente que no puedes muestrear varias veces en un periodo?
 
-{% include image.html max-width="480px" file="ftir.jpg" caption="Espectroscopio FTIR comercial. [andersonmaterials.com](http://www.andersonmaterials.com/ftir.html)" %}
+{% include image.html width="480px" file="ftir.jpg" caption="Espectroscopio FTIR comercial. [andersonmaterials.com](http://www.andersonmaterials.com/ftir.html)" %}
 
 Aquí es donde viene la genialidad del método. Todo el rato hablamos de "periodo" refiriéndonos al periodo temporal, a la duración en segundos de un ciclo. Pero la variable temporal es demasiado rápida para medirla. Vamos a cambiar de perspectiva, y tratar de medir la onda en su dependencia espacial.
 
@@ -189,7 +189,7 @@ Si os fijáis en el programa, lo que hace es utilizar SOX para leer el micrófon
 
 El circuito que podría medir eso es un rectificador y un filtro, como el que se usa en los receptores de AM:
 
-{% include image.html max-width="480px" file="am_diode_detector.png" caption="Detector de envolvente. EyC." %}
+{% include image.html width="480px" file="am_diode_detector.png" caption="Detector de envolvente. EyC." %}
 
 Sin embargo resulta más sencillo emular el circuito por software. De tal manera que muestreamos el sonido para después rectificarlo y filtrarlo usando conceptos de DSP. Esto se hace en la línea
 

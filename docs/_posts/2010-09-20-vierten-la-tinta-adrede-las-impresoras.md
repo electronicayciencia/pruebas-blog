@@ -25,7 +25,7 @@ A estas alturas es cultura general pero no viene mal repasar lecciones de econom
 
 Por esta razón algunos fabricantes te obligan a cambiar de cartucho tan pronto como sea creíble, aunque eso signifique tirar los viejos a medio usar. Pero como siempre, la leyenda se mezcla con la realidad. Decía al principio que ayer desmonté una impresora de tinta. Que también tenía un poco depositada. No tanto como en el vídeo pero ved estas fotos.
 
-{% include image.html max-width="480px" file="BENQ0003.JPG" caption="" %}
+{% include image.html width="480px" file="BENQ0003.JPG" caption="" %}
 
 {% include image.html file="BENQ0013.JPG" caption="" %}
 

@@ -11,7 +11,7 @@ assets: /pruebas-blog/assets/2010/04/obtener-el-esquema-desde-una-placa-de
 
 Pasar de una PCB al esquema es siempre un coñazo, lo hagas como lo hagas. Además es fácil equivocarse y acabar liado con un circuito que no tira ni para atrás. Por eso os quiero presentar un método sistemático que os servirá de guía para no perder el hilo. Para los expertos, lo que vamos buscando es reconstruir el *netlist*.
 
-{% include image.html max-width="289px" file="BENQ0020.JPG" caption="" %}
+{% include image.html width="289px" file="BENQ0020.JPG" caption="" %}
 
 Tengo un sencillo transmisor de un coche de juguete y voy a dibujar el esquema para analizarlo en una próxima entrada. Como la placa es pequeña, con componentes habituales y de una sola cara me servirá de ejemplo.
 
@@ -19,13 +19,13 @@ Tengo un sencillo transmisor de un coche de juguete y voy a dibujar el esquema p
 
 - Lo primero que tenéis que hacer es **numerar las pistas** de la placa. A veces, por el tamaño, es más fácil hacerlo sobre una fotografía que sobre la misma placa.
 
-{% include image.html max-width="270px" file="pistas_numeradas.png" caption="" %}
+{% include image.html width="270px" file="pistas_numeradas.png" caption="" %}
 
 - Ahora **numerad los componentes**. Es habitual que la referencia venga serigrafiada en la placa. Pero si no es así lo necesitamos para poder identificarlos: R1, R2 ... Incluid también los conectores externos.
 
 - Con esto podéis **construir una tabla**, o una hoja de cálculo, en la que las filas serán los componentes y cada columna será una pista de la placa. El objetivo es reconstruir un archivo tipo *netlist* para después llevarlo al esquema. Algo parecido a este **ejemplo** *(click en la imagen para ampliar)*:
 
-{% include image.html max-width="489px" file="ejemplo_pistas.png" caption="" %}
+{% include image.html width="489px" file="ejemplo_pistas.png" caption="" %}
 
 - Tomad un componente, y **marcad en la tabla** a qué pistas está conectado. Si los terminales no tienen una función podéis poner una X, como en las resistencias. Si la tienen anotaremos qué terminal es, por ejemplo A o K para un diodo, E, B o C para un transistor.
 

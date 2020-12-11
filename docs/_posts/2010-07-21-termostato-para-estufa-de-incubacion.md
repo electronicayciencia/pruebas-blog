@@ -55,9 +55,9 @@ El triac BT137 soporta hasta 8A, que a 220V son 1700W. Es más que suficiente, p
 
 Aunque más abajo os dejo los archivos de Eagle del diseño y un PDF esta sería una imagen del circuito con y sin los componentes:
 
-{% include image.html max-width="300px" file="placa_pistas.png" caption="" %}
+{% include image.html width="300px" file="placa_pistas.png" caption="" %}
 
-{% include image.html max-width="300px" file="placa_comp.png" caption="" %}
+{% include image.html width="300px" file="placa_comp.png" caption="" %}
 
 No he previsto fuente de alimentación. Podéis usar una pila de 9V como dice el esquema, pero no os lo recomiendo porque se supone que se va a usar durante varias horas o días seguidos. Así que lo mejor es utilizar un transformador viejo, por ejemplo de un móvil que ya no uséis. Otra opción es diseñar una fuente de alimentación externa. Si quitáis el led y sustituís el optotriac por un modelo tipo MOC3043 (que necesita sólo 5mA para dispararse en lugar de los 15mA que necesita el 3041) el circuito consume tan poquito que se puede alimentar con una fuente sin transformador.
 
@@ -65,7 +65,7 @@ Este montaje se intercala en serie con el cable de alimentación de la estufa.
 
 Os adjunto una carátula de ejemplo para montarlo en una caja de registro cuadrada. Está en formato png y en formato vectorial eps.
 
-{% include image.html max-width="300px" file="caratula_limpia.png" caption="" %}
+{% include image.html width="300px" file="caratula_limpia.png" caption="" %}
 
 Como siempre, os dejo los archivos [aquí]({{page.assets}}/Termostato_incubacion.rar).
 

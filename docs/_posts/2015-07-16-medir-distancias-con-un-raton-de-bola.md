@@ -18,7 +18,7 @@ El siguiente método que pensé es moviendo el micrófono a velocidad constante 
 
 Lo mejor sería con un encoder óptico, que es muy sensible y no hace ruido ninguno. El problema es que son componentes muy pequeños y ópticos, por lo que la alineación es muy importante y por eso son difíciles de construir. Fue entonces cuando caí en la cuenta de que podía conseguir muy fácilmente un dispositivo con dos encoders perfectamente funcionales ya montados, con un driver estándar para PC y con una botonera de tres botones como extra.
 
-{% include image.html max-width="480px" file="raton_y_conector.jpg" caption="Ratón de Paco, gracias Paco" %}
+{% include image.html width="480px" file="raton_y_conector.jpg" caption="Ratón de Paco, gracias Paco" %}
 
 <!--more-->
 
@@ -30,11 +30,11 @@ Antes de meterme en faena os voy a contar cómo funcionan los ratones mecánicos
 
 El encoder -y yo uso la palabra encoder aunque en español debería decirse "codificador óptico"- consta de un led y un fotodiodo, como podéis ver en esta imagen. El led es el componente de color claro, casi translúcido, y el fotodiodo es negro.
 
-{% include image.html max-width="300px" file="ratonbola_2.png" caption="" %}
+{% include image.html width="300px" file="ratonbola_2.png" caption="" %}
 
 Entre los dos hay una rueda que tiene ranuras muy finas, las cuales van interrumpiendo la luz que llega al receptor. A más velocidad, más veces por segundo se interrumpe el rayo luminoso.
 
-{% include image.html max-width="480px" file="ratonbola_1.png" caption="" %}
+{% include image.html width="480px" file="ratonbola_1.png" caption="" %}
 
 El truco está en que el **fotodiodo es doble**. Lleva un fotodiodo arriba y otro igual debajo. Así puede no deducir la velocidad a partir de la frecuencia con que se interrumpe la luz, sino también la dirección del movimiento: si primero se corta la luz en el fotodiodo inferior y luego en el superior, ese lado de la rueda está subiendo. Si primero se corta arriba y luego abajo, entonces está bajando ese lado de la rueda.
 
@@ -44,7 +44,7 @@ El circuito integrado que incorpora transforma los impulsos de luz en pulsos dig
 
 Mi intención es abrir el ratón, quitar la bola y hacer pasar un hilo por uno de los rodillos, por ejemplo el del eje vertical. Tal que así:
 
-{% include image.html max-width="480px" file="detalle_hilo.jpg" caption="Detalle del hilo que usaremos para medir" %}
+{% include image.html width="480px" file="detalle_hilo.jpg" caption="Detalle del hilo que usaremos para medir" %}
 
 Con el ratón sujeto o atornillado a la tabla, en un extremo del hilo anudaremos la punta de un destornillador pequeño y del otro colgaremos un contrapeso ligero. Al mover el destornillador una distancia determinada, arrastrará el rodillo y registraremos la posición con un programa.
 
@@ -370,7 +370,7 @@ En 1784 un matemático inglés llamado George Atwood quería comprobar la segund
 
 El asunto es que los cronómetros por entonces no eran como ahora y claro, medir el tiempo que tarda algo en caer con una aceleración de casi 10m/s² era complicado. Así que tenía que encontrar la manera de reducirla. Lo que sí estaba más avanzado eran las balanzas. Y lo que hizo fue poner dos pesos atados con una polea:
 
-{% include image.html max-width="273px" file="330px-Atwood.svg.png" caption="Esquema de la máquina de Atwood. Wikipedia." %}
+{% include image.html width="273px" file="330px-Atwood.svg.png" caption="Esquema de la máquina de Atwood. Wikipedia." %}
 
 Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: [https://en.wikipedia.org/wiki/Atwood_machine](https://en.wikipedia.org/wiki/Atwood_machine)
 
