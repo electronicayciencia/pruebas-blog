@@ -17,18 +17,20 @@
 
 <style>
 .postvideo {
-    width: 560px;
-    height: 315px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
     margin-bottom: 1.5em;
-    display: block;
 }
 
-.postvideo iframe {
-    width: 100%;
+.postvideo iframe, .postvideo object, .postvideo embed {
     height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .postimage {
