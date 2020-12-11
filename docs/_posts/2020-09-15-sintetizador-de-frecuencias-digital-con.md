@@ -231,7 +231,7 @@ Las patillas **10** y **11** del PIC las conectamos a dos pulsadores. Uno **incr
 
 El efecto neto es un sintetizador de frecuencias a intervalos de 1 kHz. Aquí lo vemos en acción. Mira cómo al pulsar los botones, la tensión de control del VCO sube y baja para **ajustarse** a la frecuencia. Y esta siempre son múltiplos de 1 kHz.
 
-<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_35BPt36gk4" width="560"></iframe>
+{% include youtube.html src="https://www.youtube.com/embed/_35BPt36gk4" %}
 
 Espero que os haya gustado. Os dejo los datasheet, imágenes y fuentes en el repositorio [GitHub de electronicayciencia/pll_4046](https://github.com/electronicayciencia/pll_4046).
 

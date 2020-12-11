@@ -563,6 +563,13 @@ sub format_monogroup {
 	return parts_store($block, "monogroup");
 }
 
+sub format_youtube {
+	my $src = shift;
+	# remove options from embed link
+	$src =~ s{\?.*$}{};
+	return parts_store("{% include youtube.html src=\"$src\" %}", "object");
+}
+
 sub format_paragraph {
 	my $block = shift;
 	
@@ -583,6 +590,7 @@ sub format_paragraph {
 
 	# Embebed object, do not touch
 	if ($block =~ m{<iframe}) {
+	  print STDERR "Video? -- \n$block\n\n";
 		return parts_store($block, "object");
 	}
 
@@ -706,6 +714,9 @@ sub process_body {
 	# <blockquote></blockquote>
 	$s =~ s{<blockquote[^>]*>(.+?)</blockquote>}{format_blockquote($1)}msge;
 	
+	# Youtube videos
+	$s =~ s{<iframe[^>]*src="([^"]*youtube[^"]*)"[^>]*>(.*?)</iframe>}{format_youtube($1)}msge;
+	
 	# Format unordered list blocks
 	$s =~ s{(<ul>.*?</ul>)}{format_list($1, "ul")}msge;
 	
@@ -776,7 +787,7 @@ sub process_body {
 		next if $tag =~ /^<script/;
 		next if $tag eq "</script>";
 		next if $tag eq "<!--more-->";
-		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
+		#print STDERR "Warning: text seems to still have HTML tags: $tag\n";
 	}
 
 

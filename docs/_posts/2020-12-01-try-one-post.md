@@ -11,6 +11,14 @@ This name ends in .md, not .markdown.
 
 This is a static asset for you: [file2]({{assets}}/file1.txt).
 
+A squared video (4:3):
+
+{% include youtube.html src="https://www.youtube.com/embed/BZwuTo7zKM8" %}
+
+A wide video (16:9):
+
+{% include youtube.html src="https://www.youtube.com/embed/jYFefppqEtE" %}
+
 {% include image.html max-width="200px" file="a-cat.png" caption='This is the  
 Jekyll logo. [file1](/file1.txt)' %}
 

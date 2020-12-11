@@ -146,7 +146,7 @@ El máximo teórico no se alcanza nunca por las pérdidas, y porque excitamos el
 
 En este clip podéis apreciar la el fenómeno de resonancia con una capacidad pequeña. A medida que nos acercamos a la frecuencia de oscilación natural, la amplitud crece. La resonancia tiene un margen muy estrecho porque el factor de calidad es alto. Y la tensión pico a pico en resonancia supera los 100Vpp.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/FsU0CnQ5dLw" width="480"></iframe>
+{% include youtube.html src="https://www.youtube.com/embed/FsU0CnQ5dLw" %}
 
 ## Detector de envolvente
 
@@ -170,7 +170,7 @@ Para **R12** hemos usando un trimmer en lugar de una resistencia fija, así nos 
 
 Para el siguiente clip de vídeo hemos construido un circuito resonante con otra bobina y un condensador acorde. Cuando lo acercamos al emisor, el circuito resuena y absorbe energía. Lo cual se traduce en una bajada de la amplitud. El comparador lo detecta y enciende el LED. Cuando anulamos el condensador, el receptor sale de resonancia, las oscilaciones recuperan su amplitud y el LED vuelve a apagarse.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/1gnATd2bHBo" width="480"></iframe>
+{% include youtube.html src="https://www.youtube.com/embed/1gnATd2bHBo" %}
 
 Se podría decir que el LED se enciende cuando hay algo que está absorbiendo la energía, o que altera la oscilación de alguna forma. Ahora ya sabes por qué las **cocinas** de inducción detectan si tienes puesto algo al fuego.
 
@@ -206,7 +206,7 @@ Ajustamos la frecuencia a **125kHz** conectamos el osciloscopio para ver la señ
 
 En el siguiente vídeo vemos cómo al acercar una tarjeta a nuestra bobina, obtenemos una señal modulada en amplitud. Con el detector de envolvente la demodulamos y, finalmente, con el comparador la convertimos en una onda cuadrada. La primera tarjeta y el llavero se comportan de forma parecida, sin embargo hay una segunda tarjeta cuyo protocolo aún nos es **desconocido**.
 
-<iframe allowfullscreen="" frameborder="0" height="270" src="https://www.youtube.com/embed/ESkHm3ysuzg" width="480"></iframe>
+{% include youtube.html src="https://www.youtube.com/embed/ESkHm3ysuzg" %}
 
 ## El protocolo EM4100
 
