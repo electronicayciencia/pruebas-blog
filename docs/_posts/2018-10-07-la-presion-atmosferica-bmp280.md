@@ -247,7 +247,8 @@ En su API, el fabricante nos ofrece funciones para calcular la temperatura con c
 
 He preparado una tabla con los tiempos en segundos con y sin optimizaciones del compilador, para 10 millones de iteraciones en una Raspberry Pi 3.
 
-{% include image.html max-width="480px" file="tabla_rendimiento.png" caption="Rendimiento de las funciones en una Raspberry Pi 3. <br />10M iteraciones. Tiempo en segundos. EyC." %}
+{% include image.html max-width="480px" file="tabla_rendimiento.png" caption="Rendimiento de las funciones en una Raspberry Pi 3.  
+10M iteraciones. Tiempo en segundos. EyC." %}
 
 En el cálculo de la **temperatura**, la aritmética de punto fijo supera a la de coma flotante. En cambio, si nos vamos al cálculo de la **presión**, es al revés, la aritmética de 64bits es más lenta que la coma flotante. ¿Por qué?
 
@@ -399,7 +400,8 @@ El otro punto interesante está en las noches de los días 5 y 7. Hay una inusua
 
 ¿A qué se deben? Fueron dos **tormentas**. Filtrando sólo esas altas frecuencias, vemos los cambios de presión propios durante el transcurso de una tormenta.
 
-{% include image.html file="presion_tormenta2.png" caption="Variación de alta frecuencia en la presión atmosférica <br />recogida durante una tormenta. EyC." %}
+{% include image.html file="presion_tormenta2.png" caption="Variación de alta frecuencia en la presión atmosférica  
+recogida durante una tormenta. EyC." %}
 
 ¿No recuerda a un terremoto? Y esta es una suave tormenta de septiembre, con una una intensidad pico a pico de apenas 0.7hPa... ¿Os imagináis una tormenta fuerte en altamar?
 

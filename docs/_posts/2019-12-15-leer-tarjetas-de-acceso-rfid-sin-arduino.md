@@ -108,7 +108,8 @@ Eso se llama respuesta escalón. Es una oscilación armónica amortiguada cuya f
 
 Con una medida ya tendríamos suficiente para calcular la L, pero el condensador puede estar mal y no tener la capacidad que dice tener, o podríamos habernos equivocado al contar los periodos, por ejemplo. Lo mejor es probar varios condensadores de distinta capacidad y apuntar las frecuencias. Calculamos la L en cada caso y hacemos la media o -si nos ponemos serios- una [regresión lineal](https://www.graphpad.com/quickcalcs/linear2/).
 
-{% include image.html max-width="480px" file="condensadores.jpg" caption="Podríamos determinar el valor de la inductancia midiendo con <br />varios condensadores y haciendo después una regresión lineal. EyC" %}
+{% include image.html max-width="480px" file="condensadores.jpg" caption="Podríamos determinar el valor de la inductancia midiendo con  
+varios condensadores y haciendo después una regresión lineal. EyC" %}
 
 Resumiendo: mi bobina es de **940 ± 20 μH**. Despreciando la resistencia (30Ω), la capacidad parásita de los transistores, el efecto de carga de las sondas y el osciloscopio, la propia capacidad de la bobina y otros errores de medida.
 
@@ -136,7 +137,8 @@ Pero si la resonancia de nuestro circuito está en los 100kHz, por ejemplo, la i
 
 Aquí tenemos la tensión en la unión de **Q1** y **Q2** (en verde) y la tensión en la bobina (amarillo). Fijaos en la escala de esta última: 20 V/div y la amplitud pico a pico es 80V.
 
-{% include image.html file="resonancia_push_pull.png" caption="En los extremos de la bobina se miden<br /> tensiones mucho mayores que la de alimentación. EyC." %}
+{% include image.html file="resonancia_push_pull.png" caption="En los extremos de la bobina se miden  
+tensiones mucho mayores que la de alimentación. EyC." %}
 
 Depende de la inductancia y de la frecuencia. A mayor frecuencia, capacidades más pequeñas y mayor tensión en los extremos de la bobina, pudiendo llegar a millones de voltios. Es el fundamento de la [Bobina de Tesla](https://es.wikipedia.org/wiki/Bobina_de_Tesla).
 
@@ -365,13 +367,15 @@ Buscando por el principio del mensaje 0x01002 y por la marca -HID- llegamos a es
 
 Las tarjetas Wiegand fueron de las primeras tarjetas de acceso. En lugar de banda magnética, llevaban el número codificado en unos hilos magnéticos que se leen por [efecto Wiegand](https://en.wikipedia.org/wiki/Wiegand_effect). No se podían reprogramar ni tampoco borrar fácilmente. En definitiva, aptas para uso industrial.
 
-{% include image.html file="Wiegand-wiring.png" caption="El código de las tarjetas Wiegand está grabado en hilos magnéticos en su interior.<br />[Hacking HID with Wiegand Protocol Vulnerability](https://www.getkisi.com/blog/hid-keycard-readers-hacked-using-wiegand-protocol-vulnerability)" %}
+{% include image.html file="Wiegand-wiring.png" caption="El código de las tarjetas Wiegand está grabado en hilos magnéticos en su interior.  
+[Hacking HID with Wiegand Protocol Vulnerability](https://www.getkisi.com/blog/hid-keycard-readers-hacked-using-wiegand-protocol-vulnerability)" %}
 
 Y aunque estas ya no se usan, el formato Wiegand continúa vigente hoy día en muchos controles de acceso. En muchos sitios lo que se ha cambiado han sido los lectores y las tarjetas que ahora usan tecnología RFID. Pero la interfaz -y por tanto el resto del sistema- son los mismos desde los años 80 con escasas modificaciones.
 
 Un mensaje Wiegand consta de **26 bits**. El primer bit es un bit de paridad de los 13 primeros bits. Luego vienen 8 bits del llamado *Factory Code* (código de empresa). Le siguen 16 bits del *Card Number*. Y el último es un bit de paridad de los últimos 13 bits. Así:
 
-{% include image.html file="hid_wiegand_format.png" caption="Formato de un mensaje Wiegand.<br />[Understanding Card Data Formats - HID Global](https://www.hidglobal.com/sites/default/files/hid-understanding_card_data_formats-wp-en.pdf)" %}
+{% include image.html file="hid_wiegand_format.png" caption="Formato de un mensaje Wiegand.  
+[Understanding Card Data Formats - HID Global](https://www.hidglobal.com/sites/default/files/hid-understanding_card_data_formats-wp-en.pdf)" %}
 
 El mensaje anterior sería:
 

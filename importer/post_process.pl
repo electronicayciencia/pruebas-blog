@@ -231,9 +231,6 @@ sub html2md {
 	$s =~ s{<em>}{*}g;
 	$s =~ s{</em>}{*}g;
 	
-	# TODO: not yet
-	#$s =~ s{<br>}{  \n}g;
-
 	# Links
 	$s =~ s{<a[^>]*href="([^"]+)"[^>]*>(.*?)</a>}{format_link($1, $2, $vars_allowed)}ge;
 
@@ -313,6 +310,10 @@ sub format_image {
 
 	# seriously, also format on br tags: <br style="..."/>
 	$caption =~ s{<br.*?>}{<br />}g;
+	
+	# Replace breaks
+	$caption =~ s{(\s*<br[^>]*>\s*)+}{  \n}g;
+
 
 	$caption = html2md($caption, 0); # no vars allowed.
 
@@ -761,8 +762,8 @@ sub process_body {
 	$s = recompose($s);
 
 	for my $tag ($s =~ m{(<.*?>)}g) {
-		next if $tag !~ /img/; # OMIT ALMOST ANY
-		next if $tag eq "<br />";
+	  #next if $tag !~ /img/; # OMIT ALMOST ANY
+		#next if $tag eq "<br />";
 		next if $tag eq "<sup>";
 		next if $tag eq "</sup>";
 		next if $tag eq "<sub>";
@@ -773,6 +774,7 @@ sub process_body {
 		next if $tag eq "</audio>";
 		next if $tag =~ /^<script/;
 		next if $tag eq "</script>";
+		next if $tag eq "<!--more-->";
 		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
 	}
 

@@ -13,7 +13,8 @@ Para otro experimento necesitaba una fuente de luz blanca cuyos rayos fueran má
 
 Intentemos dar un repaso dentro de lo posible a este asunto sin entrar en los detalles matemáticos.
 
-{% include image.html max-width="480px" file="Optical-dispersion.png" caption="Prisma de Newton. Esquema simplificado. <br />Fuente: The Dark Side of the Moon - Pink Floyd" %}
+{% include image.html max-width="480px" file="Optical-dispersion.png" caption="Prisma de Newton. Esquema simplificado.  
+Fuente: The Dark Side of the Moon - Pink Floyd" %}
 
 <!--more-->
 
@@ -211,7 +212,8 @@ Hay otra forma de conseguir luz más o menos coherente desde una fuente extensa:
 
 La distancia a la que una fuente podría considerarse puntual depende de su tamaño original. Por ejemplo, el Sol aún a millones de kilómetros de distancia es una fuente relativamente extensa. En la siguiente imagen fijaos en que los bordes de las sombras están difusos.
 
-{% include image.html max-width="480px" file="20170715_182100_HDR.jpg" caption="El Sol no es una fuente puntual. <br />Los bordes de las proyecciones no son nítidos." %}
+{% include image.html max-width="480px" file="20170715_182100_HDR.jpg" caption="El Sol no es una fuente puntual.  
+Los bordes de las proyecciones no son nítidos." %}
 
 Los rayos del Sol pueden considerarse paralelos porque su divergencia es muy pequeña. De hecho la proyección no suele ser del mismo tamaño que la rendija, sino un poco mayor. Cuando nos movemos por ejemplo en coche o en tren, los objetos del paisaje cambian su ángulo de visión, se quedan atrás. El Sol en cambio parece seguirnos y moverse con nosotros. La razón es que está tan lejos que las distancias de un viaje en tren son insignificantes en comparación y por eso el ángulo bajo el que lo vemos apenas varía.
 
@@ -255,7 +257,8 @@ Young, a diferencia de como se explica en la escuela, no hizo un experimento con
 
 Después hizo varios experimentos. Uno que él mismo describe fue mirando una vela desde la distancia y a través de un trozo de papel con dos aberturas rectangulares. Se ve una especie de arco iris, parecido a cuando se mira una farola un día de niebla. Conociendo la anchura de las ranuras fue capaz de deducir la longitud de onda de diferentes colores.
 
-{% include image.html max-width="300px" file="20170730_180840.jpg" caption="Plantilla para el experimento de Young. <br />Las rendijas más uniformes proyectan patrones más nítidos." %}
+{% include image.html max-width="300px" file="20170730_180840.jpg" caption="Plantilla para el experimento de Young.  
+Las rendijas más uniformes proyectan patrones más nítidos." %}
 
 Habitualmente se enseña en las escuelas que el experimento de la doble rendija de Young fue lo que convenció a los científicos de la época de que la teoría corpuscular estaba equivocada y la luz era realmente una onda. Pero no fue del todo así.
 

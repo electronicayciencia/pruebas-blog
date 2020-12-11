@@ -20,7 +20,8 @@ Al poco vinieron las revistas de electrónica, el soldador, y las emisoras; el o
 
 El primer circuito que funcionó como debía fue un generador de baja frecuencia construido con el integrado CD4046. Y de él vengo a hablaros hoy.
 
-{% include image.html file="HEF4046BP-8649.jpg" caption="El primer integrado que compré.<br />Por el código parece fabricado en 1986. EyC." %}
+{% include image.html file="HEF4046BP-8649.jpg" caption="El primer integrado que compré.  
+Por el código parece fabricado en 1986. EyC." %}
 
 <!--more-->
 
@@ -32,7 +33,8 @@ Si bien la definición del libro sonaba razonable, no terminé de encontrarle la
 
 Yo sabía muy poco de integrados. Todo mi conocimiento acerca del **CD4046** (de todos los PLL, en realidad) era que tenía un Oscilador Controlado por Tensión. VCO, en inglés. Lo había aprendido montando un esquema de una revista. A decir verdad ese número había salido como diez años antes. Pero un **radioaficionado** conocido fue tan amable de dejarnos su colección y acabé por fotocopiar varios artículos. Entre ellos, este.
 
-{% include image.html file="lx537.jpg" caption="El primer circuito que hice y funcionó.<br />Economico Oscillatore di BF (N.E. 086-7)" %}
+{% include image.html file="lx537.jpg" caption="El primer circuito que hice y funcionó.  
+Economico Oscillatore di BF (N.E. 086-7)" %}
 
 El CD4046, explican en el artículo, pertenece al grupo de los PLL y contiene en su interior un VCO muy fácil de usar. Sólo necesita una **resistencia** en la patilla 11 y un **condensador** entre las patillas 5 y 6. En función de los valores de estos componentes, el VCO oscilará entre unas frecuencias máxima y mínima dependiendo de la tensión aplicada en la patilla 9. Con el diagrama anterior, el circuito oscila desde 10 Hz hasta 1 MHz en cinco bandas cambiando el condensador.
 

@@ -489,7 +489,8 @@ Ahora tan sólo nos queda encender el receptor y ver cómo se van mostrando paqu
 
 Terminaré esta larga entrada con una **reflexión**. Por un lado, está la satisfacción de saber que hemos hecho todo el proceso nosotros mismos, desde *nada* hasta el final; por otro una nostalgia como la que queda tras aprender un truco de magia. ¿No ha perdido, en cierto modo, el misterio que lo hacía interesante?
 
-{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:<br />*Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
+{% include image.html max-width="480px" file="bitton_postulate.png" caption="Postulado de Bitton sobre la electrónica actual:  
+*Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
 
 *A mi padre q.e.p.d.*
 

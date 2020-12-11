@@ -51,7 +51,8 @@ Ahora bien, radiaciones hay de muchos tipos. Hay partículas **alfa**, tan gorda
 
 Para un detector genérico de campo lo importante es encontrar objetos con contaminación radiactiva o sea **fotones**. La radiactividad más penetrante, común y dañina. Después, una vez determinada la fuente y el grado de contaminación, ya habrá tiempo de tomar una muestra, llevarla al laboratorio y analizarla. Pueden saberse los isótopos radiactivos en la muestra mirando la energía de los fotones gamma que emite.
 
-{% include image.html file="spectrum-with-Cs-137.png" caption="Espectro Gamma desconocido con marcadores en<br />algunos elementos conocidos. [researchgate.net](https://www.researchgate.net/figure/Unknown-spectrum-with-Cs-137-and-background-gamma-ray-positions-marked_fig64_244395084) " %}
+{% include image.html file="spectrum-with-Cs-137.png" caption="Espectro Gamma desconocido con marcadores en  
+algunos elementos conocidos. [researchgate.net](https://www.researchgate.net/figure/Unknown-spectrum-with-Cs-137-and-background-gamma-ray-positions-marked_fig64_244395084) " %}
 
 ¿Y clasificando las **betas** no se podría saber también? No es tan fácil. El espectro de la emisión beta es mucho más difuso. ¿Por qué? Eso fue algo que intrigó a los físicos durante décadas. El descubrimiento del neutrino es una historia fascinante...
 
@@ -412,7 +413,8 @@ La dosis absorbida no era suficiente para pronosticar las consecuencias. Deberí
 
 Por otro lado, y para terminar, algunos órganos son más **sensibles** que otros. La piel por ejemplo es poco sensible, el tiroides en cambio lo es mucho más. Por otro lado es más fácil irradiar la piel que los órganos internos. Así pues, se define otra dosis, la *dosis efectiva*. También se mide en Sievert, y no es más que la dosis equivalente multiplicada por un coeficiente que depende de la sensibilidad de la zona irradiada.
 
-{% include image.html file="factor_wt.png" caption="Factor de ponderación según el tejido irradiado (Wt). <br />[Commission on Radiological Protection](https://journals.sagepub.com/doi/pdf/10.1177/ANIB_37_2-4) - Annals of the ICRP, 103 " %}
+{% include image.html file="factor_wt.png" caption="Factor de ponderación según el tejido irradiado (Wt).  
+[Commission on Radiological Protection](https://journals.sagepub.com/doi/pdf/10.1177/ANIB_37_2-4) - Annals of the ICRP, 103 " %}
 
 Un pequeño esquema para resumirlo:
 
