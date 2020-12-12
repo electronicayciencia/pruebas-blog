@@ -276,7 +276,9 @@ sub process_head {
 	# Add description
 	my ($title) = $s =~ m{^title: (.*)$}m;
 	my $descr = get_description($title);
-	$s =~ s{$}{\ndescription: $descr} if $descr;
+	$descr =~ s{\n}{\n  }mg;
+	$descr =~ s{\s+$}{}g;
+	$s =~ s{$}{\ndescription: >-\n  $descr} if $descr;
 
 	# Add assets variable
 	$s =~ s{$}{\nassets: $assets_url} if $assets_url;

@@ -8,7 +8,8 @@ tags:
 - osciladores
 - radio
 featured-image: HEF4046BP-8649.jpg
-description: Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio y la electrónica.
+description: >-
+  Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio y la electrónica.
 assets: /pruebas-blog/assets/2020/09/sintetizador-de-frecuencias-digital-con
 ---
 

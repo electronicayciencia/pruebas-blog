@@ -8,7 +8,8 @@ tags:
 - circuitos
 - amplificadores
 featured-image: filtrosinc.png
-description: Introducción a los DSP y uso de un dsPIC.
+description: >-
+  Introducción a los DSP y uso de un dsPIC.
 assets: /pruebas-blog/assets/2020/06/tu-primer-proyecto-con-dsp
 ---
 
