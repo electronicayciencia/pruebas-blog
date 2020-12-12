@@ -9,14 +9,15 @@ description: >- # this means to ignore newlines until "baseurl:"
   Blog técnico sobre proyectos caseros de electrónica, informática y física.
 baseurl: "/pruebas-blog" # the subpath of your site, e.g. /blog
 url: "https://electronicayciencia.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: electronicaycie
-github_username:  electronicayciencia
 permalink: /:categories/:year/:month/:title:output_ext
 
 show_excerpts: true
 
+logo: "/assets/logo_eyc.png"
+
 # Build settings
 markdown: kramdown
+
 theme: minima
 
 minima:
@@ -25,8 +26,22 @@ minima:
 disqus:
     shortname: electronicayciencia
 
+google_analytics: UA-15570327-6
+
 plugins:
   - jekyll-feed
+
+twitter_username: electronicaycie
+github_username:  electronicayciencia
+linkedin_username: reinosoguzman
+
+minima:
+  social_links:
+    twitter: electronicaycie
+    github: electronicayciencia
+    linkedin: reinosoguzman
+    youtube: electronicayciencia
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
