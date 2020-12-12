@@ -1,0 +1,35 @@
+.postvideo {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.postvideo iframe, .postvideo object, .postvideo embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.postimage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: block;
+}
+
+.postimage figure img {
+    vertical-align: top;
+}
+
+.postimage figure figcaption {
+    text-align: center;
+  	margin-top: 0.5em;	  
+}
+
