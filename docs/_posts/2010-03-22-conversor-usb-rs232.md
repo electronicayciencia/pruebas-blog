@@ -6,8 +6,8 @@ tags:
 - microcontroladores
 - reciclado
 - PC
-featured-image: Imagen148.jpg
-assets: /pruebas-blog/assets/2010/03/conversor-usb-rs232
+image: /assets/2010/03/conversor-usb-rs232/img/Imagen148.jpg
+assets: /assets/2010/03/conversor-usb-rs232
 ---
 
 Hola.

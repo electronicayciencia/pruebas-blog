@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - física
 - datalog
-featured-image: 20170807_192905.jpg
-assets: /pruebas-blog/assets/2017/08/enfriadores-evaporativos-psicrometria
+image: /assets/2017/08/enfriadores-evaporativos-psicrometria/img/20170807_192905.jpg
+assets: /assets/2017/08/enfriadores-evaporativos-psicrometria
 ---
 
 Hoy quería hablaros de un electrodoméstico digamos intermedio entre los ventiladores y los aires acondicionados: los enfriadores **evaporativos**. En su versión portátil no tienen tanta tradición como refrigeración doméstica aunque os lo vais encontrar junto a los aparatos de aire acondicionado portátiles -pingüinos-, con el reclamo de ser mucho más baratos, más ecológicos, más ligeros, tener un menor consumo y no necesitar instalación ni tubo de salida de aire caliente.
@@ -35,7 +35,7 @@ Para saber cuánto es el límite ponemos aire y agua *pura* en un recipiente cer
 
 Ahora digamos que el aire seco no tiene nada de vapor de agua y el aire saturado tiene todo el agua que podría tener. Así definimos el concepto de **humedad relativa**. Siendo 0% para el aire totalmente seco y 100% para el aire saturado.
 
-He resaltado lo de agua *pura* porque si tiene alguna sal disuelta esta va ejercer atracción por las moléculas del agua dificultando la evaporación. Por ejemplo el equilibrio de vapor en una disolución saturada de sal común sólo llega al 75% del que se alcanzaría con agua pura. Si en vez de cloruro de sodio usamos cloruro de litio, llegaríamos tan solo al 11% de saturación. En 1976 se publicó un paper con medidas para diferentes sales y temperaturas: [ Humidity Fixed Points of Binary Saturated Aqueous Solutions]({{page.assets}}/jresv81An1p89_A1b.pdf). Hoy en día esta propiedad se utiliza para calibrar medidores de humedad.
+He resaltado lo de agua *pura* porque si tiene alguna sal disuelta esta va ejercer atracción por las moléculas del agua dificultando la evaporación. Por ejemplo el equilibrio de vapor en una disolución saturada de sal común sólo llega al 75% del que se alcanzaría con agua pura. Si en vez de cloruro de sodio usamos cloruro de litio, llegaríamos tan solo al 11% de saturación. En 1976 se publicó un paper con medidas para diferentes sales y temperaturas: [ Humidity Fixed Points of Binary Saturated Aqueous Solutions]({{page.assets | relative_url}}/jresv81An1p89_A1b.pdf). Hoy en día esta propiedad se utiliza para calibrar medidores de humedad.
 
 Si el agua se enfría al evaporarse, cabe preguntarse ¿hasta qué temperatura?. Para averiguarlo tomamos un termómetro y lo recubrimos con una gasa o algodón. Lo humedecemos y lo agitamos en el aire a ver hasta qué temperatura baja. La lectura que obtenemos se llama **temperatura de bulbo húmedo** o [ temperatura húmeda](https://es.wikipedia.org/wiki/Term%C3%B3metro_de_bulbo_h%C3%BAmedo). A la temperatura del aire, la que marcaría un termómetro normal y corriente la llamamos **temperatura de bulbo seco**, temperatura seca o simplemente temperatura del aire.
 
@@ -305,5 +305,5 @@ Normalmente una habitación tiene mucho más de 3m<sup>2</sup> pero el efecto de
 
 Para terminar, no quería dejar de mencionar que los **persas** ya usaban la evaporación para enfriar el aire en el 1er milenio a.C. Os dejo un enlace para empezar a mirar si os interesa el tema: [Captador de viento](https://es.wikipedia.org/wiki/Captador_de_viento)
 
-Los archivos utilizados para la elaboración del artículo están en [este enlace]({{page.assets}}/Evaporativo.zip).
+Los archivos utilizados para la elaboración del artículo están en [este enlace]({{page.assets | relative_url}}/Evaporativo.zip).
 

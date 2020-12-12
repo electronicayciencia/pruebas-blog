@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - circuitos
-featured-image: BENQ0020.JPG
-assets: /pruebas-blog/assets/2010/04/obtener-el-esquema-desde-una-placa-de
+image: /assets/2010/04/obtener-el-esquema-desde-una-placa-de/img/BENQ0020.JPG
+assets: /assets/2010/04/obtener-el-esquema-desde-una-placa-de
 ---
 
 Pasar de una PCB al esquema es siempre un coñazo, lo hagas como lo hagas. Además es fácil equivocarse y acabar liado con un circuito que no tira ni para atrás. Por eso os quiero presentar un método sistemático que os servirá de guía para no perder el hilo. Para los expertos, lo que vamos buscando es reconstruir el *netlist*.

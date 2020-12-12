@@ -6,8 +6,8 @@ tags:
 - microcontroladores
 - circuitos
 - DimmerIR
-featured-image: esquema_dimmerIr.png
-assets: /pruebas-blog/assets/2010/12/dimmer-controlado-por-mando-distancia
+image: /assets/2010/12/dimmer-controlado-por-mando-distancia/img/esquema_dimmerIr.png
+assets: /assets/2010/12/dimmer-controlado-por-mando-distancia
 ---
 
 A este proyecto le he dedicado otras entradas en el blog. Se trata de diseñar y construir un circuito para regular la **intensidad de luz** de una lámpara utilizando un mando a distancia.
@@ -31,7 +31,7 @@ Se trata del PIC IC1, es el cerebro y a él van conectadas el resto de elementos
 
 ## Fuente de alimentación
 
-Si queremos que el circuito sea lo más sencillo posible no podemos contar con una fuente de alimentación completa, ni con transformador ni conmunatada. Además se supone que el consumo va a ser muy bajo así que nos decantamos por una fuente de alimentación **sin transformador**. En inglés se conoce como *Transformerless Power Supply* y encontraréis abundante información y esquemas en Google. Por mi parte os recomiendo esta Nota de Aplicación de Microchip: *[Transformerless Power Supplies: Resistive and Capacitive]({{page.assets}}/00954A.pdf)*.
+Si queremos que el circuito sea lo más sencillo posible no podemos contar con una fuente de alimentación completa, ni con transformador ni conmunatada. Además se supone que el consumo va a ser muy bajo así que nos decantamos por una fuente de alimentación **sin transformador**. En inglés se conoce como *Transformerless Power Supply* y encontraréis abundante información y esquemas en Google. Por mi parte os recomiendo esta Nota de Aplicación de Microchip: *[Transformerless Power Supplies: Resistive and Capacitive]({{page.assets | relative_url}}/00954A.pdf)*.
 
 Hablamos de **R1, R4, R5, R7, D1, D2, C1, C2** y **C3**. Vamos a entender brevemente cuál es la función de cada componente.
 
@@ -55,7 +55,7 @@ Mirad el datasheet de un PIC como el 12F683 y fijaos cómo son por dentro las en
 
 {% include image.html width="300px" file="entrada.png" caption="" %}
 
-La imagen no está sacada del datasheet, sino de esta **Nota de Aplicación** donde viene más simplificado: [Interfacing to AC Power Lines]({{page.assets}}/00521c.pdf). El caso es que tienen dos diodos limitadores. Lo que quiere decir que aunque apliquemos 220V directamente al pin del PIC **no se dañará** siempre y cuando limitemos la intensidad. **R2** es una resistencia de un valor muy elevado, suficiente para elevar la tensión hasta nivel alto, pero con una intensidad muy baja para no destruir los diodos. La tensión en el puerto GP2 oscilará entre 0 cuando la tensión de red pase por el semiciclo negativo hasta 5V como máximo en el semiciclo positivo. En cualquiera de las dos transiciones sabemos que la tensión acaba de pasar o va a pasar inmediatamente por cero.
+La imagen no está sacada del datasheet, sino de esta **Nota de Aplicación** donde viene más simplificado: [Interfacing to AC Power Lines]({{page.assets | relative_url}}/00521c.pdf). El caso es que tienen dos diodos limitadores. Lo que quiere decir que aunque apliquemos 220V directamente al pin del PIC **no se dañará** siempre y cuando limitemos la intensidad. **R2** es una resistencia de un valor muy elevado, suficiente para elevar la tensión hasta nivel alto, pero con una intensidad muy baja para no destruir los diodos. La tensión en el puerto GP2 oscilará entre 0 cuando la tensión de red pase por el semiciclo negativo hasta 5V como máximo en el semiciclo positivo. En cualquiera de las dos transiciones sabemos que la tensión acaba de pasar o va a pasar inmediatamente por cero.
 
 Conviene utilizar una entrada de tipo *Schmitt trigger* (ST) para que la transición sea limpia. De lo contrario los transitorios producidos por el encendido de motores y electrodomésticos pueden causar que el circuito conmute varias veces antes de tiempo y por tanto que no funcione bien.
 
@@ -114,7 +114,7 @@ A la derecha está el conector de tres pines a donde va conectado el módulo IR.
 
 Se trata de un circuito lo suficientemente pequeño como para que quepa dentro del plafón o de la caja de registro más cercana.
 
-Por último os dejo los esquemas (para Eagle), las imágenes y un PDF con las pistas en [este enlace]({{page.assets}}/dimmerIR_hw.rar).
+Por último os dejo los esquemas (para Eagle), las imágenes y un PDF con las pistas en [este enlace]({{page.assets | relative_url}}/dimmerIR_hw.rar).
 
 El software está publicado [en esta entrada]({{site.baseurl}}{% post_url 2011-02-02-dimmer-controlado-por-mando-distancia %}).
 

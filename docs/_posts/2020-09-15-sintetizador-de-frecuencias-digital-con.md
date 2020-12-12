@@ -7,10 +7,10 @@ tags:
 - circuitos
 - osciladores
 - radio
-featured-image: HEF4046BP-8649.jpg
+image: /assets/2020/09/sintetizador-de-frecuencias-digital-con/img/HEF4046BP-8649.jpg
 description: >-
   Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio y la electrónica.
-assets: /pruebas-blog/assets/2020/09/sintetizador-de-frecuencias-digital-con
+assets: /assets/2020/09/sintetizador-de-frecuencias-digital-con
 ---
 
 Los **PLL** son una pequeña asignatura pendiente de mis comienzos con la electrónica. Y antes o después debía dedicarles una entrada. Es curioso, después de tantos años, mirar hacia atrás y recordar aquellos tiempos en los que, en esencia, no tenías ni idea de lo que estabas haciendo.
@@ -165,7 +165,7 @@ Justo al lado vemos el chip **SM5124A** de *Nippon Precision Circuits Inc*. Se t
 
 A partir de ahí, obtener la frecuencia deseada sólo es cuestión de multiplicar por el valor adecuado. Una ROM dentro del chip tiene programados los valores de división para cada canal. Por ejemplo para obtener 27.005 MHz (canal 4) inserta un divisor por 2700. El PLL ajustará el VFO hasta llegar a 27.000 MHz (los decimales dan los 5 Hz que faltan). Para obtener 27.405 (canal 40) el divisor es de 2740.
 
-¿Y cómo se selecciona el divisor? Pues fíjate el esquema propuesto por el fabricante ([datasheet]({{page.assets}}/SM5124A.pdf)). Lo he simplificado para facilitar la lectura.
+¿Y cómo se selecciona el divisor? Pues fíjate el esquema propuesto por el fabricante ([datasheet]({{page.assets | relative_url}}/SM5124A.pdf)). Lo he simplificado para facilitar la lectura.
 
 {% include image.html file="SM5124A_typical.png" caption="Aplicación típica del SM5124A. Datasheet del fabricante." %}
 
@@ -173,7 +173,7 @@ La líneas **P0 a P7** van conectadas en paralelo con ciertos segmentos del disp
 
 Como el SM5124A no incorpora VCO debe usarse con un **oscilador externo**. Si bien este puede ser muy sencillo. Ya se encarga el PLL de monitorizar la salida y ajustar la tensión de referencia para la frecuencia que necesitamos. La imagen siguiente está tomada del esquema de una Uniden 520.
 
-El diagrama original lo obtuve de [www.cbtricks.com]({{page.assets}}/uniden_pro_520e_sm_sch.jpg). He hecho una [copia en GitHub]({{page.assets}}/uniden_pro_520e_sm_sch.jpg) por si en el futuro deja de estar disponible. Del original he eliminado todo salvo las partes que nos interesan: el PLL y el VCO. Para facilitar la legibilidad he eliminado algunos componentes, tal vez los echéis en falta.
+El diagrama original lo obtuve de [www.cbtricks.com]({{page.assets | relative_url}}/uniden_pro_520e_sm_sch.jpg). He hecho una [copia en GitHub]({{page.assets | relative_url}}/uniden_pro_520e_sm_sch.jpg) por si en el futuro deja de estar disponible. Del original he eliminado todo salvo las partes que nos interesan: el PLL y el VCO. Para facilitar la legibilidad he eliminado algunos componentes, tal vez los echéis en falta.
 
 {% include image.html file="uniden_pro_520e_vco.jpg" caption="Esquema de la Uniden Pro 520e mostrando sólo el VCO y el PLL. EyC." %}
 
@@ -239,9 +239,9 @@ Espero que os haya gustado. Os dejo los datasheet, imágenes y fuentes en el rep
 Enlaces de interés:
 
 - [Basics of Phase Locked Loop Circuits and Frequency Synthesis - w2aew (video - inglés)](https://www.youtube.com/watch?v=SS7z8WsXPMk)
-- [Fundamentals of Phase Locked Loops (PLLs) - Analog Devices (inglés)]({{page.assets}}/MT-086.pdf)
-- [Ask the Applications Engineer: PLL SYNTHESIZERS - Analog Devices (inglés)]({{page.assets}}/AN-30.pdf)
-- [Nuova Elettronica 086-087 (italiano)]({{page.assets}}/086-087_Nuova_Elettronica.pdf)
+- [Fundamentals of Phase Locked Loops (PLLs) - Analog Devices (inglés)]({{page.assets | relative_url}}/MT-086.pdf)
+- [Ask the Applications Engineer: PLL SYNTHESIZERS - Analog Devices (inglés)]({{page.assets | relative_url}}/AN-30.pdf)
+- [Nuova Elettronica 086-087 (italiano)]({{page.assets | relative_url}}/086-087_Nuova_Elettronica.pdf)
 - [Frequency synthesizer - Wikipedia](https://en.wikipedia.org/wiki/Frequency_synthesizer)
 
 Entradas del blog relacionadas:

@@ -4,7 +4,7 @@ title: Convertir palabras en números (I)
 author: Electrónica y Ciencia
 tags:
 - programacion
-assets: /pruebas-blog/assets/2010/05/convertir-palabras-en-numeros-i
+assets: /assets/2010/05/convertir-palabras-en-numeros-i
 ---
 
 Tenemos herramientas muy potentes para machacar números, calcular medidas estadísticas, gráficos, distancias, etc. Hoy os propongo jugar con algunas de esas herramientas pero aplicadas a las palabras, al **lenguaje**. Claro que las letras no son números, hemos de buscar una función que asigne un número a cada combinación de letras. Hemos de buscar *una aplicación del conjunto de las palabras a los números*.
@@ -187,7 +187,7 @@ Es una a, valor  1, base 2.467579E-19, contribucion 0.000000000000000000 **No co
 
 El 13er carácter no aparecerá a menos que sea muy alto, porque son 12.57 caracteres, no 12 exactos. De nuevo el haber incluido un carácter extra en el conjunto nos ayuda a mitigar el efecto del error acumulado en las operaciones. Como la aplicación deja de ser suprayectiva, ese *hueco* en el dominio imagen introduce un rango de valores que no provienen de una palabra válida, son los que van desde '@a' a '@zzzzz...'.
 
-Esta entrada es de por sí muy abstracta. Así que para no hacerme pesado prefiero continuar con una segunda parte. Os dejo los archivos por si alguno quiere hacer pruebas. Están en [este enlace]({{page.assets}}/pal2num.rar) y podéis encontrar:
+Esta entrada es de por sí muy abstracta. Así que para no hacerme pesado prefiero continuar con una segunda parte. Os dejo los archivos por si alguno quiere hacer pruebas. Están en [este enlace]({{page.assets | relative_url}}/pal2num.rar) y podéis encontrar:
 
 - **pal2num.pl**: Es el archivo en Perl que sirve para hacer el estudio. Admite datos por la entrada estándar. Si se le pasa una palabra devuelve su correspondiente número decimal (con la precisión adaptada y el redondeo adecuado a la longitud como he explicado antes). Si se le pasa un número devuelve la palabra origen, si existe.
 - **pal2num.c**: Versión simplificada del anterior. Optimizada para hacer conversiones masivas rápidamente.

@@ -7,8 +7,8 @@ tags:
 - sonido
 - osciladores
 - amplificadores
-featured-image: mixer1_sch_t.png
-assets: /pruebas-blog/assets/2013/04/mezclador-de-frecuencias-con-el
+image: /assets/2013/04/mezclador-de-frecuencias-con-el/img/mixer1_sch_t.png
+assets: /assets/2013/04/mezclador-de-frecuencias-con-el
 ---
 
 Hoy describimos un circuito **mezclador** o multiplicador de frecuencias. Un circuito relativamente ignorado por muchos aficionados a la electrónica pero muy importante. Tan importante que es una parte fundamental de casi todos los receptores de radio (incluyendo radios, televisores, conversores de satélite, walkie-talkies, etc): [receptor heterodino](http://ayudaelectronica.com/concepto-receptor-heterodino/) .
@@ -143,5 +143,5 @@ Una vez terminado, la placa nos queda más o menos así. Digo más o menos porqu
 
 {% include image.html width="466px" file="IMAG0415.jpg" caption="" %}
 
-En [este enlace]({{page.assets}}/mixer4066.zip) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
+En [este enlace]({{page.assets | relative_url}}/mixer4066.zip) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
 

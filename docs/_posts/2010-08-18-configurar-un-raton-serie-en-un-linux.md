@@ -5,7 +5,7 @@ author: Electrónica y Ciencia
 tags:
 - linux
 - PC
-assets: /pruebas-blog/assets/2010/08/configurar-un-raton-serie-en-un-linux
+assets: /assets/2010/08/configurar-un-raton-serie-en-un-linux
 ---
 
 Este fin de semana me ha dado por volver a instalar el [FlightGear Flight Simulator](http://www.flightgear.org/), un simulador de vuelo. Por cierto, como instalar FlightGear 1.9 en Debian desde los repositorios es imposible (dependencias rotas, paquetes que no existen, etc), probad esta página [http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html](http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html). A mi me resultó muy práctica.

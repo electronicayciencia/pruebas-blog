@@ -7,8 +7,8 @@ tags:
 - circuitos
 - osciladores
 - amplificadores
-featured-image: fob_foto.jpg
-assets: /pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
+image: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/img/fob_foto.jpg
+assets: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
 ---
 
 Hoy comenzaremos hablando de osciladores, palos de bambú y géiseres y terminaremos hablando de seguridad física. Porque ¿sabes que las cocinas de inducción, los cargadores inalámbricos y algunos antirrobos se basan en el mismo principio que los tornos de entrada al trabajo?
@@ -27,7 +27,7 @@ En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.ba
 
 Lo primero que necesitamos es un oscilador. ¿Podríamos haber usado un generador de funciones? Sí, por supuesto, pero este es un blog de electrónica a bajo nivel. Para leer una tarjeta RFID también se puede usar un lector con un Arduino o una Raspberry y dejarnos de historias.
 
-Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil de construir. Hay muchas opciones. En esta ocasión he optado por un oscilador de **relajación** usando comparadores LM393 ([datasheet]({{page.assets}}/lm2903-n.pdf)). Se trata de un comparador muy habitual y, si miráis el datasheet, su tiempo de respuesta es de 300ns, así que nos servirá para oscilar hasta pasado el MHz si hiciera falta.
+Como decía, para hacer el oscilador quería un circuito muy sencillo y fácil de construir. Hay muchas opciones. En esta ocasión he optado por un oscilador de **relajación** usando comparadores LM393 ([datasheet]({{page.assets | relative_url}}/lm2903-n.pdf)). Se trata de un comparador muy habitual y, si miráis el datasheet, su tiempo de respuesta es de 300ns, así que nos servirá para oscilar hasta pasado el MHz si hiciera falta.
 
 A propósito, los osciladores de relajación se llaman así porque van acumulando tensión lentamente hasta que se desahogan. Ejemplos típicos son los géiseres, o la fuente esa japonesa con un [ palo hueco de bambú que sube y baja](https://en.wikipedia.org/wiki/Shishi-odoshi) (*Shishi-odoshi*). Al principio están en un estado en el que acumulan energía (presión, agua o carga eléctrica). Con el tiempo se va incrementando la tensión hasta que -en un momento dado- superan cierto umbral y descargan. La descarga suele ser rápida y tras ella vuelven a su estado anterior.
 
@@ -152,7 +152,7 @@ En este clip podéis apreciar la el fenómeno de resonancia con una capacidad pe
 
 Para medir fácilmente la tensión en la bobina conectaremos un *detector de envolvente*. Sólo tiene tres componentes: un diodo detector, un condensador y una resistencia. Os sonará el esquema de las radios AM.
 
-{% include image.html width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. [Wikipedia.](/pruebas-blog/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/C_Simple_envelope_detector.gif)" %}
+{% include image.html width="480px" file="detector_de_envolvente.gif" caption="Detector de envolvente. [Wikipedia.](/assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/C_Simple_envelope_detector.gif)" %}
 
 El diodo es fácil: un **1N4148**. Salvo que nos vayamos a frecuencias muy altas, a voltajes muy bajos o a corrientes altas siempre será el 1N4148.
 

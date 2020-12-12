@@ -6,8 +6,8 @@ tags:
 - programacion
 - sonido
 - radio
-featured-image: frecuencias_editado.png
-assets: /pruebas-blog/assets/2017/12/describiendo-un-protocolo-desconocido
+image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_editado.png
+assets: /assets/2017/12/describiendo-un-protocolo-desconocido
 ---
 
 Imagina que estás frente a una pared de roca y quieres escalarla. Buscas alguna indicación y consultas la guía, pero nadie lo ha hecho antes. Nadie te dice cómo empezar ni por donde seguir, sólo debes fijarte con atención y encontrar algún sitio donde agarrarte para ir subiendo lentamente.
@@ -596,7 +596,7 @@ Sí explicaré, para satisfacer vuestra curiosidad y premiar a quienes habéis l
 
 Imaginad la complicación de gestionar, por ejemplo, una flota de autobuses en una gran ciudad. Con calles cortadas, vehículos mal aparcados, coches que se averían, colisiones, atascos de tráfico, incidentes con viajeros, objetos perdidos, etc. La logística de mantener una frecuencia constante en una ruta exige conocer en todo momento la posición de la flota y su estado, así como enviar avisos en tiempo real a un coche, a toda la línea o a todos en general.
 
-Si os interesa el tema, hay bastante información al respecto en Internet. Por dar algún enlace tenéis: [Sistemas De Monitorización De La Flota De Autobuses En Tiempo Real]({{page.assets}}/06MonitFlotaBusEMT.pdf).
+Si os interesa el tema, hay bastante información al respecto en Internet. Por dar algún enlace tenéis: [Sistemas De Monitorización De La Flota De Autobuses En Tiempo Real]({{page.assets | relative_url}}/06MonitFlotaBusEMT.pdf).
 
 En cuanto al proceso, estoy seguro de que lo habéis disfrutado si contáis con la paciencia y el interés para seguirlo y comprenderlo.
 

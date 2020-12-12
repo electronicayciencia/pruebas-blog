@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - física
 - estadística
-featured-image: gausiana_2.png
-assets: /pruebas-blog/assets/2010/09/inferencia-estadistica-capacidad-de-una
+image: /assets/2010/09/inferencia-estadistica-capacidad-de-una/img/gausiana_2.png
+assets: /assets/2010/09/inferencia-estadistica-capacidad-de-una
 ---
 
 No es la primera vez que en este blog utilizamos **la excusa más ridícula** para repasar ciertos conceptos. En esta ocasión nos planteamos la siguiente pregunta *¿Cuál es la capacidad de una cucharilla de postre, o de una cuchara sopera?* Veremos que dar respuesta a eso es tan complicado como queramos hacerlo.
@@ -48,7 +48,7 @@ En las columnas *Diferencia* está la cantidad de agua que contenía cada cuchar
 
 Simplificando, en el eje X está el valor y en el eje Y la probabilidad. Quiere decir esto que los valores más probables se sitúan hacia el centro de la gráfica, pero también pueden existir puntos en los laterales (colas). Pero no prestéis atención a la altura de los puntos, pues esta es aleatoria, lo que nos interesa es la concentración a lo largo del eje horizontal.
 
-Los valores típicos de la campana se miden en unidades de error, en *desviaciones típicas*. Así entre la media menos s y la media más s se espera que se sitúen el 68% de las medidas. Entre la media menos 2s y la media +2s se esperan que estén el 95%, etc. Ved [esta imagen de la Wikipedia]({{page.assets}}/Standard_deviation_diagram_-decimal_comma-.svg).
+Los valores típicos de la campana se miden en unidades de error, en *desviaciones típicas*. Así entre la media menos s y la media más s se espera que se sitúen el 68% de las medidas. Entre la media menos 2s y la media +2s se esperan que estén el 95%, etc. Ved [esta imagen de la Wikipedia]({{page.assets | relative_url}}/Standard_deviation_diagram_-decimal_comma-.svg).
 
 {% include image.html width="480px" file="gausiana_tipificada.png" caption="" %}
 

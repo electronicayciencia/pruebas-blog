@@ -12,7 +12,7 @@ my $postsdir = "_posts";
 my $description_file = "descriptions.dat";
 my $default_description = "";
 my $assets_local_dir = "/home/reinoso/pruebas-blog/docs/assets";
-my $assets_base_url = "/pruebas-blog/assets";
+my $assets_base_url = "/assets";
 
 
 use strict;
@@ -271,7 +271,7 @@ sub process_head {
 	$s =~ s{^thumbnail:.*$}{}mg;
 
 	# Add featured image
-	$s =~ s{$}{\nfeatured-image: $featured_image} if $featured_image;
+	$s =~ s{$}{\nimage: $assets_url/img/$featured_image} if $featured_image;
 
 	# Add description
 	my ($title) = $s =~ m{^title: (.*)$}m;
@@ -542,7 +542,7 @@ sub format_link {
 			
 			# Image captions do not allow variables.
 			if ($vars_allowed) {
-				return parts_store("[$text]({{page.assets}}/$file)", "link");
+				return parts_store("[$text]({{page.assets | relative_url}}/$file)", "link");
 			}
 			else {
 				return parts_store("[$text]($assets_url/$file)", "link");

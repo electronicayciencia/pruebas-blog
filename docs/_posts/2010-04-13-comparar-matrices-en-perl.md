@@ -5,10 +5,10 @@ author: Electrónica y Ciencia
 tags:
 - programacion
 - Perl
-assets: /pruebas-blog/assets/2010/04/comparar-matrices-en-perl
+assets: /assets/2010/04/comparar-matrices-en-perl
 ---
 
-En algunas ocasiones tenemos dos listas y necesitamos saber qué elementos *han entrado* nuevos en la segunda, cuales estaban en la primera pero no en la segunda -*han salido*- y cuales se han mantenido. Podríamos utilizar el módulo [Array::Diff]({{page.assets}}/Diff.pm) pero tiene un defecto, y es que **depende del orden**. Como utiliza un algoritmo similar a Diff, cuando los elementos cambian de orden el módulo ofrece resultados incorrectos.
+En algunas ocasiones tenemos dos listas y necesitamos saber qué elementos *han entrado* nuevos en la segunda, cuales estaban en la primera pero no en la segunda -*han salido*- y cuales se han mantenido. Podríamos utilizar el módulo [Array::Diff]({{page.assets | relative_url}}/Diff.pm) pero tiene un defecto, y es que **depende del orden**. Como utiliza un algoritmo similar a Diff, cuando los elementos cambian de orden el módulo ofrece resultados incorrectos.
 
 Para eso podemos usar la siguiente función:
 
@@ -61,5 +61,5 @@ El funcionamiento es sencillo:
 
 Este método es escalable y podríamos comparar **varias matrices**, sumando 2, 4, 8...
 
-Es posible que no se vea bien el código porque el render de LaTeX se empeña en interpretar expresiones de Perl, y claro, pues no le molan. Creo que lo he corregido pero por si acaso os dejo el código [en este enlace]({{page.assets}}/array_entran_salen.pl).
+Es posible que no se vea bien el código porque el render de LaTeX se empeña en interpretar expresiones de Perl, y claro, pues no le molan. Creo que lo he corregido pero por si acaso os dejo el código [en este enlace]({{page.assets | relative_url}}/array_entran_salen.pl).
 

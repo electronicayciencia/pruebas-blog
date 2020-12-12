@@ -6,8 +6,8 @@ tags:
 - programacion
 - linux
 - raspberrypi
-featured-image: ds1820.jpg
-assets: /pruebas-blog/assets/2016/12/el-bus-1-wire-bajo-nivel
+image: /assets/2016/12/el-bus-1-wire-bajo-nivel/img/ds1820.jpg
+assets: /assets/2016/12/el-bus-1-wire-bajo-nivel
 ---
 
 Hoy os traigo una entrada sobre el bus 1-Wire y el sensor de temperatura DS1820, con bastante contenido técnico y nivel de detalle, espero que la disfrutéis.
@@ -623,7 +623,7 @@ Temperature (hi res) is 17.12ºC
 
     
 
-Es todo por ahora. [En este enlace]({{page.assets}}/ds1820_rpi.zip) podéis encontrar los programas y archivos utilizados durante la elaboración del artículo, incluyendo:
+Es todo por ahora. [En este enlace]({{page.assets | relative_url}}/ds1820_rpi.zip) podéis encontrar los programas y archivos utilizados durante la elaboración del artículo, incluyendo:
 
 - El programa principal ds1820.c
 - Los programas utilizados para los ejemplos de crc, benchmarks de funciones de espera, etc.

@@ -6,8 +6,8 @@ tags:
 - programacion
 - circuitos
 - raspberrypi
-featured-image: wargames-02.jpg
-assets: /pruebas-blog/assets/2017/10/demodular-afsk-desde-cero
+image: /assets/2017/10/demodular-afsk-desde-cero/img/wargames-02.jpg
+assets: /assets/2017/10/demodular-afsk-desde-cero
 ---
 
 Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es posible... ¿Y si os digo que vamos a hablar de radio, de retro-informática, de trenes, de sonido, de matemáticas, de electrónica y de programación suena mejor? Supongo. Y si no busca otra cosa que leer. Hay muy buenos artículos sobre otra cosa en Internet.
@@ -86,7 +86,7 @@ Como hemos supuesto que la codificación es por nivel, asignamos 0 al nivel bajo
 
 Muy bien... ¿qué dice el mensaje? Ni idea. Para eso debemos conocer el protocolo. Sin más información no podemos interpretarlo.
 
-Tenemos dos opciones para continuar: o buscamos en Internet con la información que ya conocemos (frecuencias de UHF, tonos de audio, velocidad de transmisión); o sencillamente lo buscamos en el [Cuadro Nacional de Atribución de Frecuencias (CNAF)]({{page.assets}}/notas_UN2017_vf2.pdf), cuya nota UN-78 dice:
+Tenemos dos opciones para continuar: o buscamos en Internet con la información que ya conocemos (frecuencias de UHF, tonos de audio, velocidad de transmisión); o sencillamente lo buscamos en el [Cuadro Nacional de Atribución de Frecuencias (CNAF)]({{page.assets | relative_url}}/notas_UN2017_vf2.pdf), cuya nota UN-78 dice:
 
 > UN - 78 Transporte ferroviario 
 > Los canales cuyas frecuencias se indican a continuación se destinan en el territorio peninsular exclusivamente para servicios afectos al control de tráfico ferroviario en el sistema de comunicaciones tren – tierra.
@@ -102,7 +102,7 @@ El tren-tierra es un sistema de radioteléfono adoptado por Renfe en los 80. Sir
 
 Para tener ya cerca de 40 años es bastante sofisticado. Permite conversar en full-duplex con un tren en concreto sin que el resto escuchen la conversación, enviar determinadas órdenes o estados predefinidos, indica cuando se ha perdido la cobertura e incluso tiene la capacidad de enviar mensajes de texto.
 
-Buscando en Internet no he podido encontrar la descripción técnica del tren-tierra. Tal vez por motivos de seguridad no resulte conveniente que la especificación completa sea de conocimiento público. No obstante, en el [Diario Oficial de la Unión Europea]({{page.assets}}/L00001-00176.pdf) consta la información referente a la norma UIC a la que deben ajustarse estas comunicaciones, y con esto es suficiente para interpretar el mensaje:
+Buscando en Internet no he podido encontrar la descripción técnica del tren-tierra. Tal vez por motivos de seguridad no resulte conveniente que la especificación completa sea de conocimiento público. No obstante, en el [Diario Oficial de la Unión Europea]({{page.assets | relative_url}}/L00001-00176.pdf) consta la información referente a la norma UIC a la que deben ajustarse estas comunicaciones, y con esto es suficiente para interpretar el mensaje:
 
 > Radiocomunicación UIC, capítulos 1-4+6
 > 
@@ -173,7 +173,7 @@ Esta es la caracterización completa de la señal digital (ejemplos en [Signal I
 
 ## FSK de verdad
 
-El TCM3105 implementa por hardware un Modulador-Demodulador de FSK. Si vais al datasheet, por ejemplo [aquí: TCM3105]({{page.assets}}/tcm3105.pdf), en la página 8 veréis entre los varios modos que soporta:
+El TCM3105 implementa por hardware un Modulador-Demodulador de FSK. Si vais al datasheet, por ejemplo [aquí: TCM3105]({{page.assets | relative_url}}/tcm3105.pdf), en la página 8 veréis entre los varios modos que soporta:
 
 - **CCITT V.23.** Cuyas frecuencias son 1700Hz y 1300Hz y 600 baudios de velocidad de transmisión. ¿Os suena? Es el mismo que vimos arriba cuando decodificamos las señales del tren-tierra.
 - Y el modo **Bell 202**. A 1200 baudios y cuyas frecuencias son 2200Hz y 1200Hz para el espacio y la marca respectivamente. Este es el modo usado en APRS y packet-radio.

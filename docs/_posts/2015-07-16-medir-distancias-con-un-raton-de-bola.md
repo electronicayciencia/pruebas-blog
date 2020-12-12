@@ -6,8 +6,8 @@ tags:
 - física
 - linux
 - Perl
-featured-image: raton_y_conector.jpg
-assets: /pruebas-blog/assets/2015/07/medir-distancias-con-un-raton-de-bola
+image: /assets/2015/07/medir-distancias-con-un-raton-de-bola/img/raton_y_conector.jpg
+assets: /assets/2015/07/medir-distancias-con-un-raton-de-bola
 ---
 
 En el futuro quiero publicar un experimento para el que necesito tomar muestras de sonido a intervalos regulares durante una distancia de, pongamos, un metro. Así que estoy buscando una forma de medir distancias que sea automática y, a ser posible, que tenga menos error que si la distancia la mido a mano.
@@ -96,7 +96,7 @@ Sabiendo esto he escrito un programita que lee los eventos y reacciona de la sig
 - Cuando recibe eventos de movimiento relativo actualiza las coordenadas X e Y en función del valor recibido.
 - Si el modo grabación está activo, escribe las coordenadas actuales en el fichero a razón de 10 veces por segundo.
 
-El código es el siguiente. No creo que merezca la pena comentar nada a excepción quizá de las constantes para los tipos de eventos de las que ya hemos hablado y las líneas 112 y 117 que habilitan y deshabilitan el ratón en Xorg. También es interesante leer la documentación de *Linux::Input* en [http://search.cpan.org/~beppu/Linux-Input-1.03/lib/Linux/Input.pm]({{page.assets}}/Input.pm).
+El código es el siguiente. No creo que merezca la pena comentar nada a excepción quizá de las constantes para los tipos de eventos de las que ya hemos hablado y las líneas 112 y 117 que habilitan y deshabilitan el ratón en Xorg. También es interesante leer la documentación de *Linux::Input* en [http://search.cpan.org/~beppu/Linux-Input-1.03/lib/Linux/Input.pm]({{page.assets | relative_url}}/Input.pm).
 
 ```perl
 #!/usr/bin/perl 
@@ -374,5 +374,5 @@ El asunto es que los cronómetros por entonces no eran como ahora y claro, medir
 
 Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: [https://en.wikipedia.org/wiki/Atwood_machine](https://en.wikipedia.org/wiki/Atwood_machine)
 
-Nada más de este tema por ahora. Espero que os haya gustado. Como siempre, los archivos y programas propios utilizados para la elaboración de este artículo podéis descargarlos de aquí: [https://sites.google.com/site/electronicayciencia/ratonbola.zip]({{page.assets}}/ratonbola.zip)
+Nada más de este tema por ahora. Espero que os haya gustado. Como siempre, los archivos y programas propios utilizados para la elaboración de este artículo podéis descargarlos de aquí: [https://sites.google.com/site/electronicayciencia/ratonbola.zip]({{page.assets | relative_url}}/ratonbola.zip)
 

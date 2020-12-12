@@ -9,15 +9,15 @@ tags:
 - sonido
 - raspberrypi
 - amplificadores
-featured-image: mod_ultrasonido.png
-assets: /pruebas-blog/assets/2018/03/transmisor-y-receptor-digital-de
+image: /assets/2018/03/transmisor-y-receptor-digital-de/img/mod_ultrasonido.png
+assets: /assets/2018/03/transmisor-y-receptor-digital-de
 ---
 
 Se puede transmitir información por cable, por infrarrojos, por teléfono, modulando un tono acústico, por ondas de radio... Hoy os voy a describir un sistema de comunicación digital por **ultrasonidos**. Algunos pensaréis que es un circuito vulgar y falto de originalidad. Pero os gustan los esquemas con operacionales, lo sé, lo veo en las estadísticas del blog. Os animo a leerlo.
 
 En este artículo describiremos primero analógicamente cómo funcionan transmisor y receptor. Después, ya en el terreno digital, programaremos el firmware del transmisor. En cuanto al receptor, haremos primero un software dedicado y para terminar nos meteremos en el sistema operativo con unas explicaciones un tanto más avanzadas.
 
-Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar en estos módulos para medir distancias. No he encontrado la referencia exacta, pero a la vista se parecen mucho a los que vienen en el datasheet del modelo [400ST160]({{page.assets}}/1686089.pdf).
+Utilizaremos transductores ultrasónicos a 40kHz como los que podéis encontrar en estos módulos para medir distancias. No he encontrado la referencia exacta, pero a la vista se parecen mucho a los que vienen en el datasheet del modelo [400ST160]({{page.assets | relative_url}}/1686089.pdf).
 
 {% include image.html width="480px" file="mod_ultrasonido.png" caption="Medidor de distancia por ultrasonidos. Circuito de partida." %}
 
@@ -125,7 +125,7 @@ Otro posible problema es el siguiente. Para activar la base de **Q1**, la tensi�
 
 Es un circuito muy sensible a los cambios en el nivel de entrada. Una señal más fuerte se manifestará con mayor intensidad y cargará el condensador antes que otra más débil. Asimismo, el comparador carece de histéresis y eso podría causar varios cambios seguidos en la salida antes de establecerse en un nivel alto.
 
-¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [**NE567** (Tone Decoder)]({{page.assets}}/lm567c.pdf), por ejemplo.
+¿Las opciones? Os dije que había muchísimas. Podría desdoblar la etapa amplificadora usando dos LM358 en cascada. O quizá poner un preamplificador con un transistor y guardar ese segundo operacional para usarlo a modo de comparador con histéresis al final. En lugar de un rectificador, podría usar un integrador activo con un operacional. O, tal vez tomando otra ruta distinta, el esquema se simplificaría enormemente si usara un integrado tipo PLL como el [**NE567** (Tone Decoder)]({{page.assets | relative_url}}/lm567c.pdf), por ejemplo.
 
 ## El receptor, circuito propuesto
 

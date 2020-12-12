@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - física
 - sonido
-featured-image: pulso.png
-assets: /pruebas-blog/assets/2010/08/resonancia-mecanica-con-copas-ii
+image: /assets/2010/08/resonancia-mecanica-con-copas-ii/img/pulso.png
+assets: /assets/2010/08/resonancia-mecanica-con-copas-ii
 ---
 
 En [esta entrada]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %}) de hace un tiempo, ya habíamos mostrado cómo se comporta un sistema resonante dentro de un campo oscilatorio. Lo que pasa es que en lugar de usar un campo magnético y un [circuito resonante](http://es.wikipedia.org/wiki/Circuito_LC), habíamos usado oscilaciones mecánicas (sonido) y copas como resonadores. Esta entrada es una especie de continuación de aquella por lo que os recomiendo que la leáis también.
@@ -76,7 +76,7 @@ Pues bien, esta disminución de la intensidad que tanto cuesta ver en un sistema
 
 - **Resonancia Magnética**: En este caso no nos interesa la disminución del campo, sino la vibración posterior. La [resonancia magnética](http://webs2002.uab.es/vicente_aige/reso1.htm) se basa en enviar un pulso oscilante para excitar los protones desapareados de un núcleo atómico y luego escuchar cómo se produce la relajación. Este *eco* es distinto dependiendo de tipo de átomo, y de la materia que lo rodea. Interpretando digitalmente esa información se pueden distinguir tejidos, órganos, etc. que luego se presentan en una pantalla.
 
-Os dejo los archivos [aquí]({{page.assets}}/resonancia_pulsante.rar) por si queréis hacer más pruebas.
+Os dejo los archivos [aquí]({{page.assets | relative_url}}/resonancia_pulsante.rar) por si queréis hacer más pruebas.
 
 - **copa_tipo_1.wav**: respuesta a impulso de la primera copa para determinar sus frecuencias.
 - **copa_tipo_2.wav**: respuesta a impulso de la segunda copa.

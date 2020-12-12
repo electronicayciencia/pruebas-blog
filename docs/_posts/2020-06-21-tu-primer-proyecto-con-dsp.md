@@ -7,10 +7,10 @@ tags:
 - programacion
 - circuitos
 - amplificadores
-featured-image: filtrosinc.png
+image: /assets/2020/06/tu-primer-proyecto-con-dsp/img/filtrosinc.png
 description: >-
   Introducción a los DSP y uso de un dsPIC.
-assets: /pruebas-blog/assets/2020/06/tu-primer-proyecto-con-dsp
+assets: /assets/2020/06/tu-primer-proyecto-con-dsp
 ---
 
 Un **DSP** es un chip pensado para hacer **Procesado Digital de Señales**. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.
@@ -184,10 +184,10 @@ Por otro lado, son DSP muy sencillos. Pensados para aplicaciones tales como el c
 
 Los DSP son **complicados** y su curva de aprendizaje algo dura. Al principio, sobre todo, necesitaremos consultar la documentación a cada paso. Conviene tener a mano (y haber leído al menos la **introducción** de) estos documentos:
 
-- **[dsPIC30F/33F Programmer’s Reference Manual]({{page.assets}}/70157c.pdf)**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
-- **[dsPIC30F Family Reference Manual]({{page.assets}}/70046d.pdf)**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
-- **[dsPIC30F2011/2012/3012/3013 Data Sheet]({{page.assets}}/70139g.pdf)**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
-- **[dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification]({{page.assets}}/80448D.pdf)**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
+- **[dsPIC30F/33F Programmer’s Reference Manual]({{page.assets | relative_url}}/70157c.pdf)**. Explica el catálogo de instrucciones disponibles, la arquitectura del controlador, los registros y la forma de operar estos dispositivos en general.
+- **[dsPIC30F Family Reference Manual]({{page.assets | relative_url}}/70046d.pdf)**. Detalla cómo utilizar los módulos hardware disponibles en los chips de esta familia, así como la disposición de la memoria.
+- **[dsPIC30F2011/2012/3012/3013 Data Sheet]({{page.assets | relative_url}}/70139g.pdf)**. Te cuenta qué módulos tiene concretamente este chip y los detalles sobre su programación.
+- **[dsPIC30F3012/3013 Family Silicon Errata and Data Sheet Clarification]({{page.assets | relative_url}}/80448D.pdf)**. Te explica por qué tu proyecto no funciona y llevas horas intentando arreglar un error que no es tuyo.
 
 {% include image.html file="errata-chip-bugs.png" caption="El silicio también tiene *bugs*. Microchip." %}
 

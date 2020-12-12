@@ -6,8 +6,8 @@ tags:
 - microcontroladores
 - datalog
 - raspberrypi
-featured-image: baro_goethe_peque.jpg
-assets: /pruebas-blog/assets/2018/10/la-presion-atmosferica-bmp280
+image: /assets/2018/10/la-presion-atmosferica-bmp280/img/baro_goethe_peque.jpg
+assets: /assets/2018/10/la-presion-atmosferica-bmp280
 ---
 
 Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube hace calor y cuando baja llueve.

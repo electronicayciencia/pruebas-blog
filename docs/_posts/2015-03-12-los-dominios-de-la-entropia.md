@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - estadística
 - Perl
-featured-image: distribs_letras.png
-assets: /pruebas-blog/assets/2015/03/los-dominios-de-la-entropia
+image: /assets/2015/03/los-dominios-de-la-entropia/img/distribs_letras.png
+assets: /assets/2015/03/los-dominios-de-la-entropia
 ---
 
 Hace un montón que no publico un artículo, tanto que casi no me acuerdo de escribir, así que: Hola de nuevo.
@@ -117,7 +117,7 @@ Pero vamos a seguir el primer método: asignar a cada dominio una medida de entr
 
 Necesitaremos una muestra de dominios legítimos, para obtener la frecuencia relativa de cada letra, también necesitaremos una muestra de dominios habituales así como una muestra de dominios aleatorios para compararlos y ver si nuestro test puede diferenciar los habituales de los aleatorios.
 
-La muestra de dominios legítimos la obtendremos, por ejemplo, del TOP 1.000.000 de Alexa, que podemos descargar de aquí: [http://s3.amazonaws.com/alexa-static/top-1m.csv.zip]({{page.assets}}/top-1m.csv.zip). Tened en cuenta que el resultado estará muy ligado a fuente que elijamos. Partimos de la base de que esa lista es confiable y sólo contiene dominios y bastante conocidos. En un primer vistazo confirmamos que así es.
+La muestra de dominios legítimos la obtendremos, por ejemplo, del TOP 1.000.000 de Alexa, que podemos descargar de aquí: [http://s3.amazonaws.com/alexa-static/top-1m.csv.zip]({{page.assets | relative_url}}/top-1m.csv.zip). Tened en cuenta que el resultado estará muy ligado a fuente que elijamos. Partimos de la base de que esa lista es confiable y sólo contiene dominios y bastante conocidos. En un primer vistazo confirmamos que así es.
 
 La muestra de dominios buenos (control negativo) será el TOP 500 de dominios con más conexiones desde España, también de Alexa. La muestra de dominios aleatorios (control positivo) la bajaremos de pastebin haciendo una búsqueda por *Downadup domains*.
 
@@ -387,5 +387,5 @@ La última pregunta, si el test serviría para diferenciarlos la podéis respond
 
 {% include image.html file="roc_trigs_anglerrec.png" caption="" %}
 
-Nada más por el momento. Gracias por leer hasta aquí. Los scripts en Perl, ficheros, resultados, etc los podéis encontrar en este enlace: [fuentes]({{page.assets}}/entropia_digrafos.zip).
+Nada más por el momento. Gracias por leer hasta aquí. Los scripts en Perl, ficheros, resultados, etc los podéis encontrar en este enlace: [fuentes]({{page.assets | relative_url}}/entropia_digrafos.zip).
 

@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - óptica
 - física
-featured-image: Imagen095.jpg
-assets: /pruebas-blog/assets/2010/07/difraccion-en-un-dvd
+image: /assets/2010/07/difraccion-en-un-dvd/img/Imagen095.jpg
+assets: /assets/2010/07/difraccion-en-un-dvd
 ---
 
 Todos sabemos que un DVD o un CD presentan iridiscencia cuando se miran bajo un foco de luz. La información de un DVD se guarda en un surco de anchura micrométrica que recorre el disco en espiral. En un milímetro a lo largo del eje central puede haber más de 1000 surcos. Eso le da al DVD las propiedades de una **[red de difracción](http://en.wikipedia.org/wiki/Diffraction_grating)**. No explicaré cómo funciona una red o sus propiedades, hay información de sobra por ahí. Básicamente, debido a interferencias múltiples, cada longitud de onda de las que componen la luz blanca se refleja con un ángulo distinto, así que la luz incidente se descompone en colores. Eso se puede aprovechar para hacer un espectroscopio casero con un DVD o con un CD.
@@ -59,7 +59,7 @@ $$
 d = \frac{1 \times 650}{\sin 62.4} = 0.734 \mu m
 $$
 
-Dice el estándar DVD en [este documento]({{page.assets}}/Ecma-267.pdf) (página 12) que:
+Dice el estándar DVD en [este documento]({{page.assets | relative_url}}/Ecma-267.pdf) (página 12) que:
 
 > 10.6.2 Track geometry  
 In the Information Zone tracks are constituted by a 360° turn of a spiral.  

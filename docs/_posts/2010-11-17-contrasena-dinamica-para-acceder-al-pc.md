@@ -6,8 +6,8 @@ tags:
 - linux
 - PC
 - Perl
-featured-image: capturaescudo.png
-assets: /pruebas-blog/assets/2010/11/contrasena-dinamica-para-acceder-al-pc
+image: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc/img/capturaescudo.png
+assets: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc
 ---
 
 En ocasiones necesitamos acceder a nuestro ordenador desde fuera de casa. No hay problema, instalamos un servidor SSH y desde cualquier ordenador con Linux, o con PuTTY o SecureCRT instalado nos podemos conectar y ejecutar comandos o ver el correo como si estuviéramos delante mismo de la consola en casita.

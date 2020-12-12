@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - reciclado
 - PC
-featured-image: BENQ0005.JPG
-assets: /pruebas-blog/assets/2011/01/adaptador-de-usb-serie
+image: /assets/2011/01/adaptador-de-usb-serie/img/BENQ0005.JPG
+assets: /assets/2011/01/adaptador-de-usb-serie
 ---
 
 La primera entrada de este blog ([Conversor USB - RS232]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %})) la dediqué a contaros cómo hacernos un adaptador sencillo y muy cómodo para conectar un microcontrolador al PC cuando no teníamos puerto serie. Y aún cuando tuviéramos, a mi me resulta mucho más práctico este adaptador que un puerto serie *de verdad*.

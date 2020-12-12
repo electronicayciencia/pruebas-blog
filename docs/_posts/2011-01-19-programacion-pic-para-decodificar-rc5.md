@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - microcontroladores
 - programacion
-featured-image: 11011110.grid.png
-assets: /pruebas-blog/assets/2011/01/programacion-pic-para-decodificar-rc5
+image: /assets/2011/01/programacion-pic-para-decodificar-rc5/img/11011110.grid.png
+assets: /assets/2011/01/programacion-pic-para-decodificar-rc5
 ---
 
 Para decodificar el protocolo RC5 hay dos formas de hacerlo. Una es muestreando el puerto cada cierto tiempo, y comprobando si está a nivel alto o nivel bajo. En función del resultado lo interpretamos.

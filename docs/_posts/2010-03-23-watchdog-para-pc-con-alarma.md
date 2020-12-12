@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - circuitos
 - PC
-featured-image: watchdog.png
-assets: /pruebas-blog/assets/2010/03/watchdog-para-pc-con-alarma
+image: /assets/2010/03/watchdog-para-pc-con-alarma/img/watchdog.png
+assets: /assets/2010/03/watchdog-para-pc-con-alarma
 ---
 
 Hoy os quiero presentar un sencillo *watchdog* que reinicie automáticamente el PC cuando detecta que este se ha colgado.

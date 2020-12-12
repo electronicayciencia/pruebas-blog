@@ -6,8 +6,8 @@ tags:
 - estadística
 - programacion
 - Perl
-featured-image: XOR_TABLE.jpg
-assets: /pruebas-blog/assets/2010/05/criptoanalisis-del-cifrado-xor-simple
+image: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple/img/XOR_TABLE.jpg
+assets: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple
 ---
 
 Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simple XOR. Se trata de una herramienta que es capaz de adivinar la clave con que se ha cifrado un archivo y descifrarlo. Nada más que haciendo un criptoanálisis del texto cifrado. Veréis que el algoritmo es sencillo, y por qué dicen los expertos que XOR es un cifrado *de juguete*.
@@ -160,7 +160,7 @@ Ahora se aplica la separación por columnas y se busca el carácter que más se 
     
     Clave encontrada: 3lectronic4
 
-Así hemos roto el cifrado. En el programa se asume que el carácter más abundante en el texto plano es el espacio. También he asumido que la clave consta sólo de caracteres alfanuméricos, con algunas verificaciones adicionales se puede saltar esta restricción. Os dejo las herramientas y unos archivos para probar [aquí]({{page.assets}}/xor_frecs.zip). Hay un archivo que se llama *cifrado.txt*. Está cifrado usando este método, intentad descifrarlo.
+Así hemos roto el cifrado. En el programa se asume que el carácter más abundante en el texto plano es el espacio. También he asumido que la clave consta sólo de caracteres alfanuméricos, con algunas verificaciones adicionales se puede saltar esta restricción. Os dejo las herramientas y unos archivos para probar [aquí]({{page.assets | relative_url}}/xor_frecs.zip). Hay un archivo que se llama *cifrado.txt*. Está cifrado usando este método, intentad descifrarlo.
 
 No obstante, hay más herramientas que ilustran este mismo método para romper un cifrado XOR, por ejemplo [CyptoTool](http://www.cryptool.org/). Si os interesa el tema, encontrad un rato para leer [Applied Cryptography](http://www.schneier.com/book-applied.html) de Bruce Schneier.
 

@@ -7,8 +7,8 @@ tags:
 - circuitos
 - PC
 - Perl
-featured-image: interfaz_tk.png
-assets: /pruebas-blog/assets/2011/07/frecuencimetro-para-el-pc
+image: /assets/2011/07/frecuencimetro-para-el-pc/img/interfaz_tk.png
+assets: /assets/2011/07/frecuencimetro-para-el-pc
 ---
 
 Después de un par de artículos más bien teóricos ahora os quiero presentar un **montaje práctico**. Vamos a ver cómo hacer un frecuencímetro que sea lo más **sencillo** posible, pero que sea a la vez útil y preciso.
@@ -367,7 +367,7 @@ Y para darle un buen remate, nada mejor que una interfaz. Aunque sea sencilla si
 
 Como tampoco queremos dedicarle más tiempo del necesario elegiremos un lenguaje con el que ya estamos familiarizados, en mi caso Perl. Por la sencillez del programa habría sido igual de fácil escribirlo en Python, en Java, o incluso Tcl/Tk.
 
-Elegiremos una **tipografía** con un aire electrónico que nos guste, por ejemplo esta que se llama [Led Board]({{page.assets}}/led-board.font) (literalmente *pantalla led*). Y más concretamente su variedad inversa.
+Elegiremos una **tipografía** con un aire electrónico que nos guste, por ejemplo esta que se llama [Led Board]({{page.assets | relative_url}}/led-board.font) (literalmente *pantalla led*). Y más concretamente su variedad inversa.
 
 {% include image.html file="led_board.png" caption="" %}
 
@@ -506,5 +506,5 @@ El proyecto llamado [50MHz Frequency Meter](http://home.exetel.com.au/marknac/50
 
 > If you require greater accuracy, the unit can be calibrated against the standard 4.43MHz colour burst frequency that's transmitted with TV signals. The best place to access this frequency is right at the colour burst crystal inside a colour TV set. This crystal will usually operate at 8.8672375MHz (ie, twice the colour burst frequency), although some sets use a 4.43361875MHz crystal.
 
-El **código fuente, fotos y esquemas** para Eagle los podéis bajar de [este enlace]({{page.assets}}/Frecuencimetro.zip).
+El **código fuente, fotos y esquemas** para Eagle los podéis bajar de [este enlace]({{page.assets | relative_url}}/Frecuencimetro.zip).
 

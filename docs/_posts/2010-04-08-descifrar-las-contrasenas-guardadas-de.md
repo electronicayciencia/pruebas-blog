@@ -5,8 +5,8 @@ author: Electrónica y Ciencia
 tags:
 - programacion
 - PC
-featured-image: buscar_wand.png
-assets: /pruebas-blog/assets/2010/04/descifrar-las-contrasenas-guardadas-de
+image: /assets/2010/04/descifrar-las-contrasenas-guardadas-de/img/buscar_wand.png
+assets: /assets/2010/04/descifrar-las-contrasenas-guardadas-de
 ---
 
 Así como en Firefox tenemos la opción de mostrar una contraseña guardada, en Opera no existe esa posibilidad. En alguna ocasión puede ser útil extraer la lista de las contraseñas guardadas. Como Opera no es *open source* no conocemos el algoritmo de cifrado, lo único que está claro es que, de alguna manera, si el navegador tiene acceso a esa información es que el cifrado debe ser reversible.
@@ -61,5 +61,5 @@ Para encontrar el archivo *wand.dat* podemos escribir en la barra de direcciones
 
 {% include image.html width="480px" file="buscar_wand.png" caption="" %}
 
-Ni que decir tiene que este programita sólo será útil si no hemos establecido una contraseña maestra. Lo he probado con las versiones 9 y 10 para Linux y para Windows, con el resto debería funcionar también. A menos que cambien el algoritmo en el futuro. Encontraréis el archivo adaptado para Linux, junto con un fichero *wand.dat* para pruebas y el ejecutable ya compilado [en este enlace]({{page.assets}}/unwand.zip).
+Ni que decir tiene que este programita sólo será útil si no hemos establecido una contraseña maestra. Lo he probado con las versiones 9 y 10 para Linux y para Windows, con el resto debería funcionar también. A menos que cambien el algoritmo en el futuro. Encontraréis el archivo adaptado para Linux, junto con un fichero *wand.dat* para pruebas y el ejecutable ya compilado [en este enlace]({{page.assets | relative_url}}/unwand.zip).
 
