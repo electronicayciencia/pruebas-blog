@@ -8,7 +8,7 @@ email: electronicayciencia@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Blog técnico sobre proyectos caseros de electrónica, informática y física.
 baseurl: "/pruebas-blog" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://electronicayciencia.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: electronicaycie
 github_username:  electronicayciencia
 permalink: /:categories/:year/:month/:title:output_ext
@@ -18,6 +18,13 @@ show_excerpts: true
 # Build settings
 markdown: kramdown
 theme: minima
+
+minima:
+  date_format: "%-d %b %Y"
+
+disqus:
+    shortname: electronicayciencia
+
 plugins:
   - jekyll-feed
 
