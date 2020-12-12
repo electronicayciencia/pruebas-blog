@@ -320,6 +320,8 @@ En el siguiente vídeo podemos ver nuestro medidor. Primero midiendo el fondo de
 
 Esta es la aguja de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). El típico medidor amarillo, grande, con un asa que sale en casi todas las películas antiguas. Como podéis ver está calibrada en CPM en la parte de abajo y en miliroentgen por hora en la de arriba. 300 cpm equivalen en esa escala a 0.5mR/h. O sea, 100 cpm por miliroentgen/h.
 
+{% include image.html width="450px" file="CDV_700_Gauge.jpg" caption="Medidor de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). Wikipedia." %}
+
 A falta de mejores medios, el CDV-700 puede calibrarse con una fuente radiactiva de uranio empobrecido que lleva en el lateral. Debe medir 2mR/h. Pero eso significa que este medidor va calibrado con Uranio, antes habíamos dicho que generalmente los medidores modernos se calibran con Cesio.
 
 ## Contador digital

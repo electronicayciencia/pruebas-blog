@@ -628,6 +628,8 @@ sub process_body {
 	$s =~ s{</i></blockquote><blockquote><blockquote class="tr_bq"><i>La buena.*?pida.</i></blockquote></blockquote><ul>  </ul>}
 	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
 
+	$s =~ s{(miliroentgen/h.<br />)(<br />A falta de mejores)}{$1.format_image("CDV_700_Gauge.jpg",300,"Medidor de un <a href=\"https://en.wikipedia.org/wiki/CD_V-700\">CDV-700</a>. Wikipedia.").$2}me;
+
 	# External images now are local assets:
 	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.{1,200}?<img.*?</a>}{format_image("lon_pal_es.png",400,"")}e;
 	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHBpdHdWQ3BNWU54MkY5bzlBTzVkQXc.{1,200}?<img.*?</a>}{format_image("angulo.png","","")}e;
