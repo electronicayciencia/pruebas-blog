@@ -1,9 +1,12 @@
+{% capture imagepath %}{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{% endcapture %}
 <div class="postimage">
 <figure>
-   <a href="{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{{ include.file }}">
-	 <img src="{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{{ include.file }}" style="width: {{ include.width }}; max-width: 100%;"
+  <a href="{{imagepath}}{{include.file}}">
+	<img 
+	  src="{{imagepath}}{{include.file}}" 
+      style="width: {{include.width}}; max-width: 100%;"
       alt=""/>
-   </a>
-   <figcaption>{{ include.caption | markdownify }}</figcaption>
+  </a>
+  <figcaption>{{ include.caption | markdownify }}</figcaption>
 </figure>
 </div>
