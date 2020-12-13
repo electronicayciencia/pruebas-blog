@@ -323,15 +323,17 @@ sub format_image {
 	# escape quotes
 	$caption =~ s{"}{\\"}g;
 
-	if ($width ne "" and $width < 400) {
-	    $width = int($width * 1.5); # magnifier
-		my $string = "{% include image.html width=\"${width}px\" file=\"$name\" caption=\"$caption\" %}";
-		return parts_store($string, "img");
+	# Is size standar?
+	my $class = "";
+	if ($width ne "") {
+		$width == 200 and $class = "small";
+		$width == 320 and $class = "medium";
+		$width == 400 and $class = "big";
+		$width == 640 and $class = "huge";
 	}
-	else {
-		my $string = "{% include image.html file=\"$name\" caption=\"$caption\" %}";
-		return parts_store($string, "img");
-	}
+
+	my $string = "{% include image.html size=\"${class}\" file=\"$name\" caption=\"$caption\" %}";
+	return parts_store($string, "img");
 }
 
 sub link_post_to_local {

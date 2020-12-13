@@ -12,7 +12,7 @@ assets: /assets/2010/04/multivibrador-astable-transistores
 
 El astable con dos transistores NPN es de los primeros circuitos que se estudian cuando se habla de transistores en conmutación. Como su esquema es tan simple, es de esas cosas pequeñas que te crees que las entiendes, hasta que te das cuenta de que tú también habrías colocado [los condensadores del revés](http://www.electro-tech-online.com/electronic-projects-design-ideas-reviews/103591-transistor-astable-multivibrator-problem.html). Voy a explicar despacio cómo funciona, y veréis que aunque parece sencillo su funcionamiento es interesante.
 
-{% include image.html width="300px" file="astable_npn.png" caption="" %}
+{% include image.html size="small" file="astable_npn.png" caption="" %}
 
 <!--more-->
 
@@ -31,7 +31,7 @@ Como Q2 está en corte vamos a considerar que no pasa corriente por sus terminal
 
 Recoloquemos los componentes para verlo más claro.
 
-{% include image.html width="237px" file="astable_estado1.png" caption="" %}
+{% include image.html size="" file="astable_estado1.png" caption="" %}
 
 C2 va a cargarse a través de R4 y la base de Q1. Así pues C2, que empezó con -0.7V va a cargarse hasta Vcc-0.7V (no llega a Vcc porque 0.7V es la caída de tensión B-E de Q1). Y además esta carga será muy rápida porque R1 y R4 serán de un valor muy bajo comparadas con R2 y R3.
 
@@ -54,7 +54,7 @@ Al comienzo del estado 2:
 
 Haciendo lo mismo que antes, vamos a eliminar Q1 del circuito y vamos a sustituir Q2 por un diodo y un puente:
 
-{% include image.html width="222px" file="astable_estado2.png" caption="" %}
+{% include image.html size="" file="astable_estado2.png" caption="" %}
 
 Vemos que C1 va a ir desde -0.7V hasta los Vcc-0.7V, rápidamente pues R1 es pequeña.
 
@@ -69,7 +69,7 @@ Vemos que cuando eso pase tendremos:
 
 Que son justamente las condiciones iniciales que dimos para el estado 1. Así el ciclo se repite indefinidamente.
 
-{% include image.html width="480px" file="condensadores.png" caption="" %}
+{% include image.html size="medium" file="condensadores.png" caption="" %}
 
 ## Calcular los componentes
 

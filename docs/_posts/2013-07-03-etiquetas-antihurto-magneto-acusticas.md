@@ -16,7 +16,7 @@ assets: /assets/2013/07/etiquetas-antihurto-magneto-acusticas
 
 En esta entrada quiero hablaros de un sistema anti hurtos que casi todos habréis visto. Se utiliza desde hace unos años en muchos establecimientos para productos que antes no contaban con estas medidas de seguridad.
 
-{% include image.html file="Sensormatic-Am-58kHz-Security-Label.jpg" caption="" %}
+{% include image.html size="" file="Sensormatic-Am-58kHz-Security-Label.jpg" caption="" %}
 
 Se trata de las etiquetas magnetoacústicas (o acustomagnéticas) como las de la imagen. Veremos qué tienen por dentro. Os explicaré cómo funciona todo el sistema (activación/detección/desactivación/reactivación) y, como en este blog nunca nos quedamos en la teoría, también construiremos un pequeño arco anti-hurtos casero para probar todo eso.
 
@@ -42,11 +42,11 @@ Pero ¿cómo funciona?
 
 Si al verlas os habéis preguntado qué tienen dentro las etiquetas de alarma, la verdad es que al abrirlas decepcionan un poco.
 
-{% include image.html file="Etiqueta1_editada.JPG" caption="" %}
+{% include image.html size="" file="Etiqueta1_editada.JPG" caption="" %}
 
 Esta figura consta en la patente [US6359563](http://www.google.com/patents/US6359563) del 2002, para que os hagáis una idea de cómo está montado en 3D.
 
-{% include image.html file="US06359563-20020319-D00000.jpg" caption="" %}
+{% include image.html size="" file="US06359563-20020319-D00000.jpg" caption="" %}
 
 El **número 1** es el plástico protector.
 
@@ -111,19 +111,19 @@ Elegimos un condensador de 10nF, y calculamos la inductancia que resulta ser de 
 
 Esos parámetros nos proporcionan 6kHz de ancho de banda para variar la frecuencia principal si lo necesitamos.
 
-{% include image.html file="excel_rlc_amort.PNG" caption="" %}
+{% include image.html size="" file="excel_rlc_amort.PNG" caption="" %}
 
 Siguiente punto, el grosor del hilo. Lo más sencillo y más fácil de conseguir es hilo de cobre finito. Pero, **segundo error** ¡no demasiado fino! Un hilo demasiado fino presentará mucha resistencia, y bajará el factor Q por debajo del límite de oscilación. O sea, la bobina tendrá tanta resistencia que en menos de un ciclo toda la energía que pudiera almacenar el condensador se disipará en calor. En Wikipedia hay una tabla de resistividad frente a sección: [Calibre de alambre estadounidense](https://es.wikipedia.org/wiki/Calibre_de_alambre_estadounidense)
 
 Para terminar de complicar los cálculos, la resistencia influye también en la frecuencia central. De esto ya habíamos hablado antes en [El circuito RLC serie: oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %}). Aquí podemos ver para una frecuencia, capacidad y resistenca del bobinado cuál debe ser la inductancia teórica (sin amortiguamiento) y cuál debe ser teniendo en cuenta este.
 
-{% include image.html file="excel_rlc_wd.PNG" caption="" %}
+{% include image.html size="" file="excel_rlc_wd.PNG" caption="" %}
 
 Como siempre, los Excel los tenéis al final de la entrada. Y casi todas las imágenes las podéis ampliar abriéndolas en otra ventana del navegador.
 
 Recuperando un poco de hilo de cobre de un viejo transformador, y haciendo algunos cálculos fabricamos la que será nuestra bobina emisora:
 
-{% include image.html file="IMAG0446-1-1.jpg" caption="" %}
+{% include image.html size="" file="IMAG0446-1-1.jpg" caption="" %}
 
 Aunque no es estrictamente necesario, vendrá bien ajustarla una vez conectada al circuito quitando alguna que otra vuelta hasta maximizar la tensión en los extremos.
 
@@ -133,15 +133,15 @@ Ahora que ya tenemos la bobina, necesitamos hacernos nuestro propio excitador. S
 
 El circuito que os propongo como véis es viejo y clásico, consiste en un doble temporizador 555 y una etapa de salida push-pull:
 
-{% include image.html file="TX58kHz_vi_papel.png" caption="" %}
+{% include image.html size="" file="TX58kHz_vi_papel.png" caption="" %}
 
 El primer temporizador, **IC1A**, es el que oscila 100 veces por segundo para modular los pulsos. Está configurado como astable. Pero hemos insertado el diodo **D1** en paralelo con **R2**. Conseguimos así que el condensador se cargue a través de **R1** pero se descargue a través de **R2**, y logramos un duty-cycle inferior al 50%. Con la configuración habitual de un 555 sería imposible. Para más información visitad [555 and 556 Timer Circuits](http://electronicsclub.info/555timer.htm#astable).
 
-{% include image.html file="excel_dcl50.PNG" caption="" %}
+{% include image.html size="" file="excel_dcl50.PNG" caption="" %}
 
 El segundo temporizador, **IC1B**, oscila sobre los 58kHz. **R9** es un trimmer multivueltas cuyo objetivo es ajustar con precisión la frecuencia de salida. Está configurado como astable también, pero en este caso **C3** se carga y se descarga por el mismo camino: a través de las resistencias **R3** y **R9** en serie. Lo cual nos asegura un DC lo más próximo al 50%. Para maximizar la potencia de salida es imprescindible que esté el mismo tiempo con nivel alto que con nivel bajo.
 
-{% include image.html file="excel_dc50.PNG" caption="" %}
+{% include image.html size="" file="excel_dc50.PNG" caption="" %}
 
 La salida de **IC1A** se conecta a la patilla reset de **IC1B**. De tal forma que cuando **IC1A** pasa a nivel alto **IC1B** se activa y genera la frecuencia de 58kHz. Y cuando **IC1A** pasa a nivel bajo, el oscilador se apaga y la salida queda en silencio.
 
@@ -151,17 +151,17 @@ La señal en la patilla de salida de **IC1B** se aplica a la base de **T2**. **T
 
 Sin embargo hay una cosa más. Nuestra placa no sólo genera una frecuencia de 58kHz. Sino que como hemos vito la corta en seco a intervalos regulares. Cortar la alimentación a una bobina es algo que no le sienta nada bien, de hecho le sienta fatal. Y reacciona al igual que cuando intentamos parar en seco un columpio: nos golpea con toda su inercia. En una bobina tenemos que parar el pico de tensión inversa, que es mayor cuanto mayor sea la inductancia. Con la bobina que hemos construido puede llegar a los 72 voltios.
 
-{% include image.html file="sin_zener.jpg" caption="" %}
+{% include image.html size="" file="sin_zener.jpg" caption="" %}
 
 La función del diodo zener D5 es precisamente cortar toda tensión en bornes del circuito resonante que sobrepase la alimentación. Así matamos dos pájaros de un tiro: protegemos los transistores de salida y frenamos la oscilación en poco tiempo.
 
-{% include image.html file="con_zener.jpg" caption="" %}
+{% include image.html size="" file="con_zener.jpg" caption="" %}
 
 Para ser sincero, no es la mejor solución. Si quisiéramos frenar el circuito en el menor tiempo posible tendríamos que recurrir al amortiguamiento crítico. Para más información leed esta entrada: [El circuito RLC serie: oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %})
 
 Aquí tenéis una foto de la placa ya terminada. Al final del artículo os incluyo los esquemas en formato Eagle 5.11.
 
-{% include image.html file="IMAG0463.jpg" caption="" %}
+{% include image.html size="" file="IMAG0463.jpg" caption="" %}
 
 ## Receptor
 
@@ -173,7 +173,7 @@ Como antena utilizaremos otra bobina similar a la primera. Esta ya no es crític
 
 Ya tenemos completo nuestro arco anti-hurtos casero y tiene buena pinta. Ahora esperemos que funcione.
 
-{% include image.html file="IMAG0469.jpg" caption="" %}
+{% include image.html size="" file="IMAG0469.jpg" caption="" %}
 
 ## Visualizar el eco
 
@@ -181,11 +181,11 @@ Colocamos las antenas enfrentadas a una distancia de 20cm una de otra. Encendemo
 
 Cambiamos el interruptor a pulsante y ajustamos ganancia y volumen. Recibimos una señal como esta:
 
-{% include image.html file="pulsosin.jpg" caption="" %}
+{% include image.html size="" file="pulsosin.jpg" caption="" %}
 
 Tomamos una etiqueta adhesiva, generalmente cualquier etiqueta sirve porque tienen la mala costumbre de no desactivarse del todo. La interponemos entre las dos antenas, más próxima a la antena receptora. Y ¡este es el efecto!
 
-{% include image.html file="pulsofuerares.jpg" caption="" %}
+{% include image.html size="" file="pulsofuerares.jpg" caption="" %}
 
 Eh, pues vaya mierda ¿no?
 
@@ -198,21 +198,21 @@ Ya lo explicamos en la entrada sobre circuitos resonantes, si queremos que un si
 
 Así que giramos lentamente el trimmer hasta que el eco sea máximo:
 
-{% include image.html file="pulsocon.jpg" caption="" %}
+{% include image.html size="" file="pulsocon.jpg" caption="" %}
 
 ¡Esto está mejor! Es un efecto muy vistoso cómo los pulsos se prolongan al pasar con una etiqueta activada y sólo cuando está activada. Cuando el efecto es máximo la onda pulsante acaba por convertirse en continua. Exactamente igual que ocurría en la entrada [Espectroscopía casera con copas]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %})
 
-{% include image.html file="sin_y_con.png" caption="" %}
+{% include image.html size="" file="sin_y_con.png" caption="" %}
 
 En la imagen anterior la frecuencia del transmisor y la del eco coinciden, por eso el efecto es grande. En el primer intento pasó esto otro:
 
-{% include image.html file="desplazado.png" caption="" %}
+{% include image.html size="" file="desplazado.png" caption="" %}
 
 Prestad atención sólo a la señal más intensa, de la izquierda. Las frecuencias de la derecha son debidas a la saturación. El pulso principal está en 4125 Hz. O bueno, en realidad estará por los 58 kHz, pero recordad que hemos desplazado la frecuencia para que sea audible. El eco en cambio ronda los 2500 Hz. Como las dos frecuencias no coinciden el efecto es débil.
 
 Además, decíamos que la frecuencia de resonancia variaba según estuviera magnetizada la placa polarizadora. Pues fijaos cómo la frecuencia del eco (eje horizontal) se aleja de la de los pulsos (línea vertical gruesa) cuando acerco y alejo un imán:
 
-{% include image.html file="acercoiman.png" caption="" %}
+{% include image.html size="" file="acercoiman.png" caption="" %}
 
 ## Activación y desactivación
 
@@ -222,7 +222,7 @@ Es un proceso sencillo pero que tiene su técnica. Por ejemplo, este vídeo: [C�
 
 Los metales ferromagnéticos (imantables) están formados por *dominios magnéticos* independientes. Que son como pequeños imanes en su interior. Al principio estos dominios están orientados al azar, y la magnetización resultante es cero, porque se anulan entre sí. Pero cuando acercamos un imán potente, lo que hacemos es orientar los dominios magnéticos. Haciendo que en lugar de anularse mutuamente, sumen sus fuerzas. Es cuando se manifiesta el magnetismo.
 
-{% include image.html file="Dominios.png" caption="" %}
+{% include image.html size="" file="Dominios.png" caption="" %}
 
 Para desimantarlo hay que volver a colocar los dominios de forma aleatoria. O simplemente colocar la mitad para un lado y la mitad para el otro. Eso es lo que conseguimos cuando arrimamos el imán y lo alejamos rápidamente sin tocar. El truco está en hacerlo rápidamente. De esa forma sólo unos pocos dominios magnéticos se afectarán debido a la histéresis magnética.
 
@@ -267,17 +267,17 @@ Este tipo de filtros se llaman **IIR** (Infinite Impulse Response). Si os pica l
 
 Rectificada y filtrada nuestra entrada, obtenemos estos valores:
 
-{% include image.html file="softv1.png" caption="" %}
+{% include image.html size="" file="softv1.png" caption="" %}
 
 Las partes más altas se producen cuando coloco una etiqueta activada entre las antenas. Es suficiente fijar un umbral *v_max* a partir del cual se dispare la alarma.
 
 Este es nuestro software en reposo. La barra superior indica la amplitud actual de la señal recibida y filtrada. Con el potenciómetro modificamos el umbral máximo de disparo.
 
-{% include image.html file="detector_reposo.png" caption="" %}
+{% include image.html size="" file="detector_reposo.png" caption="" %}
 
 En cuanto pasamos con la etiqueta sin desactivar la amplitud asciende, supera el máximo y suena un pitido:
 
-{% include image.html file="detector_disparado.png" caption="" %}
+{% include image.html size="" file="detector_disparado.png" caption="" %}
 
 Entre el verde y el rojo, hay una zona amarilla que es de *incertidumbre*. La  señal es muy alta para provenir de pulsos normales, pero no tan alta como para detectar claramente una etiqueta activada. Puede ser simplemente ruido, puede ser una etiqueta activa pero defectuosa o puede que no se haya desactivado bien al pasar por caja y por tanto resuene a una frecuencia diferente a la principal con menos intensidad.
 
@@ -296,7 +296,7 @@ Este otro algoritmo mide directamente la duración del eco. Se basa en lo siguie
 
 Con la diferencia entre los tiempos de comienzo y fin del pulso se decide si se trataba de un pulso plano (corto), o si por el contrario había alguna señal tras él (eco).
 
-{% include image.html file="softv2.png" caption="" %}
+{% include image.html size="" file="softv2.png" caption="" %}
 
 La línea horizontal es el **squelch**. Un punto a partir del cual decimos que es ruido de fondo y no lo tenemos en cuenta.
 
@@ -336,5 +336,5 @@ Espero que os haya resultado un tema interesante. Para terminar os dejo varios f
 
 - Capturas de sonido usadas en el artículo.
 
-{% include image.html file="IMAG0465.jpg" caption="" %}
+{% include image.html size="" file="IMAG0465.jpg" caption="" %}
 

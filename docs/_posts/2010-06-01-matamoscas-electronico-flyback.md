@@ -38,7 +38,7 @@ Tengo que reconocer, por loco que parezca, que me hizo *cierta ilusión* descubr
 
 El esquema es el siguiente:
 
-{% include image.html file="friemosquitos.png" caption="" %}
+{% include image.html size="big" file="friemosquitos.png" caption="" %}
 
     R1: 470Ω
     R2: 470Ω
