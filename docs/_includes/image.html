@@ -1,9 +1,8 @@
-{% capture imagepath %}{{site.baseurl}}/assets/{{page.date | date: '%Y/%m'}}/{{page.slug}}/img/{% endcapture %}
 <div class="postimage">
 <figure>
-  <a href="{{imagepath}}{{include.file}}">
+  <a href="{{page.assets | relative_url}}/img/{{include.file}}">
 	<img 
-	  src="{{imagepath}}{{include.file}}" 
+	  src="{{page.assets | relative_url}}/img/{{include.file}}" 
       class="{{include.size}}"
       alt=""/>
   </a>
