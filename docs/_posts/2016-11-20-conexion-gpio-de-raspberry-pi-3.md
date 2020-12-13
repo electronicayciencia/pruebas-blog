@@ -316,7 +316,7 @@ Los canales se pueden desconectar del sensor por defecto mediante unos jumpers y
 
 No voy contaros en detalle cómo funciona el protocolo I2C aunque si os interesa os invito a que veáis este video, mucho más ilustrativo que un tutorial:
 
-{% include youtube.html src="https://www.youtube.com/embed/8ZYMrcHm91s" %}
+{% include youtube.html id="8ZYMrcHm91s" %}
 
 Para la práctica usaremos las herramientas del paquete i2c-tools, está en la paquetería de Raspbian.
 

@@ -12,7 +12,7 @@ Una entrada rápida antes del rollo estadístico que va a salir este miércoles.
 
 La de arriba es una pregunta frecuente. Más aún después de que alguien desmontara su impresora y viera el depósito de desecho de tinta lleno hasta arriba. **Hay parte de mito y parte de verdad en esto.** Vamos a ver dónde está el límite. Para empezar, este vídeo impresiona un poco:
 
-<object height="385" width="480"><param name="movie" value="http://www.youtube.com/v/ycD4XkUtbIw?fs=1&amp;hl=es_ES"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/ycD4XkUtbIw?fs=1&amp;hl=es_ES" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+{% include youtube.html id="ycD4XkUtbIw" %}
 
 Ayer desmonté una multifunción HP PhotoSmart C4280. Fotocopiadora e impresora de fotos completamente autónoma, con mini-pantalla de previsualización. Escáner de 2400 dpi ópticos (aunque xsane sólo llega a 1200dpi). Resumiendo: muy chula, aunque sin toma ethernet. Si no tuviera mi querida láser no me importaría tener una de estas.
 

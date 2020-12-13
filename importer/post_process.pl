@@ -480,6 +480,10 @@ sub format_blockquote {
 	$block =~ s{<br>}{\n}g;
 	$block =~ s{^}{> }gm;
 	
+	# Not needed and can cause problems
+	#$block =~ s{<em></em>}{}g;  # empty tags
+	#$block =~ s{<em>(.+)</em>}{*$1*}g;  # italic tags
+
 	$block =~ s{<em>}{}g;  # italic tags not supported on blockquote
 	$block =~ s{</em>}{}g;
 	
@@ -565,11 +569,27 @@ sub format_monogroup {
 	return parts_store($block, "monogroup");
 }
 
+# Parameter: video ID or URL
 sub format_youtube {
-	my $src = shift;
+	my $url = shift;
+	my $id;
+
 	# remove options from embed link
-	$src =~ s{\?.*$}{};
-	return parts_store("{% include youtube.html src=\"$src\" %}", "object");
+	$url =~ s{\?.*$}{};
+
+	if ($url =~ /youtube/) {
+		($id) = $url =~ m{/([^/]{5,20})$};
+	}
+	else {
+		$id = $url;
+	}
+
+	if (not $id) {
+		print STDERR "Warning: no video ID on this link: '$url'.\n";
+		return "";
+	}
+
+	return parts_store("{% include youtube.html id=\"$id\" %}", "object");
 }
 
 sub format_paragraph {
@@ -631,6 +651,7 @@ sub process_body {
 	{<br>- La buena y rápida no será barata.<br>- La rápida y barata no será buena.<br>- La buena y barata no será rápida.</i></blockquote>};
 
 	$s =~ s{(miliroentgen/h.<br />)(<br />A falta de mejores)}{$1.format_image("CDV_700_Gauge.jpg",300,"Medidor de un <a href=\"https://en.wikipedia.org/wiki/CD_V-700\">CDV-700</a>. Wikipedia.").$2}me;
+	$s =~ s{<object height="385" width="480">.*?http://www.youtube.com/v/(ycD4XkUtbIw).*?</object>}{format_youtube($1)}ge; # vierten-tinta
 
 	# External images now are local assets:
 	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.{1,200}?<img.*?</a>}{format_image("lon_pal_es.png",400,"")}e;
@@ -791,7 +812,7 @@ sub process_body {
 		next if $tag =~ /^<script/;
 		next if $tag eq "</script>";
 		next if $tag eq "<!--more-->";
-		#print STDERR "Warning: text seems to still have HTML tags: $tag\n";
+		print STDERR "Warning: text seems to still have HTML tags: $tag\n";
 	}
 
 

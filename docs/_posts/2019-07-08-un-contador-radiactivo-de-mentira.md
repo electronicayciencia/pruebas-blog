@@ -316,7 +316,7 @@ El transistor también actúa como rectificador. **C3** se descargará a través
 
 En el siguiente vídeo podemos ver nuestro medidor. Primero midiendo el fondo de nuestro laboratorio: 10uA. Y posteriormente midiendo la *actividad* de un vaso de **agua caliente**. No hemos tenido en cuenta ni calibración ni escala, la lectura es meramente cualitativa.
 
-{% include youtube.html src="https://www.youtube.com/embed/1ZWqpmtMbvM" %}
+{% include youtube.html id="1ZWqpmtMbvM" %}
 
 Esta es la aguja de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). El típico medidor amarillo, grande, con un asa que sale en casi todas las películas antiguas. Como podéis ver está calibrada en CPM en la parte de abajo y en miliroentgen por hora en la de arriba. 300 cpm equivalen en esa escala a 0.5mR/h. O sea, 100 cpm por miliroentgen/h.
 
@@ -446,7 +446,7 @@ sv = 1. * totalcount / CPM_PER_USVH;
 
 La última variable es la *dosis acumulada*. Es decir, la dosis total recibida por estar expuesto a la radiación durante un tiempo determinado.
 
-{% include youtube.html src="https://www.youtube.com/embed/QO7Hrc8LC_o" %}
+{% include youtube.html id="QO7Hrc8LC_o" %}
 
 En este vídeo comenzamos con 50 CPM, un valor estándar que da nuestro tubo para la actividad de fondo del laboratorio. Estos 50 cpm corresponderían a 0.16 µSv/h o a 1.39 mSv/a. Si queréis calcular la dosis que recibís normalmente durante un año, podéis usar este formulario: [Radiation Dose Calculator](http://www.ans.org/pi/resources/dosechart/msv.php).
 
