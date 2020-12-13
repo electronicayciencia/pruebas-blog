@@ -6,6 +6,8 @@ image: /assets/2015/07/medir-distancias-con-un-raton-de-bola/img/raton_y_conecto
 assets: /assets/2015/07/medir-distancias-con-un-raton-de-bola
 ---
 
+* TOC
+{:toc}
 En el futuro quiero publicar un experimento para el que necesito tomar muestras de sonido a intervalos regulares durante una distancia de, pongamos, un metro. Así que estoy buscando una forma de medir distancias que sea automática y, a ser posible, que tenga menos error que si la distancia la mido a mano.
 
 La primera forma que probé fue usando un motor paso-a-paso: un PIC iba transmitiendo en cada momento el número de pasos y así el PC tendría información sobre la distancia recorrida. A primera vista es buena idea, el problema es que los motores paso-a-paso son muy ruidosos, y ese ruido lo captaba el micrófono e invalidaba la prueba. No sirve.

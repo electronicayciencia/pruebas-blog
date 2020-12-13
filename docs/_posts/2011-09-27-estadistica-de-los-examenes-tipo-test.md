@@ -6,6 +6,8 @@ image: /assets/2011/09/estadistica-de-los-examenes-tipo-test/img/esperanza_acier
 assets: /assets/2011/09/estadistica-de-los-examenes-tipo-test
 ---
 
+* TOC
+{:toc}
 La semana pasada hice un examen tipo test. Eran 150 preguntas y pedían, para aprobar, el 70%. La pregunta es ¿ese 70% tiene su justificación matemática o es más bien un limite arbitrario? Vamos a hablar de cómo interviene el azar al responder preguntas y de las diferentes formas de compensarlo.
 
 <!--more-->

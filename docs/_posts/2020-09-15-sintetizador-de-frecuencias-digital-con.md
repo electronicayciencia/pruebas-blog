@@ -8,6 +8,8 @@ description: >-
 assets: /assets/2020/09/sintetizador-de-frecuencias-digital-con
 ---
 
+* TOC
+{:toc}
 Los **PLL** son una pequeña asignatura pendiente de mis comienzos con la electrónica. Y antes o después debía dedicarles una entrada. Es curioso, después de tantos años, mirar hacia atrás y recordar aquellos tiempos en los que, en esencia, no tenías ni idea de lo que estabas haciendo.
 
 Yo empecé a interesarme por la electrónica a principios de los 90. Había leído en una enciclopedia que un transistor era un componente con tres patillas y servía para amplificar señales. Encontré un juguete o radio rota con componentes de esos, como los de la foto. Corté uno (no sabía soldar), y lo conecté entre los terminales de un altavoz que vete a saber de dónde había salido. Cuando hablé por él no me pareció que mi voz sonara más fuerte. Aquello era frustrante; los libros mienten. Tendría unos diez añitos.
@@ -20,8 +22,6 @@ El primer circuito que funcionó como debía fue un generador de baja frecuencia
 Por el código parece fabricado en 1986. EyC." %}
 
 <!--more-->
-
-{:toc}
 
 ## Primer contacto
 

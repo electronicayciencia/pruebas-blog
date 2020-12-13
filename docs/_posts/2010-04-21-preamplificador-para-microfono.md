@@ -6,6 +6,8 @@ image: /assets/2010/04/preamplificador-para-microfono/img/BENQ0013.JPG
 assets: /assets/2010/04/preamplificador-para-microfono
 ---
 
+* TOC
+{:toc}
 Actualización: Este es un preamplificador de baja calidad a transistores que tiene puntos flojos. Si buscas preamplificar un micrófono de una manera más sencilla tal vez te interesa [esta otra entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}).
 
 Sigo utilizando el viejo micrófono que venía con el primer PC multimedia que compré. Consta de una capsula electret con un preamplificador en la base del micro. Aunque si ponemos atención a las conexiones resulta que la señal pasa directamente del micro al jack, el preamplificador está puenteado y no se usa. Supongo que antaño cuando las tarjetas de sonido sólo tenían entrada micro mono, el tercer hilo era una alimentación de 5V que serviría para el amplificador. Hoy en día ambos canales tienen una tensión de entre 3V y 5V que sólo sirven para alimentar el micrófono. De hecho si conecto el amplificador a un canal libre irremediablemente los canales se acoplan y la señal se distorsiona por falta de alimentación.

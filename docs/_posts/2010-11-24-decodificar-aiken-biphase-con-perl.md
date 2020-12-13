@@ -6,6 +6,8 @@ image: /assets/2010/11/decodificar-aiken-biphase-con-perl/img/acelerando.png
 assets: /assets/2010/11/decodificar-aiken-biphase-con-perl
 ---
 
+* TOC
+{:toc}
 Antes de nada quería mandar un saludo a Explorer de [perlenespanol.com](http://perlenespanol.com/). Porque, sin conocernos previamente, se ve que le gustan mis artículos. Pues casi desde que empecé con el blog todo lo que escribo que tenga que ver con Perl acaba reseñado en su foro.
 
 Ya hemos codificado y decodificado una señal digital otras veces para extraer información. Hemos decodificado señales NRZ, Manchester, etc. Hoy vamos a hablar de un tipo de señal llamado FM1, Biphase Mark Code (BMC) o también Aiken Biphase. Es un tipo de FSK ampliamente utilizado. Vamos a ver uno de los sitios donde se usa y lo usaremos como ejemplo para construir un programita que lo decodifique.

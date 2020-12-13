@@ -5,6 +5,8 @@ tags: programacion, PC, Perl
 assets: /assets/2010/06/generador-de-personajes-ficticios-en
 ---
 
+* TOC
+{:toc}
 De vez en cuando escribo historias de intriga para jugar a modo de rol con los amigos. Cuando uno escribe una historia llega un momento en que tiene que poner nombre a los personajes. Inventarse nombres ficticios y realistas es difícil. Cualquiera puede poner nombre a un personaje, pero si necesitas varios te puede llevar cierto tiempo.
 
 Yo personalmente no tengo imaginación ninguna para poner nombre a las cosas, ya veis el título del blog. Así que hace tiempo busqué en Google listas de personas con nombre y apellido, listas de oficios y empleos, calles de una ciudad grande, y tipos de vía para lo que usé un callejero que encontré. Con eso alimenté una base de datos **sqlite**. Luego hice un sencillo módulo en **Perl** con unas cuantas funciones para utilizarla y listo: un versátil generador de personajes.

@@ -6,6 +6,8 @@ image: /assets/2010/03/conversor-usb-rs232/img/Imagen148.jpg
 assets: /assets/2010/03/conversor-usb-rs232
 ---
 
+* TOC
+{:toc}
 Hola.
 
 Para inaugurar este blog he elegido un proyecto muy sencillo y muy práctico. Se trata de adaptar un barato conversor de 2€ para poder comunicarnos con un microcontrolador. Es útil en caso de que vuestro PC no tenga puerto serie y sólo tenga puertos USB, o si lo tiene  generalmente está poco accesible en la parte de atrás de la torre.

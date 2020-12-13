@@ -5,6 +5,8 @@ tags: programacion, Perl
 assets: /assets/2010/04/comparar-matrices-en-perl
 ---
 
+* TOC
+{:toc}
 En algunas ocasiones tenemos dos listas y necesitamos saber qué elementos *han entrado* nuevos en la segunda, cuales estaban en la primera pero no en la segunda -*han salido*- y cuales se han mantenido. Podríamos utilizar el módulo [Array::Diff]({{page.assets | relative_url}}/Diff.pm) pero tiene un defecto, y es que **depende del orden**. Como utiliza un algoritmo similar a Diff, cuando los elementos cambian de orden el módulo ofrece resultados incorrectos.
 
 Para eso podemos usar la siguiente función:

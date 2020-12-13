@@ -6,6 +6,8 @@ image: /assets/2017/02/el-bus-i2c-bajo-nivel/img/I2c_logo.svg.png
 assets: /assets/2017/02/el-bus-i2c-bajo-nivel
 ---
 
+* TOC
+{:toc}
 Siendo de los protocolos más utilizados, para algunos aficionados el bus I2C continúa siendo gran interrogante hoy en día. Dada la buena recepción de la entrada anterior, titulada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}) vamos a hacer otra dedicada a I2C con todo detalle.
 
 Como la mejor forma de ver cómo funciona algo es practicándolo, he escrito unas funciones para emular un puerto I2C por software para Raspberry Pi utilizando por debajo las funciones de WiringPi. Los ficheros están [en el github del blog](https://electronicayciencia.github.io/wPi_soft_i2c/) y poco a poco los iremos desgranando a lo largo de esta entrada.

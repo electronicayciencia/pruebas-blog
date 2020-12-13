@@ -6,6 +6,8 @@ image: /assets/2015/12/espectroscopia-transformada-de-fourier/img/old_espectroco
 assets: /assets/2015/12/espectroscopia-transformada-de-fourier
 ---
 
+* TOC
+{:toc}
 Hoy voy a hablar de ondas. Muchos artículos de este blog tienen que ver con las ondas. Y en ellos, en casi todos, tratamos las propiedades temporales de las ondas; la frecuencia esto, la frecuencia lo otro... Este artículo, a diferencia de los anteriores, vamos a basarlo en las propiedades espaciales.
 
 La espectroscopía es una ciencia cuyo objetivo es conocer la composición de una sustancia a través de las ondas que absorbe o que emite (ya sea sonido, luz visible, infrarrojo, ultravioleta, u otras). Para lograrlo el primer paso es obtener las frecuencias más características, su espectro de emisión o de absorción según sea el caso.

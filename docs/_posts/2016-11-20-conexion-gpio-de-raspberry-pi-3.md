@@ -6,6 +6,8 @@ image: /assets/2016/11/conexion-gpio-de-raspberry-pi-3/img/300px-Pi-GPIO-header.
 assets: /assets/2016/11/conexion-gpio-de-raspberry-pi-3
 ---
 
+* TOC
+{:toc}
 Este verano me compré una Raspberry Pi. ¿Es extraño que alguien que escribe un blog de electrónica no tenga una Raspberry? Tal vez. El caso es que quería contaros mis primeras pruebas centradas en la experimentación con la conexión GPIO.
 
 Si habéis leído otros artículos de este blog dedicados a microcontroladores sabréis que suelo usar PIC. El objetivo de este artículo es reproducir algunas funciones para las usábamos PIC pero usando un dispositivo infinitamente más potente.

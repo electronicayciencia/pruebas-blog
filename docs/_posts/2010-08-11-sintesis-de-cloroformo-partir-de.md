@@ -5,6 +5,8 @@ tags: química
 assets: /assets/2010/08/sintesis-de-cloroformo-partir-de
 ---
 
+* TOC
+{:toc}
 Hay multitud de productos químicos en cualquier casa y las reacciones entre ellos son múltiples y variadas. Al mezclar, por ejemplo, un álcali clorado como la lejía con un ácido fuerte también basado en el cloro como el salfumán, se produce una neutralización con generoso desprendimiento de cloro. Este gas es tóxico, irritante y mata por asfixia, así que cuidado con él.
 
 El experimento de hoy es un clásico casero, la reacción entre acetona y lejía para dar [cloroformo](http://www.insht.es/InshtWeb/Contenidos/Documentacion/TextosOnline/Valores_Limite/Doc_Toxicologica/FicherosSerie2/DLEP%2026.pdf). Hay multitud de vídeos ilustrativos en YouTube.

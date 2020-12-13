@@ -6,6 +6,8 @@ image: /assets/2011/08/la-transformada-de-fourier-no-es-magia/img/captura_snd.pn
 assets: /assets/2011/08/la-transformada-de-fourier-no-es-magia
 ---
 
+* TOC
+{:toc}
 Este no es el típico artículo en plan "¡Ey, no es magia: sólo son matemáticas avanzadas y te da igual porque no vas a entender ni jota!".
 
 {% include image.html size="" file="captura_snd.png" caption="" %}

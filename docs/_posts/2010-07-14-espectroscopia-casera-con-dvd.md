@@ -6,6 +6,8 @@ image: /assets/2010/07/espectroscopia-casera-con-dvd/img/Imagen065_2.jpg
 assets: /assets/2010/07/espectroscopia-casera-con-dvd
 ---
 
+* TOC
+{:toc}
 En [otra entrada anterior]({{site.baseurl}}{% post_url 2010-07-07-difraccion-en-un-dvd %}) habíamos explicado que un DVD o un CDROM se comportan como una red de difracción. También habíamos calculado el número de líneas y los ángulos para hacer la observación. En esta segunda parte lo aplicaremos para observar los espectros de una luz de **sodio a alta presión** (HPS o High Pressure Sodium) y una lámpara fluorescente de bajo consumo de **mercurio**.
 
 Hay algunas condiciones que debemos cumplir para que las observaciones salgan mejor:

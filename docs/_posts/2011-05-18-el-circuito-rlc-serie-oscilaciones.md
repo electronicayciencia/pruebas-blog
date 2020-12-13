@@ -6,6 +6,8 @@ image: /assets/2011/05/el-circuito-rlc-serie-oscilaciones/img/VI_C.png
 assets: /assets/2011/05/el-circuito-rlc-serie-oscilaciones
 ---
 
+* TOC
+{:toc}
 Antes de nada, os quiero pedir disculpas por el parón que ha sufrido el blog lo que va de año. Todos necesitamos un respiro de vez en cuando, y otras aficiones me han comido mucho tiempo.
 
 Para esta ocasión he elegido un artículo doble sobre cómo funciona uno de esos circuitos que parecen sencillos pero que luego no lo son tanto. Voy a hablaros de esos osciladores de FM con un sólo transistor. Seguro que los habéis visto. Muchas veces se presentan como micrófonos espía, o transmisores simples de FM.

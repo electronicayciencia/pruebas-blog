@@ -6,6 +6,8 @@ image: /assets/2010/03/watchdog-para-pc-con-alarma/img/watchdog.png
 assets: /assets/2010/03/watchdog-para-pc-con-alarma
 ---
 
+* TOC
+{:toc}
 Hoy os quiero presentar un sencillo *watchdog* que reinicie automáticamente el PC cuando detecta que este se ha colgado.
 
 Hay multitud de circuitos de este estilo en Internet. Desde el más simple [missing pulse detector](http://www.ecelab.com/circuit-miss-pulse-det.htm) a los más profesionales que tienen interfaz PCI pasando por los basados en el [74123](http://www.simandl.cz/stranky/elektro/resetator/resetator.htm) o los más modernos usando [chips dedicados](http://www.maxim-ic.com/landing.cfm?lp=410&amp;CMP=4576). Pero todos se basan en lo mismo: esperamos recibir una señal cada cierto tiempo, si no se recibe en un intervalo dado, asumimos que el PC está muerto y se reinicia.

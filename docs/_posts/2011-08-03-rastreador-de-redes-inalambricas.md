@@ -5,6 +5,8 @@ tags: programacion, linux, Perl
 assets: /assets/2011/08/rastreador-de-redes-inalambricas
 ---
 
+* TOC
+{:toc}
 Hoy os traigo un artículo breve de programación. Este programa nos ayudará a localizar la fuente de una wifi siempre y cuando tengamos una antena directiva. A modo de radar, el sistema emitirá un tono cada vez que recibamos una baliza de la red seleccionada, y de una frecuencia más alta mientras mayor sea la potencia recibida.
 
 <!--more-->

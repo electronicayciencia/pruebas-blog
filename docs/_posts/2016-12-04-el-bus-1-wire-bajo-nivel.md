@@ -6,6 +6,8 @@ image: /assets/2016/12/el-bus-1-wire-bajo-nivel/img/ds1820.jpg
 assets: /assets/2016/12/el-bus-1-wire-bajo-nivel
 ---
 
+* TOC
+{:toc}
 Hoy os traigo una entrada sobre el bus 1-Wire y el sensor de temperatura DS1820, con bastante contenido técnico y nivel de detalle, espero que la disfrutéis.
 
 En la [entrada anterior]({{site.baseurl}}{% post_url 2016-11-20-conexion-gpio-de-raspberry-pi-3 %}) vimos cómo manejar de forma básica la conexión **GPIO** de una Raspberry Pi 3. En esta nos comunicaremos con un sensor digital modelo DS1820, sin utilizar ningún driver ni librería, es decir implementando a **bajo nivel** el protocolo 1-Wire empleado por el dispositivo.

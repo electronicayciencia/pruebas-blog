@@ -6,6 +6,8 @@ image: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware/img/yellow_fob.jpg
 assets: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware
 ---
 
+* TOC
+{:toc}
 En el [artículo anterior]({{site.baseurl}}{% post_url 2019-12-15-leer-tarjetas-de-acceso-rfid-sin-arduino %}) tratamos sobre leer tarjetas de proximidad. Y acabamos diciendo lo fácil que es copiar las más básicas.
 
 En este artículo vamos a **experimentar** con RFID de **baja frecuencia** (125kHz). Haremos nuestro propio lector/grabador usando un microcontrolador y algunos componentes discretos. Diseñaremos la electrónica, el firmware y el software para hablar con un chip regrabable.

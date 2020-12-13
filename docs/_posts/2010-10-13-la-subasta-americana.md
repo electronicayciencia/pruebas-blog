@@ -5,6 +5,8 @@ tags: estadística
 assets: /assets/2010/10/la-subasta-americana
 ---
 
+* TOC
+{:toc}
 Últimamente no tengo mucho tiempo para escribir. Veis que las entradas que estoy sacando estas semanas son cortitas y con poca chicha. A ver si saco un poco más de tiempo y escribo sobre el circuito del DimmerIR, o la tercera entrada de estadística, u otra sobre transmisiones digitales.
 
 De momento nos conformaremos con algo que no tiene que ver con la electrónica. Trataremos el tema de **la subasta americana**. Esto viene de una discusión que leí hace ahora diez años en [es.ciencia.matematicas](http://groups.google.com/group/es.ciencia.matematicas/browse_thread/thread/df9df97d4d912ea8/1326f65a668ca9ba?#1326f65a668ca9ba). Para los que no lo sepáis, en una subasta americana como en cualquier otra subasta, el artículo se adjudica al mayor postor; pero a diferencia de otras subastas todo el mundo debe pagar su última puja. Es decir que si pujas, pagas. Te lleves o no te lleves nada.

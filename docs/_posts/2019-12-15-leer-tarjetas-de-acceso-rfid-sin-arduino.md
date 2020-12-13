@@ -6,6 +6,8 @@ image: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/img/fob_foto.jpg
 assets: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
 ---
 
+* TOC
+{:toc}
 Hoy comenzaremos hablando de osciladores, palos de bambú y géiseres y terminaremos hablando de seguridad física. Porque ¿sabes que las cocinas de inducción, los cargadores inalámbricos y algunos antirrobos se basan en el mismo principio que los tornos de entrada al trabajo?
 
 Vamos a ver cómo funcionan las tarjetas identificativas de proximidad de baja frecuencia -comúnmente llamadas RFID-. Pero antes de llegar hasta ahí, recorreremos un camino para entenderlo mejor. Hoy os traigo *experimentos con bobinas*.

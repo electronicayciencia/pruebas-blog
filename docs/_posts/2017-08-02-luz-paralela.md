@@ -6,6 +6,8 @@ image: /assets/2017/08/luz-paralela/img/Optical-dispersion.png
 assets: /assets/2017/08/luz-paralela
 ---
 
+* TOC
+{:toc}
 Para otro experimento necesitaba una fuente de luz blanca cuyos rayos fueran más o menos paralelos. No es algo inmediato. Buscando por ahí veo que hay gente que inocentemente pregunta eso mismo y otros responden con todo rigor. Sin tener en cuenta que, si quien ha preguntado pudiera entender esa respuesta, entonces no habría hecho la pregunta.
 
 Intentemos dar un repaso dentro de lo posible a este asunto sin entrar en los detalles matemáticos.

@@ -6,6 +6,8 @@ image: /assets/2010/09/inferencia-estadistica-ii-introduccion/img/t_normalizada_
 assets: /assets/2010/09/inferencia-estadistica-ii-introduccion
 ---
 
+* TOC
+{:toc}
 En una [entrada anterior]({{site.baseurl}}{% post_url 2010-09-01-inferencia-estadistica-capacidad-de-una %}) sobre estadística, nos quedamos a las puertas de hablar de los tests de hipótesis. Los principios de este tema no suelen explicarse del todo bien en los textos de estadística.
 
 Habitualmente se describe lo que son y se presentan varios, cada uno con su estadístico sacado de la nada. Para algunos se despeja la variable y se calcula un valor. Luego se presentan casos de uso y ejemplos prácticos, unas veces a mano y otras con el SPSS o cualquier otro. Después se habla de los errores, etc. No es de extrañar que la profundidad con que se entiende el fondo del asunto dependa mucho del profesor que imparta la asignatura.

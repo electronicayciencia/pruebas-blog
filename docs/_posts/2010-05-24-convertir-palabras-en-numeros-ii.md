@@ -6,6 +6,8 @@ image: /assets/2010/05/convertir-palabras-en-numeros-ii/img/lon_pal_es.png
 assets: /assets/2010/05/convertir-palabras-en-numeros-ii
 ---
 
+* TOC
+{:toc}
 En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html) programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un *número* escrito con un conjunto de 27 símbolos *{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}* y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:
 
     aaaaa... -> 0.11111...>

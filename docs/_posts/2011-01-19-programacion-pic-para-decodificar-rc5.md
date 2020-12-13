@@ -6,6 +6,8 @@ image: /assets/2011/01/programacion-pic-para-decodificar-rc5/img/11011110.grid.p
 assets: /assets/2011/01/programacion-pic-para-decodificar-rc5
 ---
 
+* TOC
+{:toc}
 Para decodificar el protocolo RC5 hay dos formas de hacerlo. Una es muestreando el puerto cada cierto tiempo, y comprobando si está a nivel alto o nivel bajo. En función del resultado lo interpretamos.
 
 Esto es un ejemplo de codificación Manchester:

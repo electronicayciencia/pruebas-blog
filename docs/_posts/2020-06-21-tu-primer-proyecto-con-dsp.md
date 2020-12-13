@@ -8,6 +8,8 @@ description: >-
 assets: /assets/2020/06/tu-primer-proyecto-con-dsp
 ---
 
+* TOC
+{:toc}
 Un **DSP** es un chip pensado para hacer **Procesado Digital de Señales**. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.
 
 Si buscas en Google *cómo usar Arduino* encontrarás millones de resultados, webs de electrónica, blogs con conceptos básicos, vídeos explicativos, circuitos de ejemplo, preguntas en foros, tutoriales, etc. Si buscas *cómo usar un DSP* encontrarás páginas de fabricantes, notas técnicas, vídeos superficiales o cursos sobre procesamiento de señal. Este es un tema complejo. Y aunque intentaré hacerte una introducción de la forma más sencilla, algunos conceptos son muy técnicos y pueden parecerte más próximos a un trabajo de máster que a un proyecto de tiempo libre.

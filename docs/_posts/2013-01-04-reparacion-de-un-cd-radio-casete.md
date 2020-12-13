@@ -6,6 +6,8 @@ image: /assets/2013/01/reparacion-de-un-cd-radio-casete/img/sg331.jpg
 assets: /assets/2013/01/reparacion-de-un-cd-radio-casete
 ---
 
+* TOC
+{:toc}
 He pensado que podría empezar este año publicando una entrada en el blog, que lo tengo algo olvidado desde el verano. Así que feliz año nuevo a todos y mis mejores deseos.
 
 Hoy os presento un caso real de una radio que he estado reparando estas vacaciones. Espero que os resulte curioso, o al menos entretenido.

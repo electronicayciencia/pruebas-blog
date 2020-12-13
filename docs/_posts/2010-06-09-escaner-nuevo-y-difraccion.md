@@ -6,6 +6,8 @@ image: /assets/2010/06/escaner-nuevo-y-difraccion/img/BENQ0001.JPG
 assets: /assets/2010/06/escaner-nuevo-y-difraccion
 ---
 
+* TOC
+{:toc}
 El pasado fin de semana los vecinos nos dieron una multifunción vieja. Una [Lexmark X1270](http://www.lexmark.com/lexmark/product/home/972/0,6970,245102346_653293766_783805388_es,00.html?tabId=7). Hay que reconocer que es buena, pero como todas las de tinta, los cartuchos valen una pasta y duran un suspiro. En fin que como impresora no me serviría de mucho. Pero mi ética me prohíbe desguazar cosas que aún funcionan *(excepto los matamoscas de 3€, hola Salva)*, antes la dejo junto a un contenedor.
 
 Sin embargo me llamó la atención que el escáner [es compatible con Linux](http://www.sane-project.org/sane-mfgs.html#Z-LEXMARK), no del todo pero sí más que el que tenía. Mi escáner era un Canon para puerto paralelo que apenas funciona con Linux, y tenía casi diez años. Me propuse aprovechar el escáner de la X1270.

@@ -6,6 +6,8 @@ image: /assets/2018/10/la-presion-atmosferica-bmp280/img/baro_goethe_peque.jpg
 assets: /assets/2018/10/la-presion-atmosferica-bmp280
 ---
 
+* TOC
+{:toc}
 Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube hace calor y cuando baja llueve.
 
 Hablaremos del BMP280, un sensor digital de presión y temperatura con comunicación I2C y SPI. Interpretar la lectura no es fácil, veremos los algoritmos que nos proporciona el fabricante y su API. Lo conectaremos a la Raspberry y registraremos la presión durante unos días. Para terminar estudiaremos las variaciones debidas a la llamada *marea barométrica* y los registros durante una breve tormenta.

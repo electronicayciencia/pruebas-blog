@@ -6,6 +6,8 @@ image: /assets/2010/12/controlar-un-servomotor-con-el-pc/img/pulsos_wikipedia.pn
 assets: /assets/2010/12/controlar-un-servomotor-con-el-pc
 ---
 
+* TOC
+{:toc}
 Supongo que muchos estaréis familiarizados con los servos. No es mi caso. Por unas cosas u otras nunca me he dedicado al modelismo ni a la robótica así que para mí estos motores como si no existieran. Sin embargo hace unas semanas vi uno barato en [DealExtreme](http://www.dealextreme.com/details.dx/sku.12832) y pensé que algún día puedo necesitarlo. Y para entonces mejor saber cómo se usa. Así que esta primera prueba no va a ser nada elaborado, solamente un servo, un PIC, y un PC para dar las órdenes.
 
 He utilizado el modelo TowerPro MG995. Según dicen, y he podido comprobar, tiene sus ventajas y sus inconvenientes.

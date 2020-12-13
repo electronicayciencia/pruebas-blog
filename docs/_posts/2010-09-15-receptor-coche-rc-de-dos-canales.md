@@ -6,6 +6,8 @@ image: /assets/2010/09/receptor-coche-rc-de-dos-canales/img/alzado_placa.JPG
 assets: /assets/2010/09/receptor-coche-rc-de-dos-canales
 ---
 
+* TOC
+{:toc}
 Alguien anónimo me dejó un comentario en [esta entrada]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}) pidiendo que, ya que había analizado el transmisor, describiera también el receptor. El comentario lo borré, por la falta de cuidado de su redactor, pero la petición me pareció acertada. Un receptor típico de un coche barato *made in China* no tiene mucha miga. Este que os presento es de uno que me costó entre 3 y 4 euros (para quienes les resulte más familiar, unos 4.5 USD).
 
 ## Circuitos actuales de RadioControl

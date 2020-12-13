@@ -6,6 +6,8 @@ image: /assets/2019/07/un-contador-radiactivo-de-mentira/img/uranium-cloud-chamb
 assets: /assets/2019/07/un-contador-radiactivo-de-mentira
 ---
 
+* TOC
+{:toc}
 Hoy os propongo *imitar* un contador Geiger. Suena como tal, mide como tal, pero -en vez a la radiación- reacciona a la **temperatura**.
 
 Había pensado proyectar un contador de radiación de verdad. Al fin y al cabo todos hemos visto [Chernobil](https://www.imdb.com/title/tt7366338/) y somos expertos en energía nuclear. Hay muchos detectores caseros, algunos con un tubo comercial, otros usan una válvula de vacío, también está el detector de chispas, la cámara de iones, he visto otros que usan un fotodiodo PIN, un CCD... Pero todos los medidores de radiactividad tienen una pega: resultan un tanto aburridos salvo que tengas algo radiactivo que medir.

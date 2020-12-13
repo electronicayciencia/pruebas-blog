@@ -6,6 +6,8 @@ image: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom/img/imagecompatibi
 assets: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom
 ---
 
+* TOC
+{:toc}
 Hoy tenemos un lector de CDROM para desguazar. Es un tanto antiguo, pero eso nos favorece. Como ya os podéis imaginar mientras más moderno es un cacharro, mayor grado de integración y más complicado es reutilizar sus componentes.
 
 Lo que me propongo es hacer funcionar el motor principal del CDROM, el que gira el disco a tropecientasmil revoluciones por minuto. Este tipo de motores son complicados de usar, ya que son prácticamente motores de AC trifásicos sin escobillas. Estos se componen de varias bobinas (generalmente 9) conectadas en triángulo, o también llamada configuración *delta*. En oposición a la configuración en estrella (*wye*) que permite un mayor torque a bajas velocidades, la configuración en triángulo permite más revoluciones, a costa de un arranque más lento. Además de las bobinas tienen algunos [sensores de efecto Hall](http://en.wikipedia.org/wiki/Hall_sensor) para determinar en qué posición está el rotor. Otro día haremos experimentos con estos sensores.

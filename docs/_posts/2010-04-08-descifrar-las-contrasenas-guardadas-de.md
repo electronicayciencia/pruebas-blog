@@ -6,6 +6,8 @@ image: /assets/2010/04/descifrar-las-contrasenas-guardadas-de/img/buscar_wand.pn
 assets: /assets/2010/04/descifrar-las-contrasenas-guardadas-de
 ---
 
+* TOC
+{:toc}
 Así como en Firefox tenemos la opción de mostrar una contraseña guardada, en Opera no existe esa posibilidad. En alguna ocasión puede ser útil extraer la lista de las contraseñas guardadas. Como Opera no es *open source* no conocemos el algoritmo de cifrado, lo único que está claro es que, de alguna manera, si el navegador tiene acceso a esa información es que el cifrado debe ser reversible.
 
 Gracias a SNA de [Reverse Engineering Team](http://www.reteam.org/blog/archives/00000012.htm), tenemos una herramienta capaz de descifrar las claves. El código fuente original lo podeis encontrar [aqui](http://www.reteam.org/blog/archives/unwand.cpp). Compila sin problemas en Windows según el autor; pero no en Linux, donde se necesitan unos ligeros retoques. A continuación explico los cambios:

@@ -6,6 +6,8 @@ image: /assets/2011/01/adaptador-de-usb-serie/img/BENQ0005.JPG
 assets: /assets/2011/01/adaptador-de-usb-serie
 ---
 
+* TOC
+{:toc}
 La primera entrada de este blog ([Conversor USB - RS232]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %})) la dediqué a contaros cómo hacernos un adaptador sencillo y muy cómodo para conectar un microcontrolador al PC cuando no teníamos puerto serie. Y aún cuando tuviéramos, a mi me resulta mucho más práctico este adaptador que un puerto serie *de verdad*.
 
 Recordemos que nos basamos en un adaptador comercial barato (2.86 USD) y de poca calidad: [http://www.dealextreme.com/details.dx/sku.24799](http://www.dealextreme.com/details.dx/sku.24799). En esta segunda versión voy a aportaros alguna foto con más calidad, para facilitaros el montaje. También quiero explicaros **por qué se hacen los puentes** que se hacen. Y por último voy a añadir un cuarto **cable de alimentación positiva** para alimentar el dispositivo directamente desde el puerto USB.
