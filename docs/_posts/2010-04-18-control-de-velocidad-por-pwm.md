@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Control de velocidad por PWM
-author: Electrónica y Ciencia
-tags:
-- reciclado
-- circuitos
+tags: reciclado, circuitos
 image: /assets/2010/04/control-de-velocidad-por-pwm/img/velomtr_sch.png
 assets: /assets/2010/04/control-de-velocidad-por-pwm
 ---

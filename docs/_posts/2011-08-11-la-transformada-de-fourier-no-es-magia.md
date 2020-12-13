@@ -1,11 +1,7 @@
 ---
 layout: post
 title: La Transformada de Fourier no es magia
-author: Electrónica y Ciencia
-tags:
-- programacion
-- linux
-- sonido
+tags: programacion, linux, sonido
 image: /assets/2011/08/la-transformada-de-fourier-no-es-magia/img/captura_snd.png
 assets: /assets/2011/08/la-transformada-de-fourier-no-es-magia
 ---

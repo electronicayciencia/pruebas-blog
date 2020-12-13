@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Mando de un coche teledirigido
-author: Electrónica y Ciencia
-tags:
-- circuitos
-- osciladores
-- telemandos
+tags: circuitos, osciladores, telemandos
 image: /assets/2010/05/mando-de-un-coche-teledirigido/img/circuito.png
 assets: /assets/2010/05/mando-de-un-coche-teledirigido
 ---

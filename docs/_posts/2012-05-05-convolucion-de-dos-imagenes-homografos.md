@@ -1,11 +1,7 @@
 ---
 layout: post
 title: 'Convolución de dos imágenes: Homógrafos UTF'
-author: Electrónica y Ciencia
-tags:
-- gnuplot
-- óptica
-- Perl
+tags: gnuplot, óptica, Perl
 image: /assets/2012/05/convolucion-de-dos-imagenes-homografos/img/sopa.png
 assets: /assets/2012/05/convolucion-de-dos-imagenes-homografos
 ---

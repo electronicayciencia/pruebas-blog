@@ -264,6 +264,14 @@ sub process_head {
 	# Cause issues with timezone and relative links.
 	$s =~ s{^date:.*$}{}mg;
 	$s =~ s{^modified_time:.*$}{}mg;
+	
+	# Author is always the same
+	$s =~ s{^author:.*$}{}mg;
+
+	my ($taginfo) = $s =~ m{tags:(?:\n-.+)+}mg;
+	my (@tags) = $taginfo =~ m{^-\s*(.+)$}mg;
+
+	$s =~ s{$taginfo}{"tags: ".join(', ', @tags)}e;
 
 	# Blogger ID is not needed
 	$s =~ s{^blogger_id:.*$}{}mg;
@@ -273,7 +281,7 @@ sub process_head {
 	# Add featured image
 	$s =~ s{$}{\nimage: $assets_url/img/$featured_image} if $featured_image;
 
-	# Add description
+	# Add description (if any)
 	my ($title) = $s =~ m{^title: (.*)$}m;
 	my $descr = get_description($title);
 	$descr =~ s{\n}{\n  }mg;

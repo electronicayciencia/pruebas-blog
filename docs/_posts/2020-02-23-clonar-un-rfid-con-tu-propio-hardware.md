@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Clonar un RFID con tu propio hardware
-author: Electrónica y Ciencia
-tags:
-- microcontroladores
-- programacion
-- circuitos
+tags: microcontroladores, programacion, circuitos
 image: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware/img/yellow_fob.jpg
 assets: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware
 ---

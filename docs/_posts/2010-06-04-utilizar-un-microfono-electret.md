@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Utilizar un micrófono electret
-author: Electrónica y Ciencia
-tags:
-- circuitos
-- sonido
-- amplificadores
+tags: circuitos, sonido, amplificadores
 image: /assets/2010/06/utilizar-un-microfono-electret/img/conn_electret.png
 assets: /assets/2010/06/utilizar-un-microfono-electret
 ---

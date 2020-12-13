@@ -1,11 +1,7 @@
 ---
 layout: post
 title: 'Multivibrador astable a transistores: explicación'
-author: Electrónica y Ciencia
-tags:
-- circuitos
-- sonido
-- osciladores
+tags: circuitos, sonido, osciladores
 image: /assets/2010/04/multivibrador-astable-transistores/img/astable_npn.png
 assets: /assets/2010/04/multivibrador-astable-transistores
 ---

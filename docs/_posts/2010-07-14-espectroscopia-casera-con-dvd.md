@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Espectroscopía casera con DVD
-author: Electrónica y Ciencia
-tags:
-- gnuplot
-- óptica
-- física
+tags: gnuplot, óptica, física
 image: /assets/2010/07/espectroscopia-casera-con-dvd/img/Imagen065_2.jpg
 assets: /assets/2010/07/espectroscopia-casera-con-dvd
 ---

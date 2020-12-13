@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Comparar matrices en Perl
-author: Electrónica y Ciencia
-tags:
-- programacion
-- Perl
+tags: programacion, Perl
 assets: /assets/2010/04/comparar-matrices-en-perl
 ---
 

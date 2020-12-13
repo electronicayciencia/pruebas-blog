@@ -1,12 +1,7 @@
 ---
 layout: post
 title: Tu primer proyecto con DSP
-author: Electrónica y Ciencia
-tags:
-- microcontroladores
-- programacion
-- circuitos
-- amplificadores
+tags: microcontroladores, programacion, circuitos, amplificadores
 image: /assets/2020/06/tu-primer-proyecto-con-dsp/img/filtrosinc.png
 description: >-
   Introducción a los DSP y uso de un dsPIC.

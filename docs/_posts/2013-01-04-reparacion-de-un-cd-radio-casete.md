@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Reparación de un cd-radio-casete
-author: Electrónica y Ciencia
-tags:
-- reparaciones
-- circuitos
-- amplificadores
+tags: reparaciones, circuitos, amplificadores
 image: /assets/2013/01/reparacion-de-un-cd-radio-casete/img/sg331.jpg
 assets: /assets/2013/01/reparacion-de-un-cd-radio-casete
 ---

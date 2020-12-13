@@ -1,11 +1,7 @@
 ---
 layout: post
 title: 'Dimmer controlado por mando a distancia: el hardware'
-author: Electrónica y Ciencia
-tags:
-- microcontroladores
-- circuitos
-- DimmerIR
+tags: microcontroladores, circuitos, DimmerIR
 image: /assets/2010/12/dimmer-controlado-por-mando-distancia/img/esquema_dimmerIr.png
 assets: /assets/2010/12/dimmer-controlado-por-mando-distancia
 ---

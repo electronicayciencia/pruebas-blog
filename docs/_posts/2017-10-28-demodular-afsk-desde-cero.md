@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Demodular AFSK, desde cero
-author: Electrónica y Ciencia
-tags:
-- programacion
-- circuitos
-- raspberrypi
+tags: programacion, circuitos, raspberrypi
 image: /assets/2017/10/demodular-afsk-desde-cero/img/wargames-02.jpg
 assets: /assets/2017/10/demodular-afsk-desde-cero
 ---

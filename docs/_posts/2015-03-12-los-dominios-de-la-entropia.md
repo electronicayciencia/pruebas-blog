@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Los dominios de la entropía
-author: Electrónica y Ciencia
-tags:
-- estadística
-- Perl
+tags: estadística, Perl
 image: /assets/2015/03/los-dominios-de-la-entropia/img/distribs_letras.png
 assets: /assets/2015/03/los-dominios-de-la-entropia
 ---

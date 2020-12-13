@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Luz paralela
-author: Electrónica y Ciencia
-tags:
-- óptica
-- física
+tags: óptica, física
 image: /assets/2017/08/luz-paralela/img/Optical-dispersion.png
 assets: /assets/2017/08/luz-paralela
 ---

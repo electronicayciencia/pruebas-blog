@@ -1,9 +1,7 @@
 ---
 layout: post
 title: La subasta americana
-author: Electrónica y Ciencia
-tags:
-- estadística
+tags: estadística
 assets: /assets/2010/10/la-subasta-americana
 ---
 

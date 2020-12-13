@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Configurar un ratón serie en un Linux moderno
-author: Electrónica y Ciencia
-tags:
-- linux
-- PC
+tags: linux, PC
 assets: /assets/2010/08/configurar-un-raton-serie-en-un-linux
 ---
 

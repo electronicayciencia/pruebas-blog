@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Bromas de alta tensión
-author: Electrónica y Ciencia
-tags:
-- física
-- circuitos
-- osciladores
+tags: física, circuitos, osciladores
 image: /assets/2010/10/bromas-de-alta-tension/img/shock_broma.jpg
 assets: /assets/2010/10/bromas-de-alta-tension
 ---

@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Colorear regiones de un mapa con Perl
-author: Electrónica y Ciencia
-tags:
-- programacion
-- PC
-- Perl
+tags: programacion, PC, Perl
 image: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl/img/prov_prefijos.png
 assets: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl
 ---

@@ -1,11 +1,7 @@
 ---
 layout: post
 title: Convertir palabras en números (II)
-author: Electrónica y Ciencia
-tags:
-- gnuplot
-- programacion
-- Perl
+tags: gnuplot, programacion, Perl
 image: /assets/2010/05/convertir-palabras-en-numeros-ii/img/lon_pal_es.png
 assets: /assets/2010/05/convertir-palabras-en-numeros-ii
 ---

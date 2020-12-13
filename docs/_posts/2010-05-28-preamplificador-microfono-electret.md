@@ -1,11 +1,7 @@
 ---
 layout: post
 title: 'Preamplificador micrófono electret: operacional'
-author: Electrónica y Ciencia
-tags:
-- circuitos
-- sonido
-- amplificadores
+tags: circuitos, sonido, amplificadores
 image: /assets/2010/05/preamplificador-microfono-electret/img/alim_dual.png
 assets: /assets/2010/05/preamplificador-microfono-electret
 ---

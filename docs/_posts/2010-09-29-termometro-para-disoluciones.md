@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Termómetro para disoluciones
-author: Electrónica y Ciencia
-tags:
-- reciclado
-- circuitos
+tags: reciclado, circuitos
 image: /assets/2010/09/termometro-para-disoluciones/img/termoboli.png
 assets: /assets/2010/09/termometro-para-disoluciones
 ---

@@ -1,11 +1,7 @@
 ---
 layout: post
 title: La Distorsión Armónica Total (THD)
-author: Electrónica y Ciencia
-tags:
-- circuitos
-- sonido
-- amplificadores
+tags: circuitos, sonido, amplificadores
 image: /assets/2013/03/la-distorsion-armonica-total-thd/img/linea_recta.png
 assets: /assets/2013/03/la-distorsion-armonica-total-thd
 ---
