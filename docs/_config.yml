@@ -12,8 +12,10 @@ url: "https://electronicayciencia.github.io" # the base hostname & protocol for 
 permalink: /:year/:month/:title:output_ext
 
 show_excerpts: true
+show_tags: true
+show_image: true
 
-logo: "/assets/logo_eyc.png"
+logo: "/assets/logo_dvd.png"
 
 # Build settings
 markdown: kramdown

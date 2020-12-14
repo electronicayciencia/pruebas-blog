@@ -126,6 +126,35 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   @include relative-font-size(0.90);
 }
 
+.post-card {
+  display: inline-block;
+}
 
+/* Post list image */
 
+.teaser-image-frame {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  float: left;
+  margin-right: 1em;
+}
 
+.teaser-image-frame img {
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+
+.post-card .excerpt {
+  min-width: 200px;
+}
+
+@media screen and (max-width: 500px) {
+   .teaser-image-frame { 
+    float: none;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
+  }
+}
