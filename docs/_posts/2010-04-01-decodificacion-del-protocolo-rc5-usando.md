@@ -6,8 +6,6 @@ image: /assets/2010/04/decodificacion-del-protocolo-rc5-usando/img/rc5.png
 assets: /assets/2010/04/decodificacion-del-protocolo-rc5-usando
 ---
 
-* TOC
-{:toc}
 Dicen que la gran mayoría de los mandos a distancia **infrarrojos** que tenemos por casa funcionan usando la codificación RC5. En mi caso, de nada menos que 7 mandos analizados, 2 son Sony y el resto usan la codificación NEC o similares. Pero hoy voy a hablar del RC5.
 
 Empecemos por lo básico, los impacientes pueden saltarse la intro.

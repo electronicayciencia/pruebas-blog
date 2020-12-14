@@ -6,8 +6,6 @@ image: /assets/2011/07/frecuencimetro-para-el-pc/img/interfaz_tk.png
 assets: /assets/2011/07/frecuencimetro-para-el-pc
 ---
 
-* TOC
-{:toc}
 Después de un par de artículos más bien teóricos ahora os quiero presentar un **montaje práctico**. Vamos a ver cómo hacer un frecuencímetro que sea lo más **sencillo** posible, pero que sea a la vez útil y preciso.
 
 {% include image.html size="" file="interfaz_tk.png" caption="" %}

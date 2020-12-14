@@ -6,8 +6,6 @@ image: /assets/2010/05/mando-de-un-coche-teledirigido/img/circuito.png
 assets: /assets/2010/05/mando-de-un-coche-teledirigido
 ---
 
-* TOC
-{:toc}
 Hoy tenemos un transmisor de un coche teledirigido muy básico. Tiene dos botones, es el clásico *avanza / gira mientras retrocede*. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-30-obtener-el-esquema-desde-una-placa-de %}) obtuvimos el esquema desde la placa. Ahora, como prometimos, lo analizaremos para saber cómo funciona.
 
 **Actualización:** En esta entrada hablo sobre el transmisor. Si quieres saber cómo funciona el receptor ve a [esta otra entrada.]({{site.baseurl}}{% post_url 2010-09-15-receptor-coche-rc-de-dos-canales %})

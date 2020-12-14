@@ -6,8 +6,6 @@ image: /assets/2010/08/resonancia-mecanica-con-copas-ii/img/pulso.png
 assets: /assets/2010/08/resonancia-mecanica-con-copas-ii
 ---
 
-* TOC
-{:toc}
 En [esta entrada]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %}) de hace un tiempo, ya habíamos mostrado cómo se comporta un sistema resonante dentro de un campo oscilatorio. Lo que pasa es que en lugar de usar un campo magnético y un [circuito resonante](http://es.wikipedia.org/wiki/Circuito_LC), habíamos usado oscilaciones mecánicas (sonido) y copas como resonadores. Esta entrada es una especie de continuación de aquella por lo que os recomiendo que la leáis también.
 
 Ya habíamos visto antes cómo, ante una vibración de la frecuencia adecuada, la copa absorbe energía y se pone a vibrar también. Eso es típico en cualquier resonador, ya sea una copa, un circuito LC sintonizado, o un cristal de cuarzo tallado adecuadamente.

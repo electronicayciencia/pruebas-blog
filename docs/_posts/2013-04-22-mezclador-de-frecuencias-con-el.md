@@ -6,8 +6,6 @@ image: /assets/2013/04/mezclador-de-frecuencias-con-el/img/mixer1_sch_t.png
 assets: /assets/2013/04/mezclador-de-frecuencias-con-el
 ---
 
-* TOC
-{:toc}
 Hoy describimos un circuito **mezclador** o multiplicador de frecuencias. Un circuito relativamente ignorado por muchos aficionados a la electrónica pero muy importante. Tan importante que es una parte fundamental de casi todos los receptores de radio (incluyendo radios, televisores, conversores de satélite, walkie-talkies, etc): [receptor heterodino](http://ayudaelectronica.com/concepto-receptor-heterodino/) .
 
 La finalidad de estos esquemas es tomar una señal de entrada -cuya portadora estará en una frecuencia elevada- y multiplicarla por una señal proveniente del oscilador local -cuya frecuencia podemos variar fácilmente-. De forma que al multiplicar dos frecuencias, como ya vimos en la entrada anterior [La Distorsión Armónica Total (THD)]({{site.baseurl}}{% post_url 2013-03-26-la-distorsion-armonica-total-thd %}), el resultado son otras dos frecuencias: la suma y diferencia de las anteriores.

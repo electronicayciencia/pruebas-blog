@@ -6,8 +6,6 @@ image: /assets/2017/05/raspberry-pi-como-generador-de/img/FreqOsc2.png
 assets: /assets/2017/05/raspberry-pi-como-generador-de
 ---
 
-* TOC
-{:toc}
 Hoy os quiero hablar sobre el generador de frecuencias de la Raspberry. Veremos cómo el BCM2835 está preparado para generar frecuencias de hasta 500Mhz. Explicaremos en qué consiste la función de GPIOCLK. Ampliaremos las posibilidades de la librería WiringPi parcheando su código fuente y os contaré cómo funciona un divisor de frecuencia fraccionario. Por fin, para terminar, como experimento práctico, conectaremos el generador a un ADC para dibujar la respuesta en frecuencia de algunos circuitos.
 
 Sí, otra entrada de Raspberry con fuerte contenido técnico -vamos, un coñazo-.

@@ -6,8 +6,6 @@ image: /assets/2010/06/simulacion-estadistica-del-risk/img/tabla.png
 assets: /assets/2010/06/simulacion-estadistica-del-risk
 ---
 
-* TOC
-{:toc}
 Si juegas al [Risk](http://es.wikipedia.org/wiki/Risk) esta entrada te puede gustar. Si no juegas al Risk pero quieres ver cómo se hace una simulación estadística por ordenador también te sirve. El Risk es un juego de estrategia y suerte. Para quien no lo conozca las batallas se deciden de acuerdo con repetidas tiradas de dados que hacen perder al atacante, al defensor o a ambos 1 o 2 ejércitos en cada una.
 
 Lo que voy a hacer es estimar las probabilidades que tenemos de ganar o perder según el número de ejércitos atacantes y defensores. Se puede razonar analíticamente a partir de las probabilidades de cada tirada. Pero yo personalmente prefiero que el ordenador lo calcule mientras hago otras cosas, y después ya analizaré los resultados.

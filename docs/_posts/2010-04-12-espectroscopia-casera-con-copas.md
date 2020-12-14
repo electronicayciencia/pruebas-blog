@@ -6,8 +6,6 @@ image: /assets/2010/04/espectroscopia-casera-con-copas/img/copa.jpg
 assets: /assets/2010/04/espectroscopia-casera-con-copas
 ---
 
-* TOC
-{:toc}
 La [espectroscopia](http://es.wikipedia.org/wiki/Espectroscopia) es una técnica analítica que nos permite distinguir los componentes de una sustancia desconocida. Aprovecha que cada molécula tiene una configuración específica y por tanto unas frecuencias de resonancia que la caracterizan. En estas frecuencias la molécula vibra acumulando la energía de la onda, hecho que puede producir calor. Tal es el fundamento del microondas.
 
 Lo de tener ciertas frecuencias con un comportamiento especial no es exclusivo de las moléculas ni mucho menos. Todo oscilador tiene una frecuencia de resonancia que se corresponde con la frecuencia natural de vibración del sistema. Cuando sólo hay un oscilador y es armónico sólo tiene una, pero en la naturaleza nada es ideal, y los espectros de emisión son muy variados. Las longitudes de onda para las que el sistema tiene un comportamiento diferente al resto son del orden del tamaño de este, así pues los sistemas pequeños resuenan en frecuencias más altas, por ejemplo:

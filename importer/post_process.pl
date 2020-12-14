@@ -860,7 +860,7 @@ $head = process_head($head);
 my $toc = "* TOC\n{:toc}"; # separate with only one \n to preserve excerpt.
 
 # Recompose jekyll post.
-print "---\n$head\n---\n\n$toc\n$body\n\n";
+print "---\n$head\n---\n\n$body\n\n";
 
 
 #print "\n\n".Dumper(\%parts)."\n\n";

@@ -6,8 +6,6 @@ image: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple/img/XOR_TABLE.jpg
 assets: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple
 ---
 
-* TOC
-{:toc}
 Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simple XOR. Se trata de una herramienta que es capaz de adivinar la clave con que se ha cifrado un archivo y descifrarlo. Nada más que haciendo un criptoanálisis del texto cifrado. Veréis que el algoritmo es sencillo, y por qué dicen los expertos que XOR es un cifrado *de juguete*.
 
 > An XOR might keep your kid sister from reading your files, but it won’t stop a cryptanalyst for more than a few minutes. -[Bruce Schneier](http://een.iust.ac.ir/profs/Falahati/Cryptography/CrytoBooks/B_Schneier%20-%20Applied%20Cryptography/ch01/01-05.html#Heading5)-

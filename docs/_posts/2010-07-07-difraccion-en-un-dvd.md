@@ -6,8 +6,6 @@ image: /assets/2010/07/difraccion-en-un-dvd/img/Imagen095.jpg
 assets: /assets/2010/07/difraccion-en-un-dvd
 ---
 
-* TOC
-{:toc}
 Todos sabemos que un DVD o un CD presentan iridiscencia cuando se miran bajo un foco de luz. La información de un DVD se guarda en un surco de anchura micrométrica que recorre el disco en espiral. En un milímetro a lo largo del eje central puede haber más de 1000 surcos. Eso le da al DVD las propiedades de una **[red de difracción](http://en.wikipedia.org/wiki/Diffraction_grating)**. No explicaré cómo funciona una red o sus propiedades, hay información de sobra por ahí. Básicamente, debido a interferencias múltiples, cada longitud de onda de las que componen la luz blanca se refleja con un ángulo distinto, así que la luz incidente se descompone en colores. Eso se puede aprovechar para hacer un espectroscopio casero con un DVD o con un CD.
 
 El parámetro más importante de una red de difracción es su densidad de líneas, expresada en **líneas por milímetro**. O también nos puede servir la separación entre cada surco. Vamos a medir este parámetro en un DVD para usarlo más adelante como elemento difractor en un **espectroscopio** casero básico.

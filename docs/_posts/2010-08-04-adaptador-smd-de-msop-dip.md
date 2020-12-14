@@ -6,8 +6,6 @@ image: /assets/2010/08/adaptador-smd-de-msop-dip/img/dimensiones_AD8313.png
 assets: /assets/2010/08/adaptador-smd-de-msop-dip
 ---
 
-* TOC
-{:toc}
 Me gustaría hacer unas pruebas con el integrado [AD8313](http://www.analog.com/en/rfif-components/log-ampsdetectors/ad8313/products/product.html) de *Analog Devices*. Lo malo es que el único encapsulado disponible es [MSOP]({{page.assets | relative_url}}/RM_8.pdf). Esto es SMD y de los pequeñitos. Estamos hablando de una pieza de 3x3mm, con unas patillas de 0.30mm de ancho. Por compararlo con algo, el diámetro de una mina de un portaminas común es 0.5mm y un pelo humano cerca de 0.1mm. Como quiero hacer varias pruebas voy a acoplarle un encapsulado más grande para manejarlo mejor, un DIP de 8 patillas por ejemplo. Estas son las dimensiones según el datasheet, en milímetros.
 
 {% include image.html size="big" file="dimensiones_AD8313.png" caption="" %}

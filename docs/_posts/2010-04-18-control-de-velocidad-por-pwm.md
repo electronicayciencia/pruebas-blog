@@ -6,8 +6,6 @@ image: /assets/2010/04/control-de-velocidad-por-pwm/img/velomtr_sch.png
 assets: /assets/2010/04/control-de-velocidad-por-pwm
 ---
 
-* TOC
-{:toc}
 Algo ligero para hoy. Se trata de un control de potencia por Modulación de Anchura de Pulsos (PWM). Está basado en un TL494CN que desoldé de una fuente de alimentación para PC estropeada. Como siempre al final de la entrada os dejo un enlace a los ficheros, incluido el datasheet y una nota de aplicación de TI titulada [Designing Switching Voltage Regulators With the TL494](http://focus.tij.co.jp/jp/lit/an/slva001d/slva001d.pdf).
 
 Este integrado tiene todos los elementos necesarios para construir una fuente conmutada:

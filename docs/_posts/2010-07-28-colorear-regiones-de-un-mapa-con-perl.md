@@ -6,8 +6,6 @@ image: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl/img/prov_prefijos.p
 assets: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl
 ---
 
-* TOC
-{:toc}
 Por razones laborales tenía la necesidad de tomar un mapa de España y colorear las regiones según ciertos parámetros. Hay multitud de herramientas para hacer eso pero no con las propiedades que necesitaba, así que me vi en la necesidad de hacer algo concreto
 
 - Los datos vienen dados por prefijo telefónico.

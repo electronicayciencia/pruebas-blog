@@ -6,8 +6,6 @@ image: /assets/2010/09/termometro-para-disoluciones/img/termoboli.png
 assets: /assets/2010/09/termometro-para-disoluciones
 ---
 
-* TOC
-{:toc}
 Lo que os presento en esta entrada es un trabajo de bricolaje más que un circuito. Se trata de un termómetro o, para ser más precisos, una *sonda termométrica* para medir la temperatura de una disolución. Hay experimentos en que tenemos que controlar la temperatura mientras removemos, por ejemplo que no sobrepase los 10ºC. Y a veces queremos saber la temperatura en un punto concreto, por ejemplo para ver cómo aumenta al añadir un ácido. En esta entrada voy a hablar de cómo hacer una "varilla-termómetro" para cuando haga falta.
 
 Partimos de un **bolígrafo viejo**, y nos quedamos sólo con el cuerpo cilíndrico. Es importante que sea de plástico, pues si el bolígrafo tiene partes metálicas puede reaccionar con los productos químicos en disolución. Siendo de plástico es difícil que reaccione más que con algunos disolventes orgánicos. Dentro del cilindro metemos un LM35 o un integrado similar, como el TMP35/36 de Analog Devices, y algo de electrónica para acondicionarlo.

@@ -6,8 +6,6 @@ image: /assets/2018/03/transmisor-y-receptor-digital-de/img/mod_ultrasonido.png
 assets: /assets/2018/03/transmisor-y-receptor-digital-de
 ---
 
-* TOC
-{:toc}
 Se puede transmitir información por cable, por infrarrojos, por teléfono, modulando un tono acústico, por ondas de radio... Hoy os voy a describir un sistema de comunicación digital por **ultrasonidos**. Algunos pensaréis que es un circuito vulgar y falto de originalidad. Pero os gustan los esquemas con operacionales, lo sé, lo veo en las estadísticas del blog. Os animo a leerlo.
 
 En este artículo describiremos primero analógicamente cómo funcionan transmisor y receptor. Después, ya en el terreno digital, programaremos el firmware del transmisor. En cuanto al receptor, haremos primero un software dedicado y para terminar nos meteremos en el sistema operativo con unas explicaciones un tanto más avanzadas.

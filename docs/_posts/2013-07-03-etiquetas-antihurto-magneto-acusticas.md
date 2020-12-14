@@ -6,8 +6,6 @@ image: /assets/2013/07/etiquetas-antihurto-magneto-acusticas/img/Sensormatic-Am-
 assets: /assets/2013/07/etiquetas-antihurto-magneto-acusticas
 ---
 
-* TOC
-{:toc}
 En esta entrada quiero hablaros de un sistema anti hurtos que casi todos habréis visto. Se utiliza desde hace unos años en muchos establecimientos para productos que antes no contaban con estas medidas de seguridad.
 
 {% include image.html size="" file="Sensormatic-Am-58kHz-Security-Label.jpg" caption="" %}

@@ -6,8 +6,6 @@ image: /assets/2011/02/dimmer-controlado-por-mando-distancia/img/interrupciones.
 assets: /assets/2011/02/dimmer-controlado-por-mando-distancia
 ---
 
-* TOC
-{:toc}
 Si no seguís el blog o no recordáis de qué iba este proyecto, hay un resumen en esta entrada donde presentábamos el hardware: [Dimmer controlado por mando a distancia: el hardware]({{site.baseurl}}{% post_url 2010-12-10-dimmer-controlado-por-mando-distancia %}). Os recomiendo que la leáis porque hoy os traigo el software que hay que programar en el micro para hacer funcionar ese hardware.
 
 Empezaremos con una lista de características que nos gustaría que tuviera. Que ya que lo hemos diseñado nosotros y lo vamos a programar, por lo menos que sea como nosotros queramos. Luego recordaremos cómo se regula la luz usando un triac y de ahí entraremos en el software. En lugar del código fuente, que sería extenso, lo explicaremos con ayuda de diagramas.

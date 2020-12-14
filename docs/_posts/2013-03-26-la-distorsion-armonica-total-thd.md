@@ -6,8 +6,6 @@ image: /assets/2013/03/la-distorsion-armonica-total-thd/img/linea_recta.png
 assets: /assets/2013/03/la-distorsion-armonica-total-thd
 ---
 
-* TOC
-{:toc}
 Cualquier aficionado a la música o a la electrónica conoce lo que es la distorsión. En este artículo hablaremos de la importancia de la no linealidad en la distorsión y de cómo se mide si un amplificador distorsiona más o menos que otro.
 
 Haremos un recorrido empezando por los amplificadores ideales. Llegaremos a los no ideales y ahí encontraremos el desarrollo de Taylor. Veremos qué efecto tienen los términos de orden superior sobre una señal de entrada sinusoidal; primero matemáticamente y luego con un circuito de ejemplo. Compararemos un amplificador bien diseñado con uno mal diseñado y veremos los parámetros que caracterizan un circuito de este tipo, incluida la THD.

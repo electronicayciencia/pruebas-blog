@@ -6,8 +6,6 @@ image: /assets/2011/09/electrocardiograma-y/img/con624.gif
 assets: /assets/2011/09/electrocardiograma-y
 ---
 
-* TOC
-{:toc}
 Este es un artículo sobre DSP con un trasfondo de electromedicina. En una entrada anterior ya vimos lo que era una transformada de Fourier y cómo se utilizaba. [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}). Para entender mejor lo que sigue te recomiendo que la leas si aún no lo has hecho. Hoy vamos a aplicarla para limpiar una señal todo lo que podamos. Pero ¿qué es limpiar? Pues para nosotros es seleccionar, de todo lo que capten nuestros sensores, sólo aquello que nos interesa; eliminando el ruido y otras interferencias.
 
 Este experimento lo hice en el 2006 y consiste en construir un electrocardiógrafo. Pero ya desde el principio os advierto: si bien captar señales eléctricas en el cuerpo es relativamente sencillo, lo difícil es hacerlo **bien**. Y con hacerlo bien quiero decir que lo que registremos sirva para algo. Cuando un cardiólogo interpreta un electro, espera que los electrodos estén puestos siempre en el mismo sitio, que el gel tenga una conductividad determinada, que el circuito aplique unos filtros ya tipificados (homologación), etc. Así que la forma de onda que nosotros vamos a obtener no va a pasar de ser una mera curiosidad electrónica pues no tiene, ni mucho menos, valor médico alguno.

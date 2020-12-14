@@ -6,8 +6,6 @@ image: /assets/2010/09/inferencia-estadistica-capacidad-de-una/img/gausiana_2.pn
 assets: /assets/2010/09/inferencia-estadistica-capacidad-de-una
 ---
 
-* TOC
-{:toc}
 No es la primera vez que en este blog utilizamos **la excusa más ridícula** para repasar ciertos conceptos. En esta ocasión nos planteamos la siguiente pregunta *¿Cuál es la capacidad de una cucharilla de postre, o de una cuchara sopera?* Veremos que dar respuesta a eso es tan complicado como queramos hacerlo.
 
 Intentaré explicarlo de manera informal, sin hacer demasiadas cuentas, para que sirva de aclaración de conceptos básicos. Después de todo, quien se quede con ganas de un desarrollo formal (vamos, de ver las cuentas) puede encontrarlo en fácilmente buscando en Google cualquier curso online de estadística.

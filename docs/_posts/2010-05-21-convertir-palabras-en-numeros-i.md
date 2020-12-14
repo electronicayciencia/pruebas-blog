@@ -5,8 +5,6 @@ tags: programacion
 assets: /assets/2010/05/convertir-palabras-en-numeros-i
 ---
 
-* TOC
-{:toc}
 Tenemos herramientas muy potentes para machacar números, calcular medidas estadísticas, gráficos, distancias, etc. Hoy os propongo jugar con algunas de esas herramientas pero aplicadas a las palabras, al **lenguaje**. Claro que las letras no son números, hemos de buscar una función que asigne un número a cada combinación de letras. Hemos de buscar *una aplicación del conjunto de las palabras a los números*.
 
 Nos interesa que las palabras parecidas tengan resultados parecidos, y las diferentes se distancien en el resultado, digamos que de alguna manera nos interesa que sea **lineal**. Sin duda también buscaremos que mantenga un orden, a ser posible que conserve el mismo orden alfabético al que ya estamos acostumbrados.

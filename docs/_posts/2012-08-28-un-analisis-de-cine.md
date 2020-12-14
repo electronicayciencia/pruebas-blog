@@ -6,8 +6,6 @@ image: /assets/2012/08/un-analisis-de-cine/img/esdla-eendp.png
 assets: /assets/2012/08/un-analisis-de-cine
 ---
 
-* TOC
-{:toc}
 Vamos a hablar de cine, también hablaremos de programación, de estadística y tratamiento de datos, todo ello -te lo aseguro- relacionado con el cine. El gusto es algo muy subjetivo, por supuesto, pero hay gustos más y menos comunes así que, por una vez, me vais a permitir ser vuestro crítico de cine.
 
 ¿Conoces la web [Filmaffinity](http://www.filmaffinity.com/)? No es nueva, y no tengo nada que ver con ella, pero aún así me gustaría presentártela. Déjame que escriba primero una reseña, para que puedas entender todo este artículo que gira en torno a ella.

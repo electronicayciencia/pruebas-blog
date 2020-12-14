@@ -6,8 +6,6 @@ image: /assets/2010/09/sensor-optico-sencillo-con-amplio-rango/img/esquema.png
 assets: /assets/2010/09/sensor-optico-sencillo-con-amplio-rango
 ---
 
-* TOC
-{:toc}
 Llevo ya unas cuantas entradas que no publico algo serio de electrónica. Espero que os guste este experimento. Se trata de usar la capacidad parásita de un LED para medir la luz incidente. Aviso de que esta entrada es larga.
 
 Comenzaremos hablando de lo que es el rango dinámico, luego presentaré el esquema del montaje que se va a utilizar y la programación necesaria tanto en el PIC como en el PC. Después haremos un gráfico con los datos recogidos donde se ven distintos fenómenos y finalmente explicaré el principio físico en que se apoya.

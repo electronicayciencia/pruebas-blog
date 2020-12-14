@@ -6,8 +6,6 @@ image: /assets/2010/12/dimmer-controlado-por-mando-distancia/img/esquema_dimmerI
 assets: /assets/2010/12/dimmer-controlado-por-mando-distancia
 ---
 
-* TOC
-{:toc}
 A este proyecto le he dedicado otras entradas en el blog. Se trata de diseñar y construir un circuito para regular la **intensidad de luz** de una lámpara utilizando un mando a distancia.
 
 - Para lo cual necesitamos saber cómo recibir e interpretar la señal de un **mando a distancia**. Por ejemplo uno del tipo NEC ([Receptor con PIC para mandos infrarrojos tipo NEC]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %})).

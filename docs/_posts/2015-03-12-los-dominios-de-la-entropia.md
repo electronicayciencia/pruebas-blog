@@ -6,8 +6,6 @@ image: /assets/2015/03/los-dominios-de-la-entropia/img/distribs_letras.png
 assets: /assets/2015/03/los-dominios-de-la-entropia
 ---
 
-* TOC
-{:toc}
 Hace un montón que no publico un artículo, tanto que casi no me acuerdo de escribir, así que: Hola de nuevo.
 
 Hoy vamos a hablar de uno de esos conceptos que levanta pasiones entre los aficionados a los palabros sin demasiada preocupación por su significado: la **entropía**. Si conoces este concepto y has visto documentales sobre universos paralelos y viajes en el tiempo lo siento mucho, este artículo no te va a gustar, porque va de estadística.

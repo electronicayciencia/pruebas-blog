@@ -6,8 +6,6 @@ image: /assets/2010/03/caracteristica-i-v-de-una-bombilla/img/grafico_IV_1.png
 assets: /assets/2010/03/caracteristica-i-v-de-una-bombilla
 ---
 
-* TOC
-{:toc}
 De todos es sabido que si medimos la resistencia de una bombilla apagada, no obtenemos la resistencia verdadera que ofrece estando encendida. Por el mero hecho de que cuando un material se calienta, su resistencia eléctrica aumenta.
 
 Esto se debe a un aumento de la sección eficaz de los portadores de carga, porque con el aumento de la temperatura, aumenta la magnitud de las oscilaciones en torno a su posición de equilibro. Es un efecto físico curioso, más curioso aún cuando se trata de semiconductores -en los que bajo condiciones adecuadas, puede darse al contrario-. Os animo a que le dediquéis alguna búsqueda en Google.

@@ -6,8 +6,6 @@ image: /assets/2017/10/demodular-afsk-desde-cero/img/wargames-02.jpg
 assets: /assets/2017/10/demodular-afsk-desde-cero
 ---
 
-* TOC
-{:toc}
 Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es posible... ¿Y si os digo que vamos a hablar de radio, de retro-informática, de trenes, de sonido, de matemáticas, de electrónica y de programación suena mejor? Supongo. Y si no busca otra cosa que leer. Hay muy buenos artículos sobre otra cosa en Internet.
 
 Como te decía, vamos a tratar la modulación FSK, para mi gusto la mayoría de páginas son demasiado superficiales o demasiado matemáticas, o se quedan en la descripción o se pierden en detalles sin llegar a hilar el proceso completo.

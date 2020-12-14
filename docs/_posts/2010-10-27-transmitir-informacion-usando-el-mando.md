@@ -6,8 +6,6 @@ image: /assets/2010/10/transmitir-informacion-usando-el-mando/img/Imagen256.jpg
 assets: /assets/2010/10/transmitir-informacion-usando-el-mando
 ---
 
-* TOC
-{:toc}
 Hoy vamos a ver una introducción a la transmisión digital de señales. Veremos los conceptos básicos y haremos una pequeña práctica con los materiales que tenemos a mano. Caracterizaremos el sistema y programaremos un par de PICs para que hagan las funciones de transmisor y receptor.
 
 Lo primero es un transmisor y un receptor. Lo tenemos, vamos a usar el [transmisor]({{site.baseurl}}{% post_url 2010-05-04-mando-de-un-coche-teledirigido %}) y el [receptor]({{site.baseurl}}{% post_url 2010-09-15-receptor-coche-rc-de-dos-canales %}) de un coche teledirigido. El circuito receptor no está pensado para esto y no trabaja demasiado bien, lo veremos. El consumo del transmisor ronda los 12mA, mientras que el del receptor es de 9.5mA. La velocidad que conseguiremos es de 14 baudios, poco más de un byte por segundo. Muy lenta para algunas cosas, pero por ejemplo se podría utilizar en un sensor inalámbrico de lluvia, de temperatura o una alarma.

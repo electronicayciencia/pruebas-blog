@@ -6,8 +6,6 @@ image: /assets/2010/05/preamplificador-microfono-electret/img/alim_dual.png
 assets: /assets/2010/05/preamplificador-microfono-electret
 ---
 
-* TOC
-{:toc}
 Viendo las estadísticas del blog me sorprende la cantidad de gente que busca un preamplificador para micrófono. Creo que sería bueno publicar algunas entradas al respecto.
 
 Siempre que necesitemos captar una señal tenemos que cuidar todo el recorrido desde su origen hasta que la registramos. En particular para una señal sonora me refiero a cosas como:

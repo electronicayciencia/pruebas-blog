@@ -6,8 +6,6 @@ image: /assets/2010/05/receptor-con-pic-para-mandos/img/0_1.png
 assets: /assets/2010/05/receptor-con-pic-para-mandos
 ---
 
-* TOC
-{:toc}
 El formato NEC es una de las codificaciones más extendidas en los mandos a distancia de electrodomésticos baratos, sobre todo los de marca *Nisu*: televisores, vídeos, TDT, DVD, minicadenas, etc. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-01-decodificacion-del-protocolo-rc5-usando %}) ya hablamos sobre otro protocolo de mando a distancia: el RC5. Leer el formato NEC es mucho más sencillo, pero por otro lado requiere más memoria.
 
 Ahora bien, sin utilizar ningún instrumento u ordenador ¿como distingo un mando NEC de los otros tipos? Hay una prueba sencilla. Tapa el agujero del mando, o placa negra, o led por donde sale la luz y pulsa un botón teníendolo tapado. Al destapar con el botón ya pulsado pueden pasar dos cosas: si la tele obedece la tecla pulsada entonces no es NEC, puede ser RC5 o tal vez tipo Sony o JVC. Pero si la tele no obedece entonces probablemente sea NEC. Y esa es una característica distintiva del protocolo: así como el en RC5 se repite continuamente el código (recordemos que había un bit que cambiaba con cada pulsación de la misma tecla para que el aparato no obedeciese dos veces), en este caso sólo se envía una vez el código  y mientras tenga pulsada la tecla se continúa enviando un comando abreviado que significa "*repetir lo anterior*". Como el código concreto sólo se envía una vez cuando se pulsa, si mientras se enviaba tenías la mano tapando el haz, después al quitar la mano el receptor sólo ve el comando "*repetir*" sin saber cual era el comando original.

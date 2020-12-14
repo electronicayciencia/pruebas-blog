@@ -6,8 +6,6 @@ image: /assets/2010/06/utilizar-un-microfono-electret/img/conn_electret.png
 assets: /assets/2010/06/utilizar-un-microfono-electret
 ---
 
-* TOC
-{:toc}
 Habíamos publicado en [esta entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}) los pasos a la hora de registrar una señal, concretamente una señal sonora. Habíamos planteado más o menos estos:
 
 1. Crear la señal en las mejores condiciones: adecuar el experimento y el entorno circundante para maximizar la señal útil y minimizar otras señales y el ruido.

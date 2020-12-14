@@ -6,8 +6,6 @@ image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_edi
 assets: /assets/2017/12/describiendo-un-protocolo-desconocido
 ---
 
-* TOC
-{:toc}
 Imagina que estás frente a una pared de roca y quieres escalarla. Buscas alguna indicación y consultas la guía, pero nadie lo ha hecho antes. Nadie te dice cómo empezar ni por donde seguir, sólo debes fijarte con atención y encontrar algún sitio donde agarrarte para ir subiendo lentamente.
 
 Este es el proceso de análisis en cualquier investigación, desde científica a policíaca. En ocasiones no tienes ni idea de a dónde te va a llevar. Sólo buscas indicios y relacionas patrones sin saber si caminas en la dirección correcta. Con el tiempo, alguna pieza encaja y encuentras un punto de apoyo que te permite certificar el trabajo hecho hasta el momento. Desde ahí continúas subiendo.

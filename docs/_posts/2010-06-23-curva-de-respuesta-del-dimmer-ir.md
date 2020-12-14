@@ -6,8 +6,6 @@ image: /assets/2010/06/curva-de-respuesta-del-dimmer-ir/img/KallDark12.jpg
 assets: /assets/2010/06/curva-de-respuesta-del-dimmer-ir
 ---
 
-* TOC
-{:toc}
 Hay varias entradas dedicadas a un proyecto para hacer un regulador de intensidad luminosa controlado (dimmer) por un mando a distancia infrarrojo. El proyecto tiene una parte hardware -pic, fuente de alimentación sin condensador, optotriac y triac-, y otra parte que es software. De la primera parte hablaremos más adelante.
 
 Grosso modo, el software tiene que:

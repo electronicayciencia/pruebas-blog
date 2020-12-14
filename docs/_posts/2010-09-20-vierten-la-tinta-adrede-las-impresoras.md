@@ -6,8 +6,6 @@ image: /assets/2010/09/vierten-la-tinta-adrede-las-impresoras/img/BENQ0003.JPG
 assets: /assets/2010/09/vierten-la-tinta-adrede-las-impresoras
 ---
 
-* TOC
-{:toc}
 Una entrada rápida antes del rollo estadístico que va a salir este miércoles.
 
 La de arriba es una pregunta frecuente. Más aún después de que alguien desmontara su impresora y viera el depósito de desecho de tinta lleno hasta arriba. **Hay parte de mito y parte de verdad en esto.** Vamos a ver dónde está el límite. Para empezar, este vídeo impresiona un poco:

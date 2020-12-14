@@ -6,8 +6,6 @@ image: /assets/2010/07/termostato-para-estufa-de-incubacion/img/esquema.png
 assets: /assets/2010/07/termostato-para-estufa-de-incubacion
 ---
 
-* TOC
-{:toc}
 Este sencillo proyecto es ideal para quienes quieran ver con un ejemplo el funcionamiento básico de un comparador, de un sensor de temperatura y de un triac. Se trata de un termostato muy preciso capaz de regular una temperatura de entre 27 y 40 grados centígrados. Apto para regular una estufa de cultivo casera.
 
 Un inciso rápido para los profanos: para observar colonias de bacterias, estas se depositan en una placa con gelatina y se cultivan cuales plantas. Para que crezcan se necesita una temperatura estable entre 35 y 38 grados más o menos; si baja crecen muy lentamente, y si sube se asan. El objetivo es obtener 37ºC estabilizados.

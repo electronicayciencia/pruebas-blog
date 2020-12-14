@@ -6,8 +6,6 @@ image: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc/img/capturaescudo.
 assets: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc
 ---
 
-* TOC
-{:toc}
 En ocasiones necesitamos acceder a nuestro ordenador desde fuera de casa. No hay problema, instalamos un servidor SSH y desde cualquier ordenador con Linux, o con PuTTY o SecureCRT instalado nos podemos conectar y ejecutar comandos o ver el correo como si estuviéramos delante mismo de la consola en casita.
 
 El problema viene cuando nos conectamos desde ordenadores no seguros. Qué se yo, un cyber-café, un puesto de acceso libre en alguna party, o el ordenador de un amigo o no tan amigo. Estos sitos no seguros pueden tener instalados algún tipo de troyano o programa semejante para capturar las contraseñas que la gente mete. Puesto que la contraseña de acceso siempre es la misma (salvo que la cambiemos) con que alguien nos la robe en un descuido ya puede andar por nuestro PC de casa sin problemas. Y si tenemos alguna de estas distribuciones con el sudo abierto pues puede organizar un desaguisado de mucho cuidado.
