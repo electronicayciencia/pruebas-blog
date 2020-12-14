@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Característica V/I de una bombilla
-tags: gnuplot, DimmerIR
+tags: gnuplot DimmerIR
 image: /assets/2010/03/caracteristica-i-v-de-una-bombilla/img/grafico_IV_1.png
 assets: /assets/2010/03/caracteristica-i-v-de-una-bombilla
 ---

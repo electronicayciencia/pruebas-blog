@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Watchdog para PC con alarma
-tags: circuitos, PC
+tags: circuitos PC
 image: /assets/2010/03/watchdog-para-pc-con-alarma/img/watchdog.png
 assets: /assets/2010/03/watchdog-para-pc-con-alarma
 ---

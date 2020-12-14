@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Curva de respuesta del Dimmer IR
-tags: óptica, física, DimmerIR
+tags: óptica física DimmerIR
 image: /assets/2010/06/curva-de-respuesta-del-dimmer-ir/img/KallDark12.jpg
 assets: /assets/2010/06/curva-de-respuesta-del-dimmer-ir
 ---

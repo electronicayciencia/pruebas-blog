@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Escáner nuevo y difracción
-tags: óptica, reciclado, física
+tags: óptica reciclado física
 image: /assets/2010/06/escaner-nuevo-y-difraccion/img/BENQ0001.JPG
 assets: /assets/2010/06/escaner-nuevo-y-difraccion
 ---

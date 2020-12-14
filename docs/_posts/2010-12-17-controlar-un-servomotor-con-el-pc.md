@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Controlar un servomotor con el PC
-tags: microcontroladores, programacion
+tags: microcontroladores programacion
 image: /assets/2010/12/controlar-un-servomotor-con-el-pc/img/pulsos_wikipedia.png
 assets: /assets/2010/12/controlar-un-servomotor-con-el-pc
 ---

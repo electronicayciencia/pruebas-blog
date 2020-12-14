@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Criptoanálisis del cifrado XOR simple
-tags: estadística, programacion, Perl
+tags: estadística programacion Perl
 image: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple/img/XOR_TABLE.jpg
 assets: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple
 ---

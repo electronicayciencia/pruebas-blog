@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Receptor coche RC de dos canales
-tags: circuitos, telemandos
+tags: circuitos telemandos
 image: /assets/2010/09/receptor-coche-rc-de-dos-canales/img/alzado_placa.JPG
 assets: /assets/2010/09/receptor-coche-rc-de-dos-canales
 ---

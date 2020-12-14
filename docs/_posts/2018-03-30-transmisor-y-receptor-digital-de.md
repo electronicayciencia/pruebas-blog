@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Transmisor y receptor digital de ultrasonidos
-tags: microcontroladores, programacion, circuitos, sonido, raspberrypi, amplificadores
+tags: microcontroladores programacion circuitos sonido raspberrypi amplificadores
 image: /assets/2018/03/transmisor-y-receptor-digital-de/img/mod_ultrasonido.png
 assets: /assets/2018/03/transmisor-y-receptor-digital-de
 ---

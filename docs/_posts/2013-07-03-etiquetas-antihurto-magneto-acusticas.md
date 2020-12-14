@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cómo funcionan las etiquetas magneto-acústicas (o acustomagnéticas)
-tags: física, circuitos, PC, sonido, osciladores, Perl, amplificadores
+tags: física circuitos PC sonido osciladores Perl amplificadores
 image: /assets/2013/07/etiquetas-antihurto-magneto-acusticas/img/Sensormatic-Am-58kHz-Security-Label.jpg
 assets: /assets/2013/07/etiquetas-antihurto-magneto-acusticas
 ---

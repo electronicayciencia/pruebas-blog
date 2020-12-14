@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Resonancia mecánica con copas II
-tags: física, sonido
+tags: física sonido
 image: /assets/2010/08/resonancia-mecanica-con-copas-ii/img/pulso.png
 assets: /assets/2010/08/resonancia-mecanica-con-copas-ii
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Describiendo un protocolo desconocido
-tags: programacion, sonido, radio
+tags: programacion sonido radio
 image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_editado.png
 assets: /assets/2017/12/describiendo-un-protocolo-desconocido
 ---

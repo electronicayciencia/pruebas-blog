@@ -1,7 +1,7 @@
 ---
 layout: post
 title: El bus 1-Wire a bajo nivel - DS1820
-tags: programacion, linux, raspberrypi
+tags: programacion linux raspberrypi
 image: /assets/2016/12/el-bus-1-wire-bajo-nivel/img/ds1820.jpg
 assets: /assets/2016/12/el-bus-1-wire-bajo-nivel
 ---

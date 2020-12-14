@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Programación PIC para decodificar RC5
-tags: microcontroladores, programacion
+tags: microcontroladores programacion
 image: /assets/2011/01/programacion-pic-para-decodificar-rc5/img/11011110.grid.png
 assets: /assets/2011/01/programacion-pic-para-decodificar-rc5
 ---

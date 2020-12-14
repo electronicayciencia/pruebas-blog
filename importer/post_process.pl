@@ -271,7 +271,7 @@ sub process_head {
 	my ($taginfo) = $s =~ m{tags:(?:\n-.+)+}mg;
 	my (@tags) = $taginfo =~ m{^-\s*(.+)$}mg;
 
-	$s =~ s{$taginfo}{"tags: ".join(', ', @tags)}e;
+	$s =~ s{$taginfo}{"tags: ".join(' ', @tags)}e;
 
 	# Blogger ID is not needed
 	$s =~ s{^blogger_id:.*$}{}mg;
@@ -663,6 +663,8 @@ sub process_body {
 
 	$s =~ s{(miliroentgen/h.<br />)(<br />A falta de mejores)}{$1.format_image("CDV_700_Gauge.jpg",300,"Medidor de un <a href=\"https://en.wikipedia.org/wiki/CD_V-700\">CDV-700</a>. Wikipedia.").$2}me;
 	$s =~ s{<object height="385" width="480">.*?http://www.youtube.com/v/(ycD4XkUtbIw).*?</object>}{format_youtube($1)}ge; # vierten-tinta
+	$s =~ s{(esta página) (<a href="http://www.unitedfreeworld.com/[^"]+">).*?(</a>)}{$2$1$3};
+
 
 	# External images now are local assets:
 	$s =~ s{<a href="[^"]+0AjHcMU3xvtO8dHVKaEpMNkVNZmZKQUFMYXI4YjR0VXc.{1,200}?<img.*?</a>}{format_image("lon_pal_es.png",400,"")}e;

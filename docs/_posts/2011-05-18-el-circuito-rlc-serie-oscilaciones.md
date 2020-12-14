@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'El circuito RLC serie: oscilaciones amortiguadas'
-tags: física, circuitos, osciladores
+tags: física circuitos osciladores
 image: /assets/2011/05/el-circuito-rlc-serie-oscilaciones/img/VI_C.png
 assets: /assets/2011/05/el-circuito-rlc-serie-oscilaciones
 ---

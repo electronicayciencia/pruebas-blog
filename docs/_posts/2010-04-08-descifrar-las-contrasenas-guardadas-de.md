@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Descifrar las contraseñas guardadas de Opera
-tags: programacion, PC
+tags: programacion PC
 image: /assets/2010/04/descifrar-las-contrasenas-guardadas-de/img/buscar_wand.png
 assets: /assets/2010/04/descifrar-las-contrasenas-guardadas-de
 ---

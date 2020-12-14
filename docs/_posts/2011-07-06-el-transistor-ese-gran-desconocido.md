@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'El transistor, ese gran desconocido: Regulador V-I'
-tags: osciladores, amplificadores
+tags: osciladores amplificadores
 image: /assets/2011/07/el-transistor-ese-gran-desconocido/img/fuentev_cir.png
 assets: /assets/2011/07/el-transistor-ese-gran-desconocido
 ---

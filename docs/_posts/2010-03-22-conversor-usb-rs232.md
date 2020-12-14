@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Conversor USB - RS232
-tags: microcontroladores, reciclado, PC
+tags: microcontroladores reciclado PC
 image: /assets/2010/03/conversor-usb-rs232/img/Imagen148.jpg
 assets: /assets/2010/03/conversor-usb-rs232
 ---

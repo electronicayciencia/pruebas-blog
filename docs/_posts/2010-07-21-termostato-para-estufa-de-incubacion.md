@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Termostato para estufa de incubación casera
-tags: circuitos, biología
+tags: circuitos biología
 image: /assets/2010/07/termostato-para-estufa-de-incubacion/img/esquema.png
 assets: /assets/2010/07/termostato-para-estufa-de-incubacion
 ---

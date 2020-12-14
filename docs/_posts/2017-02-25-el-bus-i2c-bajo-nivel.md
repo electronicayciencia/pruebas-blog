@@ -1,7 +1,7 @@
 ---
 layout: post
 title: El bus I2C a bajo nivel
-tags: microcontroladores, programacion, raspberrypi
+tags: microcontroladores programacion raspberrypi
 image: /assets/2017/02/el-bus-i2c-bajo-nivel/img/I2c_logo.svg.png
 assets: /assets/2017/02/el-bus-i2c-bajo-nivel
 ---

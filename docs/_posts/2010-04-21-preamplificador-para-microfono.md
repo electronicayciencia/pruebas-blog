@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Preamplificador para micrófono multimedia
-tags: circuitos, PC, sonido, amplificadores
+tags: circuitos PC sonido amplificadores
 image: /assets/2010/04/preamplificador-para-microfono/img/BENQ0013.JPG
 assets: /assets/2010/04/preamplificador-para-microfono
 ---

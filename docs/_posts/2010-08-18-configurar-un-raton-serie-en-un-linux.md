@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Configurar un ratón serie en un Linux moderno
-tags: linux, PC
+tags: linux PC
 assets: /assets/2010/08/configurar-un-raton-serie-en-un-linux
 ---
 
-Este fin de semana me ha dado por volver a instalar el [FlightGear Flight Simulator](http://www.flightgear.org/), un simulador de vuelo. Por cierto, como instalar FlightGear 1.9 en Debian desde los repositorios es imposible (dependencias rotas, paquetes que no existen, etc), probad esta página [http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html](http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html). A mi me resultó muy práctica.
+Este fin de semana me ha dado por volver a instalar el [FlightGear Flight Simulator](http://www.flightgear.org/), un simulador de vuelo. Por cierto, como instalar FlightGear 1.9 en Debian desde los repositorios es imposible (dependencias rotas, paquetes que no existen, etc), probad [esta página](http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html). A mi me resultó muy práctica.
 
 La última vez que probé el simulador me dio por hacerme un mando a modo de joystick gigante. Porque no es lo mismo mover el ratón por la mesa que tener un palanca de mando al lado. Por chapucera que sea. Lo publicaré en una próxima entrada, por si alguien encuentra útil la idea.
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Leer tarjetas de acceso RFID, sin Arduino
-tags: física, circuitos, osciladores, amplificadores
+tags: física circuitos osciladores amplificadores
 image: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/img/fob_foto.jpg
 assets: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
 ---
