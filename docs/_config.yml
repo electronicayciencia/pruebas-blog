@@ -29,6 +29,7 @@ google_analytics: UA-15570327-6
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-paginate
 
 twitter_username: electronicaycie
 github_username:  electronicayciencia
@@ -41,6 +42,7 @@ minima:
     github: electronicayciencia
     linkedin: reinosoguzman
 
+paginate: 4
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

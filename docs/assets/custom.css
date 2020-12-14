@@ -57,3 +57,21 @@ For now, leave all images -but small ones- its original size with a max-width: 1
 .full {
 }
 
+/* Pagination links */
+
+.prev-next {
+    display: block;
+    overflow: hidden;
+    font-size: 14.4px
+}
+
+.prev-next .half {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0
+}
+
+.prev-next .next {
+    text-align: right
+}
