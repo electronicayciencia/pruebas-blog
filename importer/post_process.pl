@@ -334,10 +334,11 @@ sub format_image {
 	# Is size standar?
 	my $class = "";
 	if ($width ne "") {
-		$width == 200 and $class = "small";
-		$width == 320 and $class = "medium";
-		$width == 400 and $class = "big";
-		$width == 640 and $class = "huge";
+		$width <= 200 and $class = "small";
+		$width >  200 and $width <= 320 and $class = "medium";
+		$width >  320 and $width <= 400 and $class = "big";
+		$width >  400 and $width <= 640 and $class = "huge";
+		$width >  640 and $class = "full";
 	}
 
 	my $string = "{% include image.html size=\"${class}\" file=\"$name\" caption=\"$caption\" %}";

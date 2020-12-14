@@ -236,7 +236,7 @@ Cuanto más coherente más fácil de colimar, sí. Pero a veces se nos olvida qu
 
 Esto es lo que pasa al interponer una aguja en un rayo de Sol pasando por un agujerito en la ventana:
 
-{% include image.html size="" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
+{% include image.html size="medium" file="20170716_171927.jpg" caption="La sombra de una aguja bajo luz coherente." %}
 
 Siento que la imagen no sea de muy buena calidad. Cuesta enfocar estas cosas con un móvil porque tendría que enfocar a infinito y sin embargo el móvil se empeña en enfocar la pantalla. A simple vista la imagen es mucho más viva.
 
@@ -261,7 +261,7 @@ Las rendijas más uniformes proyectan patrones más nítidos." %}
 
 Habitualmente se enseña en las escuelas que el experimento de la doble rendija de Young fue lo que convenció a los científicos de la época de que la teoría corpuscular estaba equivocada y la luz era realmente una onda. Pero no fue del todo así.
 
-{% include image.html size="" file="20170730_165114.jpg" caption="Patrón de difracción con la plantilla anterior." %}
+{% include image.html size="medium" file="20170730_165114.jpg" caption="Patrón de difracción con la plantilla anterior." %}
 
 La discordia llegó a su fin a principios de s. XIX, durante una congregación de la Academia Francesa para tratar de resolver el dilema de si la luz era una onda o un chorro de partículas. Poisson, partidario dogmático de la teoría corpuscular, propuso poner como obstáculo un objeto circular. Según su razonamiento las ondas pueden rodear obstáculos, y si la luz era una onda tenía que poder rodear ese círculo también. Lo cual era absurdo, por supuesto, según Poisson.
 

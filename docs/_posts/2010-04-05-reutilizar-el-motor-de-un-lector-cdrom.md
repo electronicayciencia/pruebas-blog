@@ -77,7 +77,7 @@ El **disco de Newton**, como podéis ver debajo tiene varios colores pintados de
 
 El **disco de Benham** me resulta mucho más curioso. Se trata de una ilusión óptica por la cual un disco con un determinado diseño, pintado únicamente con tinta negra sobre fondo blanco, produce al girar la sensación de estar coloreado. Hay varios diseños, este que os pongo aquí es el que me ha dado mejor resultado.
 
-{% include image.html size="" file="Benham-s_Disc.PNG" caption="" %}
+{% include image.html size="small" file="Benham-s_Disc.PNG" caption="" %}
 
 Hay mucha información en Internet sobre ambos fenómenos y os animo a seguir investigando.
 

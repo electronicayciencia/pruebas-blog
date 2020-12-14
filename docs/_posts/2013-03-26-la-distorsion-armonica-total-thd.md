@@ -63,7 +63,7 @@ $$
 
 Esta forma de aproximar una función por una serie de potencias de x, se llama **Serie de Taylor**. Por ejemplo mirad esta imagen tomada de la Wikipedia en la que aproximan una exponencial:
 
-{% include image.html size="" file="taylor_wikipedia.gif" caption="" %}
+{% include image.html size="small" file="taylor_wikipedia.gif" caption="" %}
 
 Si todos los coeficientes k valieran 0 salvo k<sub>1</sub> saldría una función lineal como la recta del principio. k<sub>1</sub>x se llama *término lineal*.
 
@@ -132,7 +132,7 @@ Por eso decimos que cuando la amplificación no es lineal aparecen **armónicos*
 
 Vamos a ver, en la práctica, de dónde sale la distorsión. Tened en cuenta que los resultados y gráficos del Spice están basados en un modelo, que puede estar más o menos simplificado. Este es nuestro circuito:
 
-{% include image.html size="" file="sch_bc547_600_720mv_1k.png" caption="" %}
+{% include image.html size="small" file="sch_bc547_600_720mv_1k.png" caption="" %}
 
 El transistor BC547 es un NPN muy utilizado. Lo polarizamos en **emisor común** de la forma más sencilla posible:
 

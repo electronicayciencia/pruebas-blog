@@ -64,11 +64,11 @@ Var.page: {{ page.path }}
 
 A squared video (4:3):
 
-{% include youtube.html src="https://www.youtube.com/embed/BZwuTo7zKM8" %}
+{% include youtube.html id="BZwuTo7zKM8" %}
 
 A wide video (16:9):
 
-{% include youtube.html src="https://www.youtube.com/embed/jYFefppqEtE" %}
+{% include youtube.html id="jYFefppqEtE" %}
 
 
 ## Equations

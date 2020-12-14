@@ -85,9 +85,9 @@ He sacrificado definición de la imagen en favor de que se vea más claro lo sig
 
 - **El pico A3** parece que esté dividido en dos muy próximos. En efecto al menos los picos A2 y A3 se desdoblan. Es algo común en espectroscopia, y pueden deberse a una acción externa (como el [efecto Zeeman](http://es.wikipedia.org/wiki/Efecto_Zeeman) o el [efecto Stark](http://es.wikipedia.org/wiki/Efecto_Stark)), pero aquí seguramente se deba a defectos en el material. Estos son los picos anteriores ampliados. Se necesita estrujar la FFT para obtenerlos y no se ven del todo bien.
 
-{% include image.html size="" file="tono_A2.png" caption="" %}
+{% include image.html size="small" file="tono_A2.png" caption="" %}
 
-{% include image.html size="" file="tono_A3.png" caption="" %}
+{% include image.html size="small" file="tono_A3.png" caption="" %}
 
 ## Espectro completo de A
 

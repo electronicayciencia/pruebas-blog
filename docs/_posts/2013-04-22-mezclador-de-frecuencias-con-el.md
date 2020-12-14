@@ -88,7 +88,7 @@ La configuración no es nada complicada: **R11** y **C7** deciden la frecuencia 
 
 **R11** y **C7** se calculan usando unas tablas que vienen en el datasheet. Por ejemplo, para una resistencia **R11** de 10kohm y una tensión de alimentación de 8 o 9V el valor de **C7** tiene que ser del orden de 1nF. ¿Veis ahora por qué decía antes que la frecuencia depende de la tensión de alimentación?
 
-{% include image.html size="" file="calculo_rc.png" caption="" %}
+{% include image.html size="medium" file="calculo_rc.png" caption="" %}
 
 La salida del oscilador será la que controle el mezclador.
 
@@ -138,7 +138,7 @@ Con este circuito ya podemos explorar con la tarjeta de sonido las frecuencias n
 
 Una vez terminado, la placa nos queda más o menos así. Digo más o menos porque esta foto es de una versión anterior y he cambiado algunos componentes.
 
-{% include image.html size="" file="IMAG0415.jpg" caption="" %}
+{% include image.html size="medium" file="IMAG0415.jpg" caption="" %}
 
 En [este enlace]({{page.assets | relative_url}}/mixer4066.zip) tenéis algunos archivos interesantes, incluyendo los gráficos y los archivos de Eagle (version 6) para el esquema y la PCB.
 

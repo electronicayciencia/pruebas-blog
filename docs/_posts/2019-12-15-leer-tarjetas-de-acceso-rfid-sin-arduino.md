@@ -16,7 +16,7 @@ Empezaremos por construir un oscilador muy sencillo, al que añadiremos un buffe
 
 En su día ya dedicamos un artículo a [Las oscilaciones amortiguadas]({{site.baseurl}}{% post_url 2011-05-18-el-circuito-rlc-serie-oscilaciones %}). Este lo vamos a dedicar a las oscilaciones forzadas y uno de sus usos más habituales en nuestro día a día.
 
-{% include image.html size="" file="fob_foto.jpg" caption="Llave de acceso RFID a 125kHz. EyC." %}
+{% include image.html size="small" file="fob_foto.jpg" caption="Llave de acceso RFID a 125kHz. EyC." %}
 
 <!--more-->
 
@@ -251,7 +251,7 @@ Es decir, esta tarjeta corresponde al código **0AB49789**. No encuentro la rela
 
 Vamos a hacer otra prueba con un llavero. Fijaos en que tiene grabado por fuera el código **6869636**:
 
-{% include image.html size="" file="fob_foto.jpg" caption="Llavero RFID. EyC." %}
+{% include image.html size="small" file="fob_foto.jpg" caption="Llavero RFID. EyC." %}
 
 En el osciloscopio nos aparece una señal más débil porque el diámetro de la bobina es menor que el de la tarjeta.
 

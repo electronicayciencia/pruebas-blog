@@ -26,7 +26,7 @@ En tal caso más vale optar por el esquema más sencillo. Que es el siguiente:
 
 Simplificando el esquema, para que se vean sólo las pistas sería así:
 
-{% include image.html size="" file="placa_pistas1.png" caption="" %}
+{% include image.html size="small" file="placa_pistas1.png" caption="" %}
 
 A la hora de hacer la placa, tened en cuenta que trabajamos con pistas muy delgadas. Y si nos pasamos de fuerza con la transferencia puede pasar esto:
 

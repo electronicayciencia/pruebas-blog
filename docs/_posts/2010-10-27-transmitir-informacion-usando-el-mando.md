@@ -53,7 +53,7 @@ Habrá que medir cuánto tarda en pasar del estado A al B, del B al C y del C al
 
 Lo hacemos con este montaje, en el que el receptor y el transmisor van conectados al mismo PIC.
 
-{% include image.html size="" file="Imagen256.jpg" caption="" %}
+{% include image.html size="medium" file="Imagen256.jpg" caption="" %}
 
 Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en el enlace que hay al final de la entrada, dentro del directorio transiciones. El algoritmo es muy sencillo y consiste en lo siguiente:
 
@@ -68,7 +68,7 @@ Para abreviar no pondré los programas. Podéis encontrarlos si os interesa en e
 
 Si pusiéramos la oreja en la antena esto es lo que oiríamos:
 
-{% include image.html size="" file="transiciones.png" caption="" %}
+{% include image.html size="small" file="transiciones.png" caption="" %}
 
 Aquí vemos un sonograma de Baudline. El tiempo transcurre hacia abajo y las frecuencias aumentan hacia la derecha. Como es una onda cuadrada, las lineas verticales son los armónicos. En el estado A no hay ninguna señal. En el B las líneas están muy juntas porque se trata de los armónicos de una onda de 250Hz (250Hz, 500Hz, 750Hz, 1000Hz, 1250Hz, etc). En cambio la frecuencia moduladora para el estado C es de 1000Hz. Y los armónicos son múltiplos de 1000 (1000Hz, 2000Hz, 3000Hz, etc), por eso salen más separados.
 

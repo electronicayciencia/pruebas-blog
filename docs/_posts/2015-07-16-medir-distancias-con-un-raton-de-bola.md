@@ -368,7 +368,7 @@ En 1784 un matemático inglés llamado George Atwood quería comprobar la segund
 
 El asunto es que los cronómetros por entonces no eran como ahora y claro, medir el tiempo que tarda algo en caer con una aceleración de casi 10m/s² era complicado. Así que tenía que encontrar la manera de reducirla. Lo que sí estaba más avanzado eran las balanzas. Y lo que hizo fue poner dos pesos atados con una polea:
 
-{% include image.html size="" file="330px-Atwood.svg.png" caption="Esquema de la máquina de Atwood. Wikipedia." %}
+{% include image.html size="small" file="330px-Atwood.svg.png" caption="Esquema de la máquina de Atwood. Wikipedia." %}
 
 Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: [https://en.wikipedia.org/wiki/Atwood_machine](https://en.wikipedia.org/wiki/Atwood_machine)
 

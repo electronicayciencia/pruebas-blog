@@ -14,7 +14,7 @@ Hoy quería hablaros de un electrodoméstico digamos intermedio entre los ventil
 
 Primero vamos a introducir unos conceptos básicos de psicrometría para usarlos después. Después veremos las partes de un evaporativo y el principio de funcionamiento. Conectaremos un sensor **HTU21D** para medir la temperatura y humedad a la salida del aparato. Y, de postre, haremos algunas pruebas de rendimiento en distintas condiciones.
 
-{% include image.html size="" file="20170807_192905.jpg" caption="Panel de celulosa corrugada." %}
+{% include image.html size="medium" file="20170807_192905.jpg" caption="Panel de celulosa corrugada." %}
 
 <!--more-->
 
@@ -40,7 +40,7 @@ Si el agua se enfría al evaporarse, cabe preguntarse ¿hasta qué temperatura?.
 
 Pero resulta que la temperatura de bulbo húmedo depende de cuán seco esté el ambiente. Podríamos utilizar dos termómetros, uno normal y el otro humedecido para medir la humedad relativa. Tal aparato se llama **psicrómetro**. Luego ambos termómetros se agitan en el aire y se miran las temperaturas de uno y otro.
 
-{% include image.html size="" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
+{% include image.html size="small" file="2340_89288_p1.jpg" caption="Psicrómetro de carraca. Fuente: Ebay." %}
 
 Si el aire está saturado de humedad al 100%, dará igual que mojemos el termómetro porque del agua no se va a evaporar nada. En tal caso la temperatura húmeda será la misma que la seca. Los psicrómetros vienen con una tabla de doble entrada que nos da la humedad relativa en función de ambas temperaturas o en función de la temperatura seca y de la diferencia entre ambas.
 
@@ -76,11 +76,11 @@ En esta página tenéis una tabla psicrométrica para practicar: [Free Online In
 
 Aunque os voy a enseñar el interior de un aparato concreto, ya podéis intuir que el principio de funcionamiento es el mismo en todos. Sólo cambia un poco la disposición en sistemas industriales o domésticos, pero los portátiles son parecidos: Se trata de un ventilador normal y corriente al que se le ha incorporado un panel en la toma de aire, una cubeta con agua, y una bomba para humedecerlo.
 
-{% include image.html size="" file="20170807_193049.jpg" caption="Vista trasera del enfriador." %}
+{% include image.html size="small" file="20170807_193049.jpg" caption="Vista trasera del enfriador." %}
 
 Esta es la vista por detrás. Lo primero que encontramos es un filtro de rejilla. Por un lado evita el paso de suciedad al panel de celulosa haciendo que dure más, y por otro homogeniza el flujo de aire. Se aprecia debajo la cubeta con agua.
 
-{% include image.html size="" file="20170807_192853.jpg" caption="Panel de celulosa, vista lateral." %}
+{% include image.html size="medium" file="20170807_192853.jpg" caption="Panel de celulosa, vista lateral." %}
 
 Este es el panel de *celulosa corrugada*. El corazón del sistema y lo que realmente enfría el aire. Los hay de distintos tipos: esponja de fibra, lana de madera, celulosa...
 
@@ -92,7 +92,7 @@ Un motor bombea agua desde la cubeta hasta unas salidas que hay en la parte supe
 
 Lo que hay a continuación es un ventilador, en este caso cilíndrico. Sirve  para bombear aire humedecido hacia el exterior. En este modelo concreto, se puede intercalar también una resistencia para calentar el aire los días de frío.
 
-{% include image.html size="" file="20170807_192618.jpg" caption="Vista trasera una vez retirado el panel." %}
+{% include image.html size="medium" file="20170807_192618.jpg" caption="Vista trasera una vez retirado el panel." %}
 
 Podemos considerar que el aire se satura durante el tiempo que está atravesando el panel. Asumiendo un flujo uniforme el grado de saturación alcanzado depende de tres variables:
 

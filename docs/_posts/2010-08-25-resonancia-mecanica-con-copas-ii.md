@@ -28,7 +28,7 @@ Este es el aspecto de nuestra señal:
 
 Como veis son tres sinusoides sumadas y hemos hecho una aparición y desvanecimiento graduales. Nada especial. El resto del tiempo es silencio. Lo reproducimos en bucle cada 320ms y esto es lo que capta el micrófono:
 
-{% include image.html size="" file="pulsos.png" caption="" %}
+{% include image.html size="small" file="pulsos.png" caption="" %}
 
 Vemos perfectamente el periodo, de 320ms con silencios incluidos. Las tres frecuencias son 512Hz a la izquierda, 1068Hz en el centro y de 1404Hz a la derecha. El centro del pulso se ve limpio porque la suma de sinusoides no está alterada, en los extremos se ve un espectro ensanchado y borroso debido al motivo que hemos dicho antes. También de aprecian ruidos de fondo.
 
@@ -63,7 +63,7 @@ Hemos usado varias veces la expresión *absorbe energía y vibra*. Pensad lo que
 
 Es decir que si metemos la copa 1 en el campo debemos observar una atenuación justo en la frecuencia de resonancia momento antes de ponerse a vibrar. Lo habíamos visto en la otra entrada, pero aquí lo tenemos más claro:
 
-{% include image.html size="" file="absorcion.png" caption="" %}
+{% include image.html size="medium" file="absorcion.png" caption="" %}
 
 Se aprecia que mientras las frecuencias derecha e izquierda no notan apenas la introducción de la copa, sí se atenúa la recepción de la frecuencia central.
 

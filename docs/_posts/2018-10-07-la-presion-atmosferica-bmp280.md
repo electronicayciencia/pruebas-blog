@@ -12,7 +12,7 @@ Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube 
 
 Hablaremos del BMP280, un sensor digital de presión y temperatura con comunicación I2C y SPI. Interpretar la lectura no es fácil, veremos los algoritmos que nos proporciona el fabricante y su API. Lo conectaremos a la Raspberry y registraremos la presión durante unos días. Para terminar estudiaremos las variaciones debidas a la llamada *marea barométrica* y los registros durante una breve tormenta.
 
-{% include image.html size="" file="baro_goethe_peque.jpg" caption="Botella barométrica o barómetro de Goethe. EyC." %}
+{% include image.html size="medium" file="baro_goethe_peque.jpg" caption="Botella barométrica o barómetro de Goethe. EyC." %}
 
 Hasta el siglo XVI, la ciencia que se enseñaba en las universidades, la ciencia de verdad, en la que creía todo el mundo sin discusión, era la física aristotélica. Entonces llegó Copérnico y nos mostró que, a veces, las verdades bien establecidas y enseñadas durante generaciones no son ciertas. Llegó Francis Bacon y nos enseñó que la ciencia y la dialéctica son cosas distintas; y que algo no es verdad tan sólo porque sea razonable. Galileo nos explicó cómo hacer experimentos y ayudarnos de los números para proceder. Newton recorrió ese camino para sintetizar la nueva ciencia de la época en su obra culmen -que todos conocéis-, enterrando para siempre la física aristotélica.
 
@@ -102,7 +102,7 @@ El fabricante nos proporciona un driver ya listo con este algoritmo implementado
 
 Los barómetros, por lo general se encuentran influidos por la temperatura ambiente. Es muy fácil de ver en un tipo de barómetro llamado **barómetro de Goethe**; más conocido en eBay como *Glass Barometer Weather Forecast Rain Shine Bottle*.
 
-{% include image.html size="" file="baro_goethe.jpg" caption="Botella barométrica. El extremo superior está abierto. EyC." %}
+{% include image.html size="medium" file="baro_goethe.jpg" caption="Botella barométrica. El extremo superior está abierto. EyC." %}
 
 Primero llenamos la botella de líquido. El nivel en el brazo lateral, cuyo extremo superior está abierto, alcanza una determinada altura. La presión dentro de la esfera interior no puede variar. Así pues, cuando aumenta la presión exterior, entra por el extremo abierto y empuja el líquido hacia abajo. Y si la presión atmosférica desciende, es la presión dentro de la esfera la que empuja el líquido a subir.
 

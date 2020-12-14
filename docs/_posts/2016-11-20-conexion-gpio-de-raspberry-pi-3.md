@@ -14,7 +14,7 @@ Si habéis leído otros artículos de este blog dedicados a microcontroladores s
 
 Comenzaremos con un repaso básico a lo que es la Raspberry Pi y sus accesorios a modo de introducción. Seguiremos con el manejo básico de los pines I/O usando la shell. Después pasaremos al **PWM** mediante la utilidad **gpio** de **WiringPi** y controlaremos un servo como ejemplo. Finalmente, para probar el **I2C** manejaremos un ADC tipo **PCF8591** por medio de los drivers internos.
 
-{% include image.html size="" file="300px-Pi-GPIO-header.png" caption="" %}
+{% include image.html size="small" file="300px-Pi-GPIO-header.png" caption="" %}
 
 <!--more-->
 
@@ -70,7 +70,7 @@ Habitualmente el acceso a memoria sólo se podría hacer como root, sin embargo 
 
 La conexión gpio de este modelo tiene 40pin, con un conector igual al que usaban los discos duros IDE hace tiempo. Venden cables para conectarlos con una protoboard, pero no os lo recomiendo a menos que sólo vayáis a usar la Raspberry para experimentar porque estas clavijas una vez encajadas cuesta mucho quitarlas y se rompen con facilidad. En su lugar es preferible que compréis cables con conectores Dupont hembra-hembra y también macho-hembra.
 
-{% include image.html size="" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. [techgeeks](http://techgeeks.de/). " %}
+{% include image.html size="medium" file="GPIO-RP3.png" caption="Disposición de los terminales GPIO. [techgeeks](http://techgeeks.de/). " %}
 
 Entre los 40 terminales contamos con:
 
@@ -378,7 +378,7 @@ Sin embargo como la operación del PCF8591 es sumamente simple no hay problema. 
 1. Terminar la transmisión con una marca de **stop**.
 1. Lanzar una operación de **lectura**. Los sucesivos bytes recibidos son las lecturas del ADC. El primer resultado no es una lectura actual, sino la última lectura que tenía almacenada el chip.
 
-{% include image.html size="" file="pcf8591_control.png" caption="Contenido del byte de control. Datasheet PCF8591." %}
+{% include image.html size="medium" file="pcf8591_control.png" caption="Contenido del byte de control. Datasheet PCF8591." %}
 
 La primera parte podemos conseguirla con i2cget. Nos dirigimos al chip en el bus 1 (el único que hay) con la dirección 0x48, y le enviamos el control 0x01 (canal 1, la LDR por ejemplo):
 

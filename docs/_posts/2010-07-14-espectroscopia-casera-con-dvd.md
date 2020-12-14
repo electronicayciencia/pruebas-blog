@@ -23,7 +23,7 @@ Ver las líneas espectrales de una luz valiéndose de un CD es muy fácil y no t
 
 Hemos obtenido la foto de un espectro interesante, por ejemplo este
 
-{% include image.html size="" file="Imagen065_2.jpg" caption="" %}
+{% include image.html size="small" file="Imagen065_2.jpg" caption="" %}
 
 Ni que decir tiene que **los colores** de la imagen **son aproximados** ya que tanto la cámara como el monitor trabajan con valores de Rojo-Verde-Azul y algunas frecuencias (colores) quedan fuera de su alcance y no se pueden reproducir.
 

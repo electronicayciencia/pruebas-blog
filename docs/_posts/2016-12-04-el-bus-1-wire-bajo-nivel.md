@@ -519,7 +519,7 @@ El resultado leído es este:
 
 Aquí vemos el significado de cada byte según viene descrito en el datasheet:
 
-{% include image.html size="" file="scratchpad.png" caption="Contenido del scratchpad. Datasheet DS1820. Dallas Semiconductor." %}
+{% include image.html size="medium" file="scratchpad.png" caption="Contenido del scratchpad. Datasheet DS1820. Dallas Semiconductor." %}
 
 Los bytes 1º y 2º (numerados 0 y 1) indican la **temperatura** de un modo directo en grados centígrados. Para temperaturas positivas es muy sencillo interpretarlo: el primero da la temperatura con resolución de medio grado, y el segundo es cero. Para temperaturas negativas hay que interpretarlo de otra manera. El datasheet proporciona una tabla de conversión.
 

@@ -39,18 +39,21 @@
 320px medium
 400px big
 640px huge
-For now, leave all images its original size with a max-width: 100%.
+For now, leave all images -but small ones- its original size with a max-width: 100%.
 */
-.huge {
-}
-
-.big {
+.small {
+  width: 200px;
 }
 
 .medium {
 }
 
-.small {
-  width: 200px;
+.big {
+}
+
+.huge {
+}
+
+.full {
 }
 

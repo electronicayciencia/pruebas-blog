@@ -301,7 +301,7 @@ Más adelante, conforme se fueron popularizando los componentes eléctricos, con
 
 El que vamos a hacer nosotros consiste simplemente en un circuito rectificador formado por un transistor, un condensador y algunas resistencias:
 
-{% include image.html size="" file="contador_analogico_sch.png" caption="Esquema del contador analógico. EyC." %}
+{% include image.html size="medium" file="contador_analogico_sch.png" caption="Esquema del contador analógico. EyC." %}
 
 Los pulsos entran por la izquierda, atravesando **R12**. Su propósito es limitar la corriente a través de la base del transistor **Q2**. Hay mucho margen. La corriente debe ser lo suficientemente alta como para llevar al transistor a saturación, pero a la vez lo suficientemente baja como para no exceder el máximo de salida del PIC (20mA).
 
@@ -317,7 +317,7 @@ En el siguiente vídeo podemos ver nuestro medidor. Primero midiendo el fondo de
 
 Esta es la aguja de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). El típico medidor amarillo, grande, con un asa que sale en casi todas las películas antiguas. Como podéis ver está calibrada en CPM en la parte de abajo y en miliroentgen por hora en la de arriba. 300 cpm equivalen en esa escala a 0.5mR/h. O sea, 100 cpm por miliroentgen/h.
 
-{% include image.html size="" file="CDV_700_Gauge.jpg" caption="Medidor de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). Wikipedia." %}
+{% include image.html size="medium" file="CDV_700_Gauge.jpg" caption="Medidor de un [CDV-700](https://en.wikipedia.org/wiki/CD_V-700). Wikipedia." %}
 
 A falta de mejores medios, el CDV-700 puede calibrarse con una fuente radiactiva de uranio empobrecido que lleva en el lateral. Debe medir 2mR/h. Pero eso significa que este medidor va calibrado con Uranio, antes habíamos dicho que generalmente los medidores modernos se calibran con Cesio.
 

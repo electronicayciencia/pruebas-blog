@@ -397,5 +397,5 @@ Suficiente. Confío que os haya resultado interesante esta revisión del mundo R
 
 Os dejo el software, imágenes y otros archivos auxiliares en GitHub: [electronicayciencia/rfid-rw](https://github.com/electronicayciencia/rfid-rw).
 
-{% include image.html size="" file="meme-rfid.png" caption="" %}
+{% include image.html size="big" file="meme-rfid.png" caption="" %}
 

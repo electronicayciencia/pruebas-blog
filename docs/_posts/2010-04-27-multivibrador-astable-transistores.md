@@ -29,7 +29,7 @@ Como Q2 está en corte vamos a considerar que no pasa corriente por sus terminal
 
 Recoloquemos los componentes para verlo más claro.
 
-{% include image.html size="" file="astable_estado1.png" caption="" %}
+{% include image.html size="small" file="astable_estado1.png" caption="" %}
 
 C2 va a cargarse a través de R4 y la base de Q1. Así pues C2, que empezó con -0.7V va a cargarse hasta Vcc-0.7V (no llega a Vcc porque 0.7V es la caída de tensión B-E de Q1). Y además esta carga será muy rápida porque R1 y R4 serán de un valor muy bajo comparadas con R2 y R3.
 
@@ -52,7 +52,7 @@ Al comienzo del estado 2:
 
 Haciendo lo mismo que antes, vamos a eliminar Q1 del circuito y vamos a sustituir Q2 por un diodo y un puente:
 
-{% include image.html size="" file="astable_estado2.png" caption="" %}
+{% include image.html size="small" file="astable_estado2.png" caption="" %}
 
 Vemos que C1 va a ir desde -0.7V hasta los Vcc-0.7V, rápidamente pues R1 es pequeña.
 

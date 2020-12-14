@@ -7,6 +7,7 @@ añadir redes sociales (linkedin, youtube)
 about
 
 posts con fallos:
+imágenes con width no estándar no corresponden a su tamaño original. Ajustar width no estándar a alguna clase. Por ejemplo en efriador evaporativo.
 
 
 blog electronica:
@@ -20,7 +21,9 @@ nivel cfgs
 exponer ayuda a ordenar ideas, fijar conocimiento y profudizar en temas
 contenido original
 
-
+Ejemplo blog con minima:
+https://github.com/ouyi/ouyi.github.io/tree/master/_posts
+https://ouyi.github.io/
 
 
 
