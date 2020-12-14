@@ -28,6 +28,7 @@ google_analytics: UA-15570327-6
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 twitter_username: electronicaycie
 github_username:  electronicayciencia
