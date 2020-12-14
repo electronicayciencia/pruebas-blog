@@ -1,0 +1,131 @@
+/* Images and video */
+.postvideo {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+    margin-bottom: 1.5em;
+}
+
+.postvideo iframe, .postvideo object, .postvideo embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.postimage {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    display: block;
+}
+
+.postimage figure img {
+    vertical-align: top;
+	max-width: 100%;
+}
+
+.postimage figure figcaption {
+    text-align: center;
+  	margin-top: 0.5em;	  
+}
+
+/* Blogger sizes 
+200px small
+320px medium
+400px big
+640px huge
+For now, leave all images -but small ones- its original size with a max-width: 100%.
+*/
+.small {
+  width: 200px;
+}
+
+.medium {
+}
+
+.big {
+}
+
+.huge {
+}
+
+.full {
+}
+
+
+/* Pagination links */
+.prev-next {
+    display: block;
+    overflow: hidden;
+    font-size: 14.4px
+}
+
+.prev-next .half {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0
+}
+
+.prev-next .next {
+    text-align: right
+}
+
+
+/* Tags */
+.post-tag {
+  display: inline-block;
+  background: $grey-color-light;
+  padding: 0 .5rem;
+  margin-right: .5rem;
+  border-radius: 4px;
+  color: $text-color;
+  font-size: 90%;
+  &:before {
+    content: "\f02b";
+    font-family: FontAwesome;
+    padding-right: .5em;
+  }
+  &:hover {
+    text-decoration: none;
+    background: $grey-color;
+    color: $background-color;
+  }
+}
+
+/* TOC */
+#my_toc::before {
+  content: "Secciones";
+  margin-left: -$spacing-unit;
+  line-height: 200%;
+  font-weight: bold;
+  @include relative-font-size(1.25);
+  @include media-query($on-laptop) {
+    @include relative-font-size(1.125);
+  }
+}
+
+/* Tags page */
+.tag-posts-header {
+  @include relative-font-size(1.25);
+  border-bottom: solid;
+  border-width: thin;
+  border-color: gray;
+}
+
+.tag-posts-list .post-link {
+  @include relative-font-size(1.125);
+}
+.tag-posts-list .post-meta {
+  @include relative-font-size(0.90);
+}
+
+
+
+
