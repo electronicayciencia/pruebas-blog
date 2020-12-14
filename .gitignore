@@ -1,0 +1,5 @@
+*.swp
+*.swo
+importer/_drafts/*
+importer/_posts/*
+importer/blog-12-05-2020.xml
