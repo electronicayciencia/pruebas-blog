@@ -1,13 +1,9 @@
-resumenes en los articulos
-artículos destacados
 
 
-completar descripciones de artículos
 about
 
 página de archivo por años
 afsk desde cero +tag  radio
-favicon
 
 posts con fallos:
 
@@ -29,5 +25,12 @@ https://ouyi.github.io/
 
 
 
-
+site-title {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 54px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+}
 

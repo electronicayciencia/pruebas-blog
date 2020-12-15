@@ -16,6 +16,7 @@ show_tags: true
 show_image: true
 
 logo: "/assets/logo_dvd.png"
+favicon: "/assets/favicon.png"
 
 # Build settings
 markdown: kramdown
