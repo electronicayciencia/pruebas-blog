@@ -6,6 +6,7 @@ image: /assets/2020/09/sintetizador-de-frecuencias-digital-con/img/HEF4046BP-864
 description: >-
   Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio y la electrónica.
 assets: /assets/2020/09/sintetizador-de-frecuencias-digital-con
+featured: true
 ---
 
 Los **PLL** son una pequeña asignatura pendiente de mis comienzos con la electrónica. Y antes o después debía dedicarles una entrada. Es curioso, después de tantos años, mirar hacia atrás y recordar aquellos tiempos en los que, en esencia, no tenías ni idea de lo que estabas haciendo.

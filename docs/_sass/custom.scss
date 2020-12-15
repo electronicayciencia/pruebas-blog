@@ -84,6 +84,7 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   background: $grey-color-light;
   padding: 0 .5rem;
   margin-right: .5rem;
+  margin-bottom: .5rem;
   border-radius: 4px;
   color: $text-color;
   font-size: 90%;
@@ -126,11 +127,16 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   @include relative-font-size(0.90);
 }
 
+/* Post list image */
 .post-card {
-  display: inline-block;
+  overflow: auto;
 }
 
-/* Post list image */
+.featured {
+  padding: 0.3em;
+  background-color: lightsteelblue;
+  border-radius: 4px;
+}
 
 .teaser-image-frame {
   width: 200px;
@@ -146,8 +152,8 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   height: inherit;
 }
 
-.post-card .excerpt {
-  min-width: 200px;
+.post-card .post-excerpt {
+  overflow: hidden;
 }
 
 @media screen and (max-width: 450px) {
@@ -160,3 +166,9 @@ For now, leave all images -but small ones- its original size with a max-width: 1
     margin-bottom: 1em;
   }
 }
+
+.featured-label {
+  float: right;
+  color: steelblue;
+}
+
