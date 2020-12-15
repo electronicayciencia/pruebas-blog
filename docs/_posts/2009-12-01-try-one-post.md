@@ -1,8 +1,6 @@
 ---
 layout: post
 title:  "Try One Post"
-date:   2020-12-01
-tags: catI catII catIII
 description: Here is the description
 assets: /assets/2020/12/try-one-post
 ---
