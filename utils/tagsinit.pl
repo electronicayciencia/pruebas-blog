@@ -6,17 +6,17 @@
 # Electrónica y Ciencia
 #
 # Tags dir:
-#  _all
-#    post1
-#    post2
+#  _alltags
+#    tagA
+#    tagB
 #    ...
 #  
-#  tagA
-#    post2
+#  post1
+#    tagA
 #  
-#  tagB
-#    post1
-#    post2
+#  post2
+#    tagA
+#    tagB
 #  ...
 #
 #
@@ -25,6 +25,7 @@
 my $postsdir = "../docs/_posts";
 my $ext = ".md";
 my $tagsrootdir = "./tags";
+my $newtagsrootdir = "./newtags";
 
 my %alltags;
 
@@ -51,9 +52,16 @@ sub parse_post {
 	return ($text, %{$meta});
 }
 
-my $alldir = "$tagsrootdir/_all";
-if (not -d $alldir) {
-	make_path $alldir or die "$!";
+# Create a empty file, truntace if exits
+sub touch {
+	my $file = shift;
+	open my $fh, "> $file" or die;
+	close $fh;
+}
+
+my $alltagsdir = "$tagsrootdir/_alltags";
+if (not -d $alltagsdir) {
+	make_path($alltagsdir) or die "$!";
 }
 
 
@@ -62,23 +70,23 @@ for my $file (<"$postsdir/*$ext">) {
 	print "Processing $filename...\n";
 
 	my ($text, %meta) = parse_post($file);
-	
-	open my $fh, "> $alldir/$filename" or die;
-	close $fh;
 
+	my $postdir = "$tagsrootdir/$filename";
+	if (not -d $postdir) {
+		make_path($postdir) or die "$!";
+	}
+	my $newpostdir = "$newtagsrootdir/$filename";
+	if (not -d $newpostdir) {
+		make_path($newpostdir) or die "$!";
+	}
 
-	for (@{$meta{tags}}) { # count tags
-	    $_ = lc;
+	for my $tag (@{$meta{tags}}) { # count tags
+	    $tag = lc $tag;
 
-		my $tagdir = "$tagsrootdir/$_";
+		touch("$alltagsdir/$tag");
+		touch("$postdir/$tag");
 
-		if (not -d $tagdir) {
-			mkdir $tagdir or die;
-		}
-	
-		open my $fh, "> $tagdir/$filename" or die;
-		close $fh;
-		$alltags{$_}++;
+		$alltags{$tag}++;
     }
 }
 
