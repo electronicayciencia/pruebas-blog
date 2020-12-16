@@ -202,8 +202,17 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   }
 }
 
+/* Site icon next to Title */
+
 .site-title img {
   width: 2rem;
   margin-right: 0.5rem;
 }
+
+/* Github username too long and wraps in social-list */
+
+.username {
+    font-size: smaller;
+}
+
 
