@@ -1,13 +1,13 @@
 ---
-layout: post
-title: Electrocardiograma y electrorretinograma.
-tags:
-- gnuplot
-- sonido
-- amplificadores
-- biología
-image: /assets/2011/09/electrocardiograma-y/img/con624.gif
 assets: /assets/2011/09/electrocardiograma-y
+image: /assets/2011/09/electrocardiograma-y/img/con624.gif
+layout: post
+tags:
+- Circuitos
+- DSP
+- Experimentos
+- Ondas
+title: Electrocardiograma y electrorretinograma.
 ---
 
 Este es un artículo sobre DSP con un trasfondo de electromedicina. En una entrada anterior ya vimos lo que era una transformada de Fourier y cómo se utilizaba. [La Transformada de Fourier no es magia]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}). Para entender mejor lo que sigue te recomiendo que la leas si aún no lo has hecho. Hoy vamos a aplicarla para limpiar una señal todo lo que podamos. Pero ¿qué es limpiar? Pues para nosotros es seleccionar, de todo lo que capten nuestros sensores, sólo aquello que nos interesa; eliminando el ruido y otras interferencias.
@@ -275,4 +275,3 @@ Con todo y con eso, aplicando una sencilla ventana en forma de campana de Gauss 
 Os dejo los archivos que he usado para el experimento [aquí]({{page.assets | relative_url}}/ECGyERG.zip). Van las muestras y los scripts de Octave por si alguien quiere hacer pruebas a su manera.
 
 Por último, hace unas semanas me hice una cuenta de Twitter para el blog. Si queréis, [seguidme en Twitter](https://twitter.com/#!/electronicaycie).
-

@@ -1,10 +1,11 @@
 ---
-layout: post
-title: 'Inferencia estadística II: Introducción a los test de hipótesis'
-tags:
-- estadística
-image: /assets/2010/09/inferencia-estadistica-ii-introduccion/img/t_normalizada_m1m2.png
 assets: /assets/2010/09/inferencia-estadistica-ii-introduccion
+image: /assets/2010/09/inferencia-estadistica-ii-introduccion/img/t_normalizada_m1m2.png
+layout: post
+tags:
+- Estadística
+- Matemáticas
+title: 'Inferencia estadística II: Introducción a los test de hipótesis'
 ---
 
 En una [entrada anterior]({{site.baseurl}}{% post_url 2010-09-01-inferencia-estadistica-capacidad-de-una %}) sobre estadística, nos quedamos a las puertas de hablar de los tests de hipótesis. Los principios de este tema no suelen explicarse del todo bien en los textos de estadística.
@@ -108,4 +109,3 @@ Pero claro, a medida que aumentamos la certeza los intervalos se hacen más gran
 Fijaos que en el último intervalo prácticamente se confunden. El rojo crece más rápido porque la varianza de la muestra es más grande que en la otra y por tanto decimos que tiene más error.
 
 Pero la forma de calcularlo como lo hemos hecho ahora tiene algunas desventajas. Y es muy poco formal, no deja de ser una *cuenta de la vieja*. En las siguientes entradas sobre estadística veremos los dos método más utilizados: el **test t para dos muestras** y el **análisis de la varianza**.
-

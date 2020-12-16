@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Watchdog para PC con alarma
-tags:
-- circuitos
-- PC
-image: /assets/2010/03/watchdog-para-pc-con-alarma/img/watchdog.png
 assets: /assets/2010/03/watchdog-para-pc-con-alarma
+image: /assets/2010/03/watchdog-para-pc-con-alarma/img/watchdog.png
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Watchdog para PC con alarma
 ---
 
 Hoy os quiero presentar un sencillo *watchdog* que reinicie automáticamente el PC cuando detecta que este se ha colgado.
@@ -49,4 +49,3 @@ Esta alarma sonará durante todo el periodo previo al reinicio.
 - Los terminales nombrados SL2 son para conectar un interruptor para activar o desactivar el circuito a voluntad.
 - SL3 es el conector de alimentación. Este circuito se conecta a cualquier toma de tensión de 5 voltios.
 - La numeración de los componentes es un tanto caótica.
-

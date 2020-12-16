@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Conexión GPIO de Raspberry Pi 3
-tags:
-- microcontroladores
-- programacion
-- raspberrypi
-image: /assets/2016/11/conexion-gpio-de-raspberry-pi-3/img/300px-Pi-GPIO-header.png
 assets: /assets/2016/11/conexion-gpio-de-raspberry-pi-3
+image: /assets/2016/11/conexion-gpio-de-raspberry-pi-3/img/300px-Pi-GPIO-header.png
+layout: post
+tags:
+- Informática
+- Raspberry
+- Sensores
+title: Conexión GPIO de Raspberry Pi 3
 ---
 
 Este verano me compré una Raspberry Pi. ¿Es extraño que alguien que escribe un blog de electrónica no tenga una Raspberry? Tal vez. El caso es que quería contaros mis primeras pruebas centradas en la experimentación con la conexión GPIO.
@@ -428,4 +428,3 @@ Por ejemplo el siguiente comando fija la salida a su valor medio. Primero enviam
 Hasta aquí la primera parte de las pruebas. El siguiente artículo lo dedicaremos a leer un sensor de temperatura con interfaz **1-Wire** de Maxim-Dallas, esta vez en C y con todo detalle. Espero que os haya servido y gracias por leer hasta el final.
 
 Los archivos, imágenes, y datasheets más importantes los tenéis en este enlace: [Ficheros.]({{page.assets | relative_url}}/raspberryintro.zip)
-

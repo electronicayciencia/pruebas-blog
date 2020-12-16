@@ -1,11 +1,14 @@
 ---
-layout: post
-title: Resonancia mecánica con copas II
-tags:
-- física
-- sonido
-image: /assets/2010/08/resonancia-mecanica-con-copas-ii/img/pulso.png
 assets: /assets/2010/08/resonancia-mecanica-con-copas-ii
+featured: 'true'
+image: /assets/2010/08/resonancia-mecanica-con-copas-ii/img/pulso.png
+layout: post
+tags:
+- DSP
+- Experimentos
+- Fisica
+- Ondas
+title: Resonancia mecánica con copas II
 ---
 
 En [esta entrada]({{site.baseurl}}{% post_url 2010-04-12-espectroscopia-casera-con-copas %}) de hace un tiempo, ya habíamos mostrado cómo se comporta un sistema resonante dentro de un campo oscilatorio. Lo que pasa es que en lugar de usar un campo magnético y un [circuito resonante](http://es.wikipedia.org/wiki/Circuito_LC), habíamos usado oscilaciones mecánicas (sonido) y copas como resonadores. Esta entrada es una especie de continuación de aquella por lo que os recomiendo que la leáis también.
@@ -82,4 +85,3 @@ Os dejo los archivos [aquí]({{page.assets | relative_url}}/resonancia_pulsante.
 - **tonos_1068_1404_512.wav**: Pulso de esas tres frecuencias combinadas.
 - **sin_copa.dat**: Intensidad media de un pulso recibido sin copa intermedia.
 - **con_copa.dat**: Intensidad media de un pulso con una de las frecuencias atenuada.
-

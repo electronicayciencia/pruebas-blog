@@ -1,12 +1,10 @@
 ---
-layout: post
-title: Conversor USB - RS232
-tags:
-- microcontroladores
-- reciclado
-- PC
-image: /assets/2010/03/conversor-usb-rs232/img/Imagen148.jpg
 assets: /assets/2010/03/conversor-usb-rs232
+image: /assets/2010/03/conversor-usb-rs232/img/Imagen148.jpg
+layout: post
+tags:
+- Reciclaje
+title: Conversor USB - RS232
 ---
 
 Hola.
@@ -28,4 +26,3 @@ Recomiendo eliminar las clavijas DB9 y USB y sustituirlas por sendos cables. Eli
 {% include image.html size="" file="Imagen149.jpg" caption="" %}
 
 Notas adicionales:
-

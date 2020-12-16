@@ -1,12 +1,12 @@
 ---
-layout: post
-title: 'Dimmer controlado por mando a distancia: el hardware'
-tags:
-- microcontroladores
-- circuitos
-- DimmerIR
-image: /assets/2010/12/dimmer-controlado-por-mando-distancia/img/esquema_dimmerIr.png
 assets: /assets/2010/12/dimmer-controlado-por-mando-distancia
+image: /assets/2010/12/dimmer-controlado-por-mando-distancia/img/esquema_dimmerIr.png
+layout: post
+tags:
+- Circuitos
+- PIC
+- Sensores
+title: 'Dimmer controlado por mando a distancia: el hardware'
 ---
 
 A este proyecto le he dedicado otras entradas en el blog. Se trata de diseñar y construir un circuito para regular la **intensidad de luz** de una lámpara utilizando un mando a distancia.
@@ -116,4 +116,3 @@ Se trata de un circuito lo suficientemente pequeño como para que quepa dentro d
 Por último os dejo los esquemas (para Eagle), las imágenes y un PDF con las pistas en [este enlace]({{page.assets | relative_url}}/dimmerIR_hw.rar).
 
 El software está publicado [en esta entrada]({{site.baseurl}}{% post_url 2011-02-02-dimmer-controlado-por-mando-distancia %}).
-

@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Termómetro para disoluciones
-tags:
-- reciclado
-- circuitos
-image: /assets/2010/09/termometro-para-disoluciones/img/termoboli.png
 assets: /assets/2010/09/termometro-para-disoluciones
+image: /assets/2010/09/termometro-para-disoluciones/img/termoboli.png
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Termómetro para disoluciones
 ---
 
 Lo que os presento en esta entrada es un trabajo de bricolaje más que un circuito. Se trata de un termómetro o, para ser más precisos, una *sonda termométrica* para medir la temperatura de una disolución. Hay experimentos en que tenemos que controlar la temperatura mientras removemos, por ejemplo que no sobrepase los 10ºC. Y a veces queremos saber la temperatura en un punto concreto, por ejemplo para ver cómo aumenta al añadir un ácido. En esta entrada voy a hablar de cómo hacer una "varilla-termómetro" para cuando haga falta.
@@ -49,4 +49,3 @@ Esta entrada pretende servir de idea básica, que por supuesto aún se puede ela
 Por otra parte, si habéis usado termofusible tened en cuenta que, como su nombre indica, se funde. Así que tened cuidado con la **temperatura máxima** que puede resistir. Si habéis empleado silicona el plástico también tiene un límite, dependiendo del tipo de plástico que sea puede resistir más o menos hasta 100ºC sin deformarse, pero no mucho más allá.
 
 Ya que no nos va a servir para altas temperaturas, es más práctico usar un TMP36 así también podremos medir temperaturas bajo cero, por ejemplo las que se alcanzan en un congelador.
-

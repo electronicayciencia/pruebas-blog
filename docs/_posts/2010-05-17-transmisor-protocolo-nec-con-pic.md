@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Transmisor protocolo NEC con PIC
-tags:
-- microcontroladores
-- programacion
-- telemandos
-image: /assets/2010/05/transmisor-protocolo-nec-con-pic/img/trace.png
 assets: /assets/2010/05/transmisor-protocolo-nec-con-pic
+image: /assets/2010/05/transmisor-protocolo-nec-con-pic/img/trace.png
+layout: post
+tags:
+- Binario
+- Circuitos
+- PIC
+title: Transmisor protocolo NEC con PIC
 ---
 
 En una [entrada anterior]({{site.baseurl}}{% post_url 2010-05-07-receptor-con-pic-para-mandos %}) propusimos un código para programar un microcontrolador PIC y que fuera capaz de recibir y decodificar la señal que emite un mando a distancia que use el protocolo NEC (los más frecuentes hoy día según mi experiencia). Para complementar esa entrada, hoy os voy a proponer una rutina que envía un código NEC simulando ser un mando a distancia.
@@ -116,4 +116,3 @@ Como no hay razones para suponer que los códigos van a estar formados por todo 
 Como conclusión no es preciso usar un transistor ni una resistencia cuando se conecta el LED al PIC. Conseguimos el máximo alcance a costa de reducir muy ligeramente el tiempo de vida. Si acaso quisiera usarse una resistencia limitadora para **proteger** tanto al PIC como al LED debería usarse un valor bajo, alrededor de 100ohm, para no rebajar demasiado el alcance del transmisor.
 
 Os dejo el código fuente y el fichero .hex en [este enlace]({{page.assets | relative_url}}/emisorNEC.rar).
-

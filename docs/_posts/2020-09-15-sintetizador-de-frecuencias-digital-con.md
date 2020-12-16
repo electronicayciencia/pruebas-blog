@@ -1,15 +1,15 @@
 ---
-layout: post
-title: Sintetizador de frecuencias digital con PLL
-tags:
-- programacion
-- circuitos
-- osciladores
-- radio
-image: /assets/2020/09/sintetizador-de-frecuencias-digital-con/img/HEF4046BP-8649.jpg
-description: >-
-  Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio y la electrónica.
 assets: /assets/2020/09/sintetizador-de-frecuencias-digital-con
+description: Un repaso a los PLL (Phase-Locked Loop) y a mis comienzos con la radio
+  y la electrónica.
+featured: 'true'
+image: /assets/2020/09/sintetizador-de-frecuencias-digital-con/img/HEF4046BP-8649.jpg
+layout: post
+tags:
+- Circuitos
+- PIC
+- Radio
+title: Sintetizador de frecuencias digital con PLL
 ---
 
 Los **PLL** son una pequeña asignatura pendiente de mis comienzos con la electrónica. Y antes o después debía dedicarles una entrada. Es curioso, después de tantos años, mirar hacia atrás y recordar aquellos tiempos en los que, en esencia, no tenías ni idea de lo que estabas haciendo.
@@ -249,4 +249,3 @@ Entradas del blog relacionadas:
 - [Raspberry Pi como generador de frecuencias]({{site.baseurl}}{% post_url 2017-05-01-raspberry-pi-como-generador-de %}).
 - [La Distorsión Armónica Total (THD)]({{site.baseurl}}{% post_url 2013-03-26-la-distorsion-armonica-total-thd %})
 - [Frecuencímetro para el PC]({{site.baseurl}}{% post_url 2011-07-20-frecuencimetro-para-el-pc %})
-

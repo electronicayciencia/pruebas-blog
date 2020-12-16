@@ -1,11 +1,10 @@
 ---
-layout: post
-title: Rastreador de redes inalámbricas
-tags:
-- programacion
-- linux
-- Perl
 assets: /assets/2011/08/rastreador-de-redes-inalambricas
+layout: post
+tags:
+- Informática
+- Radio
+title: Rastreador de redes inalámbricas
 ---
 
 Hoy os traigo un artículo breve de programación. Este programa nos ayudará a localizar la fuente de una wifi siempre y cuando tengamos una antena directiva. A modo de radar, el sistema emitirá un tono cada vez que recibamos una baliza de la red seleccionada, y de una frecuencia más alta mientras mayor sea la potencia recibida.
@@ -183,4 +182,3 @@ En la línea 66 componemos el argumento para la llamada, recordad que los bits i
 Tendréis que ejecutar airodump primeramente para identificar qué BSSID vais a seguir y en qué canal está. Introducís estos datos en el programa y lo ejecutáis. Cada vez que nos llegue una baliza de esa red pitará el altavoz. Pitará más a menudo cuantos más paquetes recibamos y la frecuencia del tono será mayor cuanto más fuerte se reciba la señal.
 
 Algunas consideraciones: Si veis que no suena, tal vez tengáis silenciado el canal *beep* en vuestra tarjeta de sonido. Si no tenéis tal canal puede que no esté soportado. En una VMWare no he conseguido que suene, pero si probáis con una live os funcionará perfectamente..
-

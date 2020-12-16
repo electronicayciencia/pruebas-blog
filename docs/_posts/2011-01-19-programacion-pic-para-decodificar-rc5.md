@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Programación PIC para decodificar RC5
-tags:
-- microcontroladores
-- programacion
-image: /assets/2011/01/programacion-pic-para-decodificar-rc5/img/11011110.grid.png
 assets: /assets/2011/01/programacion-pic-para-decodificar-rc5
+image: /assets/2011/01/programacion-pic-para-decodificar-rc5/img/11011110.grid.png
+layout: post
+tags:
+- Binario
+- PIC
+title: Programación PIC para decodificar RC5
 ---
 
 Para decodificar el protocolo RC5 hay dos formas de hacerlo. Una es muestreando el puerto cada cierto tiempo, y comprobando si está a nivel alto o nivel bajo. En función del resultado lo interpretamos.
@@ -267,4 +267,3 @@ Hay dos situaciones en que la máquina de estados deja de recibir.
 La primera es cuando la comparación de la línea 162 en la función *main* es verdadera. Recordad que *main* se está ejecutando continuamente, siendo interrumpida ocasionalmente cuando cambia el pin del sensor infrarrojo para meter más bit en la variable *rc5_COMANDO*. Pues bien, a medida que vamos metiendo bits por la derecha, los bits de start van avanzando hacia la izquierda. Si yo sé que mi comando tiene 7 bits de largo, voy fijándome en la variable para que en cuando los bits de start alcancen la posición 7ª interpretar el comando completo.
 
 Hay otra situación, y es que la máquina de estados se reinicia automáticamente cuando no se reciben datos por un tiempo. Recordad que la última intrucción de la rutina que examinamos antes es reinicial el contador timer1. Si un comando se corta y llega a la mitad no se reinicia más, y llegará el momento que timer 1 se desborde. Cuando eso ocurre se llega a la rutina en la línea 34, que lo único que hace es poner el estado a cero, para volver a empezar la recepción de nuevo.
-

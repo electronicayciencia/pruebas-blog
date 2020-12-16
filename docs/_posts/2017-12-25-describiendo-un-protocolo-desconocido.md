@@ -1,12 +1,13 @@
 ---
-layout: post
-title: Describiendo un protocolo desconocido
-tags:
-- programacion
-- sonido
-- radio
-image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_editado.png
 assets: /assets/2017/12/describiendo-un-protocolo-desconocido
+featured: 'true'
+image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_editado.png
+layout: post
+tags:
+- Binario
+- Ondas
+- Radio
+title: Describiendo un protocolo desconocido
 ---
 
 Imagina que estás frente a una pared de roca y quieres escalarla. Buscas alguna indicación y consultas la guía, pero nadie lo ha hecho antes. Nadie te dice cómo empezar ni por donde seguir, sólo debes fijarte con atención y encontrar algún sitio donde agarrarte para ir subiendo lentamente.
@@ -600,4 +601,3 @@ Si os interesa el tema, hay bastante información al respecto en Internet. Por d
 En cuanto al proceso, estoy seguro de que lo habéis disfrutado si contáis con la paciencia y el interés para seguirlo y comprenderlo.
 
 Feliz Navidad.
-

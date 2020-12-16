@@ -1,13 +1,13 @@
 ---
-layout: post
-title: Un contador radiactivo... de mentira
-tags:
-- microcontroladores
-- física
-- programacion
-- biología
-image: /assets/2019/07/un-contador-radiactivo-de-mentira/img/uranium-cloud-chamber.gif
 assets: /assets/2019/07/un-contador-radiactivo-de-mentira
+featured: 'true'
+image: /assets/2019/07/un-contador-radiactivo-de-mentira/img/uranium-cloud-chamber.gif
+layout: post
+tags:
+- Circuitos
+- Fisica
+- PIC
+title: Un contador radiactivo... de mentira
 ---
 
 Hoy os propongo *imitar* un contador Geiger. Suena como tal, mide como tal, pero -en vez a la radiación- reacciona a la **temperatura**.
@@ -456,4 +456,3 @@ Cuando exponemos el medidor a un foco caliente, la detección alcanza las 4000 C
 {% include image.html size="big" file="counter_lcd_4000cpm.png" caption="Contador midiendo un objeto caliente. EyC." %}
 
 El código fuente y los esquemas para construir este medidor os los dejo aquí: [GitHub de Electronicayciencia - TermoGeiger](https://github.com/electronicayciencia/termogeiger).
-

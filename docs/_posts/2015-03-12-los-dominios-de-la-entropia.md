@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Los dominios de la entropía
-tags:
-- estadística
-- Perl
-image: /assets/2015/03/los-dominios-de-la-entropia/img/distribs_letras.png
 assets: /assets/2015/03/los-dominios-de-la-entropia
+image: /assets/2015/03/los-dominios-de-la-entropia/img/distribs_letras.png
+layout: post
+tags:
+- Informática
+- Matemáticas
+title: Los dominios de la entropía
 ---
 
 Hace un montón que no publico un artículo, tanto que casi no me acuerdo de escribir, así que: Hola de nuevo.
@@ -387,4 +387,3 @@ La última pregunta, si el test serviría para diferenciarlos la podéis respond
 {% include image.html size="" file="roc_trigs_anglerrec.png" caption="" %}
 
 Nada más por el momento. Gracias por leer hasta aquí. Los scripts en Perl, ficheros, resultados, etc los podéis encontrar en este enlace: [fuentes]({{page.assets | relative_url}}/entropia_digrafos.zip).
-

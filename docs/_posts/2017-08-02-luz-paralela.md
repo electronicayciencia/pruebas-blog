@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Luz paralela
-tags:
-- óptica
-- física
-image: /assets/2017/08/luz-paralela/img/Optical-dispersion.png
 assets: /assets/2017/08/luz-paralela
+image: /assets/2017/08/luz-paralela/img/Optical-dispersion.png
+layout: post
+tags:
+- Fisica
+- Optica
+title: Luz paralela
 ---
 
 Para otro experimento necesitaba una fuente de luz blanca cuyos rayos fueran más o menos paralelos. No es algo inmediato. Buscando por ahí veo que hay gente que inocentemente pregunta eso mismo y otros responden con todo rigor. Sin tener en cuenta que, si quien ha preguntado pudiera entender esa respuesta, entonces no habría hecho la pregunta.
@@ -278,4 +278,3 @@ Se hicieron cientos de experimentos basados en la difracción y la interferencia
 Ahora ya había pruebas muy contundentes de ambas teorías, hubo que esperar a 1924, tras multitud de experimentos que contradecían la física conocida hasta ese momento, para que Louis de Broglie, inspirado en experimentos de difracción con electrones, propusiera su famosa dualidad Onda-Corpúsculo. Pero esto da para otra historia...
 
 Los ficheros utilizados para elaborar el artículo los tenéis en [este enlace]({{page.assets | relative_url}}/LuzParalela.zip).
-

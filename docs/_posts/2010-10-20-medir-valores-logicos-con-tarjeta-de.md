@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Medir valores lógicos con tarjeta de sonido
-tags:
-- circuitos
-- PC
-image: /assets/2010/10/medir-valores-logicos-con-tarjeta-de/img/BENQ0004.JPG
 assets: /assets/2010/10/medir-valores-logicos-con-tarjeta-de
+image: /assets/2010/10/medir-valores-logicos-con-tarjeta-de/img/BENQ0004.JPG
+layout: post
+tags:
+- Ondas
+- Reciclaje
+title: Medir valores lógicos con tarjeta de sonido
 ---
 
 Hoy os cuento el primer intento de una prueba que quería hacer desde hace tiempo. Se trata de adaptar una tarjeta de sonido para poder medir también valores de tensión continua. Este es uno de esos experimentos que tienen muchas posibilidades de salir mal, o por lo menos, de no salir tan bien como esperábamos. Las cosas no siempre salen a la primera.
@@ -63,4 +63,3 @@ Para terminar vamos a conectar un interruptor a masa. Y veamos lo que ocurre al 
 Así es como se ve la pulsación de un botón. El tiempo entre que se pulsa hasta que queda estable es de aproximadamente 1 milisegundo.
 
 Si necesitáis medir valores digitales por USB este es el procedimiento más sencillo que hay. Otra opción es usar el [conversor USB a puerto serie]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %}) que ya publicamos. Veis que el procedimiento que hemos seguido no es el mejor pero sirve perfectamente para nuestro propósito. Es cuestión de hacer pruebas para mejorar los resultados.
-

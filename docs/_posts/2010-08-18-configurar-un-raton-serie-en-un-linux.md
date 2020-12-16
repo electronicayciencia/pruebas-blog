@@ -1,10 +1,10 @@
 ---
-layout: post
-title: Configurar un ratón serie en un Linux moderno
-tags:
-- linux
-- PC
 assets: /assets/2010/08/configurar-un-raton-serie-en-un-linux
+layout: post
+tags:
+- Informática
+- Reciclaje
+title: Configurar un ratón serie en un Linux moderno
 ---
 
 Este fin de semana me ha dado por volver a instalar el [FlightGear Flight Simulator](http://www.flightgear.org/), un simulador de vuelo. Por cierto, como instalar FlightGear 1.9 en Debian desde los repositorios es imposible (dependencias rotas, paquetes que no existen, etc), probad [esta página](http://www.unitedfreeworld.com/ubuntu_debian_fgfs_installation.html). A mi me resultó muy práctica.
@@ -53,4 +53,3 @@ El comando mágico es este:
 ...y mano de santo. Con eso ya conseguí que me reconociera el ratón. No es necesario ni reiniciar el servidor X, se hace al vuelo.
 
 Al buscar en Google casi todas las páginas que aparecen explican la solución antigua, dándole difusión con este modesto artículo espero ahorrarle a alguien unas cuantas horas de despropósito.
-

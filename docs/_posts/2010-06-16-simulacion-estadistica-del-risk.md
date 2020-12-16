@@ -1,14 +1,11 @@
 ---
-layout: post
-title: Simulación estadística del Risk
-tags:
-- gnuplot
-- estadística
-- programacion
-- PC
-- Perl
-image: /assets/2010/06/simulacion-estadistica-del-risk/img/tabla.png
 assets: /assets/2010/06/simulacion-estadistica-del-risk
+image: /assets/2010/06/simulacion-estadistica-del-risk/img/tabla.png
+layout: post
+tags:
+- Estadística
+- Matemáticas
+title: Simulación estadística del Risk
 ---
 
 Si juegas al [Risk](http://es.wikipedia.org/wiki/Risk) esta entrada te puede gustar. Si no juegas al Risk pero quieres ver cómo se hace una simulación estadística por ordenador también te sirve. El Risk es un juego de estrategia y suerte. Para quien no lo conozca las batallas se deciden de acuerdo con repetidas tiradas de dados que hacen perder al atacante, al defensor o a ambos 1 o 2 ejércitos en cada una.
@@ -90,4 +87,3 @@ En la parte inferior de la página hay tres botones. Debemos seleccionar uno en 
 Espero que os haya gustado este pequeño estudio. Para los jugadores espero que os ayude a la hora de planificar vuestra estrategia, pero tened siempre en cuenta que en el azar nunca hay nada seguro, y que aún con el 99% de probabilidades de ganar, podríais perder y viceversa.
 
 Os dejo los programas y las páginas HTML para descargar [aqui]({{page.assets | relative_url}}/simurisk.zip).
-

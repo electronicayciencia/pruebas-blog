@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Bromas de alta tensión
-tags:
-- física
-- circuitos
-- osciladores
-image: /assets/2010/10/bromas-de-alta-tension/img/shock_broma.jpg
 assets: /assets/2010/10/bromas-de-alta-tension
+image: /assets/2010/10/bromas-de-alta-tension/img/shock_broma.jpg
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Bromas de alta tensión
 ---
 
 Vamos a hablar en esta entrada de esos típicos aparatos de broma que dan calambre. Todos los habéis visto, un bolígrafo que da corriente, o un puntero láser, un libro, etc. También hay juegos que el perdedor recibe un calambre, por ejemplo en algunas pistolas láser, o juegos de reflejos. Veamos cómo funcionan.
@@ -58,4 +57,3 @@ Para medirlo nos basamos en la longitud del arco eléctrico (o sea de la chispa 
 Nuestra chispa no llega a más de medio milímetro por lo que suponemos que la tensión de salida puede ser de unos 1000V. Nada mal a partir de tres pilas botón. Y pulsos de 1000V son suficientes para dar un buen susto. Y sin daño porque el tiempo que se necesitaría para dañar el tejido es del orden de minutos, y
 
 se retira la mano antes.
-

@@ -1,11 +1,9 @@
 ---
-layout: post
-title: Generador de personajes ficticios en Perl
-tags:
-- programacion
-- PC
-- Perl
 assets: /assets/2010/06/generador-de-personajes-ficticios-en
+layout: post
+tags:
+- Informática
+title: Generador de personajes ficticios en Perl
 ---
 
 De vez en cuando escribo historias de intriga para jugar a modo de rol con los amigos. Cuando uno escribe una historia llega un momento en que tiene que poner nombre a los personajes. Inventarse nombres ficticios y realistas es difícil. Cualquiera puede poner nombre a un personaje, pero si necesitas varios te puede llevar cierto tiempo.
@@ -35,4 +33,3 @@ Para asignar edad sólo tendríamos que generar un número aleatorio en el marge
 Sin embargo el módulo no tiene el cuenta ni las tildes ni la concordancia de género a la hora de asignar oficio, así un señor llamado Manolo podría aparecer como actriz. Hay que tener cuidado con eso y siempre repasar manualmente las listas que genere el programa.
 
 Os dejo los archivos y la base de datos en [esta dirección]({{page.assets | relative_url}}/AleaNombres.rar). Necesitaréis Perl y sqlite. No descarto más adelante convertirlo en un CGI y colgarlo online.
-

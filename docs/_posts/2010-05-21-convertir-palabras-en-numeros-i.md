@@ -1,9 +1,10 @@
 ---
-layout: post
-title: Convertir palabras en números (I)
-tags:
-- programacion
 assets: /assets/2010/05/convertir-palabras-en-numeros-i
+layout: post
+tags:
+- Estadística
+- Matemáticas
+title: Convertir palabras en números (I)
 ---
 
 Tenemos herramientas muy potentes para machacar números, calcular medidas estadísticas, gráficos, distancias, etc. Hoy os propongo jugar con algunas de esas herramientas pero aplicadas a las palabras, al **lenguaje**. Claro que las letras no son números, hemos de buscar una función que asigne un número a cada combinación de letras. Hemos de buscar *una aplicación del conjunto de las palabras a los números*.
@@ -194,4 +195,3 @@ Esta entrada es de por sí muy abstracta. Así que para no hacerme pesado prefie
 - **dominio_espectral.pl**: Dado un texto separa sus palabras, y dibuja un gráfico con el espectro de frecuencias. Lo usaremos en la siguiente entrada.
 - Directorio **textos**: Varios textos para probar. Versiones de El Quijote en español, francés e inglés. Y diccionarios de inglés y español obtenidos de OpenOffice.
 - Directorio **imágenes**: Algunos gráficos generados por *dominio_espectral.pl*.
-

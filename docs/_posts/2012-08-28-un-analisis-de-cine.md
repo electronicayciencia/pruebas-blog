@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Análisis de las distribuciones de voto en Filmaffinity
-tags:
-- estadística
-- programacion
-- Perl
-image: /assets/2012/08/un-analisis-de-cine/img/esdla-eendp.png
 assets: /assets/2012/08/un-analisis-de-cine
+featured: 'true'
+image: /assets/2012/08/un-analisis-de-cine/img/esdla-eendp.png
+layout: post
+tags:
+- Estadística
+title: Análisis de las distribuciones de voto en Filmaffinity
 ---
 
 Vamos a hablar de cine, también hablaremos de programación, de estadística y tratamiento de datos, todo ello -te lo aseguro- relacionado con el cine. El gusto es algo muy subjetivo, por supuesto, pero hay gustos más y menos comunes así que, por una vez, me vais a permitir ser vuestro crítico de cine.
@@ -500,4 +499,3 @@ En [este enlace]({{page.assets | relative_url}}/Estad-pelis.zip) encontraréis e
 - El programa en Perl y el fichero resultante películas.dat con los datos a 08/08/2012.
 - Los ficheros .m de Matlab para el cálculo de los gráficos.
 - El Excel con los datos cargados y procesados, filtros y cálculos necesarios.
-

@@ -1,9 +1,9 @@
 ---
-layout: post
-title: La subasta americana
-tags:
-- estadística
 assets: /assets/2010/10/la-subasta-americana
+layout: post
+tags:
+- Matemáticas
+title: La subasta americana
 ---
 
 Últimamente no tengo mucho tiempo para escribir. Veis que las entradas que estoy sacando estas semanas son cortitas y con poca chicha. A ver si saco un poco más de tiempo y escribo sobre el circuito del DimmerIR, o la tercera entrada de estadística, u otra sobre transmisiones digitales.
@@ -101,4 +101,3 @@ La situación óptima es saber exactamente cuanto vale el bien que se está suba
 No obstante como casi nunca sabemos el precio exacto, ni lo que los demás están dispuestos a pagar. Ante semejante falta de información lo mejor es fijarse una **puja máxima** para escapar de la espiral que nos haría ir subiendo la puja con tal de llevarnos algo.
 
 Esa es precisamente la estrategia que tomamos en la vida real. Decimos *"ya estoy harto de esperar, me voy"*, o *"yo no pago tanto por aquello"* o *"ya no puedo más, me rindo"* o finalmente *"ya no sigo leyendo, paso del libro"*. Que por cierto si has leído hasta aquí, gracias.
-

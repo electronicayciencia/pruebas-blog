@@ -1,10 +1,11 @@
 ---
-layout: post
-title: "¿Vierten la tinta adrede las impresoras de inyección?"
-tags:
-- PC
-image: /assets/2010/09/vierten-la-tinta-adrede-las-impresoras/img/BENQ0003.JPG
 assets: /assets/2010/09/vierten-la-tinta-adrede-las-impresoras
+image: /assets/2010/09/vierten-la-tinta-adrede-las-impresoras/img/BENQ0003.JPG
+layout: post
+tags:
+- Informática
+- Reciclaje
+title: ¿Vierten la tinta adrede las impresoras de inyección?
 ---
 
 Una entrada rápida antes del rollo estadístico que va a salir este miércoles.
@@ -49,4 +50,3 @@ Así que ya veis:
 - *¿Que las impresoras vacían deliberadamente los cartuchos en el interior?* No, no conviene, canta mucho, es sucio, da muy mala imagen, y sobre todo hay más formas más fáciles y más discretas de conseguir eso mismo.
 
 Espero haberos aclarado un poco este tema.
-

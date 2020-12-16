@@ -1,11 +1,12 @@
 ---
-layout: post
-title: Enfriadores evaporativos - Psicrometría
-tags:
-- física
-- datalog
-image: /assets/2017/08/enfriadores-evaporativos-psicrometria/img/20170807_192905.jpg
 assets: /assets/2017/08/enfriadores-evaporativos-psicrometria
+image: /assets/2017/08/enfriadores-evaporativos-psicrometria/img/20170807_192905.jpg
+layout: post
+tags:
+- Fisica
+- Raspberry
+- Sensores
+title: Enfriadores evaporativos - Psicrometría
 ---
 
 Hoy quería hablaros de un electrodoméstico digamos intermedio entre los ventiladores y los aires acondicionados: los enfriadores **evaporativos**. En su versión portátil no tienen tanta tradición como refrigeración doméstica aunque os lo vais encontrar junto a los aparatos de aire acondicionado portátiles -pingüinos-, con el reclamo de ser mucho más baratos, más ecológicos, más ligeros, tener un menor consumo y no necesitar instalación ni tubo de salida de aire caliente.
@@ -305,4 +306,3 @@ Normalmente una habitación tiene mucho más de 3m<sup>2</sup> pero el efecto de
 Para terminar, no quería dejar de mencionar que los **persas** ya usaban la evaporación para enfriar el aire en el 1er milenio a.C. Os dejo un enlace para empezar a mirar si os interesa el tema: [Captador de viento](https://es.wikipedia.org/wiki/Captador_de_viento)
 
 Los archivos utilizados para la elaboración del artículo están en [este enlace]({{page.assets | relative_url}}/Evaporativo.zip).
-

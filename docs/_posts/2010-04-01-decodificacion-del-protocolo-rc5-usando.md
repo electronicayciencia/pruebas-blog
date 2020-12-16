@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Decodificacion del protocolo RC5 usando un PIC
-tags:
-- microcontroladores
-- programacion
-- telemandos
-image: /assets/2010/04/decodificacion-del-protocolo-rc5-usando/img/rc5.png
 assets: /assets/2010/04/decodificacion-del-protocolo-rc5-usando
+image: /assets/2010/04/decodificacion-del-protocolo-rc5-usando/img/rc5.png
+layout: post
+tags:
+- Binario
+- PIC
+title: Decodificacion del protocolo RC5 usando un PIC
 ---
 
 Dicen que la gran mayoría de los mandos a distancia **infrarrojos** que tenemos por casa funcionan usando la codificación RC5. En mi caso, de nada menos que 7 mandos analizados, 2 son Sony y el resto usan la codificación NEC o similares. Pero hoy voy a hablar del RC5.
@@ -93,4 +92,3 @@ Para obtener el periodo de reloj podemos valernos de que cada transición se da 
 Esta entrada me está quedando demasiado larga. Voy a parar aquí y dejo la programación para más adelante.
 
 **Actualización:** El código para implementar este algoritmo se describe en [http://electronicayciencia.blogspot.com/2011/01/programacion-pic-para-decodificar-rc5.html]({{site.baseurl}}{% post_url 2011-01-19-programacion-pic-para-decodificar-rc5 %})
-

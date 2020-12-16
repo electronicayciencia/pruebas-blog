@@ -1,12 +1,13 @@
 ---
-layout: post
-title: Criptoanálisis del cifrado XOR simple
-tags:
-- estadística
-- programacion
-- Perl
-image: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple/img/XOR_TABLE.jpg
 assets: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple
+featured: 'true'
+image: /assets/2010/05/criptoanalisis-del-cifrado-xor-simple/img/XOR_TABLE.jpg
+layout: post
+tags:
+- Estadística
+- Informática
+- Matemáticas
+title: Criptoanálisis del cifrado XOR simple
 ---
 
 Voy a presentaros un experimento que hice hace tiempo estudiando el cifrado simple XOR. Se trata de una herramienta que es capaz de adivinar la clave con que se ha cifrado un archivo y descifrarlo. Nada más que haciendo un criptoanálisis del texto cifrado. Veréis que el algoritmo es sencillo, y por qué dicen los expertos que XOR es un cifrado *de juguete*.
@@ -164,4 +165,3 @@ Así hemos roto el cifrado. En el programa se asume que el carácter más abunda
 No obstante, hay más herramientas que ilustran este mismo método para romper un cifrado XOR, por ejemplo [CyptoTool](http://www.cryptool.org/). Si os interesa el tema, encontrad un rato para leer [Applied Cryptography](http://www.schneier.com/book-applied.html) de Bruce Schneier.
 
 Como nota adicional, no penséis que todos los cifrados basados en xor son débiles por naturaleza, sólo los que cifran en flujo de datos. Esta operación se utiliza habitualmente como parte de [cifradores en bloque](http://es.wikipedia.org/wiki/Cifrado_por_bloques).
-

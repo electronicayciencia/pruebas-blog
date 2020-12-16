@@ -1,13 +1,12 @@
 ---
-layout: post
-title: Frecuencímetro para el PC
-tags:
-- microcontroladores
-- circuitos
-- PC
-- Perl
-image: /assets/2011/07/frecuencimetro-para-el-pc/img/interfaz_tk.png
 assets: /assets/2011/07/frecuencimetro-para-el-pc
+image: /assets/2011/07/frecuencimetro-para-el-pc/img/interfaz_tk.png
+layout: post
+tags:
+- Circuitos
+- Experimentos
+- PIC
+title: Frecuencímetro para el PC
 ---
 
 Después de un par de artículos más bien teóricos ahora os quiero presentar un **montaje práctico**. Vamos a ver cómo hacer un frecuencímetro que sea lo más **sencillo** posible, pero que sea a la vez útil y preciso.
@@ -506,4 +505,3 @@ El proyecto llamado [50MHz Frequency Meter](http://home.exetel.com.au/marknac/50
 > If you require greater accuracy, the unit can be calibrated against the standard 4.43MHz colour burst frequency that's transmitted with TV signals. The best place to access this frequency is right at the colour burst crystal inside a colour TV set. This crystal will usually operate at 8.8672375MHz (ie, twice the colour burst frequency), although some sets use a 4.43361875MHz crystal.
 
 El **código fuente, fotos y esquemas** para Eagle los podéis bajar de [este enlace]({{page.assets | relative_url}}/Frecuencimetro.zip).
-

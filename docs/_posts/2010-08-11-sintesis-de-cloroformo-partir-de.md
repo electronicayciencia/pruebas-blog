@@ -1,9 +1,9 @@
 ---
-layout: post
-title: 'Síntesis de cloroformo a partir de productos de limpieza: estequiometría'
-tags:
-- química
 assets: /assets/2010/08/sintesis-de-cloroformo-partir-de
+layout: post
+tags:
+- Reciclaje
+title: 'Síntesis de cloroformo a partir de productos de limpieza: estequiometría'
 ---
 
 Hay multitud de productos químicos en cualquier casa y las reacciones entre ellos son múltiples y variadas. Al mezclar, por ejemplo, un álcali clorado como la lejía con un ácido fuerte también basado en el cloro como el salfumán, se produce una neutralización con generoso desprendimiento de cloro. Este gas es tóxico, irritante y mata por asfixia, así que cuidado con él.
@@ -63,4 +63,3 @@ A propósito del fosgeno, el nombre viene de *fos* que en griego significa luz, 
 Para terminar, si estáis pensando en usar esta reacción para sintetizar cloroformo, pasad del tema. Como habéis visto la cantidad que sale es muy pequeña y no merece la pena. Lo podéis encontrar en tiendas de productos químicos y en algunas ferreterías y tiendas de manualidades. Se usa para moldear plástico y es relativamente barato.
 
 Y si estás pensando en sintetizarlo para inhalarlo, aún sabiendo que es tóxico y en exposiciones prolongadas cancerígeno, no te lo recomiendo. Ten en cuenta que con lejía normal lo que se obtiene es una cantidad mínima. Además no es sólo cloroformo, sino una mezcla de este y acetona, más algunos subproductos que te pueden joder el colocón, como la [cloroacetona](http://www.insht.es/InshtWeb/Contenidos/Documentacion/FichasTecnicas/FISQ/Ficheros/701a800/nspn0760.pdf) que se usa precisamente de **gas lacrimógeno**.
-

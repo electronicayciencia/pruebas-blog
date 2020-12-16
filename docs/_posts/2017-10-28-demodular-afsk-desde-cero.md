@@ -1,12 +1,14 @@
 ---
-layout: post
-title: Demodular AFSK, desde cero
-tags:
-- programacion
-- circuitos
-- raspberrypi
-image: /assets/2017/10/demodular-afsk-desde-cero/img/wargames-02.jpg
 assets: /assets/2017/10/demodular-afsk-desde-cero
+featured: 'true'
+image: /assets/2017/10/demodular-afsk-desde-cero/img/wargames-02.jpg
+layout: post
+tags:
+- Binario
+- Informática
+- Radio
+- Raspberry
+title: Demodular AFSK, desde cero
 ---
 
 Hoy os quiero hablar sobre la modulación FSK. ¿Suena demasiado específico? Es posible... ¿Y si os digo que vamos a hablar de radio, de retro-informática, de trenes, de sonido, de matemáticas, de electrónica y de programación suena mejor? Supongo. Y si no busca otra cosa que leer. Hay muy buenos artículos sobre otra cosa en Internet.
@@ -492,4 +494,3 @@ Terminaré esta larga entrada con una **reflexión**. Por un lado, está la sati
 *Si lo entiendes, es que se ha quedado antiguo*. EyC." %}
 
 *A mi padre q.e.p.d.*
-

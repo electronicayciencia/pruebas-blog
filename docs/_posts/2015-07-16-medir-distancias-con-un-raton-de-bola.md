@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Medir distancias con un ratón de bola
-tags:
-- física
-- linux
-- Perl
-image: /assets/2015/07/medir-distancias-con-un-raton-de-bola/img/raton_y_conector.jpg
 assets: /assets/2015/07/medir-distancias-con-un-raton-de-bola
+image: /assets/2015/07/medir-distancias-con-un-raton-de-bola/img/raton_y_conector.jpg
+layout: post
+tags:
+- Experimentos
+- Fisica
+- Sensores
+title: Medir distancias con un ratón de bola
 ---
 
 En el futuro quiero publicar un experimento para el que necesito tomar muestras de sonido a intervalos regulares durante una distancia de, pongamos, un metro. Así que estoy buscando una forma de medir distancias que sea automática y, a ser posible, que tenga menos error que si la distancia la mido a mano.
@@ -374,4 +374,3 @@ El asunto es que los cronómetros por entonces no eran como ahora y claro, medir
 Como medir pesos era por entonces más fácil que medir tiempos, podía regular la aceleración y obtener resultados más exactos. La fórmula concreta para la aceleración en función de los pesos, si os interesa, se puede ver en la Wikipedia: [https://en.wikipedia.org/wiki/Atwood_machine](https://en.wikipedia.org/wiki/Atwood_machine)
 
 Nada más de este tema por ahora. Espero que os haya gustado. Como siempre, los archivos y programas propios utilizados para la elaboración de este artículo podéis descargarlos de aquí: [https://sites.google.com/site/electronicayciencia/ratonbola.zip]({{page.assets | relative_url}}/ratonbola.zip)
-

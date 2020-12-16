@@ -1,12 +1,13 @@
 ---
-layout: post
-title: La Transformada de Fourier no es magia
-tags:
-- programacion
-- linux
-- sonido
-image: /assets/2011/08/la-transformada-de-fourier-no-es-magia/img/captura_snd.png
 assets: /assets/2011/08/la-transformada-de-fourier-no-es-magia
+featured: 'true'
+image: /assets/2011/08/la-transformada-de-fourier-no-es-magia/img/captura_snd.png
+layout: post
+tags:
+- DSP
+- Matemáticas
+- Ondas
+title: La Transformada de Fourier no es magia
 ---
 
 Este no es el típico artículo en plan "¡Ey, no es magia: sólo son matemáticas avanzadas y te da igual porque no vas a entender ni jota!".
@@ -488,4 +489,3 @@ Por ejemplo *snd* tiene múltiples opciones de análisis. El resultado no puede 
 {% include image.html size="" file="captura_snd.png" caption="" %}
 
 También supongo que habréis visto en sitios que en lugar de hacerlo con el módulo del resultado lo hacen con el **cuadrado**. Se hace cuando nos interesa más la **potencia** que la amplitud, pues esta varía con el cuadrado de la amplitud. No importa, como hemos tomado logaritmos calcular el cuadrado no es más que multiplicar por dos; al fin y al cabo un simple cambio de escala, pero el resultado es el mismo. Lo mismo que ocurría con la normalización. La diferencia sólo se nota si vamos a usar los resultados numéricos en cálculos posteriores.
-

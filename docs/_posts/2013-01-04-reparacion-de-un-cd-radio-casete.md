@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Reparación de un cd-radio-casete
-tags:
-- reparaciones
-- circuitos
-- amplificadores
-image: /assets/2013/01/reparacion-de-un-cd-radio-casete/img/sg331.jpg
 assets: /assets/2013/01/reparacion-de-un-cd-radio-casete
+featured: 'true'
+image: /assets/2013/01/reparacion-de-un-cd-radio-casete/img/sg331.jpg
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Reparación de un cd-radio-casete
 ---
 
 He pensado que podría empezar este año publicando una entrada en el blog, que lo tengo algo olvidado desde el verano. Así que feliz año nuevo a todos y mis mejores deseos.
@@ -161,4 +161,3 @@ Esto es sólo un hobby, pero ¿podría ser un negocio? Entre todo -localizar la 
 > - La buena y barata no será rápida.
 
 Espero que hayáis aprendido algo con esta entrada o, por lo menos, no haberos aburrido mucho. En este enlace tenéis el artículo original, las fotos, el datasheet del UTC1316 y el manual de servicio del SG-331: [archivos de la entrada.]({{page.assets | relative_url}}/sg331-blog.zip)
-

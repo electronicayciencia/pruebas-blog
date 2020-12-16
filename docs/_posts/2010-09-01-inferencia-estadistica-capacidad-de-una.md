@@ -1,11 +1,11 @@
 ---
-layout: post
-title: 'Inferencia estadística: capacidad de una cucharilla'
-tags:
-- física
-- estadística
-image: /assets/2010/09/inferencia-estadistica-capacidad-de-una/img/gausiana_2.png
 assets: /assets/2010/09/inferencia-estadistica-capacidad-de-una
+image: /assets/2010/09/inferencia-estadistica-capacidad-de-una/img/gausiana_2.png
+layout: post
+tags:
+- Estadística
+- Matemáticas
+title: 'Inferencia estadística: capacidad de una cucharilla'
 ---
 
 No es la primera vez que en este blog utilizamos **la excusa más ridícula** para repasar ciertos conceptos. En esta ocasión nos planteamos la siguiente pregunta *¿Cuál es la capacidad de una cucharilla de postre, o de una cuchara sopera?* Veremos que dar respuesta a eso es tan complicado como queramos hacerlo.
@@ -114,4 +114,3 @@ En vista de que no tenemos un valor determinado para la media, sólo podemos ind
 Siguiendo la convención de usar el intervalo al 95%, diríamos que **la capacidad de nuestra cucharilla está entre 3.61ml y 3.85ml** (suponiendo la densidad del agua 1 un gramo es igual a un mililitro). O bien, dicho de otra manera, tiene una capacidad de **3.73±0.12ml**. Lo que supone un error relativo del 3.2% arriba o abajo.
 
 Aún nos quedan cosas por examinar, pero para una primera aproximación creo que ya está bien. Esas dos preguntas de antes nos conducen directamente a los **contrastes de hipótesis**, de los que tal vez hablemos en una próxima entrada.
-

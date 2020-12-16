@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Contraseña dinámica para acceder al PC de casa
-tags:
-- linux
-- PC
-- Perl
-image: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc/img/capturaescudo.png
 assets: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc
+image: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc/img/capturaescudo.png
+layout: post
+tags:
+- Informática
+- Reciclaje
+title: Contraseña dinámica para acceder al PC de casa
 ---
 
 En ocasiones necesitamos acceder a nuestro ordenador desde fuera de casa. No hay problema, instalamos un servidor SSH y desde cualquier ordenador con Linux, o con PuTTY o SecureCRT instalado nos podemos conectar y ejecutar comandos o ver el correo como si estuviéramos delante mismo de la consola en casita.
@@ -216,4 +215,3 @@ Yo he optado por sustituir a la shell del usuario. Pero otra opción es sustitui
 Si quisiéramos usarlo para varios usuarios lo mejor sería un fichero de configuración en el home del usuario. Bien con el código del algoritmo para ejecutarlo con *eval*, o bien con algunos números que sirvan de parámetros y poder personalizar el algoritmo para cada usuario.
 
 Huelga decir que el código que presento hay que modificarlo si lo quieres usar. No dejes el algoritmo que pongo de ejemplo.
-

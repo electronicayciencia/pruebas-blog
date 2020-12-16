@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Curva de respuesta del Dimmer IR
-tags:
-- óptica
-- física
-- DimmerIR
-image: /assets/2010/06/curva-de-respuesta-del-dimmer-ir/img/KallDark12.jpg
 assets: /assets/2010/06/curva-de-respuesta-del-dimmer-ir
+image: /assets/2010/06/curva-de-respuesta-del-dimmer-ir/img/KallDark12.jpg
+layout: post
+tags:
+- Fisica
+- Sensores
+title: Curva de respuesta del Dimmer IR
 ---
 
 Hay varias entradas dedicadas a un proyecto para hacer un regulador de intensidad luminosa controlado (dimmer) por un mando a distancia infrarrojo. El proyecto tiene una parte hardware -pic, fuente de alimentación sin condensador, optotriac y triac-, y otra parte que es software. De la primera parte hablaremos más adelante.
@@ -60,4 +59,3 @@ Fijaos que tiene mucho que ver con la que obtuvimos para la sinusoide. La contri
 La parte central tiene la pendiente muy pronunciada, porque es donde más área se concentra en una sinusoide, y un milisegundo de más o de menos en ese tiempo se deja notar mucho en la potencia que entregamos a la bombilla.
 
 *¿Es complicarse mucho para hacer un Dimmer?* Hombre, pues sí, y además teniendo en cuenta que los parámetros cambian con cada bombilla y usuario. Para un aparato comercial claro que no es práctico; sin embargo para un diseño propio yo lo veo interesante.
-

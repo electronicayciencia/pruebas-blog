@@ -1,11 +1,12 @@
 ---
-layout: post
-title: Reutilizar el motor de un lector CDROM
-tags:
-- reciclado
-- PC
-image: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom/img/imagecompatibility.php
 assets: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom
+featured: 'true'
+image: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom/img/imagecompatibility.php
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Reutilizar el motor de un lector CDROM
 ---
 
 Hoy tenemos un lector de CDROM para desguazar. Es un tanto antiguo, pero eso nos favorece. Como ya os podéis imaginar mientras más moderno es un cacharro, mayor grado de integración y más complicado es reutilizar sus componentes.
@@ -80,4 +81,3 @@ El **disco de Benham** me resulta mucho más curioso. Se trata de una ilusión �
 {% include image.html size="small" file="Benham-s_Disc.PNG" caption="" %}
 
 Hay mucha información en Internet sobre ambos fenómenos y os animo a seguir investigando.
-

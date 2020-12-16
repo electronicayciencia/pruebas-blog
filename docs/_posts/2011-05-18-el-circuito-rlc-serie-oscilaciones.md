@@ -1,12 +1,13 @@
 ---
-layout: post
-title: 'El circuito RLC serie: oscilaciones amortiguadas'
-tags:
-- física
-- circuitos
-- osciladores
-image: /assets/2011/05/el-circuito-rlc-serie-oscilaciones/img/VI_C.png
 assets: /assets/2011/05/el-circuito-rlc-serie-oscilaciones
+featured: 'true'
+image: /assets/2011/05/el-circuito-rlc-serie-oscilaciones/img/VI_C.png
+layout: post
+tags:
+- Circuitos
+- Fisica
+- Matemáticas
+title: 'El circuito RLC serie: oscilaciones amortiguadas'
 ---
 
 Antes de nada, os quiero pedir disculpas por el parón que ha sufrido el blog lo que va de año. Todos necesitamos un respiro de vez en cuando, y otras aficiones me han comido mucho tiempo.
@@ -415,4 +416,3 @@ Y hemos llegado al final. Y después de toda esta teoría, este artículo ¿a d�
 Pues nos hemos quedado a las puertas de saber cómo funciona un sencillo transmisor de FM como los que hay en [esta página](http://yoreparo.com/foros/radiocomunicaciones/transmisores-de-fm-sencillos-t211744.html). ¿Podría habéroslo contado sin más en plan teoría de circuitos? Pues sí, claro, sin duda. Un par de ecuaciones, una transformada y sale. Personalmente, como pasa con muchas cosas, creo que hay una diferencia abismal entre **describir** cómo funciona un circuito y **entender**  internamente qué pasa. No hay tiempo en la vida para entender con detalle todas las cosas que conocemos cómo funcionan. Por eso estaré satisfecho si puedo aportar un granito de arena ayudándoos a entender bien cómo trabaja un oscilador de ese tipo. Y para eso hay que tener muy claro primero cómo funciona un oscilador RLC en serie.
 
 En la próxima entrada describiré el oscilador continuando desde aquí. Después de todo ya que tenemos el oscilador,  y hemos comprendido por qué se para, sólo hay que conseguir que no se pare, y meterle energía a intervalos regulares para **contrarrestar el amortiguamiento**.
-

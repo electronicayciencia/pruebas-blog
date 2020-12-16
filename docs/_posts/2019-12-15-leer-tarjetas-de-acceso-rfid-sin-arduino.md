@@ -1,13 +1,14 @@
 ---
-layout: post
-title: Leer tarjetas de acceso RFID, sin Arduino
-tags:
-- física
-- circuitos
-- osciladores
-- amplificadores
-image: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/img/fob_foto.jpg
 assets: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino
+featured: 'true'
+image: /assets/2019/12/leer-tarjetas-de-acceso-rfid-sin-arduino/img/fob_foto.jpg
+layout: post
+tags:
+- Binario
+- Circuitos
+- Fisica
+- Radio
+title: Leer tarjetas de acceso RFID, sin Arduino
 ---
 
 Hoy comenzaremos hablando de osciladores, palos de bambú y géiseres y terminaremos hablando de seguridad física. Porque ¿sabes que las cocinas de inducción, los cargadores inalámbricos y algunos antirrobos se basan en el mismo principio que los tornos de entrada al trabajo?
@@ -390,4 +391,3 @@ Pero hay una diferencia crucial entre las tarjetas de efecto Wiegand reales y la
 En conclusión, la comunicación unidireccional conlleva mensajes estáticos, breves y repetidos en bucle, siendo sencillos de imitar por un atacante. Por eso esta tecnología está en desuso en favor de las tarjetas NFC de HF (13.56MHz). Operar a mayor frecuencia permite una velocidad de transferencia mayor y más potencia para la alimentación.
 
 La comunicación con las tarjetas NFC modernas es bidireccional. Los mensajes ya no son estáticos sino desafío-respuesta (como en una tarjeta monedero de chip). Muchas versiones como [Mifare](https://en.wikipedia.org/wiki/MIFARE) incorporan criptografía fuerte, lo cual las hace muy difíciles de falsificar.
-

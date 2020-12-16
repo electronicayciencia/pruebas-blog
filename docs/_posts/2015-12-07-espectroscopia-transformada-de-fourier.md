@@ -1,13 +1,14 @@
 ---
-layout: post
-title: Espectroscopía mediante Transformada de Fourier
-tags:
-- gnuplot
-- física
-- sonido
-- Perl
-image: /assets/2015/12/espectroscopia-transformada-de-fourier/img/old_espectrocope.jpg
 assets: /assets/2015/12/espectroscopia-transformada-de-fourier
+featured: 'true'
+image: /assets/2015/12/espectroscopia-transformada-de-fourier/img/old_espectrocope.jpg
+layout: post
+tags:
+- Experimentos
+- Fisica
+- Ondas
+- Sensores
+title: Espectroscopía mediante Transformada de Fourier
 ---
 
 Hoy voy a hablar de ondas. Muchos artículos de este blog tienen que ver con las ondas. Y en ellos, en casi todos, tratamos las propiedades temporales de las ondas; la frecuencia esto, la frecuencia lo otro... Este artículo, a diferencia de los anteriores, vamos a basarlo en las propiedades espaciales.
@@ -355,4 +356,3 @@ Por ahora lo dejaremos aquí.
 Buscando documentación para el artículo me he encontrado este trabajo y aunque no es una referencia como tal, sí creo que vale la pena mencionarlo para los que tengáis más interés en el tema: [unizar.es - TAD de Jesus Cortes Rodicio.pdf](http://www.unizar.es/departamentos/fisica_aplicada/tads/TAD%20de%20Jesus%20Cortes%20Rodicio.pdf)
 
 Espero que os haya gustado esta aproximación poco convencional a las ondas sonoras. Encontraréis los ficheros de esta entrada, el software en Perl, ficheros de Octave, logs e imágenes en este enlace: [FT_espectrosonido.zip]({{page.assets | relative_url}}/FT_espectrosonido.zip)
-

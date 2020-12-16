@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Obtener el esquema desde una placa de circuito impreso
-tags:
-- reciclado
-- circuitos
-image: /assets/2010/04/obtener-el-esquema-desde-una-placa-de/img/BENQ0020.JPG
 assets: /assets/2010/04/obtener-el-esquema-desde-una-placa-de
+image: /assets/2010/04/obtener-el-esquema-desde-una-placa-de/img/BENQ0020.JPG
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: Obtener el esquema desde una placa de circuito impreso
 ---
 
 Pasar de una PCB al esquema es siempre un coñazo, lo hagas como lo hagas. Además es fácil equivocarse y acabar liado con un circuito que no tira ni para atrás. Por eso os quiero presentar un método sistemático que os servirá de guía para no perder el hilo. Para los expertos, lo que vamos buscando es reconstruir el *netlist*.
@@ -63,4 +63,3 @@ Un archivo *netlist* *(o netfile)* no es más que un archivo de texto que indica
 La primera columna es el tipo de componente y su identificador. Siguen las pistas a donde va conectado teniendo en cuenta la numeración de los terminales (depende de cada encapsulado). A continuación se pueden indicar notas como el valor o el modelo concreto.
 
 Fijaos como la pista de masa, que nosotros habíamos llamado 2 (o Gnd), el programa nos la ha forzado a 0, la 8 aparece como Vcc y la 13 como Vss.
-

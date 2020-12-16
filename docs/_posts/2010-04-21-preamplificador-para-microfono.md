@@ -1,13 +1,12 @@
 ---
-layout: post
-title: Preamplificador para micrófono multimedia
-tags:
-- circuitos
-- PC
-- sonido
-- amplificadores
-image: /assets/2010/04/preamplificador-para-microfono/img/BENQ0013.JPG
 assets: /assets/2010/04/preamplificador-para-microfono
+image: /assets/2010/04/preamplificador-para-microfono/img/BENQ0013.JPG
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+- Sensores
+title: Preamplificador para micrófono multimedia
 ---
 
 Actualización: Este es un preamplificador de baja calidad a transistores que tiene puntos flojos. Si buscas preamplificar un micrófono de una manera más sencilla tal vez te interesa [esta otra entrada]({{site.baseurl}}{% post_url 2010-05-28-preamplificador-microfono-electret %}).
@@ -49,4 +48,3 @@ El espacio libre que hay por encima del circuito es muy limitado. Por suerte ten
 {% include image.html size="small" file="BENQ0017.JPG" caption="" %}
 
 La tensión de alimentación puede ir desde los 3 a los 5V, para alimentarlo con 9 o 12 habría que recalcular algunas resistencias. Este circuito amplifica entre 50 y 100 veces la señal de entrada. Es difícil de determinar pues, al no tener el emisor degenerado, depende de la resistencia intrínseca del transistor. Si quisiéramos atenuar un poco la ganancia basta conectar una resistencia justo antes del emisor de Q1, digamos R7 de 220ohm. La ganancia sería aproximadamente R5/R7 = 2200/220 = 10 veces.
-

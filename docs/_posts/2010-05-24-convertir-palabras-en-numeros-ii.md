@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Convertir palabras en números (II)
-tags:
-- gnuplot
-- programacion
-- Perl
-image: /assets/2010/05/convertir-palabras-en-numeros-ii/img/lon_pal_es.png
 assets: /assets/2010/05/convertir-palabras-en-numeros-ii
+image: /assets/2010/05/convertir-palabras-en-numeros-ii/img/lon_pal_es.png
+layout: post
+tags:
+- Estadística
+- Matemáticas
+title: Convertir palabras en números (II)
 ---
 
 En la [entrada anterior](http://electronicaycienciadebug.blogspot.com/2010/05/convertir-palabras-en-numeros-i.html) programamos una función para convertir palabras en números entre 0 y 1. Se trata de un simple cambio de base, consideramos cada palabra como un *número* escrito con un conjunto de 27 símbolos *{@ a b c d e f g h i j k l m n o p q r s t u v w x y z}* y cambiábamos la base de numeración para expresarlo como un número decimal en base 10. El resultado es similar a:
@@ -93,4 +92,3 @@ Y para terminar, estos son los intervalos que presentan un pico en el espectro. 
 Tened en cuenta que este estudio está hecho sobre una lista de palabras y no refleja el uso diario del idioma. Si analizáramos un texto con sentido habría muchas palabras que se repiten mucho, como las preposiciones o los determinantes. No podemos observar esto en una lista de palabras. No obstante refleja el uso de esta aplicación que convierte palabras en números decimales que era la intención al escribirlo.
 
 Podéis encontrar los archivos relativos a esta entrada [en este enlace]({{page.assets | relative_url}}/pal2num.rar).
-

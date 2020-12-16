@@ -1,11 +1,11 @@
 ---
-layout: post
-title: Característica V/I de una bombilla
-tags:
-- gnuplot
-- DimmerIR
-image: /assets/2010/03/caracteristica-i-v-de-una-bombilla/img/grafico_IV_1.png
 assets: /assets/2010/03/caracteristica-i-v-de-una-bombilla
+image: /assets/2010/03/caracteristica-i-v-de-una-bombilla/img/grafico_IV_1.png
+layout: post
+tags:
+- Fisica
+- Optica
+title: Característica V/I de una bombilla
 ---
 
 De todos es sabido que si medimos la resistencia de una bombilla apagada, no obtenemos la resistencia verdadera que ofrece estando encendida. Por el mero hecho de que cuando un material se calienta, su resistencia eléctrica aumenta.
@@ -53,4 +53,3 @@ $$
 Fijaos en la V en el denominador. Es más importante de lo que parece porque hemos pasado de una expresión de la potencia que varía con V al cuadrado, a otra aproximada que varía casi linealmente con V.
 
 He dejado el archivo con las medidas [aquí]({{page.assets | relative_url}}/bombilla_V-I.dat).
-

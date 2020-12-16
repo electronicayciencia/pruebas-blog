@@ -1,12 +1,11 @@
 ---
-layout: post
-title: Escáner nuevo y difracción
-tags:
-- óptica
-- reciclado
-- física
-image: /assets/2010/06/escaner-nuevo-y-difraccion/img/BENQ0001.JPG
 assets: /assets/2010/06/escaner-nuevo-y-difraccion
+image: /assets/2010/06/escaner-nuevo-y-difraccion/img/BENQ0001.JPG
+layout: post
+tags:
+- Fisica
+- Reciclaje
+title: Escáner nuevo y difracción
 ---
 
 El pasado fin de semana los vecinos nos dieron una multifunción vieja. Una [Lexmark X1270](http://www.lexmark.com/lexmark/product/home/972/0,6970,245102346_653293766_783805388_es,00.html?tabId=7). Hay que reconocer que es buena, pero como todas las de tinta, los cartuchos valen una pasta y duran un suspiro. En fin que como impresora no me serviría de mucho. Pero mi ética me prohíbe desguazar cosas que aún funcionan *(excepto los matamoscas de 3€, hola Salva)*, antes la dejo junto a un contenedor.
@@ -78,4 +77,3 @@ Vamos a mirar la cinta a través de un microscopio tipo [cuentahilos](http://bus
 La graduación mayor son milímetros. Contamos efectivamente 6 líneas por milímetro.
 
 Si tenemos en cuenta que lo que el encoder detecta es el cambio entre blanco y negro, hay 12 cambios por milímetro, que son 300 intervalos en una sola pulgada. Así pues con el motor sólo se puede obtener una resolución horizontal de 300 [dpi](http://es.wikipedia.org/wiki/Puntos_por_pulgada). Para obtener más resolución aún necesitamos que el cabezal esté dividido en dos salidas de tinta en cada intervalo. Pensad si hay dos salidas de tinta en el mismo intervalo, cómo serán de finas y por qué se atascan y se ensucian con esa facilidad.
-

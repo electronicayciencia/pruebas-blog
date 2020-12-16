@@ -1,12 +1,15 @@
 ---
-layout: post
-title: Espectroscopía casera con DVD
-tags:
-- gnuplot
-- óptica
-- física
-image: /assets/2010/07/espectroscopia-casera-con-dvd/img/Imagen065_2.jpg
 assets: /assets/2010/07/espectroscopia-casera-con-dvd
+featured: 'true'
+image: /assets/2010/07/espectroscopia-casera-con-dvd/img/Imagen065_2.jpg
+layout: post
+tags:
+- Experimentos
+- Fisica
+- Ondas
+- Optica
+- Reciclaje
+title: Espectroscopía casera con DVD
 ---
 
 En [otra entrada anterior]({{site.baseurl}}{% post_url 2010-07-07-difraccion-en-un-dvd %}) habíamos explicado que un DVD o un CDROM se comportan como una red de difracción. También habíamos calculado el número de líneas y los ángulos para hacer la observación. En esta segunda parte lo aplicaremos para observar los espectros de una luz de **sodio a alta presión** (HPS o High Pressure Sodium) y una lámpara fluorescente de bajo consumo de **mercurio**.
@@ -95,4 +98,3 @@ En esta otra imagen de la lámpara de mercurio he quitado el zoom y se ve el com
 Y hasta aquí podemos llegar sin recurrir a apoyos ópticos como un ocular o un colimador. Y sin un montaje fijo que nos permita medir ángulos con precisión y situar la cámara en el punto adecuado. Hay muchos más tipos de lámparas, la próxima vez que la grabadora os estropee un DVD ya sabéis algo que probar. Tenéis más información así como espectros comentados en [http://ioannis.virtualcomposer2000.com/spectroscope/](http://ioannis.virtualcomposer2000.com/spectroscope/) o en [http://www.astrosurf.com/~buil/us/spe2/hresol4.htm](http://www.astrosurf.com/%7Ebuil/us/spe2/hresol4.htm).
 
 Como siempre, os dejo las imágenes, los espectros así como el código fuente del programa [en esta dirección]({{page.assets | relative_url}}/espectroDVD.rar). El programa en C está bastante liado, no es un buen ejemplo de programación, aún así tal vez os resulte útil para vuestras pruebas.
-

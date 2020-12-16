@@ -1,11 +1,10 @@
 ---
-layout: post
-title: Adaptador de USB a Serie
-tags:
-- reciclado
-- PC
-image: /assets/2011/01/adaptador-de-usb-serie/img/BENQ0005.JPG
 assets: /assets/2011/01/adaptador-de-usb-serie
+image: /assets/2011/01/adaptador-de-usb-serie/img/BENQ0005.JPG
+layout: post
+tags:
+- Reciclaje
+title: Adaptador de USB a Serie
 ---
 
 La primera entrada de este blog ([Conversor USB - RS232]({{site.baseurl}}{% post_url 2010-03-22-conversor-usb-rs232 %})) la dediqué a contaros cómo hacernos un adaptador sencillo y muy cómodo para conectar un microcontrolador al PC cuando no teníamos puerto serie. Y aún cuando tuviéramos, a mi me resulta mucho más práctico este adaptador que un puerto serie *de verdad*.
@@ -69,4 +68,3 @@ El puente entre las líneas 7 y 8 (RTS y CTS) **falsea el control de flujo** por
 ¿Os habéis fijado en que el módem en cualquier momento puede pedir al PC que no le mande más datos (llevando a cero CTS) pero el PC no puede decirle que haga una pausa? Esto es así porque no tendría sentido que el PC pidiera al módem que haga una pausa si el otro extremo le sigue enviando datos. Para eso está el **control de flujo por software**, que es una forma de decirle al sistema remoto que estamos saturados y que no envíe nada más hasta nueva orden.
 
 Para otras aplicaciones sí tiene sentido que tanto el PC como el aparato puedan decirse mutuamente que están preparados o no para recibir datos. Para ese caso os decía arriba que la misión de RTS y CTS ha cambiado un poco. Lo que se hace es dejar CTS para lo que estaba, indicarle al PC si el dispositivo conectado puede o no recibir datos en ese momento; y hacer que RTS sea lo mismo pero para el PC, indicándole al aparato si el PC está o no listo para recibir en ese momento.
-

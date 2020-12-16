@@ -1,11 +1,12 @@
 ---
-layout: post
-title: Valor eficaz de una sinusoidal incompleta
-tags:
-- gnuplot
-- DimmerIR
-image: /assets/2010/03/valor-eficaz-de-una-sinusoidal/img/forward_phase.png
 assets: /assets/2010/03/valor-eficaz-de-una-sinusoidal
+image: /assets/2010/03/valor-eficaz-de-una-sinusoidal/img/forward_phase.png
+layout: post
+tags:
+- Fisica
+- Matemáticas
+- Ondas
+title: Valor eficaz de una sinusoidal incompleta
 ---
 
 Continuamos con el proyecto *DimmerIR*. La intención como ya habéis supuesto es diseñar un atenuador electrónico. La caracterizacíon que hicimos de una bombilla incandescente en una [entrada anterior]({{site.baseurl}}{% post_url 2010-03-27-caracteristica-i-v-de-una-bombilla %}) nos servirá para calcular la potencia a partir del valor eficaz. Ahora vamos a perfilar cómo cambia el valor eficaz dependiendo de la fase del disparo.
@@ -63,4 +64,3 @@ Como era de esperar, si lo disparamos en 0, la onda llega completa y tenemos el 
 Esta es la razón de que la mayoría de los dimmers comerciales sean poco lineales, y varíen más rápidamente la luminosidad al principio del recorrido y menos hacia el final.
 
 Para las formulas he utilizado este [previsualizador de LaTeX](http://www.tlhiv.org/ltxpreview/).
-

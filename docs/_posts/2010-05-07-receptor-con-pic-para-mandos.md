@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Receptor con PIC para mandos infrarrojos tipo NEC
-tags:
-- microcontroladores
-- DimmerIR
-- telemandos
-image: /assets/2010/05/receptor-con-pic-para-mandos/img/0_1.png
 assets: /assets/2010/05/receptor-con-pic-para-mandos
+image: /assets/2010/05/receptor-con-pic-para-mandos/img/0_1.png
+layout: post
+tags:
+- Circuitos
+- PIC
+- Sensores
+title: Receptor con PIC para mandos infrarrojos tipo NEC
 ---
 
 El formato NEC es una de las codificaciones más extendidas en los mandos a distancia de electrodomésticos baratos, sobre todo los de marca *Nisu*: televisores, vídeos, TDT, DVD, minicadenas, etc. En una [entrada anterior]({{site.baseurl}}{% post_url 2010-04-01-decodificacion-del-protocolo-rc5-usando %}) ya hablamos sobre otro protocolo de mando a distancia: el RC5. Leer el formato NEC es mucho más sencillo, pero por otro lado requiere más memoria.
@@ -223,4 +223,3 @@ En [este enlace]({{page.assets | relative_url}}/receptorNEC.rar) os dejo los fic
 - Ejemplo de estímulos SBS para pruebas.
 - Utilidad dat2sbs.
 - Ejemplo de fichero dat guardado por Xoscope.
-

@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Clonar un RFID con tu propio hardware
-tags:
-- microcontroladores
-- programacion
-- circuitos
-image: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware/img/yellow_fob.jpg
 assets: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware
+image: /assets/2020/02/clonar-un-rfid-con-tu-propio-hardware/img/yellow_fob.jpg
+layout: post
+tags:
+- Binario
+- Circuitos
+- PIC
+title: Clonar un RFID con tu propio hardware
 ---
 
 En el [artículo anterior]({{site.baseurl}}{% post_url 2019-12-15-leer-tarjetas-de-acceso-rfid-sin-arduino %}) tratamos sobre leer tarjetas de proximidad. Y acabamos diciendo lo fácil que es copiar las más básicas.
@@ -399,4 +399,3 @@ Suficiente. Confío que os haya resultado interesante esta revisión del mundo R
 Os dejo el software, imágenes y otros archivos auxiliares en GitHub: [electronicayciencia/rfid-rw](https://github.com/electronicayciencia/rfid-rw).
 
 {% include image.html size="big" file="meme-rfid.png" caption="" %}
-

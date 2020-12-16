@@ -1,12 +1,11 @@
 ---
-layout: post
-title: 'Preamplificador micrófono electret: operacional'
-tags:
-- circuitos
-- sonido
-- amplificadores
-image: /assets/2010/05/preamplificador-microfono-electret/img/alim_dual.png
 assets: /assets/2010/05/preamplificador-microfono-electret
+image: /assets/2010/05/preamplificador-microfono-electret/img/alim_dual.png
+layout: post
+tags:
+- Circuitos
+- Reciclaje
+title: 'Preamplificador micrófono electret: operacional'
 ---
 
 Viendo las estadísticas del blog me sorprende la cantidad de gente que busca un preamplificador para micrófono. Creo que sería bueno publicar algunas entradas al respecto.
@@ -113,4 +112,3 @@ Siempre que uséis un operacional tenéis que atender a:
 - La **banda pasante**. Hay amplificadores que son más lentos que otros pero a cambio tienen otras propiedades deseables, como baja tensión de alimentación o nivel de ruido. Necesitamos alcanzar un compromiso entre lo que necesitamos por una parte y por otra. Los *datasheets* más habituales se encuentran sin problemas en Internet.
 
 Sin duda me dejo muchas cosas, pero como introducción creo que ya está bien. Iremos aclarando algunos puntos en otras entradas, y como siempre os animo a buscar en Internet lo que no entendáis, todo esto está explicado en mil sitios.
-

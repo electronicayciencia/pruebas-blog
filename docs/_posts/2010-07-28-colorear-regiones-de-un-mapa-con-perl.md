@@ -1,12 +1,10 @@
 ---
-layout: post
-title: Colorear regiones de un mapa con Perl
-tags:
-- programacion
-- PC
-- Perl
-image: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl/img/prov_prefijos.png
 assets: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl
+image: /assets/2010/07/colorear-regiones-de-un-mapa-con-perl/img/prov_prefijos.png
+layout: post
+tags:
+- Informática
+title: Colorear regiones de un mapa con Perl
 ---
 
 Por razones laborales tenía la necesidad de tomar un mapa de España y colorear las regiones según ciertos parámetros. Hay multitud de herramientas para hacer eso pero no con las propiedades que necesitaba, así que me vi en la necesidad de hacer algo concreto
@@ -79,4 +77,3 @@ Después la imagen se guarda en un archivo con formato PNG y se inserta el títu
 {% include image.html size="big" file="mapacolor_ej1.png" caption="" %}
 
 Os dejo el programita **[aquí]({{page.assets | relative_url}}/mapacolor.zip)** listo para descargar**.**
-

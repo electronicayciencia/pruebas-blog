@@ -1,12 +1,11 @@
 ---
-layout: post
-title: 'Multivibrador astable a transistores: explicación'
-tags:
-- circuitos
-- sonido
-- osciladores
-image: /assets/2010/04/multivibrador-astable-transistores/img/astable_npn.png
 assets: /assets/2010/04/multivibrador-astable-transistores
+image: /assets/2010/04/multivibrador-astable-transistores/img/astable_npn.png
+layout: post
+tags:
+- Circuitos
+- Ondas
+title: 'Multivibrador astable a transistores: explicación'
 ---
 
 El astable con dos transistores NPN es de los primeros circuitos que se estudian cuando se habla de transistores en conmutación. Como su esquema es tan simple, es de esas cosas pequeñas que te crees que las entiendes, hasta que te das cuenta de que tú también habrías colocado [los condensadores del revés](http://www.electro-tech-online.com/electronic-projects-design-ideas-reviews/103591-transistor-astable-multivibrator-problem.html). Voy a explicar despacio cómo funciona, y veréis que aunque parece sencillo su funcionamiento es interesante.
@@ -117,4 +116,3 @@ Para hacer que siempre empiece del mismo lado tenemos que romper nosotros la sim
 La única forma de hacer que ambos ciclos duren lo mismo (salvo pequeñas diferencias) y que siempre empiece por el mismo sitio es forzándolo nosotros: en lugar de poner el interruptor en la alimentación, ponerlo en la base de algún transistor.
 
 Nada más alimentar el circuito llegará a un estado que dependerá de dónde hayamos puesto el interruptor. Y no hará nada más, porque esta incompleto. Cuando pulsemos el interruptor el circuito oscilará partiendo de ese estado inicial que siempre será el mismo. La desventaja es que siempre habrá un consumo de corriente aunque el interruptor esté apagado.
-

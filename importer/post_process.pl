@@ -13,12 +13,15 @@ my $description_file = "descriptions.dat";
 my $default_description = "";
 my $assets_local_dir = "/home/reinoso/pruebas-blog/docs/assets";
 my $assets_base_url = "/assets";
+my $newmetafile = "newmeta.yml";
 
+binmode STDOUT, ':raw';
 
 use strict;
 use warnings;
 use Data::Dumper;
-
+use YAML::XS qw/Load Dump LoadFile/;
+use File::Basename;
 
 # ---
 # key: value
@@ -256,47 +259,43 @@ sub trim {
 
 
 # Needs global variable assets.
+# Arguments: 
+#   meta: a hashref from YAML Load.
+#   newmeta: hashref with new metadata structure
+# Output:
+#   a hashref with the new head
 sub process_head {
-	my $s = shift;
-	$s = trim($s);
+	my $meta = shift;
+	my $newmeta = shift;
+
+	my %meta = %{$meta}; # more confortable
 
 	# Remove date headers from front matter. 
 	# Cause issues with timezone and relative links.
-	$s =~ s{^date:.*$}{}mg;
-	$s =~ s{^modified_time:.*$}{}mg;
+	delete $meta{date};
+	delete $meta{modified_time};
 	
 	# Author is always the same
-	$s =~ s{^author:.*$}{}mg;
-
-	# Tags in line, not in column
-	#my ($taginfo) = $s =~ m{tags:(?:\n-.+)+}mg;
-	#my (@tags) = $taginfo =~ m{^-\s*(.+)$}mg;
-	#$s =~ s{$taginfo}{"tags: ".join(' ', @tags)}e;
+	delete $meta{author};
 
 	# Blogger ID is not needed
-	$s =~ s{^blogger_id:.*$}{}mg;
-	$s =~ s{^blogger_orig_url:.*$}{}mg;  # only needed before run get_descriptions
-	$s =~ s{^thumbnail:.*$}{}mg;
+	delete $meta{blogger_id};
+	delete $meta{blogger_orig_url};
+	delete $meta{thumbnail};
 
-	# Add featured image
-	$s =~ s{$}{\nimage: $assets_url/img/$featured_image} if $featured_image;
+	# Add featured image and assets
+	$meta{assets} = $assets_url if $assets_url;
+	$meta{image} = "$assets_url/img/$featured_image" if $featured_image;
 
-	# Add description (if any)
-	my ($title) = $s =~ m{^title: (.*)$}m;
-	my $descr = get_description($title);
-	$descr =~ s{\n}{\n  }mg;
-	$descr =~ s{\s+$}{}g;
-	$s =~ s{$}{\ndescription: >-\n  $descr} if $descr;
+	# Merge new metadata (if present)
+	if ($newmeta) {
+		my %newmeta = %{$newmeta};
+		$meta{description} = $newmeta{description} if $newmeta{description};
+		$meta{featured} = "true" if $newmeta{featured};
+		$meta{tags} = $newmeta{tags};
+	}
 
-	# Add assets variable
-	$s =~ s{$}{\nassets: $assets_url} if $assets_url;
-
-	# Collapse blanks
-	$s =~ s/\n+/\n/g;
-	$s =~ s/\s+$//g;
-	$s =~ s/^\s+//g;
-
-	return $s;
+	return \%meta;
 }
 
 
@@ -841,29 +840,50 @@ sub process_body {
 	return $s;
 }
 
+# Arguments: post filename
+# Output: string with the text, hash with yaml header
+sub parse_post {
+	my $filename = shift;
+	my $content = do{local(@ARGV,$/)=$filename;<>};
+
+	my ($head, $text) = split("\n---\n", $content);
+	
+	$head =~ s/^- /  - /mg; # Ruby YAML is a little bit non-compliant
+	
+	my $meta = Load($head) or die "$!\n";
+	
+	$text = trim($text);
+
+	return ($meta, $text);
+}
+
+sub rewrite_post {
+	my ($meta, $text) = @_;
+	print Dump($meta)."---\n\n$text\n";
+	exit;
+}
+
 
 my $filename = $ARGV[0] or die "Usage: $0 yyyy-mm-dd-posttitle.html\n";
 
-open my $fh, $filename or die "$!\n";
-my $content = do { local $/; <$fh> };
-close $fh;
+my $postname = basename($filename, ".md", ".html");
 
 ($assets_url, $assets_local) = get_assets_location($filename);
 
-my ($head, $body) = $content =~ m/^---$(.+?)^---$(.*)/ms;
+my ($meta, $body) = parse_post($filename);
 
+# Get the new netadata file
+my $newmeta = LoadFile($newmetafile) or die "$!";
+my %newmeta = %{$newmeta};
 
-# Process the body first to get featured image
+# Process the body before the head in order to get first image as featured one
 $body = process_body($body);
 
-# Complete the header
-$head = process_head($head);
-
-my $toc = "* TOC\n{:toc}"; # separate with only one \n to preserve excerpt.
+# Process the header
+$meta = process_head($meta, $newmeta{$postname});
 
 # Recompose jekyll post.
-print "---\n$head\n---\n\n$body\n\n";
-
+rewrite_post($meta, $body);
 
 #print "\n\n".Dumper(\%parts)."\n\n";
 

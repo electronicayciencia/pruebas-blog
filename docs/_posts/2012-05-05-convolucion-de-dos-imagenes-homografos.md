@@ -1,12 +1,12 @@
 ---
-layout: post
-title: 'Convolución de dos imágenes: Homógrafos UTF'
-tags:
-- gnuplot
-- óptica
-- Perl
-image: /assets/2012/05/convolucion-de-dos-imagenes-homografos/img/sopa.png
 assets: /assets/2012/05/convolucion-de-dos-imagenes-homografos
+image: /assets/2012/05/convolucion-de-dos-imagenes-homografos/img/sopa.png
+layout: post
+tags:
+- DSP
+- Informática
+- Matemáticas
+title: 'Convolución de dos imágenes: Homógrafos UTF'
 ---
 
 En [una entrada anterior]({{site.baseurl}}{% post_url 2011-08-11-la-transformada-de-fourier-no-es-magia %}) os decía que en breve presentaría una aplicación de la transformada de Fourier en dos dimensiones. Pues bien, [como decíamos ayer](http://curistoria.blogspot.com.es/2008/04/fray-luis-de-len-como-decamos-ayer.html), voy a utilizar la transformada, y más concretamente multiplicar dos transformadas, para encontrar patrones dentro de una imagen. Lo que técnicamente se llama *Template Matching*.
@@ -377,4 +377,3 @@ Otros navegadores, por comodidad permiten al usuario decidir si prefiere ver el 
 No me consta que sea un ataque muy difundido a día de hoy, pero es una amenaza y podría ser un problema de seguridad en el futuro.
 
 Como siempre os dejo el código, una base de datos para pruebas, algunas imágenes y ejemplos en [este enlace]({{page.assets | relative_url}}/homografos.zip).
-

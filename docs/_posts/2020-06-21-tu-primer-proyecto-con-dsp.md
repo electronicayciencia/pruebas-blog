@@ -1,15 +1,14 @@
 ---
-layout: post
-title: Tu primer proyecto con DSP
-tags:
-- microcontroladores
-- programacion
-- circuitos
-- amplificadores
-image: /assets/2020/06/tu-primer-proyecto-con-dsp/img/filtrosinc.png
-description: >-
-  Introducción a los DSP y uso de un dsPIC.
 assets: /assets/2020/06/tu-primer-proyecto-con-dsp
+description: Introducción a los DSP y uso de un dsPIC.
+image: /assets/2020/06/tu-primer-proyecto-con-dsp/img/filtrosinc.png
+layout: post
+tags:
+- Circuitos
+- DSP
+- Matemáticas
+- PIC
+title: Tu primer proyecto con DSP
 ---
 
 Un **DSP** es un chip pensado para hacer **Procesado Digital de Señales**. Se usa mucho en equipos de sonido, vídeo, control industrial, instrumentos musicales, telecomunicaciones, equipo médico... se usa mucho en todas partes. A lo largo de este artículo veremos qué tienen de especial estos integrados, qué los distingue de un microcontrolador normal.
@@ -261,4 +260,3 @@ Espero que te haya resultado interesante esta **introducción** al mundo de los 
 Por si tienes curiosidad, aquí te dejo un pequeño ejemplo de cómo multiplicar dos vectores. Una premisa básica de un DSP es poder hacer la operación de un filtro FIR iterando sobre una sola instrucción.
 
 <script src="https://gist.github.com/electronicayciencia/6ec122969615c3bb89aac9c18e03b15b.js"></script>
-

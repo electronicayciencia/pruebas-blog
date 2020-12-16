@@ -1,12 +1,13 @@
 ---
-layout: post
-title: La presión atmosférica, BMP280
-tags:
-- microcontroladores
-- datalog
-- raspberrypi
-image: /assets/2018/10/la-presion-atmosferica-bmp280/img/baro_goethe_peque.jpg
 assets: /assets/2018/10/la-presion-atmosferica-bmp280
+image: /assets/2018/10/la-presion-atmosferica-bmp280/img/baro_goethe_peque.jpg
+layout: post
+tags:
+- DSP
+- Fisica
+- Raspberry
+- Sensores
+title: La presión atmosférica, BMP280
 ---
 
 Dedico esta entrada a la presión atmosférica. Ya sabéis, eso que cuando sube hace calor y cuando baja llueve.
@@ -405,4 +406,3 @@ recogida durante una tormenta. EyC." %}
 ¿No recuerda a un terremoto? Y esta es una suave tormenta de septiembre, con una una intensidad pico a pico de apenas 0.7hPa... ¿Os imagináis una tormenta fuerte en altamar?
 
 Espero que os haya gustado este viaje por la electrónica digital, la aritmética, la programación y el procesado digital de señales. Los programas utilizados los tenéis en ente repositorio de GitHub: [bmp280_sensor](https://github.com/electronicayciencia/bmp280_sensor).
-

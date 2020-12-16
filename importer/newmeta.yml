@@ -202,7 +202,7 @@
     - Reciclaje
 2010-08-25-resonancia-mecanica-con-copas-ii:
   description: ''
-  featured: false
+  featured: true
   tags:
     - DSP
     - Experimentos
@@ -267,7 +267,7 @@
     - Reciclaje
 2010-10-27-transmitir-informacion-usando-el-mando:
   description: ''
-  featured: true
+  featured: false
   tags:
     - Experimentos
     - PIC

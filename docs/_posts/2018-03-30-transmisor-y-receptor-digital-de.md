@@ -1,15 +1,13 @@
 ---
-layout: post
-title: Transmisor y receptor digital de ultrasonidos
-tags:
-- microcontroladores
-- programacion
-- circuitos
-- sonido
-- raspberrypi
-- amplificadores
-image: /assets/2018/03/transmisor-y-receptor-digital-de/img/mod_ultrasonido.png
 assets: /assets/2018/03/transmisor-y-receptor-digital-de
+image: /assets/2018/03/transmisor-y-receptor-digital-de/img/mod_ultrasonido.png
+layout: post
+tags:
+- Binario
+- Circuitos
+- Ondas
+- PIC
+title: Transmisor y receptor digital de ultrasonidos
 ---
 
 Se puede transmitir información por cable, por infrarrojos, por teléfono, modulando un tono acústico, por ondas de radio... Hoy os voy a describir un sistema de comunicación digital por **ultrasonidos**. Algunos pensaréis que es un circuito vulgar y falto de originalidad. Pero os gustan los esquemas con operacionales, lo sé, lo veo en las estadísticas del blog. Os animo a leerlo.
@@ -345,4 +343,3 @@ Tras actualizar Raspbian, instalar las *kernel headers* y alguna otra cosilla m�
 Ahora tenemos un dispositivo hardware, parte del sistema operativo a todos los efectos. No vamos a conectar una consola serie porque no es bidireccional, pero podríamos.
 
 Aquí lo vamos a dejar por hoy. Espero que os haya gustado. Los esquemas y programas los tenéis en este github: [ASKRECV](https://github.com/electronicayciencia/askrecv).
-

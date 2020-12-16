@@ -1,12 +1,12 @@
 ---
-layout: post
-title: El bus I2C a bajo nivel
-tags:
-- microcontroladores
-- programacion
-- raspberrypi
-image: /assets/2017/02/el-bus-i2c-bajo-nivel/img/I2c_logo.svg.png
 assets: /assets/2017/02/el-bus-i2c-bajo-nivel
+image: /assets/2017/02/el-bus-i2c-bajo-nivel/img/I2c_logo.svg.png
+layout: post
+tags:
+- Binario
+- Raspberry
+- Sensores
+title: El bus I2C a bajo nivel
 ---
 
 Siendo de los protocolos más utilizados, para algunos aficionados el bus I2C continúa siendo gran interrogante hoy en día. Dada la buena recepción de la entrada anterior, titulada [El bus 1-Wire a bajo nivel]({{site.baseurl}}{% post_url 2016-12-04-el-bus-1-wire-bajo-nivel %}) vamos a hacer otra dedicada a I2C con todo detalle.
@@ -522,4 +522,3 @@ Nada más por ahora. Si os interesa el tema, os dejo un documento comparando tip
 El manual de las funciones lo podéis encontrar en [https://electronicayciencia.github.io/wPi_soft_i2c/](https://electronicayciencia.github.io/wPi_soft_i2c/).
 
 Los archivos utilizados para elaborar este artículo están en el repositorio [https://github.com/electronicayciencia/wPi_soft_i2c](https://github.com/electronicayciencia/wPi_soft_i2c)
-

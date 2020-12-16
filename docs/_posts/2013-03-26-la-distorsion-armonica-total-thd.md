@@ -1,12 +1,13 @@
 ---
-layout: post
-title: La Distorsión Armónica Total (THD)
-tags:
-- circuitos
-- sonido
-- amplificadores
-image: /assets/2013/03/la-distorsion-armonica-total-thd/img/linea_recta.png
 assets: /assets/2013/03/la-distorsion-armonica-total-thd
+featured: 'true'
+image: /assets/2013/03/la-distorsion-armonica-total-thd/img/linea_recta.png
+layout: post
+tags:
+- DSP
+- Matemáticas
+- Ondas
+title: La Distorsión Armónica Total (THD)
 ---
 
 Cualquier aficionado a la música o a la electrónica conoce lo que es la distorsión. En este artículo hablaremos de la importancia de la no linealidad en la distorsión y de cómo se mide si un amplificador distorsiona más o menos que otro.
@@ -432,4 +433,3 @@ Pero no toda distorsión es mala. En un amplificador por supuesto que sí, pero 
 Hay integrados dedicados exclusivamente a mezclar frecuencias para obtener la diferencia o la suma de ellas. Uno muy conocido es el [NE602]({{page.assets | relative_url}}/SA602A.pdf). Aunque tiene también sus detractores, precisamente por los productos de **tercer orden**: [Why NOT to use the NE602](http://home.tiscali.nl/curious_about/PA1DSP/Articles/why_not_to_use_the_ne602_.doc/index.html)  .
 
 En la siguiente entrada haremos un circuito **mezclador** de frecuencias. Aunque no basado en lo anterior, sino en otro principio diferente también muy interesante.
-

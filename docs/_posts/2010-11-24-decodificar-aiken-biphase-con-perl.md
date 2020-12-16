@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Decodificar Aiken Biphase con Perl
-tags:
-- física
-- Perl
-- amplificadores
-image: /assets/2010/11/decodificar-aiken-biphase-con-perl/img/acelerando.png
 assets: /assets/2010/11/decodificar-aiken-biphase-con-perl
+image: /assets/2010/11/decodificar-aiken-biphase-con-perl/img/acelerando.png
+layout: post
+tags:
+- Binario
+- Experimentos
+- Informática
+title: Decodificar Aiken Biphase con Perl
 ---
 
 Antes de nada quería mandar un saludo a Explorer de [perlenespanol.com](http://perlenespanol.com/). Porque, sin conocernos previamente, se ve que le gustan mis artículos. Pues casi desde que empecé con el blog todo lo que escribo que tenga que ver con Perl acaba reseñado en su foro.
@@ -712,4 +712,3 @@ Y para terminar os acompaño una captura para que veais cómo una secuencia de d
 A veces cuesta un poco leer las pistas de alta densidad porque el lector que usamos es más estrecho para el ancho de la banda. Pero no quiere decir que no vayamos a poder leer, sino que cuesta más obtener una señal válida.
 
 Ni que decir tiene que si has leído hasta aquí es porque estás interesado en la parte didáctica del artículo. Porque, si fueras un delincuente no estarías perdiendo el tiempo leyendo sobre electrónica digital y lectores de cintas de cassete sino que estarías clonando ya tarjetas con un [grabador comercial](http://www2.dealextreme.com/details.dx/sku.18362) comprado por Internet.
-

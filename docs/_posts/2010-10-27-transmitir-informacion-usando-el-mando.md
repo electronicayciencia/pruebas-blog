@@ -1,12 +1,12 @@
 ---
-layout: post
-title: Transmitir información usando el mando de un coche teledirigido
-tags:
-- estadística
-- circuitos
-- telemandos
-image: /assets/2010/10/transmitir-informacion-usando-el-mando/img/Imagen256.jpg
 assets: /assets/2010/10/transmitir-informacion-usando-el-mando
+image: /assets/2010/10/transmitir-informacion-usando-el-mando/img/Imagen256.jpg
+layout: post
+tags:
+- Experimentos
+- PIC
+- Reciclaje
+title: Transmitir información usando el mando de un coche teledirigido
 ---
 
 Hoy vamos a ver una introducción a la transmisión digital de señales. Veremos los conceptos básicos y haremos una pequeña práctica con los materiales que tenemos a mano. Caracterizaremos el sistema y programaremos un par de PICs para que hagan las funciones de transmisor y receptor.
@@ -292,4 +292,3 @@ Después de hacer todas las pruebas tenemos un sistema de transmisión inalámbr
 - Más potencia. Incorporando un transistor para amplificar la potencia al final y una buena antena tendríamos un poco más de alcance.
 
 En definitiva, aprovechar los osciladores de RF y currarnos el resto, que cada uno juzgue si le parece práctico o no. Encontraréis los archivos usados en las pruebas [aqui]({{page.assets | relative_url}}/datos_RC.rar). Están los logs de las transiciones, los programas y los hex de los PICs.
-

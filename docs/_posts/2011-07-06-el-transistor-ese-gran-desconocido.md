@@ -1,11 +1,12 @@
 ---
-layout: post
-title: 'El transistor, ese gran desconocido: Regulador V-I'
-tags:
-- osciladores
-- amplificadores
-image: /assets/2011/07/el-transistor-ese-gran-desconocido/img/fuentev_cir.png
 assets: /assets/2011/07/el-transistor-ese-gran-desconocido
+image: /assets/2011/07/el-transistor-ese-gran-desconocido/img/fuentev_cir.png
+layout: post
+tags:
+- Circuitos
+- Fisica
+- Matemáticas
+title: 'El transistor, ese gran desconocido: Regulador V-I'
 ---
 
 El transistor se inventó en el 1947 y desde entonces raro es el circuito en el que no lo usamos, bien sea en como componente individual o en grupo formando un operacional, o un microcontrolador. Sin embargo, a pesar de esta omnipresencia, es un componente poco comprendido en general por nosotros los aficionados. Las ecuaciones que lo definen son complicadas y para simularlo se necesitan modelos con decenas de parámetros sutiles. Fijaos en el modelo SPICE para el 2N2222:
@@ -248,4 +249,3 @@ Y ahora representaremos, en valor absoluto, los valores que nos da el ltspice y 
 La aproximación es más o menos buena. Era de esperar porque la capacidad parásita no es constante sino que va variando a medida que cambia la tensión Vcb.
 
 Estos fenómenos que acabamos de ver son importantes en general para profundizar un poco en cómo funciona un transistor, y en particular para entender el oscilador del que hablábamos en la pasada entrada. Espero no haberos aburrido mucho.
-
