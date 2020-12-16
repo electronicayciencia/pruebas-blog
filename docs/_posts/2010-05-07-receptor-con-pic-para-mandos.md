@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Receptor con PIC para mandos infrarrojos tipo NEC
-tags: microcontroladores DimmerIR telemandos
+tags:
+- microcontroladores
+- DimmerIR
+- telemandos
 image: /assets/2010/05/receptor-con-pic-para-mandos/img/0_1.png
 assets: /assets/2010/05/receptor-con-pic-para-mandos
 ---

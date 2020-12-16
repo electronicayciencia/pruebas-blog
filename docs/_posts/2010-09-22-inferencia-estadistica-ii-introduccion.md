@@ -1,7 +1,8 @@
 ---
 layout: post
 title: 'Inferencia estadística II: Introducción a los test de hipótesis'
-tags: estadística
+tags:
+- estadística
 image: /assets/2010/09/inferencia-estadistica-ii-introduccion/img/t_normalizada_m1m2.png
 assets: /assets/2010/09/inferencia-estadistica-ii-introduccion
 ---

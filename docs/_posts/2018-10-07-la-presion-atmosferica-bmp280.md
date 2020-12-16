@@ -1,7 +1,10 @@
 ---
 layout: post
 title: La presión atmosférica, BMP280
-tags: microcontroladores datalog raspberrypi
+tags:
+- microcontroladores
+- datalog
+- raspberrypi
 image: /assets/2018/10/la-presion-atmosferica-bmp280/img/baro_goethe_peque.jpg
 assets: /assets/2018/10/la-presion-atmosferica-bmp280
 ---

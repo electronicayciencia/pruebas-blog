@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Obtener el esquema desde una placa de circuito impreso
-tags: reciclado circuitos
+tags:
+- reciclado
+- circuitos
 image: /assets/2010/04/obtener-el-esquema-desde-una-placa-de/img/BENQ0020.JPG
 assets: /assets/2010/04/obtener-el-esquema-desde-una-placa-de
 ---

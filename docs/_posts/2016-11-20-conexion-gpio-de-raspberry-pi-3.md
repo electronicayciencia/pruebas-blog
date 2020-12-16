@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Conexión GPIO de Raspberry Pi 3
-tags: microcontroladores programacion raspberrypi
+tags:
+- microcontroladores
+- programacion
+- raspberrypi
 image: /assets/2016/11/conexion-gpio-de-raspberry-pi-3/img/300px-Pi-GPIO-header.png
 assets: /assets/2016/11/conexion-gpio-de-raspberry-pi-3
 ---

@@ -1,7 +1,11 @@
 ---
 layout: post
 title: Frecuencímetro para el PC
-tags: microcontroladores circuitos PC Perl
+tags:
+- microcontroladores
+- circuitos
+- PC
+- Perl
 image: /assets/2011/07/frecuencimetro-para-el-pc/img/interfaz_tk.png
 assets: /assets/2011/07/frecuencimetro-para-el-pc
 ---

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Decodificar Aiken Biphase con Perl
-tags: física Perl amplificadores
+tags:
+- física
+- Perl
+- amplificadores
 image: /assets/2010/11/decodificar-aiken-biphase-con-perl/img/acelerando.png
 assets: /assets/2010/11/decodificar-aiken-biphase-con-perl
 ---

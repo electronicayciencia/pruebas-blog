@@ -1,7 +1,11 @@
 ---
 layout: post
 title: Electrocardiograma y electrorretinograma.
-tags: gnuplot sonido amplificadores biología
+tags:
+- gnuplot
+- sonido
+- amplificadores
+- biología
 image: /assets/2011/09/electrocardiograma-y/img/con624.gif
 assets: /assets/2011/09/electrocardiograma-y
 ---

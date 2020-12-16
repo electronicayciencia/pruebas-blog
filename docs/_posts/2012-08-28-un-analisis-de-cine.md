@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Análisis de las distribuciones de voto en Filmaffinity
-tags: estadística programacion Perl
+tags:
+- estadística
+- programacion
+- Perl
 image: /assets/2012/08/un-analisis-de-cine/img/esdla-eendp.png
 assets: /assets/2012/08/un-analisis-de-cine
 ---

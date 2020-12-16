@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Generador de personajes ficticios en Perl
-tags: programacion PC Perl
+tags:
+- programacion
+- PC
+- Perl
 assets: /assets/2010/06/generador-de-personajes-ficticios-en
 ---
 

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Transmitir información usando el mando de un coche teledirigido
-tags: estadística circuitos telemandos
+tags:
+- estadística
+- circuitos
+- telemandos
 image: /assets/2010/10/transmitir-informacion-usando-el-mando/img/Imagen256.jpg
 assets: /assets/2010/10/transmitir-informacion-usando-el-mando
 ---

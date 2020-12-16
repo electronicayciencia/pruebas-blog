@@ -1,7 +1,10 @@
 ---
 layout: post
 title: 'Dimmer controlado por mando a distancia: el software'
-tags: microcontroladores programacion DimmerIR
+tags:
+- microcontroladores
+- programacion
+- DimmerIR
 image: /assets/2011/02/dimmer-controlado-por-mando-distancia/img/interrupciones.png
 assets: /assets/2011/02/dimmer-controlado-por-mando-distancia
 ---

@@ -1,7 +1,9 @@
 ---
 layout: post
 title: 'Inferencia estadística: capacidad de una cucharilla'
-tags: física estadística
+tags:
+- física
+- estadística
 image: /assets/2010/09/inferencia-estadistica-capacidad-de-una/img/gausiana_2.png
 assets: /assets/2010/09/inferencia-estadistica-capacidad-de-una
 ---

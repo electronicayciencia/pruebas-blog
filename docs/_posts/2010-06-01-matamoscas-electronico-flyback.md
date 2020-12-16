@@ -1,7 +1,10 @@
 ---
 layout: post
 title: 'Matamoscas eléctrónico: flyback'
-tags: física circuitos osciladores
+tags:
+- física
+- circuitos
+- osciladores
 image: /assets/2010/06/matamoscas-electronico-flyback/img/friemosquitos.png
 assets: /assets/2010/06/matamoscas-electronico-flyback
 ---

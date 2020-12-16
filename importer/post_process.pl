@@ -268,10 +268,10 @@ sub process_head {
 	# Author is always the same
 	$s =~ s{^author:.*$}{}mg;
 
-	my ($taginfo) = $s =~ m{tags:(?:\n-.+)+}mg;
-	my (@tags) = $taginfo =~ m{^-\s*(.+)$}mg;
-
-	$s =~ s{$taginfo}{"tags: ".join(' ', @tags)}e;
+	# Tags in line, not in column
+	#my ($taginfo) = $s =~ m{tags:(?:\n-.+)+}mg;
+	#my (@tags) = $taginfo =~ m{^-\s*(.+)$}mg;
+	#$s =~ s{$taginfo}{"tags: ".join(' ', @tags)}e;
 
 	# Blogger ID is not needed
 	$s =~ s{^blogger_id:.*$}{}mg;

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Estadística de los exámenes tipo test
-tags: estadística
+tags:
+- estadística
 image: /assets/2011/09/estadistica-de-los-examenes-tipo-test/img/esperanza_aciertos.png
 assets: /assets/2011/09/estadistica-de-los-examenes-tipo-test
 ---

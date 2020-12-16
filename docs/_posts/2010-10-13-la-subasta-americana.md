@@ -1,7 +1,8 @@
 ---
 layout: post
 title: La subasta americana
-tags: estadística
+tags:
+- estadística
 assets: /assets/2010/10/la-subasta-americana
 ---
 

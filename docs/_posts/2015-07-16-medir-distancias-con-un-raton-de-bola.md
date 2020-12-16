@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Medir distancias con un ratón de bola
-tags: física linux Perl
+tags:
+- física
+- linux
+- Perl
 image: /assets/2015/07/medir-distancias-con-un-raton-de-bola/img/raton_y_conector.jpg
 assets: /assets/2015/07/medir-distancias-con-un-raton-de-bola
 ---

@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Difraccion en un DVD
-tags: óptica física
+tags:
+- óptica
+- física
 image: /assets/2010/07/difraccion-en-un-dvd/img/Imagen095.jpg
 assets: /assets/2010/07/difraccion-en-un-dvd
 ---

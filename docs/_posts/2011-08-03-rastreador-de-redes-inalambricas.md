@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Rastreador de redes inalámbricas
-tags: programacion linux Perl
+tags:
+- programacion
+- linux
+- Perl
 assets: /assets/2011/08/rastreador-de-redes-inalambricas
 ---
 

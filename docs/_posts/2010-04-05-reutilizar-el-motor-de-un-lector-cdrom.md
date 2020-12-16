@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Reutilizar el motor de un lector CDROM
-tags: reciclado PC
+tags:
+- reciclado
+- PC
 image: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom/img/imagecompatibility.php
 assets: /assets/2010/04/reutilizar-el-motor-de-un-lector-cdrom
 ---

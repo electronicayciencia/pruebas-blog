@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Convertir palabras en números (I)
-tags: programacion
+tags:
+- programacion
 assets: /assets/2010/05/convertir-palabras-en-numeros-i
 ---
 

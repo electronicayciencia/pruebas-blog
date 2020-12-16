@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Enfriadores evaporativos - Psicrometría
-tags: física datalog
+tags:
+- física
+- datalog
 image: /assets/2017/08/enfriadores-evaporativos-psicrometria/img/20170807_192905.jpg
 assets: /assets/2017/08/enfriadores-evaporativos-psicrometria
 ---

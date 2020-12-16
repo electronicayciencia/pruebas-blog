@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Valor eficaz de una sinusoidal incompleta
-tags: gnuplot DimmerIR
+tags:
+- gnuplot
+- DimmerIR
 image: /assets/2010/03/valor-eficaz-de-una-sinusoidal/img/forward_phase.png
 assets: /assets/2010/03/valor-eficaz-de-una-sinusoidal
 ---

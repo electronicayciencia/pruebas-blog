@@ -1,7 +1,12 @@
 ---
 layout: post
 title: Simulación estadística del Risk
-tags: gnuplot estadística programacion PC Perl
+tags:
+- gnuplot
+- estadística
+- programacion
+- PC
+- Perl
 image: /assets/2010/06/simulacion-estadistica-del-risk/img/tabla.png
 assets: /assets/2010/06/simulacion-estadistica-del-risk
 ---

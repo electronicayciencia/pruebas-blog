@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Contraseña dinámica para acceder al PC de casa
-tags: linux PC Perl
+tags:
+- linux
+- PC
+- Perl
 image: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc/img/capturaescudo.png
 assets: /assets/2010/11/contrasena-dinamica-para-acceder-al-pc
 ---

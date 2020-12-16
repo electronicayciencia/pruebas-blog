@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Adaptador de USB a Serie
-tags: reciclado PC
+tags:
+- reciclado
+- PC
 image: /assets/2011/01/adaptador-de-usb-serie/img/BENQ0005.JPG
 assets: /assets/2011/01/adaptador-de-usb-serie
 ---

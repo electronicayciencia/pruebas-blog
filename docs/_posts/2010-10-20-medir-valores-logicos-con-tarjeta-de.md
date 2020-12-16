@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Medir valores lógicos con tarjeta de sonido
-tags: circuitos PC
+tags:
+- circuitos
+- PC
 image: /assets/2010/10/medir-valores-logicos-con-tarjeta-de/img/BENQ0004.JPG
 assets: /assets/2010/10/medir-valores-logicos-con-tarjeta-de
 ---

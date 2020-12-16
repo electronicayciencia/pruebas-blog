@@ -1,7 +1,10 @@
 ---
 layout: post
 title: Decodificacion del protocolo RC5 usando un PIC
-tags: microcontroladores programacion telemandos
+tags:
+- microcontroladores
+- programacion
+- telemandos
 image: /assets/2010/04/decodificacion-del-protocolo-rc5-usando/img/rc5.png
 assets: /assets/2010/04/decodificacion-del-protocolo-rc5-usando
 ---
