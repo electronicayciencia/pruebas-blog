@@ -11,11 +11,14 @@ baseurl: "/pruebas-blog" # the subpath of your site, e.g. /blog
 url: "https://electronicayciencia.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 permalink: /:year/:month/:title:output_ext
 
+lang: es
+
 show_excerpts: true
 show_tags: true
 show_image: true
 
-logo: "/assets/logo_dvd.png"
+#logo: "/assets/logo_dvd.jpg"
+logo: "/assets/favicon.png"
 favicon: "/assets/favicon.png"
 
 # Build settings

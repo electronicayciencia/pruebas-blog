@@ -133,7 +133,7 @@ For now, leave all images -but small ones- its original size with a max-width: 1
 }
 
 .featured {
-  padding: 0.3rem;
+  padding: 0.5rem;
   background-color: lightsteelblue;
   border-radius: 4px;
 }
@@ -202,4 +202,8 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   }
 }
 
+.site-title img {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
 
