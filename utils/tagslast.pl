@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# Initializes a tags dir and show tags statistics
+# Read posts and a tags dir, retag files and show tags statistics
 # 16/12/2020
 #
 # Electrónica y Ciencia
@@ -24,10 +24,10 @@
 #my $postsdir = ".";
 my $postsdir = "../docs/_posts";
 my $ext = ".md";
-my $tagsrootdir = "./tags";
-my $newtagsrootdir = "./newtags";
+my $tagsrootdir = "./newtags";
 
 my %alltags;
+my %postmeta;
 
 use strict;
 use warnings;
@@ -52,17 +52,16 @@ sub parse_post {
 	return ($text, %{$meta});
 }
 
-# Create a empty file, truncate if exits
-sub touch {
-	my $file = shift;
-	open my $fh, "> $file" or die;
+
+sub rewrite_post {
+	my ($file, $meta, $text) = @_;
+
+	open my $fh, "> $file" or die "$!";
+	print $fh Dump($meta)."---\n".$text;
 	close $fh;
+	#exit;
 }
 
-my $alltagsdir = "$tagsrootdir/_alltags";
-if (not -d $alltagsdir) {
-	make_path($alltagsdir) or die "$!";
-}
 
 
 for my $file (<"$postsdir/*$ext">) {
@@ -71,31 +70,30 @@ for my $file (<"$postsdir/*$ext">) {
 
 	my ($text, %meta) = parse_post($file);
 
-	my $postdir = "$tagsrootdir/$filename";
-	if (not -d $postdir) {
-		make_path($postdir) or die "$!";
+	#my @oldtags = @{$meta{tags}};
+	my @newtags = <"$tagsrootdir/$filename/*">;
+
+	if (not @newtags) {
+		print "Warning, no tags for this post.\n";
+		next;
 	}
-	my $newpostdir = "$newtagsrootdir/$filename";
-	if (not -d $newpostdir) {
-		make_path($newpostdir) or die "$!";
-	}
 
-	for my $tag (@{$meta{tags}}) { # count tags
-	    $tag = lc $tag;
+	@newtags = map {basename($_)} @newtags;
+	$alltags{$_}++ for @newtags;
+	$postmeta{$filename}{tags} = \@newtags;
+	$postmeta{$filename}{description} = "";
+	$postmeta{$filename}{featured} = "false";
 
-		touch("$alltagsdir/$tag");
-		touch("$postdir/$tag");
+	$meta{tags} = \@newtags;
 
-		$alltags{$tag}++;
-    }
+	rewrite_post($file,\%meta,$text);
 }
 
-for (sort keys %alltags) {
-	print STDERR "$_ -> $alltags{$_}\n";
-}
+#for (sort keys %alltags) {
+#	print STDERR "$_ -> $alltags{$_}\n";
+#}
 
-	#print Dump($yhead)."\n---\n".$text;
-	#print Dumper(\%alltags);
+print Dump(\%postmeta);
 
 
 

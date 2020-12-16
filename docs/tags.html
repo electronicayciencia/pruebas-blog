@@ -18,7 +18,7 @@ permalink: /tags/
       {%- for tag in sorted_tags -%}
       
 	  <div class="tag-posts-list {{ tag[0] | slugify }}">
-	  <h3 id="{{ tag[0] | slugify }}" class="tag-posts-header">{{ tag[0] | capitalize }}</h3>
+	  <h3 id="{{ tag[0] | slugify }}" class="tag-posts-header">{{ tag[0] }}</h3>
 
       <ul class="post-list">
         {%- for post in tag[1] -%}
