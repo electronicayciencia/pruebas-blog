@@ -1,18 +1,16 @@
 ---
 layout: page
 title: Este blog
-permalink: /about
+permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+*Electrónica y Ciencia* es un blog sobre **electrónica aplicada** en español.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Todo el contenido es original y publicado bajo licencia libre.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Está activo desde 2010. Inicialmente en Blogspot [electronicayciencia.blogspot.com](http://electronicayciencia.blogspot.com), y después en GitHub Pages [electronicayciencia.github.io/blog](https://electronicayciencia.github.io/blog).
+
+Basado en Jekyll, con el tema *Minima* y cierta personalización. Podéis encontrar el código fuente en [electronicayciencia/blog](https://github.com/electronicayciencia/blog).
 
 
-[jekyll-organization]: https://github.com/jekyll
+

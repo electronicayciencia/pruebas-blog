@@ -1,6 +1,5 @@
 
 
-about
 
 página de archivo por años
 afsk desde cero +tag  radio
@@ -8,29 +7,9 @@ afsk desde cero +tag  radio
 posts con fallos:
 
 
-blog electronica:
-diez años
-entradas detalladas
-con proyectos probados y demostración del funcionamiento
-no sólo teórico, siempre parte práctica
-no sólo electrónica, siempre intento parte científica
-no trabajo
-nivel cfgs
-exponer ayuda a ordenar ideas, fijar conocimiento y profudizar en temas
-contenido original
-
 Ejemplo blog con minima:
 https://github.com/ouyi/ouyi.github.io/tree/master/_posts
 https://ouyi.github.io/
 
 
-
-site-title {
-    font-size: 26px;
-    font-weight: 300;
-    line-height: 54px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
-}
 

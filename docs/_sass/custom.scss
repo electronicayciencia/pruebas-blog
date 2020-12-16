@@ -120,6 +120,10 @@ For now, leave all images -but small ones- its original size with a max-width: 1
   border-color: gray;
 }
 
+.post-list {
+  margin-top: 2rem;
+}
+
 .tag-posts-list .post-link {
   @include relative-font-size(1.125);
 }
