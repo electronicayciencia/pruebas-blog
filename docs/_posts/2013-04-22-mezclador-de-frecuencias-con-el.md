@@ -4,7 +4,7 @@ image: /assets/2013/04/mezclador-de-frecuencias-con-el/img/mixer1_sch_t.png
 layout: post
 tags:
 - Circuitos
-- Ondas
+- Sonido
 title: Mezclador de frecuencias con el integrado 4066
 ---
 

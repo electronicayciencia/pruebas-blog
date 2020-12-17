@@ -6,7 +6,7 @@ layout: post
 tags:
 - DSP
 - Matemáticas
-- Ondas
+- Sonido
 title: La Distorsión Armónica Total (THD)
 ---
 

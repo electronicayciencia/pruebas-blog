@@ -6,7 +6,7 @@ tags:
 - Circuitos
 - DSP
 - Experimentos
-- Ondas
+- Sonido
 title: Electrocardiograma y electrorretinograma.
 ---
 

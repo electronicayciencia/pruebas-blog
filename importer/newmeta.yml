@@ -22,7 +22,7 @@
   tags:
     - Fisica
     - Matemáticas
-    - Ondas
+    - Sonido
 2010-04-01-decodificacion-del-protocolo-rc5-usando:
   description: ''
   featured: false
@@ -45,7 +45,7 @@
   featured: false
   tags:
     - Experimentos
-    - Ondas
+    - Sonido
 2010-04-13-comparar-matrices-en-perl:
   description: ''
   featured: false
@@ -56,7 +56,7 @@
   featured: false
   tags:
     - Circuitos
-    - Ondas
+    - Sonido
 2010-04-21-preamplificador-para-microfono:
   description: ''
   featured: false
@@ -69,7 +69,7 @@
   featured: false
   tags:
     - Circuitos
-    - Ondas
+    - Sonido
 2010-04-30-obtener-el-esquema-desde-una-placa-de:
   description: ''
   featured: false
@@ -170,7 +170,7 @@
   tags:
     - Experimentos
     - Fisica
-    - Ondas
+    - Sonido
     - Optica
     - Reciclaje
 2010-07-21-termostato-para-estufa-de-incubacion:
@@ -207,7 +207,7 @@
     - DSP
     - Experimentos
     - Fisica
-    - Ondas
+    - Sonido
 2010-09-01-inferencia-estadistica-capacidad-de-una:
   description: ''
   featured: false
@@ -263,7 +263,7 @@
   description: ''
   featured: false
   tags:
-    - Ondas
+    - Sonido
     - Reciclaje
 2010-10-27-transmitir-informacion-usando-el-mando:
   description: ''
@@ -337,6 +337,7 @@
     - Circuitos
     - Experimentos
     - PIC
+    - Radio
 2011-08-03-rastreador-de-redes-inalambricas:
   description: ''
   featured: false
@@ -349,7 +350,7 @@
   tags:
     - DSP
     - Matemáticas
-    - Ondas
+    - Sonido
 2011-09-07-electrocardiograma-y:
   description: ''
   featured: false
@@ -357,7 +358,7 @@
     - Circuitos
     - DSP
     - Experimentos
-    - Ondas
+    - Sonido
 2011-09-27-estadistica-de-los-examenes-tipo-test:
   description: ''
   featured: true
@@ -388,13 +389,13 @@
   tags:
     - DSP
     - Matemáticas
-    - Ondas
+    - Sonido
 2013-04-22-mezclador-de-frecuencias-con-el:
   description: ''
   featured: false
   tags:
     - Circuitos
-    - Ondas
+    - Sonido
 2013-07-03-etiquetas-antihurto-magneto-acusticas:
   description: ''
   featured: true
@@ -402,7 +403,7 @@
     - Circuitos
     - Experimentos
     - Fisica
-    - Ondas
+    - Sonido
 2015-03-12-los-dominios-de-la-entropia:
   description: ''
   featured: false
@@ -422,7 +423,7 @@
   tags:
     - Experimentos
     - Fisica
-    - Ondas
+    - Sonido
     - Sensores
 2016-11-20-conexion-gpio-de-raspberry-pi-3:
   description: ''
@@ -450,7 +451,7 @@
   featured: false
   tags:
     - Circuitos
-    - Ondas
+    - Sonido
     - Raspberry
 2017-08-02-luz-paralela:
   description: ''
@@ -478,7 +479,7 @@
   featured: true
   tags:
     - Binario
-    - Ondas
+    - Sonido
     - Radio
 2018-03-30-transmisor-y-receptor-digital-de:
   description: ''
@@ -486,7 +487,7 @@
   tags:
     - Binario
     - Circuitos
-    - Ondas
+    - Sonido
     - PIC
 2018-10-07-la-presion-atmosferica-bmp280:
   description: ''

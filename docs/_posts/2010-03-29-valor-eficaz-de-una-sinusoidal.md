@@ -5,7 +5,7 @@ layout: post
 tags:
 - Fisica
 - Matemáticas
-- Ondas
+- Sonido
 title: Valor eficaz de una sinusoidal incompleta
 ---
 

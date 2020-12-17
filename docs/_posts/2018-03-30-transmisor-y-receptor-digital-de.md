@@ -5,7 +5,7 @@ layout: post
 tags:
 - Binario
 - Circuitos
-- Ondas
+- Sonido
 - PIC
 title: Transmisor y receptor digital de ultrasonidos
 ---

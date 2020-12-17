@@ -6,7 +6,7 @@ layout: post
 tags:
 - Experimentos
 - Fisica
-- Ondas
+- Sonido
 - Sensores
 title: Espectroscopía mediante Transformada de Fourier
 ---

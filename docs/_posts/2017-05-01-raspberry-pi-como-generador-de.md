@@ -4,7 +4,7 @@ image: /assets/2017/05/raspberry-pi-como-generador-de/img/FreqOsc2.png
 layout: post
 tags:
 - Circuitos
-- Ondas
+- Sonido
 - Raspberry
 title: Raspberry Pi como generador de frecuencias
 ---

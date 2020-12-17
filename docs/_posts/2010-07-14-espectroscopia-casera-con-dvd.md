@@ -6,7 +6,7 @@ layout: post
 tags:
 - Experimentos
 - Fisica
-- Ondas
+- Sonido
 - Optica
 - Reciclaje
 title: Espectroscopía casera con DVD

@@ -7,7 +7,7 @@ tags:
 - DSP
 - Experimentos
 - Fisica
-- Ondas
+- Sonido
 title: Resonancia mecánica con copas II
 ---
 

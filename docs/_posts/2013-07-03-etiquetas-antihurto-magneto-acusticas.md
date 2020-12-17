@@ -7,7 +7,7 @@ tags:
 - Circuitos
 - Experimentos
 - Fisica
-- Ondas
+- Sonido
 title: Cómo funcionan las etiquetas magneto-acústicas (o acustomagnéticas)
 ---
 

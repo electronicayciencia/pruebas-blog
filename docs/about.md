@@ -8,9 +8,14 @@ permalink: /about/
 
 Todo el contenido es original y publicado bajo licencia libre.
 
-[Reinoso Guzmán](https://www.linkedin.com/in/reinosoguzman/). Soy el autor único del blog y está activo desde 2010. Inicialmente en Blogspot [electronicayciencia.blogspot.com](http://electronicayciencia.blogspot.com), y después en GitHub Pages [electronicayciencia.github.io/blog](https://electronicayciencia.github.io/blog).
+El aspecto está basado el tema *Minima* de Jekyll con cierta personalización. En el repositorio [electronicayciencia/blog](https://github.com/electronicayciencia/blog) podéis encontrar el código fuente, imágenes y todos los archivos utilizados para elaborar los artículos.
 
-Basado en Jekyll, con el tema *Minima* y cierta personalización. Podéis encontrar el código fuente en [electronicayciencia/blog](https://github.com/electronicayciencia/blog).
+El blog original en Blogspot [electronicayciencia.blogspot.com](http://electronicayciencia.blogspot.com) ya no se actualiza. La nueva versión está alojada en GitHub Pages [electronicayciencia.github.io/blog](https://electronicayciencia.github.io/blog).
+
+Soy [Reinoso Guzmán](https://www.linkedin.com/in/reinosoguzman/), aficionado a la electrónica y autor de *Electrónica y Ciencia* desde 2010.
+
+Espero que lo encuentres tan interesante como yo.
+
 
 
 

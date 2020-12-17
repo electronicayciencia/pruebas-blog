@@ -4,7 +4,7 @@ image: /assets/2010/04/espectroscopia-casera-con-copas/img/copa.jpg
 layout: post
 tags:
 - Experimentos
-- Ondas
+- Sonido
 title: Espectroscopía casera con copas
 ---
 

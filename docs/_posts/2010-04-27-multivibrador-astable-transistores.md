@@ -4,7 +4,7 @@ image: /assets/2010/04/multivibrador-astable-transistores/img/astable_npn.png
 layout: post
 tags:
 - Circuitos
-- Ondas
+- Sonido
 title: 'Multivibrador astable a transistores: explicación'
 ---
 

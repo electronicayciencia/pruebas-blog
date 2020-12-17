@@ -3,7 +3,7 @@ assets: /assets/2010/10/medir-valores-logicos-con-tarjeta-de
 image: /assets/2010/10/medir-valores-logicos-con-tarjeta-de/img/BENQ0004.JPG
 layout: post
 tags:
-- Ondas
+- Sonido
 - Reciclaje
 title: Medir valores lógicos con tarjeta de sonido
 ---

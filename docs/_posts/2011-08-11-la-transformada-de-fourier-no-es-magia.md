@@ -6,7 +6,7 @@ layout: post
 tags:
 - DSP
 - Matemáticas
-- Ondas
+- Sonido
 title: La Transformada de Fourier no es magia
 ---
 

@@ -5,7 +5,7 @@ image: /assets/2017/12/describiendo-un-protocolo-desconocido/img/frecuencias_edi
 layout: post
 tags:
 - Binario
-- Ondas
+- Sonido
 - Radio
 title: Describiendo un protocolo desconocido
 ---

@@ -13,3 +13,16 @@ https://ouyi.github.io/
 
 
 
+swipe:
+    <a class="half prev" href="/pruebas-blog/2020/02/clonar-un-rfid-con-tu-propio-hardware.html">&laquo; Clonar un RFID con tu propio hardware</a>
+  
+  
+    <a class="half next" href="/pruebas-blog/2020/09/sintetizador-de-frecuencias-digital-con.html">Sintetizador de frecuencias digital con PLL &raquo;</a>
+
+
+poner gestos swipe
+
+
+corregir el about cuando esté en prod.
+
+

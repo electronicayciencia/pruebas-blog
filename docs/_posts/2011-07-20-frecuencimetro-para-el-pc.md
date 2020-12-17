@@ -6,6 +6,7 @@ tags:
 - Circuitos
 - Experimentos
 - PIC
+- Radio
 title: Frecuencímetro para el PC
 ---
 
