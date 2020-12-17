@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Proyectos
+title: Projects
 permalink: /petprojects/
 ---
 
-Some other projects I do in GitHub (english).
+Some other projects I do on GitHub (english).
 
 ## [Web Padlock](https://electronicayciencia.github.io/webpadlock/)
 
